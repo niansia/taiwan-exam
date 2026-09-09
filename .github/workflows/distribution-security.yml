@@ -10,22 +10,44 @@ permissions:
   contents: read
 jobs:
   scan-download:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Update Defender intelligence
-        shell: pwsh
-        run: Update-MpSignature -ErrorAction Stop
-      - name: Scan exact distributed archive and extracted contents
-        shell: pwsh
-        run: python scripts/scan_skill_release.py downloads/taiwan-exam-generator.zip --report security-check.json
+      # Defender remains a mandatory local publication gate. Hosted Windows
+      # runners do not reliably provide its service; use a second engine here.
+      - name: Prepare ClamAV and current official signatures
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clamav
+          sudo systemctl stop clamav-freshclam
+          sudo freshclam
+      - name: Scan exact distributed ZIP
+        run: clamscan --infected --alert-exceeds-max=yes --log=security-archive.log downloads/taiwan-exam-generator.zip
+      - name: Verify recorded Defender result, hash and archive members
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, 'scripts')
+          from scan_skill_release import digest, inspect_archive
+          archive = Path('downloads/taiwan-exam-generator.zip')
+          report = json.loads(Path('downloads/security-scan.json').read_text())
+          assert report['status'] == 'pass'
+          assert report['archive_sha256'] == digest(archive)
+          assert [row['target'] for row in report['scans']] == ['archive', 'extracted-members']
+          assert all(row['returncode'] == 0 for row in report['scans'])
+          inspect_archive(archive, Path('scan-contents'))
+          print('Published ZIP matches recorded Defender scan and manifest')
+          PY
+      - name: Independently scan extracted members
+        run: clamscan --recursive --infected --alert-exceeds-max=yes --log=security-members.log scan-contents
       - name: Retain scan evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: distribution-security
-          path: security-check.json
-          if-no-files-found: error
+          path: security-*.log
+          if-no-files-found: warn
