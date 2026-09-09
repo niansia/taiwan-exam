@@ -1,6 +1,6 @@
 {
   "name": "taiwan-exam-generator",
-  "version": "0.6.0-preview.1",
+  "version": "0.6.0-preview.2",
   "schema_version": 1,
   "distribution_status": "release-candidate-not-published",
   "origin": {
@@ -32,7 +32,7 @@
   },
   "exam_acceptance": "not-established-by-packager",
   "contains_original_exam_files": false,
-  "file_count": 233,
+  "file_count": 235,
   "files": [
     {
       "path": ".gitattributes",
@@ -640,6 +640,11 @@
       "sha256": "425dcf52e14304a458aec231beadc38aec1e72237ed9fb031e52d3f672b1e5d7"
     },
     {
+      "path": "INSTALL.md",
+      "bytes": 3450,
+      "sha256": "4cf4196dd137e87079fa0f070bb58774e21e431190924c551eda3d7162424cd5"
+    },
+    {
       "path": "LICENSE",
       "bytes": 1064,
       "sha256": "94d43b24eb49cf34776829ff352797d474407c38cbbf4dab3dc8662d587d203b"
@@ -661,8 +666,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12260,
-      "sha256": "6f2f6301b1f4044f2de036ae2dc0f0a2385f36c458c34135ad6f536ce6835477"
+      "bytes": 13644,
+      "sha256": "c6617dc4a410221c3977f588bb50a31799d7879af3a2863f68b317c9b8f5efeb"
     },
     {
       "path": "references/attribution-and-forks.md",
@@ -726,8 +731,8 @@
     },
     {
       "path": "references/first-use.md",
-      "bytes": 2722,
-      "sha256": "bccdbbea2849aa40a15972da835841815e6f49992c8f0745128039de30ed2972"
+      "bytes": 3666,
+      "sha256": "4635fcb9b0a8ca88953863562ec6f3b832a5c53da08a3bf3ba391b8d85ede8e4"
     },
     {
       "path": "references/generation-protocol.md",
@@ -800,9 +805,14 @@
       "sha256": "fa1a350fb6a12151389b1e7cf4f5fcc8cf6d58cd655845f1b6673c42da6d1742"
     },
     {
+      "path": "requirements-statistics.txt",
+      "bytes": 83,
+      "sha256": "c045f83b80fb5507aced9593dbd97a7be8b8aa8174076e724b653c999be7e0d6"
+    },
+    {
       "path": "requirements.txt",
-      "bytes": 68,
-      "sha256": "cf48fc2a0388bc98f00b1c9a5606ec14069128a1108616a198a1e28819a53306"
+      "bytes": 53,
+      "sha256": "b822e13743bde84e7b0c73a75bc145e184dd00e2e70014bac9bdc31885560241"
     },
     {
       "path": "schemas/answer.schema.json",
@@ -971,13 +981,13 @@
     },
     {
       "path": "scripts/export_public_repo.py",
-      "bytes": 3961,
-      "sha256": "52e264785976ae248dcd1f5ac47bd9449e02eb5c2ba53757eaba74ed6d72e898"
+      "bytes": 4000,
+      "sha256": "dcb44332224d3b8a52af679904bf98518756aed1576a734874d2c240cb3cdaf3"
     },
     {
       "path": "scripts/import_ceec_gsat_difficulty.py",
-      "bytes": 11964,
-      "sha256": "19131899f0935c8fff72db1001381df0aee68f3784e3313d6ed0107462d8a4be"
+      "bytes": 12120,
+      "sha256": "804df9e34ba1b4897377101826a1f5af34f34d12a2257354ff18cd7a9a2af9ac"
     },
     {
       "path": "scripts/ingest_gsat_bundle.py",
@@ -992,7 +1002,7 @@
     {
       "path": "scripts/package_skill.py",
       "bytes": 10185,
-      "sha256": "10033b1aed6b7262f985c99fd7cfaa024031a0e5d202a171aeada77f70086ccc"
+      "sha256": "a9c2fb59f5585fc680e30ecdb128f3325c40201fb11370f09bc3fd18a7c206d3"
     },
     {
       "path": "scripts/paginate_chinese_natural.js",
@@ -1156,8 +1166,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 37645,
-      "sha256": "fba78e1d63a7c067863ceb978fd534d029cd0d867ecfbe963b33a2d765e67697"
+      "bytes": 37948,
+      "sha256": "0ff2902be62d0c8e8128ac068595f56d9af4d260dc6e294741b19ccdb376f1bd"
     },
     {
       "path": "templates/current-gsat-math-scope.json",

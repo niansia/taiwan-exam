@@ -178,7 +178,7 @@ def packaged_data(path: Path) -> bytes:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.6.0-preview.1")
+    parser.add_argument("--version", default="0.6.0-preview.2")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--public-release", action="store_true", help="Also require confirmed licensing declarations; does not publish anything")
     args = parser.parse_args()

@@ -1,0 +1,2 @@
+# Optional: only for importing CEEC legacy Excel (.xls) statistics.
+xlrd>=2.0.1,<3

@@ -29,6 +29,10 @@ requests without requiring the user to operate repository commands. Installing
 this folder does not install runtimes or certify reference data; inspect actual
 capabilities and repair feasible prerequisites without weakening the full-paper
 gates or claiming that a file upload is persistent skill installation.
+For one-time installation requests, follow [INSTALL.md](INSTALL.md). On later
+exam requests use the existing enabled Skill; do not reinstall or redownload it
+as a routine prerequisite. Reuse accessible, still-valid reference evidence;
+missing subject calibration is not a reason to reinstall the Skill.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).

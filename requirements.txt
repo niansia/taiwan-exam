@@ -1,4 +1,3 @@
 beautifulsoup4>=4.12,<5
 pypdf>=5,<7
 PyMuPDF>=1.24,<2
-xlrd>=2.0.1,<3

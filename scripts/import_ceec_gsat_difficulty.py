@@ -13,10 +13,13 @@ from pathlib import Path
 from statistics import mean, median
 from typing import Any
 
-try:
-    import xlrd
-except ImportError as exc:  # pragma: no cover - dependency error is user-facing
-    raise SystemExit("缺少 xlrd。請先執行：python -m pip install -r requirements.txt") from exc
+def require_xlrd():
+    """Only statistics ingestion needs the optional legacy Excel reader."""
+    try:
+        import xlrd
+    except ImportError as exc:
+        raise SystemExit("本次 Excel 統計匯入需要 xlrd；請安裝 requirements-statistics.txt。其他出題／PDF 功能不以此為前提。") from exc
+    return xlrd
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -238,6 +241,8 @@ def build(root: Path) -> int:
     ]
     if not registry:
         raise SystemExit("找不到 official-statistics-registry.jsonl 的 item_metrics_table；請先下載官方統計。")
+
+    xlrd = require_xlrd()
 
     all_records: list[dict[str, Any]] = []
     failures: list[dict[str, Any]] = []

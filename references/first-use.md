@@ -4,6 +4,13 @@ Use for initial setup, a new platform, or a user who supplied only the repositor
 link. The user should be able to ask for an exam in ordinary language. Do not
 require programmer-style prompts or send commands instead of doing supported work.
 
+For installation follow ../INSTALL.md first. Persistent installation is the
+default requested product, not session-only attachment loading. Later exam
+requests reuse the installed enabled Skill, without another download or implicit
+update. Distinguish Skill persistence from transient execution containers. Reuse
+accessible evidence only while its hashes, regime and review remain valid; missing
+exam data should trigger scoped data preparation, not whole-Skill reinstallation.
+
 1. Locate the complete Skill folder and read SKILL.md. Confirm supporting files
    are available. A fetched README or knowledge-file upload is not evidence of
    installation, cross-chat persistence, or code execution. State the actual mode.
@@ -16,6 +23,12 @@ require programmer-style prompts or send commands instead of doing supported wor
    existing tools first. Prepare task-required dependencies through supported
    workflows; do not change unrelated settings or install system software without
    authority. This project requires no API key or maintainer activation.
+   Check dependencies for the selected operation, not every optional helper.
+   xlrd is needed only for legacy Excel statistics ingestion via
+   import_ceec_gsat_difficulty.py (requirements-statistics.txt). Its absence does
+   not block installing/reading the Skill, using existing JSON aggregates, or
+   unrelated PDF/validation operations. Missing required calibration data can
+   still block a formal paper; do not use optional-dependency handling to bypass it.
 4. Read the manifest and subject records. Run exam_data.py status and
    audit_exam_pack.py when execution is available. Portable packs omit private
    PDFs and have reference-only Paper Profiles. Zero verified profiles with

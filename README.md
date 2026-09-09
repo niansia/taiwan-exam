@@ -6,26 +6,29 @@
 
 ## 我只想出考卷，怎麼開始？
 
-### 1. 取得技能
+### 1. 第一次：請 AI 安裝一次，之後沿用
 
-在支援從 GitHub 安裝技能的 AI 環境中，貼上本專案網址並說：
-
-```text
-請幫我下載並安裝這個 Skill：https://github.com/niansia/taiwan-exam
-技能名稱是 taiwan-exam-generator。
-請先讀完整 SKILL.md，確認相關參考文件與工具都可使用。
-不要只讀 README 就宣稱已安裝；若此環境不能安裝，請告訴我可行的上傳方式。
-```
-
-也可以[直接下載技能安裝 ZIP](https://github.com/niansia/taiwan-exam/raw/refs/heads/main/downloads/taiwan-exam-generator.zip)。ZIP 內有一個最外層的 `taiwan-exam-generator/` 資料夾，裡面有 `SKILL.md` 及其相依資源。GitHub 的 **Code → Download ZIP** 是原始碼封存，最外層名稱可能不同，不一定能直接當成平台的技能上傳檔。
-
-### 2. 在對話中提出需求
+目標是**安裝一次，之後在同一個支援環境直接打字使用**。不是每次下載，也不是請 AI 靠記憶背下規則。第一次只要說：
 
 ```text
-請幫我出學測數 A 考卷一份，附答案與逐題詳解，輸出可列印 PDF。
+請幫我安裝 Taiwan Exam 出題技能：https://github.com/niansia/taiwan-exam
+我要安裝一次，以後開新對話也能直接使用，不要每次重新下載。
+請依專案的 INSTALL.md 完成；如果已經安裝，就直接沿用。
 ```
 
-第一次使用，AI 應先檢查資料與排版基準，能在環境中完成的準備由 AI 處理。遇到未核對的卷型、缺少原始資料或無法執行排版檢查時，應說明具體缺口，不可假造通過紀錄，也不可偷偷把完整考卷改成幾題練習。
+AI 能做的下載、安裝與檢查應由 AI 處理，不必叫你操作程式或終端機。若平台要求你親自按一次安裝確認或上傳，這是**首次設定**，不是每次出題都要做。若平台根本沒有持久安裝能力，AI 必須明確說不符合此使用方式，不能用「本次對話已讀取」冒充安裝完成。
+
+只有平台的首次安裝介面需要 ZIP 時，才[下載技能安裝 ZIP](https://github.com/niansia/taiwan-exam/raw/refs/heads/main/downloads/taiwan-exam-generator.zip)。不要把它當作每次出題都要附上的附件；也不要使用名稱不同的 GitHub 原始碼 ZIP 代替技能包。
+
+### 2. 以後：直接說要出什麼
+
+```text
+請依照 Taiwan Exam 這個 Skill，幫我出學測數 A 考卷一份，附詳解與 PDF。
+```
+
+安裝完成且平台仍能找到技能時，不需再附網址或 ZIP。AI 應讀取已安裝版本，沿用可取得且驗證仍有效的參考資料；只有你要求更新、實際檔案損壞／遺失，或換到尚未安裝的環境，才需處理安裝。重新讀取已安裝的規則不等於重新下載。
+
+**技能安裝與考卷校準分開處理。** 缺少某科參考資料時，AI 應補該科資料，不應要求重裝整個 Skill。遇到未核對卷型或缺少排版工具時，應說明具體缺口，不可假造通過紀錄或偷偷把完整考卷改成幾題練習。
 
 ### 3. 按需要加條件
 
@@ -53,12 +56,13 @@
 
 | 環境 | 如何使用 | 限制 |
 | --- | --- | --- |
-| Codex 桌面／CLI／IDE | 請內建的 `$skill-installer` 從本專案網址安裝；未出現時重新載入或重啟 | 應安裝整個技能資料夾，不是只下載 SKILL.md。本機仍需可用的執行與 PDF 工具。 |
-| Claude 網頁版 | 在 **Customize → Skills** 上傳技能 ZIP，啟用後於對話中提出需求 | 須具備技能及程式執行／檔案建立能力；組織設定可能限制上傳。貼 GitHub 連結不代表已安裝。 |
-| ChatGPT 網頁版 | 先查看帳號介面是否提供技能／外掛安裝或上傳；依該介面操作 | 可用性依產品、帳號與工作區而異。本專案不是已上架的 ChatGPT 外掛，不保證一般聊天只貼連結即可安裝。 |
-| 只有附件閱讀的聊天環境 | 可上傳文件作為參考，請 AI 先說明能讀哪些檔案 | 上傳知識檔不等於安裝技能；不能執行驗證或逐頁查看 PDF，就不能宣稱完成正式出卷驗收。 |
+| Codex 桌面／CLI／IDE | 打字請 AI 用內建安裝器安裝到可跨任務使用的技能位置 | 安裝完整技能一次；之後在該安裝範圍沿用。不能假設同步到其他裝置或 ChatGPT 網頁版。 |
+| Claude Code | 打字請 AI 安裝為個人技能 | 本機個人技能可跨專案使用；不代表 Claude 網頁版、Cowork 或雲端也已安裝。 |
+| Claude 網頁版 | 首次在 **Customize → Skills** 上傳 ZIP 並啟用；以後直接打字呼叫 | 一次帳號設定，不是每個對話重傳。是否允許上傳與使用取決於帳號／組織。 |
+| ChatGPT 網頁版 | 使用帳號提供的原生技能／外掛安裝入口；之後在支援範圍內呼叫 | 本專案不是已上架外掛；沒有安裝入口的對話不能靠打字新增持久安裝能力。 |
+| 只有附件閱讀的聊天環境 | **不符合「一次安裝、跨對話沿用」需求** | 單次上傳只適合你另外同意的臨時測試，不是主要使用方式。 |
 
-平台說明核對於 2026-09-09，介面與權限可能變更。參考 [OpenAI 技能文件](https://learn.chatgpt.com/docs/build-skills)、[Claude 技能使用說明](https://support.claude.com/en/articles/12512180-use-skills-in-claude)與 [Claude ZIP 格式](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)。平台支援技能格式，不代表本專案已通過其相容性驗收。
+平台說明核對於 2026-09-09，介面與權限可能變更。參考 [OpenAI 技能文件](https://learn.chatgpt.com/docs/build-skills)、[Claude 技能使用說明](https://support.claude.com/en/articles/12512180-use-skills-in-claude)、[Claude Code 個人技能](https://code.claude.com/docs/en/skills)與 [Claude ZIP 格式](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)。平台支援技能格式，不代表本專案已通過其相容性驗收；目前沒有「所有 AI 網頁版都能零點選、只貼網址永久安裝」的承諾。
 
 ## 支援範圍與目前狀態
 
@@ -114,6 +118,7 @@ PDF 工具預設加入**不改變頁面外觀的文件來源資訊**，用途與
 請在沒有舊對話和舊考卷的新環境測試，記下平台、模型、日期及專案版本：
 
 - 安裝後直接要求「學測數 A 一份」，看 AI 是否確實讀技能、檢查資料並保留完整卷需求。
+- 另開新對話，不附 ZIP、不重貼網址，要求「依照 Taiwan Exam 這個 Skill 出題」。確認讀到既有技能；若又要求重新下載，持久使用驗收未通過。
 - 補齊資料後，檢查是否真正開啟原卷、建立可追溯的卷型與排版核對，而不是複製通過標籤。
 - 要求兩份以上，對照實際內容、最短解法、難度分布及每頁圖像，不只計算產生幾個 PDF。
 - 國綜要求「不要國寫」，檢查是否遵守；自然檢查四科及探究實作、真實資料、圖表與黑白可讀性。
@@ -131,6 +136,8 @@ python scripts/exam_data.py status
 python scripts/audit_exam_pack.py --output output/pack-audit.json
 ```
 
+`xlrd` 是匯入官方舊式 Excel 統計表才用到的選用依賴，放在 `requirements-statistics.txt`。不匯入 `.xls` 時，不得因為缺少它而判定安裝失敗或阻擋其他功能；已存在的彙總資料讀取不需要它。只有當次確實需要匯入統計時，才準備該依賴。
+
 `pass-claims-only` 只表示未發現不實的既有已驗證聲明，不代表能出完整卷。資料匯入見 [data-ingestion.md](references/data-ingestion.md)；內容、排版與交付使用[同一套驗收契約](references/exam-pack-execution-contract.md)，不可另寫寬鬆冒煙測試當替代品。
 
 原始碼版的測試：
@@ -140,19 +147,19 @@ python -m pip install pytest
 python -m pytest -q
 ```
 
-2026-09-09 清理後本機與乾淨發布副本為 **94 項通過、2 項跳過**。跳過的是依賴已清除私人測試卷的案例；自足的正向／負向回歸測試仍保留。以當次輸出為準：這是**軟體回歸測試**，不是合格考卷份數，也不是跨平台或命題品質認證。
+2026-09-09 的軟體回歸測試紀錄為 **97 項通過、2 項跳過**，包含選用 Excel 依賴缺少的情境。跳過的是依賴已清除私人測試卷的案例；自足的正向／負向回歸測試仍保留。以當次輸出為準：這是**軟體回歸測試**，不是合格考卷份數、跨平台持久安裝或命題品質認證。
 
 打包前必須檢查來源與授權；發布副本與私人工作資料分開。詳見 [來源與改作說明](references/attribution-and-forks.md)。不要直接把含有私人語料的工作資料夾整批提交。
 
 ```sh
 python scripts/validate_attribution.py .
-python scripts/package_skill.py --version 0.6.0-preview.1 --public-release
+python scripts/package_skill.py --version 0.6.0-preview.2 --public-release
 ```
 
 準備乾淨 Git 發布副本（授權聲明確認後執行）：
 
 ```sh
-python scripts/export_public_repo.py --output tmp/public-candidate --version 0.6.0-preview.1
+python scripts/export_public_repo.py --output tmp/public-candidate --version 0.6.0-preview.2
 ```
 
 目標必須是新資料夾。此工具沿用打包白名單與去除私人來源的處理，另附可重跑的測試與 `downloads/taiwan-exam-generator.zip`。它不提交、不推送、不發布 Release；檢查輸出後仍須取得發布授權。僅做本機準備時可加 `--internal-review`，但這不代表獲准公開發布。
