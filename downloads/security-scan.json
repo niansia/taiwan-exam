@@ -1,5 +1,8 @@
 {
   "schema_version": 1,
+  "distribution_status": "withdrawn-after-confirmed-attachment-detection",
+  "historical_report_only": true,
+  "incident": "../references/security-incident-2026-09-09.md",
   "status": "pass",
   "checked_utc": "2026-09-09T13:57:09.517011+00:00",
   "scope": "ZIP and extracted members; not a universal malware-free guarantee",

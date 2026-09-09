@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Hash-bound Windows Defender check of a Skill ZIP and its extracted members.
 
-No execution of archive contents, security setting changes, remediation or upload
-to third-party scanners. Existing Defender cloud policy remains unchanged.
+No execution of archive contents, security-setting changes or third-party upload.
+Attachment Services may quarantine its disposable copy. Existing Defender cloud
+policy remains unchanged. Passing is not vendor clearance or browser acceptance.
 """
 from __future__ import annotations
 
@@ -92,10 +93,24 @@ def defender_scan(path):
             'output': (result.stdout + result.stderr).replace(str(path), '<scan-target>')}
 
 
-def scan_release(archive, *, status_fn=defender_status, scan_fn=defender_scan):
-    report = {'schema_version': 1, 'status': 'fail',
+def attachment_scan(archive):
+    checker = Path(__file__).resolve().parents[1] / 'maintenance/test_download_attachment.ps1'
+    if not checker.is_file():
+        raise RuntimeError('Maintainer attachment checker is required for publication')
+    command = ['powershell.exe', '-NoProfile', '-NonInteractive', '-File', str(checker),
+               '-Archive', str(archive), '-SourceUrl',
+               'https://raw.githubusercontent.com/niansia/taiwan-exam/refs/heads/main/downloads/taiwan-exam-generator.zip']
+    result = subprocess.run(command, capture_output=True, text=True, errors='replace', timeout=180)
+    report = json.loads(result.stdout)
+    if result.returncode or report.get('status') != 'pass' or report.get('hresult') != 0:
+        raise RuntimeError('Downloaded-attachment check failed')
+    return report
+
+
+def scan_release(archive, *, status_fn=defender_status, scan_fn=defender_scan, attachment_fn=attachment_scan):
+    report = {'schema_version': 2, 'status': 'fail',
               'checked_utc': datetime.now(timezone.utc).isoformat(),
-              'scope': 'ZIP and extracted members; not a universal malware-free guarantee',
+              'scope': 'ZIP, extracted members and Windows attachment Save; browser/vendor acceptance remains separate',
               'scans': []}
     try:
         archive = Path(archive).resolve(strict=True)
@@ -118,6 +133,13 @@ def scan_release(archive, *, status_fn=defender_status, scan_fn=defender_scan):
                 raise ValueError('Extracted files changed or were quarantined during scanning')
             if digest(archive) != report['archive_sha256']:
                 raise ValueError('Archive changed during scanning')
+        report['attachment_check'] = attachment_fn(archive)
+        if (report['attachment_check'].get('status') != 'pass'
+                or report['attachment_check'].get('hresult') != 0
+                or report['attachment_check'].get('archive_sha256') != report['archive_sha256']):
+            raise ValueError('Attachment check evidence mismatch')
+        if digest(archive) != report['archive_sha256']:
+            raise ValueError('Archive changed during attachment check')
         report['status'] = 'pass'
     except Exception as exc:
         # Avoid publishing machine/user paths in failure reports.

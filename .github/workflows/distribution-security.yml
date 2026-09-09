@@ -16,17 +16,38 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - name: Check withdrawal state (not antivirus clearance)
+        id: distribution
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          state = json.loads(Path('SOFTWARE_RELEASE_STATUS.json').read_text())
+          archive = Path('downloads/taiwan-exam-generator.zip')
+          if state['status'] == 'suspended':
+              assert not archive.exists(), 'Suspended distribution must not expose an install ZIP'
+              print('Download withdrawn. No new antivirus or browser acceptance is claimed.')
+              ready = 'false'
+          else:
+              assert state['status'] == 'ready' and archive.is_file()
+              ready = 'true'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('ready=' + ready + '\n')
+          PY
       # Defender remains a mandatory local publication gate. Hosted Windows
       # runners do not reliably provide its service; use a second engine here.
       - name: Prepare ClamAV and current official signatures
+        if: steps.distribution.outputs.ready == 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y clamav
           sudo systemctl stop clamav-freshclam
           sudo freshclam
       - name: Scan exact distributed ZIP
+        if: steps.distribution.outputs.ready == 'true'
         run: clamscan --infected --alert-exceeds-max=yes --log=security-archive.log downloads/taiwan-exam-generator.zip
       - name: Verify recorded Defender result, hash and archive members
+        if: steps.distribution.outputs.ready == 'true'
         run: |
           python - <<'PY'
           import json, sys
@@ -39,13 +60,17 @@ jobs:
           assert report['archive_sha256'] == digest(archive)
           assert [row['target'] for row in report['scans']] == ['archive', 'extracted-members']
           assert all(row['returncode'] == 0 for row in report['scans'])
+          assert report['attachment_check']['status'] == 'pass'
+          assert report['attachment_check']['hresult'] == 0
+          assert report['attachment_check']['archive_sha256'] == digest(archive)
           inspect_archive(archive, Path('scan-contents'))
           print('Published ZIP matches recorded Defender scan and manifest')
           PY
       - name: Independently scan extracted members
+        if: steps.distribution.outputs.ready == 'true'
         run: clamscan --recursive --infected --alert-exceeds-max=yes --log=security-members.log scan-contents
       - name: Retain scan evidence
-        if: always()
+        if: always() && steps.distribution.outputs.ready == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: distribution-security

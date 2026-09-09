@@ -1,0 +1,73 @@
+# Defender download detection: open investigation
+
+Distribution is suspended. This record is NOT a false-positive verdict.
+The Microsoft developer submission portal requires maintainer sign-in; no case
+number has been obtained. A prepared report is not a submitted case.
+
+## Confirmed evidence
+
+Repository: https://github.com/niansia/taiwan-exam
+Product: taiwan-exam-generator, educational item authoring and layout tools.
+Detection: `Trojan:Script/Wacatac.H!ml`, threat ID `2147814524`.
+
+- preview.2 ZIP SHA-256:
+  `935f091d1f16a8334a4e259adca99354f632237ba9b3422ad529513cb3078798`.
+  Detections identified `scripts/paginate_chinese_natural.js` and
+  `scripts/render_chinese_natural_proof.py`, retired from preview.3.
+- preview.3 ZIP SHA-256:
+  `d7e6836d7ca965ba9b3a9d5f5434de09a8577f6e5bac1754113c5e0b11173a8e`.
+  Size: 549431 bytes. ZIP and extracted-member Defender custom scans passed at
+  2026-09-09 13:57:09 UTC. ClamAV 1.5.3 reported zero infected files in
+  [CI run 34360739045](https://github.com/niansia/taiwan-exam/actions/runs/34360739045).
+- At 2026-09-09 14:02:49 UTC, Defender event 1116 identified a download as Internet
+  origin, type `FastPath`, source `Downloads and attachments`. Engine
+  `1.1.26080.3`, signatures `1.459.126.0` (same as the earlier passing custom
+  scan). It named two other files present in preview.3:
+
+| Member | SHA-256 from the published manifest |
+| --- | --- |
+| scripts/qa_gsat_internal_layout.js | 935e21a8cc376d6fb65f821c3ab5e6f228cd40e5e6167304ec0b72626a57a31f |
+| scripts/validate_svg_text_geometry.py | 0371e5bb12b9e0e29a4537ac8e228be734c7cdd63b57e52131a689909a7c8452 |
+
+The downloaded copy was blocked before an independent hash could be obtained;
+the archive hash above belongs to the published candidate. Event 1117 recorded
+quarantine/no further action required, with error `0x80508023` (item no longer
+found). The latest threat record was inactive and did not record execution.
+This is not a whole-device clean bill of health.
+
+## Review scope and uncertainty
+
+The newly named files were reviewed as text, not executed. One uses Playwright
+to measure local HTML overflow; the other constructs local HTML from SVG and
+uses Chromium to measure text/stroke geometry. No obvious credential collection,
+persistence or exfiltration was found in those files. This limited review does
+NOT establish that the entire distribution or dependencies are safe. Loading
+arbitrary SVG/HTML into a browser also needs an active-content/resource audit.
+The exact detection rule is unknown; do not assert that browser automation is
+the trigger or that this is a confirmed false positive.
+
+## Microsoft analysis request (prepared, NOT submitted)
+
+Please investigate this public educational software package, especially the
+discrepancy between custom scans and download/attachment FastPath detection with
+the same Defender engine and intelligence versions. Please determine whether
+the identified files are malicious or misclassified, and provide a submission
+ID, final determination and applicable intelligence update. We withdrew the ZIP
+without disabling protection, adding exclusions, restoring quarantined code or
+repackaging to avoid detection. Public source revision for analysis: `3f64285`.
+Only public project code and these sanitized facts are in scope for submission;
+private exam corpora, account data and raw device logs are not.
+
+## Reopening criteria
+
+Resolve the incident through vendor determination or a documented substantive
+code fix with security review. Scan the exact candidate, validate its manifest,
+test Windows Attachment Services `Save` with the actual source URL, and verify a
+normal browser download with protection enabled. The attachment test uses its
+own client identity: it is additional coverage, not proof that every browser
+check was reproduced. Retain hash-bound evidence. Do not remove required exam
+quality validators solely because their filenames appear in a detection.
+
+References: [Microsoft cloud protection](https://learn.microsoft.com/en-us/defender-endpoint/cloud-protection-microsoft-antivirus-sample-submission),
+[Attachment Services Save](https://learn.microsoft.com/en-us/windows/win32/api/shobjidl_core/nf-shobjidl_core-iattachmentexecute-save),
+[Microsoft submission portal](https://www.microsoft.com/en-us/wdsi/filesubmission).

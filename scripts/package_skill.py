@@ -12,7 +12,7 @@ from validate_attribution import validate as validate_attribution
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDED_TOP_LEVEL = {".git", ".github", ".playwright-cli", ".pytest_cache", "dist", "downloads", "output", "tests", "tmp"}
+EXCLUDED_TOP_LEVEL = {".git", ".github", ".playwright-cli", ".pytest_cache", "dist", "downloads", "maintenance", "output", "tests", "tmp"}
 PRIVATE_INTAKE_DIRS = {"歷屆試題", "模擬考", "format-references", "answer-profiles", "official-statistics", "命題範圍"}
 KEEP_IN_PRIVATE_DIRS = {
     "放資料到這裡.md",
@@ -125,6 +125,14 @@ def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def require_publication_open(root: Path) -> None:
+    state = json.loads((root / 'SOFTWARE_RELEASE_STATUS.json').read_text(encoding='utf-8'))
+    resolution = state.get('resolution') or {}
+    if (state.get('status') != 'ready' or not resolution.get('reference')
+            or resolution.get('kind') not in {'vendor-decision', 'reviewed-code-fix'}):
+        raise ValueError('Software distribution is suspended pending incident resolution; file scans alone cannot reopen it')
+
+
 def write_deterministic(zf: ZipFile, arcname: str, data: bytes) -> None:
     info = ZipInfo(arcname, date_time=(2026, 1, 1, 0, 0, 0))
     info.compress_type = ZIP_DEFLATED
@@ -182,6 +190,13 @@ def main() -> int:
     parser.add_argument("--output", type=Path)
     parser.add_argument("--public-release", action="store_true", help="Also require confirmed licensing declarations; does not publish anything")
     args = parser.parse_args()
+
+    if args.public_release:
+        try:
+            require_publication_open(ROOT)
+        except (OSError, ValueError) as exc:
+            print(json.dumps({'error': str(exc), 'status': 'publication-blocked'}, ensure_ascii=False))
+            return 2
 
     attribution = validate_attribution(ROOT, public_release=args.public_release)
     if attribution["status"] != "pass":

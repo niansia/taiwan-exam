@@ -9,6 +9,12 @@ Vendor confirmation of a false positive has NOT been obtained. These unused
 proof helpers are retired, not renamed, obfuscated or repackaged elsewhere.
 Current subject renderers and their content/layout gates remain required.
 
+preview.3 was subsequently flagged in the actual download/attachment path for
+two other files. It is withdrawn; see [the open incident](security-incident-2026-09-09.md).
+`SOFTWARE_RELEASE_STATUS.json` suspends public packaging until a documented
+resolution exists. File scans must never override an open incident. This hold
+is not a remote license check or an approval requirement for local exam use.
+
 Before publication:
 
 1. Review code changes, dependencies, archive contents and callers of removed
@@ -18,9 +24,17 @@ Before publication:
    Public packaging now requires enabled Windows Defender with signatures no
    older than one day. It scans the actual ZIP AND extracted files, checks
    archive paths and manifest hashes, and fails closed on detections, scan
-   errors, missing tools or changed bytes. Do not publish a failed candidate.
+   errors, missing tools or changed bytes. Also require Windows Attachment
+   Services `Save` on a disposable copy using the actual source URL, with
+   real-time and downloaded-attachment protection enabled. This maintenance
+   checker never calls Execute, never bypasses a block and may allow Windows
+   to remove the test copy. It is outside the ordinary Skill ZIP.
+   Do not publish a failed candidate.
    Internal builds may skip this only as unpublished review artifacts.
-4. Publish the exact scanned ZIP with its `downloads/security-scan.json` report.
+4. Verify a normal browser download without security bypasses. An attachment
+   API pass alone is not browser acceptance; a blocked browser test is not a
+   pass and must not be dismissed as cache. Publish the exact validated ZIP
+   with its `downloads/security-scan.json` report.
    Check the downloaded bytes against the report's SHA-256 after publication.
    Any changed archive requires a new scan. Do not claim all engines, future
    definitions, browser reputation systems or platforms have approved it.
@@ -37,5 +51,6 @@ Existing Defender cloud/sample policies are not changed. See the
 [Microsoft command-line documentation](https://learn.microsoft.com/en-us/defender-endpoint/command-line-arguments-microsoft-defender-antivirus).
 
 Git history can still contain the withdrawn revision. Its existence is not a
-recommendation to restore/use it. The ordinary installation link must point to
-the replacement; users should not have to operate scanner commands themselves.
+recommendation to restore/use it. While suspended, remove the live archive and
+installation link. After clearance, point to the verified replacement. Users
+should not have to operate scanner commands themselves.

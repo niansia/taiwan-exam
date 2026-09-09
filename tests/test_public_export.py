@@ -33,3 +33,22 @@ def test_only_reviewed_exporter_and_no_legacy_builders_are_distributed():
     assert not package_skill.should_include(ROOT / 'scripts/build_gsat_stress_suite_116.py')
     assert not package_skill.should_include(ROOT / 'scripts/paginate_chinese_natural.js')
     assert not package_skill.should_include(ROOT / 'scripts/render_chinese_natural_proof.py')
+
+
+def test_security_hold_blocks_publication(tmp_path):
+    import json
+    (tmp_path / 'SOFTWARE_RELEASE_STATUS.json').write_text(json.dumps({'status': 'suspended'}))
+    with pytest.raises(ValueError, match='suspended'):
+        package_skill.require_publication_open(tmp_path)
+
+
+def test_ready_label_without_resolution_does_not_reopen(tmp_path):
+    import json
+    (tmp_path / 'SOFTWARE_RELEASE_STATUS.json').write_text(json.dumps({'status': 'ready'}))
+    with pytest.raises(ValueError, match='suspended'):
+        package_skill.require_publication_open(tmp_path)
+
+
+def test_missing_security_state_blocks_publication(tmp_path):
+    with pytest.raises(FileNotFoundError):
+        package_skill.require_publication_open(tmp_path)

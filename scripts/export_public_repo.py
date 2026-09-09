@@ -67,6 +67,11 @@ def export(destination: Path, version: str, *, internal_review: bool = False) ->
             target = destination / '.github/workflows/distribution-security.yml'
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(workflow, target)
+        attachment_checker = ROOT / 'maintenance/test_download_attachment.ps1'
+        if attachment_checker.is_file():
+            target = destination / 'maintenance/test_download_attachment.ps1'
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(attachment_checker, target)
     return dict(destination=str(destination), public_test_files=test_count,
                 status='internal-review' if internal_review else 'publication-candidate',
                 published=False, exam_acceptance=False)

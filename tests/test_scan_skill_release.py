@@ -19,7 +19,8 @@ def archive(tmp_path, name='SKILL.md', tamper=False):
 
 
 def scan(path, callback=lambda _: {'returncode': 0, 'output': 'fixture scan'}):
-    return security.scan_release(path, status_fn=lambda: {'fixture': True}, scan_fn=callback)
+    return security.scan_release(path, status_fn=lambda: {'fixture': True}, scan_fn=callback,
+        attachment_fn=lambda path: {'status': 'pass', 'hresult': 0, 'archive_sha256': security.digest(path)})
 
 
 def test_scans_archive_and_extracted_members(tmp_path):
@@ -69,3 +70,17 @@ def test_disappearing_member_during_scan_blocks(tmp_path):
             (target / 'SKILL.md').unlink()
         return {'returncode': 0, 'output': 'fixture scan'}
     assert scan(archive(tmp_path), quarantine)['status'] == 'fail'
+
+
+def test_attachment_rejection_overrides_clean_file_scans(tmp_path):
+    report = security.scan_release(archive(tmp_path), status_fn=lambda: {},
+        scan_fn=lambda _: {'returncode': 0, 'output': 'clean'},
+        attachment_fn=lambda _: {'status': 'fail', 'hresult': -2147024671})
+    assert report['status'] == 'fail'
+
+
+def test_attachment_hash_mismatch_blocks(tmp_path):
+    report = security.scan_release(archive(tmp_path), status_fn=lambda: {},
+        scan_fn=lambda _: {'returncode': 0, 'output': 'clean'},
+        attachment_fn=lambda _: {'status': 'pass', 'hresult': 0, 'archive_sha256': '0' * 64})
+    assert report['status'] == 'fail'
