@@ -2,9 +2,10 @@
 
 Distribution is suspended. This record is NOT a false-positive verdict.
 Maintainer sign-in to the Microsoft developer submission portal is complete.
-The form has been prepared, but requires an actual file sample. The maintainer
-confirmed that no unquarantined original ZIP remains. No case number has been
-obtained; a prepared report is not a submitted case. Do not restore quarantined
+The form now has a newly built, hardened review candidate selected for upload.
+The original quarantined ZIP remains unavailable; the new candidate is not a
+replacement for historical sample evidence. Final submission is pending; no
+case number has been obtained. A prepared form is not a submitted case. Do not restore quarantined
 files or reconstruct a blocked archive to bypass protection for this workflow.
 
 ## Confirmed evidence
@@ -49,6 +50,32 @@ arbitrary SVG/HTML into a browser also needs an active-content/resource audit.
 The exact detection rule is unknown; do not assert that browser automation is
 the trigger or that this is a confirmed false positive.
 
+## Hardened candidate: local passes, browser acceptance incomplete
+
+A substantive rendering security revision is documented in
+[the focused security review](rendering-security-review.md). It rejects active
+HTML/SVG content and external resources, isolates browser profiles and removes
+redundant legacy helpers without removing the maintained exam quality gates.
+
+Internal candidate `0.6.0-security-review.1` is 547937 bytes, with 234 manifested
+files and SHA-256
+`1c13cd4163be21be6e102e50f0defa08de8ea4de27df72084330156003136d89`.
+This candidate predates subsequent source-hash reporting and empty-directory
+regression fixes in commit `c466b33`; it is not an archive of that entire commit.
+
+At 2026-09-09 14:45:32 UTC, this exact candidate passed Defender custom scans of
+the ZIP and extracted members and `IAttachmentExecute.Save` (HRESULT 0).
+Engine: `1.1.26080.3`; intelligence: `1.459.126.0`; real-time protection enabled.
+The attachment check used the previous public raw download source URL, not the
+later draft-release asset URL. An earlier checker failure was a PowerShell
+module-path compatibility error before attachment scanning, not a new detection.
+
+A normal Chrome download from a maintainer-only draft release subsequently
+ended at `ERR_BLOCKED_BY_CLIENT`. No downloaded artifact was available to hash.
+That client block is not evidence of a new Defender detection; its cause is
+unresolved. It was not bypassed. Neither the local passes nor a different URL
+constitutes browser acceptance. Public installation downloads remain suspended.
+
 ## Microsoft analysis request (prepared, NOT submitted)
 
 Please investigate this public educational software package, especially the
@@ -57,7 +84,10 @@ the same Defender engine and intelligence versions. Please determine whether
 the identified files are malicious or misclassified, and provide a submission
 ID, final determination and applicable intelligence update. We withdrew the ZIP
 without disabling protection, adding exclusions, restoring quarantined code or
-repackaging to avoid detection. Public source revision for analysis: `3f64285`.
+repackaging to avoid detection. The prepared form explicitly identifies the new
+candidate hash, historical preview.3 detection, local passing checks and the
+separate Chrome client block. It requests assessment rather than asserting a
+confirmed false positive. Public substantive fix revision: `c466b33`.
 Only public project code and these sanitized facts are in scope for submission;
 private exam corpora, account data and raw device logs are not.
 
