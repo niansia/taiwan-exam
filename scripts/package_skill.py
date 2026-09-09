@@ -12,7 +12,7 @@ from validate_attribution import validate as validate_attribution
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDED_TOP_LEVEL = {".git", ".playwright-cli", ".pytest_cache", "dist", "downloads", "output", "tests", "tmp"}
+EXCLUDED_TOP_LEVEL = {".git", ".github", ".playwright-cli", ".pytest_cache", "dist", "downloads", "output", "tests", "tmp"}
 PRIVATE_INTAKE_DIRS = {"歷屆試題", "模擬考", "format-references", "answer-profiles", "official-statistics", "命題範圍"}
 KEEP_IN_PRIVATE_DIRS = {
     "放資料到這裡.md",
@@ -71,8 +71,8 @@ build_gsat_difficulty_profiles.py build_layout_review_queue.py
 build_official_question_queue.py build_paper_profiles.py build_pdf_contact_sheets.py
 build_question_candidates.py build_visual_queue.py download_ceec_gsat_statistics.py
 download_ceec_gsat.py exam_data.py import_ceec_gsat_difficulty.py ingest_gsat_bundle.py
-package_skill.py export_public_repo.py pack_verification.py paginate_chinese_natural.js pdf_provenance.py
-qa_gsat_internal_layout.js qa_math_current_form.py render_chinese_natural_proof.py
+package_skill.py export_public_repo.py pack_verification.py pdf_provenance.py
+qa_gsat_internal_layout.js qa_math_current_form.py scan_skill_release.py
 render_exam.py render_gsat_internal_review_pdf.py render_gsat_internal_review.py
 render_gsat_official_pdf.py render_gsat_official.py render_pdf.py render_visual.py
 summarize_four_band_reference.py validate_attribution.py
@@ -178,7 +178,7 @@ def packaged_data(path: Path) -> bytes:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.6.0-preview.2")
+    parser.add_argument("--version", default="0.6.0-preview.3")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--public-release", action="store_true", help="Also require confirmed licensing declarations; does not publish anything")
     args = parser.parse_args()
@@ -223,6 +223,13 @@ def main() -> int:
             (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8"),
         )
 
+    if args.public_release:
+        from scan_skill_release import scan_release
+        report = scan_release(output)
+        output.with_suffix('.security.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        if report['status'] != 'pass':
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            return 2
     print(json.dumps({"archive": str(output), **manifest}, ensure_ascii=False, indent=2))
     return 0
 

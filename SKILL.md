@@ -48,6 +48,9 @@ For adapting, rebranding or packaging the Skill itself, read `NOTICE`,
 `ORIGIN.json` and [references/attribution-and-forks.md](references/attribution-and-forks.md).
 Keep current branding distinct from upstream attribution. These public guidance
 and packaging checks do not add an account/approval step to ordinary exam use.
+Before distributing a Skill update, also follow [references/software-release-security.md](references/software-release-security.md).
+Antivirus checks apply to software publication, not every exam request. Never
+ask users to disable protection, restore quarantined scripts, or add exclusions.
 
 1. Map the requested exam and subject to an existing folder under `exam_packs/`.
 2. For generation, read that pack's `manifest.json`, the subject's `metadata/papers.jsonl`, `blueprints/writer-blueprint.json`, and compatible aggregate difficulty/layout profiles when they exist. Never read `metadata/questions.jsonl`, review queues, or `blueprints/learned-blueprint.json` during the writing pass. Those source-level files belong only to ingestion and analysis.

@@ -17,7 +17,7 @@ test_attribution.py test_audit_corpus_overlap.py test_exam_pack_contract.py
 test_failed_stress_suite.py test_paper_difficulty_balance.py test_pdf_provenance.py
 test_release_contract.py test_skill.py test_validate_english_layout_contract.py
 test_validate_english_vocabulary_scope.py test_validate_social_item_design.py
-test_validate_writing_source_grounding.py test_public_export.py test_optional_statistics_dependency.py
+test_validate_writing_source_grounding.py test_public_export.py test_optional_statistics_dependency.py test_scan_skill_release.py
 '''.split())
 
 
@@ -60,6 +60,13 @@ def export(destination: Path, version: str, *, internal_review: bool = False) ->
                 test_count += 1
         (destination / 'downloads').mkdir()
         shutil.copyfile(archive, destination / 'downloads/taiwan-exam-generator.zip')
+        if not internal_review:
+            shutil.copyfile(archive.with_suffix('.security.json'), destination / 'downloads/security-scan.json')
+        workflow = ROOT / '.github/workflows/distribution-security.yml'
+        if workflow.is_file():
+            target = destination / '.github/workflows/distribution-security.yml'
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(workflow, target)
     return dict(destination=str(destination), public_test_files=test_count,
                 status='internal-review' if internal_review else 'publication-candidate',
                 published=False, exam_acceptance=False)
@@ -68,7 +75,7 @@ def export(destination: Path, version: str, *, internal_review: bool = False) ->
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
-    parser.add_argument('--version', default='0.6.0-preview.2')
+    parser.add_argument('--version', default='0.6.0-preview.3')
     parser.add_argument('--internal-review', action='store_true',
                         help='Prepare locally with pending declarations; NOT public-release approval')
     args = parser.parse_args()

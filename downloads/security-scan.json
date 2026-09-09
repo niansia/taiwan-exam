@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "checked_utc": "2026-09-09T13:57:09.517011+00:00",
+  "scope": "ZIP and extracted members; not a universal malware-free guarantee",
+  "scans": [
+    {
+      "target": "archive",
+      "returncode": 0,
+      "output": "Scan starting...\nScan finished.\nScanning <scan-target> found no threats.\n"
+    },
+    {
+      "target": "extracted-members",
+      "returncode": 0,
+      "output": "Scan starting...\nScan finished.\nScanning <scan-target> found no threats.\n"
+    }
+  ],
+  "archive_sha256": "d7e6836d7ca965ba9b3a9d5f5434de09a8577f6e5bac1754113c5e0b11173a8e",
+  "engine": {
+    "AMEngineVersion": "1.1.26080.3",
+    "AMProductVersion": "4.18.26080.3",
+    "AntivirusSignatureVersion": "1.459.126.0",
+    "AntivirusSignatureAge": 0,
+    "AntivirusEnabled": true,
+    "RealTimeProtectionEnabled": true
+  },
+  "file_count": 235
+}

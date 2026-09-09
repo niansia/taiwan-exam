@@ -1,6 +1,6 @@
 {
   "name": "taiwan-exam-generator",
-  "version": "0.6.0-preview.2",
+  "version": "0.6.0-preview.3",
   "schema_version": 1,
   "distribution_status": "release-candidate-not-published",
   "origin": {
@@ -666,8 +666,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13644,
-      "sha256": "c6617dc4a410221c3977f588bb50a31799d7879af3a2863f68b317c9b8f5efeb"
+      "bytes": 14726,
+      "sha256": "3d31deee87b28b692581c2843478721be3a8cc65cf3fa8f16a93cd53b8280bb0"
     },
     {
       "path": "references/attribution-and-forks.md",
@@ -793,6 +793,11 @@
       "path": "references/rendering.md",
       "bytes": 2965,
       "sha256": "363579f3526a626d86233886332acf3aa0a9ce345fba1269327cbbd3a5ff64e1"
+    },
+    {
+      "path": "references/software-release-security.md",
+      "bytes": 2644,
+      "sha256": "21f5a6c8c6128a41a295af207d93a2567c7cb8a4c8da42e062b04a3c2aa6c139"
     },
     {
       "path": "references/stimulus-generation.md",
@@ -981,8 +986,8 @@
     },
     {
       "path": "scripts/export_public_repo.py",
-      "bytes": 4000,
-      "sha256": "dcb44332224d3b8a52af679904bf98518756aed1576a734874d2c240cb3cdaf3"
+      "bytes": 4463,
+      "sha256": "84ed29bb9c975bbcc7422b3db237655eb78ecfb10cabe6c9895eedf88fe0b689"
     },
     {
       "path": "scripts/import_ceec_gsat_difficulty.py",
@@ -1001,13 +1006,8 @@
     },
     {
       "path": "scripts/package_skill.py",
-      "bytes": 10185,
-      "sha256": "a9c2fb59f5585fc680e30ecdb128f3325c40201fb11370f09bc3fd18a7c206d3"
-    },
-    {
-      "path": "scripts/paginate_chinese_natural.js",
-      "bytes": 10994,
-      "sha256": "ce970a638d1289e07650bee383966de4138e2e2b6d16c77e59960d23bcb93361"
+      "bytes": 10535,
+      "sha256": "8147a926d2ea98abdd7cb425210fa4f7e72b0b73ab5787ea68608c2bbc56cc70"
     },
     {
       "path": "scripts/pdf_provenance.py",
@@ -1023,11 +1023,6 @@
       "path": "scripts/qa_math_current_form.py",
       "bytes": 6781,
       "sha256": "afd035dd955c308498663a9843ff5c5f1d08d10a3cb17383aab4e66751032fa7"
-    },
-    {
-      "path": "scripts/render_chinese_natural_proof.py",
-      "bytes": 11540,
-      "sha256": "390c74234b057b1c54b0b36f1ecf8012802fdba76f5f91ec1b98484a9d55a631"
     },
     {
       "path": "scripts/render_exam.py",
@@ -1063,6 +1058,11 @@
       "path": "scripts/render_visual.py",
       "bytes": 15939,
       "sha256": "cbca88ab6451d2ca05743a9d0db090bf11f9128de940eef6c16d07736e9e825e"
+    },
+    {
+      "path": "scripts/scan_skill_release.py",
+      "bytes": 7150,
+      "sha256": "684897837a06bbfab1d9c8a2d53bb9ea6d6b4d915d3fad8df73544b4788bf664"
     },
     {
       "path": "scripts/summarize_four_band_reference.py",
@@ -1166,8 +1166,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 37948,
-      "sha256": "0ff2902be62d0c8e8128ac068595f56d9af4d260dc6e294741b19ccdb376f1bd"
+      "bytes": 38239,
+      "sha256": "f54355b8a5779d71310494e110e34f0b5606bbf55ea354771495a740bafcc29c"
     },
     {
       "path": "templates/current-gsat-math-scope.json",

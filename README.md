@@ -4,6 +4,8 @@
 
 > **目前為公開測試版，不是已通過完整出卷驗收的正式版。** 公開包不附歷屆試卷原檔；卷型紀錄必須在使用環境重新核對。安裝成功、產生 PDF、軟體測試通過，都不等於考卷品質通過。
 
+> **2026-09-09 安全修訂：** 舊版 preview.2 的兩個校樣工具曾被 Microsoft Defender 攔截，已從 preview.3 移除；尚無微軟確認誤判的結論。新版發布必須先掃描 ZIP 與解壓內容，實際 SHA-256、引擎與結果見 [下載包掃描紀錄](https://github.com/niansia/taiwan-exam/blob/main/downloads/security-scan.json)。掃描通過不代表所有防毒軟體永久保證安全。請勿解除封鎖、停用防毒或加入排除清單；若仍被攔截，停止安裝並回報偵測名稱與版本。
+
 ## 我只想出考卷，怎麼開始？
 
 ### 1. 第一次：請 AI 安裝一次，之後沿用
@@ -147,24 +149,26 @@ python -m pip install pytest
 python -m pytest -q
 ```
 
-2026-09-09 的軟體回歸測試紀錄為 **97 項通過、2 項跳過**，包含選用 Excel 依賴缺少的情境。跳過的是依賴已清除私人測試卷的案例；自足的正向／負向回歸測試仍保留。以當次輸出為準：這是**軟體回歸測試**，不是合格考卷份數、跨平台持久安裝或命題品質認證。
+2026-09-09 的軟體回歸測試紀錄為 **105 項通過、2 項跳過**，包含選用 Excel 依賴缺少、掃描失敗拒絕發布、封裝路徑及雜湊異常的情境。跳過的是依賴已清除私人測試卷的案例；自足的正向／負向回歸測試仍保留。以當次輸出為準：這是**軟體回歸測試**，不是合格考卷份數、跨平台持久安裝或命題品質認證。
 
 打包前必須檢查來源與授權；發布副本與私人工作資料分開。詳見 [來源與改作說明](references/attribution-and-forks.md)。不要直接把含有私人語料的工作資料夾整批提交。
 
 ```sh
 python scripts/validate_attribution.py .
-python scripts/package_skill.py --version 0.6.0-preview.2 --public-release
+python scripts/package_skill.py --version 0.6.0-preview.3 --public-release
 ```
 
 準備乾淨 Git 發布副本（授權聲明確認後執行）：
 
 ```sh
-python scripts/export_public_repo.py --output tmp/public-candidate --version 0.6.0-preview.2
+python scripts/export_public_repo.py --output tmp/public-candidate --version 0.6.0-preview.3
 ```
 
 目標必須是新資料夾。此工具沿用打包白名單與去除私人來源的處理，另附可重跑的測試與 `downloads/taiwan-exam-generator.zip`。它不提交、不推送、不發布 Release；檢查輸出後仍須取得發布授權。僅做本機準備時可加 `--internal-review`，但這不代表獲准公開發布。
 
 普通使用、安裝及本機出題不需要維護者許可；公開發布、授權宣告與上傳 GitHub 是另一回事。
+
+公開打包現在必須在 Windows Defender 啟用且病毒定義不超過一天的環境執行，對成品 ZIP 與解壓內容掃描；偵測、掃描錯誤、缺少工具或檔案雜湊不符均阻擋發布。這是維護者的責任，不必請一般使用者執行指令。詳見[軟體發布安全流程](references/software-release-security.md)。原始碼的安全檢查工作流程也會在更新及定期檢查時重掃現有 ZIP；它不會自行上傳新的安裝包。
 
 ## 授權、來源與非官方聲明
 

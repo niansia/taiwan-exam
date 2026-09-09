@@ -31,3 +31,5 @@ def test_only_reviewed_exporter_and_no_legacy_builders_are_distributed():
     assert package_skill.should_include(ROOT / 'scripts/export_public_repo.py')
     assert not package_skill.should_include(ROOT / 'scripts/new_unreviewed_builder.py')
     assert not package_skill.should_include(ROOT / 'scripts/build_gsat_stress_suite_116.py')
+    assert not package_skill.should_include(ROOT / 'scripts/paginate_chinese_natural.js')
+    assert not package_skill.should_include(ROOT / 'scripts/render_chinese_natural_proof.py')
