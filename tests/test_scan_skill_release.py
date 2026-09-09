@@ -84,3 +84,21 @@ def test_attachment_hash_mismatch_blocks(tmp_path):
         scan_fn=lambda _: {'returncode': 0, 'output': 'clean'},
         attachment_fn=lambda _: {'status': 'pass', 'hresult': 0, 'archive_sha256': '0' * 64})
     assert report['status'] == 'fail'
+
+
+def test_attachment_failure_keeps_diagnostic_codes(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    monkeypatch.setattr(security.subprocess, 'run', lambda *a, **k: SimpleNamespace(
+        returncode=2, stdout=json.dumps({'status':'fail', 'hresult':-2147024671, 'hresult_hex':'0x800700E1', 'private_path':'do-not-export'})))
+    report = security.attachment_scan(tmp_path / 'fixture.zip')
+    assert report['status'] == 'fail' and report['hresult_hex'] == '0x800700E1'
+    assert 'private_path' not in report
+
+
+def test_powershell_child_does_not_inherit_ps7_module_paths(monkeypatch):
+    monkeypatch.setenv('PSModulePath', 'fixture-ps7-modules')
+    monkeypatch.setenv('TAIWAN_EXAM_TEST_VALUE', 'keep')
+    child = security.windows_powershell_env()
+    assert not any(key.upper() == 'PSMODULEPATH' for key in child)
+    assert child['TAIWAN_EXAM_TEST_VALUE'] == 'keep'
+    assert any(key.upper() == 'PSMODULEPATH' for key in security.os.environ)

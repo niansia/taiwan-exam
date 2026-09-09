@@ -15,6 +15,7 @@ from render_gsat_internal_review import render
 from render_pdf import find_browser
 from validate_fixed_page_html import validate_html
 from pdf_provenance import publish_pdf
+from safe_rendering import browser_flags, prepare_html
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -44,8 +45,9 @@ def main(argv: list[str] | None = None) -> int:
                         if page["status"] != "pass"
                     ]
                     raise RuntimeError("fixed-page layout check failed: " + "; ".join(failures))
+            html_path.write_text(prepare_html(html), encoding="utf-8")
             completed = subprocess.run(
-                [str(browser), "--headless=new", "--disable-gpu", "--no-pdf-header-footer", f"--print-to-pdf={pdf_path}", html_path.as_uri()],
+                [str(browser), *browser_flags(tmp_path), "--no-pdf-header-footer", f"--print-to-pdf={pdf_path}", html_path.as_uri()],
                 capture_output=True,
                 text=True,
                 timeout=120,

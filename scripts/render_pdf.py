@@ -13,6 +13,7 @@ from pathlib import Path
 
 from render_exam import render_exam
 from pdf_provenance import publish_pdf
+from safe_rendering import browser_flags, prepare_html
 
 
 WINDOWS_BROWSERS = (
@@ -45,11 +46,10 @@ def render_pdf(input_path: Path, output_path: Path, browser: Path | None = None,
         temporary = Path(directory)
         html_path = temporary / "exam.html"
         pdf_path = temporary / "exam.pdf"
-        html_path.write_text(rendered, encoding="utf-8")
+        html_path.write_text(prepare_html(rendered), encoding="utf-8")
         command = [
             str(executable),
-            "--headless=new",
-            "--disable-gpu",
+            *browser_flags(temporary),
             "--no-pdf-header-footer",
             f"--print-to-pdf={pdf_path}",
             html_path.as_uri(),

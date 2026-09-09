@@ -156,16 +156,24 @@ def validate_exam(exam: Any) -> list[str]:
 
 
 def image_data_uri(path_value: str, asset_base: Path | None) -> str:
+    from safe_rendering import validate_image
+    if path_value.startswith(('\\\\', '//')):
+        raise ValueError('Network image paths are not allowed')
+    base = (asset_base or Path.cwd()).resolve()
     path = Path(path_value)
     if not path.is_absolute():
         path = (asset_base or Path.cwd()) / path
     path = path.resolve()
+    if not path.is_relative_to(base):
+        raise ValueError('題目圖片必須位於 exam.json 的資料夾內，不能讀取資料夾外的檔案')
     if not path.is_file():
         raise ValueError(f"找不到題目圖片：{path}")
     mime, _ = mimetypes.guess_type(path.name)
     if mime not in {"image/png", "image/jpeg", "image/webp", "image/gif", "image/svg+xml"}:
         raise ValueError(f"不支援的題目圖片格式：{path.suffix or path.name}")
-    payload = base64.b64encode(path.read_bytes()).decode("ascii")
+    data = path.read_bytes()
+    validate_image(data, mime)
+    payload = base64.b64encode(data).decode("ascii")
     return f"data:{mime};base64,{payload}"
 
 

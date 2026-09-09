@@ -18,6 +18,11 @@ evidence that any maintainer script caused the antivirus detection.
 
 ## Open incident and release checks
 
+The current renderer hardening and reproducible checker-environment fix are
+documented in [the focused security review](rendering-security-review.md).
+Do not confuse a missing checker command with an antivirus detection. Preserve
+failure stage/HRESULT evidence and keep failures release-blocking until fixed.
+
 On 2026-09-09 Defender detected `Trojan:Script/Wacatac.H!ml` in preview.2's
 legacy `paginate_chinese_natural.js` and `render_chinese_natural_proof.py`.
 Vendor confirmation of a false positive has NOT been obtained. These unused

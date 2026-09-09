@@ -1,5 +1,12 @@
 # Rendering
 
+Local PDF and geometry tools accept static, self-contained exam documents only.
+Keep image assets within the exam JSON directory; scripts, event handlers,
+external URLs and unsupported SVG features are rejected. Do not disable the
+input checks or Content Security Policy to make a figure render. Correct the
+figure without changing its answer-bearing information and recheck its layout.
+See [rendering-security-review.md](rendering-security-review.md).
+
 Read this reference when producing a formal paper, answer booklet, HTML, or PDF.
 
 For PDF exports, also read [pdf-provenance.md](pdf-provenance.md). The export

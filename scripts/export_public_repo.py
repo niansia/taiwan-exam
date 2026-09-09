@@ -26,7 +26,7 @@ test_attribution.py test_audit_corpus_overlap.py test_exam_pack_contract.py
 test_failed_stress_suite.py test_paper_difficulty_balance.py test_pdf_provenance.py
 test_release_contract.py test_skill.py test_validate_english_layout_contract.py
 test_validate_english_vocabulary_scope.py test_validate_social_item_design.py
-test_validate_writing_source_grounding.py test_public_export.py test_optional_statistics_dependency.py test_scan_skill_release.py
+test_validate_writing_source_grounding.py test_public_export.py test_optional_statistics_dependency.py test_scan_skill_release.py test_safe_rendering.py
 '''.split())
 
 

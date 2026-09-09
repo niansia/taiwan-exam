@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from render_pdf import find_browser
+from safe_rendering import browser_flags, prepare_html
 
 
 REPORT_ID = "codex-fixed-page-layout-report"
@@ -110,10 +111,10 @@ INSTRUMENTATION = rf"""
 
 
 def _instrument(source: str) -> str:
-    marker = re.search(r"</body\s*>", source, re.IGNORECASE)
-    if marker:
-        return source[: marker.start()] + INSTRUMENTATION + source[marker.start() :]
-    return source + INSTRUMENTATION
+    if REPORT_ID in source:
+        raise ValueError('Input must not contain the reserved layout report identifier')
+    script = INSTRUMENTATION.strip().removeprefix('<script>').removesuffix('</script>')
+    return prepare_html(source, measurement_script=script)
 
 
 def validate_html(path: Path, browser: Path | None = None) -> dict[str, Any]:
@@ -125,8 +126,7 @@ def validate_html(path: Path, browser: Path | None = None) -> dict[str, Any]:
         completed = subprocess.run(
             [
                 str(executable),
-                "--headless=new",
-                "--disable-gpu",
+                *browser_flags(Path(tmp)),
                 "--virtual-time-budget=2000",
                 "--dump-dom",
                 probe.as_uri(),

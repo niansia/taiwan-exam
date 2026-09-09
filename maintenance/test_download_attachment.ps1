@@ -8,19 +8,25 @@ param(
 $ErrorActionPreference = 'Stop'
 $attachmentResult = @{ status='fail'; method='IAttachmentExecute.Save'; source_url=$SourceUrl }
 $attachmentWork = $null
+$attachmentStage = 'read-protection-preferences'
 try {
     $attachmentPreference = Get-MpPreference -ErrorAction Stop
+    $attachmentStage = 'read-protection-status'
     $attachmentStatus = Get-MpComputerStatus -ErrorAction Stop
     if ($attachmentPreference.DisableIOAVProtection -or $attachmentPreference.DisableRealtimeMonitoring -or -not $attachmentStatus.RealTimeProtectionEnabled) {
         throw 'Real-time and downloaded-attachment protection must be enabled'
     }
+    $attachmentStage = 'resolve-input'
     $attachmentInput = (Resolve-Path -LiteralPath $Archive -ErrorAction Stop).Path
+    $attachmentStage = 'hash-input'
     $attachmentHash = (Get-FileHash -LiteralPath $attachmentInput -Algorithm SHA256).Hash.ToLowerInvariant()
     $attachmentResult.archive_sha256 = $attachmentHash
     $attachmentWork = Join-Path ([IO.Path]::GetTempPath()) ('taiwan-exam-attachment-' + [Guid]::NewGuid().ToString('N'))
     [IO.Directory]::CreateDirectory($attachmentWork) | Out-Null
     $attachmentCopy = Join-Path $attachmentWork ([IO.Path]::GetFileName($attachmentInput))
+    $attachmentStage = 'copy-input'
     Copy-Item -LiteralPath $attachmentInput -Destination $attachmentCopy -ErrorAction Stop
+    $attachmentStage = 'load-attachment-api'
     Add-Type -TypeDefinition @'
 using System;
 using System.Runtime.InteropServices;
@@ -51,6 +57,7 @@ namespace TaiwanExamSecurity {
     }
 }
 '@
+    $attachmentStage = 'attachment-save'
     $attachmentReturn = [TaiwanExamSecurity.AttachmentCheck]::Check($attachmentCopy, $SourceUrl)
     $attachmentResult.hresult = $attachmentReturn
     $attachmentResult.hresult_hex = '0x' + $attachmentReturn.ToString('X8')
@@ -63,6 +70,10 @@ namespace TaiwanExamSecurity {
     }
     $attachmentResult.status = 'pass'
 } catch {
+    $attachmentResult.stage = $attachmentStage
+    if ($_.Exception -is [System.Management.Automation.CommandNotFoundException]) {
+        $attachmentResult.missing_command = $_.Exception.CommandName
+    }
     $attachmentResult.error = 'Attachment check failed; do not release (no automatic retry or protection bypass)'
     if (-not $attachmentResult.ContainsKey('hresult')) {
         $attachmentResult.error_type = $_.Exception.GetType().FullName

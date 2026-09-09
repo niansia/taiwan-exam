@@ -12,12 +12,14 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import os
+import re
 from pathlib import Path, PurePosixPath
 import subprocess
 import tempfile
 from zipfile import ZipFile
 
-RETIRED = {'scripts/paginate_chinese_natural.js', 'scripts/render_chinese_natural_proof.py'}
+RETIRED = {'scripts/paginate_chinese_natural.js', 'scripts/render_chinese_natural_proof.py',
+           'scripts/qa_gsat_internal_layout.js'}
 
 
 def digest(path):
@@ -62,6 +64,12 @@ def inspect_archive(archive, destination):
                 for path in destination.rglob('*') if path.is_file()}
 
 
+def windows_powershell_env():
+    # Python inherits PS7's module paths, unlike a direct powershell.exe launch.
+    # Reset only the child's module discovery, never device/security settings.
+    return {key: value for key, value in os.environ.items() if key.upper() != 'PSMODULEPATH'}
+
+
 def defender_status():
     if os.name != 'nt':
         raise RuntimeError('Publication scanner requires Windows Defender; no unchecked fallback')
@@ -69,7 +77,7 @@ def defender_status():
                'AntivirusSignatureVersion,AntivirusSignatureAge,AntivirusEnabled,'
                'RealTimeProtectionEnabled | ConvertTo-Json -Compress')
     result = subprocess.run(['powershell.exe', '-NoProfile', '-Command', command],
-                            capture_output=True, text=True, timeout=60, check=True)
+                            capture_output=True, text=True, timeout=60, check=True, env=windows_powershell_env())
     status = json.loads(result.stdout)
     if not status['AntivirusEnabled'] or not status['RealTimeProtectionEnabled']:
         raise RuntimeError('Defender must be enabled; scanner does not change its settings')
@@ -89,8 +97,10 @@ def defender_scan(path):
     result = subprocess.run([str(scanner), '-Scan', '-ScanType', '3', '-File', str(path),
                              '-DisableRemediation'], capture_output=True, text=True,
                             errors='replace', timeout=600)
-    return {'returncode': result.returncode,
-            'output': (result.stdout + result.stderr).replace(str(path), '<scan-target>')}
+    output = (result.stdout + result.stderr).replace(str(path), '<scan-target>')
+    # Scanner console encoding may corrupt non-ASCII paths before replacement.
+    output = re.sub(r'(?im)^Scanning .*?( found no threats\.)$', r'Scanning <scan-target>\1', output)
+    return {'returncode': result.returncode, 'output': output}
 
 
 def attachment_scan(archive):
@@ -100,10 +110,18 @@ def attachment_scan(archive):
     command = ['powershell.exe', '-NoProfile', '-NonInteractive', '-File', str(checker),
                '-Archive', str(archive), '-SourceUrl',
                'https://raw.githubusercontent.com/niansia/taiwan-exam/refs/heads/main/downloads/taiwan-exam-generator.zip']
-    result = subprocess.run(command, capture_output=True, text=True, errors='replace', timeout=180)
-    report = json.loads(result.stdout)
+    result = subprocess.run(command, capture_output=True, text=True, errors='replace', timeout=180,
+                            env=windows_powershell_env())
+    try:
+        raw = json.loads(result.stdout)
+    except (ValueError, TypeError):
+        return {'status': 'fail', 'returncode': result.returncode, 'error': 'Attachment checker produced no valid JSON'}
+    # Retain diagnostic codes, not arbitrary stderr or device paths. A checker
+    # failure must not be mislabeled as an antivirus detection or lose its cause.
+    report = {key: raw[key] for key in ('status', 'method', 'archive_sha256', 'hresult', 'hresult_hex', 'error_type', 'stage', 'missing_command') if key in raw}
+    report['returncode'] = result.returncode
     if result.returncode or report.get('status') != 'pass' or report.get('hresult') != 0:
-        raise RuntimeError('Downloaded-attachment check failed')
+        report['status'] = 'fail'
     return report
 
 
