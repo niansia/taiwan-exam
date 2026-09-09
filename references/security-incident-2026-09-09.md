@@ -1,8 +1,11 @@
 # Defender download detection: open investigation
 
 Distribution is suspended. This record is NOT a false-positive verdict.
-The Microsoft developer submission portal requires maintainer sign-in; no case
-number has been obtained. A prepared report is not a submitted case.
+Maintainer sign-in to the Microsoft developer submission portal is complete.
+The form has been prepared, but requires an actual file sample. The maintainer
+confirmed that no unquarantined original ZIP remains. No case number has been
+obtained; a prepared report is not a submitted case. Do not restore quarantined
+files or reconstruct a blocked archive to bypass protection for this workflow.
 
 ## Confirmed evidence
 
@@ -59,6 +62,19 @@ Only public project code and these sanitized facts are in scope for submission;
 private exam corpora, account data and raw device logs are not.
 
 ## Reopening criteria
+
+The end-user archive allowlist now excludes the maintainer-only packager,
+source exporter and Defender scanner. The source exporter separately preserves
+these tools and CI. Regression tests exercise this boundary using benign
+fixtures, not the withdrawn production archive. This packaging correction is
+not a determination of the detection trigger and does not resolve the incident.
+
+Do not interpret an Actions success while suspended as a fresh malware scan:
+the suspension branch checks that the install ZIP is absent and skips scans.
+The preview.3 passing reports are historical and precede its confirmed block.
+URL reputation, filename reuse and heuristic sensitivity to scanner commands
+remain unverified hypotheses. Versioned artifacts can improve traceability
+after clearance, but a new filename/URL cannot substitute for incident resolution.
 
 Resolve the incident through vendor determination or a documented substantive
 code fix with security review. Scan the exact candidate, validate its manifest,

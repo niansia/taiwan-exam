@@ -71,8 +71,8 @@ build_gsat_difficulty_profiles.py build_layout_review_queue.py
 build_official_question_queue.py build_paper_profiles.py build_pdf_contact_sheets.py
 build_question_candidates.py build_visual_queue.py download_ceec_gsat_statistics.py
 download_ceec_gsat.py exam_data.py import_ceec_gsat_difficulty.py ingest_gsat_bundle.py
-package_skill.py export_public_repo.py pack_verification.py pdf_provenance.py
-qa_gsat_internal_layout.js qa_math_current_form.py scan_skill_release.py
+pack_verification.py pdf_provenance.py
+qa_gsat_internal_layout.js qa_math_current_form.py
 render_exam.py render_gsat_internal_review_pdf.py render_gsat_internal_review.py
 render_gsat_official_pdf.py render_gsat_official.py render_pdf.py render_visual.py
 summarize_four_band_reference.py validate_attribution.py

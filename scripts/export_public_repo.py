@@ -12,6 +12,15 @@ import tempfile
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
+# Source-checkout tooling, never part of the end-user Skill archive. Keep this
+# explicit so ZIP minimization cannot silently remove publication/CI safeguards.
+MAINTAINER_FILES = (
+    'scripts/package_skill.py',
+    'scripts/export_public_repo.py',
+    'scripts/scan_skill_release.py',
+    'maintenance/test_download_attachment.ps1',
+    '.github/workflows/distribution-security.yml',
+)
 PUBLIC_TESTS = set('''
 test_attribution.py test_audit_corpus_overlap.py test_exam_pack_contract.py
 test_failed_stress_suite.py test_paper_difficulty_balance.py test_pdf_provenance.py
@@ -19,6 +28,21 @@ test_release_contract.py test_skill.py test_validate_english_layout_contract.py
 test_validate_english_vocabulary_scope.py test_validate_social_item_design.py
 test_validate_writing_source_grounding.py test_public_export.py test_optional_statistics_dependency.py test_scan_skill_release.py
 '''.split())
+
+
+def copy_maintainer_files(destination: Path) -> None:
+    for relative in MAINTAINER_FILES:
+        source = ROOT / relative
+        if not source.is_file() or source.is_symlink():
+            raise ValueError('Required maintainer tool missing or symlinked: ' + relative)
+    for relative in MAINTAINER_FILES:
+        target = destination / relative
+        if target.exists() or target.is_symlink():
+            raise ValueError('Maintainer export must not overwrite: ' + relative)
+    for relative in MAINTAINER_FILES:
+        target = destination / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / relative, target)
 
 
 def export(destination: Path, version: str, *, internal_review: bool = False) -> dict:
@@ -62,16 +86,7 @@ def export(destination: Path, version: str, *, internal_review: bool = False) ->
         shutil.copyfile(archive, destination / 'downloads/taiwan-exam-generator.zip')
         if not internal_review:
             shutil.copyfile(archive.with_suffix('.security.json'), destination / 'downloads/security-scan.json')
-        workflow = ROOT / '.github/workflows/distribution-security.yml'
-        if workflow.is_file():
-            target = destination / '.github/workflows/distribution-security.yml'
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(workflow, target)
-        attachment_checker = ROOT / 'maintenance/test_download_attachment.ps1'
-        if attachment_checker.is_file():
-            target = destination / 'maintenance/test_download_attachment.ps1'
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(attachment_checker, target)
+        copy_maintainer_files(destination)
     return dict(destination=str(destination), public_test_files=test_count,
                 status='internal-review' if internal_review else 'publication-candidate',
                 published=False, exam_acceptance=False)

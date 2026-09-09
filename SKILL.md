@@ -49,6 +49,8 @@ For adapting, rebranding or packaging the Skill itself, read `NOTICE`,
 Keep current branding distinct from upstream attribution. These public guidance
 and packaging checks do not add an account/approval step to ordinary exam use.
 Before distributing a Skill update, also follow [references/software-release-security.md](references/software-release-security.md).
+Publishing tools are source-checkout-only; their absence from an installed Skill
+is intentional and does not require reinstalling it to generate exams.
 Antivirus checks apply to software publication, not every exam request. Never
 ask users to disable protection, restore quarantined scripts, or add exclusions.
 

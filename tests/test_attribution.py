@@ -91,6 +91,11 @@ def test_missing_notice_stops_packaging_before_touching_output(project, monkeypa
 
 
 def test_packager_keeps_notices_and_reports_limited_scope(project, monkeypatch):
+    # Benign fixture archive: never rebuild the blocked production sample.
+    for name in ('package_skill.py', 'export_public_repo.py', 'scan_skill_release.py', 'render_pdf.py', 'validate_fixed_page_html.py'):
+        tool = project / 'scripts' / name
+        tool.parent.mkdir(exist_ok=True)
+        tool.write_text('# benign fixture', encoding='utf-8')
     archive = project / "dist" / "preview.zip"
     monkeypatch.setattr(package_skill, "ROOT", project)
     monkeypatch.setattr(sys, "argv", ["package_skill.py", "--output", str(archive)])
@@ -103,6 +108,12 @@ def test_packager_keeps_notices_and_reports_limited_scope(project, monkeypatch):
         assert manifest["distribution_status"] == "internal-review"
         assert manifest["origin"]["upstream"]["name"] == "Taiwan Exam"
         assert manifest["exam_acceptance"] == "not-established-by-packager"
+        names = set(zipped.namelist())
+        for name in ('package_skill.py', 'export_public_repo.py', 'scan_skill_release.py'):
+            assert prefix + 'scripts/' + name not in names
+        for name in ('render_pdf.py', 'validate_fixed_page_html.py'):
+            assert prefix + 'scripts/' + name in names
+        assert {entry['path'] for entry in manifest['files']} == {name.removeprefix(prefix) for name in names if not name.endswith('/PACKAGE_MANIFEST.json')}
 
 
 def test_public_release_is_not_silently_enabled(project, monkeypatch):

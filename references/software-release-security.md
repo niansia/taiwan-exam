@@ -3,6 +3,21 @@
 This workflow is for maintainers publishing Skill code, not ordinary users
 generating papers. It is separate from educational quality and attribution.
 
+## Source checkout versus installed Skill
+
+`scripts/package_skill.py`, `scripts/export_public_repo.py` and
+`scripts/scan_skill_release.py` belong only to the maintainer's source checkout,
+alongside `.github/workflows/distribution-security.yml` and
+`maintenance/test_download_attachment.ps1`. The end-user ZIP excludes all five.
+The source exporter copies them separately through an explicit allowlist and
+fails if any is missing; CI and publication scans must continue to work.
+Run this publication workflow from the source checkout, not an installed Skill.
+Exam generation, rendering and required content/layout validators stay in the
+Skill. This separation reduces unnecessary distribution content; it is NOT
+evidence that any maintainer script caused the antivirus detection.
+
+## Open incident and release checks
+
 On 2026-09-09 Defender detected `Trojan:Script/Wacatac.H!ml` in preview.2's
 legacy `paginate_chinese_natural.js` and `render_chinese_natural_proof.py`.
 Vendor confirmation of a false positive has NOT been obtained. These unused
