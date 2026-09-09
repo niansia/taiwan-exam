@@ -2,10 +2,11 @@
 
 Distribution is suspended. This record is NOT a false-positive verdict.
 Maintainer sign-in to the Microsoft developer submission portal is complete.
-The form now has a newly built, hardened review candidate selected for upload.
+Microsoft accepted the hardened review candidate on 2026-09-09 at 15:01:26 UTC
+(23:01:26 Asia/Taipei). The portal returned a submission identifier to the
+maintainer and showed status `Submitted`, final determination `Pending`.
 The original quarantined ZIP remains unavailable; the new candidate is not a
-replacement for historical sample evidence. Final submission is pending; no
-case number has been obtained. A prepared form is not a submitted case. Do not restore quarantined
+replacement for historical sample evidence. Submission is not clearance. Do not restore quarantined
 files or reconstruct a blocked archive to bypass protection for this workflow.
 
 ## Confirmed evidence
@@ -76,7 +77,17 @@ That client block is not evidence of a new Defender detection; its cause is
 unresolved. It was not bypassed. Neither the local passes nor a different URL
 constitutes browser acceptance. Public installation downloads remain suspended.
 
-## Microsoft analysis request (prepared, NOT submitted)
+## Microsoft analysis request (submitted; final determination pending)
+
+The exact internal candidate identified above was submitted through the
+Microsoft developer portal after maintainer authorization and human verification.
+The initial result page showed `Pending` for final determination and current
+detection, while its Cloud and Client protection indicators displayed
+`Scan completed: Malware detected`. The client definition shown was
+`1.459.128.0`. No analyst comments or final classification were available.
+These mixed initial portal fields are recorded as observed, not interpreted as
+a confirmed false positive, a particular new threat family, or a clean result.
+The account-bound case link is retained by the maintainer, not published here.
 
 Please investigate this public educational software package, especially the
 discrepancy between custom scans and download/attachment FastPath detection with
@@ -84,7 +95,7 @@ the same Defender engine and intelligence versions. Please determine whether
 the identified files are malicious or misclassified, and provide a submission
 ID, final determination and applicable intelligence update. We withdrew the ZIP
 without disabling protection, adding exclusions, restoring quarantined code or
-repackaging to avoid detection. The prepared form explicitly identifies the new
+repackaging to avoid detection. The submitted form explicitly identifies the new
 candidate hash, historical preview.3 detection, local passing checks and the
 separate Chrome client block. It requests assessment rather than asserting a
 confirmed false positive. Public substantive fix revision: `c466b33`.
