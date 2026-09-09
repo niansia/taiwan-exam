@@ -77,6 +77,19 @@ That client block is not evidence of a new Defender detection; its cause is
 unresolved. It was not bypassed. Neither the local passes nor a different URL
 constitutes browser acceptance. Public installation downloads remain suspended.
 
+At 2026-09-09 15:09:43 UTC, after the normal Defender intelligence update to
+`1.459.128.0`, the same candidate again passed archive and extracted-member
+scans and Attachment Services Save (HRESULT 0, unchanged archive SHA-256).
+Unlike the earlier check, this version 3 report used and recorded the actual
+maintainer-only draft-release asset source URL. It does not test a future public
+release URL. The passing raw report is retained with the internal candidate.
+A subsequent normal Chrome download of that same draft asset still ended at
+`ERR_BLOCKED_BY_CLIENT`; no completed candidate download was available to hash.
+No protection was disabled or bypassed. Microsoft final determination remains
+pending. Commit `0f91058` corrects source-URL evidence binding, with 165 software
+tests passing and two private-fixture-dependent tests skipped; its passing CI
+while distribution is suspended checks withdrawal, not antivirus clearance.
+
 ## Microsoft analysis request (submitted; final determination pending)
 
 The exact internal candidate identified above was submitted through the
