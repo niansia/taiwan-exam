@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "kinds": [
+    "coordinate_graph",
+    "geometry_diagram",
+    "statistical_chart",
+    "data_table",
+    "map",
+    "timeline",
+    "circuit",
+    "experimental_setup",
+    "biological_illustration",
+    "chemical_structure",
+    "photo",
+    "document_facsimile",
+    "other"
+  ],
+  "exact_visuals": [
+    "coordinate_graph",
+    "geometry_diagram",
+    "statistical_chart",
+    "data_table",
+    "timeline",
+    "circuit",
+    "chemical_structure"
+  ],
+  "common_subtypes": {
+    "map": ["reference", "choropleth", "cartogram", "topographic_contour", "thematic", "route"],
+    "photo": ["single_context", "option_grid", "comparison_pair", "documentary"],
+    "biological_illustration": ["historical_line_art", "anatomical", "cellular", "process_sequence"],
+    "experimental_setup": ["apparatus", "measurement_readout", "process_flow"],
+    "statistical_chart": ["bar", "line", "scatter", "histogram", "box_plot", "pie"]
+  },
+  "difficulty_dimensions": [
+    "information_density",
+    "visual_reasoning_steps",
+    "entity_count",
+    "panel_count",
+    "label_count",
+    "data_series_count",
+    "distractor_salience"
+  ],
+  "minimum_print_checks": [
+    "semantic_consistency",
+    "label_consistency",
+    "answer_not_leaked",
+    "grayscale_legibility",
+    "print_legibility",
+    "accessibility_text_safe"
+  ]
+}

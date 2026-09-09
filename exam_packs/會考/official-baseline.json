@@ -1,0 +1,39 @@
+{
+  "verified_on": "2026-09-03",
+  "calibration_level": "official-structure-only",
+  "curriculum": "108",
+  "scope": "十二年國民基本教育課程綱要第四學習階段學習表現及學習內容",
+  "subjects": {
+    "國文": {
+      "sections": ["國文"],
+      "allowed_question_types": ["single_choice"]
+    },
+    "英語": {
+      "sections": ["閱讀", "聽力"],
+      "allowed_question_types": ["single_choice", "listening_choice"]
+    },
+    "數學": {
+      "sections": ["選擇題", "非選擇題"],
+      "allowed_question_types": ["single_choice", "constructed_response"]
+    },
+    "社會": {
+      "sections": ["社會"],
+      "domains": ["歷史", "地理", "公民"],
+      "allowed_question_types": ["single_choice"]
+    },
+    "自然": {
+      "sections": ["自然"],
+      "domains": ["物理", "化學", "生物", "地球科學"],
+      "allowed_question_types": ["single_choice"]
+    },
+    "寫作測驗": {
+      "sections": ["引導寫作"],
+      "allowed_question_types": ["guided_writing"]
+    }
+  },
+  "sources": [
+    "https://cap.rcpet.edu.tw/",
+    "https://www.k12ea.gov.tw/Tw/News/K12eaNewsDetail?filter=9F92BBB7-0251-4CB7-BF06-82385FD996A0&id=3c3df902-a82c-44e0-9b4f-f977fb7da581"
+  ],
+  "warning": "各年度題數、配分與細部格式須以該年度官方文件或匯入的歷屆 metadata 為準，不在基線中猜測。"
+}

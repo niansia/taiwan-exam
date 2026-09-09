@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "question_types": [
+    "single_choice",
+    "multiple_choice",
+    "fill_in",
+    "constructed_response",
+    "mixed_group",
+    "guided_writing",
+    "listening_choice"
+  ],
+  "difficulty_scale": {
+    "minimum": 1,
+    "maximum": 5,
+    "dimensions": [
+      "overall",
+      "concept_depth",
+      "calculation_depth",
+      "reasoning_steps",
+      "reading_load",
+      "novelty",
+      "distractor_strength"
+    ],
+    "bands": {
+      "easy": [1, 2],
+      "medium": [3, 3],
+      "medium_hard": [4, 4],
+      "hard": [5, 5]
+    }
+  },
+  "calibration_levels": [
+    "historically-calibrated",
+    "official-structure-only",
+    "exploratory-uncalibrated"
+  ]
+}

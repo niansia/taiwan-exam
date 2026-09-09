@@ -1,0 +1,33 @@
+{
+  "paper_id": "gsat-2026-example-math-a",
+  "exam": "學測",
+  "year": 2026,
+  "subject": "數學A",
+  "section": null,
+  "curriculum": "108",
+  "regime": "111學年度起",
+  "publisher": null,
+  "bundle": null,
+  "source_kind": "reference_paper",
+  "source_files": [
+    {
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "relative_path": "replace-with-authorized-source.pdf",
+      "role": "question",
+      "page_count": null
+    }
+  ],
+  "duration_minutes": 100,
+  "total_score": null,
+  "numbered_question_count": null,
+  "scored_item_count": null,
+  "structure_status": "needs_review",
+  "sections": [],
+  "layout": {"paper_size": "A4", "columns": 1, "answer_sheet_mode": "卷卡合一"},
+  "evidence": {
+    "method": "unparsed",
+    "confidence": 0,
+    "notes": "Fill exact section counts and scoring before using for full simulation.",
+    "reviewed_at": null
+  }
+}

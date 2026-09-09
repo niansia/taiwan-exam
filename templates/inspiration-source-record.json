@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source_id": "src-example",
+  "canonical_url": "https://example.org/source",
+  "publisher": "Example publisher",
+  "title": "Example title",
+  "published_at": "2026-01-01",
+  "updated_at": null,
+  "accessed_at": "2026-09-04",
+  "editorial_lock_at": "2026-09-04",
+  "simulated_exam_at": "2027-01-01",
+  "source_family": "official_technical_information",
+  "authority_class": "primary",
+  "rights_status": "facts_only_research",
+  "factual_stability": "stable_snapshot",
+  "verified_facts": [
+    "Replace with a short independently verified fact."
+  ],
+  "volatile_claims": [],
+  "invented_modelling_values": [],
+  "source_affordances": [
+    "Replace with a relationship or representation that can materially shape a task."
+  ],
+  "forbidden_surface_hooks": [
+    "Do not use the topic name as decoration."
+  ],
+  "curriculum_bridge_candidates": [
+    "candidate-one",
+    "candidate-two",
+    "candidate-three"
+  ],
+  "paraphrase_strategy": "fact-led original synthesis",
+  "fact_check_status": "pending",
+  "notes": "Template values are placeholders and are not evidence of a pass."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "basis": "Aggregate physical-PDF measurements of supplied CEEC ROC 111-115; includes cover. Not a verified Layout Profile.",
+  "subjects": [
+    {"subject": "國綜", "papers": [
+      {"roc_year": 111, "page_count": 12, "aggregate": {"compact_chars": 12202}},
+      {"roc_year": 112, "page_count": 12, "aggregate": {"compact_chars": 12885}},
+      {"roc_year": 113, "page_count": 12, "aggregate": {"compact_chars": 13268}},
+      {"roc_year": 114, "page_count": 12, "aggregate": {"compact_chars": 13034}},
+      {"roc_year": 115, "page_count": 12, "aggregate": {"compact_chars": 13319}}
+    ]},
+    {"subject": "自然", "papers": [
+      {"roc_year": 111, "page_count": 20, "aggregate": {"compact_chars": 13909}},
+      {"roc_year": 112, "page_count": 20, "aggregate": {"compact_chars": 15970}},
+      {"roc_year": 113, "page_count": 19, "aggregate": {"compact_chars": 14995}},
+      {"roc_year": 114, "page_count": 20, "aggregate": {"compact_chars": 14478}},
+      {"roc_year": 115, "page_count": 20, "aggregate": {"compact_chars": 15495}}
+    ]}
+  ]
+}

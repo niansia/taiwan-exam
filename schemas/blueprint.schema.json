@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learned exam blueprint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "exam",
+    "subject",
+    "record_count",
+    "years",
+    "metadata_fingerprint",
+    "distributions",
+    "joint_patterns"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "exam": {"type": "string"},
+    "subject": {"type": "string"},
+    "curricula": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "record_count": {"type": "integer", "minimum": 1},
+    "years": {
+      "type": "object",
+      "required": ["minimum", "maximum", "counts"],
+      "properties": {
+        "minimum": {"type": "integer"},
+        "maximum": {"type": "integer"},
+        "counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1}}
+      }
+    },
+    "metadata_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "built_at": {"type": "string", "format": "date-time"},
+    "calibration_status": {"type": "string", "enum": ["ready", "insufficient-data"]},
+    "calibration_by_curriculum": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["record_count", "year_count", "status"],
+        "properties": {
+          "record_count": {"type": "integer", "minimum": 1},
+          "year_count": {"type": "integer", "minimum": 1},
+          "status": {"type": "string", "enum": ["ready", "insufficient-data"]}
+        }
+      }
+    },
+    "calibration_notes": {"type": "array", "items": {"type": "string"}},
+    "distributions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "required": ["count", "proportion"],
+          "properties": {
+            "count": {"type": "integer", "minimum": 1},
+            "proportion": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        }
+      }
+    },
+    "joint_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["pattern", "count", "proportion"],
+        "properties": {
+          "pattern": {"type": "object"},
+          "count": {"type": "integer", "minimum": 1},
+          "proportion": {"type": "number", "minimum": 0, "maximum": 1},
+          "source_question_ids": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

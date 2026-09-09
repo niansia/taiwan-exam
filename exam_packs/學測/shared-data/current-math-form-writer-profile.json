@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-04T06:46:22.179964+00:00",
+  "source_visibility": "aggregate-only",
+  "individual_question_numbers_included": false,
+  "source_paths_included": false,
+  "policy": {
+    "primary_form_years": [
+      111,
+      112,
+      113,
+      114,
+      115
+    ],
+    "official_role": "authoritative structure, difficulty, and final layout shell",
+    "publisher_mock_role": "supplementary current-form variation",
+    "unlabeled_common_math_role": "shared-unit and print-form evidence only; never a Math A/B full-paper distribution",
+    "roc_100_110_role": "content scope and abstract item archetypes only"
+  },
+  "official": {
+    "數學A": {
+      "paper_count": 5,
+      "subjects": {
+        "數學A": 5
+      },
+      "roc_years": [
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "selected_item_count_detected": 65,
+      "selected_item_character_p25": 160.0,
+      "selected_item_character_median": 199.0,
+      "selected_item_character_p75": 242.0,
+      "horizontal_option_share": 0.5077,
+      "method_warning": "PDF text-layer heuristic; use rendered-page review for promotion.",
+      "canonical_option_layout_counts": {
+        "grid-3-2": 4,
+        "row-5": 24,
+        "stack-5": 32
+      },
+      "unclassified_layout_signal_count": 5
+    },
+    "數學B": {
+      "paper_count": 5,
+      "subjects": {
+        "數學B": 5
+      },
+      "roc_years": [
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "selected_item_count_detected": 65,
+      "selected_item_character_p25": 165.0,
+      "selected_item_character_median": 215.0,
+      "selected_item_character_p75": 296.0,
+      "horizontal_option_share": 0.4923,
+      "method_warning": "PDF text-layer heuristic; use rendered-page review for promotion.",
+      "canonical_option_layout_counts": {
+        "grid-2-2-1": 1,
+        "grid-3-2": 7,
+        "row-5": 22,
+        "stack-5": 33
+      },
+      "unclassified_layout_signal_count": 2
+    }
+  },
+  "publisher_mocks": {
+    "數學A": {
+      "paper_count": 4,
+      "subjects": {
+        "數學A": 4
+      },
+      "roc_years": [
+        111,
+        113,
+        114
+      ],
+      "selected_item_count_detected": 36,
+      "selected_item_character_p25": 167.5,
+      "selected_item_character_median": 191.5,
+      "selected_item_character_p75": 309.8,
+      "horizontal_option_share": 0.3611,
+      "method_warning": "PDF text-layer heuristic; use rendered-page review for promotion.",
+      "canonical_option_layout_counts": {
+        "grid-3-2": 4,
+        "row-5": 5,
+        "stack-5": 20
+      },
+      "unclassified_layout_signal_count": 7
+    },
+    "數學B": {
+      "paper_count": 5,
+      "subjects": {
+        "數學B": 5
+      },
+      "roc_years": [
+        111,
+        113,
+        114
+      ],
+      "selected_item_count_detected": 48,
+      "selected_item_character_p25": 117.8,
+      "selected_item_character_median": 174.5,
+      "selected_item_character_p75": 278.8,
+      "horizontal_option_share": 0.7083,
+      "method_warning": "PDF text-layer heuristic; use rendered-page review for promotion.",
+      "canonical_option_layout_counts": {
+        "grid-3-2": 13,
+        "row-5": 13,
+        "stack-5": 9
+      },
+      "unclassified_layout_signal_count": 13
+    },
+    "數學（共同範圍模考）": {
+      "paper_count": 9,
+      "subjects": {
+        "數學（共同範圍模考）": 9
+      },
+      "roc_years": [
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "selected_item_count_detected": 66,
+      "selected_item_character_p25": 129.8,
+      "selected_item_character_median": 198.0,
+      "selected_item_character_p75": 284.5,
+      "horizontal_option_share": 0.2121,
+      "method_warning": "PDF text-layer heuristic; use rendered-page review for promotion.",
+      "canonical_option_layout_counts": {
+        "grid-2-2-1": 1,
+        "grid-3-2": 9,
+        "row-5": 2,
+        "stack-5": 39
+      },
+      "unclassified_layout_signal_count": 15
+    }
+  },
+  "release_note": "Layout counts are heuristic aggregates; the renderer still requires an explicit per-item option_layout and rendered-page verification."
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-04T07:22:05.146815+00:00",
+  "method": "PDF resource and drawing-operator heuristic; it identifies candidate pages, not semantic visual types.",
+  "pdf_count": 654,
+  "successful": 643,
+  "failed": 11,
+  "visual_signal_counts": {
+    "raster": 433,
+    "vector": 50,
+    "mixed": 160,
+    "unknown": 11
+  },
+  "by_subject": {
+    "shared": {
+      "vector": 1,
+      "raster": 4
+    },
+    "國文": {
+      "raster": 123,
+      "mixed": 33,
+      "vector": 29,
+      "unknown": 2
+    },
+    "數學A": {
+      "raster": 14,
+      "mixed": 7,
+      "unknown": 1,
+      "vector": 1
+    },
+    "數學B": {
+      "raster": 14,
+      "mixed": 8,
+      "unknown": 1,
+      "vector": 1
+    },
+    "數學（共同範圍模考）": {
+      "raster": 62,
+      "mixed": 6,
+      "vector": 10
+    },
+    "數學（舊制）": {
+      "mixed": 10,
+      "vector": 1
+    },
+    "社會": {
+      "raster": 69,
+      "mixed": 32,
+      "unknown": 4
+    },
+    "自然": {
+      "mixed": 35,
+      "raster": 67,
+      "unknown": 2
+    },
+    "英文": {
+      "raster": 80,
+      "mixed": 29,
+      "vector": 7,
+      "unknown": 1
+    }
+  },
+  "by_role": {
+    "question": {
+      "raster": 351,
+      "mixed": 158,
+      "vector": 49,
+      "unknown": 11
+    },
+    "question_and_solution": {
+      "vector": 1,
+      "raster": 82,
+      "mixed": 2
+    }
+  },
+  "by_publisher": {
+    "None": {
+      "raster": 220,
+      "vector": 4,
+      "mixed": 24
+    },
+    "南一": {
+      "raster": 115,
+      "mixed": 21
+    },
+    "大學入學考試中心": {
+      "mixed": 82,
+      "vector": 12
+    },
+    "文昌": {
+      "raster": 24
+    },
+    "文昌版缺社會及有字跡文稿": {
+      "raster": 3
+    },
+    "翰林": {
+      "vector": 34,
+      "mixed": 33,
+      "raster": 58,
+      "unknown": 11
+    },
+    "銓達": {
+      "raster": 13
+    }
+  },
+  "candidate_page_count": 8647
+}

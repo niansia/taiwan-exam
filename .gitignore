@@ -1,0 +1,36 @@
+# User-owned or copyrighted source material stays local.
+exam_packs/**/歷屆試題/*
+exam_packs/**/模擬考/*
+exam_packs/**/format-references/*
+exam_packs/**/answer-profiles/*
+exam_packs/**/official-statistics/*
+exam_packs/**/命題範圍/*
+
+# Keep the guidance files that make empty intake folders visible in Git.
+!exam_packs/**/歷屆試題/放資料到這裡.md
+!exam_packs/**/模擬考/放資料到這裡.md
+!exam_packs/**/format-references/放格式範例到這裡.md
+!exam_packs/**/answer-profiles/放詳解格式到這裡.md
+!exam_packs/**/命題範圍/放命題範圍到這裡.md
+
+tmp/
+output/
+dist/
+.playwright-cli/
+.pytest_cache/
+drive-download*/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Production signing keys belong outside this repository. Defense in depth only.
+.secrets/
+secrets/
+.env
+.env.*
+*.private.pem
+*-private.pem
+*.key
+*.p12
+*.pfx

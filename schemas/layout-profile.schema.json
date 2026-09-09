@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/taiwan-exam/layout-profile.schema.json",
+  "title": "Verified formal exam layout profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id", "exam", "subject", "regime", "fidelity_status", "source_files",
+    "page_geometry", "cover", "instructions", "running_elements", "evidence"
+  ],
+  "properties": {
+    "profile_id": {"type": "string", "pattern": "^[A-Za-z0-9_.:-]+$"},
+    "exam": {"type": "string", "enum": ["學測", "會考"]},
+    "subject": {"type": "string", "minLength": 1},
+    "section": {"type": ["string", "null"]},
+    "curriculum": {"type": ["string", "null"]},
+    "regime": {"type": "string", "minLength": 1},
+    "reference_year": {"type": "integer", "minimum": 1900, "maximum": 2200},
+    "fidelity_status": {"type": "string", "enum": ["verified", "reference-only", "generic"]},
+    "source_files": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["sha256", "relative_path"],
+        "properties": {
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "relative_path": {"type": "string"},
+          "page_count": {"type": ["integer", "null"], "minimum": 1}
+        }
+      }
+    },
+    "page_geometry": {"type": "object"},
+    "cover": {"type": "object"},
+    "instructions": {
+      "type": "object",
+      "required": ["transcription_status", "blocks"],
+      "properties": {
+        "transcription_status": {"type": "string", "enum": ["verified", "draft", "missing"]},
+        "blocks": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "typography": {"type": "object"},
+    "section_styles": {"type": "array", "items": {"type": "object"}},
+    "question_styles": {"type": "object"},
+    "running_elements": {"type": "object"},
+    "pagination": {"type": "object"},
+    "visual_diff": {"type": "object"},
+    "evidence": {
+      "type": "object",
+      "required": ["method", "confidence"],
+      "properties": {
+        "method": {"type": "string"},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+        "notes": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

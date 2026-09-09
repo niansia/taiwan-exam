@@ -1,0 +1,12 @@
+{
+  "id": "gsat",
+  "name": "學科能力測驗",
+  "folder": "學測",
+  "pack_version": "0.2.0",
+  "schema_version": 1,
+  "default_curriculum": "108",
+  "subjects": ["國文", "英文", "數學A", "數學B", "社會", "自然"],
+  "historical_subjects": ["數學（舊制）", "數學（共同範圍模考）"],
+  "official_baseline": "official-baseline.json",
+  "status": "awaiting_historical_metadata"
+}

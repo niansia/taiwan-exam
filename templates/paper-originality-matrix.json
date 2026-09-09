@@ -1,0 +1,22 @@
+{
+  "llm_original_generation_contract": {
+    "all_items_generated_fresh": true,
+    "inherits_legacy_question_content": false,
+    "source_access_mode": "aggregate-only"
+  },
+  "paper_originality_matrix": {
+    "dimensions": [
+      "unit and cross-unit combination",
+      "mechanism family",
+      "domain family",
+      "representation and visual topology",
+      "cognitive-operation sequence",
+      "response and answer form",
+      "misconception family"
+    ],
+    "motif_saturation": "pending",
+    "historical-paper-sequence-match": "pending",
+    "reviewer_decision": "pending"
+  },
+  "mixed_group_originality_records": []
+}

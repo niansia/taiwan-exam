@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/taiwan-exam/difficulty-profile.schema.json",
+  "title": "Official difficulty calibration profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "exam",
+    "subject",
+    "curricula",
+    "official_item_statistics_count",
+    "source_fingerprint"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "exam": {"type": "string"},
+    "subject": {"type": "string"},
+    "built_at": {"type": "string", "format": "date-time"},
+    "official_item_statistics_count": {"type": "integer", "minimum": 1},
+    "source_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "band_definition": {"type": "object"},
+    "curricula": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status", "year_count", "measured_item_count", "overall", "by_section", "by_question_number"],
+        "properties": {
+          "status": {"type": "string", "enum": ["ready", "insufficient-data"]},
+          "scope": {"type": "string"},
+          "full_paper_status": {"type": "string", "enum": ["ready", "insufficient-data"]},
+          "year_count": {"type": "integer", "minimum": 1},
+          "roc_years": {"type": "array", "items": {"type": "integer"}, "uniqueItems": true},
+          "measured_item_count": {"type": "integer", "minimum": 1},
+          "overall": {"type": "object"},
+          "by_section": {"type": "object"},
+          "by_question_number": {"type": "object"},
+          "limitations": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

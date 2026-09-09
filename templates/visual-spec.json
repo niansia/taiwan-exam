@@ -1,0 +1,52 @@
+{
+  "kind": "coordinate_graph",
+  "subtype": "polyline",
+  "layout": "single",
+  "role": "required_for_solution",
+  "generation_mode": "deterministic_svg",
+  "information_density": 2,
+  "visual_reasoning_steps": 2,
+  "entity_count": 3,
+  "panel_count": 1,
+  "label_count": 4,
+  "data_series_count": 1,
+  "distractor_salience": 2,
+  "precision": "data_exact",
+  "scale_required": true,
+  "color_dependency": false,
+  "tonal_transform": "none",
+  "answer_bearing_features": [
+    "折線各頂點的位置與座標標籤"
+  ],
+  "answer_evidence_survives_grayscale": true,
+  "target_print_width_mm": 95,
+  "min_raster_dpi": null,
+  "alt_text": "座標平面上有一條折線，依序通過三個已標示座標的點。",
+  "caption": null,
+  "semantic_data": {
+    "title": "",
+    "x_min": -1,
+    "x_max": 5,
+    "y_min": -1,
+    "y_max": 5,
+    "x_label": "x",
+    "y_label": "y",
+    "series": [
+      {"label": "", "points": [[0, 1], [2, 3], [4, 2]], "connect": true}
+    ]
+  },
+  "source_rights": "original",
+  "redraw_permitted": true,
+  "difficulty_basis": "estimated",
+  "source_pattern_ids": [],
+  "validation_checks": [
+    "semantic_consistency",
+    "label_consistency",
+    "scale_consistency",
+    "answer_not_leaked",
+    "grayscale_legibility",
+    "print_legibility",
+    "accessibility_text_safe",
+    "rights_verified"
+  ]
+}

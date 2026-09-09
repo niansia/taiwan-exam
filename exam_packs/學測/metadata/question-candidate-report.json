@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-04T07:18:25.557196+00:00",
+  "candidate_count": 965,
+  "promoted_count": 965,
+  "recovered_from_prior_blueprint_count": 200,
+  "review_queue_count": 768,
+  "review_queue_by_subject": {
+    "國文": 4,
+    "數學A": 20,
+    "數學B": 20,
+    "數學（共同範圍模考）": 100,
+    "自然": 619,
+    "英文": 5
+  },
+  "by_subject": {
+    "國文": 343,
+    "社會": 331,
+    "英文": 291
+  },
+  "skipped": {
+    "paper_profile_not_ready": 517,
+    "missing_explicit_unit_or_difficulty": 768,
+    "no_extractable_solution": 53
+  },
+  "status": "promoted after schema validation; rebuild blueprints"
+}

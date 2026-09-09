@@ -1,0 +1,130 @@
+{
+  "verified_on": "2026-09-03",
+  "calibration_level": "official-structure-only",
+  "curriculum": "108",
+  "subjects": {
+    "國文": {
+      "sections": ["國綜", "國寫"],
+      "scope": ["必修國文"],
+      "duration_minutes_by_section": {"國綜": 90, "國寫": 90},
+      "notes": "國綜與國寫分節施測，合為國文考科；成績各占國文考科50%。"
+    },
+    "英文": {
+      "sections": ["英文"],
+      "duration_minutes": 100,
+      "scope": ["必修英文"]
+    },
+    "數學A": {
+      "sections": ["數學A"],
+      "duration_minutes": 100,
+      "scope": ["10年級必修數學", "11年級必修數學A類"]
+    },
+    "數學B": {
+      "sections": ["數學B"],
+      "duration_minutes": 100,
+      "scope": ["10年級必修數學", "11年級必修數學B類"]
+    },
+    "社會": {
+      "sections": ["社會"],
+      "duration_minutes": 110,
+      "domains": ["歷史", "地理", "公民與社會"],
+      "scope": ["部定必修"]
+    },
+    "自然": {
+      "sections": ["自然"],
+      "duration_minutes": 110,
+      "domains": ["物理", "化學", "生物", "地球科學", "探究與實作"],
+      "scope": ["部定必修"]
+    }
+  },
+  "allowed_question_types": [
+    "single_choice",
+    "multiple_choice",
+    "fill_in",
+    "constructed_response",
+    "mixed_group"
+  ],
+  "reference_paper_architecture": {
+    "status": "official-reference-not-universal-annual-fixed-count",
+    "source_label": "111學測公告版各科參考試卷架構",
+    "國綜": [
+      {
+        "variant": "卷一",
+        "sections": [
+          {"title": "第一部分：選擇題（含選填題）", "numbered_question_count": 27, "subtotal_score": 66},
+          {"title": "第二部分：混合題", "group_count": 3, "subtotal_score": 34}
+        ],
+        "selected_score": 72,
+        "non_selected_score": 28,
+        "total_score": 100
+      },
+      {
+        "variant": "卷二",
+        "sections": [
+          {"title": "第一部分：選擇題（含選填題）", "numbered_question_count": 29, "subtotal_score": 70},
+          {"title": "第二部分：混合題", "group_count": 2, "subtotal_score": 30}
+        ],
+        "selected_score": 78,
+        "non_selected_score": 22,
+        "total_score": 100
+      }
+    ],
+    "國寫": {
+      "sections": [{"title": "非選擇題", "major_prompt_count": 2, "subtotal_score": 50}],
+      "total_score": 50
+    },
+    "英文": {
+      "sections": [
+        {"title": "第一部分：選擇題（含選填題）", "numbered_question_count": 46, "subtotal_score": 62},
+        {"title": "第二部分：混合題", "group_count": 1, "subtotal_score": 10},
+        {"title": "第二部分：非選擇題", "major_prompt_count": 2, "subtotal_score": 28}
+      ],
+      "selected_score": 64,
+      "non_selected_score": 36,
+      "total_score": 100
+    },
+    "數學A": {
+      "sections": [
+        {"title": "第一部分：選擇題（含選填題）", "numbered_question_count": 17, "subtotal_score": 85},
+        {"title": "第二部分：混合題", "group_count": 1, "subtotal_score": 15}
+      ],
+      "selected_score": 90,
+      "non_selected_score": 10,
+      "total_score": 100
+    },
+    "數學B": {
+      "sections": [
+        {"title": "第一部分：選擇題（含選填題）", "numbered_question_count": 17, "subtotal_score": 85},
+        {"title": "第二部分：混合題", "group_count": 1, "subtotal_score": 15}
+      ],
+      "selected_score": 88,
+      "non_selected_score": 12,
+      "total_score": 100
+    },
+    "社會": {
+      "sections": [
+        {"title": "第一部分：選擇題（含選填題）", "numbered_question_count": 35, "subtotal_score": 70},
+        {"title": "第二部分：混合題", "group_count": 7, "subtotal_score": 64},
+        {"title": "第二部分：非選擇題", "major_prompt_count": 2, "subtotal_score": 10}
+      ],
+      "selected_score": 104,
+      "non_selected_score": 40,
+      "total_score": 144
+    },
+    "自然": {
+      "sections": [
+        {"title": "第一部分：選擇題（含選填題）", "numbered_question_count": 36, "subtotal_score": 72},
+        {"title": "第二部分：混合題", "group_count": 6, "subtotal_score": 56}
+      ],
+      "selected_score": 96,
+      "non_selected_score": 32,
+      "total_score": 128
+    }
+  },
+  "sources": [
+    "https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634",
+    "https://www.ceec.edu.tw/files/file_pool/1/0N118338559321973589/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%E7%B8%BD%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29.pdf",
+    "https://www.ceec.edu.tw/files/file_pool/1/0K142502539154970794/111%E5%A4%A7%E8%80%83%E7%B4%A0%E9%A4%8A%E5%B0%8E%E5%90%91%E5%91%BD%E9%A1%8C%E6%96%B9%E5%90%91%E8%88%87%E8%A9%A6%E9%A1%8C%E7%A4%BA%E4%BE%8B-1090521.pdf"
+  ],
+  "warning": "題數、配分、各題型比例與難度分布須由指定年度官方文件或匯入的歷屆 metadata 建立，不在基線中猜測。"
+}

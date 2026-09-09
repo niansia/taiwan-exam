@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Taiwan Exam Pack manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "folder", "pack_version", "schema_version", "subjects"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "name": {"type": "string"},
+    "folder": {"type": "string"},
+    "pack_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "schema_version": {"type": "integer", "minimum": 1},
+    "default_curriculum": {"type": ["string", "null"]},
+    "subjects": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "historical_subjects": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "official_baseline": {"type": ["string", "null"]},
+    "status": {"type": "string"}
+  }
+}

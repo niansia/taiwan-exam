@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "initial_manual_sample",
+  "scope": "User-provided GSAT mock exams, 2022-2026",
+  "copyright_policy": "Only abstract visual patterns are recorded; source images and question wording are not copied.",
+  "sample": {
+    "rendered_pages_reviewed": 8,
+    "subjects_reviewed": ["英文", "數學（共同範圍模考）", "社會", "自然"],
+    "limitations": "This is an initial design sample, not yet a frequency estimate. Chinese and Math A/B need page-level semantic annotation."
+  },
+  "observed_patterns": [
+    {
+      "subject": "數學（共同範圍模考）",
+      "kind": "geometry_diagram",
+      "subtype": "coordinate_geometry",
+      "layout": "single",
+      "role": "required_for_solution",
+      "difficulty_drivers": ["座標與圖形關係整合", "多點標記", "題組共用圖", "比例未必按實際尺度"],
+      "preferred_generation_mode": "deterministic_svg"
+    },
+    {
+      "subject": "自然",
+      "kind": "biological_illustration",
+      "subtype": "historical_line_art",
+      "layout": "single",
+      "role": "required_for_solution",
+      "difficulty_drivers": ["辨識結構", "標線與部位對應", "圖像和概念敘述整合"],
+      "preferred_generation_mode": "deterministic_svg_or_original_illustration_with_programmatic_labels"
+    },
+    {
+      "subject": "自然",
+      "kind": "other",
+      "subtype": "geological_cross_section",
+      "layout": "single",
+      "role": "required_for_solution",
+      "difficulty_drivers": ["相對年代判讀", "地層與侵入體關係", "圖例辨識"],
+      "preferred_generation_mode": "deterministic_svg"
+    },
+    {
+      "subject": "社會",
+      "kind": "map",
+      "subtype": "reference_or_projection_map",
+      "layout": "single",
+      "role": "evidence",
+      "difficulty_drivers": ["投影辨識", "面積與形狀比較", "地理位置搜尋"],
+      "preferred_generation_mode": "licensed_geodata_plus_deterministic_renderer"
+    },
+    {
+      "subject": "社會",
+      "kind": "map",
+      "subtype": "choropleth",
+      "layout": "single",
+      "role": "required_for_solution",
+      "difficulty_drivers": ["圖例解碼", "空間分布比較", "多區域視覺搜尋"],
+      "preferred_generation_mode": "licensed_geodata_plus_deterministic_renderer"
+    },
+    {
+      "subject": "社會",
+      "kind": "map",
+      "subtype": "topographic_contour",
+      "layout": "comparison_pair",
+      "role": "required_for_solution",
+      "difficulty_drivers": ["等高線密度", "立體地形轉換", "位置圈選"],
+      "preferred_generation_mode": "procedural_terrain_and_contour_renderer"
+    },
+    {
+      "subject": "社會",
+      "kind": "photo",
+      "subtype": "single_context",
+      "layout": "single",
+      "role": "evidence",
+      "difficulty_drivers": ["地貌特徵辨識", "照片與成因序列整合"],
+      "preferred_generation_mode": "image_model_or_original_photo"
+    },
+    {
+      "subject": "英文",
+      "kind": "photo",
+      "subtype": "option_grid",
+      "layout": "panel_set",
+      "role": "required_for_solution",
+      "difficulty_drivers": ["四圖比較", "文章因果關係映射", "干擾圖的語意接近度"],
+      "preferred_generation_mode": "image_model_with_programmatic_panel_labels"
+    }
+  ]
+}

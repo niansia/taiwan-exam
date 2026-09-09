@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "source": "CEEC mathematics examination specification for academic year 111 onward, Appendix 1",
+  "common_codes": [
+    "N-10-1", "N-10-2", "N-10-3", "N-10-4", "N-10-5", "N-10-6", "N-10-7",
+    "G-10-1", "G-10-2", "G-10-3", "G-10-4", "G-10-5", "G-10-6", "G-10-7",
+    "A-10-1", "A-10-2", "F-10-1", "F-10-2", "F-10-3",
+    "D-10-1", "D-10-2", "D-10-3", "D-10-4"
+  ],
+  "math_a_codes": [
+    "N-11A-1", "S-11A-1", "G-11A-1", "G-11A-2", "G-11A-3", "G-11A-4",
+    "G-11A-5", "G-11A-6", "G-11A-7", "G-11A-8", "G-11A-9", "G-11A-10",
+    "A-11A-1", "A-11A-2", "A-11A-3", "A-11A-4",
+    "F-11A-1", "F-11A-2", "F-11A-3", "F-11A-4",
+    "D-11A-1", "D-11A-2", "D-11A-3"
+  ],
+  "math_b_codes": [
+    "N-11B-1", "S-11B-1", "S-11B-2", "G-11B-1", "G-11B-2", "G-11B-3", "G-11B-4",
+    "A-11B-1", "F-11B-1", "F-11B-2", "D-11B-1", "D-11B-2"
+  ],
+  "always_forbidden_patterns": [
+    "線性獨立", "線性相依", "矩陣的秩", "matrix rank", "特徵值", "特徵向量", "eigenvalue", "eigenvector",
+    "微分", "導數", "積分", "極限"
+  ],
+  "math_b_forbidden_operations": [
+    "trigonometric addition formula", "space vector", "plane equation in space", "plane linear transformation",
+    "general logarithm laws"
+  ]
+}

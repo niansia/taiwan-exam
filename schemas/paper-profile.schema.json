@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/taiwan-exam/paper-profile.schema.json",
+  "title": "Observed exam paper structure",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "paper_id", "exam", "year", "subject", "curriculum", "source_kind", "source_files",
+    "structure_status", "sections", "evidence"
+  ],
+  "properties": {
+    "paper_id": {"type": "string", "pattern": "^[A-Za-z0-9_.:-]+$"},
+    "exam": {"type": "string", "enum": ["學測", "會考"]},
+    "year": {"type": "integer", "minimum": 1900, "maximum": 2200},
+    "subject": {"type": "string", "minLength": 1},
+    "section": {"type": ["string", "null"]},
+    "curriculum": {"type": "string", "minLength": 1},
+    "regime": {"type": ["string", "null"]},
+    "publisher": {"type": ["string", "null"]},
+    "bundle": {"type": ["string", "null"]},
+    "source_kind": {"type": "string", "enum": ["official_past_exam", "mock_exam", "reference_paper"]},
+    "source_files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sha256", "relative_path", "role"],
+        "properties": {
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "relative_path": {"type": "string"},
+          "role": {"type": "string"},
+          "page_count": {"type": ["integer", "null"], "minimum": 1}
+        }
+      }
+    },
+    "duration_minutes": {"type": ["integer", "null"], "minimum": 1},
+    "total_score": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "numbered_question_count": {"type": ["integer", "null"], "minimum": 1},
+    "scored_item_count": {"type": ["integer", "null"], "minimum": 1},
+    "structure_status": {"type": "string", "enum": ["verified", "auto_parsed", "needs_review", "pending_ocr"]},
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "order"],
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "order": {"type": "integer", "minimum": 1},
+          "question_number_start": {"type": ["integer", "null"], "minimum": 1},
+          "question_number_end": {"type": ["integer", "null"], "minimum": 1},
+          "numbered_question_count": {"type": ["integer", "null"], "minimum": 1},
+          "scored_item_count": {"type": ["integer", "null"], "minimum": 1},
+          "group_count": {"type": ["integer", "null"], "minimum": 1},
+          "question_type_mix": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+          "subtotal_score": {"type": ["number", "null"], "exclusiveMinimum": 0},
+          "score_rule": {"type": ["string", "null"]},
+          "instructions_pattern": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "layout": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "paper_size": {"type": ["string", "null"]},
+        "columns": {"type": ["integer", "null"], "minimum": 1},
+        "answer_sheet_mode": {"type": ["string", "null"]},
+        "layout_profile_id": {"type": ["string", "null"]},
+        "fidelity_status": {"type": ["string", "null"], "enum": ["verified", "reference-only", "generic", null]},
+        "instruction_transcription_status": {"type": ["string", "null"], "enum": ["verified", "draft", "missing", null]},
+        "target_page_count": {"type": ["integer", "null"], "minimum": 1}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "confidence"],
+      "properties": {
+        "method": {"type": "string", "enum": ["manual_review", "text_layer_parse", "ocr_parse", "official_document", "unparsed"]},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "notes": {"type": ["string", "null"]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"}
+        ,"structure_review": {"type": "object", "description": "Hash-bound page observations and exact scored-slot inventory; validated by pack_verification.py."}
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "target_basis": "official-position-profile",
+  "target_p_center": null,
+  "target_p_range": [null, null],
+  "target_d_floor": null,
+  "metric_type": "answer_rate-or-score_rate",
+  "minimum_linked_decisions": null,
+  "linked_decisions": [
+    {
+      "id": "decision-1",
+      "kind": "model-selection-or-representation-or-condition-or-case-or-consistency",
+      "description": "Replace with the actual irreducible decision.",
+      "trigger_evidence": "Identify the exact item evidence that forces this decision."
+    }
+  ],
+  "representation_changes": null,
+  "constraint_checks": null,
+  "misconception_paths": [
+    {
+      "id": "misconception-1",
+      "error": "Replace with a plausible mathematical error.",
+      "predicted_outcome": "Wrong option, intermediate value, or rubric boundary."
+    }
+  ],
+  "discrimination_design": {
+    "level": "medium",
+    "lower_group_move": "Tempting but incomplete move.",
+    "proficient_move": "Evidence-based move that resolves the item."
+  },
+  "shortcut_audit": {
+    "attempted_shortcuts": [
+      "direct substitution",
+      "single familiar formula"
+    ],
+    "collapse_found": null,
+    "reviewer_decision": "pending"
+  },
+  "burden_audit": {
+    "arithmetic_volume_primary": null,
+    "prose_length_primary": null,
+    "outside_knowledge_primary": null
+  },
+  "time_audit": {
+    "expected_minutes": null,
+    "intended_short_route": "Describe the hand-solvable route.",
+    "calculator_required": null,
+    "exhaustive_enumeration_required": null,
+    "hand_calculation_feasible": null
+  },
+  "expert_estimate": {
+    "difficulty_band": "pending",
+    "discrimination_level": "pending",
+    "confidence": null,
+    "status": "provisional-until-representative-pilot"
+  }
+}

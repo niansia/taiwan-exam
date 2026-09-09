@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "purpose": "Official item stubs for semantic unit/skill/visual annotation with CEEC P/D evidence when published; no question wording is copied.",
+  "candidate_count": 3549,
+  "by_subject": {
+    "國文": 529,
+    "數學A": 100,
+    "數學B": 100,
+    "數學（舊制）": 137,
+    "社會": 1046,
+    "自然": 771,
+    "英文": 866
+  },
+  "year_coverage": {
+    "國文": [
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "數學A": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "數學B": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "數學（舊制）": [
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021
+    ],
+    "社會": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "自然": [
+      2011,
+      2012,
+      2015,
+      2016,
+      2017,
+      2019,
+      2020,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "英文": [
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ]
+  },
+  "promotion_gate": "Do not promote until unit/skills, actual item type, full difficulty vector, literacy class, competence-item provenance/timing, visual review, constructed-response calibration where applicable, and either official P/D evidence or an explicit non-empirical basis are complete."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "new-exam-id",
+  "name": "新考試名稱",
+  "folder": "新考試資料夾名稱",
+  "pack_version": "0.1.0",
+  "schema_version": 1,
+  "default_curriculum": "curriculum-id",
+  "subjects": ["科目一"],
+  "official_baseline": "official-baseline.json",
+  "status": "awaiting_historical_metadata"
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "source_page": "https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634",
+  "minimum_roc_year": 100,
+  "catalog_links": 367,
+  "selected_pdf_count": 232,
+  "indexed_pdf_count": 232,
+  "download_failures": [],
+  "total_bytes": 131023164,
+  "by_roc_year": {
+    "100": 10,
+    "101": 10,
+    "102": 12,
+    "103": 12,
+    "104": 12,
+    "105": 12,
+    "106": 12,
+    "107": 13,
+    "108": 13,
+    "109": 13,
+    "110": 13,
+    "111": 20,
+    "112": 20,
+    "113": 20,
+    "114": 20,
+    "115": 20
+  },
+  "by_subject": {
+    "國文": 60,
+    "數學A": 15,
+    "數學B": 15,
+    "數學（舊制）": 22,
+    "社會": 37,
+    "自然": 37,
+    "英文": 46
+  },
+  "by_role": {
+    "answer": 85,
+    "question": 94,
+    "scoring_rule": 53
+  },
+  "by_text_layer": {
+    "extractable": 232
+  }
+}

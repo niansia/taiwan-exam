@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "會考數學版型測試卷",
+    "subtitle": "本檔僅測試結構與排版，不代表正式難度校準",
+    "exam": "會考",
+    "subject": "數學",
+    "curriculum": "108",
+    "duration_minutes": 20,
+    "total_score": 4,
+    "calibration_level": "exploratory-uncalibrated",
+    "blueprint_fingerprint": null,
+    "generated_at": "2026-09-03T00:00:00Z"
+  },
+  "instructions": [
+    "本卷為 Skill renderer 的合成測試資料，不是正式模擬考。",
+    "選擇題請選出一個最適當的答案；非選擇題請寫出必要過程。"
+  ],
+  "sections": [
+    {"id": "choice", "title": "第壹部分：選擇題", "instructions": ["每題 1 分。"]},
+    {"id": "constructed", "title": "第貳部分：非選擇題", "instructions": ["請寫出計算過程。"]}
+  ],
+  "questions": [
+    {
+      "id": "synthetic-q1",
+      "number": 1,
+      "section_id": "choice",
+      "type": "single_choice",
+      "score": 1,
+      "prompt": "若 x + 3 = 8，則 x 的值為何？",
+      "options": [
+        {"label": "A", "text": "3"},
+        {"label": "B", "text": "5"},
+        {"label": "C", "text": "8"},
+        {"label": "D", "text": "11"}
+      ],
+      "answer_space_lines": 0,
+      "item_spec": null
+    },
+    {
+      "id": "synthetic-q2",
+      "number": 2,
+      "section_id": "constructed",
+      "type": "constructed_response",
+      "score": 3,
+      "prompt": "一個長方形的長為 8 公分、寬為 5 公分。求面積，並寫出計算式。",
+      "options": [],
+      "answer_space_lines": 3,
+      "item_spec": null
+    }
+  ],
+  "answers": [
+    {
+      "question_id": "synthetic-q1",
+      "final_answer": "B",
+      "reasoning": ["x = 8 - 3 = 5"],
+      "accepted_equivalents": [],
+      "tolerance": null,
+      "units": null,
+      "common_errors": [],
+      "profile": "teacher-detailed",
+      "verification_status": "independently_verified",
+      "verification_notes": "代回原式得 5 + 3 = 8。"
+    },
+    {
+      "question_id": "synthetic-q2",
+      "final_answer": "40 平方公分",
+      "reasoning": ["長方形面積 = 長 × 寬", "8 × 5 = 40"],
+      "accepted_equivalents": ["40 cm²"],
+      "tolerance": null,
+      "units": "平方公分",
+      "common_errors": [],
+      "profile": "teacher-detailed",
+      "verification_status": "independently_verified",
+      "verification_notes": "以單位與反向檢查確認。"
+    }
+  ]
+}

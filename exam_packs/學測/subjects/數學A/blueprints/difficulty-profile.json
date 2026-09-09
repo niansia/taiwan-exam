@@ -1,0 +1,1003 @@
+{
+  "schema_version": 1,
+  "exam": "學測",
+  "subject": "數學A",
+  "built_at": "2026-09-04T04:00:28.526690+00:00",
+  "official_item_statistics_count": 90,
+  "source_fingerprint": "32527f797b5f76467b47daaf8bf2a470d0a21b555bd8c32ae00bc254379afb1e",
+  "band_definition": {
+    "authority": "skill_local_descriptive_only",
+    "very_easy": "P >= 0.80",
+    "easy": "0.65 <= P < 0.80",
+    "medium": "0.40 <= P < 0.65",
+    "hard": "0.20 <= P < 0.40",
+    "very_hard": "P < 0.20"
+  },
+  "curricula": {
+    "108": {
+      "status": "ready",
+      "scope": "official_objective_items_with_p_or_score_rate",
+      "full_paper_status": "insufficient-data",
+      "year_count": 5,
+      "roc_years": [
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "measured_item_count": 90,
+      "overall": {
+        "count": 90,
+        "p_mean": 0.4209,
+        "p_median": 0.435,
+        "p_q25": 0.2825,
+        "p_q75": 0.5675,
+        "p_min": 0.05,
+        "p_max": 0.89,
+        "discrimination_median": 0.42,
+        "band_counts": {
+          "easy": 10,
+          "hard": 29,
+          "medium": 35,
+          "very_easy": 3,
+          "very_hard": 13
+        },
+        "metric_type_counts": {
+          "answer_rate": 60,
+          "score_rate": 30
+        }
+      },
+      "by_section": {
+        "單選題": {
+          "count": 30,
+          "p_mean": 0.4783,
+          "p_median": 0.455,
+          "p_q25": 0.355,
+          "p_q75": 0.57,
+          "p_min": 0.12,
+          "p_max": 0.89,
+          "discrimination_median": 0.53,
+          "band_counts": {
+            "easy": 1,
+            "hard": 9,
+            "medium": 17,
+            "very_easy": 2,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 30
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 5,
+              "p_mean": 0.674,
+              "p_median": 0.78,
+              "p_q25": 0.57,
+              "p_q75": 0.84,
+              "p_min": 0.29,
+              "p_max": 0.89,
+              "discrimination_median": 0.39,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 1,
+                "very_easy": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "2": {
+              "count": 5,
+              "p_mean": 0.546,
+              "p_median": 0.57,
+              "p_q25": 0.55,
+              "p_q75": 0.59,
+              "p_min": 0.4,
+              "p_max": 0.62,
+              "discrimination_median": 0.65,
+              "band_counts": {
+                "medium": 5
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "3": {
+              "count": 5,
+              "p_mean": 0.39,
+              "p_median": 0.41,
+              "p_q25": 0.31,
+              "p_q75": 0.51,
+              "p_min": 0.12,
+              "p_max": 0.6,
+              "discrimination_median": 0.53,
+              "band_counts": {
+                "hard": 1,
+                "medium": 3,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "4": {
+              "count": 5,
+              "p_mean": 0.48,
+              "p_median": 0.44,
+              "p_q25": 0.44,
+              "p_q75": 0.56,
+              "p_min": 0.39,
+              "p_max": 0.57,
+              "discrimination_median": 0.54,
+              "band_counts": {
+                "hard": 1,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "5": {
+              "count": 10,
+              "p_mean": 0.39,
+              "p_median": 0.36,
+              "p_q25": 0.35,
+              "p_q75": 0.4625,
+              "p_min": 0.26,
+              "p_max": 0.53,
+              "discrimination_median": 0.405,
+              "band_counts": {
+                "hard": 6,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 10
+              }
+            }
+          }
+        },
+        "多選題": {
+          "count": 30,
+          "p_mean": 0.4293,
+          "p_median": 0.435,
+          "p_q25": 0.36,
+          "p_q75": 0.4775,
+          "p_min": 0.19,
+          "p_max": 0.74,
+          "discrimination_median": 0.34,
+          "band_counts": {
+            "easy": 5,
+            "hard": 13,
+            "medium": 11,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 30
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 5,
+              "p_mean": 0.618,
+              "p_median": 0.65,
+              "p_q25": 0.57,
+              "p_q75": 0.66,
+              "p_min": 0.47,
+              "p_max": 0.74,
+              "discrimination_median": 0.33,
+              "band_counts": {
+                "easy": 3,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 5
+              }
+            },
+            "2": {
+              "count": 5,
+              "p_mean": 0.576,
+              "p_median": 0.6,
+              "p_q25": 0.48,
+              "p_q75": 0.66,
+              "p_min": 0.44,
+              "p_max": 0.7,
+              "discrimination_median": 0.45,
+              "band_counts": {
+                "easy": 2,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "score_rate": 5
+              }
+            },
+            "3": {
+              "count": 5,
+              "p_mean": 0.378,
+              "p_median": 0.44,
+              "p_q25": 0.36,
+              "p_q75": 0.44,
+              "p_min": 0.19,
+              "p_max": 0.46,
+              "discrimination_median": 0.36,
+              "band_counts": {
+                "hard": 1,
+                "medium": 3,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 5
+              }
+            },
+            "4": {
+              "count": 5,
+              "p_mean": 0.368,
+              "p_median": 0.38,
+              "p_q25": 0.36,
+              "p_q75": 0.45,
+              "p_min": 0.2,
+              "p_max": 0.45,
+              "discrimination_median": 0.39,
+              "band_counts": {
+                "hard": 3,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 5
+              }
+            },
+            "5": {
+              "count": 10,
+              "p_mean": 0.318,
+              "p_median": 0.345,
+              "p_q25": 0.235,
+              "p_q75": 0.38,
+              "p_min": 0.21,
+              "p_max": 0.43,
+              "discrimination_median": 0.26,
+              "band_counts": {
+                "hard": 9,
+                "medium": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 10
+              }
+            }
+          }
+        },
+        "混合題或非選擇題": {
+          "count": 5,
+          "p_mean": 0.604,
+          "p_median": 0.58,
+          "p_q25": 0.56,
+          "p_q75": 0.64,
+          "p_min": 0.55,
+          "p_max": 0.69,
+          "discrimination_median": 0.6,
+          "band_counts": {
+            "easy": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 5,
+              "p_mean": 0.604,
+              "p_median": 0.58,
+              "p_q25": 0.56,
+              "p_q75": 0.64,
+              "p_min": 0.55,
+              "p_max": 0.69,
+              "discrimination_median": 0.6,
+              "band_counts": {
+                "easy": 1,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            }
+          }
+        },
+        "選填題": {
+          "count": 25,
+          "p_mean": 0.3052,
+          "p_median": 0.21,
+          "p_q25": 0.16,
+          "p_q75": 0.46,
+          "p_min": 0.05,
+          "p_max": 0.87,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "easy": 3,
+            "hard": 7,
+            "medium": 3,
+            "very_easy": 1,
+            "very_hard": 11
+          },
+          "metric_type_counts": {
+            "answer_rate": 25
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 5,
+              "p_mean": 0.642,
+              "p_median": 0.67,
+              "p_q25": 0.48,
+              "p_q75": 0.73,
+              "p_min": 0.46,
+              "p_max": 0.87,
+              "discrimination_median": 0.58,
+              "band_counts": {
+                "easy": 2,
+                "medium": 2,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "2": {
+              "count": 5,
+              "p_mean": 0.356,
+              "p_median": 0.33,
+              "p_q25": 0.21,
+              "p_q75": 0.38,
+              "p_min": 0.19,
+              "p_max": 0.67,
+              "discrimination_median": 0.61,
+              "band_counts": {
+                "easy": 1,
+                "hard": 3,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "3": {
+              "count": 5,
+              "p_mean": 0.272,
+              "p_median": 0.25,
+              "p_q25": 0.16,
+              "p_q75": 0.31,
+              "p_min": 0.16,
+              "p_max": 0.48,
+              "discrimination_median": 0.52,
+              "band_counts": {
+                "hard": 2,
+                "medium": 1,
+                "very_hard": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "4": {
+              "count": 5,
+              "p_mean": 0.176,
+              "p_median": 0.18,
+              "p_q25": 0.18,
+              "p_q75": 0.2,
+              "p_min": 0.08,
+              "p_max": 0.24,
+              "discrimination_median": 0.44,
+              "band_counts": {
+                "hard": 2,
+                "very_hard": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "5": {
+              "count": 5,
+              "p_mean": 0.08,
+              "p_median": 0.06,
+              "p_q25": 0.05,
+              "p_q75": 0.1,
+              "p_min": 0.05,
+              "p_max": 0.14,
+              "discrimination_median": 0.12,
+              "band_counts": {
+                "very_hard": 5
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            }
+          }
+        }
+      },
+      "by_question_number": {
+        "1": {
+          "count": 5,
+          "p_mean": 0.674,
+          "p_median": 0.78,
+          "p_q25": 0.57,
+          "p_q75": 0.84,
+          "p_min": 0.29,
+          "p_max": 0.89,
+          "discrimination_median": 0.39,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 1,
+            "very_easy": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.78,
+            "p_range": [
+              0.57,
+              0.84
+            ],
+            "discrimination_floor": 0.29
+          }
+        },
+        "2": {
+          "count": 5,
+          "p_mean": 0.546,
+          "p_median": 0.57,
+          "p_q25": 0.55,
+          "p_q75": 0.59,
+          "p_min": 0.4,
+          "p_max": 0.62,
+          "discrimination_median": 0.65,
+          "band_counts": {
+            "medium": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.57,
+            "p_range": [
+              0.55,
+              0.59
+            ],
+            "discrimination_floor": 0.49
+          }
+        },
+        "3": {
+          "count": 5,
+          "p_mean": 0.39,
+          "p_median": 0.41,
+          "p_q25": 0.31,
+          "p_q75": 0.51,
+          "p_min": 0.12,
+          "p_max": 0.6,
+          "discrimination_median": 0.53,
+          "band_counts": {
+            "hard": 1,
+            "medium": 3,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.41,
+            "p_range": [
+              0.31,
+              0.51
+            ],
+            "discrimination_floor": 0.4
+          }
+        },
+        "4": {
+          "count": 5,
+          "p_mean": 0.48,
+          "p_median": 0.44,
+          "p_q25": 0.44,
+          "p_q75": 0.56,
+          "p_min": 0.39,
+          "p_max": 0.57,
+          "discrimination_median": 0.54,
+          "band_counts": {
+            "hard": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.44,
+            "p_range": [
+              0.44,
+              0.56
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "5": {
+          "count": 5,
+          "p_mean": 0.382,
+          "p_median": 0.35,
+          "p_q25": 0.3,
+          "p_q75": 0.47,
+          "p_min": 0.26,
+          "p_max": 0.53,
+          "discrimination_median": 0.42,
+          "band_counts": {
+            "hard": 3,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.35,
+            "p_range": [
+              0.3,
+              0.47
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "6": {
+          "count": 5,
+          "p_mean": 0.398,
+          "p_median": 0.37,
+          "p_q25": 0.35,
+          "p_q75": 0.44,
+          "p_min": 0.35,
+          "p_max": 0.48,
+          "discrimination_median": 0.37,
+          "band_counts": {
+            "hard": 3,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.37,
+            "p_range": [
+              0.35,
+              0.44
+            ],
+            "discrimination_floor": 0.28
+          }
+        },
+        "7": {
+          "count": 5,
+          "p_mean": 0.618,
+          "p_median": 0.65,
+          "p_q25": 0.57,
+          "p_q75": 0.66,
+          "p_min": 0.47,
+          "p_max": 0.74,
+          "discrimination_median": 0.33,
+          "band_counts": {
+            "easy": 3,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "score_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.65,
+            "p_range": [
+              0.57,
+              0.66
+            ],
+            "discrimination_floor": 0.25
+          }
+        },
+        "8": {
+          "count": 5,
+          "p_mean": 0.576,
+          "p_median": 0.6,
+          "p_q25": 0.48,
+          "p_q75": 0.66,
+          "p_min": 0.44,
+          "p_max": 0.7,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "easy": 2,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "score_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.6,
+            "p_range": [
+              0.48,
+              0.66
+            ],
+            "discrimination_floor": 0.34
+          }
+        },
+        "9": {
+          "count": 5,
+          "p_mean": 0.378,
+          "p_median": 0.44,
+          "p_q25": 0.36,
+          "p_q75": 0.44,
+          "p_min": 0.19,
+          "p_max": 0.46,
+          "discrimination_median": 0.36,
+          "band_counts": {
+            "hard": 1,
+            "medium": 3,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.44,
+            "p_range": [
+              0.36,
+              0.44
+            ],
+            "discrimination_floor": 0.27
+          }
+        },
+        "10": {
+          "count": 5,
+          "p_mean": 0.368,
+          "p_median": 0.38,
+          "p_q25": 0.36,
+          "p_q75": 0.45,
+          "p_min": 0.2,
+          "p_max": 0.45,
+          "discrimination_median": 0.39,
+          "band_counts": {
+            "hard": 3,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "score_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.38,
+            "p_range": [
+              0.36,
+              0.45
+            ],
+            "discrimination_floor": 0.29
+          }
+        },
+        "11": {
+          "count": 5,
+          "p_mean": 0.38,
+          "p_median": 0.38,
+          "p_q25": 0.38,
+          "p_q75": 0.38,
+          "p_min": 0.33,
+          "p_max": 0.43,
+          "discrimination_median": 0.3,
+          "band_counts": {
+            "hard": 4,
+            "medium": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.38,
+            "p_range": [
+              0.38,
+              0.38
+            ],
+            "discrimination_floor": 0.22
+          }
+        },
+        "12": {
+          "count": 5,
+          "p_mean": 0.256,
+          "p_median": 0.22,
+          "p_q25": 0.21,
+          "p_q75": 0.28,
+          "p_min": 0.21,
+          "p_max": 0.36,
+          "discrimination_median": 0.2,
+          "band_counts": {
+            "hard": 5
+          },
+          "metric_type_counts": {
+            "score_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.22,
+            "p_range": [
+              0.21,
+              0.28
+            ],
+            "discrimination_floor": 0.2
+          }
+        },
+        "13": {
+          "count": 5,
+          "p_mean": 0.642,
+          "p_median": 0.67,
+          "p_q25": 0.48,
+          "p_q75": 0.73,
+          "p_min": 0.46,
+          "p_max": 0.87,
+          "discrimination_median": 0.58,
+          "band_counts": {
+            "easy": 2,
+            "medium": 2,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.67,
+            "p_range": [
+              0.48,
+              0.73
+            ],
+            "discrimination_floor": 0.43
+          }
+        },
+        "14": {
+          "count": 5,
+          "p_mean": 0.356,
+          "p_median": 0.33,
+          "p_q25": 0.21,
+          "p_q75": 0.38,
+          "p_min": 0.19,
+          "p_max": 0.67,
+          "discrimination_median": 0.61,
+          "band_counts": {
+            "easy": 1,
+            "hard": 3,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.33,
+            "p_range": [
+              0.21,
+              0.38
+            ],
+            "discrimination_floor": 0.46
+          }
+        },
+        "15": {
+          "count": 5,
+          "p_mean": 0.272,
+          "p_median": 0.25,
+          "p_q25": 0.16,
+          "p_q75": 0.31,
+          "p_min": 0.16,
+          "p_max": 0.48,
+          "discrimination_median": 0.52,
+          "band_counts": {
+            "hard": 2,
+            "medium": 1,
+            "very_hard": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.25,
+            "p_range": [
+              0.16,
+              0.31
+            ],
+            "discrimination_floor": 0.39
+          }
+        },
+        "16": {
+          "count": 5,
+          "p_mean": 0.176,
+          "p_median": 0.18,
+          "p_q25": 0.18,
+          "p_q75": 0.2,
+          "p_min": 0.08,
+          "p_max": 0.24,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "hard": 2,
+            "very_hard": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.18,
+            "p_range": [
+              0.18,
+              0.2
+            ],
+            "discrimination_floor": 0.33
+          }
+        },
+        "17": {
+          "count": 5,
+          "p_mean": 0.08,
+          "p_median": 0.06,
+          "p_q25": 0.05,
+          "p_q75": 0.1,
+          "p_min": 0.05,
+          "p_max": 0.14,
+          "discrimination_median": 0.12,
+          "band_counts": {
+            "very_hard": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.06,
+            "p_range": [
+              0.05,
+              0.1
+            ],
+            "discrimination_floor": 0.2
+          }
+        },
+        "18": {
+          "count": 5,
+          "p_mean": 0.604,
+          "p_median": 0.58,
+          "p_q25": 0.56,
+          "p_q75": 0.64,
+          "p_min": 0.55,
+          "p_max": 0.69,
+          "discrimination_median": 0.6,
+          "band_counts": {
+            "easy": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.58,
+            "p_range": [
+              0.56,
+              0.64
+            ],
+            "discrimination_floor": 0.45
+          }
+        }
+      },
+      "limitations": [
+        "P is answer rate for single-choice items and score rate for starred multiple-selection items.",
+        "Constructed-response items absent from the official P/D table need rubric-score distributions instead.",
+        "Target P is a post-administration property; generated items require pilot data before claiming achieved difficulty."
+      ]
+    }
+  }
+}

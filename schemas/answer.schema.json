@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generated answer and solution",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["question_id", "final_answer", "verification_status"],
+  "properties": {
+    "question_id": {"type": "string"},
+    "final_answer": {},
+    "reasoning": {"type": ["array", "null"], "items": {"type": "string"}},
+    "difficulty_label": {"type": ["string", "null"], "enum": ["簡單", "易", "中偏易", "中", "中偏難", "難", null]},
+    "independent_review": {
+      "type": "object",
+      "required": ["question_sha256", "answer_sha256", "reviewer", "reviewed_at", "answer_visible_during_solve", "solution", "shortest_route", "difficulty_rationale", "derived_answer", "unresolved"],
+      "properties": {
+        "question_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "answer_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "reviewer": {"type": "string", "minLength": 1},
+        "reviewed_at": {"type": "string", "minLength": 1},
+        "answer_visible_during_solve": {"const": false},
+        "solution": {"type": ["string", "array"]},
+        "shortest_route": {"type": ["string", "array"]},
+        "difficulty_rationale": {"type": "string", "minLength": 1},
+        "option_verdicts": {"type": "object"},
+        "rubric_review": {"type": ["string", "object", "array"]},
+        "completed_text": {"type": "string", "minLength": 1},
+        "derived_answer": {},
+        "unresolved": {"type": "array"}
+      }
+    },
+    "curriculum_anchor": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "source_unit": {"type": ["string", "null"]},
+        "curriculum_code": {"type": ["string", "null"]},
+        "objective": {"type": ["string", "null"]},
+        "content_summary": {"type": ["string", "null"]}
+      }
+    },
+    "explanation_blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "content"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["concept", "analysis", "option_analysis", "translation", "vocabulary", "alternate_solution", "writing_guidance", "sample_response", "scoring_rubric", "note"]
+          },
+          "title": {"type": ["string", "null"]},
+          "content": {"type": "string"}
+        }
+      }
+    },
+    "visual_asset": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["path", "alt"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "alt": {"type": "string", "minLength": 1},
+        "caption": {"type": ["string", "null"]},
+        "width_percent": {"type": ["integer", "null"], "minimum": 20, "maximum": 100},
+        "placement": {"type": "string", "enum": ["before_prompt", "after_prompt"]}
+      }
+    },
+    "accepted_equivalents": {"type": "array", "items": {}},
+    "tolerance": {"type": ["number", "null"], "minimum": 0},
+    "units": {"type": ["string", "null"]},
+    "common_errors": {"type": "array", "items": {"type": "string"}},
+    "profile": {
+      "type": "string",
+      "enum": ["official-short", "teacher-detailed", "student-friendly", "machine-check"]
+    },
+    "verification_status": {"type": "string", "enum": ["unverified", "single_pass", "independently_verified"]},
+    "verification_notes": {"type": ["string", "null"]}
+  }
+}

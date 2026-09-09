@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/taiwan-exam/question.schema.json",
+  "title": "Taiwan exam question metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "exam",
+    "year",
+    "subject",
+    "curriculum",
+    "question_id",
+    "question_number",
+    "question_type",
+    "unit",
+    "difficulty",
+    "source"
+  ],
+  "properties": {
+    "exam": {"type": "string", "enum": ["學測", "會考"]},
+    "year": {"type": "integer", "minimum": 1900, "maximum": 2200},
+    "subject": {"type": "string", "minLength": 1},
+    "curriculum": {"type": "string", "minLength": 1},
+    "regime": {"type": ["string", "null"]},
+    "question_id": {"type": "string", "pattern": "^[A-Za-z0-9_.:-]+$"},
+    "question_number": {"type": "integer", "minimum": 1},
+    "section": {"type": ["string", "null"]},
+    "domain": {"type": ["string", "null"]},
+    "group_id": {"type": ["string", "null"]},
+    "question_type": {
+      "type": "string",
+      "enum": [
+        "single_choice",
+        "multiple_choice",
+        "fill_in",
+        "constructed_response",
+        "mixed_group",
+        "guided_writing",
+        "listening_choice"
+      ]
+    },
+    "score": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "unit": {"type": "string", "minLength": 1},
+    "subunit": {"type": ["string", "null"]},
+    "concepts": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "skills": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "curriculum_codes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "stimulus_type": {"type": ["string", "null"]},
+    "literacy": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "classification": {"type": "string", "enum": ["basic", "competence_oriented"]},
+        "stimulus_required": {"type": "boolean"},
+        "stimulus_role": {"type": ["string", "null"]},
+        "evidence_targets": {"type": "array", "items": {"type": "string"}},
+        "curriculum_bridge": {"type": "array", "items": {"type": "string"}},
+        "reasoning_operations": {"type": "array", "items": {"type": "string"}},
+        "stimulus_removal_test": {"type": "string", "enum": ["not_applicable", "fail_without_stimulus", "still_answerable_needs_rewrite"]}
+      }
+    },
+    "stimulus_provenance": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "source_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "source_family": {"type": ["string", "null"], "enum": ["news", "government_data", "research", "law_or_judgment", "archive", "literature", "life_document", "experiment", "synthetic", null]},
+        "published_at": {"type": ["string", "null"], "format": "date"},
+        "exam_date": {"type": ["string", "null"], "format": "date"},
+        "lead_time_days": {"type": ["integer", "null"], "minimum": 0},
+        "freshness_class": {"type": ["string", "null"], "enum": ["current_event", "recent_context", "evergreen", null]},
+        "fact_check_status": {"type": ["string", "null"], "enum": ["unverified", "single_source", "cross_checked", null]},
+        "rights_status": {"type": ["string", "null"], "enum": ["original", "open_licensed", "public_domain", "user_authorized", "facts_only_synthesis", "unknown", null]}
+      }
+    },
+    "requires_diagram": {"type": ["boolean", "null"]},
+    "visual": {"$ref": "visual-spec.schema.json"},
+    "expected_minutes": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "difficulty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall"],
+      "properties": {
+        "overall": {"type": "integer", "minimum": 1, "maximum": 5},
+        "concept_depth": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "calculation_depth": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "reasoning_steps": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "reading_load": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "novelty": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "distractor_strength": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "basis": {"type": "string", "enum": ["empirical", "expert_review", "estimated"]},
+        "reviewer_confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      }
+    },
+    "empirical": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "answer_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "p_value": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "p_metric": {"type": ["string", "null"], "enum": ["answer_rate", "score_rate", null]},
+        "discrimination": {"type": ["number", "null"]},
+        "relative_difficulty_percentile": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "source_authority": {"type": ["string", "null"], "enum": ["official_statistics", "publisher_statistics", "local_pilot", null]},
+        "option_rates": {
+          "type": ["object", "null"],
+          "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "sample_size": {"type": ["integer", "null"], "minimum": 1}
+      }
+    },
+    "constructed_response_calibration": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "rubric_id": {"type": ["string", "null"]},
+        "official_score_distribution_id": {"type": ["string", "null"]},
+        "zero_credit_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "full_credit_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "mean_score_ratio": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "required_evidence_units": {"type": ["integer", "null"], "minimum": 0},
+        "double_scored": {"type": ["boolean", "null"]},
+        "basis": {"type": "string", "enum": ["official_distribution", "local_pilot", "expert_review"]}
+      }
+    },
+    "common_misconceptions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "text_public"],
+      "properties": {
+        "kind": {"type": "string", "enum": ["official_past_exam", "mock_exam", "synthetic", "other"]},
+        "file_sha256": {"type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$"},
+        "url": {"type": ["string", "null"], "format": "uri"},
+        "text_public": {"type": "boolean"},
+        "notes": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"requires_diagram": {"const": true}},
+        "required": ["requires_diagram"]
+      },
+      "then": {"required": ["visual"]}
+    }
+  ]
+}

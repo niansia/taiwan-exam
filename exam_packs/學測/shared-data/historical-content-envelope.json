@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-04T07:40:42.793314+00:00",
+  "status": "content-and-archetype-only; OCR coverage incomplete",
+  "policy": {
+    "allowed_uses": [
+      "expand in-syllabus content coverage",
+      "increase abstract reasoning-archetype diversity",
+      "identify historically recurring curriculum labels"
+    ],
+    "forbidden_uses_for_current_gsat": [
+      "question count or section recipe",
+      "current wording or passage length",
+      "current literacy-item share",
+      "current option geometry or page layout",
+      "Math A or Math B position/difficulty curve",
+      "English current cloze or mixed-section structure",
+      "single-source item skeleton, numeric tuple, equation order, or figure topology"
+    ],
+    "current_form_authority": "ROC 111-115 official papers and compatible current mocks only"
+  },
+  "inventory": {
+    "file_count": 463,
+    "year_range": [
+      2012,
+      2021
+    ],
+    "year_count": 10,
+    "by_subject": {
+      "shared": 37,
+      "國文": 124,
+      "數學（共同範圍模考）": 74,
+      "社會": 71,
+      "自然": 72,
+      "英文": 85
+    },
+    "by_role": {
+      "correction": 7,
+      "question": 333,
+      "question_and_solution": 17,
+      "score_statistics": 10,
+      "solution": 93,
+      "unspecified_exam_material": 3
+    },
+    "by_text_layer": {
+      "extractable": 111,
+      "image_or_outline": 345,
+      "not_pdf": 7
+    }
+  },
+  "content_evidence": {
+    "國文": {
+      "promoted_metadata_count": 126,
+      "pending_metadata_count": 1,
+      "profile_count": 98,
+      "profile_status_counts": {
+        "auto_parsed": 7,
+        "needs_review": 9,
+        "pending_ocr": 82
+      },
+      "domain_counts": {},
+      "question_type_counts": {
+        "multiple_choice": 24,
+        "single_choice": 102
+      },
+      "historical_response_type_evidence": {
+        "multiple_choice": 56,
+        "single_choice": 1
+      },
+      "difficulty_label_counts": {
+        "1": 9,
+        "3": 109,
+        "5": 8
+      },
+      "recurring_content_labels": [
+        {
+          "label": "作品的閱讀與理解",
+          "observation_count": 95,
+          "year_count": 2
+        },
+        {
+          "label": "具備重要國學及文化常識",
+          "observation_count": 5,
+          "year_count": 2
+        },
+        {
+          "label": "詞語、成語意義的辨識與應用",
+          "observation_count": 4,
+          "year_count": 2
+        },
+        {
+          "label": "修辭的辨識與應用",
+          "observation_count": 3,
+          "year_count": 2
+        },
+        {
+          "label": "字形的辨識與應用",
+          "observation_count": 3,
+          "year_count": 2
+        },
+        {
+          "label": "字義的辨識與應用",
+          "observation_count": 3,
+          "year_count": 2
+        },
+        {
+          "label": "字音的辨識與應用",
+          "observation_count": 3,
+          "year_count": 2
+        },
+        {
+          "label": "文法結構的辨識與應用",
+          "observation_count": 3,
+          "year_count": 2
+        }
+      ]
+    },
+    "數學（共同範圍模考）": {
+      "promoted_metadata_count": 0,
+      "pending_metadata_count": 0,
+      "profile_count": 60,
+      "profile_status_counts": {
+        "auto_parsed": 7,
+        "needs_review": 2,
+        "pending_ocr": 51
+      },
+      "domain_counts": {},
+      "question_type_counts": {},
+      "historical_response_type_evidence": {
+        "fill_in": 40,
+        "multiple_choice": 45,
+        "single_choice": 11
+      },
+      "difficulty_label_counts": {},
+      "recurring_content_labels": []
+    },
+    "社會": {
+      "promoted_metadata_count": 0,
+      "pending_metadata_count": 0,
+      "profile_count": 55,
+      "profile_status_counts": {
+        "auto_parsed": 6,
+        "needs_review": 2,
+        "pending_ocr": 47
+      },
+      "domain_counts": {},
+      "question_type_counts": {},
+      "historical_response_type_evidence": {},
+      "difficulty_label_counts": {},
+      "recurring_content_labels": []
+    },
+    "自然": {
+      "promoted_metadata_count": 0,
+      "pending_metadata_count": 272,
+      "profile_count": 55,
+      "profile_status_counts": {
+        "auto_parsed": 6,
+        "needs_review": 2,
+        "pending_ocr": 47
+      },
+      "domain_counts": {},
+      "question_type_counts": {},
+      "historical_response_type_evidence": {},
+      "difficulty_label_counts": {},
+      "recurring_content_labels": [
+        {
+          "label": "基礎地球科學(上) 動態的地球",
+          "observation_count": 31,
+          "year_count": 2
+        },
+        {
+          "label": "基礎生物(上) 動物的構造與功能",
+          "observation_count": 22,
+          "year_count": 2
+        },
+        {
+          "label": "基礎生物(上) 植物的構造與功能",
+          "observation_count": 19,
+          "year_count": 2
+        },
+        {
+          "label": "基礎生物(上) 生命的特性",
+          "observation_count": 18,
+          "year_count": 2
+        },
+        {
+          "label": "基礎化學(一) 物質的組成",
+          "observation_count": 16,
+          "year_count": 2
+        },
+        {
+          "label": "基礎化學(一) 化學反應",
+          "observation_count": 15,
+          "year_count": 2
+        },
+        {
+          "label": "基礎地球科學(上) 太空中的地球",
+          "observation_count": 13,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 物體的運動",
+          "observation_count": 12,
+          "year_count": 2
+        },
+        {
+          "label": "基礎化學(一) 化學與能源",
+          "observation_count": 10,
+          "year_count": 2
+        },
+        {
+          "label": "基礎化學(一) 原子結構與性質",
+          "observation_count": 10,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 物質間的基本交互作用",
+          "observation_count": 8,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 量子現象",
+          "observation_count": 7,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 電與磁的統一",
+          "observation_count": 7,
+          "year_count": 2
+        },
+        {
+          "label": "基礎地球科學(上) 天然災害",
+          "observation_count": 6,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 波",
+          "observation_count": 6,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 能量",
+          "observation_count": 6,
+          "year_count": 2
+        },
+        {
+          "label": "基礎地球科學(上) 人與地球環境",
+          "observation_count": 5,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 宇宙學簡介",
+          "observation_count": 4,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 物質的組成",
+          "observation_count": 4,
+          "year_count": 2
+        },
+        {
+          "label": "基礎化學(一) 物質的組成、化學反應",
+          "observation_count": 3,
+          "year_count": 2
+        },
+        {
+          "label": "基礎物理(一) 緒論",
+          "observation_count": 3,
+          "year_count": 2
+        }
+      ]
+    },
+    "英文": {
+      "promoted_metadata_count": 0,
+      "pending_metadata_count": 0,
+      "profile_count": 67,
+      "profile_status_counts": {
+        "auto_parsed": 7,
+        "needs_review": 2,
+        "pending_ocr": 58
+      },
+      "domain_counts": {},
+      "question_type_counts": {},
+      "historical_response_type_evidence": {
+        "constructed_response": 14,
+        "fill_in": 70,
+        "single_choice": 322
+      },
+      "difficulty_label_counts": {},
+      "recurring_content_labels": []
+    }
+  },
+  "manual_visual_review": {
+    "scope": "one representative historical mathematics paper per ROC year 101-110",
+    "allowed_aggregate_archetypes": [
+      "coordinate or function graph used as mathematical evidence",
+      "geometry or incidence diagram used for deduction",
+      "table or recorded measurements used for modelling",
+      "finite pattern or combinatorial figure used for counting",
+      "self-contained life or data context reduced to syllabus operations"
+    ],
+    "use_rule": "Use only to diversify representation roles. Invent all objects, values, solution graphs, and visual topology anew."
+  },
+  "limitations": [
+    "Scan/image-only papers are indexed but do not contribute semantic labels until OCR or manual review.",
+    "Publisher difficulty labels are expert review, not official CEEC P/D.",
+    "Rare one-paper labels are suppressed to reduce source fingerprinting and template imitation."
+  ]
+}

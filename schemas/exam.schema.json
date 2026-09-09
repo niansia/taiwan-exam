@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generated Taiwan practice exam",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metadata", "instructions", "sections", "questions"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "exam", "subject", "calibration_level"],
+      "properties": {
+        "title": {"type": "string"},
+        "subtitle": {"type": ["string", "null"]},
+        "exam": {"type": "string"},
+        "subject": {"type": "string"},
+        "curriculum": {"type": ["string", "null"]},
+        "duration_minutes": {"type": ["integer", "null"], "minimum": 1},
+        "total_score": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "calibration_level": {
+          "type": "string",
+          "enum": ["historically-calibrated", "official-structure-only", "exploratory-uncalibrated"]
+        },
+        "blueprint_fingerprint": {"type": ["string", "null"]},
+        "generated_at": {"type": ["string", "null"], "format": "date-time"}
+        ,"generation_mode": {"type": ["string", "null"], "enum": ["full-paper", "custom-practice", null]}
+        ,"run_contract": {"type": "string", "minLength": 1}
+        ,"layout_profile": {"type": ["string", "null"]}
+        ,"difficulty_balance_plan": {"type": "object"}
+        ,"llm_original_generation_contract": {"type": "object"}
+        ,"paper_originality_matrix": {"type": "object"}
+        ,"group_originality_records": {"type": "array"}
+        ,"section_header_previews": {"type": "object"}
+        ,"layout_fidelity_status": {"type": ["string", "null"], "enum": ["verified", "reference-only", "generic", null]}
+        ,"paper_subject": {"type": ["string", "null"]}
+        ,"paper_label": {"type": ["string", "null"]}
+        ,"paper_profile_id": {"type": ["string", "null"]}
+        ,"reference_year": {"type": ["integer", "null"], "minimum": 1900, "maximum": 2200}
+        ,"target_page_count": {"type": ["integer", "null"], "minimum": 1}
+        ,"expected_question_count": {"type": ["integer", "null"], "minimum": 1}
+        ,"expected_section_counts": {
+          "type": ["object", "null"],
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        }
+        ,"expected_section_scores": {
+          "type": ["object", "null"],
+          "additionalProperties": {"type": "number", "minimum": 0}
+        }
+        ,"scoring_note": {"type": ["string", "null"]}
+        ,"page_extras": {
+          "type": ["object", "null"],
+          "additionalProperties": {"type": "string"}
+        }
+      }
+    },
+    "instructions": {"type": "array", "items": {"type": "string"}},
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "instructions": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "number", "section_id", "type", "prompt"],
+        "properties": {
+          "id": {"type": "string"},
+          "number": {"type": "integer", "minimum": 1},
+          "section_id": {"type": "string"},
+          "type": {"type": "string"},
+          "score": {"type": ["number", "null"]},
+          "group_stimulus": {"type": ["string", "null"]},
+          "prompt": {"type": "string"},
+          "visual_asset": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["path", "alt"],
+            "properties": {
+              "path": {"type": "string", "minLength": 1},
+              "alt": {"type": "string", "minLength": 1},
+              "caption": {"type": ["string", "null"]},
+              "width_percent": {"type": ["integer", "null"], "minimum": 20, "maximum": 100},
+              "placement": {"type": "string", "enum": ["before_prompt", "after_prompt"]},
+              "visual_spec": {"$ref": "visual-spec.schema.json"}
+            }
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["label", "text"],
+              "properties": {
+                "label": {"type": "string"},
+                "text": {"type": "string"}
+              }
+            }
+          },
+          "answer_space_lines": {"type": ["integer", "null"], "minimum": 0},
+          "item_spec": {"type": ["object", "null"]}
+        }
+      }
+    },
+    "answers": {
+      "type": "array",
+      "items": {"$ref": "answer.schema.json"}
+    }
+  }
+}

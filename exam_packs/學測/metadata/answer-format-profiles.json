@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "initial_manual_sample",
+  "basis": "Abstracted from user-provided mock-exam solution layouts; no source wording or publisher layout is reproduced.",
+  "profiles": {
+    "國文": {
+      "國綜": ["quick_answer_grid", "difficulty_label", "curriculum_anchor", "objective", "analysis", "option_analysis_when_useful", "common_errors"],
+      "國寫": ["task_goal", "writing_guidance", "sample_response", "scoring_rubric", "word_limit_and_structure_check", "verification_notes"]
+    },
+    "英文": {
+      "default": ["quick_answer_grid", "difficulty_label", "objective", "analysis", "option_analysis", "vocabulary_when_useful", "translation_when_useful", "common_errors"]
+    },
+    "數學A": {
+      "default": ["quick_answer_grid", "difficulty_label", "source_unit", "objective", "numbered_derivation", "solution_diagram_when_needed", "alternate_solution_when_material", "verification_notes"]
+    },
+    "數學B": {
+      "default": ["quick_answer_grid", "difficulty_label", "source_unit", "objective", "numbered_derivation", "solution_diagram_when_needed", "alternate_solution_when_material", "verification_notes"]
+    },
+    "數學（共同範圍模考）": {
+      "default": ["quick_answer_grid", "difficulty_label", "source_unit", "objective", "numbered_derivation", "solution_diagram_when_needed", "alternate_solution_when_material", "verification_notes"]
+    },
+    "社會": {
+      "default": ["quick_answer_grid", "difficulty_label", "curriculum_code", "objective", "content_summary", "analysis", "option_analysis_when_useful", "common_errors"]
+    },
+    "自然": {
+      "default": ["quick_answer_grid", "difficulty_label", "source_unit_or_curriculum_code", "objective", "content_summary", "analysis", "formula_or_visual_when_needed", "option_analysis_when_useful", "common_errors"]
+    }
+  },
+  "rendering_policy": {
+    "student_answer_separation": true,
+    "quick_grid_before_details": true,
+    "two_column_details_when_legible": true,
+    "publisher_branding": false,
+    "source_watermarks": false
+  }
+}

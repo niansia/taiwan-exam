@@ -1,0 +1,7 @@
+interface:
+  display_name: "Taiwan Exam Generator"
+  short_description: "依課綱與卷型邊界，由 LLM 原創並驗證學測、會考模擬題"
+  brand_color: "#173F5F"
+  default_prompt: "Use $taiwan-exam-generator to create a fresh LLM-original Taiwan exam practice set from aggregate Exam Pack constraints, then run curriculum, originality, difficulty, and layout gates."
+policy:
+  allow_implicit_invocation: true

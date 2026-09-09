@@ -1,0 +1,2181 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-04T06:15:37.560392+00:00",
+  "exam": "學測",
+  "official_coverage": {
+    "roc_year_start": 100,
+    "roc_year_end": 115,
+    "regime_rule": "Never pool 100-106, 107-110, and 111-present as one generation population."
+  },
+  "difficulty_interpretation": {
+    "primary_metrics": [
+      "official P (answer/score rate)",
+      "official D (discrimination)"
+    ],
+    "bands": "Skill-local descriptive bins only; not CEEC official labels.",
+    "generated_item_warning": "A target P is not an achieved P until representative pilot data exist.",
+    "constructed_response_warning": "Objective-item P/D tables do not calibrate unlisted constructed-response slots."
+  },
+  "subjects": {
+    "國文": {
+      "official_item_statistics_count": 496,
+      "by_regime": {
+        "100-106_old-structure": {
+          "item_count": 161,
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106
+          ],
+          "p_mean": 0.6171,
+          "p_median": 0.64,
+          "p_min": 0.06,
+          "p_max": 0.94,
+          "discrimination_mean": 0.336,
+          "band_counts": {
+            "easy": 50,
+            "hard": 22,
+            "medium": 59,
+            "very_easy": 28,
+            "very_hard": 2
+          }
+        },
+        "107-110_transition": {
+          "item_count": 168,
+          "roc_years": [
+            107,
+            108,
+            109,
+            110
+          ],
+          "p_mean": 0.6304,
+          "p_median": 0.65,
+          "p_min": 0.2,
+          "p_max": 0.93,
+          "discrimination_mean": 0.3422,
+          "band_counts": {
+            "easy": 50,
+            "hard": 21,
+            "medium": 62,
+            "very_easy": 35
+          }
+        },
+        "111-present_108-curriculum": {
+          "item_count": 167,
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "p_mean": 0.5386,
+          "p_median": 0.54,
+          "p_min": 0.14,
+          "p_max": 0.92,
+          "discrimination_mean": 0.3028,
+          "band_counts": {
+            "easy": 29,
+            "hard": 36,
+            "medium": 79,
+            "very_easy": 17,
+            "very_hard": 6
+          }
+        }
+      },
+      "structure_series": {
+        "paper_count": 25,
+        "year_count": 16,
+        "status_counts": {
+          "auto_parsed": 15,
+          "verified": 10
+        },
+        "papers": [
+          {
+            "paper_id": "gsat-2011-official-20c470a7c604",
+            "year": 2011,
+            "roc_year": 100,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 120,
+            "total_score": null,
+            "numbered_question_count": 23,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2012-official-7314308e78e1",
+            "year": 2012,
+            "roc_year": 101,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 120,
+            "total_score": null,
+            "numbered_question_count": 23,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2013-official-6e8747efdfe8",
+            "year": 2013,
+            "roc_year": 102,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 120,
+            "total_score": null,
+            "numbered_question_count": 23,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2014-official-a754c86b9b90",
+            "year": 2014,
+            "roc_year": 103,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 120,
+            "total_score": null,
+            "numbered_question_count": 23,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2015-official-4bbf9c42c76d",
+            "year": 2015,
+            "roc_year": 104,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 120,
+            "total_score": null,
+            "numbered_question_count": 23,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2016-official-7cefd7616835",
+            "year": 2016,
+            "roc_year": 105,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 120,
+            "total_score": null,
+            "numbered_question_count": 23,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2017-official-3f926bbe360a",
+            "year": 2017,
+            "roc_year": 106,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 120,
+            "total_score": null,
+            "numbered_question_count": 23,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2018-official-dba03ced68f2",
+            "year": 2018,
+            "roc_year": 107,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 80,
+            "total_score": null,
+            "numbered_question_count": 42,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2018-official-406613a49fb3",
+            "year": 2018,
+            "roc_year": 107,
+            "regime": "107-110_transition",
+            "section": "國寫",
+            "duration_minutes": 80,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "auto_parsed",
+            "confidence": 0.95
+          },
+          {
+            "paper_id": "gsat-2019-official-f73ae8c01712",
+            "year": 2019,
+            "roc_year": 108,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 80,
+            "total_score": null,
+            "numbered_question_count": 42,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2019-official-674a0345cd3d",
+            "year": 2019,
+            "roc_year": 108,
+            "regime": "107-110_transition",
+            "section": "國寫",
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "auto_parsed",
+            "confidence": 0.95
+          },
+          {
+            "paper_id": "gsat-2020-official-2cd7db89c658",
+            "year": 2020,
+            "roc_year": 109,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 80,
+            "total_score": null,
+            "numbered_question_count": 42,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2020-official-01ef380cd093",
+            "year": 2020,
+            "roc_year": 109,
+            "regime": "107-110_transition",
+            "section": "國寫",
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "auto_parsed",
+            "confidence": 0.95
+          },
+          {
+            "paper_id": "gsat-2021-official-02ea4a85cbf5",
+            "year": 2021,
+            "roc_year": 110,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 80,
+            "total_score": null,
+            "numbered_question_count": 42,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2021-official-3483fc5475ac",
+            "year": 2021,
+            "roc_year": 110,
+            "regime": "107-110_transition",
+            "section": "國寫",
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "auto_parsed",
+            "confidence": 0.95
+          },
+          {
+            "paper_id": "gsat-2022-official-081dd1d6e95e",
+            "year": 2022,
+            "roc_year": 111,
+            "regime": "111-present_108-curriculum",
+            "section": "國寫",
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2022-official-b798418f7d09",
+            "year": 2022,
+            "roc_year": 111,
+            "regime": "111-present_108-curriculum",
+            "section": "國綜",
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 37,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2023-official-10c795009e60",
+            "year": 2023,
+            "roc_year": 112,
+            "regime": "111-present_108-curriculum",
+            "section": "國寫",
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2023-official-b5a3cef4fe9d",
+            "year": 2023,
+            "roc_year": 112,
+            "regime": "111-present_108-curriculum",
+            "section": "國綜",
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 37,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2024-official-afcc3c0fefdd",
+            "year": 2024,
+            "roc_year": 113,
+            "regime": "111-present_108-curriculum",
+            "section": "國寫",
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2024-official-f0a9043fca96",
+            "year": 2024,
+            "roc_year": 113,
+            "regime": "111-present_108-curriculum",
+            "section": "國綜",
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 36,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2025-official-c64c36a1cf6d",
+            "year": 2025,
+            "roc_year": 114,
+            "regime": "111-present_108-curriculum",
+            "section": "國寫",
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2025-official-ad9878a480fb",
+            "year": 2025,
+            "roc_year": 114,
+            "regime": "111-present_108-curriculum",
+            "section": "國綜",
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 36,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2026-official-3ea44f1b2c33",
+            "year": 2026,
+            "roc_year": 115,
+            "regime": "111-present_108-curriculum",
+            "section": "國寫",
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2026-official-9cee75fa62cc",
+            "year": 2026,
+            "roc_year": 115,
+            "regime": "111-present_108-curriculum",
+            "section": "國綜",
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 36,
+            "structure_status": "verified",
+            "confidence": 1.0
+          }
+        ],
+        "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
+      },
+      "latest_verified_structures": [
+        {
+          "paper_id": "gsat-2026-official-3ea44f1b2c33",
+          "year": 2026,
+          "section": "國寫",
+          "duration_minutes": 90,
+          "total_score": 50.0,
+          "numbered_question_count": 2,
+          "scored_item_count": 2,
+          "source_kind": "official_past_exam",
+          "sections": [
+            {
+              "title": "國寫非選擇題",
+              "question_number_start": 1,
+              "question_number_end": 2,
+              "numbered_question_count": 2,
+              "scored_item_count": 2,
+              "question_type_mix": {
+                "guided_writing": 2
+              },
+              "subtotal_score": 50.0,
+              "score_rule": "占 50 分"
+            }
+          ],
+          "layout_evidence_status": "not-yet-verified"
+        },
+        {
+          "paper_id": "gsat-2026-official-9cee75fa62cc",
+          "year": 2026,
+          "section": "國綜",
+          "duration_minutes": 90,
+          "total_score": 100.0,
+          "numbered_question_count": 36,
+          "scored_item_count": 36,
+          "source_kind": "official_past_exam",
+          "sections": [
+            {
+              "title": "單選題",
+              "question_number_start": 1,
+              "question_number_end": 24,
+              "numbered_question_count": 24,
+              "scored_item_count": 24,
+              "question_type_mix": {
+                "single_choice": 24
+              },
+              "subtotal_score": 48.0,
+              "score_rule": "占 48 分"
+            },
+            {
+              "title": "多選題",
+              "question_number_start": 25,
+              "question_number_end": 31,
+              "numbered_question_count": 7,
+              "scored_item_count": 7,
+              "question_type_mix": {
+                "multiple_choice": 7
+              },
+              "subtotal_score": 28.0,
+              "score_rule": "占 28 分"
+            },
+            {
+              "title": "混合題或非選擇題",
+              "question_number_start": 32,
+              "question_number_end": 36,
+              "numbered_question_count": 5,
+              "scored_item_count": 5,
+              "question_type_mix": {
+                "mixed_group": 5
+              },
+              "subtotal_score": 24.0,
+              "score_rule": "占 24 分"
+            }
+          ],
+          "layout_evidence_status": "not-yet-verified"
+        }
+      ]
+    },
+    "數學A": {
+      "official_item_statistics_count": 90,
+      "by_regime": {
+        "111-present_108-curriculum": {
+          "item_count": 90,
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "p_mean": 0.4209,
+          "p_median": 0.435,
+          "p_min": 0.05,
+          "p_max": 0.89,
+          "discrimination_mean": 0.418,
+          "band_counts": {
+            "easy": 10,
+            "hard": 29,
+            "medium": 35,
+            "very_easy": 3,
+            "very_hard": 13
+          }
+        }
+      },
+      "structure_series": {
+        "paper_count": 5,
+        "year_count": 5,
+        "status_counts": {
+          "verified": 5
+        },
+        "papers": [
+          {
+            "paper_id": "gsat-2022-official-01ceb21ac453",
+            "year": 2022,
+            "roc_year": 111,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2023-official-fd0d3aebd2ff",
+            "year": 2023,
+            "roc_year": 112,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2024-official-c0dbc1bd50a8",
+            "year": 2024,
+            "roc_year": 113,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2025-official-265a18f8de05",
+            "year": 2025,
+            "roc_year": 114,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2026-official-e867988978a8",
+            "year": 2026,
+            "roc_year": 115,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          }
+        ],
+        "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
+      },
+      "latest_verified_structures": [
+        {
+          "paper_id": "gsat-2026-official-e867988978a8",
+          "year": 2026,
+          "section": null,
+          "duration_minutes": 100,
+          "total_score": 100.0,
+          "numbered_question_count": 20,
+          "scored_item_count": 20,
+          "source_kind": "official_past_exam",
+          "sections": [
+            {
+              "title": "單選題",
+              "question_number_start": 1,
+              "question_number_end": 6,
+              "numbered_question_count": 6,
+              "scored_item_count": 6,
+              "question_type_mix": {
+                "single_choice": 6
+              },
+              "subtotal_score": 30.0,
+              "score_rule": "占 30 分"
+            },
+            {
+              "title": "多選題",
+              "question_number_start": 7,
+              "question_number_end": 12,
+              "numbered_question_count": 6,
+              "scored_item_count": 6,
+              "question_type_mix": {
+                "multiple_choice": 6
+              },
+              "subtotal_score": 30.0,
+              "score_rule": "占 30 分"
+            },
+            {
+              "title": "選填題",
+              "question_number_start": 13,
+              "question_number_end": 17,
+              "numbered_question_count": 5,
+              "scored_item_count": 5,
+              "question_type_mix": {
+                "fill_in": 5
+              },
+              "subtotal_score": 25.0,
+              "score_rule": "占 25 分"
+            },
+            {
+              "title": "混合題或非選擇題",
+              "question_number_start": 18,
+              "question_number_end": 20,
+              "numbered_question_count": 3,
+              "scored_item_count": 3,
+              "question_type_mix": {
+                "mixed_group": 3
+              },
+              "subtotal_score": 15.0,
+              "score_rule": "占 15 分"
+            }
+          ],
+          "layout_evidence_status": "not-yet-verified"
+        }
+      ],
+      "current_opening_curve": {
+        "section": "opening single-choice",
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "position_p_medians": [
+          0.78,
+          0.57,
+          0.41,
+          0.44,
+          0.35,
+          0.37
+        ],
+        "position_p_correlation": -0.8772,
+        "annual_curves": [
+          {
+            "roc_year": 111,
+            "p_values": [
+              0.29,
+              0.4,
+              0.12,
+              0.57,
+              0.53,
+              0.48
+            ],
+            "position_p_correlation": 0.5664
+          },
+          {
+            "roc_year": 112,
+            "p_values": [
+              0.78,
+              0.59,
+              0.51,
+              0.44,
+              0.47,
+              0.35
+            ],
+            "position_p_correlation": -0.9284
+          },
+          {
+            "roc_year": 113,
+            "p_values": [
+              0.89,
+              0.57,
+              0.31,
+              0.39,
+              0.35,
+              0.44
+            ],
+            "position_p_correlation": -0.7039
+          },
+          {
+            "roc_year": 114,
+            "p_values": [
+              0.57,
+              0.62,
+              0.6,
+              0.44,
+              0.3,
+              0.35
+            ],
+            "position_p_correlation": -0.8701
+          },
+          {
+            "roc_year": 115,
+            "p_values": [
+              0.84,
+              0.55,
+              0.41,
+              0.56,
+              0.26,
+              0.37
+            ],
+            "position_p_correlation": -0.8118
+          }
+        ],
+        "interpretation": "Negative correlation means later positions tend to be harder, but annual exceptions are preserved. This is a target curve, not a rule that every adjacent item must be harder."
+      }
+    },
+    "數學B": {
+      "official_item_statistics_count": 90,
+      "by_regime": {
+        "111-present_108-curriculum": {
+          "item_count": 90,
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "p_mean": 0.4254,
+          "p_median": 0.44,
+          "p_min": 0.01,
+          "p_max": 0.83,
+          "discrimination_mean": 0.4996,
+          "band_counts": {
+            "easy": 9,
+            "hard": 31,
+            "medium": 39,
+            "very_easy": 2,
+            "very_hard": 9
+          }
+        }
+      },
+      "structure_series": {
+        "paper_count": 5,
+        "year_count": 5,
+        "status_counts": {
+          "verified": 5
+        },
+        "papers": [
+          {
+            "paper_id": "gsat-2022-official-8752c7cb7444",
+            "year": 2022,
+            "roc_year": 111,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2023-official-958c9ad0e161",
+            "year": 2023,
+            "roc_year": 112,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2024-official-c378a43ffedb",
+            "year": 2024,
+            "roc_year": 113,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2025-official-ad6ed7218a4f",
+            "year": 2025,
+            "roc_year": 114,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2026-official-84ac78e7a8b2",
+            "year": 2026,
+            "roc_year": 115,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "structure_status": "verified",
+            "confidence": 1.0
+          }
+        ],
+        "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
+      },
+      "latest_verified_structures": [
+        {
+          "paper_id": "gsat-2026-official-84ac78e7a8b2",
+          "year": 2026,
+          "section": null,
+          "duration_minutes": 100,
+          "total_score": 100.0,
+          "numbered_question_count": 20,
+          "scored_item_count": 20,
+          "source_kind": "official_past_exam",
+          "sections": [
+            {
+              "title": "單選題",
+              "question_number_start": 1,
+              "question_number_end": 7,
+              "numbered_question_count": 7,
+              "scored_item_count": 7,
+              "question_type_mix": {
+                "single_choice": 7
+              },
+              "subtotal_score": 35.0,
+              "score_rule": "占 35 分"
+            },
+            {
+              "title": "多選題",
+              "question_number_start": 8,
+              "question_number_end": 12,
+              "numbered_question_count": 5,
+              "scored_item_count": 5,
+              "question_type_mix": {
+                "multiple_choice": 5
+              },
+              "subtotal_score": 25.0,
+              "score_rule": "占 25 分"
+            },
+            {
+              "title": "選填題",
+              "question_number_start": 13,
+              "question_number_end": 17,
+              "numbered_question_count": 5,
+              "scored_item_count": 5,
+              "question_type_mix": {
+                "fill_in": 5
+              },
+              "subtotal_score": 25.0,
+              "score_rule": "占 25 分"
+            },
+            {
+              "title": "混合題或非選擇題",
+              "question_number_start": 18,
+              "question_number_end": 20,
+              "numbered_question_count": 3,
+              "scored_item_count": 3,
+              "question_type_mix": {
+                "mixed_group": 3
+              },
+              "subtotal_score": 15.0,
+              "score_rule": "占 15 分"
+            }
+          ],
+          "layout_evidence_status": "not-yet-verified"
+        }
+      ],
+      "current_opening_curve": {
+        "section": "opening single-choice",
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "position_p_medians": [
+          0.55,
+          0.68,
+          0.56,
+          0.44,
+          0.58,
+          0.53,
+          0.27
+        ],
+        "position_p_correlation": -0.6674,
+        "annual_curves": [
+          {
+            "roc_year": 111,
+            "p_values": [
+              0.74,
+              0.83,
+              0.5,
+              0.49,
+              0.65,
+              0.53,
+              0.27
+            ],
+            "position_p_correlation": -0.7749
+          },
+          {
+            "roc_year": 112,
+            "p_values": [
+              0.46,
+              0.68,
+              0.56,
+              0.7,
+              0.83,
+              0.54,
+              0.3
+            ],
+            "position_p_correlation": -0.2172
+          },
+          {
+            "roc_year": 113,
+            "p_values": [
+              0.58,
+              0.49,
+              0.7,
+              0.26,
+              0.45,
+              0.37,
+              0.15
+            ],
+            "position_p_correlation": -0.7336
+          },
+          {
+            "roc_year": 114,
+            "p_values": [
+              0.55,
+              0.77,
+              0.55,
+              0.35,
+              0.3,
+              0.56,
+              0.23
+            ],
+            "position_p_correlation": -0.6694
+          },
+          {
+            "roc_year": 115,
+            "p_values": [
+              0.52,
+              0.46,
+              0.62,
+              0.44,
+              0.58,
+              0.38,
+              0.37
+            ],
+            "position_p_correlation": -0.5224
+          }
+        ],
+        "interpretation": "Negative correlation means later positions tend to be harder, but annual exceptions are preserved. This is a target curve, not a rule that every adjacent item must be harder."
+      }
+    },
+    "數學（舊制）": {
+      "official_item_statistics_count": 220,
+      "by_regime": {
+        "100-106_old-structure": {
+          "item_count": 140,
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106
+          ],
+          "p_mean": 0.4424,
+          "p_median": 0.435,
+          "p_min": 0.11,
+          "p_max": 0.88,
+          "discrimination_mean": 0.5391,
+          "band_counts": {
+            "easy": 17,
+            "hard": 52,
+            "medium": 58,
+            "very_easy": 4,
+            "very_hard": 9
+          }
+        },
+        "107-110_transition": {
+          "item_count": 80,
+          "roc_years": [
+            107,
+            108,
+            109,
+            110
+          ],
+          "p_mean": 0.4784,
+          "p_median": 0.485,
+          "p_min": 0.13,
+          "p_max": 0.89,
+          "discrimination_mean": 0.5519,
+          "band_counts": {
+            "easy": 14,
+            "hard": 25,
+            "medium": 33,
+            "very_easy": 3,
+            "very_hard": 5
+          }
+        }
+      },
+      "structure_series": {
+        "paper_count": 11,
+        "year_count": 11,
+        "status_counts": {
+          "auto_parsed": 11
+        },
+        "papers": [
+          {
+            "paper_id": "gsat-2011-official-f31421ab5ef4",
+            "year": 2011,
+            "roc_year": 100,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 13,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2012-official-731fc2f5788b",
+            "year": 2012,
+            "roc_year": 101,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 65.0,
+            "numbered_question_count": 13,
+            "structure_status": "auto_parsed",
+            "confidence": 0.91
+          },
+          {
+            "paper_id": "gsat-2013-official-cdc4b32172ce",
+            "year": 2013,
+            "roc_year": 102,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 12,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2014-official-f7a84681f355",
+            "year": 2014,
+            "roc_year": 103,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 12,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2015-official-3cd6c5215f01",
+            "year": 2015,
+            "roc_year": 104,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 10,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2016-official-d5f08eec1bba",
+            "year": 2016,
+            "roc_year": 105,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 13,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2017-official-de9b972af645",
+            "year": 2017,
+            "roc_year": 106,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 13,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2018-official-a5e3f861a54a",
+            "year": 2018,
+            "roc_year": 107,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 12,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2019-official-683293478aa5",
+            "year": 2019,
+            "roc_year": 108,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 13,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2020-official-bd28a23cc3af",
+            "year": 2020,
+            "roc_year": 109,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 13,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2021-official-6cfd5211a44a",
+            "year": 2021,
+            "roc_year": 110,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 13,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          }
+        ],
+        "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
+      },
+      "latest_verified_structures": []
+    },
+    "社會": {
+      "official_item_statistics_count": 1067,
+      "by_regime": {
+        "100-106_old-structure": {
+          "item_count": 504,
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106
+          ],
+          "p_mean": 0.61,
+          "p_median": 0.63,
+          "p_min": 0.07,
+          "p_max": 1.0,
+          "discrimination_mean": 0.3315,
+          "band_counts": {
+            "easy": 138,
+            "hard": 69,
+            "medium": 197,
+            "very_easy": 95,
+            "very_hard": 5
+          }
+        },
+        "107-110_transition": {
+          "item_count": 288,
+          "roc_years": [
+            107,
+            108,
+            109,
+            110
+          ],
+          "p_mean": 0.5747,
+          "p_median": 0.575,
+          "p_min": 0.07,
+          "p_max": 1.0,
+          "discrimination_mean": 0.3374,
+          "band_counts": {
+            "easy": 65,
+            "hard": 47,
+            "medium": 136,
+            "very_easy": 36,
+            "very_hard": 4
+          }
+        },
+        "111-present_108-curriculum": {
+          "item_count": 275,
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "p_mean": 0.5515,
+          "p_median": 0.56,
+          "p_min": 0.08,
+          "p_max": 0.96,
+          "discrimination_mean": 0.3023,
+          "band_counts": {
+            "easy": 62,
+            "hard": 54,
+            "medium": 124,
+            "very_easy": 30,
+            "very_hard": 5
+          }
+        }
+      },
+      "structure_series": {
+        "paper_count": 16,
+        "year_count": 16,
+        "status_counts": {
+          "auto_parsed": 10,
+          "needs_review": 1,
+          "verified": 5
+        },
+        "papers": [
+          {
+            "paper_id": "gsat-2011-official-368b2d90bf8b",
+            "year": 2011,
+            "roc_year": 100,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": null,
+            "structure_status": "needs_review",
+            "confidence": 0.0
+          },
+          {
+            "paper_id": "gsat-2012-official-fe685faa872f",
+            "year": 2012,
+            "roc_year": 101,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.82
+          },
+          {
+            "paper_id": "gsat-2013-official-f76f7d3179f9",
+            "year": 2013,
+            "roc_year": 102,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.82
+          },
+          {
+            "paper_id": "gsat-2014-official-f246bcda1e46",
+            "year": 2014,
+            "roc_year": 103,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.81
+          },
+          {
+            "paper_id": "gsat-2015-official-03546e401d68",
+            "year": 2015,
+            "roc_year": 104,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.81
+          },
+          {
+            "paper_id": "gsat-2016-official-18ed00c381ce",
+            "year": 2016,
+            "roc_year": 105,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.81
+          },
+          {
+            "paper_id": "gsat-2017-official-2f2b15c01d16",
+            "year": 2017,
+            "roc_year": 106,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.82
+          },
+          {
+            "paper_id": "gsat-2018-official-6fdcd40928a0",
+            "year": 2018,
+            "roc_year": 107,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.8
+          },
+          {
+            "paper_id": "gsat-2019-official-07908c1544e6",
+            "year": 2019,
+            "roc_year": 108,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2020-official-958e73b6354c",
+            "year": 2020,
+            "roc_year": 109,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2021-official-f8391a03d671",
+            "year": 2021,
+            "roc_year": 110,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": null,
+            "numbered_question_count": 72,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2022-official-434fcf740bad",
+            "year": 2022,
+            "roc_year": 111,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 67,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2023-official-1f657289579f",
+            "year": 2023,
+            "roc_year": 112,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 66,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2024-official-74a0026042bb",
+            "year": 2024,
+            "roc_year": 113,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 64,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2025-official-1d1340c4aa07",
+            "year": 2025,
+            "roc_year": 114,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 64,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2026-official-e4af275a5fbe",
+            "year": 2026,
+            "roc_year": 115,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 65,
+            "structure_status": "verified",
+            "confidence": 1.0
+          }
+        ],
+        "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
+      },
+      "latest_verified_structures": [
+        {
+          "paper_id": "gsat-2026-official-e4af275a5fbe",
+          "year": 2026,
+          "section": null,
+          "duration_minutes": 110,
+          "total_score": 144.0,
+          "numbered_question_count": 65,
+          "scored_item_count": 65,
+          "source_kind": "official_past_exam",
+          "sections": [
+            {
+              "title": "選擇題",
+              "question_number_start": 1,
+              "question_number_end": 38,
+              "numbered_question_count": 38,
+              "scored_item_count": 38,
+              "question_type_mix": {
+                "single_choice": 38
+              },
+              "subtotal_score": 76.0,
+              "score_rule": "占 76 分"
+            },
+            {
+              "title": "混合題或非選擇題",
+              "question_number_start": 39,
+              "question_number_end": 65,
+              "numbered_question_count": 27,
+              "scored_item_count": 27,
+              "question_type_mix": {
+                "mixed_group": 27
+              },
+              "subtotal_score": 68.0,
+              "score_rule": "占 68 分"
+            }
+          ],
+          "layout_evidence_status": "not-yet-verified"
+        }
+      ]
+    },
+    "自然": {
+      "official_item_statistics_count": 996,
+      "by_regime": {
+        "100-106_old-structure": {
+          "item_count": 476,
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106
+          ],
+          "p_mean": 0.5176,
+          "p_median": 0.52,
+          "p_min": 0.08,
+          "p_max": 0.97,
+          "discrimination_mean": 0.4485,
+          "band_counts": {
+            "easy": 68,
+            "hard": 101,
+            "medium": 268,
+            "very_easy": 29,
+            "very_hard": 10
+          }
+        },
+        "107-110_transition": {
+          "item_count": 272,
+          "roc_years": [
+            107,
+            108,
+            109,
+            110
+          ],
+          "p_mean": 0.485,
+          "p_median": 0.48,
+          "p_min": 0.15,
+          "p_max": 0.88,
+          "discrimination_mean": 0.446,
+          "band_counts": {
+            "easy": 38,
+            "hard": 78,
+            "medium": 147,
+            "very_easy": 5,
+            "very_hard": 4
+          }
+        },
+        "111-present_108-curriculum": {
+          "item_count": 248,
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "p_mean": 0.5581,
+          "p_median": 0.56,
+          "p_min": 0.19,
+          "p_max": 0.88,
+          "discrimination_mean": 0.4487,
+          "band_counts": {
+            "easy": 58,
+            "hard": 29,
+            "medium": 149,
+            "very_easy": 11,
+            "very_hard": 1
+          }
+        }
+      },
+      "structure_series": {
+        "paper_count": 16,
+        "year_count": 16,
+        "status_counts": {
+          "auto_parsed": 7,
+          "needs_review": 4,
+          "verified": 5
+        },
+        "papers": [
+          {
+            "paper_id": "gsat-2011-official-b85ea132f98c",
+            "year": 2011,
+            "roc_year": 100,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 32.0,
+            "numbered_question_count": 68,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2012-official-006663a7f80d",
+            "year": 2012,
+            "roc_year": 101,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 32.0,
+            "numbered_question_count": 68,
+            "structure_status": "auto_parsed",
+            "confidence": 0.82
+          },
+          {
+            "paper_id": "gsat-2013-official-3775d69c0f96",
+            "year": 2013,
+            "roc_year": 102,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 48.0,
+            "numbered_question_count": null,
+            "structure_status": "needs_review",
+            "confidence": 0.08
+          },
+          {
+            "paper_id": "gsat-2014-official-f009c9eb65b0",
+            "year": 2014,
+            "roc_year": 103,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 48.0,
+            "numbered_question_count": null,
+            "structure_status": "needs_review",
+            "confidence": 0.08
+          },
+          {
+            "paper_id": "gsat-2015-official-960c8e6361e1",
+            "year": 2015,
+            "roc_year": 104,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 48.0,
+            "numbered_question_count": 68,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2016-official-65b8aec00303",
+            "year": 2016,
+            "roc_year": 105,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 48.0,
+            "numbered_question_count": 68,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2017-official-53352a3eac5b",
+            "year": 2017,
+            "roc_year": 106,
+            "regime": "100-106_old-structure",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 48.0,
+            "numbered_question_count": 68,
+            "structure_status": "auto_parsed",
+            "confidence": 0.83
+          },
+          {
+            "paper_id": "gsat-2018-official-fe7f7dcb0ec5",
+            "year": 2018,
+            "roc_year": 107,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 100,
+            "total_score": 48.0,
+            "numbered_question_count": null,
+            "structure_status": "needs_review",
+            "confidence": 0.08
+          },
+          {
+            "paper_id": "gsat-2019-official-341c5277068f",
+            "year": 2019,
+            "roc_year": 108,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 48.0,
+            "numbered_question_count": 73,
+            "structure_status": "auto_parsed",
+            "confidence": 0.82
+          },
+          {
+            "paper_id": "gsat-2020-official-031ea3f6b900",
+            "year": 2020,
+            "roc_year": 109,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 48.0,
+            "numbered_question_count": 68,
+            "structure_status": "auto_parsed",
+            "confidence": 0.82
+          },
+          {
+            "paper_id": "gsat-2021-official-4af5fa3a959d",
+            "year": 2021,
+            "roc_year": 110,
+            "regime": "107-110_transition",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 48.0,
+            "numbered_question_count": null,
+            "structure_status": "needs_review",
+            "confidence": 0.08
+          },
+          {
+            "paper_id": "gsat-2022-official-68f14585f9bd",
+            "year": 2022,
+            "roc_year": 111,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 60,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2023-official-32e11be7ffbe",
+            "year": 2023,
+            "roc_year": 112,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 61,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2024-official-479080cff932",
+            "year": 2024,
+            "roc_year": 113,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 56,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2025-official-62b238bd1099",
+            "year": 2025,
+            "roc_year": 114,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 57,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2026-official-9381c4030a41",
+            "year": 2026,
+            "roc_year": 115,
+            "regime": "111-present_108-curriculum",
+            "section": null,
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 56,
+            "structure_status": "verified",
+            "confidence": 1.0
+          }
+        ],
+        "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
+      },
+      "latest_verified_structures": [
+        {
+          "paper_id": "gsat-2026-official-9381c4030a41",
+          "year": 2026,
+          "section": null,
+          "duration_minutes": 110,
+          "total_score": 128.0,
+          "numbered_question_count": 56,
+          "scored_item_count": 56,
+          "source_kind": "official_past_exam",
+          "sections": [
+            {
+              "title": "選擇題",
+              "question_number_start": 1,
+              "question_number_end": 36,
+              "numbered_question_count": 36,
+              "scored_item_count": 36,
+              "question_type_mix": {
+                "single_choice": 36
+              },
+              "subtotal_score": 72.0,
+              "score_rule": "占 72 分"
+            },
+            {
+              "title": "混合題或非選擇題",
+              "question_number_start": 37,
+              "question_number_end": 56,
+              "numbered_question_count": 20,
+              "scored_item_count": 20,
+              "question_type_mix": {
+                "mixed_group": 20
+              },
+              "subtotal_score": 56.0,
+              "score_rule": "占 56 分"
+            }
+          ],
+          "layout_evidence_status": "not-yet-verified"
+        }
+      ]
+    },
+    "英文": {
+      "official_item_statistics_count": 851,
+      "by_regime": {
+        "100-106_old-structure": {
+          "item_count": 392,
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106
+          ],
+          "p_mean": 0.5851,
+          "p_median": 0.6,
+          "p_min": 0.17,
+          "p_max": 0.89,
+          "discrimination_mean": 0.5522,
+          "band_counts": {
+            "easy": 139,
+            "hard": 42,
+            "medium": 197,
+            "very_easy": 13,
+            "very_hard": 1
+          }
+        },
+        "107-110_transition": {
+          "item_count": 224,
+          "roc_years": [
+            107,
+            108,
+            109,
+            110
+          ],
+          "p_mean": 0.5608,
+          "p_median": 0.59,
+          "p_min": 0.16,
+          "p_max": 0.87,
+          "discrimination_mean": 0.5621,
+          "band_counts": {
+            "easy": 67,
+            "hard": 32,
+            "medium": 117,
+            "very_easy": 6,
+            "very_hard": 2
+          }
+        },
+        "111-present_108-curriculum": {
+          "item_count": 235,
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "p_mean": 0.4986,
+          "p_median": 0.5,
+          "p_min": 0.14,
+          "p_max": 0.88,
+          "discrimination_mean": 0.5266,
+          "band_counts": {
+            "easy": 38,
+            "hard": 49,
+            "medium": 142,
+            "very_easy": 3,
+            "very_hard": 3
+          }
+        }
+      },
+      "structure_series": {
+        "paper_count": 16,
+        "year_count": 16,
+        "status_counts": {
+          "auto_parsed": 11,
+          "verified": 5
+        },
+        "papers": [
+          {
+            "paper_id": "gsat-2011-official-179f710f6d2e",
+            "year": 2011,
+            "roc_year": 100,
+            "regime": "100-106_old-structure",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2012-official-d9942eb961eb",
+            "year": 2012,
+            "roc_year": 101,
+            "regime": "100-106_old-structure",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2013-official-1c39e083a6b8",
+            "year": 2013,
+            "roc_year": 102,
+            "regime": "100-106_old-structure",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2014-official-cf13c981ad8e",
+            "year": 2014,
+            "roc_year": 103,
+            "regime": "100-106_old-structure",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2015-official-f43e4a2c26ab",
+            "year": 2015,
+            "roc_year": 104,
+            "regime": "100-106_old-structure",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2016-official-56ad827c96e9",
+            "year": 2016,
+            "roc_year": 105,
+            "regime": "100-106_old-structure",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2017-official-1ef52384175f",
+            "year": 2017,
+            "roc_year": 106,
+            "regime": "100-106_old-structure",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2018-official-5c1b4bede296",
+            "year": 2018,
+            "roc_year": 107,
+            "regime": "107-110_transition",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2019-official-b3c844ba252b",
+            "year": 2019,
+            "roc_year": 108,
+            "regime": "107-110_transition",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2020-official-515aae9676a3",
+            "year": 2020,
+            "roc_year": 109,
+            "regime": "107-110_transition",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2021-official-fe2e9350c9c0",
+            "year": 2021,
+            "roc_year": 110,
+            "regime": "107-110_transition",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": null,
+            "numbered_question_count": 56,
+            "structure_status": "auto_parsed",
+            "confidence": 0.79
+          },
+          {
+            "paper_id": "gsat-2022-official-5877adb44710",
+            "year": 2022,
+            "roc_year": 111,
+            "regime": "111-present_108-curriculum",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2023-official-79f8f0a5822b",
+            "year": 2023,
+            "roc_year": 112,
+            "regime": "111-present_108-curriculum",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2024-official-09d35c2ed856",
+            "year": 2024,
+            "roc_year": 113,
+            "regime": "111-present_108-curriculum",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2025-official-51c8d9f7c271",
+            "year": 2025,
+            "roc_year": 114,
+            "regime": "111-present_108-curriculum",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "structure_status": "verified",
+            "confidence": 1.0
+          },
+          {
+            "paper_id": "gsat-2026-official-e5a644f01334",
+            "year": 2026,
+            "roc_year": 115,
+            "regime": "111-present_108-curriculum",
+            "section": "英文",
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "structure_status": "verified",
+            "confidence": 1.0
+          }
+        ],
+        "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
+      },
+      "latest_verified_structures": [
+        {
+          "paper_id": "gsat-2026-official-e5a644f01334",
+          "year": 2026,
+          "section": "英文",
+          "duration_minutes": 100,
+          "total_score": 100.0,
+          "numbered_question_count": 50,
+          "scored_item_count": 50,
+          "source_kind": "official_past_exam",
+          "sections": [
+            {
+              "title": "詞彙題",
+              "question_number_start": 1,
+              "question_number_end": 10,
+              "numbered_question_count": 10,
+              "scored_item_count": 10,
+              "question_type_mix": {
+                "single_choice": 10
+              },
+              "subtotal_score": 10.0,
+              "score_rule": "占 10 分"
+            },
+            {
+              "title": "綜合測驗",
+              "question_number_start": 11,
+              "question_number_end": 20,
+              "numbered_question_count": 10,
+              "scored_item_count": 10,
+              "question_type_mix": {
+                "single_choice": 10
+              },
+              "subtotal_score": 10.0,
+              "score_rule": "占 10 分"
+            },
+            {
+              "title": "文意選填",
+              "question_number_start": 21,
+              "question_number_end": 30,
+              "numbered_question_count": 10,
+              "scored_item_count": 10,
+              "question_type_mix": {
+                "fill_in": 10
+              },
+              "subtotal_score": 10.0,
+              "score_rule": "占 10 分"
+            },
+            {
+              "title": "篇章結構",
+              "question_number_start": 31,
+              "question_number_end": 34,
+              "numbered_question_count": 4,
+              "scored_item_count": 4,
+              "question_type_mix": {
+                "single_choice": 4
+              },
+              "subtotal_score": 8.0,
+              "score_rule": "占 8 分"
+            },
+            {
+              "title": "閱讀測驗",
+              "question_number_start": 35,
+              "question_number_end": 46,
+              "numbered_question_count": 12,
+              "scored_item_count": 12,
+              "question_type_mix": {
+                "single_choice": 12
+              },
+              "subtotal_score": 24.0,
+              "score_rule": "占 24 分"
+            },
+            {
+              "title": "混合題",
+              "question_number_start": 47,
+              "question_number_end": 48,
+              "numbered_question_count": 2,
+              "scored_item_count": 2,
+              "question_type_mix": {
+                "mixed_group": 2
+              },
+              "subtotal_score": 10.0,
+              "score_rule": "占 10 分"
+            },
+            {
+              "title": "中譯英",
+              "question_number_start": 49,
+              "question_number_end": 49,
+              "numbered_question_count": 1,
+              "scored_item_count": 1,
+              "question_type_mix": {
+                "constructed_response": 1
+              },
+              "subtotal_score": 8.0,
+              "score_rule": "占 8 分"
+            },
+            {
+              "title": "英文作文",
+              "question_number_start": 50,
+              "question_number_end": 50,
+              "numbered_question_count": 1,
+              "scored_item_count": 1,
+              "question_type_mix": {
+                "constructed_response": 1
+              },
+              "subtotal_score": 20.0,
+              "score_rule": "占 20 分"
+            }
+          ],
+          "layout_evidence_status": "not-yet-verified"
+        }
+      ]
+    }
+  }
+}

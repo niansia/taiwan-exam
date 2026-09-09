@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/taiwan-exam/visual-spec.schema.json",
+  "title": "Exam visual specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "role",
+    "generation_mode",
+    "information_density",
+    "visual_reasoning_steps",
+    "precision",
+    "alt_text",
+    "difficulty_basis",
+    "validation_checks"
+  ],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "coordinate_graph",
+        "geometry_diagram",
+        "statistical_chart",
+        "data_table",
+        "map",
+        "timeline",
+        "circuit",
+        "experimental_setup",
+        "biological_illustration",
+        "chemical_structure",
+        "photo",
+        "document_facsimile",
+        "other"
+      ]
+    },
+    "subtype": {"type": ["string", "null"]},
+    "layout": {
+      "type": "string",
+      "enum": ["single", "panel_set", "overlay", "inline_sequence"]
+    },
+    "role": {
+      "type": "string",
+      "enum": ["context", "evidence", "required_for_solution", "decorative"]
+    },
+    "generation_mode": {
+      "type": "string",
+      "enum": ["deterministic_svg", "chart_renderer", "image_model", "licensed_source", "none"]
+    },
+    "information_density": {"type": "integer", "minimum": 1, "maximum": 5},
+    "visual_reasoning_steps": {"type": "integer", "minimum": 0, "maximum": 5},
+    "entity_count": {"type": ["integer", "null"], "minimum": 0},
+    "panel_count": {"type": ["integer", "null"], "minimum": 1},
+    "label_count": {"type": ["integer", "null"], "minimum": 0},
+    "data_series_count": {"type": ["integer", "null"], "minimum": 0},
+    "distractor_salience": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+    "precision": {
+      "type": "string",
+      "enum": ["illustrative", "relational", "to_scale", "data_exact"]
+    },
+    "scale_required": {"type": "boolean", "default": false},
+    "color_dependency": {"type": "boolean", "default": false},
+    "tonal_transform": {
+      "type": "string",
+      "enum": ["none", "grayscale", "bilevel", "line_redraw"]
+    },
+    "answer_bearing_features": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "answer_evidence_survives_grayscale": {"type": "boolean"},
+    "target_print_width_mm": {"type": ["number", "null"], "minimum": 25, "maximum": 178},
+    "min_raster_dpi": {"type": ["integer", "null"], "minimum": 150, "maximum": 1200},
+    "alt_text": {"type": "string", "minLength": 1},
+    "caption": {"type": ["string", "null"]},
+    "semantic_data": {"type": ["object", "null"]},
+    "source_rights": {
+      "type": "string",
+      "enum": ["original", "licensed", "public_domain", "user_authorized", "unknown"]
+    },
+    "source_url": {"type": ["string", "null"], "format": "uri"},
+    "source_creator": {"type": ["string", "null"]},
+    "source_published_at": {"type": ["string", "null"], "format": "date"},
+    "license_or_authorization": {"type": ["string", "null"]},
+    "crop_description": {"type": ["string", "null"]},
+    "grayscale_review": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["status", "evidence_notes"],
+      "properties": {
+        "status": {"type": "string", "enum": ["pass", "fail", "pending"]},
+        "evidence_notes": {"type": "string", "minLength": 1},
+        "reviewer": {"type": ["string", "null"]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"}
+      }
+    },
+    "redraw_permitted": {"type": "boolean", "default": false},
+    "difficulty_basis": {
+      "type": "string",
+      "enum": ["empirical", "expert_review", "estimated"]
+    },
+    "source_pattern_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "validation_checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "semantic_consistency",
+          "label_consistency",
+          "scale_consistency",
+          "answer_not_leaked",
+          "grayscale_legibility",
+          "grayscale_evidence_survival",
+          "color_independence",
+          "print_legibility",
+          "resolution_sufficient",
+          "accessibility_text_safe",
+          "rights_verified"
+        ]
+      },
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {"const": "photo"}
+        },
+        "required": ["kind"]
+      },
+      "then": {
+        "required": [
+          "source_rights",
+          "crop_description"
+        ],
+        "properties": {
+          "source_rights": {
+            "enum": ["original", "licensed", "public_domain", "user_authorized"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {"const": "photo"},
+          "generation_mode": {"const": "licensed_source"}
+        },
+        "required": ["kind", "generation_mode"]
+      },
+      "then": {
+        "required": [
+          "source_url",
+          "source_creator",
+          "license_or_authorization"
+        ],
+        "properties": {
+          "source_url": {"type": "string", "format": "uri"},
+          "source_creator": {"type": "string", "minLength": 1},
+          "license_or_authorization": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "role": {"enum": ["evidence", "required_for_solution"]}
+        },
+        "required": ["role"]
+      },
+      "then": {
+        "required": ["answer_bearing_features"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tonal_transform": {"enum": ["grayscale", "bilevel"]},
+          "role": {"enum": ["evidence", "required_for_solution"]}
+        },
+        "required": ["tonal_transform", "role"]
+      },
+      "then": {
+        "required": [
+          "answer_evidence_survives_grayscale",
+          "grayscale_review"
+        ],
+        "properties": {
+          "answer_evidence_survives_grayscale": {"const": true},
+          "color_dependency": {"const": false},
+          "validation_checks": {
+            "allOf": [
+              {"contains": {"const": "grayscale_evidence_survival"}},
+              {"contains": {"const": "color_independence"}}
+            ]
+          },
+          "grayscale_review": {
+            "properties": {
+              "status": {"const": "pass"}
+            }
+          }
+        }
+      }
+    }
+  ]
+}

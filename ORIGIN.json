@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "upstream": {
+    "project_id": "taiwan-exam-generator",
+    "name": "Taiwan Exam",
+    "repository_url": "https://github.com/niansia/taiwan-exam"
+  },
+  "distribution": {
+    "name": "Taiwan Exam",
+    "is_derivative": false,
+    "changes": []
+  },
+  "licensing": {
+    "status": "owner-confirmed",
+    "spdx_id": "MIT",
+    "copyright_holders": ["niansia"],
+    "license_file": "LICENSE"
+  }
+}

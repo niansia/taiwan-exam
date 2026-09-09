@@ -1,0 +1,27 @@
+{
+  "generated_by": "llm-original-construction",
+  "source_visibility": "aggregate-only",
+  "candidate_count": 3,
+  "candidate_mechanism_families": [
+    "candidate-mechanism-a",
+    "candidate-mechanism-b",
+    "candidate-mechanism-c"
+  ],
+  "selected_mechanism": "new-information-mechanism",
+  "domain_family": "context-free-or-self-contained-domain",
+  "novelty_dimensions": [
+    "new disciplinary object",
+    "new solution graph",
+    "new representation semantics"
+  ],
+  "curriculum_reduction": {
+    "outside_knowledge_required": false,
+    "mapped_operations": [
+      "named in-syllabus operation"
+    ]
+  },
+  "lexical_screen": "pending",
+  "skin_swap_test": "pending",
+  "visual_topology_screen": "pending-or-not-applicable",
+  "reviewer_decision": "pending"
+}

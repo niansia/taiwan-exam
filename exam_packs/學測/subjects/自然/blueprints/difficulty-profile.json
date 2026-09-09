@@ -1,0 +1,6741 @@
+{
+  "schema_version": 1,
+  "exam": "學測",
+  "subject": "自然",
+  "built_at": "2026-09-04T04:00:28.588697+00:00",
+  "official_item_statistics_count": 996,
+  "source_fingerprint": "5272a5be518241d66a121ead001a70e31849ee6ab0f3c80a4b3a961b1a0811a7",
+  "band_definition": {
+    "authority": "skill_local_descriptive_only",
+    "very_easy": "P >= 0.80",
+    "easy": "0.65 <= P < 0.80",
+    "medium": "0.40 <= P < 0.65",
+    "hard": "0.20 <= P < 0.40",
+    "very_hard": "P < 0.20"
+  },
+  "curricula": {
+    "108": {
+      "status": "ready",
+      "scope": "official_objective_items_with_p_or_score_rate",
+      "full_paper_status": "insufficient-data",
+      "year_count": 5,
+      "roc_years": [
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "measured_item_count": 248,
+      "overall": {
+        "count": 248,
+        "p_mean": 0.5581,
+        "p_median": 0.56,
+        "p_q25": 0.47,
+        "p_q75": 0.65,
+        "p_min": 0.19,
+        "p_max": 0.88,
+        "discrimination_median": 0.46,
+        "band_counts": {
+          "easy": 58,
+          "hard": 29,
+          "medium": 149,
+          "very_easy": 11,
+          "very_hard": 1
+        },
+        "metric_type_counts": {
+          "answer_rate": 127,
+          "score_rate": 121
+        }
+      },
+      "by_section": {
+        "混合題或非選擇題": {
+          "count": 68,
+          "p_mean": 0.5484,
+          "p_median": 0.56,
+          "p_q25": 0.465,
+          "p_q75": 0.63,
+          "p_min": 0.28,
+          "p_max": 0.82,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "easy": 12,
+            "hard": 11,
+            "medium": 43,
+            "very_easy": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 31,
+            "score_rate": 37
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 15,
+              "p_mean": 0.6233,
+              "p_median": 0.62,
+              "p_q25": 0.56,
+              "p_q75": 0.69,
+              "p_min": 0.44,
+              "p_max": 0.82,
+              "discrimination_median": 0.37,
+              "band_counts": {
+                "easy": 4,
+                "medium": 9,
+                "very_easy": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 9,
+                "score_rate": 6
+              }
+            },
+            "2": {
+              "count": 15,
+              "p_mean": 0.5413,
+              "p_median": 0.53,
+              "p_q25": 0.445,
+              "p_q75": 0.625,
+              "p_min": 0.31,
+              "p_max": 0.77,
+              "discrimination_median": 0.47,
+              "band_counts": {
+                "easy": 4,
+                "hard": 2,
+                "medium": 9
+              },
+              "metric_type_counts": {
+                "answer_rate": 6,
+                "score_rate": 9
+              }
+            },
+            "3": {
+              "count": 15,
+              "p_mean": 0.5213,
+              "p_median": 0.59,
+              "p_q25": 0.39,
+              "p_q75": 0.61,
+              "p_min": 0.31,
+              "p_max": 0.76,
+              "discrimination_median": 0.46,
+              "band_counts": {
+                "easy": 1,
+                "hard": 5,
+                "medium": 9
+              },
+              "metric_type_counts": {
+                "answer_rate": 4,
+                "score_rate": 11
+              }
+            },
+            "4": {
+              "count": 12,
+              "p_mean": 0.5317,
+              "p_median": 0.55,
+              "p_q25": 0.4775,
+              "p_q75": 0.5625,
+              "p_min": 0.36,
+              "p_max": 0.71,
+              "discrimination_median": 0.405,
+              "band_counts": {
+                "easy": 2,
+                "hard": 2,
+                "medium": 8
+              },
+              "metric_type_counts": {
+                "answer_rate": 6,
+                "score_rate": 6
+              }
+            },
+            "5": {
+              "count": 11,
+              "p_mean": 0.5109,
+              "p_median": 0.54,
+              "p_q25": 0.445,
+              "p_q75": 0.585,
+              "p_min": 0.28,
+              "p_max": 0.69,
+              "discrimination_median": 0.51,
+              "band_counts": {
+                "easy": 1,
+                "hard": 2,
+                "medium": 8
+              },
+              "metric_type_counts": {
+                "answer_rate": 6,
+                "score_rate": 5
+              }
+            }
+          }
+        },
+        "選擇題": {
+          "count": 180,
+          "p_mean": 0.5617,
+          "p_median": 0.565,
+          "p_q25": 0.47,
+          "p_q75": 0.66,
+          "p_min": 0.19,
+          "p_max": 0.88,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 46,
+            "hard": 18,
+            "medium": 106,
+            "very_easy": 9,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 96,
+            "score_rate": 84
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 35,
+              "p_mean": 0.6026,
+              "p_median": 0.59,
+              "p_q25": 0.505,
+              "p_q75": 0.7,
+              "p_min": 0.32,
+              "p_max": 0.88,
+              "discrimination_median": 0.44,
+              "band_counts": {
+                "easy": 8,
+                "hard": 1,
+                "medium": 22,
+                "very_easy": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 19,
+                "score_rate": 16
+              }
+            },
+            "2": {
+              "count": 35,
+              "p_mean": 0.5643,
+              "p_median": 0.57,
+              "p_q25": 0.455,
+              "p_q75": 0.655,
+              "p_min": 0.3,
+              "p_max": 0.84,
+              "discrimination_median": 0.45,
+              "band_counts": {
+                "easy": 9,
+                "hard": 5,
+                "medium": 19,
+                "very_easy": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 19,
+                "score_rate": 16
+              }
+            },
+            "3": {
+              "count": 35,
+              "p_mean": 0.548,
+              "p_median": 0.55,
+              "p_q25": 0.46,
+              "p_q75": 0.655,
+              "p_min": 0.19,
+              "p_max": 0.83,
+              "discrimination_median": 0.5,
+              "band_counts": {
+                "easy": 10,
+                "hard": 3,
+                "medium": 20,
+                "very_easy": 1,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 22,
+                "score_rate": 13
+              }
+            },
+            "4": {
+              "count": 35,
+              "p_mean": 0.5346,
+              "p_median": 0.53,
+              "p_q25": 0.43,
+              "p_q75": 0.65,
+              "p_min": 0.2,
+              "p_max": 0.83,
+              "discrimination_median": 0.4,
+              "band_counts": {
+                "easy": 8,
+                "hard": 6,
+                "medium": 20,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 14,
+                "score_rate": 21
+              }
+            },
+            "5": {
+              "count": 40,
+              "p_mean": 0.5595,
+              "p_median": 0.555,
+              "p_q25": 0.4875,
+              "p_q75": 0.66,
+              "p_min": 0.28,
+              "p_max": 0.84,
+              "discrimination_median": 0.5,
+              "band_counts": {
+                "easy": 11,
+                "hard": 3,
+                "medium": 25,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 22,
+                "score_rate": 18
+              }
+            }
+          }
+        }
+      },
+      "by_question_number": {
+        "1": {
+          "count": 5,
+          "p_mean": 0.598,
+          "p_median": 0.66,
+          "p_q25": 0.49,
+          "p_q75": 0.7,
+          "p_min": 0.32,
+          "p_max": 0.82,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "easy": 2,
+            "hard": 1,
+            "medium": 1,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 1
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.66,
+            "p_range": [
+              0.49,
+              0.7
+            ],
+            "discrimination_floor": 0.34
+          }
+        },
+        "2": {
+          "count": 5,
+          "p_mean": 0.684,
+          "p_median": 0.73,
+          "p_q25": 0.51,
+          "p_q75": 0.83,
+          "p_min": 0.47,
+          "p_max": 0.88,
+          "discrimination_median": 0.31,
+          "band_counts": {
+            "easy": 1,
+            "medium": 2,
+            "very_easy": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.73,
+            "p_range": [
+              0.51,
+              0.83
+            ],
+            "discrimination_floor": 0.23
+          }
+        },
+        "3": {
+          "count": 5,
+          "p_mean": 0.568,
+          "p_median": 0.56,
+          "p_q25": 0.54,
+          "p_q75": 0.61,
+          "p_min": 0.42,
+          "p_max": 0.71,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "easy": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 1
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.56,
+            "p_range": [
+              0.54,
+              0.61
+            ],
+            "discrimination_floor": 0.34
+          }
+        },
+        "4": {
+          "count": 5,
+          "p_mean": 0.584,
+          "p_median": 0.58,
+          "p_q25": 0.57,
+          "p_q75": 0.59,
+          "p_min": 0.48,
+          "p_max": 0.7,
+          "discrimination_median": 0.49,
+          "band_counts": {
+            "easy": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.58,
+            "p_range": [
+              0.57,
+              0.59
+            ],
+            "discrimination_floor": 0.37
+          }
+        },
+        "5": {
+          "count": 5,
+          "p_mean": 0.56,
+          "p_median": 0.59,
+          "p_q25": 0.49,
+          "p_q75": 0.6,
+          "p_min": 0.48,
+          "p_max": 0.64,
+          "discrimination_median": 0.4,
+          "band_counts": {
+            "medium": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.59,
+            "p_range": [
+              0.49,
+              0.6
+            ],
+            "discrimination_floor": 0.3
+          }
+        },
+        "6": {
+          "count": 5,
+          "p_mean": 0.58,
+          "p_median": 0.57,
+          "p_q25": 0.51,
+          "p_q75": 0.62,
+          "p_min": 0.5,
+          "p_max": 0.7,
+          "discrimination_median": 0.59,
+          "band_counts": {
+            "easy": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.57,
+            "p_range": [
+              0.51,
+              0.62
+            ],
+            "discrimination_floor": 0.44
+          }
+        },
+        "7": {
+          "count": 5,
+          "p_mean": 0.644,
+          "p_median": 0.65,
+          "p_q25": 0.59,
+          "p_q75": 0.74,
+          "p_min": 0.43,
+          "p_max": 0.81,
+          "discrimination_median": 0.36,
+          "band_counts": {
+            "easy": 2,
+            "medium": 2,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.65,
+            "p_range": [
+              0.59,
+              0.74
+            ],
+            "discrimination_floor": 0.27
+          }
+        },
+        "8": {
+          "count": 5,
+          "p_mean": 0.688,
+          "p_median": 0.7,
+          "p_q25": 0.66,
+          "p_q75": 0.79,
+          "p_min": 0.45,
+          "p_max": 0.84,
+          "discrimination_median": 0.4,
+          "band_counts": {
+            "easy": 3,
+            "medium": 1,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 4
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.7,
+            "p_range": [
+              0.66,
+              0.79
+            ],
+            "discrimination_floor": 0.3
+          }
+        },
+        "9": {
+          "count": 5,
+          "p_mean": 0.49,
+          "p_median": 0.56,
+          "p_q25": 0.35,
+          "p_q75": 0.6,
+          "p_min": 0.31,
+          "p_max": 0.63,
+          "discrimination_median": 0.41,
+          "band_counts": {
+            "hard": 2,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.56,
+            "p_range": [
+              0.35,
+              0.6
+            ],
+            "discrimination_floor": 0.31
+          }
+        },
+        "10": {
+          "count": 5,
+          "p_mean": 0.648,
+          "p_median": 0.65,
+          "p_q25": 0.59,
+          "p_q75": 0.77,
+          "p_min": 0.46,
+          "p_max": 0.77,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 3,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 1
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.65,
+            "p_range": [
+              0.59,
+              0.77
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "11": {
+          "count": 5,
+          "p_mean": 0.596,
+          "p_median": 0.57,
+          "p_q25": 0.57,
+          "p_q75": 0.61,
+          "p_min": 0.42,
+          "p_max": 0.81,
+          "discrimination_median": 0.54,
+          "band_counts": {
+            "medium": 4,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 4
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.57,
+            "p_range": [
+              0.57,
+              0.61
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "12": {
+          "count": 5,
+          "p_mean": 0.518,
+          "p_median": 0.5,
+          "p_q25": 0.49,
+          "p_q75": 0.54,
+          "p_min": 0.42,
+          "p_max": 0.64,
+          "discrimination_median": 0.42,
+          "band_counts": {
+            "medium": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.5,
+            "p_range": [
+              0.49,
+              0.54
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "13": {
+          "count": 5,
+          "p_mean": 0.474,
+          "p_median": 0.41,
+          "p_q25": 0.34,
+          "p_q75": 0.58,
+          "p_min": 0.33,
+          "p_max": 0.71,
+          "discrimination_median": 0.49,
+          "band_counts": {
+            "easy": 1,
+            "hard": 2,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 1
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.41,
+            "p_range": [
+              0.34,
+              0.58
+            ],
+            "discrimination_floor": 0.37
+          }
+        },
+        "14": {
+          "count": 5,
+          "p_mean": 0.536,
+          "p_median": 0.54,
+          "p_q25": 0.52,
+          "p_q75": 0.65,
+          "p_min": 0.3,
+          "p_max": 0.67,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "easy": 2,
+            "hard": 1,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 1
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.52,
+              0.65
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "15": {
+          "count": 5,
+          "p_mean": 0.49,
+          "p_median": 0.47,
+          "p_q25": 0.45,
+          "p_q75": 0.52,
+          "p_min": 0.3,
+          "p_max": 0.71,
+          "discrimination_median": 0.55,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.47,
+            "p_range": [
+              0.45,
+              0.52
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "16": {
+          "count": 5,
+          "p_mean": 0.594,
+          "p_median": 0.65,
+          "p_q25": 0.55,
+          "p_q75": 0.66,
+          "p_min": 0.42,
+          "p_max": 0.69,
+          "discrimination_median": 0.35,
+          "band_counts": {
+            "easy": 3,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.65,
+            "p_range": [
+              0.55,
+              0.66
+            ],
+            "discrimination_floor": 0.26
+          }
+        },
+        "17": {
+          "count": 5,
+          "p_mean": 0.564,
+          "p_median": 0.55,
+          "p_q25": 0.52,
+          "p_q75": 0.6,
+          "p_min": 0.5,
+          "p_max": 0.65,
+          "discrimination_median": 0.57,
+          "band_counts": {
+            "easy": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.55,
+            "p_range": [
+              0.52,
+              0.6
+            ],
+            "discrimination_floor": 0.43
+          }
+        },
+        "18": {
+          "count": 5,
+          "p_mean": 0.526,
+          "p_median": 0.6,
+          "p_q25": 0.5,
+          "p_q75": 0.63,
+          "p_min": 0.21,
+          "p_max": 0.69,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.6,
+            "p_range": [
+              0.5,
+              0.63
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "19": {
+          "count": 5,
+          "p_mean": 0.57,
+          "p_median": 0.54,
+          "p_q25": 0.41,
+          "p_q75": 0.75,
+          "p_min": 0.32,
+          "p_max": 0.83,
+          "discrimination_median": 0.38,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 2,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.41,
+              0.75
+            ],
+            "discrimination_floor": 0.29
+          }
+        },
+        "20": {
+          "count": 5,
+          "p_mean": 0.514,
+          "p_median": 0.62,
+          "p_q25": 0.4,
+          "p_q75": 0.63,
+          "p_min": 0.19,
+          "p_max": 0.73,
+          "discrimination_median": 0.55,
+          "band_counts": {
+            "easy": 1,
+            "medium": 3,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.62,
+            "p_range": [
+              0.4,
+              0.63
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "21": {
+          "count": 5,
+          "p_mean": 0.578,
+          "p_median": 0.54,
+          "p_q25": 0.5,
+          "p_q75": 0.68,
+          "p_min": 0.43,
+          "p_max": 0.74,
+          "discrimination_median": 0.53,
+          "band_counts": {
+            "easy": 2,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.5,
+              0.68
+            ],
+            "discrimination_floor": 0.4
+          }
+        },
+        "22": {
+          "count": 5,
+          "p_mean": 0.492,
+          "p_median": 0.47,
+          "p_q25": 0.46,
+          "p_q75": 0.52,
+          "p_min": 0.4,
+          "p_max": 0.61,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "medium": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.47,
+            "p_range": [
+              0.46,
+              0.52
+            ],
+            "discrimination_floor": 0.33
+          }
+        },
+        "23": {
+          "count": 5,
+          "p_mean": 0.62,
+          "p_median": 0.62,
+          "p_q25": 0.58,
+          "p_q75": 0.67,
+          "p_min": 0.49,
+          "p_max": 0.74,
+          "discrimination_median": 0.54,
+          "band_counts": {
+            "easy": 2,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "score_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.62,
+            "p_range": [
+              0.58,
+              0.67
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "24": {
+          "count": 5,
+          "p_mean": 0.558,
+          "p_median": 0.56,
+          "p_q25": 0.49,
+          "p_q75": 0.64,
+          "p_min": 0.44,
+          "p_max": 0.66,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.56,
+            "p_range": [
+              0.49,
+              0.64
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "25": {
+          "count": 5,
+          "p_mean": 0.558,
+          "p_median": 0.53,
+          "p_q25": 0.46,
+          "p_q75": 0.67,
+          "p_min": 0.39,
+          "p_max": 0.74,
+          "discrimination_median": 0.38,
+          "band_counts": {
+            "easy": 2,
+            "hard": 1,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.53,
+            "p_range": [
+              0.46,
+              0.67
+            ],
+            "discrimination_floor": 0.29
+          }
+        },
+        "26": {
+          "count": 5,
+          "p_mean": 0.468,
+          "p_median": 0.4,
+          "p_q25": 0.38,
+          "p_q75": 0.56,
+          "p_min": 0.23,
+          "p_max": 0.77,
+          "discrimination_median": 0.32,
+          "band_counts": {
+            "easy": 1,
+            "hard": 2,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.4,
+            "p_range": [
+              0.38,
+              0.56
+            ],
+            "discrimination_floor": 0.24
+          }
+        },
+        "27": {
+          "count": 5,
+          "p_mean": 0.534,
+          "p_median": 0.51,
+          "p_q25": 0.32,
+          "p_q75": 0.7,
+          "p_min": 0.31,
+          "p_max": 0.83,
+          "discrimination_median": 0.34,
+          "band_counts": {
+            "easy": 1,
+            "hard": 2,
+            "medium": 1,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.51,
+            "p_range": [
+              0.32,
+              0.7
+            ],
+            "discrimination_floor": 0.26
+          }
+        },
+        "28": {
+          "count": 5,
+          "p_mean": 0.512,
+          "p_median": 0.62,
+          "p_q25": 0.42,
+          "p_q75": 0.63,
+          "p_min": 0.2,
+          "p_max": 0.69,
+          "discrimination_median": 0.34,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.62,
+            "p_range": [
+              0.42,
+              0.63
+            ],
+            "discrimination_floor": 0.26
+          }
+        },
+        "29": {
+          "count": 5,
+          "p_mean": 0.56,
+          "p_median": 0.64,
+          "p_q25": 0.5,
+          "p_q75": 0.65,
+          "p_min": 0.33,
+          "p_max": 0.68,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "easy": 2,
+            "hard": 1,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.64,
+            "p_range": [
+              0.5,
+              0.65
+            ],
+            "discrimination_floor": 0.33
+          }
+        },
+        "30": {
+          "count": 5,
+          "p_mean": 0.54,
+          "p_median": 0.52,
+          "p_q25": 0.4,
+          "p_q75": 0.69,
+          "p_min": 0.4,
+          "p_max": 0.69,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "easy": 2,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.52,
+            "p_range": [
+              0.4,
+              0.69
+            ],
+            "discrimination_floor": 0.34
+          }
+        },
+        "31": {
+          "count": 5,
+          "p_mean": 0.644,
+          "p_median": 0.66,
+          "p_q25": 0.55,
+          "p_q75": 0.67,
+          "p_min": 0.5,
+          "p_max": 0.84,
+          "discrimination_median": 0.54,
+          "band_counts": {
+            "easy": 2,
+            "medium": 2,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.66,
+            "p_range": [
+              0.55,
+              0.67
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "32": {
+          "count": 5,
+          "p_mean": 0.57,
+          "p_median": 0.59,
+          "p_q25": 0.5,
+          "p_q75": 0.66,
+          "p_min": 0.43,
+          "p_max": 0.67,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 2,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.59,
+            "p_range": [
+              0.5,
+              0.66
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "33": {
+          "count": 5,
+          "p_mean": 0.516,
+          "p_median": 0.51,
+          "p_q25": 0.48,
+          "p_q75": 0.59,
+          "p_min": 0.38,
+          "p_max": 0.62,
+          "discrimination_median": 0.53,
+          "band_counts": {
+            "hard": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.51,
+            "p_range": [
+              0.48,
+              0.59
+            ],
+            "discrimination_floor": 0.4
+          }
+        },
+        "34": {
+          "count": 5,
+          "p_mean": 0.648,
+          "p_median": 0.63,
+          "p_q25": 0.63,
+          "p_q75": 0.71,
+          "p_min": 0.49,
+          "p_max": 0.78,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "easy": 2,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.63,
+            "p_range": [
+              0.63,
+              0.71
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "35": {
+          "count": 5,
+          "p_mean": 0.534,
+          "p_median": 0.5,
+          "p_q25": 0.44,
+          "p_q75": 0.56,
+          "p_min": 0.4,
+          "p_max": 0.77,
+          "discrimination_median": 0.37,
+          "band_counts": {
+            "easy": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 4
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.5,
+            "p_range": [
+              0.44,
+              0.56
+            ],
+            "discrimination_floor": 0.28
+          }
+        },
+        "36": {
+          "count": 5,
+          "p_mean": 0.464,
+          "p_median": 0.5,
+          "p_q25": 0.43,
+          "p_q75": 0.55,
+          "p_min": 0.28,
+          "p_max": 0.56,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "hard": 1,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 5
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.5,
+            "p_range": [
+              0.43,
+              0.55
+            ],
+            "discrimination_floor": 0.34
+          }
+        },
+        "37": {
+          "count": 5,
+          "p_mean": 0.666,
+          "p_median": 0.63,
+          "p_q25": 0.62,
+          "p_q75": 0.68,
+          "p_min": 0.58,
+          "p_max": 0.82,
+          "discrimination_median": 0.42,
+          "band_counts": {
+            "easy": 1,
+            "medium": 3,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.63,
+            "p_range": [
+              0.62,
+              0.68
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "38": {
+          "count": 1,
+          "p_mean": 0.47,
+          "p_median": 0.47,
+          "p_q25": 0.47,
+          "p_q75": 0.47,
+          "p_min": 0.47,
+          "p_max": 0.47,
+          "discrimination_median": 0.4,
+          "band_counts": {
+            "medium": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 1
+          },
+          "roc_years": [
+            112
+          ],
+          "recommended_target": {
+            "p_center": 0.47,
+            "p_range": [
+              0.47,
+              0.47
+            ],
+            "discrimination_floor": 0.3
+          }
+        },
+        "39": {
+          "count": 5,
+          "p_mean": 0.644,
+          "p_median": 0.65,
+          "p_q25": 0.61,
+          "p_q75": 0.7,
+          "p_min": 0.44,
+          "p_max": 0.82,
+          "discrimination_median": 0.33,
+          "band_counts": {
+            "easy": 2,
+            "medium": 2,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.65,
+            "p_range": [
+              0.61,
+              0.7
+            ],
+            "discrimination_floor": 0.25
+          }
+        },
+        "40": {
+          "count": 2,
+          "p_mean": 0.645,
+          "p_median": 0.645,
+          "p_q25": 0.6025,
+          "p_q75": 0.6875,
+          "p_min": 0.56,
+          "p_max": 0.73,
+          "discrimination_median": 0.425,
+          "band_counts": {
+            "easy": 1,
+            "medium": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 2
+          },
+          "roc_years": [
+            113,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.645,
+            "p_range": [
+              0.6025,
+              0.6875
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "41": {
+          "count": 3,
+          "p_mean": 0.53,
+          "p_median": 0.55,
+          "p_q25": 0.515,
+          "p_q75": 0.555,
+          "p_min": 0.48,
+          "p_max": 0.56,
+          "discrimination_median": 0.39,
+          "band_counts": {
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 1
+          },
+          "roc_years": [
+            111,
+            112,
+            114
+          ],
+          "recommended_target": {
+            "p_center": 0.55,
+            "p_range": [
+              0.515,
+              0.555
+            ],
+            "discrimination_floor": 0.29
+          }
+        },
+        "42": {
+          "count": 4,
+          "p_mean": 0.6475,
+          "p_median": 0.66,
+          "p_q25": 0.5375,
+          "p_q75": 0.77,
+          "p_min": 0.5,
+          "p_max": 0.77,
+          "discrimination_median": 0.41,
+          "band_counts": {
+            "easy": 2,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114
+          ],
+          "recommended_target": {
+            "p_center": 0.66,
+            "p_range": [
+              0.5375,
+              0.77
+            ],
+            "discrimination_floor": 0.31
+          }
+        },
+        "43": {
+          "count": 3,
+          "p_mean": 0.5967,
+          "p_median": 0.6,
+          "p_q25": 0.525,
+          "p_q75": 0.67,
+          "p_min": 0.45,
+          "p_max": 0.74,
+          "discrimination_median": 0.58,
+          "band_counts": {
+            "easy": 1,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 3
+          },
+          "roc_years": [
+            111,
+            112,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.6,
+            "p_range": [
+              0.525,
+              0.67
+            ],
+            "discrimination_floor": 0.43
+          }
+        },
+        "44": {
+          "count": 4,
+          "p_mean": 0.3775,
+          "p_median": 0.38,
+          "p_q25": 0.3325,
+          "p_q75": 0.425,
+          "p_min": 0.31,
+          "p_max": 0.44,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "hard": 2,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.38,
+            "p_range": [
+              0.3325,
+              0.425
+            ],
+            "discrimination_floor": 0.33
+          }
+        },
+        "45": {
+          "count": 4,
+          "p_mean": 0.62,
+          "p_median": 0.61,
+          "p_q25": 0.575,
+          "p_q75": 0.655,
+          "p_min": 0.5,
+          "p_max": 0.76,
+          "discrimination_median": 0.525,
+          "band_counts": {
+            "easy": 1,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 2
+          },
+          "roc_years": [
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.61,
+            "p_range": [
+              0.575,
+              0.655
+            ],
+            "discrimination_floor": 0.39
+          }
+        },
+        "46": {
+          "count": 2,
+          "p_mean": 0.59,
+          "p_median": 0.59,
+          "p_q25": 0.56,
+          "p_q75": 0.62,
+          "p_min": 0.53,
+          "p_max": 0.65,
+          "discrimination_median": 0.61,
+          "band_counts": {
+            "easy": 1,
+            "medium": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112
+          ],
+          "recommended_target": {
+            "p_center": 0.59,
+            "p_range": [
+              0.56,
+              0.62
+            ],
+            "discrimination_floor": 0.46
+          }
+        },
+        "47": {
+          "count": 4,
+          "p_mean": 0.5525,
+          "p_median": 0.59,
+          "p_q25": 0.54,
+          "p_q75": 0.6025,
+          "p_min": 0.39,
+          "p_max": 0.64,
+          "discrimination_median": 0.49,
+          "band_counts": {
+            "hard": 1,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.59,
+            "p_range": [
+              0.54,
+              0.6025
+            ],
+            "discrimination_floor": 0.37
+          }
+        },
+        "48": {
+          "count": 4,
+          "p_mean": 0.47,
+          "p_median": 0.46,
+          "p_q25": 0.35,
+          "p_q75": 0.58,
+          "p_min": 0.32,
+          "p_max": 0.64,
+          "discrimination_median": 0.485,
+          "band_counts": {
+            "hard": 2,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 3
+          },
+          "roc_years": [
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.46,
+            "p_range": [
+              0.35,
+              0.58
+            ],
+            "discrimination_floor": 0.36
+          }
+        },
+        "49": {
+          "count": 2,
+          "p_mean": 0.42,
+          "p_median": 0.42,
+          "p_q25": 0.405,
+          "p_q75": 0.435,
+          "p_min": 0.39,
+          "p_max": 0.45,
+          "discrimination_median": 0.385,
+          "band_counts": {
+            "hard": 1,
+            "medium": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112
+          ],
+          "recommended_target": {
+            "p_center": 0.42,
+            "p_range": [
+              0.405,
+              0.435
+            ],
+            "discrimination_floor": 0.29
+          }
+        },
+        "50": {
+          "count": 3,
+          "p_mean": 0.4533,
+          "p_median": 0.48,
+          "p_q25": 0.395,
+          "p_q75": 0.525,
+          "p_min": 0.31,
+          "p_max": 0.57,
+          "discrimination_median": 0.48,
+          "band_counts": {
+            "hard": 1,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            113,
+            114
+          ],
+          "recommended_target": {
+            "p_center": 0.48,
+            "p_range": [
+              0.395,
+              0.525
+            ],
+            "discrimination_floor": 0.36
+          }
+        },
+        "51": {
+          "count": 2,
+          "p_mean": 0.48,
+          "p_median": 0.48,
+          "p_q25": 0.42,
+          "p_q75": 0.54,
+          "p_min": 0.36,
+          "p_max": 0.6,
+          "discrimination_median": 0.565,
+          "band_counts": {
+            "hard": 1,
+            "medium": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 1
+          },
+          "roc_years": [
+            112,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.48,
+            "p_range": [
+              0.42,
+              0.54
+            ],
+            "discrimination_floor": 0.42
+          }
+        },
+        "52": {
+          "count": 4,
+          "p_mean": 0.53,
+          "p_median": 0.515,
+          "p_q25": 0.4475,
+          "p_q75": 0.5975,
+          "p_min": 0.38,
+          "p_max": 0.71,
+          "discrimination_median": 0.415,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 3
+          },
+          "roc_years": [
+            111,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.515,
+            "p_range": [
+              0.4475,
+              0.5975
+            ],
+            "discrimination_floor": 0.31
+          }
+        },
+        "53": {
+          "count": 2,
+          "p_mean": 0.535,
+          "p_median": 0.535,
+          "p_q25": 0.5275,
+          "p_q75": 0.5425,
+          "p_min": 0.52,
+          "p_max": 0.55,
+          "discrimination_median": 0.32,
+          "band_counts": {
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 2
+          },
+          "roc_years": [
+            111,
+            112
+          ],
+          "recommended_target": {
+            "p_center": 0.535,
+            "p_range": [
+              0.5275,
+              0.5425
+            ],
+            "discrimination_floor": 0.24
+          }
+        },
+        "54": {
+          "count": 1,
+          "p_mean": 0.34,
+          "p_median": 0.34,
+          "p_q25": 0.34,
+          "p_q75": 0.34,
+          "p_min": 0.34,
+          "p_max": 0.34,
+          "discrimination_median": 0.23,
+          "band_counts": {
+            "hard": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 1
+          },
+          "roc_years": [
+            113
+          ],
+          "recommended_target": {
+            "p_center": 0.34,
+            "p_range": [
+              0.34,
+              0.34
+            ],
+            "discrimination_floor": 0.2
+          }
+        },
+        "55": {
+          "count": 5,
+          "p_mean": 0.484,
+          "p_median": 0.52,
+          "p_q25": 0.4,
+          "p_q75": 0.55,
+          "p_min": 0.28,
+          "p_max": 0.67,
+          "discrimination_median": 0.33,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 1
+          },
+          "roc_years": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.52,
+            "p_range": [
+              0.4,
+              0.55
+            ],
+            "discrimination_floor": 0.25
+          }
+        },
+        "56": {
+          "count": 3,
+          "p_mean": 0.5933,
+          "p_median": 0.59,
+          "p_q25": 0.575,
+          "p_q75": 0.61,
+          "p_min": 0.56,
+          "p_max": 0.63,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 2,
+            "score_rate": 1
+          },
+          "roc_years": [
+            111,
+            112,
+            115
+          ],
+          "recommended_target": {
+            "p_center": 0.59,
+            "p_range": [
+              0.575,
+              0.61
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "57": {
+          "count": 1,
+          "p_mean": 0.49,
+          "p_median": 0.49,
+          "p_q25": 0.49,
+          "p_q75": 0.49,
+          "p_min": 0.49,
+          "p_max": 0.49,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "medium": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 1
+          },
+          "roc_years": [
+            114
+          ],
+          "recommended_target": {
+            "p_center": 0.49,
+            "p_range": [
+              0.49,
+              0.49
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "58": {
+          "count": 2,
+          "p_mean": 0.615,
+          "p_median": 0.615,
+          "p_q25": 0.5775,
+          "p_q75": 0.6525,
+          "p_min": 0.54,
+          "p_max": 0.69,
+          "discrimination_median": 0.595,
+          "band_counts": {
+            "easy": 1,
+            "medium": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 2
+          },
+          "roc_years": [
+            111,
+            112
+          ],
+          "recommended_target": {
+            "p_center": 0.615,
+            "p_range": [
+              0.5775,
+              0.6525
+            ],
+            "discrimination_floor": 0.45
+          }
+        },
+        "59": {
+          "count": 2,
+          "p_mean": 0.57,
+          "p_median": 0.57,
+          "p_q25": 0.565,
+          "p_q75": 0.575,
+          "p_min": 0.56,
+          "p_max": 0.58,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "medium": 2
+          },
+          "metric_type_counts": {
+            "score_rate": 2
+          },
+          "roc_years": [
+            111,
+            112
+          ],
+          "recommended_target": {
+            "p_center": 0.57,
+            "p_range": [
+              0.565,
+              0.575
+            ],
+            "discrimination_floor": 0.38
+          }
+        }
+      },
+      "limitations": [
+        "P is answer rate for single-choice items and score rate for starred multiple-selection items.",
+        "Constructed-response items absent from the official P/D table need rubric-score distributions instead.",
+        "Target P is a post-administration property; generated items require pilot data before claiming achieved difficulty."
+      ]
+    },
+    "99": {
+      "status": "insufficient-data",
+      "scope": "official_objective_items_with_p_or_score_rate",
+      "full_paper_status": "insufficient-data",
+      "year_count": 11,
+      "roc_years": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "measured_item_count": 748,
+      "overall": {
+        "count": 748,
+        "p_mean": 0.5057,
+        "p_median": 0.51,
+        "p_q25": 0.39,
+        "p_q75": 0.6,
+        "p_min": 0.08,
+        "p_max": 0.97,
+        "discrimination_median": 0.46,
+        "band_counts": {
+          "easy": 106,
+          "hard": 179,
+          "medium": 415,
+          "very_easy": 34,
+          "very_hard": 14
+        },
+        "metric_type_counts": {
+          "answer_rate": 458,
+          "score_rate": 290
+        }
+      },
+      "by_section": {
+        "(unmapped)": {
+          "count": 355,
+          "p_mean": 0.4853,
+          "p_median": 0.48,
+          "p_q25": 0.37,
+          "p_q75": 0.58,
+          "p_min": 0.14,
+          "p_max": 0.89,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "easy": 41,
+            "hard": 106,
+            "medium": 189,
+            "very_easy": 11,
+            "very_hard": 8
+          },
+          "metric_type_counts": {
+            "answer_rate": 165,
+            "score_rate": 190
+          },
+          "normalized_position_quintiles": {}
+        },
+        "一、單選題 （占32分）": {
+          "count": 16,
+          "p_mean": 0.5338,
+          "p_median": 0.535,
+          "p_q25": 0.4575,
+          "p_q75": 0.6075,
+          "p_min": 0.24,
+          "p_max": 0.8,
+          "discrimination_median": 0.515,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 13,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 16
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 3,
+              "p_mean": 0.5467,
+              "p_median": 0.6,
+              "p_q25": 0.42,
+              "p_q75": 0.7,
+              "p_min": 0.24,
+              "p_max": 0.8,
+              "discrimination_median": 0.48,
+              "band_counts": {
+                "hard": 1,
+                "medium": 1,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 3
+              }
+            },
+            "2": {
+              "count": 3,
+              "p_mean": 0.5367,
+              "p_median": 0.56,
+              "p_q25": 0.49,
+              "p_q75": 0.595,
+              "p_min": 0.42,
+              "p_max": 0.63,
+              "discrimination_median": 0.58,
+              "band_counts": {
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 3
+              }
+            },
+            "3": {
+              "count": 3,
+              "p_mean": 0.61,
+              "p_median": 0.63,
+              "p_q25": 0.545,
+              "p_q75": 0.685,
+              "p_min": 0.46,
+              "p_max": 0.74,
+              "discrimination_median": 0.51,
+              "band_counts": {
+                "easy": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 3
+              }
+            },
+            "4": {
+              "count": 3,
+              "p_mean": 0.4833,
+              "p_median": 0.51,
+              "p_q25": 0.46,
+              "p_q75": 0.52,
+              "p_min": 0.41,
+              "p_max": 0.53,
+              "discrimination_median": 0.57,
+              "band_counts": {
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 3
+              }
+            },
+            "5": {
+              "count": 4,
+              "p_mean": 0.5025,
+              "p_median": 0.505,
+              "p_q25": 0.465,
+              "p_q75": 0.5425,
+              "p_min": 0.45,
+              "p_max": 0.55,
+              "discrimination_median": 0.515,
+              "band_counts": {
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 4
+              }
+            }
+          }
+        },
+        "一、單選題 （占46分）": {
+          "count": 23,
+          "p_mean": 0.5248,
+          "p_median": 0.53,
+          "p_q25": 0.415,
+          "p_q75": 0.6,
+          "p_min": 0.27,
+          "p_max": 0.88,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "easy": 3,
+            "hard": 5,
+            "medium": 14,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 23
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 5,
+              "p_mean": 0.492,
+              "p_median": 0.5,
+              "p_q25": 0.35,
+              "p_q75": 0.59,
+              "p_min": 0.34,
+              "p_max": 0.68,
+              "discrimination_median": 0.51,
+              "band_counts": {
+                "easy": 1,
+                "hard": 2,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "2": {
+              "count": 4,
+              "p_mean": 0.6125,
+              "p_median": 0.595,
+              "p_q25": 0.4625,
+              "p_q75": 0.745,
+              "p_min": 0.38,
+              "p_max": 0.88,
+              "discrimination_median": 0.49,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 1,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 4
+              }
+            },
+            "3": {
+              "count": 5,
+              "p_mean": 0.454,
+              "p_median": 0.4,
+              "p_q25": 0.36,
+              "p_q75": 0.61,
+              "p_min": 0.27,
+              "p_max": 0.63,
+              "discrimination_median": 0.54,
+              "band_counts": {
+                "hard": 2,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "4": {
+              "count": 4,
+              "p_mean": 0.525,
+              "p_median": 0.515,
+              "p_q25": 0.4975,
+              "p_q75": 0.5425,
+              "p_min": 0.49,
+              "p_max": 0.58,
+              "discrimination_median": 0.64,
+              "band_counts": {
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 4
+              }
+            },
+            "5": {
+              "count": 5,
+              "p_mean": 0.558,
+              "p_median": 0.58,
+              "p_q25": 0.53,
+              "p_q75": 0.59,
+              "p_min": 0.43,
+              "p_max": 0.66,
+              "discrimination_median": 0.48,
+              "band_counts": {
+                "easy": 1,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            }
+          }
+        },
+        "一、單選題 （占56分）": {
+          "count": 28,
+          "p_mean": 0.5454,
+          "p_median": 0.555,
+          "p_q25": 0.47,
+          "p_q75": 0.605,
+          "p_min": 0.27,
+          "p_max": 0.83,
+          "discrimination_median": 0.475,
+          "band_counts": {
+            "easy": 5,
+            "hard": 5,
+            "medium": 16,
+            "very_easy": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 28
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 6,
+              "p_mean": 0.5833,
+              "p_median": 0.605,
+              "p_q25": 0.5225,
+              "p_q75": 0.6575,
+              "p_min": 0.35,
+              "p_max": 0.77,
+              "discrimination_median": 0.59,
+              "band_counts": {
+                "easy": 3,
+                "hard": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            },
+            "2": {
+              "count": 5,
+              "p_mean": 0.48,
+              "p_median": 0.47,
+              "p_q25": 0.47,
+              "p_q75": 0.52,
+              "p_min": 0.36,
+              "p_max": 0.58,
+              "discrimination_median": 0.62,
+              "band_counts": {
+                "hard": 1,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "3": {
+              "count": 6,
+              "p_mean": 0.5217,
+              "p_median": 0.555,
+              "p_q25": 0.42,
+              "p_q75": 0.57,
+              "p_min": 0.27,
+              "p_max": 0.8,
+              "discrimination_median": 0.375,
+              "band_counts": {
+                "hard": 2,
+                "medium": 3,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            },
+            "4": {
+              "count": 5,
+              "p_mean": 0.55,
+              "p_median": 0.58,
+              "p_q25": 0.55,
+              "p_q75": 0.59,
+              "p_min": 0.34,
+              "p_max": 0.69,
+              "discrimination_median": 0.48,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "5": {
+              "count": 6,
+              "p_mean": 0.5817,
+              "p_median": 0.555,
+              "p_q25": 0.4975,
+              "p_q75": 0.635,
+              "p_min": 0.41,
+              "p_max": 0.83,
+              "discrimination_median": 0.465,
+              "band_counts": {
+                "easy": 1,
+                "medium": 4,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            }
+          }
+        },
+        "一、單選題（占44分）": {
+          "count": 44,
+          "p_mean": 0.5018,
+          "p_median": 0.5,
+          "p_q25": 0.3975,
+          "p_q75": 0.585,
+          "p_min": 0.09,
+          "p_max": 0.85,
+          "discrimination_median": 0.495,
+          "band_counts": {
+            "easy": 7,
+            "hard": 8,
+            "medium": 24,
+            "very_easy": 2,
+            "very_hard": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 44
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 10,
+              "p_mean": 0.603,
+              "p_median": 0.53,
+              "p_q25": 0.4625,
+              "p_q75": 0.7725,
+              "p_min": 0.39,
+              "p_max": 0.85,
+              "discrimination_median": 0.42,
+              "band_counts": {
+                "easy": 2,
+                "hard": 1,
+                "medium": 5,
+                "very_easy": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 10
+              }
+            },
+            "2": {
+              "count": 8,
+              "p_mean": 0.44,
+              "p_median": 0.455,
+              "p_q25": 0.375,
+              "p_q75": 0.5775,
+              "p_min": 0.15,
+              "p_max": 0.63,
+              "discrimination_median": 0.5,
+              "band_counts": {
+                "hard": 1,
+                "medium": 6,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 8
+              }
+            },
+            "3": {
+              "count": 8,
+              "p_mean": 0.4825,
+              "p_median": 0.495,
+              "p_q25": 0.415,
+              "p_q75": 0.52,
+              "p_min": 0.31,
+              "p_max": 0.72,
+              "discrimination_median": 0.575,
+              "band_counts": {
+                "easy": 1,
+                "hard": 2,
+                "medium": 5
+              },
+              "metric_type_counts": {
+                "answer_rate": 8
+              }
+            },
+            "4": {
+              "count": 8,
+              "p_mean": 0.4888,
+              "p_median": 0.515,
+              "p_q25": 0.3825,
+              "p_q75": 0.5925,
+              "p_min": 0.19,
+              "p_max": 0.73,
+              "discrimination_median": 0.51,
+              "band_counts": {
+                "easy": 2,
+                "hard": 1,
+                "medium": 4,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 8
+              }
+            },
+            "5": {
+              "count": 10,
+              "p_mean": 0.476,
+              "p_median": 0.55,
+              "p_q25": 0.3625,
+              "p_q75": 0.5775,
+              "p_min": 0.09,
+              "p_max": 0.72,
+              "discrimination_median": 0.46,
+              "band_counts": {
+                "easy": 2,
+                "hard": 3,
+                "medium": 4,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 10
+              }
+            }
+          }
+        },
+        "一、單選題（占46分）": {
+          "count": 46,
+          "p_mean": 0.5217,
+          "p_median": 0.495,
+          "p_q25": 0.3875,
+          "p_q75": 0.615,
+          "p_min": 0.08,
+          "p_max": 0.95,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "easy": 6,
+            "hard": 11,
+            "medium": 23,
+            "very_easy": 5,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 46
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 10,
+              "p_mean": 0.574,
+              "p_median": 0.565,
+              "p_q25": 0.445,
+              "p_q75": 0.6725,
+              "p_min": 0.36,
+              "p_max": 0.86,
+              "discrimination_median": 0.42,
+              "band_counts": {
+                "easy": 1,
+                "hard": 2,
+                "medium": 5,
+                "very_easy": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 10
+              }
+            },
+            "2": {
+              "count": 8,
+              "p_mean": 0.3712,
+              "p_median": 0.37,
+              "p_q25": 0.3075,
+              "p_q75": 0.4625,
+              "p_min": 0.08,
+              "p_max": 0.59,
+              "discrimination_median": 0.335,
+              "band_counts": {
+                "hard": 4,
+                "medium": 3,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 8
+              }
+            },
+            "3": {
+              "count": 10,
+              "p_mean": 0.642,
+              "p_median": 0.625,
+              "p_q25": 0.49,
+              "p_q75": 0.7975,
+              "p_min": 0.35,
+              "p_max": 0.95,
+              "discrimination_median": 0.445,
+              "band_counts": {
+                "easy": 2,
+                "hard": 1,
+                "medium": 4,
+                "very_easy": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 10
+              }
+            },
+            "4": {
+              "count": 8,
+              "p_mean": 0.485,
+              "p_median": 0.465,
+              "p_q25": 0.415,
+              "p_q75": 0.56,
+              "p_min": 0.32,
+              "p_max": 0.67,
+              "discrimination_median": 0.48,
+              "band_counts": {
+                "easy": 1,
+                "hard": 2,
+                "medium": 5
+              },
+              "metric_type_counts": {
+                "answer_rate": 8
+              }
+            },
+            "5": {
+              "count": 10,
+              "p_mean": 0.499,
+              "p_median": 0.5,
+              "p_q25": 0.4425,
+              "p_q75": 0.58,
+              "p_min": 0.26,
+              "p_max": 0.77,
+              "discrimination_median": 0.54,
+              "band_counts": {
+                "easy": 2,
+                "hard": 2,
+                "medium": 6
+              },
+              "metric_type_counts": {
+                "answer_rate": 10
+              }
+            }
+          }
+        },
+        "一、單選題（占52分）": {
+          "count": 26,
+          "p_mean": 0.5465,
+          "p_median": 0.535,
+          "p_q25": 0.5,
+          "p_q75": 0.6425,
+          "p_min": 0.23,
+          "p_max": 0.97,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 6,
+            "hard": 5,
+            "medium": 14,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 26
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 5,
+              "p_mean": 0.658,
+              "p_median": 0.58,
+              "p_q25": 0.54,
+              "p_q75": 0.68,
+              "p_min": 0.52,
+              "p_max": 0.97,
+              "discrimination_median": 0.33,
+              "band_counts": {
+                "easy": 1,
+                "medium": 3,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "2": {
+              "count": 5,
+              "p_mean": 0.584,
+              "p_median": 0.57,
+              "p_q25": 0.5,
+              "p_q75": 0.72,
+              "p_min": 0.38,
+              "p_max": 0.75,
+              "discrimination_median": 0.42,
+              "band_counts": {
+                "easy": 2,
+                "hard": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "3": {
+              "count": 5,
+              "p_mean": 0.52,
+              "p_median": 0.52,
+              "p_q25": 0.51,
+              "p_q75": 0.61,
+              "p_min": 0.23,
+              "p_max": 0.73,
+              "discrimination_median": 0.49,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "4": {
+              "count": 5,
+              "p_mean": 0.438,
+              "p_median": 0.42,
+              "p_q25": 0.34,
+              "p_q75": 0.52,
+              "p_min": 0.33,
+              "p_max": 0.58,
+              "discrimination_median": 0.52,
+              "band_counts": {
+                "hard": 2,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "5": {
+              "count": 6,
+              "p_mean": 0.535,
+              "p_median": 0.575,
+              "p_q25": 0.5075,
+              "p_q75": 0.6425,
+              "p_min": 0.23,
+              "p_max": 0.68,
+              "discrimination_median": 0.52,
+              "band_counts": {
+                "easy": 2,
+                "hard": 1,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            }
+          }
+        },
+        "一、單選題（占56分）": {
+          "count": 28,
+          "p_mean": 0.5393,
+          "p_median": 0.555,
+          "p_q25": 0.43,
+          "p_q75": 0.6625,
+          "p_min": 0.09,
+          "p_max": 0.81,
+          "discrimination_median": 0.485,
+          "band_counts": {
+            "easy": 6,
+            "hard": 4,
+            "medium": 14,
+            "very_easy": 3,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 28
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 6,
+              "p_mean": 0.6483,
+              "p_median": 0.68,
+              "p_q25": 0.6025,
+              "p_q75": 0.69,
+              "p_min": 0.46,
+              "p_max": 0.8,
+              "discrimination_median": 0.52,
+              "band_counts": {
+                "easy": 3,
+                "medium": 2,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            },
+            "2": {
+              "count": 5,
+              "p_mean": 0.53,
+              "p_median": 0.54,
+              "p_q25": 0.4,
+              "p_q75": 0.58,
+              "p_min": 0.32,
+              "p_max": 0.81,
+              "discrimination_median": 0.43,
+              "band_counts": {
+                "hard": 1,
+                "medium": 3,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "3": {
+              "count": 6,
+              "p_mean": 0.45,
+              "p_median": 0.465,
+              "p_q25": 0.34,
+              "p_q75": 0.545,
+              "p_min": 0.09,
+              "p_max": 0.81,
+              "discrimination_median": 0.27,
+              "band_counts": {
+                "hard": 1,
+                "medium": 3,
+                "very_easy": 1,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            },
+            "4": {
+              "count": 5,
+              "p_mean": 0.582,
+              "p_median": 0.63,
+              "p_q25": 0.46,
+              "p_q75": 0.66,
+              "p_min": 0.37,
+              "p_max": 0.79,
+              "discrimination_median": 0.63,
+              "band_counts": {
+                "easy": 2,
+                "hard": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "5": {
+              "count": 6,
+              "p_mean": 0.4917,
+              "p_median": 0.52,
+              "p_q25": 0.45,
+              "p_q75": 0.5675,
+              "p_min": 0.24,
+              "p_max": 0.66,
+              "discrimination_median": 0.58,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            }
+          }
+        },
+        "二、多選題 （占26分）": {
+          "count": 13,
+          "p_mean": 0.4577,
+          "p_median": 0.43,
+          "p_q25": 0.38,
+          "p_q75": 0.49,
+          "p_min": 0.21,
+          "p_max": 0.74,
+          "discrimination_median": 0.36,
+          "band_counts": {
+            "easy": 2,
+            "hard": 4,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "score_rate": 13
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 3,
+              "p_mean": 0.4367,
+              "p_median": 0.43,
+              "p_q25": 0.395,
+              "p_q75": 0.475,
+              "p_min": 0.36,
+              "p_max": 0.52,
+              "discrimination_median": 0.29,
+              "band_counts": {
+                "hard": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "2": {
+              "count": 2,
+              "p_mean": 0.31,
+              "p_median": 0.31,
+              "p_q25": 0.26,
+              "p_q75": 0.36,
+              "p_min": 0.21,
+              "p_max": 0.41,
+              "discrimination_median": 0.23,
+              "band_counts": {
+                "hard": 1,
+                "medium": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 2
+              }
+            },
+            "3": {
+              "count": 3,
+              "p_mean": 0.4433,
+              "p_median": 0.44,
+              "p_q25": 0.43,
+              "p_q75": 0.455,
+              "p_min": 0.42,
+              "p_max": 0.47,
+              "discrimination_median": 0.49,
+              "band_counts": {
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "4": {
+              "count": 2,
+              "p_mean": 0.55,
+              "p_median": 0.55,
+              "p_q25": 0.455,
+              "p_q75": 0.645,
+              "p_min": 0.36,
+              "p_max": 0.74,
+              "discrimination_median": 0.21,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 2
+              }
+            },
+            "5": {
+              "count": 3,
+              "p_mean": 0.53,
+              "p_median": 0.49,
+              "p_q25": 0.435,
+              "p_q75": 0.605,
+              "p_min": 0.38,
+              "p_max": 0.72,
+              "discrimination_median": 0.36,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            }
+          }
+        },
+        "二、多選題 （占36分）": {
+          "count": 18,
+          "p_mean": 0.4944,
+          "p_median": 0.495,
+          "p_q25": 0.4325,
+          "p_q75": 0.545,
+          "p_min": 0.28,
+          "p_max": 0.72,
+          "discrimination_median": 0.48,
+          "band_counts": {
+            "easy": 2,
+            "hard": 3,
+            "medium": 13
+          },
+          "metric_type_counts": {
+            "score_rate": 18
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 4,
+              "p_mean": 0.48,
+              "p_median": 0.49,
+              "p_q25": 0.4225,
+              "p_q75": 0.5475,
+              "p_min": 0.34,
+              "p_max": 0.6,
+              "discrimination_median": 0.45,
+              "band_counts": {
+                "hard": 1,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "score_rate": 4
+              }
+            },
+            "2": {
+              "count": 3,
+              "p_mean": 0.5933,
+              "p_median": 0.6,
+              "p_q25": 0.565,
+              "p_q75": 0.625,
+              "p_min": 0.53,
+              "p_max": 0.65,
+              "discrimination_median": 0.6,
+              "band_counts": {
+                "easy": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "3": {
+              "count": 4,
+              "p_mean": 0.4425,
+              "p_median": 0.385,
+              "p_q25": 0.3325,
+              "p_q75": 0.495,
+              "p_min": 0.28,
+              "p_max": 0.72,
+              "discrimination_median": 0.475,
+              "band_counts": {
+                "easy": 1,
+                "hard": 2,
+                "medium": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 4
+              }
+            },
+            "4": {
+              "count": 3,
+              "p_mean": 0.4733,
+              "p_median": 0.49,
+              "p_q25": 0.465,
+              "p_q75": 0.49,
+              "p_min": 0.44,
+              "p_max": 0.49,
+              "discrimination_median": 0.4,
+              "band_counts": {
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "5": {
+              "count": 4,
+              "p_mean": 0.5025,
+              "p_median": 0.515,
+              "p_q25": 0.4825,
+              "p_q75": 0.535,
+              "p_min": 0.43,
+              "p_max": 0.55,
+              "discrimination_median": 0.56,
+              "band_counts": {
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "score_rate": 4
+              }
+            }
+          }
+        },
+        "二、多選題（占26分）": {
+          "count": 13,
+          "p_mean": 0.5377,
+          "p_median": 0.49,
+          "p_q25": 0.47,
+          "p_q75": 0.55,
+          "p_min": 0.32,
+          "p_max": 0.86,
+          "discrimination_median": 0.47,
+          "band_counts": {
+            "easy": 1,
+            "hard": 2,
+            "medium": 9,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 13
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 3,
+              "p_mean": 0.6133,
+              "p_median": 0.49,
+              "p_q25": 0.49,
+              "p_q75": 0.675,
+              "p_min": 0.49,
+              "p_max": 0.86,
+              "discrimination_median": 0.39,
+              "band_counts": {
+                "medium": 2,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "2": {
+              "count": 2,
+              "p_mean": 0.55,
+              "p_median": 0.55,
+              "p_q25": 0.505,
+              "p_q75": 0.595,
+              "p_min": 0.46,
+              "p_max": 0.64,
+              "discrimination_median": 0.42,
+              "band_counts": {
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 2
+              }
+            },
+            "3": {
+              "count": 3,
+              "p_mean": 0.5467,
+              "p_median": 0.48,
+              "p_q25": 0.435,
+              "p_q75": 0.625,
+              "p_min": 0.39,
+              "p_max": 0.77,
+              "discrimination_median": 0.47,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "4": {
+              "count": 2,
+              "p_mean": 0.505,
+              "p_median": 0.505,
+              "p_q25": 0.4875,
+              "p_q75": 0.5225,
+              "p_min": 0.47,
+              "p_max": 0.54,
+              "discrimination_median": 0.52,
+              "band_counts": {
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 2
+              }
+            },
+            "5": {
+              "count": 3,
+              "p_mean": 0.4667,
+              "p_median": 0.53,
+              "p_q25": 0.425,
+              "p_q75": 0.54,
+              "p_min": 0.32,
+              "p_max": 0.55,
+              "discrimination_median": 0.56,
+              "band_counts": {
+                "hard": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            }
+          }
+        },
+        "二、多選題（占28分）": {
+          "count": 14,
+          "p_mean": 0.5721,
+          "p_median": 0.54,
+          "p_q25": 0.4875,
+          "p_q75": 0.6375,
+          "p_min": 0.41,
+          "p_max": 0.81,
+          "discrimination_median": 0.555,
+          "band_counts": {
+            "easy": 3,
+            "medium": 10,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 14
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 3,
+              "p_mean": 0.5867,
+              "p_median": 0.55,
+              "p_q25": 0.49,
+              "p_q75": 0.665,
+              "p_min": 0.43,
+              "p_max": 0.78,
+              "discrimination_median": 0.41,
+              "band_counts": {
+                "easy": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "2": {
+              "count": 3,
+              "p_mean": 0.55,
+              "p_median": 0.53,
+              "p_q25": 0.525,
+              "p_q75": 0.565,
+              "p_min": 0.52,
+              "p_max": 0.6,
+              "discrimination_median": 0.66,
+              "band_counts": {
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "3": {
+              "count": 2,
+              "p_mean": 0.535,
+              "p_median": 0.535,
+              "p_q25": 0.5075,
+              "p_q75": 0.5625,
+              "p_min": 0.48,
+              "p_max": 0.59,
+              "discrimination_median": 0.58,
+              "band_counts": {
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 2
+              }
+            },
+            "4": {
+              "count": 3,
+              "p_mean": 0.5667,
+              "p_median": 0.48,
+              "p_q25": 0.445,
+              "p_q75": 0.645,
+              "p_min": 0.41,
+              "p_max": 0.81,
+              "discrimination_median": 0.48,
+              "band_counts": {
+                "medium": 2,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "5": {
+              "count": 3,
+              "p_mean": 0.61,
+              "p_median": 0.65,
+              "p_q25": 0.58,
+              "p_q75": 0.66,
+              "p_min": 0.51,
+              "p_max": 0.67,
+              "discrimination_median": 0.51,
+              "band_counts": {
+                "easy": 2,
+                "medium": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            }
+          }
+        },
+        "二、多選題（占30分）": {
+          "count": 15,
+          "p_mean": 0.524,
+          "p_median": 0.5,
+          "p_q25": 0.46,
+          "p_q75": 0.605,
+          "p_min": 0.3,
+          "p_max": 0.76,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "easy": 3,
+            "hard": 2,
+            "medium": 10
+          },
+          "metric_type_counts": {
+            "score_rate": 15
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 3,
+              "p_mean": 0.4733,
+              "p_median": 0.47,
+              "p_q25": 0.385,
+              "p_q75": 0.56,
+              "p_min": 0.3,
+              "p_max": 0.65,
+              "discrimination_median": 0.58,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 1
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "2": {
+              "count": 3,
+              "p_mean": 0.5967,
+              "p_median": 0.58,
+              "p_q25": 0.57,
+              "p_q75": 0.615,
+              "p_min": 0.56,
+              "p_max": 0.65,
+              "discrimination_median": 0.44,
+              "band_counts": {
+                "easy": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "3": {
+              "count": 3,
+              "p_mean": 0.5733,
+              "p_median": 0.5,
+              "p_q25": 0.48,
+              "p_q75": 0.63,
+              "p_min": 0.46,
+              "p_max": 0.76,
+              "discrimination_median": 0.57,
+              "band_counts": {
+                "easy": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "4": {
+              "count": 3,
+              "p_mean": 0.45,
+              "p_median": 0.46,
+              "p_q25": 0.445,
+              "p_q75": 0.46,
+              "p_min": 0.43,
+              "p_max": 0.46,
+              "discrimination_median": 0.35,
+              "band_counts": {
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            },
+            "5": {
+              "count": 3,
+              "p_mean": 0.5267,
+              "p_median": 0.56,
+              "p_q25": 0.475,
+              "p_q75": 0.595,
+              "p_min": 0.39,
+              "p_max": 0.63,
+              "discrimination_median": 0.48,
+              "band_counts": {
+                "hard": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "score_rate": 3
+              }
+            }
+          }
+        },
+        "第壹部分 （占80分）": {
+          "count": 23,
+          "p_mean": 0.5726,
+          "p_median": 0.57,
+          "p_q25": 0.48,
+          "p_q75": 0.66,
+          "p_min": 0.39,
+          "p_max": 0.76,
+          "discrimination_median": 0.58,
+          "band_counts": {
+            "easy": 8,
+            "hard": 2,
+            "medium": 13
+          },
+          "metric_type_counts": {
+            "answer_rate": 23
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 5,
+              "p_mean": 0.536,
+              "p_median": 0.51,
+              "p_q25": 0.48,
+              "p_q75": 0.57,
+              "p_min": 0.46,
+              "p_max": 0.66,
+              "discrimination_median": 0.61,
+              "band_counts": {
+                "easy": 1,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "2": {
+              "count": 4,
+              "p_mean": 0.4825,
+              "p_median": 0.48,
+              "p_q25": 0.45,
+              "p_q75": 0.5125,
+              "p_min": 0.39,
+              "p_max": 0.58,
+              "discrimination_median": 0.625,
+              "band_counts": {
+                "hard": 1,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 4
+              }
+            },
+            "3": {
+              "count": 5,
+              "p_mean": 0.564,
+              "p_median": 0.51,
+              "p_q25": 0.48,
+              "p_q75": 0.71,
+              "p_min": 0.39,
+              "p_max": 0.73,
+              "discrimination_median": 0.58,
+              "band_counts": {
+                "easy": 2,
+                "hard": 1,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            },
+            "4": {
+              "count": 4,
+              "p_mean": 0.6,
+              "p_median": 0.62,
+              "p_q25": 0.56,
+              "p_q75": 0.66,
+              "p_min": 0.47,
+              "p_max": 0.69,
+              "discrimination_median": 0.62,
+              "band_counts": {
+                "easy": 2,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 4
+              }
+            },
+            "5": {
+              "count": 5,
+              "p_mean": 0.668,
+              "p_median": 0.66,
+              "p_q25": 0.62,
+              "p_q75": 0.74,
+              "p_min": 0.56,
+              "p_max": 0.76,
+              "discrimination_median": 0.52,
+              "band_counts": {
+                "easy": 3,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 5
+              }
+            }
+          }
+        },
+        "第壹部分第壹部分第壹部分第壹部分（（（（占占占占96分分分分））））": {
+          "count": 30,
+          "p_mean": 0.596,
+          "p_median": 0.605,
+          "p_q25": 0.4625,
+          "p_q75": 0.7225,
+          "p_min": 0.32,
+          "p_max": 0.9,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "easy": 6,
+            "hard": 3,
+            "medium": 17,
+            "very_easy": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 30
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 6,
+              "p_mean": 0.5633,
+              "p_median": 0.505,
+              "p_q25": 0.47,
+              "p_q75": 0.69,
+              "p_min": 0.32,
+              "p_max": 0.84,
+              "discrimination_median": 0.38,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 3,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            },
+            "2": {
+              "count": 6,
+              "p_mean": 0.58,
+              "p_median": 0.595,
+              "p_q25": 0.4825,
+              "p_q75": 0.655,
+              "p_min": 0.38,
+              "p_max": 0.79,
+              "discrimination_median": 0.42,
+              "band_counts": {
+                "easy": 2,
+                "hard": 1,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            },
+            "3": {
+              "count": 6,
+              "p_mean": 0.5333,
+              "p_median": 0.535,
+              "p_q25": 0.4575,
+              "p_q75": 0.6275,
+              "p_min": 0.34,
+              "p_max": 0.7,
+              "discrimination_median": 0.435,
+              "band_counts": {
+                "easy": 1,
+                "hard": 1,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            },
+            "4": {
+              "count": 6,
+              "p_mean": 0.5917,
+              "p_median": 0.535,
+              "p_q25": 0.4475,
+              "p_q75": 0.75,
+              "p_min": 0.41,
+              "p_max": 0.83,
+              "discrimination_median": 0.495,
+              "band_counts": {
+                "medium": 4,
+                "very_easy": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            },
+            "5": {
+              "count": 6,
+              "p_mean": 0.7117,
+              "p_median": 0.675,
+              "p_q25": 0.62,
+              "p_q75": 0.775,
+              "p_min": 0.61,
+              "p_max": 0.9,
+              "discrimination_median": 0.44,
+              "band_counts": {
+                "easy": 2,
+                "medium": 3,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 6
+              }
+            }
+          }
+        },
+        "第貳部分 （占48分）": {
+          "count": 28,
+          "p_mean": 0.4636,
+          "p_median": 0.455,
+          "p_q25": 0.3325,
+          "p_q75": 0.5525,
+          "p_min": 0.13,
+          "p_max": 0.86,
+          "discrimination_median": 0.435,
+          "band_counts": {
+            "easy": 2,
+            "hard": 8,
+            "medium": 15,
+            "very_easy": 2,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 17,
+            "score_rate": 11
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 6,
+              "p_mean": 0.325,
+              "p_median": 0.345,
+              "p_q25": 0.23,
+              "p_q75": 0.445,
+              "p_min": 0.13,
+              "p_max": 0.46,
+              "discrimination_median": 0.335,
+              "band_counts": {
+                "hard": 2,
+                "medium": 3,
+                "very_hard": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 4,
+                "score_rate": 2
+              }
+            },
+            "2": {
+              "count": 5,
+              "p_mean": 0.394,
+              "p_median": 0.41,
+              "p_q25": 0.34,
+              "p_q75": 0.45,
+              "p_min": 0.23,
+              "p_max": 0.54,
+              "discrimination_median": 0.49,
+              "band_counts": {
+                "hard": 2,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 3,
+                "score_rate": 2
+              }
+            },
+            "3": {
+              "count": 6,
+              "p_mean": 0.52,
+              "p_median": 0.535,
+              "p_q25": 0.3475,
+              "p_q75": 0.655,
+              "p_min": 0.25,
+              "p_max": 0.82,
+              "discrimination_median": 0.46,
+              "band_counts": {
+                "easy": 1,
+                "hard": 2,
+                "medium": 2,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 4,
+                "score_rate": 2
+              }
+            },
+            "4": {
+              "count": 5,
+              "p_mean": 0.654,
+              "p_median": 0.64,
+              "p_q25": 0.55,
+              "p_q75": 0.68,
+              "p_min": 0.54,
+              "p_max": 0.86,
+              "discrimination_median": 0.49,
+              "band_counts": {
+                "easy": 1,
+                "medium": 3,
+                "very_easy": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 2,
+                "score_rate": 3
+              }
+            },
+            "5": {
+              "count": 6,
+              "p_mean": 0.445,
+              "p_median": 0.46,
+              "p_q25": 0.3725,
+              "p_q75": 0.5175,
+              "p_min": 0.31,
+              "p_max": 0.56,
+              "discrimination_median": 0.415,
+              "band_counts": {
+                "hard": 2,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 4,
+                "score_rate": 2
+              }
+            }
+          }
+        },
+        "第貳部分（占48分）": {
+          "count": 28,
+          "p_mean": 0.4639,
+          "p_median": 0.425,
+          "p_q25": 0.3675,
+          "p_q75": 0.5125,
+          "p_min": 0.3,
+          "p_max": 0.76,
+          "discrimination_median": 0.415,
+          "band_counts": {
+            "easy": 4,
+            "hard": 10,
+            "medium": 14
+          },
+          "metric_type_counts": {
+            "answer_rate": 12,
+            "score_rate": 16
+          },
+          "normalized_position_quintiles": {
+            "1": {
+              "count": 6,
+              "p_mean": 0.48,
+              "p_median": 0.46,
+              "p_q25": 0.3725,
+              "p_q75": 0.555,
+              "p_min": 0.3,
+              "p_max": 0.73,
+              "discrimination_median": 0.42,
+              "band_counts": {
+                "easy": 1,
+                "hard": 2,
+                "medium": 3
+              },
+              "metric_type_counts": {
+                "answer_rate": 2,
+                "score_rate": 4
+              }
+            },
+            "2": {
+              "count": 5,
+              "p_mean": 0.52,
+              "p_median": 0.47,
+              "p_q25": 0.45,
+              "p_q75": 0.51,
+              "p_min": 0.41,
+              "p_max": 0.76,
+              "discrimination_median": 0.44,
+              "band_counts": {
+                "easy": 1,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 1,
+                "score_rate": 4
+              }
+            },
+            "3": {
+              "count": 6,
+              "p_mean": 0.4383,
+              "p_median": 0.4,
+              "p_q25": 0.3575,
+              "p_q75": 0.495,
+              "p_min": 0.31,
+              "p_max": 0.65,
+              "discrimination_median": 0.375,
+              "band_counts": {
+                "easy": 1,
+                "hard": 3,
+                "medium": 2
+              },
+              "metric_type_counts": {
+                "answer_rate": 2,
+                "score_rate": 4
+              }
+            },
+            "4": {
+              "count": 5,
+              "p_mean": 0.446,
+              "p_median": 0.34,
+              "p_q25": 0.34,
+              "p_q75": 0.51,
+              "p_min": 0.32,
+              "p_max": 0.72,
+              "discrimination_median": 0.41,
+              "band_counts": {
+                "easy": 1,
+                "hard": 3,
+                "medium": 1
+              },
+              "metric_type_counts": {
+                "answer_rate": 2,
+                "score_rate": 3
+              }
+            },
+            "5": {
+              "count": 6,
+              "p_mean": 0.4417,
+              "p_median": 0.415,
+              "p_q25": 0.3775,
+              "p_q75": 0.4525,
+              "p_min": 0.37,
+              "p_max": 0.62,
+              "discrimination_median": 0.45,
+              "band_counts": {
+                "hard": 2,
+                "medium": 4
+              },
+              "metric_type_counts": {
+                "answer_rate": 5,
+                "score_rate": 1
+              }
+            }
+          }
+        }
+      },
+      "by_question_number": {
+        "1": {
+          "count": 11,
+          "p_mean": 0.6536,
+          "p_median": 0.65,
+          "p_q25": 0.515,
+          "p_q75": 0.805,
+          "p_min": 0.36,
+          "p_max": 0.97,
+          "discrimination_median": 0.53,
+          "band_counts": {
+            "easy": 2,
+            "hard": 1,
+            "medium": 4,
+            "very_easy": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.65,
+            "p_range": [
+              0.515,
+              0.805
+            ],
+            "discrimination_floor": 0.4
+          }
+        },
+        "2": {
+          "count": 11,
+          "p_mean": 0.5964,
+          "p_median": 0.57,
+          "p_q25": 0.485,
+          "p_q75": 0.685,
+          "p_min": 0.43,
+          "p_max": 0.86,
+          "discrimination_median": 0.36,
+          "band_counts": {
+            "easy": 2,
+            "medium": 8,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.57,
+            "p_range": [
+              0.485,
+              0.685
+            ],
+            "discrimination_floor": 0.27
+          }
+        },
+        "3": {
+          "count": 11,
+          "p_mean": 0.5155,
+          "p_median": 0.49,
+          "p_q25": 0.37,
+          "p_q75": 0.675,
+          "p_min": 0.24,
+          "p_max": 0.82,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "easy": 3,
+            "hard": 4,
+            "medium": 3,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.49,
+            "p_range": [
+              0.37,
+              0.675
+            ],
+            "discrimination_floor": 0.34
+          }
+        },
+        "4": {
+          "count": 11,
+          "p_mean": 0.56,
+          "p_median": 0.56,
+          "p_q25": 0.505,
+          "p_q75": 0.62,
+          "p_min": 0.32,
+          "p_max": 0.75,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "easy": 3,
+            "hard": 1,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.56,
+            "p_range": [
+              0.505,
+              0.62
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "5": {
+          "count": 11,
+          "p_mean": 0.5636,
+          "p_median": 0.56,
+          "p_q25": 0.475,
+          "p_q75": 0.655,
+          "p_min": 0.34,
+          "p_max": 0.8,
+          "discrimination_median": 0.45,
+          "band_counts": {
+            "easy": 2,
+            "hard": 2,
+            "medium": 6,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.56,
+            "p_range": [
+              0.475,
+              0.655
+            ],
+            "discrimination_floor": 0.34
+          }
+        },
+        "6": {
+          "count": 11,
+          "p_mean": 0.5718,
+          "p_median": 0.57,
+          "p_q25": 0.475,
+          "p_q75": 0.65,
+          "p_min": 0.42,
+          "p_max": 0.84,
+          "discrimination_median": 0.53,
+          "band_counts": {
+            "easy": 2,
+            "medium": 8,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.57,
+            "p_range": [
+              0.475,
+              0.65
+            ],
+            "discrimination_floor": 0.4
+          }
+        },
+        "7": {
+          "count": 11,
+          "p_mean": 0.5145,
+          "p_median": 0.54,
+          "p_q25": 0.43,
+          "p_q75": 0.605,
+          "p_min": 0.15,
+          "p_max": 0.88,
+          "discrimination_median": 0.37,
+          "band_counts": {
+            "hard": 2,
+            "medium": 7,
+            "very_easy": 1,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.43,
+              0.605
+            ],
+            "discrimination_floor": 0.28
+          }
+        },
+        "8": {
+          "count": 11,
+          "p_mean": 0.52,
+          "p_median": 0.49,
+          "p_q25": 0.375,
+          "p_q75": 0.745,
+          "p_min": 0.08,
+          "p_max": 0.81,
+          "discrimination_median": 0.42,
+          "band_counts": {
+            "easy": 3,
+            "hard": 2,
+            "medium": 4,
+            "very_easy": 1,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.49,
+            "p_range": [
+              0.375,
+              0.745
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "9": {
+          "count": 11,
+          "p_mean": 0.4782,
+          "p_median": 0.47,
+          "p_q25": 0.39,
+          "p_q75": 0.52,
+          "p_min": 0.36,
+          "p_max": 0.72,
+          "discrimination_median": 0.57,
+          "band_counts": {
+            "easy": 1,
+            "hard": 3,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.47,
+            "p_range": [
+              0.39,
+              0.52
+            ],
+            "discrimination_floor": 0.43
+          }
+        },
+        "10": {
+          "count": 11,
+          "p_mean": 0.4973,
+          "p_median": 0.48,
+          "p_q25": 0.38,
+          "p_q75": 0.55,
+          "p_min": 0.32,
+          "p_max": 0.95,
+          "discrimination_median": 0.54,
+          "band_counts": {
+            "hard": 4,
+            "medium": 6,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.48,
+            "p_range": [
+              0.38,
+              0.55
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "11": {
+          "count": 11,
+          "p_mean": 0.5109,
+          "p_median": 0.52,
+          "p_q25": 0.43,
+          "p_q75": 0.565,
+          "p_min": 0.31,
+          "p_max": 0.73,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 2,
+            "hard": 3,
+            "medium": 6
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.52,
+            "p_range": [
+              0.43,
+              0.565
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "12": {
+          "count": 11,
+          "p_mean": 0.4818,
+          "p_median": 0.45,
+          "p_q25": 0.35,
+          "p_q75": 0.6,
+          "p_min": 0.23,
+          "p_max": 0.81,
+          "discrimination_median": 0.34,
+          "band_counts": {
+            "easy": 1,
+            "hard": 4,
+            "medium": 5,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.45,
+            "p_range": [
+              0.35,
+              0.6
+            ],
+            "discrimination_floor": 0.26
+          }
+        },
+        "13": {
+          "count": 11,
+          "p_mean": 0.5545,
+          "p_median": 0.54,
+          "p_q25": 0.475,
+          "p_q75": 0.705,
+          "p_min": 0.09,
+          "p_max": 0.89,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 2,
+            "hard": 1,
+            "medium": 5,
+            "very_easy": 2,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.475,
+              0.705
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "14": {
+          "count": 11,
+          "p_mean": 0.5682,
+          "p_median": 0.54,
+          "p_q25": 0.475,
+          "p_q75": 0.64,
+          "p_min": 0.4,
+          "p_max": 0.82,
+          "discrimination_median": 0.49,
+          "band_counts": {
+            "easy": 2,
+            "medium": 8,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.475,
+              0.64
+            ],
+            "discrimination_floor": 0.37
+          }
+        },
+        "15": {
+          "count": 11,
+          "p_mean": 0.48,
+          "p_median": 0.53,
+          "p_q25": 0.36,
+          "p_q75": 0.59,
+          "p_min": 0.19,
+          "p_max": 0.7,
+          "discrimination_median": 0.68,
+          "band_counts": {
+            "easy": 2,
+            "hard": 2,
+            "medium": 6,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.53,
+            "p_range": [
+              0.36,
+              0.59
+            ],
+            "discrimination_floor": 0.51
+          }
+        },
+        "16": {
+          "count": 11,
+          "p_mean": 0.5418,
+          "p_median": 0.52,
+          "p_q25": 0.465,
+          "p_q75": 0.625,
+          "p_min": 0.38,
+          "p_max": 0.73,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "easy": 3,
+            "hard": 1,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.52,
+            "p_range": [
+              0.465,
+              0.625
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "17": {
+          "count": 11,
+          "p_mean": 0.4936,
+          "p_median": 0.5,
+          "p_q25": 0.45,
+          "p_q75": 0.56,
+          "p_min": 0.33,
+          "p_max": 0.6,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "hard": 2,
+            "medium": 9
+          },
+          "metric_type_counts": {
+            "answer_rate": 10,
+            "score_rate": 1
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.5,
+            "p_range": [
+              0.45,
+              0.56
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "18": {
+          "count": 11,
+          "p_mean": 0.4609,
+          "p_median": 0.37,
+          "p_q25": 0.34,
+          "p_q75": 0.6,
+          "p_min": 0.26,
+          "p_max": 0.72,
+          "discrimination_median": 0.52,
+          "band_counts": {
+            "easy": 2,
+            "hard": 6,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 10,
+            "score_rate": 1
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.37,
+            "p_range": [
+              0.34,
+              0.6
+            ],
+            "discrimination_floor": 0.39
+          }
+        },
+        "19": {
+          "count": 11,
+          "p_mean": 0.5891,
+          "p_median": 0.59,
+          "p_q25": 0.555,
+          "p_q75": 0.66,
+          "p_min": 0.33,
+          "p_max": 0.77,
+          "discrimination_median": 0.52,
+          "band_counts": {
+            "easy": 4,
+            "hard": 1,
+            "medium": 6
+          },
+          "metric_type_counts": {
+            "answer_rate": 10,
+            "score_rate": 1
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.59,
+            "p_range": [
+              0.555,
+              0.66
+            ],
+            "discrimination_floor": 0.39
+          }
+        },
+        "20": {
+          "count": 11,
+          "p_mean": 0.5218,
+          "p_median": 0.49,
+          "p_q25": 0.44,
+          "p_q75": 0.615,
+          "p_min": 0.27,
+          "p_max": 0.74,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "easy": 3,
+            "hard": 1,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 10,
+            "score_rate": 1
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.49,
+            "p_range": [
+              0.44,
+              0.615
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "21": {
+          "count": 11,
+          "p_mean": 0.5118,
+          "p_median": 0.56,
+          "p_q25": 0.415,
+          "p_q75": 0.655,
+          "p_min": 0.09,
+          "p_max": 0.8,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 3,
+            "hard": 2,
+            "medium": 4,
+            "very_easy": 1,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 10,
+            "score_rate": 1
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.56,
+            "p_range": [
+              0.415,
+              0.655
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "22": {
+          "count": 11,
+          "p_mean": 0.5818,
+          "p_median": 0.58,
+          "p_q25": 0.54,
+          "p_q75": 0.625,
+          "p_min": 0.36,
+          "p_max": 0.79,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 3,
+            "hard": 1,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 10,
+            "score_rate": 1
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.58,
+            "p_range": [
+              0.54,
+              0.625
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "23": {
+          "count": 11,
+          "p_mean": 0.5582,
+          "p_median": 0.55,
+          "p_q25": 0.5,
+          "p_q75": 0.61,
+          "p_min": 0.4,
+          "p_max": 0.83,
+          "discrimination_median": 0.51,
+          "band_counts": {
+            "medium": 10,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 8,
+            "score_rate": 3
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.55,
+            "p_range": [
+              0.5,
+              0.61
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "24": {
+          "count": 11,
+          "p_mean": 0.4945,
+          "p_median": 0.49,
+          "p_q25": 0.44,
+          "p_q75": 0.56,
+          "p_min": 0.23,
+          "p_max": 0.72,
+          "discrimination_median": 0.55,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 9
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 7
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.49,
+            "p_range": [
+              0.44,
+              0.56
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "25": {
+          "count": 11,
+          "p_mean": 0.5173,
+          "p_median": 0.49,
+          "p_q25": 0.445,
+          "p_q75": 0.575,
+          "p_min": 0.35,
+          "p_max": 0.78,
+          "discrimination_median": 0.47,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 9
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 7
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.49,
+            "p_range": [
+              0.445,
+              0.575
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "26": {
+          "count": 11,
+          "p_mean": 0.5809,
+          "p_median": 0.53,
+          "p_q25": 0.45,
+          "p_q75": 0.725,
+          "p_min": 0.36,
+          "p_max": 0.86,
+          "discrimination_median": 0.42,
+          "band_counts": {
+            "easy": 3,
+            "hard": 1,
+            "medium": 6,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 7
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.53,
+            "p_range": [
+              0.45,
+              0.725
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "27": {
+          "count": 11,
+          "p_mean": 0.5573,
+          "p_median": 0.6,
+          "p_q25": 0.525,
+          "p_q75": 0.66,
+          "p_min": 0.21,
+          "p_max": 0.73,
+          "discrimination_median": 0.49,
+          "band_counts": {
+            "easy": 4,
+            "hard": 2,
+            "medium": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 8
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.6,
+            "p_range": [
+              0.525,
+              0.66
+            ],
+            "discrimination_floor": 0.37
+          }
+        },
+        "28": {
+          "count": 11,
+          "p_mean": 0.5236,
+          "p_median": 0.53,
+          "p_q25": 0.435,
+          "p_q75": 0.595,
+          "p_min": 0.24,
+          "p_max": 0.83,
+          "discrimination_median": 0.43,
+          "band_counts": {
+            "easy": 1,
+            "hard": 2,
+            "medium": 7,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 8
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.53,
+            "p_range": [
+              0.435,
+              0.595
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "29": {
+          "count": 11,
+          "p_mean": 0.5591,
+          "p_median": 0.56,
+          "p_q25": 0.475,
+          "p_q75": 0.595,
+          "p_min": 0.44,
+          "p_max": 0.77,
+          "discrimination_median": 0.52,
+          "band_counts": {
+            "easy": 2,
+            "medium": 9
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 10
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.56,
+            "p_range": [
+              0.475,
+              0.595
+            ],
+            "discrimination_floor": 0.39
+          }
+        },
+        "30": {
+          "count": 11,
+          "p_mean": 0.5436,
+          "p_median": 0.59,
+          "p_q25": 0.45,
+          "p_q75": 0.645,
+          "p_min": 0.17,
+          "p_max": 0.9,
+          "discrimination_median": 0.39,
+          "band_counts": {
+            "easy": 2,
+            "hard": 1,
+            "medium": 6,
+            "very_easy": 1,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 10
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.59,
+            "p_range": [
+              0.45,
+              0.645
+            ],
+            "discrimination_floor": 0.29
+          }
+        },
+        "31": {
+          "count": 11,
+          "p_mean": 0.4736,
+          "p_median": 0.44,
+          "p_q25": 0.39,
+          "p_q75": 0.525,
+          "p_min": 0.25,
+          "p_max": 0.76,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 2,
+            "hard": 3,
+            "medium": 6
+          },
+          "metric_type_counts": {
+            "score_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.44,
+            "p_range": [
+              0.39,
+              0.525
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "32": {
+          "count": 11,
+          "p_mean": 0.5073,
+          "p_median": 0.48,
+          "p_q25": 0.45,
+          "p_q75": 0.585,
+          "p_min": 0.34,
+          "p_max": 0.7,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 3,
+            "hard": 2,
+            "medium": 6
+          },
+          "metric_type_counts": {
+            "score_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.48,
+            "p_range": [
+              0.45,
+              0.585
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "33": {
+          "count": 11,
+          "p_mean": 0.5827,
+          "p_median": 0.58,
+          "p_q25": 0.535,
+          "p_q75": 0.62,
+          "p_min": 0.38,
+          "p_max": 0.81,
+          "discrimination_median": 0.52,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 8,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.58,
+            "p_range": [
+              0.535,
+              0.62
+            ],
+            "discrimination_floor": 0.39
+          }
+        },
+        "34": {
+          "count": 11,
+          "p_mean": 0.5809,
+          "p_median": 0.56,
+          "p_q25": 0.51,
+          "p_q75": 0.65,
+          "p_min": 0.32,
+          "p_max": 0.83,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 2,
+            "hard": 1,
+            "medium": 7,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "score_rate": 11
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.56,
+            "p_range": [
+              0.51,
+              0.65
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "35": {
+          "count": 11,
+          "p_mean": 0.5882,
+          "p_median": 0.58,
+          "p_q25": 0.52,
+          "p_q75": 0.665,
+          "p_min": 0.38,
+          "p_max": 0.78,
+          "discrimination_median": 0.48,
+          "band_counts": {
+            "easy": 4,
+            "hard": 1,
+            "medium": 6
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 10
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.58,
+            "p_range": [
+              0.52,
+              0.665
+            ],
+            "discrimination_floor": 0.36
+          }
+        },
+        "36": {
+          "count": 11,
+          "p_mean": 0.5582,
+          "p_median": 0.53,
+          "p_q25": 0.455,
+          "p_q75": 0.69,
+          "p_min": 0.35,
+          "p_max": 0.79,
+          "discrimination_median": 0.47,
+          "band_counts": {
+            "easy": 4,
+            "hard": 2,
+            "medium": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 1,
+            "score_rate": 10
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.53,
+            "p_range": [
+              0.455,
+              0.69
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "37": {
+          "count": 11,
+          "p_mean": 0.5245,
+          "p_median": 0.54,
+          "p_q25": 0.47,
+          "p_q75": 0.575,
+          "p_min": 0.27,
+          "p_max": 0.72,
+          "discrimination_median": 0.52,
+          "band_counts": {
+            "easy": 2,
+            "hard": 2,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 5,
+            "score_rate": 6
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.47,
+              0.575
+            ],
+            "discrimination_floor": 0.39
+          }
+        },
+        "38": {
+          "count": 11,
+          "p_mean": 0.5191,
+          "p_median": 0.49,
+          "p_q25": 0.465,
+          "p_q75": 0.57,
+          "p_min": 0.36,
+          "p_max": 0.77,
+          "discrimination_median": 0.54,
+          "band_counts": {
+            "easy": 1,
+            "hard": 2,
+            "medium": 8
+          },
+          "metric_type_counts": {
+            "answer_rate": 6,
+            "score_rate": 5
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.49,
+            "p_range": [
+              0.465,
+              0.57
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "39": {
+          "count": 11,
+          "p_mean": 0.49,
+          "p_median": 0.47,
+          "p_q25": 0.43,
+          "p_q75": 0.525,
+          "p_min": 0.4,
+          "p_max": 0.7,
+          "discrimination_median": 0.48,
+          "band_counts": {
+            "easy": 1,
+            "medium": 10
+          },
+          "metric_type_counts": {
+            "answer_rate": 6,
+            "score_rate": 5
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.47,
+            "p_range": [
+              0.43,
+              0.525
+            ],
+            "discrimination_floor": 0.36
+          }
+        },
+        "40": {
+          "count": 11,
+          "p_mean": 0.5,
+          "p_median": 0.51,
+          "p_q25": 0.42,
+          "p_q75": 0.525,
+          "p_min": 0.38,
+          "p_max": 0.81,
+          "discrimination_median": 0.42,
+          "band_counts": {
+            "hard": 2,
+            "medium": 8,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 8
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.51,
+            "p_range": [
+              0.42,
+              0.525
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "41": {
+          "count": 11,
+          "p_mean": 0.51,
+          "p_median": 0.51,
+          "p_q25": 0.41,
+          "p_q75": 0.575,
+          "p_min": 0.32,
+          "p_max": 0.85,
+          "discrimination_median": 0.35,
+          "band_counts": {
+            "hard": 3,
+            "medium": 7,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 6,
+            "score_rate": 5
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.51,
+            "p_range": [
+              0.41,
+              0.575
+            ],
+            "discrimination_floor": 0.26
+          }
+        },
+        "42": {
+          "count": 11,
+          "p_mean": 0.4218,
+          "p_median": 0.42,
+          "p_q25": 0.32,
+          "p_q75": 0.57,
+          "p_min": 0.13,
+          "p_max": 0.63,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "hard": 4,
+            "medium": 6,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 5,
+            "score_rate": 6
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.42,
+            "p_range": [
+              0.32,
+              0.57
+            ],
+            "discrimination_floor": 0.33
+          }
+        },
+        "43": {
+          "count": 11,
+          "p_mean": 0.5064,
+          "p_median": 0.41,
+          "p_q25": 0.38,
+          "p_q75": 0.625,
+          "p_min": 0.26,
+          "p_max": 0.84,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 2,
+            "hard": 4,
+            "medium": 4,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 7,
+            "score_rate": 4
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.41,
+            "p_range": [
+              0.38,
+              0.625
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "44": {
+          "count": 11,
+          "p_mean": 0.4882,
+          "p_median": 0.41,
+          "p_q25": 0.365,
+          "p_q75": 0.505,
+          "p_min": 0.3,
+          "p_max": 0.89,
+          "discrimination_median": 0.37,
+          "band_counts": {
+            "hard": 5,
+            "medium": 4,
+            "very_easy": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 8,
+            "score_rate": 3
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.41,
+            "p_range": [
+              0.365,
+              0.505
+            ],
+            "discrimination_floor": 0.28
+          }
+        },
+        "45": {
+          "count": 11,
+          "p_mean": 0.4509,
+          "p_median": 0.45,
+          "p_q25": 0.38,
+          "p_q75": 0.52,
+          "p_min": 0.3,
+          "p_max": 0.63,
+          "discrimination_median": 0.48,
+          "band_counts": {
+            "hard": 3,
+            "medium": 8
+          },
+          "metric_type_counts": {
+            "answer_rate": 5,
+            "score_rate": 6
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.45,
+            "p_range": [
+              0.38,
+              0.52
+            ],
+            "discrimination_floor": 0.36
+          }
+        },
+        "46": {
+          "count": 11,
+          "p_mean": 0.3936,
+          "p_median": 0.34,
+          "p_q25": 0.27,
+          "p_q75": 0.545,
+          "p_min": 0.15,
+          "p_max": 0.73,
+          "discrimination_median": 0.31,
+          "band_counts": {
+            "easy": 1,
+            "hard": 5,
+            "medium": 4,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 7,
+            "score_rate": 4
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.34,
+            "p_range": [
+              0.27,
+              0.545
+            ],
+            "discrimination_floor": 0.23
+          }
+        },
+        "47": {
+          "count": 11,
+          "p_mean": 0.4191,
+          "p_median": 0.33,
+          "p_q25": 0.25,
+          "p_q75": 0.625,
+          "p_min": 0.14,
+          "p_max": 0.76,
+          "discrimination_median": 0.28,
+          "band_counts": {
+            "easy": 1,
+            "hard": 5,
+            "medium": 4,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 7,
+            "score_rate": 4
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.33,
+            "p_range": [
+              0.25,
+              0.625
+            ],
+            "discrimination_floor": 0.21
+          }
+        },
+        "48": {
+          "count": 11,
+          "p_mean": 0.4691,
+          "p_median": 0.41,
+          "p_q25": 0.385,
+          "p_q75": 0.51,
+          "p_min": 0.29,
+          "p_max": 0.81,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 1,
+            "hard": 5,
+            "medium": 4,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 9,
+            "score_rate": 2
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.41,
+            "p_range": [
+              0.385,
+              0.51
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "49": {
+          "count": 11,
+          "p_mean": 0.4855,
+          "p_median": 0.45,
+          "p_q25": 0.44,
+          "p_q75": 0.54,
+          "p_min": 0.32,
+          "p_max": 0.67,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 1,
+            "hard": 2,
+            "medium": 8
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 7
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.45,
+            "p_range": [
+              0.44,
+              0.54
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "50": {
+          "count": 11,
+          "p_mean": 0.4873,
+          "p_median": 0.54,
+          "p_q25": 0.41,
+          "p_q75": 0.575,
+          "p_min": 0.17,
+          "p_max": 0.71,
+          "discrimination_median": 0.38,
+          "band_counts": {
+            "easy": 1,
+            "hard": 2,
+            "medium": 7,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 8
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.41,
+              0.575
+            ],
+            "discrimination_floor": 0.29
+          }
+        },
+        "51": {
+          "count": 11,
+          "p_mean": 0.4355,
+          "p_median": 0.41,
+          "p_q25": 0.37,
+          "p_q75": 0.535,
+          "p_min": 0.15,
+          "p_max": 0.68,
+          "discrimination_median": 0.49,
+          "band_counts": {
+            "easy": 1,
+            "hard": 3,
+            "medium": 6,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 6,
+            "score_rate": 5
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.41,
+            "p_range": [
+              0.37,
+              0.535
+            ],
+            "discrimination_floor": 0.37
+          }
+        },
+        "52": {
+          "count": 11,
+          "p_mean": 0.4564,
+          "p_median": 0.39,
+          "p_q25": 0.36,
+          "p_q75": 0.565,
+          "p_min": 0.25,
+          "p_max": 0.74,
+          "discrimination_median": 0.5,
+          "band_counts": {
+            "easy": 2,
+            "hard": 6,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 8,
+            "score_rate": 3
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.39,
+            "p_range": [
+              0.36,
+              0.565
+            ],
+            "discrimination_floor": 0.38
+          }
+        },
+        "53": {
+          "count": 11,
+          "p_mean": 0.4782,
+          "p_median": 0.46,
+          "p_q25": 0.34,
+          "p_q75": 0.65,
+          "p_min": 0.22,
+          "p_max": 0.7,
+          "discrimination_median": 0.49,
+          "band_counts": {
+            "easy": 4,
+            "hard": 4,
+            "medium": 3
+          },
+          "metric_type_counts": {
+            "answer_rate": 7,
+            "score_rate": 4
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.46,
+            "p_range": [
+              0.34,
+              0.65
+            ],
+            "discrimination_floor": 0.37
+          }
+        },
+        "54": {
+          "count": 11,
+          "p_mean": 0.5782,
+          "p_median": 0.57,
+          "p_q25": 0.53,
+          "p_q75": 0.625,
+          "p_min": 0.35,
+          "p_max": 0.83,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "easy": 1,
+            "hard": 1,
+            "medium": 8,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 7
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.57,
+            "p_range": [
+              0.53,
+              0.625
+            ],
+            "discrimination_floor": 0.33
+          }
+        },
+        "55": {
+          "count": 11,
+          "p_mean": 0.4355,
+          "p_median": 0.42,
+          "p_q25": 0.33,
+          "p_q75": 0.53,
+          "p_min": 0.28,
+          "p_max": 0.68,
+          "discrimination_median": 0.47,
+          "band_counts": {
+            "easy": 1,
+            "hard": 5,
+            "medium": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 6,
+            "score_rate": 5
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.42,
+            "p_range": [
+              0.33,
+              0.53
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "56": {
+          "count": 11,
+          "p_mean": 0.4345,
+          "p_median": 0.36,
+          "p_q25": 0.315,
+          "p_q75": 0.545,
+          "p_min": 0.16,
+          "p_max": 0.85,
+          "discrimination_median": 0.33,
+          "band_counts": {
+            "easy": 1,
+            "hard": 5,
+            "medium": 3,
+            "very_easy": 1,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 5,
+            "score_rate": 6
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.36,
+            "p_range": [
+              0.315,
+              0.545
+            ],
+            "discrimination_floor": 0.25
+          }
+        },
+        "57": {
+          "count": 11,
+          "p_mean": 0.5536,
+          "p_median": 0.53,
+          "p_q25": 0.405,
+          "p_q75": 0.72,
+          "p_min": 0.26,
+          "p_max": 0.86,
+          "discrimination_median": 0.41,
+          "band_counts": {
+            "easy": 2,
+            "hard": 3,
+            "medium": 4,
+            "very_easy": 2
+          },
+          "metric_type_counts": {
+            "answer_rate": 7,
+            "score_rate": 4
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.53,
+            "p_range": [
+              0.405,
+              0.72
+            ],
+            "discrimination_floor": 0.31
+          }
+        },
+        "58": {
+          "count": 11,
+          "p_mean": 0.5682,
+          "p_median": 0.63,
+          "p_q25": 0.475,
+          "p_q75": 0.67,
+          "p_min": 0.31,
+          "p_max": 0.75,
+          "discrimination_median": 0.54,
+          "band_counts": {
+            "easy": 4,
+            "hard": 3,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 9,
+            "score_rate": 2
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.63,
+            "p_range": [
+              0.475,
+              0.67
+            ],
+            "discrimination_floor": 0.41
+          }
+        },
+        "59": {
+          "count": 11,
+          "p_mean": 0.47,
+          "p_median": 0.51,
+          "p_q25": 0.365,
+          "p_q75": 0.545,
+          "p_min": 0.31,
+          "p_max": 0.6,
+          "discrimination_median": 0.48,
+          "band_counts": {
+            "hard": 4,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 7
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.51,
+            "p_range": [
+              0.365,
+              0.545
+            ],
+            "discrimination_floor": 0.36
+          }
+        },
+        "60": {
+          "count": 11,
+          "p_mean": 0.4155,
+          "p_median": 0.41,
+          "p_q25": 0.305,
+          "p_q75": 0.51,
+          "p_min": 0.23,
+          "p_max": 0.64,
+          "discrimination_median": 0.44,
+          "band_counts": {
+            "hard": 5,
+            "medium": 6
+          },
+          "metric_type_counts": {
+            "answer_rate": 5,
+            "score_rate": 6
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.41,
+            "p_range": [
+              0.305,
+              0.51
+            ],
+            "discrimination_floor": 0.33
+          }
+        },
+        "61": {
+          "count": 11,
+          "p_mean": 0.5109,
+          "p_median": 0.52,
+          "p_q25": 0.37,
+          "p_q75": 0.575,
+          "p_min": 0.3,
+          "p_max": 0.86,
+          "discrimination_median": 0.43,
+          "band_counts": {
+            "easy": 1,
+            "hard": 4,
+            "medium": 5,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 4,
+            "score_rate": 7
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.52,
+            "p_range": [
+              0.37,
+              0.575
+            ],
+            "discrimination_floor": 0.32
+          }
+        },
+        "62": {
+          "count": 11,
+          "p_mean": 0.5055,
+          "p_median": 0.54,
+          "p_q25": 0.365,
+          "p_q75": 0.57,
+          "p_min": 0.32,
+          "p_max": 0.85,
+          "discrimination_median": 0.49,
+          "band_counts": {
+            "easy": 1,
+            "hard": 3,
+            "medium": 6,
+            "very_easy": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 7,
+            "score_rate": 4
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.54,
+            "p_range": [
+              0.365,
+              0.57
+            ],
+            "discrimination_floor": 0.37
+          }
+        },
+        "63": {
+          "count": 11,
+          "p_mean": 0.4582,
+          "p_median": 0.42,
+          "p_q25": 0.39,
+          "p_q75": 0.575,
+          "p_min": 0.27,
+          "p_max": 0.65,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "easy": 1,
+            "hard": 3,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 9,
+            "score_rate": 2
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.42,
+            "p_range": [
+              0.39,
+              0.575
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "64": {
+          "count": 11,
+          "p_mean": 0.3882,
+          "p_median": 0.35,
+          "p_q25": 0.32,
+          "p_q75": 0.445,
+          "p_min": 0.25,
+          "p_max": 0.62,
+          "discrimination_median": 0.35,
+          "band_counts": {
+            "hard": 7,
+            "medium": 4
+          },
+          "metric_type_counts": {
+            "answer_rate": 9,
+            "score_rate": 2
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.35,
+            "p_range": [
+              0.32,
+              0.445
+            ],
+            "discrimination_floor": 0.26
+          }
+        },
+        "65": {
+          "count": 11,
+          "p_mean": 0.3864,
+          "p_median": 0.46,
+          "p_q25": 0.275,
+          "p_q75": 0.47,
+          "p_min": 0.16,
+          "p_max": 0.56,
+          "discrimination_median": 0.34,
+          "band_counts": {
+            "hard": 4,
+            "medium": 6,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 5,
+            "score_rate": 6
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.46,
+            "p_range": [
+              0.275,
+              0.47
+            ],
+            "discrimination_floor": 0.26
+          }
+        },
+        "66": {
+          "count": 11,
+          "p_mean": 0.43,
+          "p_median": 0.43,
+          "p_q25": 0.325,
+          "p_q75": 0.52,
+          "p_min": 0.26,
+          "p_max": 0.67,
+          "discrimination_median": 0.37,
+          "band_counts": {
+            "easy": 1,
+            "hard": 5,
+            "medium": 5
+          },
+          "metric_type_counts": {
+            "answer_rate": 7,
+            "score_rate": 4
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.43,
+            "p_range": [
+              0.325,
+              0.52
+            ],
+            "discrimination_floor": 0.28
+          }
+        },
+        "67": {
+          "count": 11,
+          "p_mean": 0.4473,
+          "p_median": 0.43,
+          "p_q25": 0.375,
+          "p_q75": 0.525,
+          "p_min": 0.21,
+          "p_max": 0.64,
+          "discrimination_median": 0.46,
+          "band_counts": {
+            "hard": 4,
+            "medium": 7
+          },
+          "metric_type_counts": {
+            "answer_rate": 3,
+            "score_rate": 8
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.43,
+            "p_range": [
+              0.375,
+              0.525
+            ],
+            "discrimination_floor": 0.35
+          }
+        },
+        "68": {
+          "count": 11,
+          "p_mean": 0.38,
+          "p_median": 0.34,
+          "p_q25": 0.285,
+          "p_q75": 0.49,
+          "p_min": 0.19,
+          "p_max": 0.62,
+          "discrimination_median": 0.4,
+          "band_counts": {
+            "hard": 5,
+            "medium": 5,
+            "very_hard": 1
+          },
+          "metric_type_counts": {
+            "answer_rate": 6,
+            "score_rate": 5
+          },
+          "roc_years": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "recommended_target": {
+            "p_center": 0.34,
+            "p_range": [
+              0.285,
+              0.49
+            ],
+            "discrimination_floor": 0.3
+          }
+        }
+      },
+      "limitations": [
+        "P is answer rate for single-choice items and score rate for starred multiple-selection items.",
+        "Constructed-response items absent from the official P/D table need rubric-score distributions instead.",
+        "Target P is a post-administration property; generated items require pilot data before claiming achieved difficulty.",
+        "At least one official item could not be mapped to a verified paper section."
+      ]
+    }
+  }
+}

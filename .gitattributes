@@ -1,0 +1,4 @@
+# Keep the exact bytes recorded in PACKAGE_MANIFEST.json on every platform.
+# -text disables newline conversion, not textual diffs.
+* -text
+*.zip binary
