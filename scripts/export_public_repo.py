@@ -45,18 +45,21 @@ def copy_maintainer_files(destination: Path) -> None:
         shutil.copyfile(ROOT / relative, target)
 
 
-def export(destination: Path, version: str, *, internal_review: bool = False) -> dict:
+def export(destination: Path, version: str, *, internal_review: bool = False, source_url: str | None = None) -> dict:
     # Refuse reuse: no deletion, overwrites, merges into private data, or implicit
     # git mutations. Review the resulting tree before any authorized push.
     destination = destination.absolute()
     if destination.exists() or destination.is_symlink():
         raise ValueError('Destination must be a new, nonexistent directory')
+    if not internal_review:
+        from scan_skill_release import validate_source_url
+        validate_source_url(source_url)
     with tempfile.TemporaryDirectory(prefix='taiwan-exam-export-') as temp:
         archive = Path(temp) / 'taiwan-exam-generator.zip'
         command = [sys.executable, str(ROOT / 'scripts/package_skill.py'),
                    '--version', version, '--output', str(archive)]
         if not internal_review:
-            command.append('--public-release')
+            command.extend(['--public-release', '--source-url', source_url])
         completed = subprocess.run(command, capture_output=True, encoding='utf-8', errors='replace')
         if completed.returncode:
             raise ValueError('Packaging checks failed: ' + completed.stdout + completed.stderr)
@@ -96,11 +99,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--version', default='0.6.0-preview.3')
+    parser.add_argument('--source-url', help='Actual stable public HTTPS download URL; required unless internal-review')
     parser.add_argument('--internal-review', action='store_true',
                         help='Prepare locally with pending declarations; NOT public-release approval')
     args = parser.parse_args()
     try:
-        result = export(args.output, args.version, internal_review=args.internal_review)
+        result = export(args.output, args.version, internal_review=args.internal_review, source_url=args.source_url)
     except (OSError, ValueError) as exc:
         print(str(exc), file=sys.stderr)
         return 2

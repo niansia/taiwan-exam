@@ -27,6 +27,14 @@ def test_export_never_overwrites_existing_work(tmp_path):
     assert sentinel.read_text(encoding='utf-8') == 'keep'
 
 
+def test_public_export_requires_source_url_before_build(tmp_path, monkeypatch):
+    monkeypatch.setattr(export_public_repo.subprocess, 'run', lambda *a, **k: pytest.fail('must not build'))
+    destination = tmp_path / 'public'
+    with pytest.raises(ValueError, match='HTTPS'):
+        export_public_repo.export(destination, 'test')
+    assert not destination.exists()
+
+
 def test_maintainer_tools_and_legacy_builders_are_not_distributed():
     for relative in export_public_repo.MAINTAINER_FILES:
         assert not package_skill.should_include(ROOT / relative)

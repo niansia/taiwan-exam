@@ -53,9 +53,13 @@ jobs:
           import json, sys
           from pathlib import Path
           sys.path.insert(0, 'scripts')
-          from scan_skill_release import digest, inspect_archive
+          from scan_skill_release import digest, inspect_archive, validate_source_url
           archive = Path('downloads/taiwan-exam-generator.zip')
           report = json.loads(Path('downloads/security-scan.json').read_text())
+          state = json.loads(Path('SOFTWARE_RELEASE_STATUS.json').read_text())
+          source_url = validate_source_url(state.get('download_url'))
+          assert report['schema_version'] >= 3
+          assert report['source_url'] == source_url
           assert report['status'] == 'pass'
           assert report['archive_sha256'] == digest(archive)
           assert [row['target'] for row in report['scans']] == ['archive', 'extracted-members']
@@ -63,6 +67,7 @@ jobs:
           assert report['attachment_check']['status'] == 'pass'
           assert report['attachment_check']['hresult'] == 0
           assert report['attachment_check']['archive_sha256'] == digest(archive)
+          assert report['attachment_check']['source_url'] == source_url
           inspect_archive(archive, Path('scan-contents'))
           print('Published ZIP matches recorded Defender scan and manifest')
           PY

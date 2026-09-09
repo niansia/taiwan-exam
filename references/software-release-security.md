@@ -58,6 +58,14 @@ Before publication:
    Check the downloaded bytes against the report's SHA-256 after publication.
    Any changed archive requires a new scan. Do not claim all engines, future
    definitions, browser reputation systems or platforms have approved it.
+   Pass the actual stable public HTTPS download URL as `--source-url` to the
+   scanner, public packager or exporter. There is no implicit old-URL fallback.
+   The version 3 scan report binds this URL as well as the archive SHA-256;
+   the attachment helper must echo the same URL. Before reopening, record it
+   as `download_url` in `SOFTWARE_RELEASE_STATUS.json`; CI rejects mismatched
+   or older unbound reports. Use the public link, not a signed redirect URL,
+   credentials or query tokens. A URL change requires new attachment and browser
+   acceptance, even if the ZIP bytes are unchanged.
 5. If protection flags a release, stop distributing that revision, investigate
    exact hashes and detections, and obtain vendor analysis if needed. Never
    instruct users to disable antivirus, add exclusions or restore quarantined

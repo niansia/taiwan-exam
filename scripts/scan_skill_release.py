@@ -17,6 +17,7 @@ from pathlib import Path, PurePosixPath
 import subprocess
 import tempfile
 from zipfile import ZipFile
+from urllib.parse import urlsplit
 
 RETIRED = {'scripts/paginate_chinese_natural.js', 'scripts/render_chinese_natural_proof.py',
            'scripts/qa_gsat_internal_layout.js'}
@@ -103,13 +104,25 @@ def defender_scan(path):
     return {'returncode': result.returncode, 'output': output}
 
 
-def attachment_scan(archive):
+def validate_source_url(source_url):
+    """Require a stable public HTTPS URL, never a signed/private redirect URL."""
+    if not isinstance(source_url, str) or any(ch.isspace() or ord(ch) < 32 for ch in source_url):
+        raise ValueError('A public HTTPS download source URL is required')
+    parsed = urlsplit(source_url)
+    if (parsed.scheme != 'https' or not parsed.hostname or not parsed.path
+            or parsed.username or parsed.password or parsed.query or parsed.fragment
+            or '\\' in source_url or '%' in parsed.netloc):
+        raise ValueError('Use a stable public HTTPS URL without credentials, query or fragment')
+    return source_url
+
+
+def attachment_scan(archive, source_url):
+    source_url = validate_source_url(source_url)
     checker = Path(__file__).resolve().parents[1] / 'maintenance/test_download_attachment.ps1'
     if not checker.is_file():
         raise RuntimeError('Maintainer attachment checker is required for publication')
     command = ['powershell.exe', '-NoProfile', '-NonInteractive', '-File', str(checker),
-               '-Archive', str(archive), '-SourceUrl',
-               'https://raw.githubusercontent.com/niansia/taiwan-exam/refs/heads/main/downloads/taiwan-exam-generator.zip']
+               '-Archive', str(archive), '-SourceUrl', source_url]
     result = subprocess.run(command, capture_output=True, text=True, errors='replace', timeout=180,
                             env=windows_powershell_env())
     try:
@@ -119,18 +132,22 @@ def attachment_scan(archive):
     # Retain diagnostic codes, not arbitrary stderr or device paths. A checker
     # failure must not be mislabeled as an antivirus detection or lose its cause.
     report = {key: raw[key] for key in ('status', 'method', 'archive_sha256', 'hresult', 'hresult_hex', 'error_type', 'stage', 'missing_command') if key in raw}
+    # Do not publish arbitrary URLs echoed by a failing helper.
+    report['source_url'] = source_url
     report['returncode'] = result.returncode
-    if result.returncode or report.get('status') != 'pass' or report.get('hresult') != 0:
+    if (result.returncode or report.get('status') != 'pass' or report.get('hresult') != 0
+            or raw.get('source_url') != source_url):
         report['status'] = 'fail'
     return report
 
 
-def scan_release(archive, *, status_fn=defender_status, scan_fn=defender_scan, attachment_fn=attachment_scan):
-    report = {'schema_version': 2, 'status': 'fail',
+def scan_release(archive, *, source_url, status_fn=defender_status, scan_fn=defender_scan, attachment_fn=attachment_scan):
+    report = {'schema_version': 3, 'status': 'fail',
               'checked_utc': datetime.now(timezone.utc).isoformat(),
               'scope': 'ZIP, extracted members and Windows attachment Save; browser/vendor acceptance remains separate',
               'scans': []}
     try:
+        report['source_url'] = validate_source_url(source_url)
         archive = Path(archive).resolve(strict=True)
         report['archive_sha256'] = digest(archive)
         report['engine'] = status_fn()
@@ -151,10 +168,11 @@ def scan_release(archive, *, status_fn=defender_status, scan_fn=defender_scan, a
                 raise ValueError('Extracted files changed or were quarantined during scanning')
             if digest(archive) != report['archive_sha256']:
                 raise ValueError('Archive changed during scanning')
-        report['attachment_check'] = attachment_fn(archive)
+        report['attachment_check'] = attachment_fn(archive, source_url)
         if (report['attachment_check'].get('status') != 'pass'
                 or report['attachment_check'].get('hresult') != 0
-                or report['attachment_check'].get('archive_sha256') != report['archive_sha256']):
+                or report['attachment_check'].get('archive_sha256') != report['archive_sha256']
+                or report['attachment_check'].get('source_url') != source_url):
             raise ValueError('Attachment check evidence mismatch')
         if digest(archive) != report['archive_sha256']:
             raise ValueError('Archive changed during attachment check')
@@ -169,10 +187,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('archive', type=Path)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--source-url', required=True, help='Actual stable public HTTPS download URL; no signed URLs')
     args = parser.parse_args()
     if args.archive.resolve() == args.report.resolve():
         parser.error('Report must not overwrite the archive')
-    report = scan_release(args.archive)
+    report = scan_release(args.archive, source_url=args.source_url)
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))

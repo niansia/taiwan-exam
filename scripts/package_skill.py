@@ -189,11 +189,14 @@ def main() -> int:
     parser.add_argument("--version", default="0.6.0-preview.3")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--public-release", action="store_true", help="Also require confirmed licensing declarations; does not publish anything")
+    parser.add_argument('--source-url', help='Actual stable public HTTPS download URL; required for public-release checks')
     args = parser.parse_args()
 
     if args.public_release:
         try:
             require_publication_open(ROOT)
+            from scan_skill_release import validate_source_url
+            validate_source_url(args.source_url)
         except (OSError, ValueError) as exc:
             print(json.dumps({'error': str(exc), 'status': 'publication-blocked'}, ensure_ascii=False))
             return 2
@@ -240,7 +243,7 @@ def main() -> int:
 
     if args.public_release:
         from scan_skill_release import scan_release
-        report = scan_release(output)
+        report = scan_release(output, source_url=args.source_url)
         output.with_suffix('.security.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         if report['status'] != 'pass':
             print(json.dumps(report, ensure_ascii=False, indent=2))
