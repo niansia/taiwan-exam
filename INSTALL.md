@@ -1,6 +1,6 @@
 # Taiwan Exam 一次安裝指引
 
-這份文件主要給 AI 代理讀。目標是讓使用者只需貼一次儲存庫網址，之後直接用自然語言出題；不要把終端機操作轉嫁給不會寫程式的使用者。
+這份文件主要給 AI 代理讀。目標是讓使用者只需貼一次儲存庫網址，之後直接用自然語言出題；不要把終端機操作轉嫁給不會寫程式的使用者。給一般使用者複製的「網頁版／CLI 版／桌面版」逐平台文字集中放在 [README](README.md#三種使用方式)，本文件只維護安裝、驗證與安全備援細節。
 
 ## 目前可安裝的內容
 
@@ -36,6 +36,8 @@ https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-k
 
 優先使用 Codex 內建的 Skill Installer，從上述 GitHub 儲存庫安裝為使用者層級技能。安裝器應保留完整儲存庫結構，讓 `SKILL.md`、`references/`、`scripts/`、`schemas/`、`templates/` 與 `exam_packs/` 位於同一技能根目錄。
 
+在 Codex CLI 或桌面版可用 `$skill-installer` 提出安裝要求；安裝後用 `/skills` 檢查，並以 `$taiwan-exam-generator` 明確叫用。這些名稱應出現在產品自己的技能選單，不得只在聊天中聲稱已安裝。
+
 若內建安裝器不可用，才將經使用者同意取得的本機原始碼副本放到：
 
 - Windows：`%USERPROFILE%\.codex\skills\taiwan-exam-generator\`
@@ -51,6 +53,8 @@ https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-k
 - macOS／Linux：`~/.claude/skills/taiwan-exam-generator/`
 
 若使用者只要單一專案可用，可改放 `<專案>/.claude/skills/taiwan-exam-generator/`。`SKILL.md` 必須正好位於該技能資料夾根目錄；不要只複製一份 Markdown 而遺失支援資源。已存在同名資料夾時不要直接覆寫。
+
+安裝後應能從 Claude Code CLI 或 Desktop 的 `/` 選單找到 `/taiwan-exam-generator`。若沒有出現，先檢查資料夾結構與重新載入，不得用普通對話假裝技能已啟用。
 
 參考：[Claude Code Skills](https://code.claude.com/docs/en/skills)。
 
