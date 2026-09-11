@@ -147,7 +147,7 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 
 ### ChatGPT 網頁版
 
-需要帳號或工作區已提供 Skills。先在 ChatGPT 對話模式輸入 `@skill-creator`；只要原生選單能選到它，就可附上 `taiwan-exam-web-knowledge.md` 建立或更新 `Taiwan Exam Generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。儲存後，必須在新對話輸入 `@` 並實際選到該 Skill，才能回報跨對話可用。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
+需要帳號或工作區已提供 Skills。先在 ChatGPT 對話模式輸入 `@skill-creator`；只要原生選單能選到它，就可附上 `taiwan-exam-web-knowledge.md` 建立或更新 `Taiwan Exam Generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。平台若顯示「安裝」或「儲存」按鈕，使用者仍須完成一次原生確認；Markdown 不能略過平台的永久保存確認。確認後，Skill 應在建立它的同一對話立即套用，不得要求先開新對話；之後的新對話可輸入 `@` 選取同一 Skill，無須重新上傳。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
 
 知識檔內含 111～115 各科正式試題、答案與評分原則的已驗證大考中心
 直連。完整卷命題前，網頁代理應自行開啟當科五年份試題，不要要求
@@ -155,9 +155,12 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 或逐頁查看 PDF，必須保留相應的未驗證狀態。
 
 知識檔也內建七科固定版型元件的可驗證直連。網頁代理必須自行
-取得當科 PDF，核對雜湊後以原始位元組當作不可重排的底層；只覆疊四個
+在出卷時取得當科正式組版 PDF：非數學科 3 份，數學 A／B 4 份。核對
+雜湊後以原始位元組當作不可重排的底層；只覆疊四個
 可變欄位與正文。不得藉由 OCR、HTML、Word、截圖或改字型重建封面。
 平台無法匯入原始 PDF 或合併 PDF 圖層時，不得宣稱已套用固定模板。
+永久 Skill 只需保存規則與完整資產索引；不要求建立時下載全部 30 份，
+也不得以 `0/30` 判定安裝失敗。完整快取可以加速，但只是選用最佳化。
 
 官方說明：<https://learn.chatgpt.com/docs/skills-and-plugins>、<https://learn.chatgpt.com/docs/build-skills>
 
@@ -178,7 +181,8 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 ```text
 請採用我附上的 Taiwan Exam Skill，完整保留它的規則與支援資源，
 並儲存為之後對話可用的 Taiwan Exam Skill／Gem。
-依模板資產地圖下載並保存全部 30 個 PDF 支援資源，逐份驗證 SHA-256。
+建立時保存模板資產地圖；不要下載全部 30 份。出卷時只下載並驗證當科
+正式組版所需的 3 份 PDF（數學為 4 份）。
 不要另寫通用出題器，也不要將模板重打或重排。
 ```
 

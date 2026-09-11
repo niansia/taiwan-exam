@@ -19,8 +19,9 @@ def test_web_knowledge_is_deterministic_and_uses_canonical_skill():
     assert '<canonical-source path="references/web-platform-use.md">' in first
     assert "student question paper" in first
     assert "answer-with-full-solutions paper" in first
-    assert "template_asset_installation" in first
-    assert "verified: 30" in first
+    assert "apply it immediately in the same conversation" in first
+    assert "do not download all template PDFs during setup" in first
+    assert "Do not report `0/30` as an installation failure" in first
 
 
 def test_web_knowledge_covers_all_current_gsat_subject_blueprints():
@@ -79,6 +80,12 @@ def test_hosted_web_template_map_covers_exact_fixed_assets():
     assert checked_in["formal_composition"]["exact_binary_base_required"] is True
     assert checked_in["formal_composition"]["template_retypesetting_allowed"] is False
     assert checked_in["formal_composition"]["template_rasterization_allowed"] is False
+    assert checked_in["formal_composition"]["persistent_cache_required_for_skill_installation"] is False
+    assert checked_in["formal_composition"]["runtime_fetch_scope"] == "requested_subject_production_components_only"
+    assert checked_in["formal_composition"]["runtime_asset_count"] == {
+        "non_mathematics_subject": 3,
+        "mathematics_a_or_b": 4,
+    }
     assert checked_in["github_template_folder"].startswith("https://github.com/niansia/taiwan-exam/tree/main/")
     all_urls = []
     for subject in checked_in["subjects"]:

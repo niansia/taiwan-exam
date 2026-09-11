@@ -8,6 +8,12 @@
     "exact_binary_base_required": true,
     "template_retypesetting_allowed": false,
     "template_rasterization_allowed": false,
+    "persistent_cache_required_for_skill_installation": false,
+    "runtime_fetch_scope": "requested_subject_production_components_only",
+    "runtime_asset_count": {
+      "non_mathematics_subject": 3,
+      "mathematics_a_or_b": 4
+    },
     "allowed_overlays": [
       "academic_year",
       "exam_name",

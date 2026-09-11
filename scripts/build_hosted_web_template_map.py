@@ -71,6 +71,12 @@ def build() -> dict:
             "exact_binary_base_required": True,
             "template_retypesetting_allowed": False,
             "template_rasterization_allowed": False,
+            "persistent_cache_required_for_skill_installation": False,
+            "runtime_fetch_scope": "requested_subject_production_components_only",
+            "runtime_asset_count": {
+                "non_mathematics_subject": 3,
+                "mathematics_a_or_b": 4,
+            },
             "allowed_overlays": [
                 "academic_year",
                 "exam_name",
