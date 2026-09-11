@@ -16,6 +16,8 @@ exam_packs/**/命題範圍/*
 tmp/
 output/
 dist/
+downloads/*.zip
+downloads/*.md
 .playwright-cli/
 .pytest_cache/
 drive-download*/

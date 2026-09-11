@@ -12,7 +12,7 @@ from validate_attribution import validate as validate_attribution
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDED_TOP_LEVEL = {".git", ".github", ".playwright-cli", ".pytest_cache", "dist", "downloads", "maintenance", "output", "tests", "tmp"}
+EXCLUDED_TOP_LEVEL = {".git", ".github", ".playwright-cli", ".pytest_cache", "dist", "downloads", "maintenance", "output", "tests", "tmp", "web"}
 PRIVATE_INTAKE_DIRS = {"歷屆試題", "模擬考", "format-references", "answer-profiles", "official-statistics", "命題範圍"}
 KEEP_IN_PRIVATE_DIRS = {
     "放資料到這裡.md",
@@ -58,6 +58,13 @@ PRIVATE_REPORTS = {
     "english-social-corpus-audit-2026-09-05.md",
     "gsat-writing-source-ecology-audit-2026-09-05.md",
 }
+MAINTAINER_ONLY_FILES = {
+    "SOFTWARE_RELEASE_STATUS.json",
+    "references/rendering-security-review.md",
+    "references/security-incident-2026-09-09.md",
+    "references/security-resolution-2026-09-11.md",
+    "references/software-release-security.md",
+}
 
 # Reviewed reusable tools only. New batch/question generators must not enter a
 # distribution merely because their filename is absent from a legacy denylist.
@@ -96,6 +103,8 @@ def should_include(path: Path) -> bool:
     if not rel.parts or rel.parts[0] in EXCLUDED_TOP_LEVEL or rel.parts[0].startswith("drive-download"):
         return False
     if rel.name == "PACKAGE_MANIFEST.json" or rel.name == ".env" or rel.name.startswith(".env."):
+        return False
+    if rel.as_posix() in MAINTAINER_ONLY_FILES:
         return False
     if any(part == "__pycache__" for part in rel.parts):
         return False
@@ -189,7 +198,7 @@ def packaged_data(path: Path) -> bytes:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.6.0-preview.3")
+    parser.add_argument("--version", default="0.7.0")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--public-release", action="store_true", help="Also require confirmed licensing declarations; does not publish anything")
     parser.add_argument('--source-url', help='Actual stable public HTTPS download URL; required for public-release checks')

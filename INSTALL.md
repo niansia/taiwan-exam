@@ -4,13 +4,18 @@
 
 ## 目前可安裝的內容
 
-只使用 GitHub 上的公開原始碼：
+目前使用 GitHub 公開原始碼與網頁版知識檔：
 
 ```text
+本機 Skill 原始碼：
 https://github.com/niansia/taiwan-exam
+
+ChatGPT／Claude／Gemini 網頁知識檔：
+https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md
 ```
 
-預先封裝 ZIP／Release 仍因 2026-09-09 Defender 下載附件事件暫停。不可從 Git 歷史還原舊包、改用舊下載網址、關閉防毒、解除檔案封鎖或聲稱新的檔名已解決事件。若原始碼取得也觸發安全警告，停止安裝並明確回報。
+預先封裝 ZIP／Release 仍暫停。2026-09-09 的舊草稿 ZIP 與 2026-09-11
+未通過 Chrome 下載檢查的新候選都已撤回；不可從 Git 歷史還原、關閉防毒或解除檔案封鎖。網頁知識檔是純文字、由本儲存庫的正式 Skill 規則機械彙整；它不包含本機執行程式，也不把網頁平台缺少的工具假裝成已存在。
 
 ## 代理的安裝流程
 
@@ -112,16 +117,43 @@ exam_packs/學測/templates/115/template-pack.json
 
 若沒有實際跨新對話測試，只能寫「跨對話呼叫待確認」，不能保證永久可用。
 
-## 網頁版 GPT／Claude／Gemini
+## 網頁版 ChatGPT／Claude／Gemini
 
-若平台只有自訂指示、知識檔或附件上傳，可把 `SKILL.md` 與相關 `references/` 作為規則來源；但必須標示為**有限模式**。下列任一能力缺少時，不可宣稱完整支援：
+網頁版使用平台自己的持續自訂功能。建立一次後，在後續對話選取同一 Skill／Gem 即可；普通聊天中的一次附件上傳仍不算安裝。
 
-- 保留技能完整目錄並按需讀取檔案
-- 執行 Python 驗證器與排版器
-- 取得或讀取合法的官方參考資料
-- 檢查每一頁 PDF 的實際畫面
+### ChatGPT 網頁版
 
-一次附件上傳不等於跨對話安裝。不要捏造 ChatGPT、Claude.ai 或 Gemini 網頁版尚未提供的安裝按鈕、持久性或本機執行能力。
+需要帳號或工作區已提供 Skills。於 ChatGPT Work 輸入 `@skill-creator`，附上 `taiwan-exam-web-knowledge.md`，要求建立或更新 `Taiwan Exam Generator` 並保留其中的完整規則。儲存後，新對話輸入 `@` 選取該 Skill，再提出考卷需求。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
+
+官方說明：<https://learn.chatgpt.com/docs/build-skills>
+
+### Claude.ai
+
+在 Claude 建立 `Taiwan Exam` Project，把 `taiwan-exam-web-knowledge.md` 加入 Project Knowledge，並把下面的一次性文字存成 Project Instructions。該知識會在 Project 內的各聊天沿用。待通過安全驗收的新 ZIP 發布後，才可改走 `Customize > Skills > Upload a skill`；不要使用已撤回的 ZIP。PDF 產生需要 `Code execution and file creation`，若功能關閉必須回報限制。
+
+官方說明：<https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects>、<https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude>
+
+### Gemini 網頁版
+
+進入 `Gems > New Gem`，名稱填 `Taiwan Exam`；在 Instructions 貼上下面的一次性設定文字，並於 `Knowledge > Add files` 加入 `taiwan-exam-web-knowledge.md`，然後儲存。後續從 `My Gems` 選取它再提出考卷需求。該 Markdown 由正式 Skill 與公開規則機械彙整，不是另一套命題器。
+
+官方說明：<https://support.google.com/gemini/answer/15146780>
+
+### 第一次只貼這段
+
+```text
+請採用我附上的 Taiwan Exam Skill，完整保留它的規則與支援資源，
+並儲存為之後對話可用的 Taiwan Exam Skill／Gem。不要另寫通用出題器。
+```
+
+### 以後直接這樣說
+
+```text
+請使用 Taiwan Exam，出一份 116 學測社會完整模擬考。
+請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成內容、答案與逐頁版面檢查。
+```
+
+所有網頁平台仍須遵守同一交付底線：完整卷必須有分開的題目 PDF 與答案詳解 PDF，並完成可用的驗證與逐頁視覺檢查。若帳號沒有檔案建立、程式執行、合法來源取得或逐頁檢查能力，只能明確回報缺口，不得把貼在聊天中的文字或未檢查 PDF 稱為正式完成。
 
 ## 更新與移除
 

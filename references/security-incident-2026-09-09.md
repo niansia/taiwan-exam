@@ -1,6 +1,13 @@
 # Defender download detection: open investigation
 
-Distribution is suspended. This record is NOT a false-positive verdict.
+Distribution remains suspended. On 2026-09-11 a new v0.7.0 candidate based on
+the substantive code and distribution-boundary fixes passed current Defender
+ZIP/member scans and Attachment Services, but a normal Chrome click on the
+public GitHub release asset still produced `ERR_BLOCKED_BY_CLIENT`. The
+prerelease and tag were deleted; see
+[the candidate review](security-resolution-2026-09-11.md). This is NOT a
+false-positive verdict; all historical detections below remain facts.
+
 Maintainer sign-in to the Microsoft developer submission portal is complete.
 Microsoft accepted the hardened review candidate on 2026-09-09 at 15:01:26 UTC
 (23:01:26 Asia/Taipei). The portal returned a submission identifier to the
