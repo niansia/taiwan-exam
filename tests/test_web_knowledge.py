@@ -19,6 +19,8 @@ def test_web_knowledge_is_deterministic_and_uses_canonical_skill():
     assert '<canonical-source path="references/web-platform-use.md">' in first
     assert "student question paper" in first
     assert "answer-with-full-solutions paper" in first
+    assert "template_asset_installation" in first
+    assert "verified: 30" in first
 
 
 def test_web_knowledge_covers_all_current_gsat_subject_blueprints():

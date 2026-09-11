@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.11.3
+# Taiwan Exam Web Knowledge v2026.09.11.4
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -18,8 +18,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
 [
   {
     "path": "SKILL.md",
-    "bytes": 69876,
-    "sha256": "b322ce938e53a2930e4266ad8f7bd643e39e069287f341ee3105c86b4872b00b"
+    "bytes": 70175,
+    "sha256": "04b17d101fb078ebf6a4b7e871fb63a64d01378e24c8a5aa50210cc7234ec6d7"
   },
   {
     "path": "core/taxonomy.json",
@@ -403,8 +403,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 13106,
-    "sha256": "cdbb47afe25d9054527ebaa9bce8fa2e74e67fd71cf16ffb98cc0c4262e7e492"
+    "bytes": 14222,
+    "sha256": "24fa160c29a6d10c19bcba8dbfa1e886d515d19fbbeb52d8ce8e230cee2d8c4c"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -649,7 +649,7 @@ A Paper Profile is not a Layout Profile. A formal paper must also select a subje
 
 For a 111–115-regime GSAT booklet, first load [references/gsat-115-template-assets.md](references/gsat-115-template-assets.md) and `exam_packs/學測/templates/115/template-pack.json`. Use its subject-specific deterministic template for the cover, signature banner, full answer instructions, scoring rules, alternating running header/footer, and (for Mathematics A/B) the correct reference-formula variant. The LLM may supply only the named dynamic fields: academic year, test name, actual current page, and actual total inner pages. It must not paraphrase, shorten, expand, or regenerate the locked cover text. Mathematics A and B are separate formula assets; Math B must not inherit Math A's angle-addition block. Render body content first, obtain the real inner-page total, and only then fill page furniture. Never force body text into the reference year's page count, and never treat `blank-template.pdf` as a fixed-page exam skeleton. These assets are layout-only and must not become a reusable question generator, question bank, or batch-content source.
 
-On a hosted web surface, also load `exam_packs/學測/templates/115/hosted-web-template-assets.json`. A formal booklet must download the verified subject-specific component PDF bytes, check their hashes, and use them unchanged as immutable PDF background layers. The hosted agent may overlay only the four named dynamic fields and newly authored body content inside the measured inner-page body box. It must not OCR, copy, retype, reflow, convert to HTML/Word, rasterize, redraw, or visually imitate the locked template text, fractions, grids, rules, headers, or formula sheet. Seeing a link, extracting its text, or recreating a similar-looking page is not template application. If exact binary import or PDF-layer composition is unavailable, stop formal rendering and label any substitute a generic-layout draft; do not invoke the source-reconstruction fallback for a formal claim.
+On a hosted web surface, also load `exam_packs/學測/templates/115/hosted-web-template-assets.json`. When a persistent Skill is first created or updated, materialize all 30 mapped PDF files as supporting Skill assets, verify every hash, and record an installed-asset count of 30; saving only the Markdown instructions is not a complete fixed-template installation. A formal booklet must use the installed copy for its subject, or download the same verified bytes if the installed asset is unavailable, and use them unchanged as immutable PDF background layers. The hosted agent may overlay only the four named dynamic fields and newly authored body content inside the measured inner-page body box. It must not OCR, copy, retype, reflow, convert to HTML/Word, rasterize, redraw, or visually imitate the locked template text, fractions, grids, rules, headers, or formula sheet. Seeing a link, extracting its text, or recreating a similar-looking page is not template application. If exact binary import or PDF-layer composition is unavailable, stop formal rendering and label any substitute a generic-layout draft; do not invoke the source-reconstruction fallback for a formal claim.
 
 ## Regression gates learned from full-paper review
 
@@ -47563,6 +47563,23 @@ human inspection, but agents must use the per-file `download_url` rather than
 scraping GitHub's HTML. Do not make the user download or upload a template that
 the surface can retrieve itself.
 
+### One-time Skill materialization gate
+
+When `taiwan-exam-web-knowledge.md` is converted into a persistent hosted Skill,
+the creator must fetch all 30 mapped PDFs and save them as supporting Skill
+assets under their subject slugs. It must verify `%PDF`, byte count and SHA-256
+for every file, then record `template_asset_installation: {expected: 30,
+verified: 30}` in the Skill's setup evidence. A creator response, source list,
+or saved Markdown file without the binary assets is not a complete fixed-template
+installation. If the platform cannot persist binary supporting assets, disclose
+that limitation at setup; do not promise fixed-template output merely because
+the URLs remain readable.
+
+At paper time, prefer the verified installed asset. If it is absent, fetch the
+same `download_url` and verify it before use. Never silently replace a missing
+asset with generated markup. This one-time materialization reduces both layout
+drift and repeated network work.
+
 For formal output, download only the requested subject's `cover-blank`,
 `inner-odd-blank`, `inner-even-blank` and, for Mathematics, the matching
 `formula-blank`. Verify `%PDF`, byte count and SHA-256. Use the original PDF
@@ -47608,7 +47625,7 @@ font-family change, altered line break, or rebuilt grid is a release blocker.
 Do not repair such a page by nudging individual objects: discard it and compose
 again from the untouched base asset.
 
-A persistent Project may cache verified template bytes by SHA-256. It must
+A persistent Skill or Project may cache verified template bytes by SHA-256. It must
 redownload when the mapped hash changes. This avoids repeat downloads without
 allowing a stale or user-modified template to masquerade as the canonical one.
 
@@ -47681,7 +47698,9 @@ One-time setup prompt:
 
 ```text
 請採用我附上的 Taiwan Exam Skill，完整保留 SKILL.md 與所有支援資源，
-並把它儲存為之後對話可用的 Taiwan Exam Skill／Gem。不要另寫通用出題器。
+並把它儲存為之後對話可用的 Taiwan Exam Skill／Gem。
+建立時依模板資產地圖下載並保存全部 30 個 PDF 支援資源，逐份驗證 SHA-256。
+不要另寫通用出題器，也不要將模板重打或重排。
 ```
 
 Any later paper request:

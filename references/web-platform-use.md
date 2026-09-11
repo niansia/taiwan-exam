@@ -107,6 +107,23 @@ human inspection, but agents must use the per-file `download_url` rather than
 scraping GitHub's HTML. Do not make the user download or upload a template that
 the surface can retrieve itself.
 
+### One-time Skill materialization gate
+
+When `taiwan-exam-web-knowledge.md` is converted into a persistent hosted Skill,
+the creator must fetch all 30 mapped PDFs and save them as supporting Skill
+assets under their subject slugs. It must verify `%PDF`, byte count and SHA-256
+for every file, then record `template_asset_installation: {expected: 30,
+verified: 30}` in the Skill's setup evidence. A creator response, source list,
+or saved Markdown file without the binary assets is not a complete fixed-template
+installation. If the platform cannot persist binary supporting assets, disclose
+that limitation at setup; do not promise fixed-template output merely because
+the URLs remain readable.
+
+At paper time, prefer the verified installed asset. If it is absent, fetch the
+same `download_url` and verify it before use. Never silently replace a missing
+asset with generated markup. This one-time materialization reduces both layout
+drift and repeated network work.
+
 For formal output, download only the requested subject's `cover-blank`,
 `inner-odd-blank`, `inner-even-blank` and, for Mathematics, the matching
 `formula-blank`. Verify `%PDF`, byte count and SHA-256. Use the original PDF
@@ -152,7 +169,7 @@ font-family change, altered line break, or rebuilt grid is a release blocker.
 Do not repair such a page by nudging individual objects: discard it and compose
 again from the untouched base asset.
 
-A persistent Project may cache verified template bytes by SHA-256. It must
+A persistent Skill or Project may cache verified template bytes by SHA-256. It must
 redownload when the mapped hash changes. This avoids repeat downloads without
 allowing a stale or user-modified template to masquerade as the canonical one.
 
@@ -225,7 +242,9 @@ One-time setup prompt:
 
 ```text
 請採用我附上的 Taiwan Exam Skill，完整保留 SKILL.md 與所有支援資源，
-並把它儲存為之後對話可用的 Taiwan Exam Skill／Gem。不要另寫通用出題器。
+並把它儲存為之後對話可用的 Taiwan Exam Skill／Gem。
+建立時依模板資產地圖下載並保存全部 30 個 PDF 支援資源，逐份驗證 SHA-256。
+不要另寫通用出題器，也不要將模板重打或重排。
 ```
 
 Any later paper request:
