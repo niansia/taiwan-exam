@@ -4,9 +4,29 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 
 目前支援學測國綜、國寫、英文、數學 A、數學 B、社會、自然，以及會考各科的資料夾與工作流程。專案不是題庫，也不會把歷屆題換數字後重新輸出。
 
-> **發布狀態：原始碼已公開，預先封裝的 ZIP／Release 安裝檔仍暫停提供。** 2026-09-09 的 Defender 下載附件事件尚未結案；請勿從 Git 歷史取回舊安裝包、繞過防毒警告或把舊掃描結果當成安全證明。事件與恢復條件見 [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json) 與[安全事件紀錄](references/security-incident-2026-09-09.md)。
+> **ZIP／Release 仍暫停。** 舊草稿與舊 ZIP 已刪除；2026-09-11 的新候選雖通過最新版 Defender 檔案與附件檢查，一般 Chrome 下載仍回報 `ERR_BLOCKED_BY_CLIENT`，因此候選 release 與標籤也已撤下。不可從 Git 歷史取回或把通過的檔案掃描誤當成瀏覽器驗收。事實與復原條件見 [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json)、[安全事件紀錄](references/security-incident-2026-09-09.md)及[候選檢查紀錄](references/security-resolution-2026-09-11.md)。
 
-## 一分鐘開始
+## 網頁版一分鐘開始
+
+不會寫程式也可以使用。先下載同一套規則自動彙整的[網頁版知識檔](web/taiwan-exam-web-knowledge.md)。它可用於 ChatGPT 的 Skill／Project、Claude Project 與 Gemini Gem，不是另一套命題器。
+
+第一次在 ChatGPT Work 的 Skill/Project、Claude Project 或 Gemini 的 Gem 建立頁面中，上傳這份 Markdown 並貼上：
+
+```text
+請採用我附上的 Taiwan Exam Skill，完整保留它的規則與支援資源，
+並儲存為之後對話可用的 Taiwan Exam Skill／Gem。不要另寫通用出題器。
+```
+
+以後開啟該 Skill／Gem，只要說：
+
+```text
+請使用 Taiwan Exam，出一份 116 學測數學 B 完整模擬考。
+請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成內容、答案與逐頁版面檢查。
+```
+
+ChatGPT Work 建立 Skill 後可在輸入框鍵入 `@` 選擇；Claude 可把 Markdown 放進 Project Knowledge；Gemini 到 `Gems > New Gem`，把 Markdown 加入 `Knowledge`。各平台完整步驟見[網頁版使用說明](references/web-platform-use.md)及 [INSTALL.md](INSTALL.md)。Claude 的原生 Skill ZIP 上傳路徑要等通過安全驗收的新 ZIP；目前不要使用舊包。帳號若未開放檔案建立或程式執行，AI 必須明確說明缺少的能力，不能用聊天文字冒充兩份已驗收 PDF。
+
+## 本機版一分鐘開始
 
 建議使用能讀寫本機檔案、執行驗證程式並檢查 PDF 的 AI 代理：Codex、Claude Code 或 Gemini CLI。Windows、macOS、Linux 使用同一份 Skill；路徑與工具差異由代理處理。
 
@@ -17,7 +37,7 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 https://github.com/niansia/taiwan-exam
 
 請先讀儲存庫中的 INSTALL.md，依我目前的 Codex／Claude Code／Gemini CLI
-與作業系統完成安裝及驗證。不要使用舊版 Release 或 ZIP，不要關閉安全防護；
+與作業系統完成安裝及驗證。不要使用舊版 ZIP，不要關閉安全防護；
 若已安裝就沿用，不要覆寫我的私人考試資料。
 ```
 
@@ -45,11 +65,13 @@ https://github.com/niansia/taiwan-exam
 | OpenAI Codex 桌面版／CLI／IDE | 請代理使用內建 Skill Installer 從本儲存庫安裝使用者技能 | 完整：可讀參考資料、執行驗證、排版及檢查 PDF，仍取決於本機工具與授權 |
 | Claude Code | 安裝至個人 `skills` 目錄，或在單一專案使用專案技能 | 完整：可執行本機工作流程；安裝位置依 Claude Code 的使用者／專案範圍決定 |
 | Gemini CLI | 從 Git 儲存庫安裝 Agent Skill；也可連結本機副本 | 完整：可執行本機工作流程；首次安裝與啟用會依 Gemini CLI 要求確認 |
-| ChatGPT、Claude.ai、Gemini 網頁版 | 可把規則作為自訂 GPT／Skill／Gem 的指示或知識檔使用，視帳號功能而定 | 有限：若平台不能執行本機程式、保存完整資料夾或逐頁檢查 PDF，就不能宣稱完成正式考卷驗收 |
+| ChatGPT 網頁版 | 在 ChatGPT Work 用 `@skill-creator` 與 Web Knowledge 建立 Skill；或放入有固定指示的 Project | 可持續在該 Skill／Project 使用；完整 PDF 驗收仍取決於工作區工具 |
+| Claude.ai | 把 Web Knowledge 加入 Project Knowledge 並設定 Project Instructions；安全 ZIP 恢復後才使用原生 Skill 上傳 | 可持續在該 Project 的各聊天使用；PDF 需要 Code execution/file creation |
+| Gemini 網頁版 | 建立 `Taiwan Exam` Gem，加入同版 Web Knowledge Markdown | 可持續在該 Gem 使用；完整 PDF 驗收取決於帳號提供的檔案建立與檢查工具 |
 
-本專案採通用 `SKILL.md` 結構，但三家產品的權限、持久安裝與工具能力不同。網頁聊天中的一次附件上傳，不等於跨對話安裝，也不等於完整支援。
+本專案採通用 `SKILL.md` 結構；網頁版單一知識檔由相同規則自動彙整，不是另一套命題規則。三家產品的帳號權限與工具能力仍可能不同。網頁聊天中的一次普通附件上傳，不等於跨對話安裝。
 
-官方平台文件： [Claude Code Skills](https://code.claude.com/docs/en/skills)、[Gemini CLI Agent Skills](https://geminicli.com/docs/cli/using-agent-skills/)；Codex 請使用產品內建的 Skill Installer。介面可能更新，實際安裝器顯示為準。
+官方平台文件：[ChatGPT Skills](https://learn.chatgpt.com/docs/build-skills)、[Claude.ai Skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude)、[Gemini Gems](https://support.google.com/gemini/answer/15146780)、[Claude Code Skills](https://code.claude.com/docs/en/skills)、[Gemini CLI Agent Skills](https://geminicli.com/docs/cli/using-agent-skills/)。介面可能更新，實際帳號顯示為準。
 
 ### 作業系統
 
@@ -125,7 +147,7 @@ python -m pytest -q
 python scripts/validate_attribution.py .
 ```
 
-正式封裝仍受 [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json) 阻擋；不得以檔案掃描通過、自行改名或新網址繞過未結事件。原始碼發布與預先封裝安裝檔是兩個不同的發布面。
+正式封裝必須通過 [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json) 與[軟體發布安全流程](references/software-release-security.md)；不得自行改名、換網址或沿用舊掃描紀錄。原始碼發布與預先封裝安裝檔是兩個不同的發布面。
 
 ## 授權與非官方聲明
 

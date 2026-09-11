@@ -53,8 +53,12 @@ Before publication:
    Internal builds may skip this only as unpublished review artifacts.
 4. Verify a normal browser download without security bypasses. An attachment
    API pass alone is not browser acceptance; a blocked browser test is not a
-   pass and must not be dismissed as cache. Publish the exact validated ZIP
-   with its `downloads/security-scan.json` report.
+   pass and must not be dismissed as cache. Upload the exact validated ZIP as a
+   GitHub Release asset, never as a binary committed in the source tree, and
+   publish its `downloads/security-scan.json` report beside it. CI downloads the
+   exact URL recorded in `SOFTWARE_RELEASE_STATUS.json` before comparing hashes
+   and scanning; a successful source checkout without that download is not a
+   release-asset check.
    Check the downloaded bytes against the report's SHA-256 after publication.
    Any changed archive requires a new scan. Do not claim all engines, future
    definitions, browser reputation systems or platforms have approved it.

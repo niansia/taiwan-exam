@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # explicit so ZIP minimization cannot silently remove publication/CI safeguards.
 MAINTAINER_FILES = (
     'scripts/package_skill.py',
+    'scripts/build_web_knowledge.py',
     'scripts/export_public_repo.py',
     'scripts/scan_skill_release.py',
     'maintenance/test_download_attachment.ps1',
@@ -33,6 +34,7 @@ test_skill.py test_validate_english_difficulty_design.py
 test_validate_english_layout_contract.py test_validate_english_vocabulary_scope.py
 test_validate_social_item_design.py test_validate_source_grounding.py
 test_validate_visual_item_contract.py test_validate_writing_source_grounding.py
+test_web_knowledge.py
 '''.split())
 
 
@@ -104,7 +106,7 @@ def export(destination: Path, version: str, *, internal_review: bool = False, so
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
-    parser.add_argument('--version', default='0.6.0-preview.3')
+    parser.add_argument('--version', default='0.7.0')
     parser.add_argument('--source-url', help='Actual stable public HTTPS download URL; required unless internal-review')
     parser.add_argument('--internal-review', action='store_true',
                         help='Prepare locally with pending declarations; NOT public-release approval')

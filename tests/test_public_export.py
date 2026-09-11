@@ -15,6 +15,9 @@ def test_nested_download_archive_is_not_repackaged():
     assert not package_skill.should_include(ROOT / 'PACKAGE_MANIFEST.json')
     assert not package_skill.should_include(ROOT / '.env.local')
     assert not package_skill.should_include(ROOT / 'exam_packs/學測/subjects/自然/metadata/source-index.jsonl')
+    assert not package_skill.should_include(ROOT / 'SOFTWARE_RELEASE_STATUS.json')
+    assert not package_skill.should_include(ROOT / 'references/security-incident-2026-09-09.md')
+    assert not package_skill.should_include(ROOT / 'references/software-release-security.md')
 
 
 def test_export_never_overwrites_existing_work(tmp_path):

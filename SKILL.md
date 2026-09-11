@@ -1,6 +1,6 @@
 ---
 name: taiwan-exam-generator
-description: Generate, solve, validate, and format original Taiwan GSAT (學測) or CAP (會考) practice questions with Codex, Claude Code, Gemini CLI, or another capable local agent. Use for Taiwan exam item analysis, question writing, mock-exam assembly, answer profiles, and formal print layouts; not for reproducing past questions verbatim.
+description: Create original Taiwan GSAT/CAP (學測／會考) exams for 國綜、國寫、英文、數A、數B、社會、自然, with separate question/solution PDFs and official scope, difficulty, originality, answer, visual and layout QA.
 ---
 
 # Taiwan Exam Generator
@@ -35,6 +35,16 @@ For one-time installation requests, follow [INSTALL.md](INSTALL.md). On later
 exam requests use the existing enabled Skill; do not reinstall or redownload it
 as a routine prerequisite. Reuse accessible, still-valid reference evidence;
 missing subject calibration is not a reason to reinstall the Skill.
+
+When the Skill is used in ChatGPT, Claude.ai, Gemini or another hosted web
+surface, also read [references/web-platform-use.md](references/web-platform-use.md).
+Use the platform's persistent Skill/Gem mechanism when available, not a claim
+that one ordinary chat attachment installs anything globally. A complete-paper
+delivery must contain two separate downloadable files: a student question PDF
+and an answer-with-full-solutions PDF. Generate and visually inspect both with
+the surface's file/code tools. If that surface cannot create files, execute the
+required checks, or inspect every PDF page, state the exact limitation and do
+not label text-only output or an unchecked PDF as the completed formal paper.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).
