@@ -59,6 +59,8 @@ def source_paths(root: Path = ROOT) -> list[Path]:
         pack_root = root / "exam_packs" / pack
         for name in ("manifest.json", "official-baseline.json"):
             paths.append(pack_root / name)
+        if pack == "學測":
+            paths.append(pack_root / "source-pack-manifest.json")
         paths.extend(sorted((pack_root / "shared-data").glob("*.json")))
         paths.extend(sorted((pack_root / "templates").rglob("*.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/subject.json")))

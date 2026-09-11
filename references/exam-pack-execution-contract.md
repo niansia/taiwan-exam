@@ -10,6 +10,14 @@ profiles, curriculum specification, reference PDFs and separate Layout Profile.
 Learn aggregate form/coverage in the analysis pass; never pass historical stems,
 numeric tuples or figure topology to the new-item writer.
 
+For a local complete paper, reference PDFs are a required data layer. Verify the
+selected subject with `scripts/bootstrap_exam_sources.py --subject <科目>
+--verify-only` before treating a Paper or Layout Profile as source-backed. If the
+check is incomplete, install the selected source pack and rerun the check. The
+ordinary Git tree, a packaged Skill and the hosted-web projection may intentionally
+omit multi-gigabyte binaries; that packaging choice does not make the binaries
+optional for a source-verified local run and never authorizes their deletion.
+
 Additional implementation invariants from the failed stress test:
 
 - New content belongs in this run's exam JSON, never in a reusable script's
@@ -28,6 +36,10 @@ Additional implementation invariants from the failed stress test:
 - Missing sources, correct answers or form evidence cannot be excused by
   labelling a requested full exam as an internal preview. Repair the prerequisite
   or report an exact blocker. Never manufacture pass records.
+- Treat `歷屆試題/`, `模擬考/`, raw intake bundles and their registries as
+  protected inputs. Output cleanup must resolve its targets and exclude these
+  roots. Git-ignore and package-exclusion rules are distribution boundaries, not
+  retention policies.
 
 For HTML/PDF subject entry points add metadata.run_contract pointing to the same
 external run-contract.json, relative to the exam JSON. The handoff adapter

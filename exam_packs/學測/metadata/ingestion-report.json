@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "created_at": "2026-09-04T07:12:48.827478+00:00",
+  "created_at": "2026-09-11T09:16:10.858079+00:00",
   "file_count": 895,
   "total_bytes": 3445046963,
   "by_subject": {
@@ -15,11 +15,11 @@
   },
   "by_role": {
     "correction": 13,
-    "question": 475,
+    "question": 513,
     "question_and_solution": 85,
     "score_statistics": 46,
     "solution": 234,
-    "unspecified_exam_material": 42
+    "unspecified_exam_material": 4
   },
   "by_year": {
     "2012": 4,
@@ -39,11 +39,11 @@
     "2026": 39
   },
   "by_publisher": {
-    "None": 309,
+    "None": 323,
     "南一": 220,
     "文昌": 35,
     "文昌版缺社會及有字跡文稿": 7,
-    "翰林": 309,
+    "翰林": 295,
     "銓達": 15
   },
   "by_text_layer": {
@@ -53,52 +53,28 @@
   },
   "latest_intake": {
     "schema_version": 1,
-    "created_at": "2026-09-04T07:12:48.827478+00:00",
-    "file_count": 590,
-    "total_bytes": 2129275538,
+    "created_at": "2026-09-11T09:16:10.859080+00:00",
+    "file_count": 12,
+    "total_bytes": 28788068,
     "by_subject": {
-      "shared": 45,
-      "國文": 154,
-      "數學A": 15,
-      "數學B": 16,
-      "數學（共同範圍模考）": 81,
-      "社會": 89,
-      "自然": 87,
-      "英文": 103
+      "國文": 4,
+      "數學（共同範圍模考）": 2,
+      "社會": 2,
+      "自然": 2,
+      "英文": 2
     },
     "by_role": {
-      "correction": 7,
-      "question": 402,
-      "question_and_solution": 26,
-      "score_statistics": 12,
-      "solution": 139,
-      "unspecified_exam_material": 4
+      "question": 6,
+      "solution": 6
     },
     "by_year": {
-      "2012": 4,
-      "2013": 6,
-      "2014": 7,
-      "2015": 27,
-      "2016": 63,
-      "2017": 83,
-      "2018": 39,
-      "2019": 105,
-      "2020": 77,
-      "2021": 65,
-      "2022": 114
+      "2026": 12
     },
     "by_publisher": {
-      "None": 309,
-      "南一": 94,
-      "文昌": 14,
-      "文昌版缺社會及有字跡文稿": 7,
-      "翰林": 151,
-      "銓達": 15
+      "翰林": 12
     },
     "by_text_layer": {
-      "extractable": 124,
-      "image_or_outline": 458,
-      "not_pdf": 8
+      "extractable": 12
     }
   }
 }

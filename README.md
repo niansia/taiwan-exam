@@ -4,7 +4,11 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 
 目前支援學測國綜、國寫、英文、數學 A、數學 B、社會、自然，以及會考各科的資料夾與工作流程。專案不是題庫，也不會把歷屆題換數字後重新輸出。
 
-> **ZIP／Release 仍暫停。** 舊草稿與舊 ZIP 已刪除；2026-09-11 的新候選雖通過最新版 Defender 檔案與附件檢查，一般 Chrome 下載仍回報 `ERR_BLOCKED_BY_CLIENT`，因此候選 release 與標籤也已撤下。不可從 Git 歷史取回或把通過的檔案掃描誤當成瀏覽器驗收。事實與復原條件見 [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json)、[安全事件紀錄](references/security-incident-2026-09-09.md)及[候選檢查紀錄](references/security-resolution-2026-09-11.md)。
+> **可執行 Skill ZIP 仍暫停。** 舊草稿與舊 ZIP 已刪除；先前候選的
+> Chrome 下載問題尚未解除。純 PDF／圖片的學測來源資料包另以
+> `source-corpus-2026.09.11` Data Release 提供，不含程式或安裝檔，且由
+> source manifest 驗證；兩者不是同一個發布面。軟體 ZIP 狀態見
+> [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json)。
 
 ## 三種使用方式
 
@@ -202,11 +206,26 @@ $taiwan-exam-generator
 
 「軟體測試通過」只代表工具按預期工作，不代表某份考卷的內容已通過，也不等於學生實測難度證據。
 
-## 為什麼公開儲存庫沒有歷屆試卷？
+## 歷屆試卷與模考來源如何取得？
 
-公開版只保留自有規則、程式、結構化彙總、空白版型與合成測試資料。它不散布出版社模考、歷屆試題全文、掃描圖片、答案原檔、字型或使用者私人資料。
+一般 Git clone 保持輕量，不把約 3.4 GB 的 PDF 直接寫進 Git 歷史；GitHub
+也會封鎖超過 100 MiB 的一般 Git 檔案。完整來源沒有被當成可有可無：
+它們依科目放在 GitHub 的
+[`source-corpus-2026.09.11` 資料 Release](https://github.com/niansia/taiwan-exam/releases/tag/source-corpus-2026.09.11)，並由
+Skill 自動下載、逐檔驗證後放回 Exam Pack。第一次製作某科完整卷時，
+本機代理應自行執行，例如：
 
-第一次製作正式卷時，代理會依需求從[大考中心](https://www.ceec.edu.tw/)等官方來源核對可合法取得的考試說明與試題；需要你自己的模考或版面樣本時，才請你提供指定檔案。私人資料應留在本機且不得提交到公開儲存庫。
+```text
+python scripts/bootstrap_exam_sources.py --subject 社會
+```
+
+一般使用者不必自己操作終端機；直接要求 AI「準備社會來源資料並出卷」
+即可。下載採科目分包，不需要為一科考卷先抓完整 3.4 GB。來源包的
+資產、檔案路徑、大小與 SHA-256 都記錄於
+[`source-pack-manifest.json`](exam_packs/學測/source-pack-manifest.json)。
+
+官方正式卷也可由 `scripts/download_ceec_gsat.py` 從[大考中心](https://www.ceec.edu.tw/)
+重新取得。使用者另外提供的私人資料不會因此自動進入公開資料包。
 
 各科預留資料夾如下：
 
@@ -219,7 +238,9 @@ exam_packs/<考試>/subjects/<科目>/
 └─ 命題範圍/
 ```
 
-資料匯入不等於完成校準；公開版的官方結構紀錄刻意維持 `needs_review`，必須在實際來源可讀時重新核對。
+資料匯入不等於完成校準；實際來源必須可讀、雜湊相符並通過 Exam Pack
+稽核，才能使用 `verified` 的正式卷面主張。`放資料到這裡.md` 只是保留
+空目錄的提示檔，不是 PDF 或校準證據的替代品。
 
 ## 交付內容
 

@@ -19,8 +19,12 @@ https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-k
 
 給一般使用者時優先提供一鍵下載頁；它會把原始文字存成
 `taiwan-exam-web-knowledge.md`，不要求使用者操作 GitHub 的 Raw／Download 按鈕。
-預先封裝 ZIP／Release 仍暫停。2026-09-09 的舊草稿 ZIP 與 2026-09-11
-未通過 Chrome 下載檢查的新候選都已撤回；不可從 Git 歷史還原、關閉防毒或解除檔案封鎖。網頁知識檔是純文字、由本儲存庫的正式 Skill 規則機械彙整；它不包含本機執行程式，也不把網頁平台缺少的工具假裝成已存在。
+可執行 Skill ZIP 仍暫停；純 PDF／圖片的學測來源資料包是另一個發布面，
+放在 `source-corpus-2026.09.11` GitHub Release，並由
+`exam_packs/學測/source-pack-manifest.json` 驗證。不可把兩者混稱為同一個
+ZIP 安全結論。網頁知識檔是純文字、由本儲存庫的正式 Skill 規則機械
+彙整；它不包含本機執行程式，也不能把網頁平台缺少的多 GB 來源與逐頁
+檢查工具假裝成已存在。
 
 ## 代理的安裝流程
 
@@ -96,7 +100,7 @@ exam_packs/學測/templates/115/template-pack.json
 
 確認技能名稱為 `taiwan-exam-generator`，並讓平台重新載入技能清單。若平台提供原生技能清單，必須看得到此名稱；只看到普通資料夾不算完成。
 
-### 4. 只準備當次需要的執行環境
+### 4. 準備當次科目的來源與執行環境
 
 安裝 Skill 不等於一次安裝所有 PDF／瀏覽器工具。第一次實際出題時，依科目與輸出需求檢查：
 
@@ -104,6 +108,17 @@ exam_packs/學測/templates/115/template-pack.json
 - `requirements.txt` 中的 PDF／HTML 依賴
 - 可用的 Chrome、Chromium 或 Edge（需要瀏覽器排版時）
 - 繁體中文字型與逐頁 PDF／影像檢查能力
+
+代理還必須自行檢查當次科目的來源包，不要要求不會寫程式的使用者操作：
+
+```text
+python scripts/bootstrap_exam_sources.py --subject 社會 --verify-only
+python scripts/bootstrap_exam_sources.py --subject 社會
+```
+
+第一行已通過就不需下載；未通過才執行第二行，再重跑第一行。只下載
+當次科目與共用資料，不必每次抓取整個語料庫。既有檔案若雜湊不同，
+安裝器會停止而不是覆寫。
 
 代理應在權限允許時自行準備必要依賴，並避免改動無關的系統設定。`xlrd` 只在匯入舊式 `.xls` 統計資料時才需要，不得阻擋一般安裝或出題。
 

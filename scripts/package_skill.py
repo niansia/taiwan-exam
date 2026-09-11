@@ -41,10 +41,7 @@ SOURCE_LEVEL_METADATA = {
     "question-review-queue.jsonl",
     "official-question-review-queue.jsonl",
     "official-item-statistics.jsonl",
-    "source-registry.jsonl",
     "source-index.jsonl",
-    "official-source-registry.jsonl",
-    "official-download-catalog.jsonl",
     "official-statistics-catalog.jsonl",
     "official-statistics-registry.jsonl",
     "visual-annotation-queue.csv",
@@ -74,6 +71,7 @@ analyze_historical_content.py analyze_mock_bundle.py analyze_mock_exam_dataset.p
 analyze_pdf_visuals.py analyze_recent_math_form.py analyze_stimulus_ecology.py
 analyze_writing_source_corpus.py audit_corpus_overlap.py audit_item_originality.py
 audit_source_novelty.py audit_exam_pack.py audit_generated_suite.py
+bootstrap_exam_sources.py
 build_gsat_difficulty_profiles.py build_layout_review_queue.py
 build_official_question_queue.py build_paper_profiles.py build_pdf_contact_sheets.py
 build_question_candidates.py build_visual_queue.py download_ceec_gsat_statistics.py
@@ -153,47 +151,8 @@ def write_deterministic(zf: ZipFile, arcname: str, data: bytes) -> None:
 
 
 def packaged_data(path: Path) -> bytes:
-    """Strip source-level provenance from distributable Paper Profiles."""
-    if path.name != "papers.jsonl" or "exam_packs" not in path.parts:
-        return path.read_bytes()
-    profiles = [
-        json.loads(line)
-        for line in path.read_text(encoding="utf-8-sig").splitlines()
-        if line.strip()
-    ]
-    public_profiles = []
-    for profile in profiles:
-        if profile.get("source_kind") != "official_past_exam":
-            continue
-        identity = {
-            "exam": profile.get("exam"),
-            "year": profile.get("year"),
-            "subject": profile.get("subject"),
-            "section": profile.get("section"),
-            "sections": profile.get("sections"),
-        }
-        public_id = hashlib.sha256(
-            json.dumps(identity, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
-        ).hexdigest()[:12]
-        cleaned = dict(profile)
-        # A distribution without its private reference PDFs cannot inherit a
-        # local verified claim. Keep aggregate records for discovery/review.
-        cleaned['structure_status'] = 'needs_review'
-        cleaned['evidence'] = dict(profile.get('evidence') or {})
-        cleaned['evidence'].pop('structure_review', None)
-        cleaned['evidence']['confidence'] = min(cleaned['evidence'].get('confidence', 0), 0.8)
-        cleaned['evidence']['notes'] = 'Reference-only distribution; original sources withheld. Reconcile local PDFs and obtain a new page/slot review before full-paper use.'
-        cleaned["paper_id"] = f"official-profile-{profile.get('year')}-{public_id}"
-        cleaned["source_files"] = [{
-            "sha256": "0" * 64,
-            "relative_path": "official-source-withheld.pdf",
-            "role": "question",
-            "page_count": (profile.get("layout") or {}).get("target_page_count"),
-        }]
-        public_profiles.append(cleaned)
-    return "".join(
-        json.dumps(profile, ensure_ascii=False) + "\n" for profile in public_profiles
-    ).encode("utf-8")
+    """Keep source-bound metadata unchanged; only large binaries are external."""
+    return path.read_bytes()
 
 
 def main() -> int:

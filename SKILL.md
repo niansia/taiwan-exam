@@ -15,6 +15,16 @@ Do not use or package any hard-coded paper builder as a content source, includin
 
 For **every complete paper**, including internal tests, smoke tests and stress tests, first read [references/exam-pack-execution-contract.md](references/exam-pack-execution-contract.md). Resolve the actual `exam_packs/<exam>/subjects/<subject>/` records and reference pages before writing. A profile id, a file inventory or a `verified` string is not evidence that its contents were inspected. Keep the reference/measurement pass separate from the original item-writing pass.
 
+Source papers are protected execution dependencies, not disposable build output. A
+Git ignore rule controls versioning only; it never means `歷屆試題/`, `模擬考/`,
+raw intake bundles or their registries may be deleted during cleanup, packaging or
+updating. Before a local full-paper run, use
+`python scripts/bootstrap_exam_sources.py --subject <科目> --verify-only`; if the
+selected source pack is incomplete, run the same command without `--verify-only`
+and verify it again. Never overwrite a conflicting local source or claim a
+source-verified paper from profiles alone. Read [references/data-ingestion.md](references/data-ingestion.md)
+when acquiring, restoring, indexing, moving or publishing source material.
+
 Complete-paper tests must use the same content and subject-layout checks as ordinary generation. Missing empirical pilot statistics may be disclosed; missing correct answers, curriculum boundaries, sources, official response modes or a usable layout may not be excused by calling the result a preview. Never silently change a full-paper request into generic practice. If a prerequisite is missing, produce a precise gap report and repair the evidence/template first; do not fabricate evidence or output a substitute batch.
 
 When the user requests fast or timed generation, also read [references/fast-full-paper-workflow.md](references/fast-full-paper-workflow.md). Treat an under-20-minute paper as a measured warm-run performance target, not as permission to skip candidate competition, independent solving, source/rights review, subject balance, rendering, or all-page inspection. Report the actual clock boundaries and cache state. If the target is missed, finish the valid paper and report the bottleneck honestly; never relabel a partial or unchecked artifact as a complete paper.
@@ -193,7 +203,14 @@ The output must say which pack, subject, curriculum/regime, blueprint fingerprin
 
 ## Originality and private data
 
-Historical files in `歷屆試題/` and `模擬考/` are user-owned working data. They are git-ignored by default.
+Historical files in `歷屆試題/` and `模擬考/` are persistent calibration data.
+They may be omitted from the ordinary Git tree or Skill archive for size and
+distribution reasons, but must remain recoverable through the checked source-pack
+manifest and bootstrap workflow. Never delete, move or replace them merely because
+they are ignored, absent from a public clone, or excluded by a packager. A cleanup
+request aimed at generated output does not include source papers, source registries,
+raw intake bundles, templates or calibration evidence. Destructive changes to those
+exact resources require an explicit request naming them.
 
 - Learn abstractions: unit, concept, skill, stimulus class, item type, difficulty vector, score, position, visual function, and common misconception. Keep those abstractions in a separate artifact from source wording and figure topology.
 - Do not copy, lightly paraphrase, translate, or merely swap numbers in a source item.

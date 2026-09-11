@@ -271,18 +271,18 @@ class ExamDataTests(unittest.TestCase):
         ):
             self.assertTrue(package_skill.should_include(ROOT / "scripts" / name))
 
-    def test_packaged_paper_profiles_are_reference_only_official_and_source_blind(self) -> None:
+    def test_packaged_paper_profiles_preserve_source_bindings(self) -> None:
         path = ROOT / "exam_packs" / "學測" / "subjects" / "英文" / "metadata" / "papers.jsonl"
         rows = [
             json.loads(line)
             for line in package_skill.packaged_data(path).decode("utf-8").splitlines()
             if line.strip()
         ]
-        self.assertTrue(rows)
-        self.assertTrue(all(row["source_kind"] == "official_past_exam" for row in rows))
-        self.assertTrue(all(row["structure_status"] == "needs_review" for row in rows))
-        self.assertTrue(all(row["source_files"][0]["relative_path"] == "official-source-withheld.pdf" for row in rows))
-        self.assertFalse(any("115-E2" in json.dumps(row, ensure_ascii=False) for row in rows))
+        local_rows, errors = exam_data.read_jsonl(path)
+        self.assertFalse(errors)
+        self.assertEqual(local_rows, rows)
+        self.assertTrue(any(row["source_kind"] == "mock_exam" for row in rows))
+        self.assertTrue(all(row["source_files"][0]["relative_path"] != "official-source-withheld.pdf" for row in rows))
 
     def test_current_english_distinguishes_numbered_and_scored_items(self) -> None:
         result = build_paper_profiles.official_current_structure(115, "英文", "英文")
@@ -302,7 +302,10 @@ class ExamDataTests(unittest.TestCase):
         subject_path = ROOT / "exam_packs" / "學測" / "subjects" / "英文"
         profiles, errors = exam_data.read_jsonl(subject_path / "metadata" / "papers.jsonl")
         self.assertFalse(errors)
-        profile = next(row for row in profiles if row.get("year") == 2026)
+        profile = next(
+            row for row in profiles
+            if row.get("year") == 2026 and row.get("source_kind") == "official_past_exam"
+        )
         self.assertEqual("needs_review", profile["structure_status"])
         with self.assertRaises(ValueError):
             exam_data.select_paper_profile(subject_path, "108", profile["paper_id"], None)

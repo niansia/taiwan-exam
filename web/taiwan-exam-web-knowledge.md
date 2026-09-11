@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.11
+# Taiwan Exam Web Knowledge v2026.09.11.1
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -18,8 +18,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
 [
   {
     "path": "SKILL.md",
-    "bytes": 67393,
-    "sha256": "e1861fc0f353308f8a20c9a51ba416553f563c23142424fda95fc6110affd4a6"
+    "bytes": 68639,
+    "sha256": "c657a9ec89181c4f7080ec2955303984e47c4d6ac23eab5b436a30e4b5b3b369"
   },
   {
     "path": "core/taxonomy.json",
@@ -55,6 +55,11 @@ the PDFs, disclose the limitation and do not claim formal completion.
     "path": "exam_packs/學測/shared-data/historical-content-envelope.json",
     "bytes": 9238,
     "sha256": "2fbd55e0d22cd9f30a11e5129c71f779b482921662f98bd08fb195de816ecd1c"
+  },
+  {
+    "path": "exam_packs/學測/source-pack-manifest.json",
+    "bytes": 291190,
+    "sha256": "c19b9abffce9979478e2d037a5aef1916af3238f0ada30d61658218b71b1c642"
   },
   {
     "path": "exam_packs/學測/subjects/國文/blueprints/difficulty-profile.json",
@@ -278,8 +283,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/data-ingestion.md",
-    "bytes": 4718,
-    "sha256": "a76446c0cc0e0c456dfc7ffac82f851a82d68f129434714d34e5d4f4c53b86ba"
+    "bytes": 5577,
+    "sha256": "1139f98d45ee941cc199dd366ccdf33b5c65972406faa187698898b5363b8fa3"
   },
   {
     "path": "references/difficulty-calibration.md",
@@ -293,8 +298,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/exam-pack-execution-contract.md",
-    "bytes": 2764,
-    "sha256": "a448806dd639c763b70c38af81b55e26d85314e8497defb910cf9a92b557798e"
+    "bytes": 3587,
+    "sha256": "c0bea1e84a7200d912f75246490b2cba738566b452002655ad7c0ed82f22c8b2"
   },
   {
     "path": "references/fast-full-paper-workflow.md",
@@ -499,6 +504,16 @@ Do not use or package any hard-coded paper builder as a content source, includin
 
 For **every complete paper**, including internal tests, smoke tests and stress tests, first read [references/exam-pack-execution-contract.md](references/exam-pack-execution-contract.md). Resolve the actual `exam_packs/<exam>/subjects/<subject>/` records and reference pages before writing. A profile id, a file inventory or a `verified` string is not evidence that its contents were inspected. Keep the reference/measurement pass separate from the original item-writing pass.
 
+Source papers are protected execution dependencies, not disposable build output. A
+Git ignore rule controls versioning only; it never means `歷屆試題/`, `模擬考/`,
+raw intake bundles or their registries may be deleted during cleanup, packaging or
+updating. Before a local full-paper run, use
+`python scripts/bootstrap_exam_sources.py --subject <科目> --verify-only`; if the
+selected source pack is incomplete, run the same command without `--verify-only`
+and verify it again. Never overwrite a conflicting local source or claim a
+source-verified paper from profiles alone. Read [references/data-ingestion.md](references/data-ingestion.md)
+when acquiring, restoring, indexing, moving or publishing source material.
+
 Complete-paper tests must use the same content and subject-layout checks as ordinary generation. Missing empirical pilot statistics may be disclosed; missing correct answers, curriculum boundaries, sources, official response modes or a usable layout may not be excused by calling the result a preview. Never silently change a full-paper request into generic practice. If a prerequisite is missing, produce a precise gap report and repair the evidence/template first; do not fabricate evidence or output a substitute batch.
 
 When the user requests fast or timed generation, also read [references/fast-full-paper-workflow.md](references/fast-full-paper-workflow.md). Treat an under-20-minute paper as a measured warm-run performance target, not as permission to skip candidate competition, independent solving, source/rights review, subject balance, rendering, or all-page inspection. Report the actual clock boundaries and cache state. If the target is missed, finish the valid paper and report the bottleneck honestly; never relabel a partial or unchecked artifact as a complete paper.
@@ -677,7 +692,14 @@ The output must say which pack, subject, curriculum/regime, blueprint fingerprin
 
 ## Originality and private data
 
-Historical files in `歷屆試題/` and `模擬考/` are user-owned working data. They are git-ignored by default.
+Historical files in `歷屆試題/` and `模擬考/` are persistent calibration data.
+They may be omitted from the ordinary Git tree or Skill archive for size and
+distribution reasons, but must remain recoverable through the checked source-pack
+manifest and bootstrap workflow. Never delete, move or replace them merely because
+they are ignored, absent from a public clone, or excluded by a packager. A cleanup
+request aimed at generated output does not include source papers, source registries,
+raw intake bundles, templates or calibration evidence. Destructive changes to those
+exact resources require an explicit request naming them.
 
 - Learn abstractions: unit, concept, skill, stimulus class, item type, difficulty vector, score, position, visual function, and common misconception. Keep those abstractions in a separate artifact from source wording and figure topology.
 - Do not copy, lightly paraphrase, translate, or merely swap numbers in a source item.
@@ -1456,6 +1478,5743 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
     "Scan/image-only papers are indexed but do not contribute semantic labels until OCR or manual review.",
     "Publisher difficulty labels are expert review, not official CEEC P/D.",
     "Rare one-paper labels are suppressed to reduce source fingerprinting and template imitation."
+  ]
+}
+</canonical-source>
+
+<canonical-source path="exam_packs/學測/source-pack-manifest.json">
+{
+  "schema_version": 1,
+  "release_tag": "source-corpus-2026.09.11",
+  "repository": "niansia/taiwan-exam",
+  "content_policy": "reference-papers-and-answer-materials",
+  "allowed_suffixes": [
+    ".jpeg",
+    ".jpg",
+    ".pdf",
+    ".png",
+    ".webp"
+  ],
+  "packs": [
+    {
+      "id": "chinese",
+      "asset": "taiwan-exam-gsat-sources-chinese-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-chinese-source-corpus-2026.09.11.zip",
+      "archive_bytes": 784262010,
+      "archive_sha256": "2b4c47b0c4321a0af72855c3a00c61c578dbb5035ad83c4b4f41c3dd5bf28620",
+      "file_count": 297,
+      "source_bytes": 784182086,
+      "files": [
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/101-C1 中模/101學年度中模學測試題01-國文考科.pdf",
+          "bytes": 504622,
+          "sha256": "8d013e7bf8bf643f88d571f017814e3dbe684b092e9df08aca05dcdcb01e4e51"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/102-B3 北模/102學年度北模學測試題03-國文.pdf",
+          "bytes": 565594,
+          "sha256": "325191b43a3b29c72208d472992eab6e71bccb5bd2a34b7f2e7e5edb9d072d51"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/104-C1 中模/104學年度中模學測試題01-國文.pdf",
+          "bytes": 951588,
+          "sha256": "d15fc0fc8b0ef751cac3352534d6d58da701dc20ca6f5c0020deb2f182b4e809"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/104-C2 中模/104學年度中模學測試題02-國文.pdf",
+          "bytes": 478546,
+          "sha256": "605e06bd29ff12c5c53a6c4acf7bb4e65bdd2aabf01c44e9d0d2ea82ddb26fd6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/104-N2 全模/104學年度全國模考02-國文科1.pdf",
+          "bytes": 2795463,
+          "sha256": "2be87b4031a31c64e2aac57b0e684dfdf7e45ac99879597ef71aca98d3705b0e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/104-N3 全模/104學年度全國模考試題03-國文.pdf",
+          "bytes": 493343,
+          "sha256": "5b5a9bfa934bd6753326b1c54ae3cfa8c7e79ca113259fe03682148e04761b77"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/104-N4 全模/104學年度全國模考試題04-國文.pdf",
+          "bytes": 3342054,
+          "sha256": "9f520345eeb5ad0a7f7866dcba66c47a1ee88965a3c39fdf7dd82571fd72a61e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-B1 北模/105-1-1北模學測國文解析.pdf",
+          "bytes": 713707,
+          "sha256": "ed2731e85dd4deb585fb20085e9ffda4a912686bc7e76d9021d7aa26e576ce68"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-B1 北模/105-1-1北模學測國文試題.pdf",
+          "bytes": 1121649,
+          "sha256": "ea89c0927cd111c3b41c2270ab63d28a911376b36733f741463701c6552e9dcf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-B2 北模/北模學測105上02國文.pdf",
+          "bytes": 838623,
+          "sha256": "2d5ad87da5cb36d736a88a762ce628dad602fcd2902065a2cea0f7d53f6e2855"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-B2 北模/北模學測105上02國文解析.pdf",
+          "bytes": 738539,
+          "sha256": "415e8ea14634299500f1a08704244fa9e0450ccd314091cbacc640daefd222ad"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-B3 北模/國文.pdf",
+          "bytes": 1044198,
+          "sha256": "d33576cfc0722a9436683a4402a711269cf5da47a78d866f9708b204473860f4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-C1 中模/國文.pdf",
+          "bytes": 826709,
+          "sha256": "fd6844449ed46ad5befc0b27afbb0d2367bdf0e67e06cc7eb9d8769a0d88645d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-N1 全模/國文科.pdf",
+          "bytes": 1128112,
+          "sha256": "1c92aae1be4f5c82314a3d372c94a86b594363859c982024b2c0d74997f9a42e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-N2 全模/國文科1.pdf",
+          "bytes": 1197709,
+          "sha256": "f00619d05c76ba049ed5b93c8d53985cb73f887be35e6439d4a2d65e33cb2812"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-N3 全模/國文科.pdf",
+          "bytes": 1857043,
+          "sha256": "066791e5f6da665709814d5df2a6f37d119e1559685105fe8a7527ca32a98e00"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-N4 全模/105學年全國高中第四次模擬考國文科.pdf",
+          "bytes": 827460,
+          "sha256": "0768749cdf4d2ee720193f403b1da306fe9b7b14fe2c6a3243b579cd2ef4ad68"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/105-N4 全模/國文科.pdf",
+          "bytes": 1764691,
+          "sha256": "710c7eced4a66a7cb5358c1b9ef322c1c2439dc03b79f8aa78d16bfea8e255ca"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-B1 北模/106-1-1北模學測國寫解析.pdf",
+          "bytes": 294167,
+          "sha256": "43e451ef2a56f2d6666e6cd5c162f82d7b3bdcaf698408301df6fea532aa64e1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-B1 北模/106-1-1北模學測國寫試題.pdf",
+          "bytes": 1226919,
+          "sha256": "dca1b3ef6a9b7a631094aea0fa8c9ad1457c497a534f78f7c84197630ad261b7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-B1 北模/106-1-1北模學測國文解析.pdf",
+          "bytes": 699746,
+          "sha256": "213aa39a2547073910a51fcb91e183f34d2f8e59db6a9a6d336cadc984338a5b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-B1 北模/106-1-1北模學測國文試題.pdf",
+          "bytes": 1274186,
+          "sha256": "7483cbde4950789aa4ab14d0eba5c6a33a68615bc354ea964c45e17ffe28f9d5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-B2 北模/北模學測106上02國文.pdf",
+          "bytes": 4886137,
+          "sha256": "dd51c91d27015ddd235556a2754be3129dca8df6876ea6d833541aa16e2c4392"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-B2 北模/北模學測106上02寫作.pdf",
+          "bytes": 1028682,
+          "sha256": "e5b11e0a9438908ec4ff721ad2d6257dd33b2eb5fd740c70caa191af810e726b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-C1 中模/中模學測106上01國文.pdf",
+          "bytes": 1175770,
+          "sha256": "70c44137929effe33b52cfa56ffa7ff1dbee85d74e1d35cb9dc0dcf7e3d8d3d4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-C1 中模/中模學測106上01寫作.pdf",
+          "bytes": 337564,
+          "sha256": "5f0fc067c1f0a6724d33fe027a560566793e26fcf68040fce707aef9d1f64725"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-C2 中模/中模學測106上02國文.pdf",
+          "bytes": 1587809,
+          "sha256": "dbbe3524ccbe336ed41ad2ce3515e1ca98da73f3b944d1e0075ec75f1c6f7de0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N1 全模/106-1-全國學測-國寫考科解析.pdf",
+          "bytes": 483095,
+          "sha256": "eb7edb4f18bcc153f30cb7a4f1f3204833a836e9c34a7e2ce02ce32033d17547"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N1 全模/106-1-全國學測-國寫考科試題.pdf",
+          "bytes": 558004,
+          "sha256": "9e6c0221da7e0b8db3598774cecc3ffd02f5e3ca3d6805f864f897572fc235c2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N1 全模/106-1-全國學測-國文考科解析.pdf",
+          "bytes": 1165246,
+          "sha256": "1a1b775c6d3aacb3f8fcc12e15710701066a2e6c002c4ff633f05ee01855da99"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N2 全模/106_2-學測漢樺版國文考科_A.pdf",
+          "bytes": 1572099,
+          "sha256": "0304082eb0a703938ae9823abf8a7b497f5471f592237ba890eab15f59ff6bcd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N2 全模/106_2-學測漢樺版國文考科_Q.pdf",
+          "bytes": 3089145,
+          "sha256": "fac67f0d5d140d3e43b075383212ebc3da90bd26b88fba5a62854753b056bb76"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N2 全模/106_2-學測漢樺版國語文寫作_A.pdf",
+          "bytes": 439249,
+          "sha256": "69efa9a2d8801819fe81df2c26b4d78a4fcfe55f3c1e8ca9a885207a56d5ea28"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N2 全模/106_2-學測漢樺版國語文寫作_Q.pdf",
+          "bytes": 532456,
+          "sha256": "7baad09cf87e0bb3dba642486f03c8b5d502e02f7bd03802ab4a6404d7958a55"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N3 全模/106-3-全國學測-國文寫作考科試題.pdf",
+          "bytes": 710745,
+          "sha256": "868bed57cb6e25e68d623e8c07ff13accb98ffc451e447b782a4f76cedbfd67f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N3 全模/106-3-全國學測-國文考科試題.pdf",
+          "bytes": 3486738,
+          "sha256": "0e1945cd55a6bb3c171e7d07146dab6acbbeb9f9f19db79e29292c4277aaee92"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N4 全模/國文寫作1.pdf",
+          "bytes": 385571,
+          "sha256": "726b3c523dfc0433cc15b494fc3ee4233d2f401289a7cccf7a05e26f5123fbac"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N4 全模/國文科1.pdf",
+          "bytes": 3175469,
+          "sha256": "7adef6f584f3c0666e722e720288bd6f69bd3fb4a1e30ef11a72ce8712ca7f3e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N5 全模/106學年度T5國文.pdf",
+          "bytes": 5302056,
+          "sha256": "0f6cfb2986b01ddbf214dc54e5e609567e1e795043824ee1079ead5dcebf2cbf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-N5 全模/106學年度T5寫作.pdf",
+          "bytes": 1613218,
+          "sha256": "8f1c361ecf5c22a91eb216cd50260230fad4b5d0faa057a651c495efe06ac593"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-S1 南模/106學年度學測南模-國寫.pdf",
+          "bytes": 1104870,
+          "sha256": "c6aab63a879d047ce99a6a921121c977faaef68ca869ff229791bf44d979a3ad"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/106-S1 南模/106學年度學測南模-國文.pdf",
+          "bytes": 6699732,
+          "sha256": "80c0806b8194da8ab30158442330103c53b536e831e9c39be792d02ec1c95a57"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-B1 北模/北模學測107上01國文.pdf",
+          "bytes": 5905445,
+          "sha256": "7dda95f44408f8ca6bc23f606edfc0de7b9243b9a7d5c3bd843b952b74a830f2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-B1 北模/北模學測107上01寫作.pdf",
+          "bytes": 1499418,
+          "sha256": "850a358203b30708eaefdfa9177158b7dbe7bc102d8ba0d2d7fada970b184275"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-B2 北模/北模學測107上02國文.pdf",
+          "bytes": 5875932,
+          "sha256": "ff37cb2d1a8b6a9e13ea0c6d69bd61fe2346225afbf107a6cc92dfbbc6609ef2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-B2 北模/北模學測107上02寫作.pdf",
+          "bytes": 1202365,
+          "sha256": "e19d05f67605e86de7bd65b84edbc9b3c7060b8ae78ea3889dfa85fd12dd4424"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-C1 中模/中模學測107上01國文.pdf",
+          "bytes": 7079955,
+          "sha256": "2c6ba982f01b32adb7803981f9834789e8bbda119262418106df0b579883ca25"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-C1 中模/中模學測107上01寫作.pdf",
+          "bytes": 1676007,
+          "sha256": "0e8cc040af4e39479e6c37385206790c3bf0e016bf9535b0b5f58001c2e93f0b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-N1 全模/國文寫作.pdf",
+          "bytes": 2332811,
+          "sha256": "d1bc0512649589da37831ee08f27c3265cb7fcf33b11698f7e5ad27343de2399"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-N1 全模/國文科.pdf",
+          "bytes": 12798791,
+          "sha256": "e71cd650ac5a26865e09f48384f8750b302918be5069fbb80304465d62eff577"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-N2 全模/國文寫作.pdf",
+          "bytes": 2515154,
+          "sha256": "3ae92a9ecb0f480eda6f50942c331cbddf08721f992dd638d46119b36c3f3d9c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-N2 全模/國文科 (1).pdf",
+          "bytes": 9234718,
+          "sha256": "4362939fa683cc02a5cd3eba48c1aec8268d9a04f48c0f18d388e950116083fb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-N3 全模/國文寫作1.pdf",
+          "bytes": 3418937,
+          "sha256": "5a9b9b6c41048b97aa81feb169fcd8f221df7ab4e59ea499a37aeb1963f01300"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/107-N3 全模/國文科1.pdf",
+          "bytes": 11476659,
+          "sha256": "bf4b3e47f44a0eb8e8de64bedd5e4d2431e31f20b2f963e1f35657cfe6a0338b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-B1 北模/北模108-01-國寫.pdf",
+          "bytes": 1387797,
+          "sha256": "c0691dce47f176ece988b858d3fb0eda20a913ecdc1ea4c51b5455ca3a1a1ea8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-B1 北模/北模108-01-國文.pdf",
+          "bytes": 6553920,
+          "sha256": "75f68eb98d81cb5066f1ba5ddfa999d0c15222c61ffd23f9b42d1963cebb5427"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-B2 北模/北模108-02-國文.pdf",
+          "bytes": 1354319,
+          "sha256": "a30766fd59cbd4100936aef34a997cea2dab16e3bbd7ad77845796716901d51c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-B2 北模/北模108-02-國文_選擇題_參考答案暨詳解.pdf",
+          "bytes": 884058,
+          "sha256": "edb2a5763cf6e5e2a3ebe543795523c0a05d8f88a41b81052818374bea16215a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-B2 北模/北模108-02-國語文寫作能力測驗.pdf",
+          "bytes": 179047,
+          "sha256": "f0002cbea9eaa67bcbadf7673fa151ab6e02274ca017a27bf5a5a542453aa362"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-B2 北模/北模108-02-國語文寫作能力測驗_參考範文暨解說.pdf",
+          "bytes": 328164,
+          "sha256": "666b2a76b7717a557aa94deaf908157b5e0c96ef9c7948704f2b6e5b31c8724c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-C1 中模/中模學測108上01國寫.pdf",
+          "bytes": 1381675,
+          "sha256": "d20467ae88d7db9fa5a7a29cac92fd8752c309e0d9bb57aa6a90bf6fe5104333"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-C1 中模/中模學測108上01國文.pdf",
+          "bytes": 4396851,
+          "sha256": "274830528e008f7997a406767d5745727589b829522925162ea178ad19fb606b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (南一)/第一次模擬考_解析國.pdf",
+          "bytes": 1535336,
+          "sha256": "26a329aea8a037cc3255ad2f126707b8f86cf8f6d8d306b2c283166ff2b2f38b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (南一)/第一次模擬考_解析國作.pdf",
+          "bytes": 539178,
+          "sha256": "bd6a6af52e1226a6384c0fa7636f7415cef5028ebbcd3fd644f6820eb68db77b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (南一)/第一次模擬考_題目國.pdf",
+          "bytes": 3836334,
+          "sha256": "608647f1682268f03a69affc8ad5ba5adea487206452d4987baa2bb45e02e23d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (南一)/第一次模擬考_題目國作.pdf",
+          "bytes": 785053,
+          "sha256": "273acd8d5337f1ddf2825394ce055edf62b83f00ecfde4adb1876477de383f3d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (文昌)/國寫科.pdf",
+          "bytes": 2390739,
+          "sha256": "cca1d7b48e000b1fdc882b250b6721e843ceacf3890605de348aaa287433bb71"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (文昌)/國文科.pdf",
+          "bytes": 10100216,
+          "sha256": "967999c93fb88a8f6dc7a72165f621382c793b1a89b23255220a6e316e76c45e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (翰林)/P01_P04_國文科第1次_國寫_內頁-封面.pdf",
+          "bytes": 585654,
+          "sha256": "b03ef887d86c1d06a89fda9181393489122b00d1978de374a2ba462ee730f3d1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (翰林)/P01_P04_國文科第1次_國寫_學測解答分科.pdf",
+          "bytes": 327875,
+          "sha256": "4625e7b73beacc31b118009b841db714fa3fcee0f55c70aa5cb58fcb4a92ad68"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (翰林)/P01_P08_國文科第1次_學測解答分科.pdf",
+          "bytes": 609562,
+          "sha256": "6560bc5eb86d2f959e013d001ced438db218ff7bded65f2b9422b7ed5e3b1cea"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N1 全模 (翰林)/P01_P16_國文科第1次_學測內頁-封面.pdf",
+          "bytes": 1077311,
+          "sha256": "2d738197556a54530ffbb521f4bbbc80435125a427dedc229a755f27ef242283"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N2 全模 (文昌)/SKMBT_42119091712440國文.pdf",
+          "bytes": 1062428,
+          "sha256": "75f41acab3520eda43d7bb1f05c0c2ee5717b6bab9057be78c262425a85b2326"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-國寫第2次-學測解答.pdf",
+          "bytes": 333085,
+          "sha256": "d5821524b2af4cf673110b749e0350441d83ed6dd683bfb27da158fa06459907"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-國寫第2次-試題.pdf",
+          "bytes": 445611,
+          "sha256": "293753d9d0aa25a7c90d0cde859a6507053c69c37b589f8b58fe9444207b8c40"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-國文科第2次-試題.pdf",
+          "bytes": 2123841,
+          "sha256": "a2722b3fd0f4b47f9a6f15e915ee62e63f025819dcaaa4680fcf1d5456b50c04"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-國文科第2次-試題學測.pdf",
+          "bytes": 607493,
+          "sha256": "a1991ed5d7f591fc4fd610d7626da8f851c796f2e9b9d1d3b72b03b4635cc651"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N2 全模 (銓達)/國文科.pdf",
+          "bytes": 8938191,
+          "sha256": "ae30973282b62a2665faf3eb57f4148f9009218bcb6e0838dccfdc5ef47b7fd2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N2 全模 (銓達)/國語文寫作.pdf",
+          "bytes": 1995567,
+          "sha256": "9a629be66b47aa60422833056d71d653c90f7805cc072210e2fe486b36c9f2b3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N3 全模 (南一)/108學年學科第三次聯合模擬考-國文考科.pdf",
+          "bytes": 10150145,
+          "sha256": "5b92345ca8c3608933e28a0d613bd354395dd95a09fce372df68c724ac818dde"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N3 全模 (南一)/108學年學科第三次聯合模擬考-國語文寫作.pdf",
+          "bytes": 1417860,
+          "sha256": "09316b1b510cbb0b858122169e682503eb29045f7b91301d39e7227c7d9a868b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-國寫第3次-學測解答.pdf",
+          "bytes": 339689,
+          "sha256": "8e4a3985a3fdb7ab9a5372a1eb7b17a80cbfca0371d0336f465aa5c307f85eb4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-國寫第3次-試題.pdf",
+          "bytes": 369488,
+          "sha256": "9234d3cc0d0f771a3f77830f5302877cbc5b132cd3f584980488b92364f7f504"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-國文科第3次-學測解答.pdf",
+          "bytes": 550584,
+          "sha256": "c8b0be9e6b20b9874dceb3d36c7eeeb84aeb0d4e25606dafcdb9379bcb1904eb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-國文科第3次-試題.pdf",
+          "bytes": 836266,
+          "sha256": "f4ffdf287fa92fd400f42bef9f6fa48cc28fa31427d08908b935def08bc3cb04"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N4 全模 (翰林)/108上高中模擬考-第四次全模-國文.pdf",
+          "bytes": 19533552,
+          "sha256": "fff1a06f3835fb4ccee6c3755de58111bf1cd1c1dec55e724b72e76ccedba1b8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/108-N4 全模 (翰林)/108上高中模擬考-第四次全模-國文寫作.pdf",
+          "bytes": 2955651,
+          "sha256": "37be503844575be1eb3628958ad7f3a139dec3dfa09ee174642a1cded1c6363f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-B1 北模/北模學測109上01國寫.pdf",
+          "bytes": 1144564,
+          "sha256": "92c22e5da6a2d93982d8bd13eb97b6c64f5554dc2f684bd1241df43d64aeeb4a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-B1 北模/北模學測109上01國文.pdf",
+          "bytes": 3845160,
+          "sha256": "9944fcf802640731e4a98ec077147b0ba9fe35eca72f7dcc13762253ab6aeeaf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-B2 北模/109-第2次北模國寫.pdf",
+          "bytes": 199416,
+          "sha256": "10b7e16a42900dfa655247a69d63e18b772dcccb155281c8dd6de52aea0bb0ae"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-B2 北模/109-第2次北模國文.pdf",
+          "bytes": 1216850,
+          "sha256": "b206bf6d6069b09f4106df744039d04d041374f08137835709b87a079113e3c8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-C1 中模/國寫.pdf",
+          "bytes": 2119677,
+          "sha256": "e51fbe6876f9806793ecb0e5c86d1b634cb8187dda70df7311926ca119f59919"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-C1 中模/國文.pdf",
+          "bytes": 9447216,
+          "sha256": "f8d25c5cc62d5a0fa269c53778ee0d8456e7cccfa268ee7a8a485c9446b56dd5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N1 全模 (翰林)/國文科寫作測驗第1次-解答.pdf",
+          "bytes": 387660,
+          "sha256": "b2c7b7b80d45992a960a850c4e32931117a393e7e13e67c8a58eaceedc67afc6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N1 全模 (翰林)/國文科寫作測驗第1次-試題.pdf",
+          "bytes": 357455,
+          "sha256": "93d28e80ff438a115391938f9758235ccc24dc0ea14826e260823e3bd251629e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N1 全模 (翰林)/國文科第1次-解答.pdf",
+          "bytes": 551959,
+          "sha256": "3d77dacbc2fa441d1f23e404f6fa13a398f3bd3ad20549208e4056c36da69349"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N1 全模 (翰林)/國文科第1次-試題.pdf",
+          "bytes": 932106,
+          "sha256": "821f63cf0e017cc419b920ba412d7dc7706303bdc920e1170e009bf4230c08cb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N1 全模 (銓達)/國文寫作.pdf",
+          "bytes": 2469957,
+          "sha256": "88bf3e7a6ac6d2f45fe84a8322b69fa8b8abd63f12236e019c7694f831cea891"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N1 全模 (銓達)/國文科.pdf",
+          "bytes": 9884772,
+          "sha256": "54229f984328d6f016eb7ba11dc1ed07d6f5fcbe8e58dea0427eb42ab10c6558"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N2 全模 (南一)/國文科.pdf",
+          "bytes": 10212394,
+          "sha256": "c4433ca35eaf5878312c1d878d4c28f6b01fdede50a92546eba9cdb69dea0559"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N2 全模 (南一)/國語文寫作.pdf",
+          "bytes": 2382520,
+          "sha256": "4cfc8189ccaef0c670f400b745f250c0c87605beb3cfcc2ff17cf910bc093698"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N2 全模 (翰林)/國文.pdf",
+          "bytes": 6631055,
+          "sha256": "6e09fde8e987744681462db13b75f5f416ab34a146bde2b59fa85ce97f3136db"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N2 全模 (翰林)/國文寫作.pdf",
+          "bytes": 1232946,
+          "sha256": "5d55e047ab9a88e54aae67d417205b6671e2e52e71875a8d9e243abf056f6fa2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N3 全模 (南一)/全國公私立109學科第三次模擬考試-國寫.pdf",
+          "bytes": 548607,
+          "sha256": "bbef9d1c208783514c18092f34010dd286e29d096ce99bec0b8bf1e19059da59"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N3 全模 (南一)/全國公私立109學科第三次模擬考試-國文.pdf",
+          "bytes": 2791667,
+          "sha256": "a75976f03518831d80e054c8980e740da026f65264ac9174b9f3be939b526d1f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N3 全模 (翰林)/109第三次全模-國寫.pdf",
+          "bytes": 662149,
+          "sha256": "05b2f5cd5183d3415a4fd86b9c4b538285f15f40b9901af618881482851d8e65"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N3 全模 (翰林)/109第三次全模-國寫解答.pdf",
+          "bytes": 864669,
+          "sha256": "50dd7f972ab10b1e8b487cfb5961e174188f3c4dab3f52e455be274c83e51dd3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N3 全模 (翰林)/109第三次全模-國文.pdf",
+          "bytes": 4628919,
+          "sha256": "be61f6bc08b9d45b2abd8efb29004f0ce1dceb081a418921b9b3f4d84c544540"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/109-N3 全模 (翰林)/109第三次全模-國文解答.pdf",
+          "bytes": 2122148,
+          "sha256": "eade65675acb66daba92c7b535eaa8cc6f32a416d71844622eb97a9a42651ed0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-B1 北模/110學年-B1北模國寫.pdf",
+          "bytes": 359456,
+          "sha256": "e203dd987125690ef31ef55f6f817e220bff3d9aa7c6e2fe100052ed969b5268"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-B1 北模/110學年-B1北模國文.pdf",
+          "bytes": 1349982,
+          "sha256": "c5d59959fcb0f1750d5243ce9c9c060744148180f2a505f37a550c79836d9b65"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-B2 北模/110學年-B2北模國寫 詳解.pdf",
+          "bytes": 284935,
+          "sha256": "3993a2d36aac12354b30a68c3d3cac27d0070d939f10b811f992f1c13a48c80e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-B2 北模/110學年-B2北模國寫.pdf",
+          "bytes": 1606909,
+          "sha256": "a42459f562afd1fd5fa38afb8a80bb023fa13ac464a85d0891cbcc7d0f2e5bdb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-B2 北模/110學年-B2北模國文 詳解.pdf",
+          "bytes": 1159367,
+          "sha256": "8af22c4078fc4e5348e5d9ffdf397fe851e3dac827697c39f4c53026fb7dfc99"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-B2 北模/110學年-B2北模國文.pdf",
+          "bytes": 11643489,
+          "sha256": "176a3953515f1eb1bdf2431eb849e31e945c2bc019a810e4533b02eb27953bb1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-C1 中模/110學年中區模擬考-國寫含解答.pdf",
+          "bytes": 527374,
+          "sha256": "2c2cd01a7e9ed7b3ef2edec180e679959e8137fd4f50db4b179eca340312f4f4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-C1 中模/110學年中區模擬考-國文科含解答.pdf",
+          "bytes": 2246328,
+          "sha256": "110b15b197fd366d7324b4e8e501c256805ace23a7c0b012a6b37d75333741c4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-N2 全模 (南一)/110上高中第二次全模南一版-國文.pdf",
+          "bytes": 8171953,
+          "sha256": "c137891546f7852d395b1a0782bd926b71be2cfcd80cecd52ba92a967d6b030a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-N2 全模 (南一)/110上高中第二次全模南一版-國文寫作.pdf",
+          "bytes": 1544457,
+          "sha256": "e2beeec60665a610ecc61e46f45786565cd027f6864c25178826790c06938d86"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-國語文寫作.pdf",
+          "bytes": 274646,
+          "sha256": "89e7841902f42f1bdf74924719777680732b9ecca17e5076acdf1d393d25d10f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-國語文寫作解析.pdf",
+          "bytes": 154275,
+          "sha256": "961e7123244a6296b7e4beb51e191b031fc60b5ea38c44d6ca6974c730a4e67f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-N3 全模 (翰林)/國寫第三次-新竹區.pdf",
+          "bytes": 959299,
+          "sha256": "62fe1b8fc7f876c8c0b626a381bee9408f66d2af983a020d750285dcdaf61126"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-N3 全模 (翰林)/國綜第三次-新竹區.pdf",
+          "bytes": 5441142,
+          "sha256": "8371679678af2e5b8ca6978438cecde6db6d795aedbcd76d03083307e13224f9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/110-N4 全模 (南一)/110-1_學測模考_南一第4次_國文附答.pdf",
+          "bytes": 10270102,
+          "sha256": "627ec82e6baef8f2909da9dce8ceb1fb837aec892d1845f86441066222bfe8fc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-B1 北模/111北區第一次能力測驗模考國文.pdf",
+          "bytes": 1972533,
+          "sha256": "f99bb0642da39ffdb3d27f28fb0efa71329615a6050a5441789b4f473f683131"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-B1 北模/111北區第一次能力測驗模考國文寫作.pdf",
+          "bytes": 388192,
+          "sha256": "bf1bca2717bf82c0a91f3d1d2545f0abdb4e49f7a37096792d5855a652d8b500"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-B2 北模/111學年B2_北市模擬考-國文科.pdf",
+          "bytes": 1329449,
+          "sha256": "e28892f44af1f02224b43f99f3c735d424cc642451d6944d47c527bedf228eda"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-B2 北模/111學年B2_北市模擬考-國文科_國寫.pdf",
+          "bytes": 199120,
+          "sha256": "098450d805c244e1219e72a1e3074b60620ac634427531ed5dd8d31bd579fc91"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-B2 北模/111學年B2_北市模擬考-國文科_國寫_詳解.pdf",
+          "bytes": 305203,
+          "sha256": "23012a7a552aa8fbbf22ee8ac523e44cc048cf74ecc102db9f6cad3071eeeeac"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-B2 北模/111學年B2_北市模擬考-國文科_詳解.pdf",
+          "bytes": 852594,
+          "sha256": "5398a2d497e9d7aa60d80a4fbad51d7e7880b4aca69d5fc02d936e461818c9e4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N1 全模 (南一)/111-N1 國寫 試題.pdf",
+          "bytes": 1501811,
+          "sha256": "ff78175f455eed7356ef8d864a0cd8ff49ea8c73324e81a114e9ce79abf94670"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N1 全模 (南一)/111-N1 國綜 試題.pdf",
+          "bytes": 30077810,
+          "sha256": "dbebb4ab44d5d5dc5fa2b9411d317da7cc8ff1095ee0bc574eadaca2c0fe17a7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N1 全模 (南一)/111-N1 國綜 詳解.pdf",
+          "bytes": 4169556,
+          "sha256": "1b23cd31d49b7aea810ecf01b318eb72f824e857b58431885fbc880c2c96e453"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N1 全模 (翰林)/E1國綜.pdf",
+          "bytes": 9338245,
+          "sha256": "8f9fd49686d548d3937e573805922010476abde3e073e7f78d11392f05892267"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N1 全模 (翰林)/E1國語文寫作能力測驗.pdf",
+          "bytes": 1989474,
+          "sha256": "9099968091342e2ff4ebbe329c99ee19b35c40e44abc4060f6680a508668a01e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N1 全模 (翰林)/E1國語文寫作能力測驗詳解.pdf",
+          "bytes": 216872,
+          "sha256": "45faa62df9f1955cda811475f5b0e4925a0ba7d6c00a24149ac5640e1ce3c7da"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N2 全模 (南一)/111-N2 國寫 (含詳解).pdf",
+          "bytes": 2657700,
+          "sha256": "a9ef7d594666460f0889ef92c970a0e61b9bbf19a021c3a781315b494e4d05ca"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N2 全模 (南一)/111-N2 國綜 (含詳解).pdf",
+          "bytes": 10465924,
+          "sha256": "a0998908e2eaa9430469a1fb1cd1977003760626fa5ed6bfc9b910b69982fc5f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N2 全模 (文昌版缺社會及有字跡文稿)/文昌國文模考.pdf",
+          "bytes": 24384970,
+          "sha256": "a48480e6937c72eea6631020746257293dd13fd8b760567061c8af4856a01fe2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N2 全模 (文昌版缺社會及有字跡文稿)/文昌國文詳解.pdf",
+          "bytes": 14856002,
+          "sha256": "6def3a79ed7d43d544f69f2383dc63b35489bb883b9d758507b7256a5dff9b52"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N2 全模 (翰林)/國寫.pdf",
+          "bytes": 565684,
+          "sha256": "b531104d397bb6041f34bda209b08e2dd60100f8d0c65087c95ea93a61cf872f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N2 全模 (翰林)/國綜.pdf",
+          "bytes": 2490333,
+          "sha256": "e21cef2ea3d337c514eace258d3afd00fe71f1ee86f4917fcd10db93ae9a3c89"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (南一)/111-N3 國寫 試題.pdf",
+          "bytes": 494167,
+          "sha256": "1c8eeac3496f85464f9f46f77a68daee9d7549c191c1af1c0a7ee6d45664ed1c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (南一)/111-N3 國寫 詳解.pdf",
+          "bytes": 306428,
+          "sha256": "de04acbea04c56f3c23004274236cf6ec89d6a2c247e2b474f0746be9ffac463"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (南一)/111-N3 國綜 試題.pdf",
+          "bytes": 1373917,
+          "sha256": "55e63a436e42aa4e0d1ced43e35fe4769648e1824012d274a6979ea2ab0ab126"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (南一)/111-N3 國綜 詳解.pdf",
+          "bytes": 653290,
+          "sha256": "f30630f85c0321e9639430312b2ec7bc8847493fc7a4bc437c224f4dfbd741e1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (南一)/111學年度南一第三次模考國寫考科暨答案.pdf",
+          "bytes": 2630920,
+          "sha256": "98bee5665f7e097edb003c120599123693c15d40bac8ada2ef94e3f92f6c773d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (南一)/111學年度南一第三次模考國文考科暨答案.pdf",
+          "bytes": 1698597,
+          "sha256": "da893b8c733b23292c04c15a7c65a690a8ab2df4aebeb7b3599bd2ab31ae44a1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-國文科_國寫.pdf",
+          "bytes": 628759,
+          "sha256": "e49e2f350c9bc7dd119f1c0688485ac725fd06a4178bc85c9fb53996c8bafc9f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-國文科_國寫_詳解.pdf",
+          "bytes": 1328060,
+          "sha256": "3669fa37412103a77cbc247250bfa157810c4e0b61cb8000c46c7a7e517e8a29"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-國文科_詳解.pdf",
+          "bytes": 3190533,
+          "sha256": "04c04fdf31dfcf9cc431c9c9c26b7b93da274613def94500e3b2d7eff70e7a5a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N3 全模 (翰林)/111學年E3全國模擬考-國文科.pdf",
+          "bytes": 9705519,
+          "sha256": "a060d15fe2cecafe48491a74d156fde7c278610c37e9a53fea621352ca989a00"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-國寫測驗.pdf",
+          "bytes": 461077,
+          "sha256": "464c082002b4c38e97b97037a3d0aa0452e18a886d492baf5e955da859e25118"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-國綜考科.pdf",
+          "bytes": 2192342,
+          "sha256": "efe57d1ae2c0ffb52c96f1833c026c504e1b645161d726f3f33505896e7d3196"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (南一)/111-N4 國寫 試題.pdf",
+          "bytes": 519232,
+          "sha256": "2a628579e69893d9100c0b0cbe4eef915e4327cb306558ffc8b100da55159769"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (南一)/111-N4 國寫 詳解.pdf",
+          "bytes": 291179,
+          "sha256": "248fedde5ff2608d4307d03bb67390d68e7b846de4dc183dc6b052b2aca85bdf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (南一)/111-N4 國綜 試題.pdf",
+          "bytes": 1521134,
+          "sha256": "2b233121d52220a7529111c09263c4438b341f53262276007766f045e6617236"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (南一)/111-N4 國綜 詳解.pdf",
+          "bytes": 586036,
+          "sha256": "9868705bf9732be4fc7d80d0ed07b458b05e4f7a35ebc771a3bd26a3e588b382"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-國文科.pdf",
+          "bytes": 1454440,
+          "sha256": "8edfcc40f51e358d67d5161fc0bc08e6dd2a61ae9d7df9e3d63a824badd3743a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-國文科_詳解.pdf",
+          "bytes": 1021569,
+          "sha256": "bcb1a25e221ffa50c8ece0fdd296a2ea7f8218529b9a2de7bf522b4d69c07874"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (翰林)/111新北基學測模考一五冊國寫解析卷.pdf",
+          "bytes": 1032712,
+          "sha256": "b7a2d54824e8dad1c10c275438f3060faaec53f39a21ee327d7f95a5331c0182"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-N4 全模 (翰林)/111新北基學測模考一五冊國寫題目卷.pdf",
+          "bytes": 1073883,
+          "sha256": "65545205ba7c9416f7760987140155a23cf9fc6659768872d719d7bfd0839b17"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-W6 全模 (文昌)/111-W6 國寫 (含詳解).pdf",
+          "bytes": 2045136,
+          "sha256": "ef2bb4a95f21e3b4eef927cd5bafce174e486f1947ee1da0a645d462af8a6fb3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/111-W6 全模 (文昌)/111-W6 國綜 (含詳解).pdf",
+          "bytes": 10810906,
+          "sha256": "d6c226c5ca20912a408bb9f294d615578178f9ce19ccea4318b757eb4d04c0c5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-N2 全模 (南一)/112-N2 國寫 (含詳解).pdf",
+          "bytes": 2097197,
+          "sha256": "ebb91904a5099fb7e5a44a6824b4721281fdd0ef56479cf8201ef62c9bae0421"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-N2 全模 (南一)/112-N2 國綜 (含詳解).pdf",
+          "bytes": 7633629,
+          "sha256": "4579bb821864caebbf9437d70fd6c91d2e51645a16b6ef7ee388af9348a1d400"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-N3 全模 (南一)/112-N3 國寫 (含詳解).pdf",
+          "bytes": 2546930,
+          "sha256": "024a1fae0970ecb077b7aa8f7e3124621e38f62836eda8aa6228d2324cabcd29"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-N3 全模 (南一)/112-N3 國綜 (含詳解).pdf",
+          "bytes": 12362202,
+          "sha256": "bb9b4115ad99af03123ea2323b8aefbf2c8bf83a2c1333362c66973a98245654"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-N4 全模 (南一)/112-N4 國寫 (含詳解).pdf",
+          "bytes": 500628,
+          "sha256": "ec109fcb494b76b5ce573ac804bea6ae22bf4243f7eb06c612be40caa7849455"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-N4 全模 (南一)/112-N4 國綜 (含詳解).pdf",
+          "bytes": 2175753,
+          "sha256": "a28f5001f70008a8d79328be6db977f0fda91a14279e4c25b2587f4831e15930"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-N4 全模 (南一)/112-N4 國綜考科解析補充版.pdf",
+          "bytes": 679672,
+          "sha256": "4e945ac65a95f3b69880f9723768c9ed25f9a4fd0acffe882e99379e4fa96848"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-W1 全模 (文昌)/112-W1 國寫 試題.pdf",
+          "bytes": 204383,
+          "sha256": "02278f529c281565ba21117a67bec4aadde907a7b6a28b7eafd6521a88c4896f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-W1 全模 (文昌)/112-W1 國寫 詳解.pdf",
+          "bytes": 93638,
+          "sha256": "9fe9536883d5bf1ba080ca1dc4face5a4042f423883559f525234bcd523ee030"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-W1 全模 (文昌)/112-W1 國綜 試題.pdf",
+          "bytes": 999632,
+          "sha256": "6e4bb0bd005afc0ca9563fc2f65652af94c01066801fa5ac5a7410e58f3923b9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/112-W1 全模 (文昌)/112-W1 國綜 詳解.pdf",
+          "bytes": 566959,
+          "sha256": "95677e071843047119a1a3eb6e0e83303602e2c5b87715979515008a49a15364"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E1 全模 (翰林)/113-E1 國寫 試題.pdf",
+          "bytes": 649680,
+          "sha256": "67527176b85bcaac2dd6f94c88e671442e5414cdc1328a83232d6f2e44c12859"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E1 全模 (翰林)/113-E1 國寫 詳解.pdf",
+          "bytes": 303194,
+          "sha256": "d5f9ed5e1ba5f16cfccf78b9f4a7e40948ca0d9bec909cc6c0cdc80662ad4922"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E1 全模 (翰林)/113-E1_國綜.pdf",
+          "bytes": 8211737,
+          "sha256": "0f046d78f80795cb536c2f72d99966077d457570d299aac533fb15f51a027191"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E1 全模 (翰林)/113-E1_國綜_參考解答暨詳解.pdf",
+          "bytes": 877051,
+          "sha256": "7b842f911fdf1b8226e72b3d7916a5248711a27c1a0930ce6a42f1e86d7b4197"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E2 北模 (翰林)/113-E2 國寫 試題.pdf",
+          "bytes": 4132022,
+          "sha256": "7b0c04553d48c59a6f4a067137d4809a5b30008f96c4f237d71f9dc71ed1217d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E2 北模 (翰林)/113-E2 國寫 詳解.pdf",
+          "bytes": 3865999,
+          "sha256": "8a50855b5882e39d0f1ed12453d181a98d95be9dee1ca8f111fa660b62e90f58"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E2 北模 (翰林)/113-E2 國綜 試題.pdf",
+          "bytes": 20620170,
+          "sha256": "a8e2c3d5f6d94eabf71708fc1032b28d9303af4fe2d9108fcbc310e53840a832"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E2 北模 (翰林)/113-E2 國綜 詳解.pdf",
+          "bytes": 12649279,
+          "sha256": "9c767af3e43ac6bd832d88a14e213cd62dd1ad875c5bdb701f56179a48d2002a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E3 北模 (翰林)/答案/國綜-解答.pdf",
+          "bytes": 12445841,
+          "sha256": "556317e099e94a4c577fd847dff37e44b0545061962906c9a676a52f0d26d355"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E3 北模 (翰林)/題本/國寫.pdf",
+          "bytes": 4516395,
+          "sha256": "93515c8f85a9d5e0f7debd1ca617a8f6d5981cfaceeaa3a8d216d7d9bc270387"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E3 北模 (翰林)/題本/國綜.pdf",
+          "bytes": 25153578,
+          "sha256": "d21b1ca90d4ed10398c192f63281a406f89959bb83c2721c1fa86485ff62478d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E4 北模 (翰林)/113-E4 國寫 試題.pdf",
+          "bytes": 3121242,
+          "sha256": "59dcbe431e9c51f56ad91b79ad8c0d02dfd44ec3497a55cf4ffbe9fd2cfc9dc1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E4 北模 (翰林)/113-E4 國寫 詳解.pdf",
+          "bytes": 4421499,
+          "sha256": "780348c374efacc2fbeec58507d03151e033cec02588a7fa080269e4c910476c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E4 北模 (翰林)/113-E4 國綜 試題.pdf",
+          "bytes": 22267774,
+          "sha256": "cbe00525d2a62b9fb0728142636f9626be26fab1e73d1011d8ac79173bff3508"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-E4 北模 (翰林)/113-E4 國綜 詳解.pdf",
+          "bytes": 13616875,
+          "sha256": "cbc09c61b29f20d46ae1bca2584d012bf104cb4178788045189891bfad070a61"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-N1 全模 (南一)/113-N1_國寫.pdf",
+          "bytes": 394998,
+          "sha256": "456695e08c75427e761ce8c3cc30dae81786ebf9eb5db2d21680e8a3764a65b1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-N1 全模 (南一)/113-N1_國綜.pdf",
+          "bytes": 1449192,
+          "sha256": "a58e9214d7b5ea444010fc3518c7a1f34e7477bc335e8c84996f53f0386f0af7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-N2 全模 (南一)/113-N2_國寫（含解答）.pdf",
+          "bytes": 3750470,
+          "sha256": "e58579212f42d2c43b8981fe4bd6633bf43b1540e3b0e0899096978afe462d01"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-N2 全模 (南一)/113-N2_國綜（含解答）.pdf",
+          "bytes": 9581950,
+          "sha256": "f62f22630e9d98009f5afe69e3493c43e9d5a1156010e9db5ec60e7223a220b0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-N3 全模 (南一)/113全國公私立第三次模考-國寫.pdf",
+          "bytes": 1665438,
+          "sha256": "03290cf043117b59af0362e909762cb33f6dec855f6da7355110dc6ab7f23bcb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-N3 全模 (南一)/113全國公私立第三次模考-國綜.pdf",
+          "bytes": 8402915,
+          "sha256": "f6eb257ea21937fc074427a0e66d4a18ef54c594db8fbafed25c7d3e0f02314e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-N4 全模 (南一)/113-N4 國寫.pdf",
+          "bytes": 1789421,
+          "sha256": "9021f3e7929553c1c8d36497ecf8410731fcc801b0342702a5b9c6b2115857e8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/113-N4 全模 (南一)/113-N4 國綜.pdf",
+          "bytes": 11727929,
+          "sha256": "600413945cd4fdf723f18ccee3e71efa4ee24ffd88b4fa2a42368534848cc280"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E1 全模 (翰林)/國文/114E1國寫-解答.pdf",
+          "bytes": 507829,
+          "sha256": "0d4db9dd0a3a6754145231078ecf60ffe80e5959542da12b3b660402a897fa8b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E1 全模 (翰林)/國文/114E1國寫-題目.pdf",
+          "bytes": 426271,
+          "sha256": "92aaa2f2881a6f007a0b71ee8f2304ede82d2032a6bef94321bf858047ad7970"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E1 全模 (翰林)/國文/114E1國文科-解答.pdf",
+          "bytes": 1062157,
+          "sha256": "6dacdcc214c031420a8b64d40ff1995df2eb9bf9e05f81788f37a6717f45a26c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E1 全模 (翰林)/國文/114E1國文科-題目.pdf",
+          "bytes": 2338646,
+          "sha256": "8328e0e9cb7dae93f1bcfad00654c572a99c9d3a8dd5dbb565cd4ef1342ea9b3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E2 北模 (翰林)/國寫/114E2國寫-解答.pdf",
+          "bytes": 566831,
+          "sha256": "bf3e8542c12c5b34351882f34954acd902117b74bc241ed1ca6fa42ae978fee7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E2 北模 (翰林)/國寫/114E2國寫-題目.pdf",
+          "bytes": 454451,
+          "sha256": "044c3844957c4c741db6eb9463426ff8d36d9cb63d0ba5253de4bfef47db0919"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E2 北模 (翰林)/國文/114E2國文科-解答.pdf",
+          "bytes": 1056785,
+          "sha256": "e49f8ae0ac92d38e455674eb2ed85d980a07f252ffc326136faa015449e302b1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E2 北模 (翰林)/國文/114E2國文科-題目.pdf",
+          "bytes": 1791090,
+          "sha256": "a569482da64932af803afcd5e60cdcb7ee7131e3d248c5903e0da4fa7c37a55d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E3 北模 (翰林)/國寫/114E3國寫_解答.pdf",
+          "bytes": 557112,
+          "sha256": "2abd684a102c8809f1db879c236191ebc108ffe7fdc4a79e3eaf186cb7a46563"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E3 北模 (翰林)/國寫/114E3國寫_題目.pdf",
+          "bytes": 429496,
+          "sha256": "c78e2541c0fd00ab18a19e7c4a68ba37d4313018b63501192fa97e64620b2e8b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E3 北模 (翰林)/國文/114E3國文科-題目.pdf",
+          "bytes": 2017056,
+          "sha256": "ea376542afce7912af5c8086ae716c6206fffe689aa90ae2b9b4c02b6aafbd2d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E3 北模 (翰林)/國文/114E3國文科_解答.pdf",
+          "bytes": 1068994,
+          "sha256": "99737fa8d5dab2ad1505d9c83a2144fe9bbcb82a9218ccb9e81d43b6b4dccf6c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E4 北模 (翰林)/國寫/114學科能力測驗模擬考試-國寫(第4次)-解答.pdf",
+          "bytes": 571036,
+          "sha256": "1c35eea5147b9c1321f666e20ed9adcafa6b63da0f080ac2f9380f20668e2830"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E4 北模 (翰林)/國寫/114學科能力測驗模擬考試-國寫(第4次).pdf",
+          "bytes": 425901,
+          "sha256": "92f5cece3e3c35900c9bcae7cb76fe24e749d01659e0a2f5132f64518530a2c4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E4 北模 (翰林)/國文/114-E4 國文解析.pdf",
+          "bytes": 1236296,
+          "sha256": "30816fd041972e306c006953881ff347aa14dc369d8d74f446eee80827d1eda1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-E4 北模 (翰林)/國文/114-E4 國文試題.pdf",
+          "bytes": 692877,
+          "sha256": "966eca1b95e8096421bf200dfa9d1f9222ba86a8dff18d0201d5edd1f267acc3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-N1 全模 (南一)/國寫（含解答）.pdf",
+          "bytes": 1319522,
+          "sha256": "04d388c4989edd930d343d804d657ebc1e5261ad4dae392d24f93070ea905bfe"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-N1 全模 (南一)/國綜（含解答）.pdf",
+          "bytes": 6892050,
+          "sha256": "0e2172d79a00a110d3c51a588bb595910996c03ef8cab87b1a8794ec8e721768"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-N2 全模 (南一)/國寫.pdf",
+          "bytes": 1204174,
+          "sha256": "20d5babdb74aaaeea9da0cb424263b537f79ba6257007dfe9d2c07952cc85778"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-N2 全模 (南一)/國綜.pdf",
+          "bytes": 8569835,
+          "sha256": "6256f0f7fb95391f2da85cc994acec3e8b9426b1087483e9f9bbeb2a2cab3070"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-N3 全模 (南一)/國寫（含詳解）.pdf",
+          "bytes": 1796927,
+          "sha256": "6234dac4246bc740d0fcd548ef0bbe059a916044276707975187e1e376415e6b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-N3 全模 (南一)/國綜（含詳解）.pdf",
+          "bytes": 9228901,
+          "sha256": "43f0bfdf9ea426221a95fc5068d02b8d5a51190f1b92ae3146d36b42064cee65"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/114-N4 全模 (南一)/國綜 (含詳解).pdf",
+          "bytes": 6633227,
+          "sha256": "87fbb4131976773be5fad2bc3d2c769da70a20dc71492a9d8eb060eb9e2b8fa1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E1 全模 (翰林)/115-E1 國寫解析.pdf",
+          "bytes": 580290,
+          "sha256": "2abe168f0de7f3f390c6d54c09c81c47cf9e7aeee4c0c5ca8b429de7f0b0bdeb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E1 全模 (翰林)/115-E1 國寫試題.pdf",
+          "bytes": 735247,
+          "sha256": "0a083c4c9713fb63854acfc2e7ee2f8040397301b46fce7543cdafff11b02321"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E1 全模 (翰林)/115-E1 國文試題.pdf",
+          "bytes": 1723171,
+          "sha256": "16a3884fb22dce7d79f28a36a811c10a5dd46bae2431713a7eac74df812fde1d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E1 全模 (翰林)/115-E1 國綜解析.pdf",
+          "bytes": 1125918,
+          "sha256": "63739aa8ba065131a2dc24cf46ad02c1c017f059e6ccb6a823111819e3d327e1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/115E2國寫-解答.pdf",
+          "bytes": 582691,
+          "sha256": "bbb40126b2ba2bf5f1f2e5bd63581f202c9fa0bef4f96c044d5e6d5041ddb906"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/115E2國寫-題目.pdf",
+          "bytes": 460930,
+          "sha256": "b1ec43096218b9c0e7f0ccfde23ee00d7659267ce0892c3d672e3f5567e10160"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/115E2國綜-解答.pdf",
+          "bytes": 1098341,
+          "sha256": "abd6dcae65f2f93257cfe6c8cbf2e567e4ede63ade702cb7ea8616bcb07a6b86"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/115E2國綜-題目.pdf",
+          "bytes": 3483758,
+          "sha256": "96e6199dd3427bf0a4fc6a99404074e623a677e82c402bea62985c3282c70665"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/國文詳解/IMG_20260902_182214_115.jpg",
+          "bytes": 191911,
+          "sha256": "35660061fe1d257893092cca0b05035f7ac97ba6db28e4286adc2476190992c6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/國文詳解/IMG_20260902_182216_056.jpg",
+          "bytes": 189072,
+          "sha256": "7ff92857b8c4596ff0cc4978fb0e0d3b641157bb46355526450ee19430fabffd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/國文詳解/IMG_20260902_182222_811.jpg",
+          "bytes": 195244,
+          "sha256": "ecafed0cc16008f014f4c1dbfdce028309fdf3a13c1e9e09618da031a13e377d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/國文詳解/IMG_20260902_182225_692.jpg",
+          "bytes": 202045,
+          "sha256": "3db05f1178af5479d6c5359efa9dc283f4cbb4c8985c4b4cdfbd31bf35ad870a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/國文詳解/IMG_20260902_182228_871.jpg",
+          "bytes": 171145,
+          "sha256": "d1cf4905fd7873db6f41d856d645219d5990256b38f5072bf68dcc5eb479bb8d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-E2 北模 (翰林)/國文詳解/IMG_20260902_182242_864.jpg",
+          "bytes": 74192,
+          "sha256": "7b3397b5a73c4c1d65b95922520fb65c3b5ab330aee471f7b842da983830604a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-N1 全模 (南一)/115-N1 國寫試題-解析.pdf",
+          "bytes": 1956048,
+          "sha256": "1855089dccf660c43a7bbf7e1b0bc28f88b5dc24a33d990993aca7f07af47d7d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/模擬考/115-N1 全模 (南一)/115-N1 國綜試題-解析.pdf",
+          "bytes": 10246003,
+          "sha256": "da8d14c8b2c934cbb26ee9e27e8c4395351667f5a8ce1dcd331e8129df3cb702"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/100/01-100學測國文試卷定稿.pdf",
+          "bytes": 445038,
+          "sha256": "20c470a7c604f71c48c67367d39040992d67f6ee3c3ae612247a31797460829c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/100/100學測國文參考答案定稿.pdf",
+          "bytes": 43529,
+          "sha256": "3aeaef18a4e31ea1b66921e757475c5e2d2fdec1a9d349060ae690e54e70461c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/101/01-101學測國文答案定稿0.pdf",
+          "bytes": 55225,
+          "sha256": "6d1de5fb62e0f18cb2faa9d347cf90716026e50e799a13a523682ea4241b9c45"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/101/01-101學測國文試卷定稿.pdf",
+          "bytes": 500969,
+          "sha256": "7314308e78e161942ebed32265d294c67b8a40456eb1e05e43e7ad99be57f403"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/102/01-102學測國文定稿.pdf",
+          "bytes": 756501,
+          "sha256": "6e8747efdfe86f359856627d59d8d2a855646eef9f80fd7e3fcfc76b10012c26"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/102/01-102學測國文答案.pdf",
+          "bytes": 33360,
+          "sha256": "c2cec5018994b47c4dec56276a1b581bccf5f6cf3c55437c46623b4a0a7f1279"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/102/102學測國文非選擇題評分原則.pdf",
+          "bytes": 103463,
+          "sha256": "d3a30e723029fa0e4a737c9a9dc5885c7a274edae75df7eda4ea3c869e918757"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/103/01-103學測國文試題(定稿).pdf",
+          "bytes": 835438,
+          "sha256": "a754c86b9b9064e0441198e02fc406d109698bd7cf013f9442f6ab690c09b2a5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/103/01-103學測國文選擇題答案.pdf",
+          "bytes": 29178,
+          "sha256": "43a02a83fdf9b2ba188e31708e39f7d6cde6b354e1086d48b4e6f27a4e78992d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/103/103學年度學科能力測驗國文考科非選擇題閱卷記者稿.pdf",
+          "bytes": 97318,
+          "sha256": "b1ebcf36e4ca0e79b37420fe7efeb5a06658107e346b6ff3681d29a0cb05830f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/104/01-104學測國文定稿.pdf",
+          "bytes": 862526,
+          "sha256": "4bbf9c42c76d355328b38b220ed21d98abd2d2e6be0826b396b1bad6b3626478"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/104/01-104學測國文選擇題答案.pdf",
+          "bytes": 213928,
+          "sha256": "f1c036b85cfcb0f8a29cf48d069c681db4c3ff7592e7a311f80d5c3cf4d1034a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/104/104學年度學科能力測驗國文考科非選擇題閱卷評分.pdf",
+          "bytes": 173491,
+          "sha256": "cf610e65203c62337878be671b37f24d4231c4003741535833cafe814d07c8b6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/105/01-105學測國文科定稿.pdf",
+          "bytes": 952948,
+          "sha256": "7cefd76168357fc2f981b2f503facb4a3b395c293f0f3e7e81a9fa16d9cd1418"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/105/01-105學測國文答案.pdf",
+          "bytes": 58120,
+          "sha256": "f04669384fd578cd089cfc558e526960db1073d6803b46fae8104f93868f0995"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/105/105學年度學科能力測驗國文考科非選擇題閱卷評分.pdf",
+          "bytes": 91808,
+          "sha256": "93deddebdc9a3ce71f843742234f3aa9f75109c18e49610446bff120900f2cfa"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/106/01-106學測國文試卷定稿.pdf",
+          "bytes": 794566,
+          "sha256": "3f926bbe360a9fe379bf0c23f8be7623351e043a50370ffa1f56829cc6c47e52"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/106/01-106學測國文選擇題答案.pdf",
+          "bytes": 57977,
+          "sha256": "87402ce103737210c1e811d1cd3931c034d32a7d3e3665ff140f2bb0d0231a1d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/106/106學測國文非選擇題_5c卷評分原則說明.pdf",
+          "bytes": 83142,
+          "sha256": "1a726eff46a3e4d54791204cb464b05ab6f7920d374c3d73efd26d2eb9e94e2f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/107/01-107學測國文(選擇題)答案.pdf",
+          "bytes": 163652,
+          "sha256": "ddfa3f2c68f4610a1fc3523466a8d3af51b6b70034a29919b820deca45d73acc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/107/01-107學測國文定稿.pdf",
+          "bytes": 1005295,
+          "sha256": "dba03ced68f20ddd5f2b416f25625c6918871af0a56611d05b347d8023d7e343"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/107/06-107學測國語文寫作能力測驗試卷定稿.pdf",
+          "bytes": 288294,
+          "sha256": "406613a49fb3fd2a49478cc02073b7295a19262bc450c6b38f702b3183422801"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/107/107學年度學科能力測驗國寫非選擇題閱卷評分原則說明.pdf",
+          "bytes": 75177,
+          "sha256": "a3ea648aed476f14e311b197ccfeec4748a1b39776a6e588522888a647dc8ccf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/108/01-108學測國寫試卷定稿.pdf",
+          "bytes": 246572,
+          "sha256": "674a0345cd3d03053b04b7d13cb5a00686db89754df2bf6cb252a71646605666"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/108/01-108學測國文(選擇題)試卷定稿.pdf",
+          "bytes": 1194871,
+          "sha256": "f73ae8c0171217e0c6550d1e4d291d02f21b51f5a930ba38c4a08bac5e652fde"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/108/01-108學測國文選擇題答案.pdf",
+          "bytes": 184535,
+          "sha256": "fa2bd9fb4a0bb409e9f1c2ad7e92bfc8ad56a2a21adcdfc28bd5eb0a9d0fd6f4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/108/108學測國語文寫作能力測驗評分原則說明.pdf",
+          "bytes": 84266,
+          "sha256": "755bc743d8268c5302dc99262c748d87b3d91de50aa6b1e945bcfc9ecbc5aa32"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/109/01-109學測國文(選擇題)試卷定稿.pdf",
+          "bytes": 1233029,
+          "sha256": "2cd7db89c658ec8473befa5c2c83cfd616778eea3733c6336511b1815997ca6e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/109/01-109學測國文答案.pdf",
+          "bytes": 160807,
+          "sha256": "efd8acf78df549cd9c6b4c90dcfa3c6bc5dcbfe238c4ea87cfb4761f935303d7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/109/06-109學年度學科能力測驗國語文寫作能力測驗閱卷評分原則說明修(定稿).pdf",
+          "bytes": 83191,
+          "sha256": "388244046e067856d902daf0d9f4939a6ae1287de6168a2c580d8f40c8434c8d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/109/109學測國寫-定稿.pdf",
+          "bytes": 313152,
+          "sha256": "01ef380cd0936305ae1ba1caf7c318be94e37f72995b94a4fe740237db8b05c2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/110/110學年度學科能力測驗國語文寫作能力測驗閱卷評分原則說明.pdf",
+          "bytes": 74709,
+          "sha256": "3dc470f419c5f08def445924c1fe3d64828878693e158bb6d1b294c89d3a80a5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/110/110學測國寫試卷.pdf",
+          "bytes": 329912,
+          "sha256": "3483fc5475ac34c97dcfeed9433dd6d48618097d25d3b6adc23c283cdf94e528"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/110/110學測國文答案.pdf",
+          "bytes": 184608,
+          "sha256": "9e366a2c9177cd80a2d3bcfc63abbf99fa252ebb24246e7804e7ca9284e5a59b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/110/110學測國文試卷.pdf",
+          "bytes": 1197544,
+          "sha256": "02ea4a85cbf5fbc2240d451e765faa6a65b897748077a54546f1e1b7a1bec620"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-1-111學測國綜試卷.pdf",
+          "bytes": 1168388,
+          "sha256": "b798418f7d09ffe0ee529bfa1fd6a6568b25105deb0b23101a8a40698506d1e6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國寫非選擇題評分原則.pdf",
+          "bytes": 418594,
+          "sha256": "68346af367a89dcf099ff3afce58250b1e37e2f762326256ba559f3f6050d230"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國綜非選擇題評分原則.pdf",
+          "bytes": 178393,
+          "sha256": "f8862038d3b0031c37e85f780b9502955955b5c47ef058fe955b80d7c5c33502"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國語文綜合能力測驗選擇題答案.pdf",
+          "bytes": 95032,
+          "sha256": "2510fe51e3130ef6b259635e5814acd6ebc7af3e30d7346a9521fd3cfe3a63dd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-2-111學測國寫試卷定稿.pdf",
+          "bytes": 409449,
+          "sha256": "081dd1d6e95eb051c6329e55c3e79bb9493c39de8246736ff31f8ecde499aa8d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-1-112學測國文(國綜)試卷.pdf",
+          "bytes": 966033,
+          "sha256": "b5a3cef4fe9de7fab6195c02655bd2ae452a4215375e9b7a85ab5a10707dcb46"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-112學測國綜非選擇題參考答案與評分原則.pdf",
+          "bytes": 181923,
+          "sha256": "64d6835f465ab74c5922cc6a698097ef351d739d83f102e84dae0b78700a5ddb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-112學測國語文綜合能力測驗選擇題答案.pdf",
+          "bytes": 96169,
+          "sha256": "97d6766a70a457c364bec496bc693589890000cd9e5bf799df4a46d6bbe3a672"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-2-112學測國文(國寫)試卷.pdf",
+          "bytes": 204152,
+          "sha256": "10c795009e60ee48206df372d93c8a198c42adf1ec75a8e10b13b6cb673e70c5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/112/02-112學測國寫非選擇題評分原則.pdf",
+          "bytes": 590551,
+          "sha256": "64a0aa933a9a2d3852a2ab7664f11010c95737efdd07856d26c35b2ab55b80dd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+          "bytes": 169043,
+          "sha256": "288457c62440bbedb0184420cd720f6e7bf2d2c40bd08589e92d6a010ab29d3d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國綜試題定稿.pdf",
+          "bytes": 891302,
+          "sha256": "f0a9043fca96e76b4e01cc532a64df58f447a3773f6dae54bdf940cc63229783"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國語文綜合能力測驗答案.pdf",
+          "bytes": 95167,
+          "sha256": "a7f91efc0a38016afb8ef749b981f79e5b63498947b95194a65d02405a30a2f3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/113/02-113學測國文考科(國寫)非選擇題評分原則.pdf",
+          "bytes": 117020,
+          "sha256": "02cde99ccb4d44db097197b1a4fd6f379fe808d1bfed936f20b2a7cd017e64ca"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/113/07-113學測國寫定稿.pdf",
+          "bytes": 200480,
+          "sha256": "afcc3c0fefdd922629563717ec94eaa671356a14a63ef1af130f299dd53ad0f8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜試題.pdf",
+          "bytes": 952241,
+          "sha256": "ad9878a480fb11e6c6a386b42deff9db52481e3a4f30542b94b4895a7388cd02"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜非選擇題參考答案與評分原則.pdf",
+          "bytes": 213617,
+          "sha256": "4f462a4a7e25f7fea584b6fb35388b672a5920dbd7199feb7fc8407270d438d0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國語文綜合能力測驗答案.pdf",
+          "bytes": 95087,
+          "sha256": "214f283160ab61a711349cd6b24643fb79aec20300b4cbf5bb454bcdf03a1c67"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/114/02-114學測國寫閱卷評分原則說明.pdf",
+          "bytes": 246084,
+          "sha256": "35b6ebc2bc9cd9ee69778d171f79f32abcb58df8202801b7a8d7d9c3eab7c71a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/114/07-114學測國寫試題.pdf",
+          "bytes": 187454,
+          "sha256": "c64c36a1cf6d9102edbd93af626c37b801bc3d28f66dcf2e42ff96c7b083ba93"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國綜試卷.pdf",
+          "bytes": 986727,
+          "sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國語文綜合能力測驗答案.pdf",
+          "bytes": 76439,
+          "sha256": "d371d9539c7cb7bce7e51e561bca91af4b3e8199dddcddb67f82fd2607a114f5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/115/07-115學測國寫試卷.pdf",
+          "bytes": 663876,
+          "sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國寫)非選擇題評分原則.pdf",
+          "bytes": 111938,
+          "sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41"
+        },
+        {
+          "path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+          "bytes": 164103,
+          "sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb"
+        }
+      ]
+    },
+    {
+      "id": "english",
+      "asset": "taiwan-exam-gsat-sources-english-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-english-source-corpus-2026.09.11.zip",
+      "archive_bytes": 575128459,
+      "archive_sha256": "60d2b8ac4dc5609ff576b58e6ff22fb042e2b60df7b91887e1f8132650a48434",
+      "file_count": 188,
+      "source_bytes": 575078641,
+      "files": [
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/101-C1 中模/101學年度中模學測試題01-英文考科.pdf",
+          "bytes": 358303,
+          "sha256": "c4d7ff2baa987e04aff0db70edf4c9768097bc1f86622553145fca9ea94874c4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/103-N2 全模/103學年度全國模考試題02-英文.pdf",
+          "bytes": 502290,
+          "sha256": "13da10281cae43e8887ce70940495be5f9013338c6f79493c7e65902249fae9b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/103-N3 全模/103學年度全國模考試題03-英文.pdf",
+          "bytes": 439928,
+          "sha256": "ee042188887af99eefe8bb390e8dc531d705a98832b24ca0d1a02d85a36a33b6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/104-B3 北模/104學年度北模學測試題03-英文解析.pdf",
+          "bytes": 760234,
+          "sha256": "ec11e60fb3e3ab3cac106e7a84e59a2a07585c4480d86c1465da7bf8ac9064ef"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/104-C1 中模/104學年度中模學測試題01-英文.pdf",
+          "bytes": 1146425,
+          "sha256": "30079a3a8e830a5979ba1100d52397590da2b480e877e80dd89e550d2a849f2b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/104-N2 全模/104學年度全國模考02-英文科1.pdf",
+          "bytes": 3210991,
+          "sha256": "3d8aac3d684216042c1ae44ac4691bf340cd79c62f8bae635a188c817ad52b79"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/104-N3 全模/104學年度全國模考試題03-英文.pdf",
+          "bytes": 423987,
+          "sha256": "58b66545220e4585eea8a9bc1728a44f325d2f589887d642491648ff89fa2da2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-B1 北模/105-1-1北模學測英文解析.pdf",
+          "bytes": 604123,
+          "sha256": "1a3aca665b54fd4d9fb3abf506829ffa75bcc63fce4b273bb104c27624369314"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-B1 北模/105-1-1北模學測英文試題.pdf",
+          "bytes": 656208,
+          "sha256": "52c76f79b503a4eee124be244d88f891653ea8328efb3770d0d1d89652fef895"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-B2 北模/北模學測105上02英文.pdf",
+          "bytes": 851657,
+          "sha256": "b72955cb906d1321282a75d4a9b218f2fed8487163b84c6db70d1116718116ef"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-B2 北模/北模學測105上02英文解析.pdf",
+          "bytes": 907825,
+          "sha256": "abf7de631ab944d8d5aff0390b5157e62b883588d17be42b28463bfc865c3cd0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-B3 北模/英文.pdf",
+          "bytes": 1215426,
+          "sha256": "c171ad5beebe9dcfdbb93d57a14ccf15dab0bcc2ddf1421bdc8a8dddcf278c45"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-C1 中模/英文.pdf",
+          "bytes": 868179,
+          "sha256": "f1a36ce9e2cac2068819453225789ce0fb64382a41bfe7780b3e39d661a800dc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-C2 中模/全科學測第2次_中區105年-英文科.pdf",
+          "bytes": 6582647,
+          "sha256": "7b43ad3aaea0870ed3672fd8caab8494da697acec2fdbbf4a14589b884dc6fd8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-N1 全模/英文科.pdf",
+          "bytes": 1068925,
+          "sha256": "908634f1761b2004c0c734a2db6865f2a2a719b68cefcb0ca0374524c072ef19"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-N2 全模/英文科new.pdf",
+          "bytes": 1331555,
+          "sha256": "bc8bc2dfb91f435c19301aa11e843e61629f5913f1b0c5c90257445b4a912d31"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-N2 全模/英聽測驗.pdf",
+          "bytes": 1149271,
+          "sha256": "24e9bfe03bd912ac03d483955f40cb28e01763fb1de84a170b6bc6a6bd43fc9a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-N3 全模/英文科.pdf",
+          "bytes": 1993823,
+          "sha256": "cb0eea1d83a03624b2aa08a131a3f137422fac8561aa555b513c52d0cb230ec5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-N4 全模/105學年全國高中第四次模擬考英文科.pdf",
+          "bytes": 931764,
+          "sha256": "cfe5afac29106d5dd5d29d32a57e607f8f61aa209c76a729c101904686c3d7c3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/105-N4 全模/英文科.pdf",
+          "bytes": 1877386,
+          "sha256": "1496f2fe6f747b4361da354f9b2d64fe48de71bcc80e3d37a4fe4068df983232"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-B1 北模/106-1-1北模學測英文解析.pdf",
+          "bytes": 644732,
+          "sha256": "dce6accef900da3df5745d4ca6f3d3960ff98b50dd18cb70d8cf02af5fb8b800"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-B1 北模/106-1-1北模學測英文試題.pdf",
+          "bytes": 698151,
+          "sha256": "fdb947988d00518602c55f1d813d5c62ac8801c5f7d524dfc897bf701f1765ac"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-B2 北模/北模學測106上02英文.pdf",
+          "bytes": 3970781,
+          "sha256": "83d336ab30548e97ad7dfb974fa5ab89e35b0fa528a292e32f15621590959987"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-C1 中模/中模學測106上01英文.pdf",
+          "bytes": 1036001,
+          "sha256": "81f24311bcf05e371f6b4b4bdc442696fbf0895ab65ef60632348eb11e179a6b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-C2 中模/中模學測106上02英文.pdf",
+          "bytes": 889795,
+          "sha256": "356c4aa4692e329519508648d383346954952a27fe7c62bf7dd11f1c6db87d74"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-N1 全模/106-1-全國學測-英文考科解析.pdf",
+          "bytes": 986179,
+          "sha256": "0b6f50ee4d8c2ce4386c29860d9a53d31b4a187b16543d84923c492fa84983db"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-N1 全模/106-1-全國學測-英文考科試題.pdf",
+          "bytes": 730658,
+          "sha256": "4cb31c7a8f4bf14439b542ac66572a584dc4118e232bca2450179e01559dd54b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-N2 全模/106_2-學測漢樺版英文考科_A.pdf",
+          "bytes": 910277,
+          "sha256": "c687394b3a031e419cf75ed5a84bd05d92a0bdb331c58da16a566a46930f8068"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-N2 全模/106_2-學測漢樺版英文考科_Q.pdf",
+          "bytes": 562272,
+          "sha256": "e5235f4daa48542e4e85e832c43b109b8c2df0808a52a12cc1ff5b11622bfd1e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-N3 全模/106-3-全國學測-英文考科試題.pdf",
+          "bytes": 831374,
+          "sha256": "aa5c1bfffce2119ca26beb14023b991b7120b23a98e2c0d85d5b1202cf19910c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-N4 全模/英文科1.pdf",
+          "bytes": 1081682,
+          "sha256": "874a5a6ffebadf6075002ac3978e791684a801ed69cdf69bd3166978167521e2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-N5 全模/106學年度T5英文.pdf",
+          "bytes": 4981548,
+          "sha256": "0d2e99dacb9c268586d6886cee48e28853c2e3172c4f165b95cab90181dc4993"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/106-S1 南模/106學年度學測南模-英文.pdf",
+          "bytes": 3148192,
+          "sha256": "11439709456e2a48d6e30b20829bbf2ac461fb2bf33eaf3bcd7928a4a3d00b12"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/107-B1 北模/北模學測107上01英文.pdf",
+          "bytes": 5093577,
+          "sha256": "3c1ddcff129f17631b0f74f1e9eeffd7464acbdee6c9548b7ce6b0321b434005"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/107-B2 北模/北模學測107上02英文.pdf",
+          "bytes": 4816985,
+          "sha256": "b0cad0142d3d53025c0f3b8e832bee95716067f8ce7a98359f5beca7291c5d5e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/107-C1 中模/中模學測107上01英文.pdf",
+          "bytes": 6820959,
+          "sha256": "745d71a509d971361b7b078cd54f74fba76192dbd19abf848eec20ec3cc8dae5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/107-N1 全模/英文科.pdf",
+          "bytes": 7841912,
+          "sha256": "0580b0635435e819033b4653b2fe428192e3f1ae5e39b7d7d214a44c997aaa5a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/107-N2 全模/英文科.pdf",
+          "bytes": 9532395,
+          "sha256": "d852064013b028e6270839b527a7f2e6d2b59848bc046ef162ad3e355563bc08"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/107-N2 全模/英聽.pdf",
+          "bytes": 5901517,
+          "sha256": "73440c07b9c67afd24653a2ba8248e5dc59c92b202f556bfc4dbf8fd6147c79f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/107-N3 全模/英文科1.pdf",
+          "bytes": 10366211,
+          "sha256": "cbc49cef6ec5f478b515b7a8816d02dcccd0c21b223bbeacde6739ba6113603f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-B1 北模/北模108-01-英文.pdf",
+          "bytes": 4892390,
+          "sha256": "4eed7822f435bba164cdb196ec11f6490cc532a73c754e5c8db880c77cb2b3f6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-B1 北模/北模108-01-英聽.pdf",
+          "bytes": 4710850,
+          "sha256": "5268046243c651828129836678539fa76e8017a4dd56a2a63df4e7d38ef8e71f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-B2 北模/北模108-02-英文.pdf",
+          "bytes": 751813,
+          "sha256": "4a89ceb97e81948358e013eb9da0d877aa8a99a6d37dc38dda0fd7d87e837a86"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-B2 北模/北模108-02-英文_參考答案暨詳解.pdf",
+          "bytes": 903145,
+          "sha256": "1186d0d95aa592b4fd4b833ddec655ae7be5562b0d4d3f1ff11ac8e9f0c06847"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-C1 中模/中模學測108上01英文.pdf",
+          "bytes": 5552981,
+          "sha256": "0c19417823bad0441d14a0a2d8cb5f7176b0df706ebdff0f8b2884d03ec400d7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N1 全模 (南一)/第一次模擬考_解析英.pdf",
+          "bytes": 2134010,
+          "sha256": "05ee1e456aa4402285a1b0f269073410cff9d3340f19c990a1f4d0c2dbbe091c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N1 全模 (南一)/第一次模擬考_題目英.pdf",
+          "bytes": 2247583,
+          "sha256": "95fb728c801688fdb0bac3a4ee4db517170a1c81d76295fc85c1972fdd739ade"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N1 全模 (文昌)/英文科.pdf",
+          "bytes": 7129991,
+          "sha256": "2b91fadc0a2bfc478b80d182d1f0b913c7c026a032fa4ecfa990e93f63862e8e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N1 全模 (翰林)/P1～P10-英語科第1次-學測封面＋內頁.pdf",
+          "bytes": 546839,
+          "sha256": "3616d5491d168bccc3c8f9c127ba995944a8479c6a9bb25ddfaa30e131775866"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N1 全模 (翰林)/P1～P9-英語科第1次-學測解答分科.pdf",
+          "bytes": 510699,
+          "sha256": "603416cde4f424aca16b930b2305bd113dcce9b5355f31f632e4091ca0a5adb2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N2 全模 (文昌)/SKMBT_42119091712430英文.pdf",
+          "bytes": 511250,
+          "sha256": "e39a581c7c6c41cdfda00bdb811d9f67a19339df5402b99176c289eb5c9f075c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-英文科第2次-學測解答.pdf",
+          "bytes": 556960,
+          "sha256": "0dd3621efc92d5eca407133bc60b3f9c4c512757cc50b8592a7e734294688846"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-英文科第2次-試題.pdf",
+          "bytes": 551232,
+          "sha256": "f842c895b8e972780631fff3821aa4a8eecbefe3a7c5d7fdf422a27f0a64d841"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N2 全模 (銓達)/英文科.pdf",
+          "bytes": 8050205,
+          "sha256": "b89d6a2f7a9f9d464f328b35618a5852b1c3f3116cc1f484d596cacc2678af90"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N3 全模 (南一)/108學年學科第三次聯合模擬考-英文考科.pdf",
+          "bytes": 9212733,
+          "sha256": "4c8bdc97f9f52a4fc9a8c163fb306d152037822e05ad3ed6552af00367e0c540"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-英文科第3次-學測解答.pdf",
+          "bytes": 579588,
+          "sha256": "9b7a101cd0b67757c8d6d7127b0152cd367d5684d86db49ff32cb79fbd9f53aa"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-英文科第3次-試題.pdf",
+          "bytes": 365655,
+          "sha256": "9d275d797ded73403ad260b2581ea3c4c808a514228d8898a55179d0bc8da2eb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/108-N4 全模 (翰林)/108上高中模擬考-第四次全模-英文.pdf",
+          "bytes": 4183665,
+          "sha256": "de707801183511a9b27b6da1c42de9f4a7385b5caf0d6e1db445e038433f77c6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-B1 北模/北模學測109上01英文.pdf",
+          "bytes": 2611938,
+          "sha256": "0f7ada6b610095a83339d374d0f19b2b2e2ea83973d5b18f63e3e74555217717"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-B1 北模/北模學測109上01英聽.pdf",
+          "bytes": 2791043,
+          "sha256": "b03ac3a966c6f880865852736b6869340861f460d944a1418a02f6ad58a31f37"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-B2 北模/109-第2次北模英文.pdf",
+          "bytes": 758964,
+          "sha256": "09dfb7ffc1ad2ee9ac498cddfd4fb98362a333648cdde5d16b3988cea19a022d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-C1 中模/英文.pdf",
+          "bytes": 6357922,
+          "sha256": "072cb1be8a4542d64fbed600618e1d8926a71322d56a31efd8c24c1c699e0143"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N1 全模 (翰林)/英語科第1次-解答.pdf",
+          "bytes": 540070,
+          "sha256": "aead167b27e8e7b61e47a1a2681e2ffd24a4668e947af512ae7288988b38c67b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N1 全模 (翰林)/英語科第1次-試題.pdf",
+          "bytes": 621853,
+          "sha256": "35bca9fb9086a3a1c0ea21b94b740c756517d2a69017cb1ae6257329726da40f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N1 全模 (翰林)/英語科聽力測驗-解答.pdf",
+          "bytes": 430551,
+          "sha256": "3c7cca4ea0bd2dbc0b638a11479b8a735403615a72818e2f90e951fb527c9b83"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N1 全模 (翰林)/英語科聽力測驗-試題.pdf",
+          "bytes": 1116398,
+          "sha256": "9fcbee40d7bf35c36b86369cc06c3efd07b08e0a1e78157ce99ff5de3aebb3b5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N1 全模 (銓達)/英文科.pdf",
+          "bytes": 8597214,
+          "sha256": "677c0a6334bcb435f941e1a6264c4b5e8364c132a81c1dc1888230a7c691d3e2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N1 全模 (銓達)/英聽測驗.pdf",
+          "bytes": 11526642,
+          "sha256": "23ff42a9830c4fff2b10bdbb3fa4db5d63db735491c144e004ebc5d461620c96"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N2 全模 (南一)/英文科.pdf",
+          "bytes": 8703268,
+          "sha256": "e5a25175cb96bf56bffbbae533fa76a1926a4bebb7aa02c47d9f0be0ee3d792f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N2 全模 (南一)/英聽1.pdf",
+          "bytes": 8883326,
+          "sha256": "6d81c286f99189c8306e07258fbe4ec0ec1a1c57845733747994ee1b64827bb2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N2 全模 (翰林)/109全模英聽解答.pdf",
+          "bytes": 541032,
+          "sha256": "f2e193e3e3752cd3a3685d3f06de7d9a341f4f0a52940293e4adebe90cf2b716"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N2 全模 (翰林)/英文.pdf",
+          "bytes": 5076028,
+          "sha256": "bb9bf9b005522548ec0d33ce43d27c656b44be33c7f099dc226e078c5080825d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N2 全模 (翰林)/英聽.pdf",
+          "bytes": 5384298,
+          "sha256": "2241d0343340defa95f4eb8016c9ffb93e1f472e62179916055fa5fc975d9a32"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N3 全模 (南一)/全國公私立109學科第三次模擬考試-英文.pdf",
+          "bytes": 2391482,
+          "sha256": "a53cc1e4a6406171082d50d8c6b83d6fa764f68aac41a38da826e57f1f4f1336"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N3 全模 (翰林)/109第三次全模-英文.pdf",
+          "bytes": 2466605,
+          "sha256": "68cd89ae303cfd98258dc739f9aa34aca9fd674f0121e9c03904356754a12a9c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/109-N3 全模 (翰林)/109第三次全模-英文解答.pdf",
+          "bytes": 2887167,
+          "sha256": "6a322dc094a2584c0ff5b27065c1093dd9525e94101178e92b5ff191e470d59e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-B1 北模/110學年-B1北模英文.pdf",
+          "bytes": 953237,
+          "sha256": "66c19510c4fa4d05925fea3ea25c471b37c219ff5e3a7bf8bd6765973ebadd98"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-B2 北模/110學年-B2北模英文 詳解.pdf",
+          "bytes": 882479,
+          "sha256": "a45ca4e6fa563add0e510e71a11ca1733b9a47f1fee3f64b826508fdf098c807"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-B2 北模/110學年-B2北模英文.pdf",
+          "bytes": 874826,
+          "sha256": "23d1a4384929c5756f4ad6716bc7e878a9d850b3b5acbc0bd6d7e41464076c5b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-C1 中模/110學年中區模擬考-英文科含解答.pdf",
+          "bytes": 1645637,
+          "sha256": "db1a3237eb54b5eeb20d19418f131915e6cff6def44f4258b419164b219cbc4e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-N2 全模 (南一)/110上高中第二次全模南一版-英文.pdf",
+          "bytes": 5392886,
+          "sha256": "5c7a2f197a0e83b9dec874f217b31ef44c9869e97339ed5c96e30792d0a62856"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-英文.pdf",
+          "bytes": 502737,
+          "sha256": "d192a19de54372cf9c7cf552b66aa60d779d1b7d99af09b9905c7fa90b06bb65"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-英文解析.pdf",
+          "bytes": 605775,
+          "sha256": "feb8f69834427a879bb0f4704c9328a54f610d4bbb158c835ac0f70c1821e6f6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-N3 全模 (翰林)/英文科第三次-新竹區.pdf",
+          "bytes": 4301412,
+          "sha256": "98965854d2342eb556a4e4741bf275535dc77b62c5dac70bd10b59046cdfaeaf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/110-N4 全模 (南一)/110-1_學測模考_南一第4次_英文附答.pdf",
+          "bytes": 8290422,
+          "sha256": "502b2a3629dd8f4bfc60b47a0eee439e4a2b13bb8d77af0e6c69649ee2ac562f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-B1 北模/111北區第一次能力測驗模考英文.pdf",
+          "bytes": 2268050,
+          "sha256": "dff7d65ae37a37ba97a610b10c2a7f79c5253ec687b7f1c67293067c78f96cf0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-B2 北模/111學年B2_北市模擬考-英文科.pdf",
+          "bytes": 1262308,
+          "sha256": "d4a1f179f25883bcb79e7929ec19efa173db7f975dd0392930d1374ab6147c3a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-B2 北模/111學年B2_北市模擬考-英文科_詳解.pdf",
+          "bytes": 911175,
+          "sha256": "cff1faa4fd879f992d18fb2b594bbd91b69e877e165a1838fa9b56073f53b535"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N1 全模 (南一)/111-N1 英文 試題.pdf",
+          "bytes": 21718232,
+          "sha256": "62291f4b01320c906666e5bf5de9bb6e6dd8db0899c71130711e57b3b6dd281c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N1 全模 (南一)/111-N1 英文 詳解.pdf",
+          "bytes": 4094569,
+          "sha256": "095aac19bd35245dce8c9f154e4118c6a3f6473d6763a0cf083088a094dbbea7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N1 全模 (翰林)/E1英文科.pdf",
+          "bytes": 8629513,
+          "sha256": "b3732f6078ddc8a265e8a58fdbc2ea1914f8312d04097354d02fed4b46a4cdf6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N1 全模 (翰林)/E1英文科_詳解.pdf",
+          "bytes": 6351609,
+          "sha256": "0f229454b0e2d5fa9cebd90f3b73b659c2c1d8714f14f0889e35a9ac81a9b2de"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N2 全模 (南一)/111-N2 英文 (含詳解).pdf",
+          "bytes": 10388274,
+          "sha256": "4e860817b6665240e35bc03cacefe707392badd9cb9e94f55f8207f24f43e004"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N2 全模 (文昌版缺社會及有字跡文稿)/文昌英文模考.pdf",
+          "bytes": 16566610,
+          "sha256": "cbc1fb4e426a3c5b5e7b7b8052dba1c75e5f44252ce22b87393135e1e29243af"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N2 全模 (文昌版缺社會及有字跡文稿)/文昌英文詳解.pdf",
+          "bytes": 12896414,
+          "sha256": "94d041d8e23b2a0a449af10c9eefcd58e4ddf6a6c0e361902dd6fb782d72c6d1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N2 全模 (翰林)/英文.pdf",
+          "bytes": 2074011,
+          "sha256": "1bde521d280b24e5673fc362e0cdb76706207ce215588d94d6ae5cc60d4b3982"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N2 全模 (翰林)/英聽.pdf",
+          "bytes": 3359689,
+          "sha256": "e4364e718712535d3649281b489ddef34fc8bb1bed7a2cb313d163565108a0fe"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N3 全模 (南一)/111-N3 英文 試題.pdf",
+          "bytes": 1619856,
+          "sha256": "a649d8c0e85d7cf54ada1bad21cdd729ba087c9d3c5b9e6c6b3af03c25f28e8f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N3 全模 (南一)/111-N3 英文 詳解.pdf",
+          "bytes": 620044,
+          "sha256": "567824f3bd1fe72a2e0d65429bbaa069b3a643e04c5cb5150bc335666998a97f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N3 全模 (南一)/111學年度南一第三次模考英文考科暨答案.pdf",
+          "bytes": 1416821,
+          "sha256": "d2ed578900bb5e3c1184fd1b275cb6c2a65772eb9c9cdaf5cee6d7d2bce697cd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-英文科.pdf",
+          "bytes": 6444174,
+          "sha256": "725fc47a30ebcd6df82fd0aa57cb8e7a732d13a5c5a98ad667f58375f7a49d6a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-英文科_詳解.pdf",
+          "bytes": 872335,
+          "sha256": "75085b83639b4319aff3295d786ad6c8a65ec6db31e30d3f8059e7fd22afb988"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N4 全模 (南一)/111-1模考-英文考科.pdf",
+          "bytes": 2318404,
+          "sha256": "a24d1fba47c681763c763f44c5264ed238509848399cbc2e67f1ba0328dc66fe"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-英文科.pdf",
+          "bytes": 817618,
+          "sha256": "3eaf2f695820a0bff4b20ed5481cc0cee623dad54481e391ea5016b6fe3b9ffd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-英文科_詳解.pdf",
+          "bytes": 806428,
+          "sha256": "e6a019e30715dc73acb3d4e751a4126dea638d1975dd4bcc9085de5b4eb324b7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/111-W6 全模 (文昌)/111-W6 英文 (含詳解).pdf",
+          "bytes": 9354281,
+          "sha256": "b3282c9e3772d1752639c08249e1bac3b2f334847d77cc0ac3de76dbf0703ddf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/112-N2 全模 (南一)/112-N2 英文 (含詳解).pdf",
+          "bytes": 7083046,
+          "sha256": "ec73169d780279f570b11a77a903c765e544c0b9f5f42bd8dcda198cd58bb3eb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/112-N3 全模 (南一)/112-N3 英文 (含詳解).pdf",
+          "bytes": 9696909,
+          "sha256": "4cb085be975722cd2469f5668b9e7976788abab4d8d6933301f279c1fae5d4c3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/112-N4 全模 (南一)/112-N4 英文 (含詳解).pdf",
+          "bytes": 2121547,
+          "sha256": "e682f29678be76843d1e90ce3825b7900f7f7e3bc244a36716fd6cb16ec414f4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/112-W1 全模 (文昌)/112-W1 英文 試題.pdf",
+          "bytes": 546375,
+          "sha256": "08fc6d3db6394a869854bb6d0b19cdd5f205f152018405a0da05391426ab4332"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/112-W1 全模 (文昌)/112-W1 英文 詳解.pdf",
+          "bytes": 488886,
+          "sha256": "f0b24d3417f23c32aa295ad918e70b1f3a73236e6e664b5d3350d891776ee888"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-E1 全模 (翰林)/113-E1 英文 試題.pdf",
+          "bytes": 1222182,
+          "sha256": "8b9ee796b909b4b2a47d0040b2494c0f33e3e9c309454a29d5d7d07fedcdea26"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-E1 全模 (翰林)/113-E1 英文 詳解.pdf",
+          "bytes": 574645,
+          "sha256": "389eeb8cfe836f5f6411e0506618ba3e3b03996c6c9710792967e16de7737cd2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-E2 北模 (翰林)/113-E2 英文 試題.pdf",
+          "bytes": 10805296,
+          "sha256": "9fbb7099903b9efc07fc9f6ca3365c842644838f390e59eccc1a2affd013a57c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-E2 北模 (翰林)/113-E2 英文 詳解.pdf",
+          "bytes": 12908459,
+          "sha256": "a848c43ee8f0b7fb53782ee24720e2c00ed8de71381b31a2129a8d41c9a9e9e7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-E3 北模 (翰林)/答案/英語-解答.pdf",
+          "bytes": 15205396,
+          "sha256": "e4057a66e8e2c8e50f6e481f3b871aa82b5879655ec7154171bae464c330447f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-E3 北模 (翰林)/題本/英語.pdf",
+          "bytes": 11606001,
+          "sha256": "db804b12b97eb1b31d69318551580e11bfd2517e94108e71bcf6f751839da91a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-E4 北模 (翰林)/113-E4 英文 試題.pdf",
+          "bytes": 11517953,
+          "sha256": "347376055c08ea52756d7b9da043c45235b20212806220a26855bc739db1f107"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-E4 北模 (翰林)/113-E4 英文 詳解.pdf",
+          "bytes": 13638557,
+          "sha256": "d8f929add5844bf28c1597332d12fa5759b913e91a56318d7161aa47a7ca4862"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-N1 全模 (南一)/113-N1_英文.pdf",
+          "bytes": 2843413,
+          "sha256": "43b933074ed36ea38c2fd7906c14fac803ca873dce6e9c4d33c036bf6436a90b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-N2 全模 (南一)/113-N2_英文（含解答）.pdf",
+          "bytes": 9357024,
+          "sha256": "1d40adb21e6560f9267af3ac81a928322da0b49a6dbe23458680012702c9b6b8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-N3 全模 (南一)/113全國公私立第三次模考-英文.pdf",
+          "bytes": 7683104,
+          "sha256": "f3bbaff54d68e96a675a929fc50d257bd13d9e792c8ee55e78220048416343fb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/113-N4 全模 (南一)/113-N4 英文.pdf",
+          "bytes": 6681720,
+          "sha256": "6feb606a3be9120ec637446b0f79fe73ec8d02191e7ef0c5ec948422d08f4cdf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E1 全模 (翰林)/英文/114E1英文科-解答.pdf",
+          "bytes": 954877,
+          "sha256": "961a6784e4d54c43699381b5697df1fe60162b36b3efe16a6cd16b5d74bec2c8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E1 全模 (翰林)/英文/114E1英文科-題目.pdf",
+          "bytes": 2296276,
+          "sha256": "5c15fc749c06ee277069e7bd7c7e07f77726335e79cc7a0b992fb404b8453187"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E2 北模 (翰林)/英文/114E2英文科-解答.pdf",
+          "bytes": 950068,
+          "sha256": "6b547cd9af7b1ef1ea8975ef5ae6e20a9872e9ed182141a1489863dff7fdc876"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E2 北模 (翰林)/英文/114E2英文科-題目.pdf",
+          "bytes": 1082854,
+          "sha256": "1ef3d513abd4fa91f0bec0338bc885e1dcb5122f53c0cc44b629646da69cb4e2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E2 北模 (翰林)/英文/114E2英聽-解答.pdf",
+          "bytes": 938557,
+          "sha256": "346b113cd3841e337d40bfb04ef21f77f974d46c5c51a60fd9ba9d0faa649da5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E2 北模 (翰林)/英文/114E2英聽-題目.pdf",
+          "bytes": 8051889,
+          "sha256": "3f4e2e581a6f438c323e748c0acd2dd7442edb6446dba5ec38880bf0f51ad078"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E3 北模 (翰林)/英文/114E3英語科-解答.pdf",
+          "bytes": 1093833,
+          "sha256": "3db7b9ced9cc1bfba74dfb19b470e1df6b55c7e7bf73612b234a7873f3959abb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E3 北模 (翰林)/英文/114E3英語科-題目.pdf",
+          "bytes": 1964728,
+          "sha256": "821900ff614d92cccf24ad860876620873db8ec23b85ac0fc151fecc92b50591"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E4 北模 (翰林)/英文/114學科能力測驗模擬考試-英文科(第4次)-解答.pdf",
+          "bytes": 1116491,
+          "sha256": "2afbe7f95c8a7b49f2250565b9e2336437834664189bd4ba9d9bfc90b9870f48"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-E4 北模 (翰林)/英文/114學科能力測驗模擬考試-英語科(第4次).pdf",
+          "bytes": 1637896,
+          "sha256": "604d08bf6b68fbab18d0f2340259be6b8a3f1d666723ca1839e3b879173ccd03"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-N1 全模 (南一)/英文（含解答）.pdf",
+          "bytes": 6637321,
+          "sha256": "f818941abaa6b9a9678ff55366beb28f58526d37247717be78954e88b195aa21"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-N2 全模 (南一)/英文.pdf",
+          "bytes": 9507898,
+          "sha256": "45966b35db95151256097f9ee5b3705eaa51433c5ce0ebeb4420b90c315d039e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-N3 全模 (南一)/英文（含詳解）.pdf",
+          "bytes": 8109236,
+          "sha256": "9fc286a95b1863b2d6abf2b7ce84604cb49e6024929e014047b0990c4a646dd3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/114-N4 全模 (南一)/英文 (含詳解).pdf",
+          "bytes": 9222016,
+          "sha256": "3c6e7260bf41d159ad4a55e1bfb91464294deb582127c90488fe4a0cff3c0235"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/115-E1 全模 (翰林)/115-E1 英文解析.pdf",
+          "bytes": 1063861,
+          "sha256": "d067361638ca01e1ba4b3cde9871495e7dc4ebb119f7bdacf9c2560b041be838"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/115-E1 全模 (翰林)/115-E1 英文試題.pdf",
+          "bytes": 4178205,
+          "sha256": "a05e53116a6cd4542a1c5c078fa33390695048a0b4cf7ee171e22adae2fc9852"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/115-E2 北模 (翰林)/115E2英文科-解答.pdf",
+          "bytes": 1006517,
+          "sha256": "f67a431f71973d1c7df876d9b8f3467c8a3543a3f1ebe804ed43637cf5afe270"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/115-E2 北模 (翰林)/115E2英文科-題目.pdf",
+          "bytes": 2720066,
+          "sha256": "f6843fbd272f2abbfa4fdbda0eca9ba6addc1d07d54f6df768ed68e50bc0e571"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/模擬考/115-N1 全模 (南一)/115-N1 英文試題-解析.pdf",
+          "bytes": 11276957,
+          "sha256": "9474f933fb2e854cea5f582d1e73ff05ebbc6ff62fdc7bd42170fa5a989d87a9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/100/02-100學測英文試卷定稿.pdf",
+          "bytes": 3256915,
+          "sha256": "179f710f6d2ea1052b034f246000228293be3740aece98b1d25783929fc8ad83"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/100/100學測英文參考答案定稿.pdf",
+          "bytes": 42289,
+          "sha256": "c3bed219c80453556d593879e7dbed1f1e31756b0229cb16fdc4fedf33a1c84a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/101/02-101學測英文答案定稿0.pdf",
+          "bytes": 64885,
+          "sha256": "34fb471bf64a6a0925665d2b6d4f93e7a6e4f9aa754db6e6b4034489c8fef264"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/101/02-101學測英文試卷定稿.pdf",
+          "bytes": 162074,
+          "sha256": "d9942eb961eb46e8ca8ee34d3c476debf7d4fd0a8be714e837f9433f48c31fe1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/102/02-102學測英文(定稿).pdf",
+          "bytes": 223482,
+          "sha256": "1c39e083a6b888670f9204c6fae5124fc2f8c0d1bfebcc784d61866859fc89e2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/102/02-102學測英文答案.pdf",
+          "bytes": 33583,
+          "sha256": "2b132134933455fdae098a83309eb22ae7ed71c5253e859ccae7fe1c61591eef"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/102/102學測英文非選擇題評分原則.pdf",
+          "bytes": 80296,
+          "sha256": "ea3a37bcc91c28675521504475f0b2294ace0aad842ba4299f3892ceea8c8262"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/103/02-103學測英文-定稿.pdf",
+          "bytes": 224698,
+          "sha256": "cf13c981ad8ef34bcebe59277899665b1642e97c35d79779fa69f615c91b070e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/103/02-103學測英文選擇題答案.pdf",
+          "bytes": 31163,
+          "sha256": "b25071255beeee61b179d5fc2774eb163e471270b9ebc33238b8d0b368e27373"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/103/103學測記者會說明資料定稿140121.pdf",
+          "bytes": 147060,
+          "sha256": "ac4cb1f6cb3bff291c1c9a60aac782227e07896bcbc4d79a3008e37c9bc6f880"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/104/02-104學測英文定稿.pdf",
+          "bytes": 376336,
+          "sha256": "f43e4a2c26ab1f6600f542bbb3ad0eb73e64ed28de005a1676190e955429b910"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/104/02-104學測英文選擇題答案.pdf",
+          "bytes": 218094,
+          "sha256": "75397ec04c8b58aedcd615b6a624a15a4d05325cc9af4f1894eed1f7e833bb23"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/104/104學年度學科能力測驗英文考科非選擇題閱卷評分.pdf",
+          "bytes": 171671,
+          "sha256": "d332bf909454b00f19a7f5fdbaea60d266c8d5ad543d75327b17d38b67b9fade"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/105/02-105學測英文科_定稿.pdf",
+          "bytes": 233827,
+          "sha256": "56ad827c96e9f639c044f14c20170f431b1f29d3c49156b33ecfca880415b0a2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/105/02-105學測英文答案.pdf",
+          "bytes": 64001,
+          "sha256": "ea18feb247a4a113b1d9c5fd53b23fab5ada837efb71bb585d8c11f4022cdbd2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/105/105學年度學科能力測驗英文考科非選擇題閱卷評分.pdf",
+          "bytes": 158061,
+          "sha256": "1d7cd83f63cfbc94e6d88e9e5b1a942c6c6a5a5dfe769e11b09eb1692c7c392d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/106/02-106學測英文試卷定稿.pdf",
+          "bytes": 427259,
+          "sha256": "1ef52384175fddddfa0d0ad835db1700502d4c898546d25ce1f6b5f3fcf26bab"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/106/02-106學測英文選擇題答案.pdf",
+          "bytes": 67983,
+          "sha256": "457c9aa1f0533278be791000c0839a5fcdec8566465449e9572b5928599401b6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/106/106學測英文非選擇題_5c卷評分原則說明.pdf",
+          "bytes": 150377,
+          "sha256": "370064463e09597c3d0e88f32d5aa9435b6e2f3eecfe744dab43d1dc74b047ca"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/107/02-107學測英文答案.pdf",
+          "bytes": 167292,
+          "sha256": "fd87080b57c9ee1bbbabf50681897e4cba144017c9181e3b619131978b2b0ef2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/107/02-107學測英文試卷定稿.pdf",
+          "bytes": 396847,
+          "sha256": "5c1b4bede296b355bbe52a859fbfc3f2a0bb51c8ac56ea6ffa51852a95153735"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/107/107學年度學科能力測驗英文考科非選擇題閱卷評分原則說明.pdf",
+          "bytes": 80580,
+          "sha256": "4be68277352c8e5c0719f426d530532722e3eb219aae6a0c43b44d7cc4e6db38"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/108/01-108學測英文試卷定稿.pdf",
+          "bytes": 566554,
+          "sha256": "b3c844ba252b4c76519579226499ce370c58c47e6771ba6ec35564c3705a0d82"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/108/02-108學測英文選擇題答案.pdf",
+          "bytes": 164899,
+          "sha256": "264b98c42bc65d3e9f1d8958e289287ae16f4b2b80162f157a9375687b85d809"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/108/108學測英文考科非選擇題閱卷評分原則說明.pdf",
+          "bytes": 91506,
+          "sha256": "eeb79606397ece750275cfb513b72bdd040667c70b951693b96693bf417737a0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/109/02-109學測英文答案.pdf",
+          "bytes": 165028,
+          "sha256": "d3e5f65cccf167866e7942f2fa18848c81a1d1155898546093b152c009ba7a4a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/109/02-109學測英文試卷-定稿.pdf",
+          "bytes": 505860,
+          "sha256": "515aae9676a3a603749b012885acdeceeb471f161281838b7c72047308a9c354"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/109/109學年度學科能力測驗英文考科非選擇題閱卷評分原則說明修(定稿).pdf",
+          "bytes": 111223,
+          "sha256": "872bcd3cad24ad0cd23765e644e3dba7c1e5f75e43ef6daf21768763ee231bba"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/110/110學年度學科能力測驗英文考科非選擇題閱卷評分原則說明.pdf",
+          "bytes": 94293,
+          "sha256": "81899c92d1a1087145995af8fb035071c9270bb408b59cb8a484a2dd800c6526"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/110/110學測英文答案.pdf",
+          "bytes": 165002,
+          "sha256": "e82e36aec93ee4ed9cacfe2a044fd2eea8d1a7e79842c654bf74a72321577f16"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/110/110學測英文試卷.pdf",
+          "bytes": 566163,
+          "sha256": "fe2e9350c9c03d23fd8eb24e6644c7f6f49dd57dae9549b12c12d06e28f86278"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文試卷.pdf",
+          "bytes": 984200,
+          "sha256": "5877adb44710601bd1e9580e063d00f702acd7229a0fa97425290fe90044c358"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文選擇題答案.pdf",
+          "bytes": 100214,
+          "sha256": "e3c22802d10fbf5225674eafc480200ad65bcdab46635f323d6e4f9f38808f03"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文非選擇題評分原則.pdf",
+          "bytes": 766887,
+          "sha256": "b9670729250bdd89c312e0cdc5551c6c7a0bfa6cb007b368b1d4bf00d6d6cda2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/112/02-112學測英文試卷.pdf",
+          "bytes": 407346,
+          "sha256": "79f8f0a5822b9fbdc424cccbf88fdff124c80b9cf0bd8a56913901cd1bb0f741"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/112/02-112學測英文選擇題答案.pdf",
+          "bytes": 105171,
+          "sha256": "89b0cc3c35ffa589167d74b62fa427258abba9571331eb75097b46d2e30f45a7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/112/03-112學測英文非選擇題參考答案與評分原則.pdf",
+          "bytes": 771823,
+          "sha256": "ba292c5e93c739e5538fdd5bd955c92ae0cd51b9230c221b2d47af2552a63999"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文科定稿.pdf",
+          "bytes": 699425,
+          "sha256": "09d35c2ed8561e0845dbbe305e12f5342b27f209fb44d801ff7f9f1f9e519ecf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文答案.pdf",
+          "bytes": 100135,
+          "sha256": "f6389b547afd21b819452dcfadb2382818e561149c67364586a9e931c1a1dd57"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/113/03-113學測英文考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 450899,
+          "sha256": "5151accdbf33c4f08b970bef114fda378ff49891434b8cce637375391ddbda2e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文答案.pdf",
+          "bytes": 100280,
+          "sha256": "f96658a07c24ef878493e9c40fea26f3497884dd621427ddb7d9cac3c6f0206f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文試題.pdf",
+          "bytes": 594448,
+          "sha256": "51c8d9f7c2715adf74cae808bde4906cfadee19d0ec379df3b33881c35960a78"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/114/03-114學測英文考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 320797,
+          "sha256": "609912dd23603130c628ee6adeee21a58990d4a8e59bbfd0c17faa93fd11727a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文答案.pdf",
+          "bytes": 76153,
+          "sha256": "f8edda8733240b7d26cba9f80f89b4ffb42a58449319121fad9466d008811b11"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文試卷.pdf",
+          "bytes": 1286541,
+          "sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/英文/歷屆試題/115/115學測英文考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 271601,
+          "sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f"
+        }
+      ]
+    },
+    {
+      "id": "math-a",
+      "asset": "taiwan-exam-gsat-sources-math-a-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-math-a-source-corpus-2026.09.11.zip",
+      "archive_bytes": 72696640,
+      "archive_sha256": "5d62045851f131578d665d21c28b366a5ed0849a7e16c2087e45e7dc09707535",
+      "file_count": 49,
+      "source_bytes": 72683078,
+      "files": [
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/110-B2 北模/110學年-B2北模數學A 詳解.pdf",
+          "bytes": 372553,
+          "sha256": "fb2956453af28befe6569a6138495d24fb1ecd98ace0d8fbfd9f71bcb9205674"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/110-B2 北模/110學年-B2北模數學A.pdf",
+          "bytes": 3462141,
+          "sha256": "a7ce82c386cf4df2d79551441e41e6f110c47c2bc496d3e91bb1514285de4614"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-數學A.pdf",
+          "bytes": 234438,
+          "sha256": "7a9be87e2314c64f7598336c8a5d0b924b9d79cc4a9a9ed7ffe11726b7ae255e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-數學A解析.pdf",
+          "bytes": 140458,
+          "sha256": "480647c751e3f21f9663d51d19b6ac774b5568877c5179da07299db1708c92e0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/110-N3 全模 (翰林)/數A第三次-新竹區.pdf",
+          "bytes": 4537045,
+          "sha256": "bf45b6ed4c9e5a19d38ed8943f818f54efe48330ac167ee722358bd64308aab4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/110-N4 全模 (南一)/110-1_學測模考_南一第4次_數A附答.pdf",
+          "bytes": 4748684,
+          "sha256": "c64f224589723d01952716cc6515c0dd74ee8776d92a5cf6851c4a0f138e2627"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-B2 北模/111學年B2_北市模擬考-數學A科.pdf",
+          "bytes": 460712,
+          "sha256": "c98666bc41b90a937640c965cc36f78bb44990ff2a3cba153ff949312eb32ceb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-B2 北模/111學年B2_北市模擬考-數學A科_詳解.pdf",
+          "bytes": 304707,
+          "sha256": "0648dbef24f3b24f55813c00bdd54d60579afc86430aa822f8d8ec2651b87d0f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N3 全模 (南一)/111-N3 數A 試題.pdf",
+          "bytes": 633755,
+          "sha256": "9b2993bd4885bbcdd0c8929465d029523d564d6557e8313009f6b5a70cca9ff0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N3 全模 (南一)/111-N3 數A 詳解.pdf",
+          "bytes": 485519,
+          "sha256": "f6c844a9644763fff9fa2e84c9135e22f8cc055a2e5fc71ac73a2ba0fbdbbc13"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-數學A科.pdf",
+          "bytes": 3660269,
+          "sha256": "15f52faac959a1c29591d552b0601f329875f4d119a3bdac08bd37b4940f900f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-數學A科_詳解.pdf",
+          "bytes": 430106,
+          "sha256": "ef9ad5613680a1ce6977027c4a72c35a3c9fc5fa755572a4303d167ad8aefc56"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-數A.pdf",
+          "bytes": 2722494,
+          "sha256": "488b7ca24d9125b051c8b5f20fd2d0df8f2bb7ca7d55c1571ccc622f2fbdfb8b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-數A答案卷.pdf",
+          "bytes": 756232,
+          "sha256": "efe77cab30ca9196b92b4687c6c2b983c0d2f4589b3495834a31ec300737ed54"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-數A解答.pdf",
+          "bytes": 1553210,
+          "sha256": "cb3cb2106ff9244164e4f4a90ec79b067de41e8b32bd0b0ed37f48e7a83a076c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N4 全模 (南一)/111-N4 數A 試題.pdf",
+          "bytes": 589064,
+          "sha256": "e829ea7a67cc6c43fd0a9107e23a2b0d8bdd947cb14d025c4fb88d25f1b50b4c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N4 全模 (南一)/111-N4 數A 詳解.pdf",
+          "bytes": 345661,
+          "sha256": "8ea2ec81de5574a61d889795bd1dc566384a679295460787852e5717e61a8586"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-數學A科.pdf",
+          "bytes": 425942,
+          "sha256": "34b50156a124d5289f57bafd355803c0f614b69b0ec17da48b62938d8f71e892"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-數學A科_詳解.pdf",
+          "bytes": 406806,
+          "sha256": "966ece48970bb3d69bfc1eb9e829ce59fbf0fc8e4e473b9e281811bb71f0aa24"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/111-W6 全模 (文昌)/111-W6 數學A (含詳解).pdf",
+          "bytes": 4702935,
+          "sha256": "8894a943aaff0b30e5dd0c839ba3e5582dcfcca1214fc8746db53d93c3c493c8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/112-N3 全模 (南一)/112-N3 數A (含詳解).pdf",
+          "bytes": 3646182,
+          "sha256": "6baeb31e2ef43d9ffe33090db2e6aedf139ce7efc6798dbcda5f4cb5bf9c1d72"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/112-N4 全模 (南一)/112-N4 數A (含詳解).pdf",
+          "bytes": 734359,
+          "sha256": "55508a9004e0761bf856e5f52863cbfb258fd02d0163abe3b6dfca58f7aa307f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/113-E3 北模 (翰林)/答案/數學A-解答.pdf",
+          "bytes": 3823193,
+          "sha256": "24589154d0fe9fccb08edb8cfe2b7dad7bfa30db71090c61b3b12c5b7deded23"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/113-E3 北模 (翰林)/題本/數學A.pdf",
+          "bytes": 4780487,
+          "sha256": "559845588d4fb1a1766b17631fc0db37858c53df1c2fda71bd6d1702bea33a2d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/113-E4 北模 (翰林)/113-E4 數A 試題.pdf",
+          "bytes": 5826927,
+          "sha256": "213304f19c98ca94269349af39e50003756164e4859abf1a2ab0a4231686aeeb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/113-E4 北模 (翰林)/113-E4 數A 詳解.pdf",
+          "bytes": 3873949,
+          "sha256": "05257d6be81f443cc218b9aace65d1338fe6e42b154021c662f3bc77c4883e6a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/113-N3 全模 (南一)/113全國公私立第三次模考-數A.pdf",
+          "bytes": 2621270,
+          "sha256": "4368323d54f4477dfa4dc57263c45e6dbffc955a8989657ec970e692c3e6f573"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/113-N4 全模 (南一)/113-N4_數A（含解答）.pdf",
+          "bytes": 3798788,
+          "sha256": "68664df24e4ca17fc1a1638c772622f1799b568517fb3818a8b7662d43bc0de4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/114-E3 北模 (翰林)/數學/114E3數學A-解答.pdf",
+          "bytes": 910777,
+          "sha256": "a55f2aa8265d87b769d6f9120121f6b1de2e81d821680691358642bc5b1b9bd6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/114-E3 北模 (翰林)/數學/114E3數學A-題目.pdf",
+          "bytes": 889967,
+          "sha256": "490222e7e680c4f344748d6e366668130ce0043ce981e19538e7b1f9b888a663"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/114-E4 北模 (翰林)/數學/114學科能力測驗模擬考試-數學A(第4次)-解答.pdf",
+          "bytes": 947162,
+          "sha256": "2f2eb0a5a9b4ea51dca891e42f1abe35d6291511c59d35de5ec6161a0b30f736"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/114-E4 北模 (翰林)/數學/114學科能力測驗模擬考試-數學A(第4次).pdf",
+          "bytes": 888407,
+          "sha256": "b816f33d8c75c50774dbddea8980e9ffcedb5b1a11bd61bed9eafbe1ece92fdc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/114-N3 全模 (南一)/數A（含詳解）.pdf",
+          "bytes": 827373,
+          "sha256": "43e6a68c951c891d82d8b85f4ae935693c746fa448200acb1196a79d82f8743f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/模擬考/114-N4 全模 (南一)/數學A (含解答).pdf",
+          "bytes": 3343112,
+          "sha256": "bdce46785692893bcf3adc20cd16e553fe0c3732a17809f9afe617d11569d072"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a試卷定稿.pdf",
+          "bytes": 841538,
+          "sha256": "01ceb21ac453e1b8f1e2cdbc015f0d648f3b63c72d5d0c64555d6fd085c5aa9f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a選擇(填)題答案.pdf",
+          "bytes": 95704,
+          "sha256": "176497242f9910d56ba0441bddae22ea9be597e48b6a3239ebb19860b11b6c1c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a非選擇題評分原則.pdf",
+          "bytes": 381525,
+          "sha256": "dd5905060a7eaeb04e994dc27ad08ef5b763dc704db33098839550d65b653015"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/112/03-112學測數學a試卷.pdf",
+          "bytes": 393666,
+          "sha256": "fd0d3aebd2ff9cd3b775db0642326ce0d5be0f5bf2bb3176294082fabe6b13cc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/112/03-112學測數學a選擇(填)題答案.pdf",
+          "bytes": 93749,
+          "sha256": "d096806d2441209d715f16eec62e4834760032a830ffa30818d473dff5b3202d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/112/04-112學測數學a非選擇題參考答案與評分原則.pdf",
+          "bytes": 542072,
+          "sha256": "b56034e4428cd8a1f733b8d90d891c6429c6eefc06fe8dfe820f81c3057360ad"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/113/03-113學測數a試題定稿.pdf",
+          "bytes": 589286,
+          "sha256": "c0dbc1bd50a8bedcf48ead6bf8e1fb0deef03d92113015e37dc20bb097be8e50"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/113/03-113學測數學a答案.pdf",
+          "bytes": 90334,
+          "sha256": "eecb107883266a831db61b4e2129bc6ca51862e502623bcea6180e3eabe73169"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/113/04-113學測數學a考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 195467,
+          "sha256": "199887c5a084674cfb8f300facdefc70990a15b0a05b44428e7d75a52d461569"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/114/03-114學測數學a答案.pdf",
+          "bytes": 90255,
+          "sha256": "65666aea83fd2c71cb177fcc50852e0c69d0eb8cea8434dceed6e9ff0620803d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/114/03-114學測數學a試題.pdf",
+          "bytes": 581442,
+          "sha256": "265a18f8de05f24d13a503229943414ca50ad9441f056318d21850386427a290"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/114/04-114學測數學a考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 251640,
+          "sha256": "1e17ff84022db05bdb1424ac45f73cb485d01661a8aad0e5f5debf54728168a4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/115/03-115學測數學a答案.pdf",
+          "bytes": 71098,
+          "sha256": "0308d00e554aa2b1a1f68215df8c93943d4aa2ecd326127c3828b971867f67c0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/115/03-115學測數學a試卷.pdf",
+          "bytes": 343091,
+          "sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學A/歷屆試題/115/115學測數學a考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 237527,
+          "sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f"
+        }
+      ]
+    },
+    {
+      "id": "math-b",
+      "asset": "taiwan-exam-gsat-sources-math-b-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-math-b-source-corpus-2026.09.11.zip",
+      "archive_bytes": 65258202,
+      "archive_sha256": "9c5a3071069a01f648a5f01f6451841be832d7dd2872eaf3deeaa2a621d80e47",
+      "file_count": 52,
+      "source_bytes": 65243894,
+      "files": [
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/110-B2 北模/110學年-B2北模數學B 詳解.pdf",
+          "bytes": 263859,
+          "sha256": "28f8b74d85eb33cd4cc72d8b5a2fd6de83b46e592a16b923fa65d637713483ff"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/110-B2 北模/110學年-B2北模數學B.pdf",
+          "bytes": 3104248,
+          "sha256": "82d53361b0acc475b0fb72114eea308aa1ca4621f11f6aae29f000990b715fb1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/110-C1 中模/110學年中區模擬考-數BB1-B3.pdf",
+          "bytes": 332706,
+          "sha256": "d91b1d4aa87ca294d4210528f8830b8494136d69ccdd73f425dcd25f09cbad3e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-數學B.pdf",
+          "bytes": 266191,
+          "sha256": "b1f7d670583941c60726ecdbab72df2aef13fc466a01cea3de4060a1d0f6c801"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-數學B解析.pdf",
+          "bytes": 141625,
+          "sha256": "1bdc1b5663346b9f35509853af809ab37490e930dbed5739b0a084b2ebd8b10c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/110-N3 全模 (翰林)/數B第三次-新竹區.pdf",
+          "bytes": 4950680,
+          "sha256": "d92a458617519f6d8c392a66becc3b3e4abc1c3f8feed3257a593b31804c3638"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/110-N4 全模 (南一)/110-1_學測模考_南一第4次_數B附答.pdf",
+          "bytes": 5225591,
+          "sha256": "b3a180a8d64af48a89c5d0f96c30b132b2993d94964f3fc7c1f7d227da15cf40"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-B2 北模/111學年B2_北市模擬考-數學B科.pdf",
+          "bytes": 494075,
+          "sha256": "f31bef6389465a54079962aefd7fe7c0a86bc9fbd80a7054da41f3d23d43d8eb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-B2 北模/111學年B2_北市模擬考-數學B科_詳解.pdf",
+          "bytes": 279255,
+          "sha256": "6f92afe3ecb07977a47af9546362cdb75e0bedfcdde6fe92b11beff652bb3614"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N3 全模 (南一)/111-N3 數B 試題.pdf",
+          "bytes": 564718,
+          "sha256": "4d3c4a527638d800b385bade9a211f95f742e39f199ec625c0c64158124abd43"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N3 全模 (南一)/111-N3 數B 詳解.pdf",
+          "bytes": 362199,
+          "sha256": "bdad788426ecc87b1bd9b16b0999f2befb423fe34974f68febf93b360954ca0c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-數學B科.pdf",
+          "bytes": 450500,
+          "sha256": "fac208a0f852422435abdf5cef7c664f428068b2d9d7eca90fe7a1724d276912"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-數學B科_詳解.pdf",
+          "bytes": 391873,
+          "sha256": "5c4b97b3599a83e1e04acbf0fb83e7ab97f106f12eb7606e94965cbd431efd12"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-數B.pdf",
+          "bytes": 2743581,
+          "sha256": "d86ba1bd208e217a89c5f16fdb0c1323d9fdc2aa142f41148d987bb42fe4b4fd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-數B答案卷.pdf",
+          "bytes": 795651,
+          "sha256": "49414a314be52f0348422e0a82360bd7a392d2c72032acb1ae1944d072a4c890"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-數B解答.pdf",
+          "bytes": 831874,
+          "sha256": "e634264e01e1283892ad9048c72b9fdac65c9409c8c6c1de2eebc701df3bc494"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N4 全模 (南一)/111-N4 數B 試題.pdf",
+          "bytes": 649044,
+          "sha256": "51242e991c2683a6b03eab9ffb61f9b075381d5e69ce2125786cc8b407c36e42"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N4 全模 (南一)/111-N4 數B 詳解.pdf",
+          "bytes": 357856,
+          "sha256": "79cc30548c9bf0899be1577761d359112755c806db771eb05da45078e4a89d68"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-數學B科.pdf",
+          "bytes": 513675,
+          "sha256": "8f0f6931b48972de627e7ac1857aff6cdbd543f7ef9753b60c7d65062d2d7e74"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-數學B科_詳解.pdf",
+          "bytes": 271008,
+          "sha256": "7a1a2c80bed4cf841799fb48736e2697d4da942011cf9d6e8e7453a77e70edf5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/111-W6 全模 (文昌)/111-W6 數學B (含詳解).pdf",
+          "bytes": 3851673,
+          "sha256": "60b122fa0fe1634f4ce4010c425d076f046087538280fd515569c31ffb21be82"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/112-N3 全模 (南一)/112-N3 數B (含詳解).pdf",
+          "bytes": 3770750,
+          "sha256": "66046f53118be362d8537dba032d5005ed4205f9ab9d7f6c36b343a13f123c33"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/112-N4 全模 (南一)/112-N4 數B (含詳解).pdf",
+          "bytes": 676368,
+          "sha256": "f78545eef9f2c3a95d48d28faa351bcab624c0100bab0a58412429cd11202ee9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/113-E3 北模 (翰林)/答案/數學B-解答.pdf",
+          "bytes": 3204163,
+          "sha256": "9a5b161660437504a17450de2e3b8c9e52c832324e30920c2fbbc66ec97fc058"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/113-E3 北模 (翰林)/題本/數學B.pdf",
+          "bytes": 5122707,
+          "sha256": "2a2d9e0f1cf1d4e2fabb3da0ce925553db92f34b741c2e2789917a01c6024114"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/113-E4 北模 (翰林)/113-E4 數B 試題.pdf",
+          "bytes": 5726774,
+          "sha256": "e49958b1bf51a363f2b4f1a6e1bf956ee2bc1821ca81db969a1800723b6fe6b9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/113-E4 北模 (翰林)/113-E4 數B 詳解.pdf",
+          "bytes": 3111632,
+          "sha256": "722f1f6ac07f0291b817b4782ede51311322502242ec83bbb72d69a35bf570d2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/113-N2 全模 (南一)/113-N2 數B 試題.pdf",
+          "bytes": 173266,
+          "sha256": "3fe7225c4dadd45fb4cd0d6a338419b4e33a9a3d3f992a006cdde37f61d627c6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/113-N2 全模 (南一)/113-N2 數B 詳解.pdf",
+          "bytes": 291233,
+          "sha256": "28fa240407195be50800bc830d7f55ec0caa656dbb74f4552d8b0b8e66a0877f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/113-N3 全模 (南一)/113全國公私立第三次模考-數B.pdf",
+          "bytes": 2523016,
+          "sha256": "04a67017c0a0692132209aca3933a268a0c829c89d94e97ae4aabfb566e54db3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/113-N4 全模 (南一)/113-N4 數B.pdf",
+          "bytes": 394366,
+          "sha256": "720b52f96c1f7ce27ca04c20630058dfcd87c763b794d9fea31bcbb075e6fe13"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/114-E3 北模 (翰林)/數學/114E3數學B-解答.pdf",
+          "bytes": 775376,
+          "sha256": "2eba11b9882cc27cd22a2bf79f9096c7087d24d794d21cac13b101de5ac018b7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/114-E3 北模 (翰林)/數學/114E3數學B-題目.pdf",
+          "bytes": 911515,
+          "sha256": "be4d486b53e48cf605398f8423ec5551ba3146b6fd72840d3249e3835fac86a0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/114-E4 北模 (翰林)/數學/114學科能力測驗模擬考試-數學B(第4次)-解答.pdf",
+          "bytes": 966311,
+          "sha256": "8b1524f0aeb00e7c4dded52543771b2aa8e5a6cb9948266a0fd9cda381043297"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/114-E4 北模 (翰林)/數學/114學科能力測驗模擬考試-數學B(第4次).pdf",
+          "bytes": 1009314,
+          "sha256": "37d01e69f88b8baa624ba25dd2ea255ecdacc171686247bb7f4949e277d91b96"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/114-N3 全模 (南一)/數B（含詳解）.pdf",
+          "bytes": 1090505,
+          "sha256": "0e8e587a2d447d6bdd6e805b0a926c98a0e24820682040bd9fed9bbe0105232c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/模擬考/114-N4 全模 (南一)/數學B (含解答).pdf",
+          "bytes": 3094003,
+          "sha256": "ccbb55ab06c2a5707b9ec06c2a5e19324d079a11870bee5a6c1d6c8ce49c3c5a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b試卷.pdf",
+          "bytes": 930394,
+          "sha256": "8752c7cb744419c301f1b495e5880143cd115163ea3275560de31acead73772b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b選擇(填)題答案.pdf",
+          "bytes": 95671,
+          "sha256": "bbcc536620e410692235de6c92896e7a1c8afde85da13380d540e2d5aa9b22a2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b非選擇題評分原則.pdf",
+          "bytes": 681475,
+          "sha256": "62375e3c3510fbb8d5235debcbdd3753409fe123ab63b398b2882cda342c7d1d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/112/04-112學測數學b試卷.pdf",
+          "bytes": 583713,
+          "sha256": "958c9ad0e1618062aa43199ea6728e5711a7bc22e30decd39a60b093411a0fee"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/112/04-112學測數學b選擇(填)題答案.pdf",
+          "bytes": 95501,
+          "sha256": "3214ac3c724d2ff68b960e3df53b214f67f29893f2319cd50394aea64c65e221"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/112/05-112學測數學b非選擇題參考答案與評分原則.pdf",
+          "bytes": 555644,
+          "sha256": "1df5b600242d8511abdd86fd836d21c3108043163f322a8fab58871527c0bee9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b答案.pdf",
+          "bytes": 90235,
+          "sha256": "adb3532af49ca9cf6735a54009e0d543efd66b3d1e4c5c1beb50d21f830ab48e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b試題定稿.pdf",
+          "bytes": 557552,
+          "sha256": "c378a43ffedb0aefc433152ea394570b6af5c9df97e654d9003a8ae82eb48feb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/113/05-113學測數學b考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 322590,
+          "sha256": "bb1d904a06324d8376bc219d8ed9e51edabd33837988bc06bca581116746a5d9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b答案.pdf",
+          "bytes": 89939,
+          "sha256": "3d3d916619a189b9fd0403460b8b30254929f3a8ce49ba58aadf0b7a3e35a3aa"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b試題.pdf",
+          "bytes": 587465,
+          "sha256": "ad6ed7218a4f93cf9474afa14b5fc875ca7a7d3ccf84292aa5ceee3d390fda67"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/114/05-114學測數學b考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 223507,
+          "sha256": "fb637301db7d41141b5d948a9d46e2d997875b2fce42ebd450fa185b8428ae5c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b答案.pdf",
+          "bytes": 71213,
+          "sha256": "ff1337781df5ee183f8e0a4b49f4690b297bbc547fefcb8f1669d01bdde610b3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b試卷.pdf",
+          "bytes": 457844,
+          "sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學B/歷屆試題/115/115學測數學b考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 217970,
+          "sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e"
+        }
+      ]
+    },
+    {
+      "id": "math-common",
+      "asset": "taiwan-exam-gsat-sources-math-common-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-math-common-source-corpus-2026.09.11.zip",
+      "archive_bytes": 135511460,
+      "archive_sha256": "83ec4c3233b900f7d36df9a4e5eb0e9d8718cf060123155cb129d24d0bb0561d",
+      "file_count": 102,
+      "source_bytes": 135479684,
+      "files": [
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/101-C1 中模/101學年度中模學測試題01-數學考科.pdf",
+          "bytes": 138999,
+          "sha256": "651d001f36c9489a99fde8a60420d7cfd008ac121e164e6bc5a031c50ba553c4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/101-C2 中模/101學年度中模學測試題02-數學科.pdf",
+          "bytes": 323797,
+          "sha256": "f60212e3495a896b8ed6802e4d341676cf6936b6162b59865d823eb2f2f5c101"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/102-B2 北模/102學年度北模學測試題02-數學.pdf",
+          "bytes": 289192,
+          "sha256": "259e2eff379694b41987c3800cd25cb730365daf0ce2f1e7545d5c9f76601778"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/102-B3 北模/102學年度北模學測試題03-數學.pdf",
+          "bytes": 320070,
+          "sha256": "9d441919e0429bd5fed7d4288c59dcef948c6fc57285d85aa81c3e946fe85410"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/102-C2 中模/102學年度中模學測試題02-數學科與解析.pdf",
+          "bytes": 214085,
+          "sha256": "f1c6ee76826d7848b67498b1fd7ebc015e27fde1196069a20e3b16501015248c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/103-N3 全模/103學年度全國模考試題03-數學.pdf",
+          "bytes": 165023,
+          "sha256": "139f0febda1f088e60c09292462ae7db0cf683837411d67f5a91c6225bef5ea0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/104-B2 北模/104學年度北模學測試題02-數學.pdf",
+          "bytes": 756339,
+          "sha256": "04c8213f47fc8d5941f2b4851ac58dacbff4bc27db64e4b7c21627d53eb90ef1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/104-B3 北模/104學年度北模學測試題03-數學.pdf",
+          "bytes": 398880,
+          "sha256": "37889afa439a1e3ce69d4d3121cbad7b510ae3d393825f5b80ea605bb47c9530"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/104-B3 北模/104學年度北模學測試題03-數學解析.pdf",
+          "bytes": 276554,
+          "sha256": "8a639c3e15b943fbd7e707e641d2b39af4a046bcd94f8c82c3951ea2c2e3f19d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/104-C1 中模/104學年度中模學測試題01-數學.pdf",
+          "bytes": 362767,
+          "sha256": "a4e64c9d726bda4301dba923bbb9dcc172504896055aa3148837713fe363c0df"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/104-C2 中模/104學年度中模學測試題02-數學.pdf",
+          "bytes": 165836,
+          "sha256": "c00013d77c9bf718338713778b009b5694020efbcd404f198f93609364cbe75d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/104-N2 全模/104學年度全國模考02-數學科1.pdf",
+          "bytes": 1008831,
+          "sha256": "00222d8e29fb7e55e913f0468b3a018be14c6f5f8419dc8b15cd1f7f703b4ceb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/104-N3 全模/104學年度全國模考試題03-數學.pdf",
+          "bytes": 238732,
+          "sha256": "6e42fb138bdaa32036965740b6612ebae5f2168af290320c08ee8d1f2046a2fc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-B1 北模/105-1-1北模學測數學解析.pdf",
+          "bytes": 594648,
+          "sha256": "923bcc7ab87d479f509b38bcc740155289539f0e8fc80fc3a6fa8f006b9df7a6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-B1 北模/105-1-1北模學測數學試題.pdf",
+          "bytes": 545832,
+          "sha256": "e56dfd63e76147b654e86b5a98c023068f15089c40a9feafdac20ce85506de95"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-B2 北模/北模學測105上02數學.pdf",
+          "bytes": 373176,
+          "sha256": "1d332ec696094865a7ac6473df80d032d2503b6a3724a41ba3cdbf5555e45588"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-B2 北模/北模學測105上02數學解析.pdf",
+          "bytes": 299841,
+          "sha256": "c5147509caa00fca7ac5dde99b5a1edcdbaba4860eee05e1aa6c083f05bc7a9f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-B3 北模/數學.pdf",
+          "bytes": 489917,
+          "sha256": "71501b0ad7425eadae0022e5ef5ae7052f64200441e58426e70cf38fe008e240"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-C1 中模/數學.pdf",
+          "bytes": 267561,
+          "sha256": "a72bbe58143139eb79c5ea871d3a17cf2e0ba34b4c0f96c838784e46e568afd5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-C2 中模/全科學測第2次_中區105年-數學科.pdf",
+          "bytes": 2437997,
+          "sha256": "3c4f8aaae760b8854a7af8b050234e6596bd7c3194f11e2a253274f597de9e10"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-N1 全模/數學科.pdf",
+          "bytes": 418418,
+          "sha256": "c88bfa170ca13650bb4795dc9e011bde43796497ed23d985cae267da44aee588"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-N2 全模/數學科1.pdf",
+          "bytes": 558981,
+          "sha256": "d431ade3193f35b26838582344e2d08b579b5d57cc0ef5982c2e5494b45418d1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-N3 全模/數學科.pdf",
+          "bytes": 528512,
+          "sha256": "e788d06b0cfcd74b8722b284fa831e2e9219f7573f735f86fa34990736d1ec5a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-N4 全模/105學年全國高中第四次模擬考數學科.pdf",
+          "bytes": 262974,
+          "sha256": "90febc4362e50f8511ec6d1de4996447439fda7d732aa94004be2739b26f29cc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/105-N4 全模/數學科.pdf",
+          "bytes": 925111,
+          "sha256": "05693a9a7fe6bf1582771abf2944b34cfb321b25b689ecf1d0b8dc462497018e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-B1 北模/106-1-1北模學測數學解析.pdf",
+          "bytes": 402220,
+          "sha256": "365f8872c65f8195acf5e06811065e7c4e0b70d794894f087e6143978460240d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-B1 北模/106-1-1北模學測數學試題.pdf",
+          "bytes": 493586,
+          "sha256": "75747bdf96104748f2c28c849b14fb730b65b8eb3c68e58a77341dd40b893111"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-B2 北模/北模學測106上02數學.pdf",
+          "bytes": 1318121,
+          "sha256": "a5dff6ec9231bcf15a991af1d9742e6f6fd6d28cbd74a6e8e726f1c2e9f24f2a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-C1 中模/中模學測106上01數學.pdf",
+          "bytes": 570855,
+          "sha256": "cab7478dfea43291bcc22071a0bb04f4dd6e3ee21ab1c0e0b08eeaf5c69dcb4b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-C2 中模/中模學測106上02數學.pdf",
+          "bytes": 4407985,
+          "sha256": "85ba2b986407247e17f61dd5ebcc2b7767d06c01f5aba9355bc2da7eedda3fd8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-N1 全模/106-1-全國學測-數學考科解析.pdf",
+          "bytes": 245825,
+          "sha256": "2b226f34b0a31a720e8dfad97e499fa8137fb064f48a3224e53d7b8a9c842b31"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-N1 全模/106-1-全國學測-數學考科試題.pdf",
+          "bytes": 485942,
+          "sha256": "9d93905c76ddc4df50b40e6336c40a7c05d77090c10e019627c4d79f5750a1c9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-N2 全模/106_2-學測漢樺版數學考科_A.pdf",
+          "bytes": 300652,
+          "sha256": "ea823f249cc2474f07b1267676dd1a86ed8364682135dd5566e41620c6abaa1a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-N2 全模/106_2-學測漢樺版數學考科_Q.pdf",
+          "bytes": 661594,
+          "sha256": "07b7c57ca75fbff99d8245ebec7e536e50aec6c4b9054eb3efaa6ce5c5b63d8b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-N3 全模/106-3-全國學測-數學考科試題.pdf",
+          "bytes": 752335,
+          "sha256": "3ba449125078ba7875f23337b33132a58e5a59b1c0d603638f611ffac3c63f3f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-N4 全模/數學科1.pdf",
+          "bytes": 439819,
+          "sha256": "72385c2f14c4071819dcc90a61e0f854b4d076678ea220beefa5186395d55b6b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-N5 全模/106學年度T5數學.pdf",
+          "bytes": 2785915,
+          "sha256": "bd70d4eb28e983dcfdc02bb557ec17f61ecd83f2530b7ea2d3f57b647a10dff7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/106-S1 南模/106學年度學測南模-數學.pdf",
+          "bytes": 2425081,
+          "sha256": "8b31ba027735cca9256a9de4ef2918c058c4301fcf04091037e961dc87bb6a8d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/107-B1 北模/北模學測107上01數學.pdf",
+          "bytes": 1972629,
+          "sha256": "a3c0bc7b9bbee846887aff34ba44031777512d388c3939a388e33dc29c9425af"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/107-B2 北模/北模學測107上02數學.pdf",
+          "bytes": 1662419,
+          "sha256": "1439a1ef1e26ae4f2887df3576c82a9f09f15fb743c5dd6e4e2cfc86e7e44c5f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/107-C1 中模/中模學測107上01數學.pdf",
+          "bytes": 2702397,
+          "sha256": "e3787b65270c6411c80f0c129c11655d12bf5c8589ab6d808030ff31c9f5f982"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/107-N1 全模/數學科.pdf",
+          "bytes": 3334885,
+          "sha256": "9eb2fd9424782aaa0337f4eb0d7b9b1414d6f813a09ee075562f7f9da0bd84c8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/107-N2 全模/數學科.pdf",
+          "bytes": 3920696,
+          "sha256": "2b011584664ca1dadedfd9d7fd4b9ad40586ec3795dc0ce7a35d9cb7049246d0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/107-N3 全模/數學科1.pdf",
+          "bytes": 4782203,
+          "sha256": "917ce266f09d0ae53f938c9cd3a90369c49211904233481769556d22c75233c2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-B1 北模/北模108-01-數學.pdf",
+          "bytes": 2384668,
+          "sha256": "a98cd79d2f065fbc32510e5e70865e84d4298c06b876c2490d21e2e951354b1e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-B2 北模/北模108-02-數學.pdf",
+          "bytes": 355787,
+          "sha256": "6641405be21e801daaa52e94de93d2c0e8a7a5748141816b26799ffd12d675ce"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-B2 北模/北模108-02-數學_參考答案暨詳解.pdf",
+          "bytes": 300913,
+          "sha256": "f19e29beacbb115853818b2d9583b330a29f608a07f21894b0f215ae5638c275"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-C1 中模/中模學測108上01數學.pdf",
+          "bytes": 1984689,
+          "sha256": "ad19f25e21dbb3b0be4127397fa1b0f21df89ad6a0e06073b4ed3524ed3d7026"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N1 全模 (南一)/第一次模擬考_解析數.pdf",
+          "bytes": 555589,
+          "sha256": "374f400cd975908b362fbd4f18a05333120db954b62a9d280d6b590eefac8832"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N1 全模 (南一)/第一次模擬考_題目數.pdf",
+          "bytes": 1249379,
+          "sha256": "97d6175598f8582c59ba5c82e8831ce95b4ab3e0facfbe28aa120f301014821f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N1 全模 (文昌)/數學科.pdf",
+          "bytes": 3510796,
+          "sha256": "3425341850e23206e382691f877120df9471fb3e4df25ef6ab1efc43d5c9bac5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N1 全模 (翰林)/P01-P08高中數學科學測封面-內頁第1次.pdf",
+          "bytes": 324489,
+          "sha256": "4ed6a8d5906f2931144db647baad865a2ae263cd89de47fa3eb7631000c1297e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N1 全模 (翰林)/P09-P16高中數學科學測解答第1次.pdf",
+          "bytes": 246651,
+          "sha256": "26c89aba1d2e3e4c50375178c5de1f914d2a6a948bfba495bce9349dcfea99ec"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N2 全模 (文昌)/SKMBT_42119091712431數學.pdf",
+          "bytes": 339026,
+          "sha256": "330f19f5862e72d2028251847cd74f8a0426832b6e07823787188ab1823fef1b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-數學科第2次-學測解答.pdf",
+          "bytes": 290357,
+          "sha256": "e3cdb7a6d0761345a78654c29b02e7b46f8c25fa944b344bf2803033d3bc2750"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-數學科第2次-試題.pdf",
+          "bytes": 549062,
+          "sha256": "fcd08199b675d27bf23c6ab5c93d17a419f63abe8e6dd77e34403174e459e01b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N2 全模 (銓達)/數學科.pdf",
+          "bytes": 3573719,
+          "sha256": "94295d46dc3c4996af96b5b769100ff4ff12847d55b93b8f11ac470cc91e06ab"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N3 全模 (南一)/108學年學科第三次聯合模擬考-數學.pdf",
+          "bytes": 4630166,
+          "sha256": "14afb5ab42e6e7442cf20e2c371876f75464ea3c97b93eaf84d5ceaf51cc4345"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-數學科第3次-學測解答.pdf",
+          "bytes": 261752,
+          "sha256": "b8278f943a9477435f445879f3087d6a45dd0908b8cf8aa3dc626346f198bbbb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-數學科第3次-試題.pdf",
+          "bytes": 380013,
+          "sha256": "5a704c04c069040f210070bbbdd360783d14a70932ebd1f555f841d18d260bed"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/108-N4 全模 (翰林)/108上高中模擬考-第四次全模-數學.pdf",
+          "bytes": 6479295,
+          "sha256": "55eb9ff48136e670b01b2d04fd9f4cf41878c16d6033ef459e7ddb43aea87ef3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-B1 北模/北模學測109上01數學.pdf",
+          "bytes": 1235776,
+          "sha256": "a08dbe3e701d6022ff6441e0bbf4d3937af46a2855c334ba4a0eaeb0fe6c27aa"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-B2 北模/109-第2次北模數學.pdf",
+          "bytes": 419844,
+          "sha256": "7361d7b841e835b597274d1b91dc0cf2e335788389867c1358eea66c2924cb2e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-C1 中模/數學.pdf",
+          "bytes": 2644347,
+          "sha256": "6c282d7c5326c73cefa49318b3c4de04fb6133027001213a7cdd8e7f762bdb6d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-N1 全模 (翰林)/數學科第1次-解答.pdf",
+          "bytes": 240100,
+          "sha256": "7df605a76d665380d1d5f23a17d2d595b57a177a4a0a6d469212ade75031ed5c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-N1 全模 (翰林)/數學科第1次-試題.pdf",
+          "bytes": 322607,
+          "sha256": "1b57400558c46793685c1a24389e345369a2ae5aea1bc4e2be7abe595a8d53b9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-N1 全模 (銓達)/數學科.pdf",
+          "bytes": 3982547,
+          "sha256": "9395f548f26517d4b026e421c28baebffc63485fa84044a0ab88d5a23aaa901f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-N2 全模 (南一)/數學科.pdf",
+          "bytes": 3417012,
+          "sha256": "cc12f868929c84851ed6b91b9493e1eb38d54941da7023f97d7c0af9ca22e5b9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-N2 全模 (翰林)/數學.pdf",
+          "bytes": 1596746,
+          "sha256": "8b5ae40f21fe4832b0c7cb1b288126080ed3332b6c554fe7666053695069c0cc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-N3 全模 (南一)/全國公私立109學科第三次模擬考試-數學.pdf",
+          "bytes": 826925,
+          "sha256": "9f026fca8db746f010fa432e145f94c9e0121654a71c8eaface0ed869dbfe7a5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-N3 全模 (翰林)/109第三次全模-數學.pdf",
+          "bytes": 1096846,
+          "sha256": "0d2adf9caae179c2e618c0c01121b7cef2e0cac4d5c649466234edd10b5fc31a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/109-N3 全模 (翰林)/109第三次全模-數學解答.pdf",
+          "bytes": 1043946,
+          "sha256": "dc73a1960edefe1b0d184fc14c546f677690812762d065fa70b84b7ae8fbb784"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/110-B1 北模/110學年-B1北模數學.pdf",
+          "bytes": 493302,
+          "sha256": "2e3698cfbb453647d2d9172ac66f831efb33eb020bac498a908816f8101e7041"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/110-N2 全模 (南一)/110上高中第二次全模南一版-數學.pdf",
+          "bytes": 2952495,
+          "sha256": "dba632869d13b4344b16d06e1ba1f5aa92d95e8c47031095ac081988d1c8a09f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/111-B1 北模/111北區第一次能力測驗模考數學.pdf",
+          "bytes": 633705,
+          "sha256": "70760e0f0ecd9f11cb3352d1d6257aa757288183c94bee292ee26221273e6bba"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/111-N1 全模 (南一)/111-N1 數學 試題.pdf",
+          "bytes": 173129,
+          "sha256": "28ed841c5c1e7f1fde915819562d1e8c0744bcce93606e69617bd52548d42c9f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/111-N1 全模 (南一)/111-N1 數學 詳解.pdf",
+          "bytes": 1306701,
+          "sha256": "3a13e13f4aa892bd0bfef253a371946ece2aefac8a7ad8e09d6db6786982c8d8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/111-N1 全模 (翰林)/E1數學科.pdf",
+          "bytes": 3240551,
+          "sha256": "9b210ab0e0fbf70fd378285b3fa4dcc884ffdab2e662b3a65f45450b386750b4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/111-N1 全模 (翰林)/E1數學科_詳解.pdf",
+          "bytes": 2553620,
+          "sha256": "0f4125284c23cbde68369496a0c85067aff0ac1afc5a74a1a2ac2351f848a9aa"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/111-N2 全模 (南一)/111-N2 數學 (含詳解).pdf",
+          "bytes": 3501343,
+          "sha256": "9711a7100ac7f07a3897bdfadd309824b06e57120deaa2bdc3520ab55031821a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/111-N2 全模 (翰林)/數學.pdf",
+          "bytes": 552478,
+          "sha256": "b9b8a63029ed969db0cbb2102b630d7b1fefd54ccc247d2af7fa671a12250132"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/112-N2 全模 (南一)/112-N2 數學 (含詳解).pdf",
+          "bytes": 2368973,
+          "sha256": "385cda60ed1783c0ddd044a0c67d699260dba84f783858a71730cec1e7be2a31"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/112-W1 全模 (文昌)/112-W1 數學 試題.pdf",
+          "bytes": 312295,
+          "sha256": "00f279e589b91246fcc1b418617dee336c05afe5afe89c4363bcc8b8604db3e6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/112-W1 全模 (文昌)/112-W1 數學 詳解.pdf",
+          "bytes": 130940,
+          "sha256": "1186674ebfb205521afb6a72d66ba72980a6170df58b1a573dd4a51efb5e7709"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/113-E1 全模 (翰林)/113-E1 數學 試題.pdf",
+          "bytes": 296733,
+          "sha256": "b80f52ac19feae11f28e867d1ea880b183f3ef4b41ad4cb17aafb32c08b05049"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/113-E1 全模 (翰林)/113-E1 數學 詳解.pdf",
+          "bytes": 345740,
+          "sha256": "0cb1e00285a39776b8c9aeea46bf99cb9be2456a9d038921e109ab283b69e2eb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/113-E2 北模 (翰林)/113-E2 數學 試題.pdf",
+          "bytes": 5057599,
+          "sha256": "8376a153fba85ace98ba84741836a88931323727658917cd724bbffec99d62cf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/113-E2 北模 (翰林)/113-E2 數學 詳解.pdf",
+          "bytes": 3305074,
+          "sha256": "edd29a752da5db4be81084935d8a868d174310af794ed28044c6d300bfd4c8f0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/113-N1 全模 (南一)/113-N1_數學.pdf",
+          "bytes": 1908759,
+          "sha256": "2eee37e5a0962470047aaa6fdb02ca0d2af16e9b43d9bbf9d5c209c56164150a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/113-N2 全模 (南一)/113-N2_數學（含解答）.pdf",
+          "bytes": 3666923,
+          "sha256": "b0497ddcaeea618d72f26a2de1d9eb8909fdfbc68fd1cf4e26b483645f5d8591"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/114-E1 全模 (翰林)/數學/114E1數學科-解答.pdf",
+          "bytes": 550204,
+          "sha256": "a38dd1f0f20ebf10b6acb79c06964928ec9b7b0bc74f7b965d12e70293a63166"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/114-E1 全模 (翰林)/數學/114E1數學科-題目.pdf",
+          "bytes": 754097,
+          "sha256": "96c01326074ad8636f42c8064ce22786dcab08c70fa53388f8c5ab5e47243aaf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/114-E2 北模 (翰林)/數學/114E2數學科-解答.pdf",
+          "bytes": 723099,
+          "sha256": "6a42c4a00c3e0e027109dc913f25b947e8c3ff5e999a424f0a63bed50603869d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/114-E2 北模 (翰林)/數學/114E2數學科-題目.pdf",
+          "bytes": 952142,
+          "sha256": "c25b55ed9187050081378466286146b3423ea944c0fec2f167965b3c2aaa3099"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/114-N1 全模 (南一)/數學（含解答）.pdf",
+          "bytes": 1969446,
+          "sha256": "e9efbf51dfe00a4106b655017526bde7d4049ed057fa3c295300913e588d9ff2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/114-N2 全模 (南一)/數學.pdf",
+          "bytes": 3173838,
+          "sha256": "f9c335b56ae5aebe53277714401e26f3d2446cbf0ccf94caae0c1321633f9957"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/115-E1 全模 (翰林)/115-E1 數學解析.pdf",
+          "bytes": 751257,
+          "sha256": "759a2f4e4b37afceedde386398d29ada8c6807f95c1c0c403508b07c88341340"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/115-E1 全模 (翰林)/115-E1 數學試題.pdf",
+          "bytes": 934838,
+          "sha256": "541e30ebd77ef5b8d271029700d88da44465a3358866c47d70275f01a75b5607"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/115-E2 北模 (翰林)/115E2數學科-解答.pdf",
+          "bytes": 700191,
+          "sha256": "2aa1573bcc77bb57ba3fa03969534d5645353e965ac558d07f3c0303ba6cb7ee"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/115-E2 北模 (翰林)/115E2數學科-題目.pdf",
+          "bytes": 962715,
+          "sha256": "eb8b2c54eb3c774a041d460aab3a4a23dcacd1939d67f1b10c241e24dcb9d935"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/115-N1 全模 (南一)/115-N1 數學解析.pdf",
+          "bytes": 384965,
+          "sha256": "ead882c1025899b21dacf6bfd32a5ee3f6007217e64ed74d7d8bf5e4f9f2ee4d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（共同範圍模考）/模擬考/115-N1 全模 (南一)/115-N1 數學試題.pdf",
+          "bytes": 552253,
+          "sha256": "c50481edb2daea5306574cb627482f1d89d0645b9c6e8af57f02a92da0b6b6c0"
+        }
+      ]
+    },
+    {
+      "id": "math-legacy",
+      "asset": "taiwan-exam-gsat-sources-math-legacy-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-math-legacy-source-corpus-2026.09.11.zip",
+      "archive_bytes": 8192303,
+      "archive_sha256": "ea9ac7d2d32aa5e7d581e9946e5a8c2b5bf1a60bf6aa6cb59f60dc8ffa7862d3",
+      "file_count": 22,
+      "source_bytes": 8186403,
+      "files": [
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/100/03-100學測數學試卷定稿.pdf",
+          "bytes": 179452,
+          "sha256": "f31421ab5ef4669e38cf3209946c36f768f89bd4e38b60d886cf332ad14e3b3a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/100/100學測數學參考答案定稿.pdf",
+          "bytes": 43766,
+          "sha256": "f0ad319d28c71cb9b1d70ecc93c607f48454c2a0b0c271fea91a1143a2298ab4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/101/03-101學測數學答案定稿0.pdf",
+          "bytes": 59528,
+          "sha256": "4be19f8241c077e5ea6d8ce884d466e4600f3c081945ec87eabe45fe6614168d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/101/03-101學測數學試卷定稿.pdf",
+          "bytes": 207402,
+          "sha256": "731fc2f5788b4584c878d37f3ccb27f45ef778e9ef45e260b2bc512698923e5f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/102/03-102學測數學定稿.pdf",
+          "bytes": 317601,
+          "sha256": "cdc4b32172ceab057e3e303f384d71d8aa50de4d937832c29d23a2a76642f6b3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/102/03-102學測數學答案.pdf",
+          "bytes": 34167,
+          "sha256": "9a538f3fbffd714dc63e7050721fbe31e72ee9aac9411158900af54053e1860b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/103/03-103學測數學試題(定稿).pdf",
+          "bytes": 266961,
+          "sha256": "f7a84681f3553aeb9bb56d192b80ad0a5c3f20d1487cc96364d43b6b2e25ea49"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/103/03-103學測數學選擇題答案.pdf",
+          "bytes": 30422,
+          "sha256": "4b6162e182486593295281d59978d0fb7827c7dfeb846f17300ae300cff57e17"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/104/03-104學測數學定稿.pdf",
+          "bytes": 399667,
+          "sha256": "3cd6c5215f01ccca5dc4e303a5998932610264a313d0c2f08f4997710510a8fd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/104/03-104學測數學選擇題答案.pdf",
+          "bytes": 3077678,
+          "sha256": "bbf8bbdf3b2a4116d9554f688dd9ad29ce125d388a1c5c244d07d19867ad98fd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/105/03-105學測數學答案.pdf",
+          "bytes": 60051,
+          "sha256": "63aa4fcdce02f5cd26301a5d3c139ce30b53d6c7a9f814b46f45a67131c46388"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/105/03-105學測數學試卷定稿.pdf",
+          "bytes": 224863,
+          "sha256": "d5f08eec1bbac45e3d552eba3d2a913c1f8dadab0d9c0d6f28ed330c4f71129f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/106/03-106學測數學試卷定稿.pdf",
+          "bytes": 234857,
+          "sha256": "de9b972af64587bad34e623bb7af98a600d4243dd0b4f0ce328db497c0cd8a6b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/106/03-106學測數學選擇題答案.pdf",
+          "bytes": 59616,
+          "sha256": "d204ea0abd6b04d0720902338c1a7087034faa3ce31f6a359e7c9fef06e86173"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/107/03-107學測數學答案.pdf",
+          "bytes": 136839,
+          "sha256": "3dbec1940ea658c4e3c9cfd66c22eac2a939f05c47e6c74ec6e229890193cea2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/107/03-107學測數學試卷定稿.pdf",
+          "bytes": 232247,
+          "sha256": "a5e3f861a54a6510a780a14f9c9800a41bfc897d36e841a228f4a3b12b4d7de5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/108/01-108學測數學試卷定稿.pdf",
+          "bytes": 733956,
+          "sha256": "683293478aa53af20d716090d118d806ef30609ddb04760735d76a31410e6959"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/108/03-108學測數學選擇(填)題答案.pdf",
+          "bytes": 158853,
+          "sha256": "c33b65a91258ee3b59d6945c7db72bd5be16509ad577dba3a4e514866112d7a2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/109/03-109學測數學答案.pdf",
+          "bytes": 159172,
+          "sha256": "67423884369f6ce3afe52498b56f15926eb55ede784c079279d227ef4e092a9d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/109/03-109學測數學試卷定稿.pdf",
+          "bytes": 727394,
+          "sha256": "bd28a23cc3af86f700ce5b033b6ef1ae6bdd5b3e54320078a05346e9417ddee7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/110/110學測數學答案.pdf",
+          "bytes": 159166,
+          "sha256": "4cd9e91368829c75064f53e4e615b3c48ceae5d4d6e4fd08b8879d3d4518d731"
+        },
+        {
+          "path": "exam_packs/學測/subjects/數學（舊制）/歷屆試題/110/110學測數學試卷.pdf",
+          "bytes": 682745,
+          "sha256": "6cfd5211a44a1d71052e23d8d03502a4b7f7495dd3dbaab6158070f5b287d205"
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "asset": "taiwan-exam-gsat-sources-social-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-social-source-corpus-2026.09.11.zip",
+      "archive_bytes": 1010950335,
+      "archive_sha256": "f391426821693bd754aac0c897f7090ac97ff7bad6f88935c1747375ddd01b68",
+      "file_count": 165,
+      "source_bytes": 1010906735,
+      "files": [
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/104-B3 北模/104學年度北模學測試題03-社會.pdf",
+          "bytes": 2195248,
+          "sha256": "c9dbe9b29afb74dcdcae7367f16508a42b1a43a0fe27f87bd0bfd03ba62ad85f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/104-B3 北模/104學年度北模學測試題03-社會解析.pdf",
+          "bytes": 1100963,
+          "sha256": "f24660a8a8c66f5d3d307d0e9f09bb8c02fc4e83530db83a68bb9ee1842af5df"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/104-C1 中模/104學年度中模學測試題01-社會.pdf",
+          "bytes": 2012374,
+          "sha256": "5e03e3fb86484ed5d26ec1db054d591f10811c3fac1e288838da2dac7478bf29"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/104-N2 全模/104學年度全國模考02-社會科1.pdf",
+          "bytes": 8551206,
+          "sha256": "91a3ac5f344517da498a8fd7980ef6a72fd8ea42c5ac5568b1da7ae2dd10ab75"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/104-N3 全模/104學年度全國模考試題03-社會.pdf",
+          "bytes": 1212457,
+          "sha256": "ad0cf0e4b1e1df64dbce53164cfab1f653ca227871450f1656357c1cc0a49312"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-B1 北模/105-1-1北模學測社會解析.pdf",
+          "bytes": 1968474,
+          "sha256": "9440d27e42292be1a21ac8d61011d03cd99bcf2fbb19a4323a7add24d95ebb7e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-B1 北模/105-1-1北模學測社會試題.pdf",
+          "bytes": 7135802,
+          "sha256": "167c4a77f8c2406eabb9b8b74d2d8b30f165e1a9f2c772228d0b8445c355a099"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-B2 北模/北模學測105上02社會.pdf",
+          "bytes": 1806035,
+          "sha256": "164fd4fa076eb1e378324d4022917995c3c1901daf8df176e50b5c96ad556229"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-B2 北模/北模學測105上02社會解析.pdf",
+          "bytes": 1143676,
+          "sha256": "015cac8fc524bed5f7bdeb9141c2136cd91fdb1e62352b416cf9df4aa7df6f92"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-B3 北模/社會.pdf",
+          "bytes": 2439440,
+          "sha256": "75f75e85ef458116b0b6b0e69dfd8ca273dc3fdaa73440d1a9dc5b7592a0df0f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-C1 中模/社會.pdf",
+          "bytes": 1463634,
+          "sha256": "81d875b696d85f77266d7f5c14e82b0b172f648828a1856ba2d16a05f7983b1a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-C2 中模/全科學測第2次_中區105年-社會科.pdf",
+          "bytes": 9855254,
+          "sha256": "ed796cd8baad78094cd54e862700a75d15a1f38a49e316c83548e60a2b80c921"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-N1 全模/社會科.pdf",
+          "bytes": 2403490,
+          "sha256": "135bfff37c21c74a5c8f05e96e191331e06a66831a920839bbf5c75d7761230c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-N2 全模/社會科1.pdf",
+          "bytes": 2610545,
+          "sha256": "7ac8c42e0371f8daf05cb03a8c3daa17bd9d5f9d7493d385394a39e1926f4514"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-N3 全模/社會科.pdf",
+          "bytes": 2327117,
+          "sha256": "77f17563bf5318f41f07c180015901141be63a309f56053d0ef7c25f04966b8b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-N4 全模/105學年全國高中第四次模擬考社會科.pdf",
+          "bytes": 1865912,
+          "sha256": "51fbd17aab2fa9493897031fc900e987a3df77b0f191f822d3351fcbd2b52f79"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/105-N4 全模/社會科.pdf",
+          "bytes": 3638587,
+          "sha256": "de0122075514ef53439c3f4caf0d83195fbef72224147f7f8ff5c493693b322c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-B1 北模/106-1-1北模學測社會解析.pdf",
+          "bytes": 716663,
+          "sha256": "5bdd9b43fbcd671c0c565d21e36c90bad22b777a4968624b583e47e54f45e04a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-B1 北模/106-1-1北模學測社會試題.pdf",
+          "bytes": 1656961,
+          "sha256": "22d025f1fcfc15f75e34c3e75e2ebeaff45861ed5a23bf6381a99ed315c1e194"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-B2 北模/北模學測106上02社會.pdf",
+          "bytes": 8833011,
+          "sha256": "96c76e080ea3b83fe00243f9e3665aa3759a172f9a1f7a6c2a8d1110fd1f52fe"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-C1 中模/中模學測106上01社會.pdf",
+          "bytes": 2552626,
+          "sha256": "bdcbfe600e5aa2d31a21b465a58fa3cf38614d5182e89f3f1f4746fd50133fbb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-C2 中模/中模學測106上02社會.pdf",
+          "bytes": 3762834,
+          "sha256": "055484b1d8d5e417f0e2faac4067217b0ede528dd5aa4d14759768e2d6aa2f07"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-N1 全模/106-1-全國學測-社會考科解析.pdf",
+          "bytes": 847115,
+          "sha256": "0a5bc39a5e5310b2be6cb30ad7c9fa6df4701f99e85f418704ac9340e7e5c163"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-N2 全模/106_2-學測漢樺版社會考科_A.pdf",
+          "bytes": 1017356,
+          "sha256": "c34a59df399f6ba137f2e9f92bbfbe0161263eeb0381d2c2af143f7d350fea25"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-N2 全模/106_2-學測漢樺版社會考科_Q.pdf",
+          "bytes": 5304933,
+          "sha256": "4474b442f0c27fdb05efc68b11a1e26d1826e2b2ac65b5298e312c65ff50dea9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-N3 全模/106-3-全國學測-社會考科試題.pdf",
+          "bytes": 5473499,
+          "sha256": "f697c680250b0bb131928559c21a213ae7a7fb30efec54cfbd1a2a9497fa4714"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-N4 全模/社會科1.pdf",
+          "bytes": 2538692,
+          "sha256": "8889414200c0e5404bf58d73e181a7034991f64632a430dbc2a590d1244f6172"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-N5 全模/106學年度T5社會.pdf",
+          "bytes": 6489829,
+          "sha256": "ae0d3c7120b244661f1f25c065cb94402dc4ee9fec0ca990792e4b9ab652cff7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/106-S1 南模/106學年度學測南模-社會.pdf",
+          "bytes": 6853537,
+          "sha256": "8202b169cdc6692f77d45b38b6bba231aef8280476d10c389abc7d58d47a99a6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/107-B1 北模/北模學測107上01社會.pdf",
+          "bytes": 11461274,
+          "sha256": "2f6523a98bcb19c995e67dd66b438f16482db9ac0963d5661b02107256266ee9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/107-B2 北模/北模學測107上02社會.pdf",
+          "bytes": 11645733,
+          "sha256": "aa3827054eda079a46d3b7c2688c6d0e55cc0c12d62a4497c3d56362d1decf24"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/107-C1 中模/中模學測107上01社會.pdf",
+          "bytes": 10446354,
+          "sha256": "51bc599a524720ac5d7933bdca7acb8e461368d916d89185c5149139fab7d0e3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/107-N1 全模/社會科.pdf",
+          "bytes": 12955211,
+          "sha256": "1ca97c758a677c8486286356594f0a93835a7c19a5732f36b5e817da370e4482"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/107-N2 全模/社會科.pdf",
+          "bytes": 12842234,
+          "sha256": "882ce479913452a30aeaa26913431ccc7330d8761fa25ba147a73f5fe3c87560"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/107-N3 全模/社會科1.pdf",
+          "bytes": 16976047,
+          "sha256": "d9876c71165ccb78a6cddcffac59d76b529698c63e2f793af229d903383e4d34"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-B1 北模/北模108-01-社會.pdf",
+          "bytes": 10048304,
+          "sha256": "52b7f424da7675c8e9b668de0c024c0f3db0f337358c86e9dacc63b0374ae3a4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-B2 北模/北模108-02-社會.pdf",
+          "bytes": 1682208,
+          "sha256": "4487d0dbc3496eeb4ab1d237a88fb9e7cbbf4cceba6c74665d78a4ca090287d6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-B2 北模/北模108-02-社會_參考答案暨詳解.pdf",
+          "bytes": 807269,
+          "sha256": "aee896db733e68d30037d8454d439df925b06bb16c83dfb0060e48a13c19c56f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-C1 中模/中模學測108上01社會.pdf",
+          "bytes": 7866078,
+          "sha256": "25c5a41057f2a6ba9c9a2aea3da0ece2ec806f0a6b381395f63d4bfbe46a233d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N1 全模 (南一)/第一次模擬考_解析社.pdf",
+          "bytes": 1608367,
+          "sha256": "8555113f9ee28d831a11ac012d44b281acf1739bb6d20fed7fba92293eb8fef5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N1 全模 (南一)/第一次模擬考_題目社.pdf",
+          "bytes": 4440050,
+          "sha256": "0bfbcc952a00a28721aa2749ebbf5977e8e9da9e44741727a17693d87b9916a4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N1 全模 (文昌)/社會科.pdf",
+          "bytes": 13013236,
+          "sha256": "531be9d7804eaefd40e12a6acfa02a3b5bd2e77b8e63c95fdb0be9868460c52f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N1 全模 (翰林)/01_108學科能力測驗模擬考試-社會科第1次-學測解答.pdf",
+          "bytes": 589402,
+          "sha256": "033d478e2f1224f9d5fdcd6478afdb3481eee99eea18a1e4b31fde12e8f1a1a8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N1 全模 (翰林)/02_108學科能力測驗模擬考試-社會科第1次-內頁.pdf",
+          "bytes": 9103445,
+          "sha256": "fde3eac50f64d337a3a289fedaeefb035f838965a20bb3e7bd6eff688296452d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N2 全模 (文昌)/SKMBT_42119091712450社會.pdf",
+          "bytes": 1249274,
+          "sha256": "a94a54a737e1215802ba20882a18ec55ee30f9ae550e834a5191f3828366501e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-社會科第2次-學測解答.pdf",
+          "bytes": 553276,
+          "sha256": "7c4e7dcbf954593e8906a868d22b608ea9ccf3cd3ea3e7f51dcf2e04c26cd3e0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-社會科第2次-試題.pdf",
+          "bytes": 7707013,
+          "sha256": "60ca8b4f3b09e20e8b5c315d6e28c9d59d14fa977eedc7d37988477d1f2a87a8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N2 全模 (銓達)/社會科.pdf",
+          "bytes": 13786835,
+          "sha256": "de4581d4dcf21b61351257f9fb530cd4c8d4e1fd64037fc24957aa30585fe4cb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N3 全模 (南一)/108學年學科第三次聯合模擬考-社會.pdf",
+          "bytes": 12458506,
+          "sha256": "12e6f0f582448fc107517698fce4f74bb713bb827bf999d635594ad9a718ba30"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-社會科第3次-學測解答.pdf",
+          "bytes": 511476,
+          "sha256": "08f17ce607828e6f9bf42b1ea4f0963b28d242b660ce866a995ca31f24fb0f55"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-社會科第3次-試題.pdf",
+          "bytes": 4497930,
+          "sha256": "24df41ef457974ccb7808dc02cd1c4e67fe048337b1fd320a8762720dea941b4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-B1 北模/北模學測109上01社會.pdf",
+          "bytes": 5442682,
+          "sha256": "04881bb38d2cea99a37440d25fe02400cf802fc7f3011f45757f4bfad55d0edf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-B2 北模/109-第2次北模社會.pdf",
+          "bytes": 2013704,
+          "sha256": "d1baa27be64cff5514becf8f5f3ed3e299a6d649ef9836f450fa33c5bb42fd5f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-C1 中模/社會.pdf",
+          "bytes": 11211723,
+          "sha256": "d3b1fa1a42f454cc452aa5e4c8568ed106e860c59c1a2f58a491921815b2d463"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-N1 全模 (翰林)/社會科第1次-解答.pdf",
+          "bytes": 487530,
+          "sha256": "25d39b25bc4fc753a44979bb75e2368e3a08d477958dd1fec048931ec4a299f7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-N1 全模 (翰林)/社會科第1次-試題.pdf",
+          "bytes": 4399539,
+          "sha256": "d681fd780548de95c99103c6343efba288b5e3caa77626f2db2ca298c266d68f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-N1 全模 (銓達)/社會科.pdf",
+          "bytes": 14139738,
+          "sha256": "d2b9d28b9e66a4d1eab6345dba4a0ef4326ed5b71084c911e38d017fa03adab3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-N2 全模 (南一)/社會科.pdf",
+          "bytes": 14412208,
+          "sha256": "49b675f08e4b87830baab66c8f35afa5ee60e3b351cb85fe0fb638bac3b821ef"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-N2 全模 (翰林)/社會.pdf",
+          "bytes": 11671016,
+          "sha256": "b43401e80003dd50cd0b3298b1cc64071c2f47e068495c88b408583dae53702d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-N3 全模 (南一)/全國公私立109學科第三次模擬考試-社會.pdf",
+          "bytes": 4873363,
+          "sha256": "fd212bb7ffee0064910e866c037c8a67564783c5d1ddcd9fbf7a6c26f0e9194d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-N3 全模 (翰林)/109第三次全模-社會.pdf",
+          "bytes": 7274048,
+          "sha256": "f5877448fe009d1db283b25a231c8209f212b66d723b0b022b724f28892b4b1e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/109-N3 全模 (翰林)/109第三次全模-社會解答.pdf",
+          "bytes": 3349096,
+          "sha256": "0625a4e228cd9d8d6c4b4037733f518f775803c74fc7e7002c2941df9bb81010"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-B1 北模/110學年-B1北模社會.pdf",
+          "bytes": 3459957,
+          "sha256": "9dddb5a7c601e4255907b5e8f8f73dfe8e2afc94399cf153b021a9c6aa1a6ae7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-B2 北模/110學年-B2北模社會 詳解.pdf",
+          "bytes": 1551326,
+          "sha256": "733c38ffbf1e36847dea75e740cad6138e943ef5302dfea0d3b8d51ddf00c11e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-B2 北模/110學年-B2北模社會.pdf",
+          "bytes": 17314333,
+          "sha256": "740ef023680bcb267a219c4d5cc0e175d39bafac5c7e6be6cd7d460513433710"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-C1 中模/110學年中區模擬考-社會科含解答.pdf",
+          "bytes": 4710991,
+          "sha256": "475fb444268d16edb57a7064ad6d5670c5d910a4c73355360bc2a206c431e972"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-N2 全模 (南一)/110上高中第二次全模南一版-社會.pdf",
+          "bytes": 16248684,
+          "sha256": "a1193988441c8b599b10f73bb038dd8964ce267ad76e188531e5a94d926027a3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-社會.pdf",
+          "bytes": 1699424,
+          "sha256": "7ac5c21a11cce8810d7cd9d2525eadd3ba99459f6180305a977d18d866af91d4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-社會解析.pdf",
+          "bytes": 730159,
+          "sha256": "4ea2b81a087798997ba92134d1b01ef66b7503e44c4fc092df16e81487b44471"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-N3 全模 (翰林)/社會科第三次-新竹區.pdf",
+          "bytes": 10616331,
+          "sha256": "541438642ee33f7f977810001a2587cf14bba4bb795b2e010d7e1437bf77f3ec"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/110-N4 全模 (南一)/110-1_學測模考_南一第4次_社會附答.pdf",
+          "bytes": 16271349,
+          "sha256": "a784a02dbff783df34d939bb2c8afe0bf33535ea7b276189435410efe7c43869"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-B1 北模/111北區第一次能力測驗模考社會.pdf",
+          "bytes": 3485974,
+          "sha256": "01b596fa4389c21b425e618843955a5836e8f18d4ecfa251fa92198f3cc391f3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-B2 北模/111學年B2_北市模擬考-社會科.pdf",
+          "bytes": 2898466,
+          "sha256": "6a244a8bdbae7c6236eb47b2560247dfcd1aff42b63eccd972270bd08dd35da6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-B2 北模/111學年B2_北市模擬考-社會科_詳解.pdf",
+          "bytes": 1464666,
+          "sha256": "487040c665909d03bae667fa88dae90fad8baa6f4980120204cf53d56a253309"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N1 全模 (南一)/111-N1 社會 試題Part-1.pdf",
+          "bytes": 37160502,
+          "sha256": "3c989a9aa0e93f449aa9e78c2e5971c4f4eacb533974223385756de6ee6c0cb8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N1 全模 (南一)/111-N1 社會 試題Part-2.pdf",
+          "bytes": 28571811,
+          "sha256": "af013a9314a393347bad52974c30d14248511daac1241492202b25b7ef3f27a0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N1 全模 (南一)/111-N1 社會 詳解.pdf",
+          "bytes": 4122754,
+          "sha256": "dd04aee00dab824b94d3418185b6aac1d6d6ce102d8582f4593e902223a3125f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N1 全模 (翰林)/E1社會科.pdf",
+          "bytes": 14903886,
+          "sha256": "726f3f3f3a530a56ae3492678adfa3e057de63a0386801afd33bb6d61ae0cbcc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N1 全模 (翰林)/E1社會科_詳解.pdf",
+          "bytes": 10012736,
+          "sha256": "09453041a0041ef3b76316cc49cb3cc12ca6c60b67394550ff6d4c2ba5491821"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N2 全模 (南一)/111-N2 社會 (含詳解).pdf",
+          "bytes": 15568760,
+          "sha256": "663ad9818603b42d3fc3a16ffa289f355e2dd149f8c32610cbb585df016ee47c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N2 全模 (文昌版缺社會及有字跡文稿)/文昌數學模考.pdf",
+          "bytes": 8064305,
+          "sha256": "6daaecec8cd9c39aaf636d0e50c50aa95e2bf4f43743c3ba8a1ffb049e654309"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N2 全模 (文昌版缺社會及有字跡文稿)/文昌數學詳解.pdf",
+          "bytes": 3294615,
+          "sha256": "b9d0a568cd6f3845b6161a564dd6b9fdd199ed58a1f441b166c6d4909feb4651"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N2 全模 (翰林)/社會.pdf",
+          "bytes": 5090626,
+          "sha256": "3597698baed3cb07a435dcb1685f353d4312ad75ee6d097add2208158d6fbbc7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N3 全模 (南一)/111-N3 社會 試題.pdf",
+          "bytes": 3135413,
+          "sha256": "7dff38f7a7ed0d6a3ea2bcca7b24a1aa08c0425d049e6d0f86365830ab534be2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N3 全模 (南一)/111-N3 社會 詳解.pdf",
+          "bytes": 670773,
+          "sha256": "bcfffd5cd3949354ba9fe330f5e3bf8b9b5161cb8e9bf945fd3e9a649ee73b5a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N3 全模 (南一)/111學年度南一第三次模考社會考科暨答案.pdf",
+          "bytes": 15768690,
+          "sha256": "700e5d16f677adacca88fde68de573e3753efb72ac58ef8d660c4840998fd55e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-社會科.pdf",
+          "bytes": 3081621,
+          "sha256": "480f11ed13706e0b187debe22643077a9da4ced136ec1f3175c8d4bbb398a931"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-社會科_詳解.pdf",
+          "bytes": 1698094,
+          "sha256": "31b806650a8df214f9d5aee8640d8d9d5e727d15b05ccbc97417a452f3e6b8ef"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-社會考科.pdf",
+          "bytes": 3662980,
+          "sha256": "3c3eb3d11b13b026a4b76283159e86e50c76ede0c5bf97c19548d563ae5d14ce"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N4 全模 (南一)/111-N4 社會 答案卡.pdf",
+          "bytes": 527305,
+          "sha256": "9cdbf288cff18146600d3a854f47c8f5834aab3e4ba6c71bca99760d9ec2b60d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N4 全模 (南一)/111-N4 社會 試題.pdf",
+          "bytes": 3251157,
+          "sha256": "dfe502a8842e020c32f473b8be1bcdc0bc208812f036e2b31494afce2182bd7e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N4 全模 (南一)/111-N4 社會 詳解.pdf",
+          "bytes": 537285,
+          "sha256": "64fa3abfe8bd2cd9a8aa9db2d50429c005f091dc92ce8d04d5f9c54ebe225cff"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-社會科.pdf",
+          "bytes": 2925134,
+          "sha256": "f3c1afc3f2ad4e44d72a55b89332bb5cb6d7485cfcae9e1049a65692b0c286f0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-社會科_詳解.pdf",
+          "bytes": 1547876,
+          "sha256": "fddbfcc75b31b25126b862d49b6de9bb46d0c1942a08f49ccdc925a677497387"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/111-W6 全模 (文昌)/111-W6 社會 (含詳解).pdf",
+          "bytes": 16679945,
+          "sha256": "7e2c3bbd195cc530ca1b0d005ba3e39eaae071bf2e72820fb0e110d596e1c306"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/112-N2 全模 (南一)/112-N2 社會 (含詳解).pdf",
+          "bytes": 12149830,
+          "sha256": "0ede8dd6bdc5939aa7c5d33710b06719ccba91410677e43dbe0f8c016b6a7eee"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/112-N3 全模 (南一)/112-N3 社會 (含詳解).pdf",
+          "bytes": 16270770,
+          "sha256": "dfbe5cfc9e478a9e9c554ee41d5d464ef16d970885201f45c515a578a6b4b4a2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/112-N4 全模 (南一)/112-N4 社會 (含詳解).pdf",
+          "bytes": 4596248,
+          "sha256": "791a41af48ad19e530870d18355aebb3bf9ffd8d457455012e5fb57be052620f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/112-W1 全模 (文昌)/112-W1 社會 試題.pdf",
+          "bytes": 1701396,
+          "sha256": "f6df697eae13708325abe215eef01143afe23347258e9b7a11dad3545a30ee7c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/112-W1 全模 (文昌)/112-W1 社會 詳解.pdf",
+          "bytes": 567933,
+          "sha256": "52361ebc380ea7574752dd929b3e3811324f81113079a101eaac26be0703636e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-E1 全模 (翰林)/113-E1 社會 試題.pdf",
+          "bytes": 8048060,
+          "sha256": "9c99766db4e1e612e3e7f730fe3ca33d874facd1c56a928ca6b204d69220ee5e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-E1 全模 (翰林)/113-E1 社會 詳解.pdf",
+          "bytes": 1582239,
+          "sha256": "853347753a3bbbe20923f32dc3d6d7a65efe8366063a496e7a78f72349b0b72e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-E2 北模 (翰林)/113-E2 社會 試題.pdf",
+          "bytes": 28319226,
+          "sha256": "b622f9f0afa94c5ee3b04628307b8c7709d66e412056bd4cd9c90c6dcea39034"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-E2 北模 (翰林)/113-E2 社會 詳解.pdf",
+          "bytes": 22969399,
+          "sha256": "b0666540a6b1dca659e04de24a832b5b94a32145a3bd3291cbbcb84d23cca5a3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-E3 北模 (翰林)/答案/社會-解答.pdf",
+          "bytes": 20857232,
+          "sha256": "f094d7202318e4b19ea37bfc43faf639b3db0c90ff6bf24c948d99ee753d3f55"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-E3 北模 (翰林)/題本/社會.pdf",
+          "bytes": 25673739,
+          "sha256": "eb5588f2dafcab7735a592776ed403482c34ec6ef07ea9b66f70bd91289900fc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-E4 北模 (翰林)/113-E4 社會 試題.pdf",
+          "bytes": 30485222,
+          "sha256": "6c32caf6c463aec31c0f26a0f6a02340f52684d5d3be4425f62c40ec05644f91"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-E4 北模 (翰林)/113-E4 社會 詳解.pdf",
+          "bytes": 21170017,
+          "sha256": "c906c97cbd62f573cfdf267b27a9d2bfc25916cb9040bff57bc1eedaf46ba027"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-N1 全模 (南一)/113-N1_社會.pdf",
+          "bytes": 3973121,
+          "sha256": "5dfabb0d2dbeb375e4e275e317742cd20624e9a5cce41b1e48af67cbee01e03a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-N2 全模 (南一)/113-N2_社會（含解答）.pdf",
+          "bytes": 13280215,
+          "sha256": "ff954863b59ef6fc7d9e97968c6e1a7dd46ea050c008ba5a07410ccd9e051ed1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/113-N3 全模 (南一)/113全國公私立第三次模考-社會.pdf",
+          "bytes": 11833003,
+          "sha256": "2a384320b2f03d11e1f5d715b542314c6d1d2af5fba2ff7a24f37680eadc38ae"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-E1 全模 (翰林)/社會/114E1社會科-解答.pdf",
+          "bytes": 1553376,
+          "sha256": "cbfc212ec5f4f47f4697ce62e7fbff2ab498a8e1e22a5b1afe7223df1c657342"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-E1 全模 (翰林)/社會/114E1社會科-題目.pdf",
+          "bytes": 6448968,
+          "sha256": "6978ac1379dd8acd5ab09ea7fead8635a62970e40c786d4f2ec4e1d91f42ad5b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-E2 北模 (翰林)/社會/114E2社會科-解答.pdf",
+          "bytes": 1911889,
+          "sha256": "5dc7ddf363e6597d899ae5f16b0f462f4758c79fe95a396b7846bea14ebb7cd5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-E2 北模 (翰林)/社會/114E2社會科-題目.pdf",
+          "bytes": 14728434,
+          "sha256": "1a758a3829ac341a28f23b54f93384899c79f5f8d0dce14da73f29efc3642d5c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-E3 北模 (翰林)/社會/114E3社會科-解答.pdf",
+          "bytes": 2327260,
+          "sha256": "86a23d3b2f09c3f605207f6df8fabff9f30027ff7197375f874b992eaece8597"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-E3 北模 (翰林)/社會/114E3社會科-題目.pdf",
+          "bytes": 5708713,
+          "sha256": "df3524e6c0f2c6317badb3ad3c0f137adb4b56a35aa2a22ec790d1a6141c1df3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-E4 北模 (翰林)/社會/114學科能力測驗模擬考試-社會科(第4次)-解答.pdf",
+          "bytes": 1313668,
+          "sha256": "0338e044aaf6a235d490897faab8eaff31fbbf5bba157d3a1a0a5ce0992fbb3c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-E4 北模 (翰林)/社會/114學科能力測驗模擬考試-社會科(第4次).pdf",
+          "bytes": 4152808,
+          "sha256": "9a65f4d17734a77172e188c2173d18e352a0c6487688956d48570d7f067c53ca"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-N1 全模 (南一)/社會（含解答）.pdf",
+          "bytes": 9750389,
+          "sha256": "63869552165af97f55a237292eea408a13c4dd8096ee52220b9231792131667d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-N2 全模 (南一)/社會.pdf",
+          "bytes": 11831481,
+          "sha256": "332cce35ac6a18417eb68a5b37b92957bd0365645cc1a334a971053de023469d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-N3 全模 (南一)/社會（含詳解）.pdf",
+          "bytes": 11463909,
+          "sha256": "271642060060910f51bd05ae18008882ec34cc13866c906a681e483459425636"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/114-N4 全模 (南一)/社會 (含解答).pdf",
+          "bytes": 17276800,
+          "sha256": "a93a092641a139f1f4c37918365816a202ccdacd87961b7f0674110afc268157"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/115-E1 全模 (翰林)/115-E1 社會解析.pdf",
+          "bytes": 1826482,
+          "sha256": "683d1d5526d77c8bda07b50ee701c469e222740e09ac124772a7119be76fde20"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/115-E1 全模 (翰林)/115-E1 社會試題.pdf",
+          "bytes": 21508916,
+          "sha256": "e71d979c755f79c4e6f951b8c2a6234a8e0869481bfb026d401d9d618b0384d2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/115-E2 北模 (翰林)/115E2社會科-解答.pdf",
+          "bytes": 1519338,
+          "sha256": "0ca2a254b5c0494555f10bda68f85135e2f28d304974f3fe6903ef774bc00bcf"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/115-E2 北模 (翰林)/115E2社會科-題目.pdf",
+          "bytes": 6890555,
+          "sha256": "35f17479a2eaea88654335513576fa336c5a4783617b71fe201a3816036045ad"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/模擬考/115-N1 全模 (南一)/115-N1 社會試題-解析.pdf",
+          "bytes": 16169564,
+          "sha256": "51c9fc9838d9d2160a20771f358113ad4ed736eed2bfebf28508cb19a0aa76dc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/100/04-100學測社會試卷定稿.pdf",
+          "bytes": 5245377,
+          "sha256": "368b2d90bf8bf4ca3524cdbaa96dffbbae7bfe748ee64c04bf41555f84f83787"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/100/100學測社會參考答案定稿.pdf",
+          "bytes": 43088,
+          "sha256": "6d7a665e441864572629fac4e06f6ac020b3a694a3366026d2474f1ff023d6ce"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/101/04-101學測社會答案定稿0.pdf",
+          "bytes": 72961,
+          "sha256": "4a97e7ada95d23ce25ec3a8431248fb32774d56d6f023230ea3062065fcee411"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/101/04-101學測社會試卷定稿後修.pdf",
+          "bytes": 1368905,
+          "sha256": "fe685faa872f647e69510957ca9229d6fe2ad089f2236ac11313c539c1374909"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/102/02-102學測社會定稿.pdf",
+          "bytes": 2095747,
+          "sha256": "f76f7d3179f996fc33f69a9e0d609b201b2e4037f13830e1de882371fc67752d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/102/04-102學測社會答案.pdf",
+          "bytes": 43507,
+          "sha256": "ad9781471814433577973750e952da4938f615bd13436cb437aa97e482da4fa2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/103/04-103學測社會-定稿後修-v1.pdf",
+          "bytes": 1616884,
+          "sha256": "f246bcda1e460c36bd4246e61c8984fef531eead171478d272bb75410bd20b76"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/103/04-103學測社會選擇題答案.pdf",
+          "bytes": 77334,
+          "sha256": "6d9da5dbae175c6d6e33ff422d2b83f765a109bc4b74334a03b45845ee0fb07b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/104/04-104學測社會科定稿.pdf",
+          "bytes": 1531418,
+          "sha256": "03546e401d681df8171bbebe9dac57505be8640176640475956bd0779ee57fbc"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/104/04-104學測社會選擇題答案.pdf",
+          "bytes": 216281,
+          "sha256": "e450f2f1cfb3869f36ce018b8812acda3502f1ee7a1bae484bdfa9359f1395ca"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/105/04-105學測社會科_定稿.pdf",
+          "bytes": 1465649,
+          "sha256": "18ed00c381ceb5229b7bf79fb577630819c522d76ac2fe87ff02a66a54430f1a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/105/04-105學測社會答案.pdf",
+          "bytes": 72759,
+          "sha256": "c9d4531b9f6d57a4950f78e221459d11736d5781b342651af16d00f7a3a9e856"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/106/04-106學測社會試卷定稿.pdf",
+          "bytes": 1727707,
+          "sha256": "2f2b15c01d168ed14491cf0bc33fe536dfc2a505a718c9c7c04bc524467db594"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/106/04-106學測社會選擇題答案.pdf",
+          "bytes": 72887,
+          "sha256": "c982889e28c5089e53e0ca4fea740f93b9201a233743820478626ffc4033e962"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/107/04-107學測社會答案.pdf",
+          "bytes": 148241,
+          "sha256": "1f33394d0afe52057573c3066a182b27404fb15a621cdbe1ce847dd220d827d1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/107/04-107學測社會試卷定稿.pdf",
+          "bytes": 1821125,
+          "sha256": "6fdcd40928a0bcb730b569f12e290e2a7fead4f37ea8057e69998a9ef2f5dcef"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/108/01-108學測社會試卷定稿.pdf",
+          "bytes": 1552456,
+          "sha256": "07908c1544e6d0f0453e95d3a924cf11573822c46822c6ac558df9b97465e682"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/108/04-108學測社會選擇題答案.pdf",
+          "bytes": 169291,
+          "sha256": "882993bdb4dd56c251500d0dab80b608005da84e38684c9bdaefd214dd2752f4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/109/04-109學測社會科-定稿.pdf",
+          "bytes": 3106290,
+          "sha256": "958e73b6354c7ad8803508fdd101f7b041f8f3b60162bc5d0dd70d26739981e6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/109/04-109學測社會答案.pdf",
+          "bytes": 225688,
+          "sha256": "cf7ab43136795d25eb1f6e70c8f5186302fe2124848c71fde16ab31eb3281427"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/110/110學測社會答案.pdf",
+          "bytes": 169402,
+          "sha256": "6b33a5a8563aedf3516617267df3a1cf6eb6c238f35e754b45885543ca571d62"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/110/110學測社會試卷.pdf",
+          "bytes": 1786067,
+          "sha256": "f8391a03d671bb26a68c3a9cfe2287c512c00c091d2b0a6db99388c86d146d41"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會試卷.pdf",
+          "bytes": 4320639,
+          "sha256": "434fcf740bad86eb9da73f28b85c9a6f740401eb2074b64ff36c45e7ffbf8937"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會選擇題答案.pdf",
+          "bytes": 104950,
+          "sha256": "d99e85d32f48b1f5dfbcbd1a5b181864febc45e31b1c7849f4dfd11749debe85"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會非選擇題評分原則.pdf",
+          "bytes": 636529,
+          "sha256": "99dde69fe48f351a5033657448601a4d752d73a3b74ace4f3f6f0c7a50713e5c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/112/05-112學測社會試卷.pdf",
+          "bytes": 3228899,
+          "sha256": "1f657289579fdd7ffbc1e792e6d94aeb7548049567dbd774e6256c28cfdb1fe6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/112/05-112學測社會選擇題答案.pdf",
+          "bytes": 109767,
+          "sha256": "175e0fe6dd12b665b583b150d0068b99d604828a2413f22302ced0771a655b02"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/112/06-112學測社會非選擇題參考答案與評分原則.pdf",
+          "bytes": 451487,
+          "sha256": "bdc71d579065be3406beb369bfec97998d927ccd15c6f68a9e843a2b5f29a7dd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會科試題定稿.pdf",
+          "bytes": 1411615,
+          "sha256": "74a0026042bb4ad13044dfebb468e909b4293ebffc5b0e7f0d49a2b5ae6aa06c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會答案.pdf",
+          "bytes": 104381,
+          "sha256": "bb63cf9b1ece3980e22d9f136a22769a362d4e0750b6b62963d68f40a4b8a2c0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/113/06-113學測社會考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 395185,
+          "sha256": "d831198b0aaed4482b0757e8dd85ecc39003e911a00b1f9cc52ce44202ee187c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會答案.pdf",
+          "bytes": 104934,
+          "sha256": "ff04e289ede3b49329406f393427b3d78c57e76cda3dd31445fabf7d215f67f8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會試題.pdf",
+          "bytes": 1971109,
+          "sha256": "1d1340c4aa079aa5afd9b37f7ac564d9b13b99c2e629238d6f6c17179d47a505"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/114/06-114學測社會考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 1519014,
+          "sha256": "ffcd6b8c779118f8831f03f273717194d2819850ed4579e7f60bd366a5fd5d1c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會答案.pdf",
+          "bytes": 74429,
+          "sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會試卷.pdf",
+          "bytes": 5484034,
+          "sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/社會/歷屆試題/115/115學測社會考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 471132,
+          "sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310"
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "asset": "taiwan-exam-gsat-sources-science-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-science-source-corpus-2026.09.11.zip",
+      "archive_bytes": 733184173,
+      "archive_sha256": "ce27adcd573d877666d9d68cdd763978d9570b9367bb27364b81042813404107",
+      "file_count": 165,
+      "source_bytes": 733140611,
+      "files": [
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/103-B3 北模/103學年度北模學測試題03-自然考科解析.pdf",
+          "bytes": 1050061,
+          "sha256": "35b3fe42716f90ad92213af1f26c9dab13d149f7cbbdd28cdeb457c74595074e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/104-B3 北模/104學年度北模學測試題03-自然.pdf",
+          "bytes": 1863262,
+          "sha256": "8561f1589322c8f146aefd32442ffbf5b53c3dd50e84f9e17ddd72c5016e8d4a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/104-B3 北模/104學年度北模學測試題03-自然解析.pdf",
+          "bytes": 1137240,
+          "sha256": "42d7d8d9d01a107f58ad63a74975c196936e5b99e03743a818fcc68541e7784c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/104-C1 中模/104學年度中模學測試題01-自然.pdf",
+          "bytes": 1781718,
+          "sha256": "51bbd8a2b21e02e305dc6bbb20ee11c6301d3909257c0f425b2a6729c6efc064"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/104-N2 全模/104學年度全國模考02-自然科1.pdf",
+          "bytes": 4704592,
+          "sha256": "37b7d4e86e99f3ee561e40d4210d665505a0a3f8b8462d5a6d7be0af66cca82a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/104-N3 全模/104學年度全國模考試題03-自然.pdf",
+          "bytes": 841685,
+          "sha256": "3afb28446dcfc018254a92f79fdfd85ca50609060bca465bddd6159fb7406e6e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-B1 北模/105-1-1北模學測自然解析.pdf",
+          "bytes": 800727,
+          "sha256": "be7b3f3283c77a4871ab14fa875a3340479dcd09fe67ff7d4c2bdb2164cb9f14"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-B1 北模/105-1-1北模學測自然試題.pdf",
+          "bytes": 6857569,
+          "sha256": "8d096994a5d87fc21e31c3b977381d1e57f261e0163e448fdc62b4614815b875"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-B2 北模/北模學測105上02自然.pdf",
+          "bytes": 1618335,
+          "sha256": "3b275db4416c25932360b1b3b080cc2c5a25dd5e4793f482fe3f2fc78171a3df"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-B2 北模/北模學測105上02自然解析.pdf",
+          "bytes": 1006022,
+          "sha256": "c44fc69f4a368783bda4fbf689f630bb6f18c1566f1bf52baec657ca0f74b041"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-B3 北模/自然.pdf",
+          "bytes": 2184927,
+          "sha256": "f02de0f681eef65330736c855fa1eb59484c53203ec62790b4e757ed92990be0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-C1 中模/自然.pdf",
+          "bytes": 1264905,
+          "sha256": "3fd446fd5f8759fcbaf5b4acd19d73b70015b9a388afcd4de635bfac88203c3d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-C2 中模/全科學測第2次_中區105年-自然科.pdf",
+          "bytes": 7918463,
+          "sha256": "9b0010ef178dcc61cdd0ce8df2f27005aaf8b76aeff284f9fcd53f3d99bd3cd7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-N1 全模/自然科.pdf",
+          "bytes": 1670806,
+          "sha256": "69b7b8a2646ff8f0e5b1367220c7e8256ac79916c4655bf7e167ae892234ce1c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-N2 全模/自然科1.pdf",
+          "bytes": 2077501,
+          "sha256": "eb33b5b96b240b569922ecfa4801094cfb6697170a38502575fcb8f0e5d17b92"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-N3 全模/自然科.pdf",
+          "bytes": 1597435,
+          "sha256": "7dda629ecdb57d7ff0f0d552fde46bb7e8bb45de48ef80f98618f51776632e57"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-N4 全模/105學年全國高中第四次模擬考自然科.pdf",
+          "bytes": 1431826,
+          "sha256": "3fdbdc9732fb38e7dc5c6a56f24a5011bc03643017a0a1605ff693d56b800726"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/105-N4 全模/自然科.pdf",
+          "bytes": 2763376,
+          "sha256": "c612db9f86fa526cbee85d41d68aecedb6f64d8358af35a1839702c8690d5bd4"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-B1 北模/106-1-1北模學測自然解析.pdf",
+          "bytes": 583892,
+          "sha256": "1e38088b4826bd1de45010e4ea2c91c837aa6ea7e04cb771381392adb396c5a5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-B1 北模/106-1-1北模學測自然試題.pdf",
+          "bytes": 2857944,
+          "sha256": "897d6f4e7b0dc08fb972a7b11da98b241298da0c9bcf5837adc27503ea471b19"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-B2 北模/北模學測106上02自然.pdf",
+          "bytes": 7631958,
+          "sha256": "95926a6c4533f99439e7a9b0d1184feeb08b3e86b7168b644b27528018d395f1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-C1 中模/中模學測106上01自然.pdf",
+          "bytes": 2530854,
+          "sha256": "e5941be7cb9cf698aa1ac4402f1a543b4573a5d2c380eb30d55c50d32618a044"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-C2 中模/中模學測106上02自然.pdf",
+          "bytes": 2075336,
+          "sha256": "9fc4e527643f50f20809f88847b30bc552ef126c7923478a4e20d22adebc2cc0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-N1 全模/106-1-全國學測-自然考科解析.pdf",
+          "bytes": 783944,
+          "sha256": "940ae7ffaa2de11dd0ae240fb668682a63766075e5d2bfbeb322572cd1c85bc9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-N2 全模/106_2-學測漢樺版自然考科_A.pdf",
+          "bytes": 799682,
+          "sha256": "c3c2eef4bd0bbf6d2f9326f465d4a2e715f8d1d5fc433d9408b60205f3b7fce3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-N2 全模/106_2-學測漢樺版自然考科_Q.pdf",
+          "bytes": 3816456,
+          "sha256": "c1c0bfff23659f7e5da7a2ed47e20bbecf00cbe4b290426ab7410e4823a878d1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-N3 全模/106-3-全國學測-自然考科試題.pdf",
+          "bytes": 3186343,
+          "sha256": "0c9b5e36e8f621527fd6f3223f560caa004e95f6c18468677fc17335d6a16aac"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-N4 全模/自然科new.pdf",
+          "bytes": 1956440,
+          "sha256": "5a8531d3bbaa775a5c5986f41b2865badf0d0adb71189497183bd1d3bd823c75"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-N5 全模/106學年度T5自然.pdf",
+          "bytes": 6424498,
+          "sha256": "4cf0c98b118bb8dbbcf8bfb4ba0afd8d10d2d3f98a4484cf61c1468a3b252358"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/106-S1 南模/106學年度學測南模-自然.pdf",
+          "bytes": 6340924,
+          "sha256": "1c76ce4cf31465b2a3d8fb4e3b69a38fd650cb72b9cce936e9de755b2e459ed6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/107-B1 北模/北模學測107上01自然.pdf",
+          "bytes": 9478480,
+          "sha256": "a8d132c1f1bc1689eaf9d2bbb58a02fa51704ee4d76e23adcff817771907133d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/107-B2 北模/北模學測107上02自然.pdf",
+          "bytes": 7334795,
+          "sha256": "d4ddbdd6a801453d46921a6a55a8f3884c8f888d02fcd54d3557871c6edd62ed"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/107-C1 中模/中模學測107上01自然.pdf",
+          "bytes": 9247584,
+          "sha256": "e0770fbfe9137e93d5e752442ea29659194480f979f16a4daee88a584f4d5583"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/107-N1 全模/自然科.pdf",
+          "bytes": 9433416,
+          "sha256": "8ebb2aa142fae0881af0c4ba6506809a0c122608528cb1ed93ac9b3dea9500b1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/107-N2 全模/自然科.pdf",
+          "bytes": 12887878,
+          "sha256": "a05922a0bc9aa1859672e6207919bee390d1879385181232abf6f8d35f5cec11"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/107-N3 全模/自然科1.pdf",
+          "bytes": 17170589,
+          "sha256": "a14c2b3807cfebc9672782c2bd824c75a5f444fed7f7760c850d6fd355e3aa4f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-B1 北模/北模108-01-自然.pdf",
+          "bytes": 10691402,
+          "sha256": "75d7f69ca5a4cf0ee4f0afadf4d0c27dde644f25c8d056ab7ebbc4a337a7be22"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-B2 北模/北模108-02-自然.pdf",
+          "bytes": 1867385,
+          "sha256": "0b8607ffd8564ca1402b04f2aed65565d43c290b14af036ff75d96160be11d91"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-B2 北模/北模108-02-自然_參考答案暨詳解.pdf",
+          "bytes": 1009778,
+          "sha256": "90784d03ccaf9ae4d32323814f85e6f27f16bff9daa6c57d3789c26af9b06745"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-C1 中模/中模學測108上01自然.pdf",
+          "bytes": 7032127,
+          "sha256": "bceb9e11a5404280e1d214068e0fd50076c8128d1dd5d6c1e9b2aff276ef9476"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N1 全模 (南一)/第一次模擬考_解析自.pdf",
+          "bytes": 1100011,
+          "sha256": "ab654f2f676d9c1182ec2141358f350306c11ea69a90e1017b81805bff4f475a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N1 全模 (南一)/第一次模擬考_題目自.pdf",
+          "bytes": 4478623,
+          "sha256": "1ec6458f8dcd150f2c32d545fa22f1cb8e53b4e6ad08f244f0cf836ebfe656a7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N1 全模 (文昌)/自然科.pdf",
+          "bytes": 10984541,
+          "sha256": "5feabfa80cea03f65d244962ffb570dd951c35d1e7ce9f28b54a639b6b9b7a89"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N1 全模 (翰林)/P01P12_自然科第1次-學測解答分科.pdf",
+          "bytes": 546083,
+          "sha256": "d2d419fc256bf98d9a708b701a9547bfdd9092fed2d26a3a74f0d00809170c69"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N1 全模 (翰林)/P01～P24_自然科第1次-封面-內頁.pdf",
+          "bytes": 3245013,
+          "sha256": "58edcaeb724c4e54d7a96a6a050fc91fcbe462c4d021e6209202ec248333742a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N2 全模 (文昌)/SKMBT_42119091712441自然.pdf",
+          "bytes": 1162203,
+          "sha256": "076ab05de5dea86438e1a32b2d2f13db66523185ad734d01af0ce9ed500224a7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-自然科第2次-學測解答.pdf",
+          "bytes": 615788,
+          "sha256": "df898df96a105e75d34f0d6f4654e90862bd083967a262b8e648480b1355aa2e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N2 全模 (翰林)/108學科能力測驗模擬考試-自然科第2次-試題.pdf",
+          "bytes": 4097323,
+          "sha256": "ef682ccfd9c0e5eecaaadbbb61e0ddcdc133a3983ed51d17e978fffcb785e23a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N2 全模 (銓達)/自然科.pdf",
+          "bytes": 12690021,
+          "sha256": "74eca7fed12d3f81987c45a8918f408057a5eb65fe93ca774282d6da29e7ff3f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N3 全模 (南一)/108學年學科第三次聯合模擬考-自然.pdf",
+          "bytes": 8663569,
+          "sha256": "3447f4841dcfe1bca6f0806d35ad0f8032463558e08bb4db9f1f57351ee27d9b"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-自然科第3次-學測解答.pdf",
+          "bytes": 662218,
+          "sha256": "efe92a2594a65f77d4675be7306d817f88bfd8dbc63cca7ee9697ad9833adea5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/108-N3 全模 (翰林)/108學科能力測驗模擬考試-自然科第3次-試題.pdf",
+          "bytes": 4421712,
+          "sha256": "8c1d8904082f23a05288c6c7a0b86c1f45274624bc1b523eb81a9ceda26421e8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-B1 北模/北模學測109上01自然.pdf",
+          "bytes": 6671796,
+          "sha256": "ac6b4ee7dc18461a55a1cd02f29571e54813ee8c99292b99cab5976de6101ca7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-B2 北模/109-第2次北模自然.pdf",
+          "bytes": 1664107,
+          "sha256": "efe745d5129c01a85552fce846e303931826cdc5e7d662f29d34328c6c5fb818"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-C1 中模/自然.pdf",
+          "bytes": 11811191,
+          "sha256": "c959990e80b99ad51410b47c441896bf7b9036c3e18b7a9e0a415a6202ed486a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-N1 全模 (翰林)/自然科第1次-解答.pdf",
+          "bytes": 638064,
+          "sha256": "adb54eebc344fa60a2e07ad6b227fe5da0e4fd9a1a7268483031bccf55603a31"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-N1 全模 (翰林)/自然科第1次-試題.pdf",
+          "bytes": 2764502,
+          "sha256": "12fb8495aba85e1b0eb73159a1b448b578b07a8e795f062c5528c23251c6fee3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-N1 全模 (銓達)/自然科.pdf",
+          "bytes": 12823075,
+          "sha256": "37655d784e2afcbca29d014a9c38b33a6b059593a008321a9b54d1a887c6d4ff"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-N2 全模 (南一)/自然科.pdf",
+          "bytes": 12196865,
+          "sha256": "ebb908e71f64601bf877ac8c36b4a0971653900fd658a1e9de975d945d651488"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-N3 全模 (南一)/全國公私立109學科第三次模擬考試-自然.pdf",
+          "bytes": 4481999,
+          "sha256": "657418e5bcf40f73ab875009c92ed7e7eb1548b72a37d28d8c162bf041f89a3c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-N3 全模 (翰林)/109第三次全模-自然.pdf",
+          "bytes": 4974852,
+          "sha256": "a0ddd4450fc22ac47c2f3fa691761073b93548b02ce65702caf9a60b52055676"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/109-N3 全模 (翰林)/109第三次全模-自然解答.pdf",
+          "bytes": 2866103,
+          "sha256": "0a960b8df756efdc51899f2b91bf517891e56c1aa91d778e967b3166fffa89fb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-B1 北模/110學年-B1北模自然.pdf",
+          "bytes": 1938621,
+          "sha256": "9d250a367a65f866a8d54b03ff0b066bcd3fe94938f0a935e097f45810e3f8a8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-B2 北模 (翰林)/自然科/自然考科題本110-E2.pdf",
+          "bytes": 6944108,
+          "sha256": "22e5e2170b8e0c32d1e212cf7b1d0718db7d3cbbfd3533747e21121d56f73b6c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-B2 北模/110學年-B2北模自然 詳解.pdf",
+          "bytes": 1479097,
+          "sha256": "9c3bd326c54b7655758f16ed7838daa94a76156a3600a972e87eba454f91a747"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-B2 北模/110學年-B2北模自然.pdf",
+          "bytes": 13652884,
+          "sha256": "5849a55fa0c162f59b2d347d02849f7289b2e9e06e8fc19aa7a816497732dfc2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-C1 中模/110學年中區模擬考-自然科含解答.pdf",
+          "bytes": 3969991,
+          "sha256": "e8325b6b25f3fd43536237ae17bd4545d83a117680d54f97b2eda3c02dfc9e47"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-N2 全模 (南一)/110上高中第二次全模南一版-自然.pdf",
+          "bytes": 4355524,
+          "sha256": "f26dfe2678827ed7e5fdfdb69bc0c067d80d461c65510da7ef251a1e4e7d3f89"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-自然.pdf",
+          "bytes": 1348896,
+          "sha256": "8c0ada3c2fd9295fc077e00b4dae4c629d738b74887a2451d4eed1331fc5fbc5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-自然解析.pdf",
+          "bytes": 355747,
+          "sha256": "41ae17cc351429a7e1f813598e3250c17bfdc9db7d2802e1b59479348c70fdc3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-N3 全模 (翰林)/自然科第三次-新竹區.pdf",
+          "bytes": 7739325,
+          "sha256": "9d6c11bd112b5a9698fb009ded3b40f7efba6574272f0091e0ef22e09994fe95"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/110-N4 全模 (南一)/110-1_學測模考_南一第4次_自然附答.pdf",
+          "bytes": 10447049,
+          "sha256": "276bb9a0882f21dfe14e6ab9693ea95a7eed34317b0d17bf85d42b7ea718463f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-B1 北模/111北區第一次能力測驗模考自然.pdf",
+          "bytes": 2380310,
+          "sha256": "dec3a0352cd31a30bcba5c1803cf0b8a7d909e375138e48979476f50149be1fb"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-B2 北模/111學年B2_北市模擬考-自然科.pdf",
+          "bytes": 2928902,
+          "sha256": "9c4f44a82fa5a4887ca7584d2b043f751dee6d974d25f64e88a1be08e1d4524d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-B2 北模/111學年B2_北市模擬考-自然科_詳解.pdf",
+          "bytes": 1206036,
+          "sha256": "18fd8a9fb0dd6e053067ab5b6c6436963493976663f5f6f800e75034addfe320"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N1 全模 (南一)/111-N1 自然 試題&詳解.pdf",
+          "bytes": 18882629,
+          "sha256": "dce642a8fc2b78ad72d7a971065b993441167a92b5483f101114dd311409c084"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N1 全模 (翰林)/E1自然科_詳解.pdf",
+          "bytes": 6953211,
+          "sha256": "b77afb7c76548bb3f97d0f362508962cd45bb4d7b7e545a3e12fc89456039706"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N1 全模 (翰林)/E1自然科第1次-封面內頁.pdf",
+          "bytes": 4027118,
+          "sha256": "2eb531542e5c99c6005aaafbc78f867b80d890fbd7ae42389b858a57d70f6214"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N2 全模 (南一)/111-N2 自然 (含詳解).pdf",
+          "bytes": 11651134,
+          "sha256": "b34473dbf09613463d76f54044e513988e2b2eb4641a62dca987e4d1289dc383"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N2 全模 (文昌版缺社會及有字跡文稿)/文昌自然詳解.pdf",
+          "bytes": 9710005,
+          "sha256": "d88bdb577b8c566a8a23afe261882c9b9bacf972a8cf5ed5d79e8622fb1f9a11"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N2 全模 (翰林)/自然.pdf",
+          "bytes": 2689234,
+          "sha256": "d997c38491dba14953ace17123cfeb391544712c0a90bc2127b08b3d2171c10d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N3 全模 (南一)/111-N3 自然 試題.pdf",
+          "bytes": 2960671,
+          "sha256": "1bc195210375a1fe0d9edfd2e05088cdb01ec8291fedfb05ee89b065987130cd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N3 全模 (南一)/111-N3 自然 詳解.pdf",
+          "bytes": 503274,
+          "sha256": "0733c87d10892ef76dfbcc63eb18b6f240fd2d5a05b69e07a4a71307a5eba822"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N3 全模 (南一)/111學年度南一第三次模考自然考科暨答案.pdf",
+          "bytes": 1672625,
+          "sha256": "9fad11b77b1115a3446d00da3de600b8208304e666365f1e5ef5730f39dc20e0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-自然科.pdf",
+          "bytes": 12312404,
+          "sha256": "bad0113ef403d5899c56798ea0d469c7afb2028a99e483a2980fd544684561b5"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N3 全模 (翰林)/111學年E3_全國模擬考-自然科_詳解.pdf",
+          "bytes": 993120,
+          "sha256": "d7dd06946268108b9ae4e29259dafd723224c9cf64cecaacff91a659e4bfad65"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次-自然考科.pdf",
+          "bytes": 2686854,
+          "sha256": "0ac7c8edf87214a694a8e780009c3b11f3386c84077ef3aa813f29e19de85a4a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N4 全模 (南一)/111-N4 自然 答案卡.pdf",
+          "bytes": 659670,
+          "sha256": "735204af6e8b0a37acb07df38c063433be9f93857e3306a9746f4571610b855f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N4 全模 (南一)/111-N4 自然 試題.pdf",
+          "bytes": 1958829,
+          "sha256": "9c015e5acc02bc1d4fa353e4ac741daa0c9cad5f047668bf235218d442b65c07"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N4 全模 (南一)/111-N4 自然 詳解.pdf",
+          "bytes": 1049633,
+          "sha256": "4b7f4bbf711dba483dd9e738cbf4460026eb34ac34120f5218d1b37780345b55"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-自然科.pdf",
+          "bytes": 2250508,
+          "sha256": "433a83cf31d4f35df3aa23ce4ab9f461b981d95fa8bfc8876deaca30e78d96cd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-N4 全模 (翰林)/111學年E4_全國模擬考-自然科_詳解.pdf",
+          "bytes": 1026375,
+          "sha256": "bda47b2d61e34d1c143733e5be61848ad8bf2c9873592ad50760de574d82485f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/111-W6 全模 (文昌)/111-W6 自然 (含詳解).pdf",
+          "bytes": 11851679,
+          "sha256": "900102750cc78e29b758b2da879bc6511f0ec71890da7711314c9db80299b998"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/112-N2 全模 (南一)/112-N2 自然 (含詳解).pdf",
+          "bytes": 8915617,
+          "sha256": "dfc8e7f471e57127ee0faaeb316219d6036892f6a70084096f3ec4f6bcfc60db"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/112-N3 全模 (南一)/112-N3 自然科 (含詳解).pdf",
+          "bytes": 11178708,
+          "sha256": "e10e2c2841b4b54a95d4214a037552d8ce3ef4250bd433bf1693c1d191edaad2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/112-N4 全模 (南一)/112-N4 自然 (含詳解).pdf",
+          "bytes": 2683338,
+          "sha256": "99a6ca0ace68388aec2cba45593f4d636bc73791018c9d59459e16d1357aa2c6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/112-W1 全模 (文昌)/112-W1 自然 試題.pdf",
+          "bytes": 1568856,
+          "sha256": "cd3aeb76b519a68ce72125b1c51183c37d0123ccb0cefa4f60629351cc222d73"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/112-W1 全模 (文昌)/112-W1 自然 詳解.pdf",
+          "bytes": 341624,
+          "sha256": "28332d546344370452c9983b58becf8b89b461ca783e5520fb5f01fbc63a7fe0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-E1 全模 (翰林)/113-E1 自然 試題.pdf",
+          "bytes": 2997199,
+          "sha256": "41beff54c4cd8326406da03d8059c6df118f228d97a025d17929431158e50ce9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-E1 全模 (翰林)/113-E1 自然 詳解.pdf",
+          "bytes": 812092,
+          "sha256": "c5fa324a7b283c330efcdf5f744c89a6f0825c6ab74753be5c0bf3c072cbd976"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-E2 北模 (翰林)/113-E2 自然 試題.pdf",
+          "bytes": 19485173,
+          "sha256": "bf1dfa48b9a2492f91f9f40c4b0933e7a1661c49a23e4b6be127e9a6e708f678"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-E2 北模 (翰林)/113-E2 自然 詳解.pdf",
+          "bytes": 17467874,
+          "sha256": "96fa1cfc64d96c0d935bdd6810b8aa041096dc210e1ced2b1d99030490a69774"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-E3 北模 (翰林)/答案/自然-解答.pdf",
+          "bytes": 17078565,
+          "sha256": "47aabc560768adf668cd04a7350f2e1ad630c4875cc825a33bbc8bcf5d17aca1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-E3 北模 (翰林)/題本/自然.pdf",
+          "bytes": 20978880,
+          "sha256": "5203c704ba42dddf6178294b7d383e04b8b8ffb7821b8da14a5a78c03baaa607"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-E4 北模 (翰林)/113-E4 自然 試題.pdf",
+          "bytes": 23175551,
+          "sha256": "0381c464436cf858ac7184f6f90d46af79ff4c867c9202bc69a9055ae8b8c8ef"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-E4 北模 (翰林)/113-E4 自然 詳解.pdf",
+          "bytes": 14426312,
+          "sha256": "181cd8c855ca28be3c33dc6843aebc3e4f595b3fc0a0cfb2e15942db91036175"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-N1 全模 (南一)/113-N1_自然.pdf",
+          "bytes": 2783325,
+          "sha256": "cde0737d6510087ff36d8de54bf5c5470a84a4576fa88752c9bbe66a9b930ade"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-N2 全模 (南一)/113-N2_自然（含解答）.pdf",
+          "bytes": 9579225,
+          "sha256": "7b6b2d93ba5eac23a022fdfe139fc5a28aa6ed9b821b6b646151b5ed5024aa60"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-N3 全模 (南一)/113全國公私立第三次模考-自然.pdf",
+          "bytes": 6978173,
+          "sha256": "e90ec29233ffeafbcbed1766a49da55ddada3a7452ba8ce42129216f488e0160"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/113-N4 全模 (南一)/113-N4 自然.pdf",
+          "bytes": 17830529,
+          "sha256": "892d9e38164be9a173c56f42f131dcdac14f75625fedaadc7b4df5c9deea3630"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-E1 全模 (翰林)/自然/114E1自然科-解答.pdf",
+          "bytes": 1008205,
+          "sha256": "9bac83649e8f604b7d1574ae475a66257d3f518395998bd17a24e7ac5727d4ec"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-E1 全模 (翰林)/自然/114E1自然科-題目.pdf",
+          "bytes": 3106639,
+          "sha256": "579f7612e34235cb22cd8def28a5a2eddec5de6679c532ef918da0d3f68c23b2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-E2 北模 (翰林)/自然/114E2自然科-解答.pdf",
+          "bytes": 1047667,
+          "sha256": "d224d5341260d55654b25c16bc974469a367eb31837d05c0b8f4657cb7343f8c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-E2 北模 (翰林)/自然/114E2自然科-題目.pdf",
+          "bytes": 2692051,
+          "sha256": "7e27b271171b716131e43121e831dc073cd412da6837d62f015000a55542c4ac"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-E3 北模 (翰林)/自然/114E3自然科-解答.pdf",
+          "bytes": 1211786,
+          "sha256": "3d5d7d6ce7412951fc1ef6f0005139b8d33c61414b914d6eda1bfe009461add6"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-E3 北模 (翰林)/自然/114E3自然科-題目.pdf",
+          "bytes": 3538488,
+          "sha256": "85c25f2f44dab88b2d9692c58fc639497ad218c9dfe049d55a2476b5485d75e0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-E4 北模 (翰林)/自然/114學科能力測驗模擬考試-自然科(第4次)-解答.pdf",
+          "bytes": 1975149,
+          "sha256": "d16e4239246083aa7f0f29b4c148991be603737f980d982dd854d4465d32c3d9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-E4 北模 (翰林)/自然/114學科能力測驗模擬考試-自然科(第4次).pdf",
+          "bytes": 10000665,
+          "sha256": "2cf2cb39282dcdacc2e6e668e81cf1f4913bf8af8491c679444b114fa819e9ba"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-N1 全模 (南一)/自然（含解答）.pdf",
+          "bytes": 6047263,
+          "sha256": "fc33b136dcc926de98a7678d93d5fadf1efbb057dcb00706bfbd5502a32cc5d0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-N2 全模 (南一)/自然.pdf",
+          "bytes": 9245501,
+          "sha256": "f63b8e664dd8aefc156f78d44d8ff8acf171451ee856a8d6ba3f2ce83e0a7e67"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-N3 全模 (南一)/自然（含詳解）.pdf",
+          "bytes": 6979916,
+          "sha256": "ee16711ca5cc15ea807bc39b3788d34ed68de37eb069c58596770b36f67adef3"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-N4 全模 (南一)/自然 (解析).pdf",
+          "bytes": 6158264,
+          "sha256": "b9577f8c89518eb23866d75a58b46a24daff953e34bd394b20dc1544c8c97f15"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/114-N4 全模 (南一)/自然 (題目).pdf",
+          "bytes": 12886558,
+          "sha256": "7dcf68cd71549b60b8ee006532ee9ae1ed2bf14e3e14c15fc9457d54a6c1c1a1"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/115-E1 全模 (翰林)/115-E1 自然解析.pdf",
+          "bytes": 1114751,
+          "sha256": "89761464170baafcd3aa3fc325b1340bd5186511bfb60f97c9b37fa39323f914"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/115-E1 全模 (翰林)/115-E1 自然試題.pdf",
+          "bytes": 3597026,
+          "sha256": "4bc7761dda808560a84673c9353c00db3d24a333cf7e93f382cdcbe3fab0062d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/115-E2 北模 (翰林)/115E2自然科-解答.pdf",
+          "bytes": 1205839,
+          "sha256": "ebb96b48a38fabd00c31e0ea65c951fa8ef101c120c7fa6c19e2755ba7625665"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/115-E2 北模 (翰林)/115E2自然科-題目.pdf",
+          "bytes": 8157127,
+          "sha256": "c7e473a136f251313acc1213a3f03e7eff1ad8dabc7261d99ecfbfe70301cf3c"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/模擬考/115-N1 全模 (南一)/115-N1 自然試題-解析.pdf",
+          "bytes": 12301534,
+          "sha256": "417c45d821326fb277d0c404a70c65a2c3e79bffa2d6e2b42bc7b716d4d287b7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/100/05-100學測自然試卷定稿.pdf",
+          "bytes": 656310,
+          "sha256": "b85ea132f98c465283385471bb0aede47e032fa9e59f3b77c8648170fee106fd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/100/100學測自然參考答案定稿.pdf",
+          "bytes": 44674,
+          "sha256": "2f1c3e597a93fb8a4b72210eded36ffeafd6b307240be25e51a3ce59932c7604"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/101/05-101學測自然答案定稿0.pdf",
+          "bytes": 72545,
+          "sha256": "961db698cdebe001a7b94d8b03af0e91ecdaceda77c367cacfddc8276894bd57"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/101/05-101學測自然試卷定稿.pdf",
+          "bytes": 829824,
+          "sha256": "006663a7f80d2d9220254b373ea6916edf64aac38d56c5204c2257163ad0cf11"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/102/05-102學測自然科(定稿).pdf",
+          "bytes": 1463385,
+          "sha256": "3775d69c0f9685fe9dbe6b9bfad4989ae047944d1dfa5cc532a8bf57a6afb8a7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/102/05-102學測自然答案.pdf",
+          "bytes": 35846,
+          "sha256": "e1963d9982be26cd51c6ee9d832784ef3d021f648028cf9e7d9ca66a225ad739"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/103/05-103學測自然試題(定稿).pdf",
+          "bytes": 1112771,
+          "sha256": "f009c9eb65b0ad85abd878c1166704f713a8e3a534a7756f6302e7a1086cebb0"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/103/05-103學測自然選擇題答案.pdf",
+          "bytes": 30680,
+          "sha256": "872c693ae1c7288aa43bc9cdaaf5ea17d03d5052e957338cd54b632982d4084d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/104/05-104學測自然定稿.pdf",
+          "bytes": 747724,
+          "sha256": "960c8e6361e192e513d68ab90bd2466a138d6638769418047f9a9cd9a9b1a720"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/104/05-104學測自然選擇題答案.pdf",
+          "bytes": 217007,
+          "sha256": "c1c9c9ebecbc8e4e76e543b1aae20e86c2462c91857c16619aae517b870ead3d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/105/05-105學測自然答案.pdf",
+          "bytes": 72129,
+          "sha256": "41d5c9e6b4c1f709fa1c595521975093773d124f98f6f5765fbbd50bba08d7b7"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/105/05-105學測自然試題定稿.pdf",
+          "bytes": 1595800,
+          "sha256": "65b8aec00303748d01e5b16d836bc66ad8a60888118f359407e7afcd1d75fa5f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/106/05-106學測自然試卷定稿.pdf",
+          "bytes": 696092,
+          "sha256": "53352a3eac5b91f10b816da748f29438b9748a729749f974c2f15b70a2628de8"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/106/05-106學測自然選擇題答案.pdf",
+          "bytes": 72573,
+          "sha256": "50b562dc6d2c0aaca4bee20ae5143a6bcc2bca5007d3bd92f65f4c1b1c461409"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/107/05-107學測自然答案.pdf",
+          "bytes": 148851,
+          "sha256": "e03a6dd4c6c93efdad77184147d3b39d36ec49db4e15cac36c680639d5989b53"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/107/05-107學測自然試卷定稿.pdf",
+          "bytes": 1579929,
+          "sha256": "fe7f7dcb0ec5eb150a29ee8e920d5accf89fcf6e5cf21c3e1e75ea94cc45cfbd"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/108/01-108學測自然試卷定稿.pdf",
+          "bytes": 1966824,
+          "sha256": "341c5277068f46aedc79e1bc41b56224e634137a8bc801b0c9bbddc81756a836"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/108/05-108學測自然選擇題答案.pdf",
+          "bytes": 169285,
+          "sha256": "6b76d0911e8d4e1d267147ad5cc2b5e4764b07905ce02dbde6d2734b83f32125"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/109/05-109學測自然答案.pdf",
+          "bytes": 169301,
+          "sha256": "d1d33814257a2e08f22b98c1ec36c53753383aab1206cad34e4ce9b820fc8e27"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/109/05-109學測自然試卷定稿.pdf",
+          "bytes": 2506545,
+          "sha256": "031ea3f6b90035eed600a918decbd79425f05e025d93815e6d2059e9c0b2095e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/110/110學測自然答案.pdf",
+          "bytes": 184883,
+          "sha256": "601c6c0a3376ab2473b37113df7e3a72180f0874a090ab357893ac90751880ae"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/110/110學測自然試卷.pdf",
+          "bytes": 1445192,
+          "sha256": "4af5fa3a959d02a6dc5bf1f509aa78ab334b55ee4cd3a3a4f34eb915a8242468"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然試卷.pdf",
+          "bytes": 2884638,
+          "sha256": "68f14585f9bdfa659579dbcdfe8ee26e48226ecbf069c84b3ff575d3ba46e857"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然選擇題答案.pdf",
+          "bytes": 99530,
+          "sha256": "ab945453dd47e9467ba5909f4d4f18f982e0c588d51ef18a553b36ef32a48709"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然非選擇題評分原則.pdf",
+          "bytes": 501034,
+          "sha256": "f5510ac9ff919b81beacebedbeb0c948ac3c368c33fffd954f344c96c4e94424"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/112/06-112學測自然試卷.pdf",
+          "bytes": 1574812,
+          "sha256": "32e11be7ffbe9dda7a5b4e331b3c9b8e72385fc25bbb93d82f084531b5112b1d"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/112/06-112學測自然選擇題答案.pdf",
+          "bytes": 104958,
+          "sha256": "be3cc952ad1d75650ef094661156a65c76723ac84e0dff1e724959e2a9531e0e"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/112/07-112學測自然非選擇題參考答案與評分原則.pdf",
+          "bytes": 416317,
+          "sha256": "2ddbee8c62886da244a7e3c674c1b4c6896db53656e502e5591740cc0a2acdba"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然答案.pdf",
+          "bytes": 98814,
+          "sha256": "7beeea0aba1a060736cc5a944f2aa26abdaec0e6c0586dec8d5cc901dc31851a"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然試題定稿.pdf",
+          "bytes": 1471329,
+          "sha256": "479080cff932826975e9490218281b746e6740156f98b65637d1a43aeb0f8562"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/113/07-113學測自然考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 364344,
+          "sha256": "4e2d96b3105188faae408e68746754adb46f8795ace7e85fff082767be03036f"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/114/06-114學測自然答案.pdf",
+          "bytes": 98955,
+          "sha256": "217816174af6528a190fb31e2cde3c11df16380ae02aa4ed09f3284b3e8360c9"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/114/07-114學測自然考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 542029,
+          "sha256": "7390ab7e5d6e80f042b59a5e00ef600f1788e5c1e5fdaaeea956223b5bfdccab"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/114/114學測自然試題定稿.pdf",
+          "bytes": 1726416,
+          "sha256": "62b238bd109907dac0efb5dd4e019de1a59a3b283f031e90ae50fb32aafff136"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然答案.pdf",
+          "bytes": 74103,
+          "sha256": "ba42c71786f7e34af2671bb5d18367aa80487b93afe668e12035594f571770c2"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然試卷.pdf",
+          "bytes": 1918996,
+          "sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41"
+        },
+        {
+          "path": "exam_packs/學測/subjects/自然/歷屆試題/115/115學測自然考科非選擇題參考答案與評分原則.pdf",
+          "bytes": 1033419,
+          "sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d"
+        }
+      ]
+    },
+    {
+      "id": "shared",
+      "asset": "taiwan-exam-gsat-sources-shared-source-corpus-2026.09.11.zip",
+      "download_url": "https://github.com/niansia/taiwan-exam/releases/download/source-corpus-2026.09.11/taiwan-exam-gsat-sources-shared-source-corpus-2026.09.11.zip",
+      "archive_bytes": 191002505,
+      "archive_sha256": "4238fe31c660f97deea67f8b41375680b5606ad46d6206cfde1eed615acd8ec4",
+      "file_count": 84,
+      "source_bytes": 190980567,
+      "files": [
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/102-B2 北模/102學年度北模學測試題02-解析[更正部分].pdf",
+          "bytes": 42384,
+          "sha256": "4264f028d282eff66404c883110eb115464551fc9f97a7dc4bc15269973faefa"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/102-B3 北模/102學年度北模學測試題03-答案.pdf",
+          "bytes": 144465,
+          "sha256": "f9c46bad23942672498179b5af60f2b626f322e207d9f7c0ded41899fa42e735"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/103-B1 北模/103學年度北模學測試題01-解答更正表.pdf",
+          "bytes": 37443,
+          "sha256": "28f85c8294f15488c483b2d32955da636f7c6e2c67cf9ad91b14f9d073b04773"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/103-B2 北模/103學年度北模學測試題02-答案更正.pdf",
+          "bytes": 151351,
+          "sha256": "2b9625c04fe58ca7f2cd6d7b4ac3b085feb647080dcd35c832aff8b289eefdc2"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/104-N3 全模/104學年度全國模考試題03-各科解答.pdf",
+          "bytes": 2867967,
+          "sha256": "26263cab04c6d30fbd1363a549f6e97f3ff6c10ae592f7f0965640099d0cee13"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/105-B1 北模/105-1-1北模學測級距.pdf",
+          "bytes": 204903,
+          "sha256": "4d4174c1815f64ec23a4249531b42821a30d70a769e45ad3f298eb87371a07b4"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/105-B1 北模/105-1-1北模學測解答更正.pdf",
+          "bytes": 163561,
+          "sha256": "16a6876ec5216293f8151a7464e92492ee4dfdb673f85784a87d3ac96df5b79d"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-B1 北模/106-1-1北模學測解答更正.pdf",
+          "bytes": 54595,
+          "sha256": "bf9057348363cd65b4f3987e04e9e6f7fd3b168cb29faeae7c228c59fb73cf60"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-C1 中模/中模學測106上01解析.pdf",
+          "bytes": 3156147,
+          "sha256": "2362529c580e78de6ce6245be188977b035a78f57326561e5d31ae520d663488"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-C2 中模/中模學測106上02解析.pdf",
+          "bytes": 4243347,
+          "sha256": "967e6f4d0de9110d1efd87381413a4c1bbba7f8f2e6ad30eade1c2e17c9acee9"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-N3 全模/106-3-全國學測-學生解答本.pdf",
+          "bytes": 4716111,
+          "sha256": "f3736cd84a2fff699f3ba22b3e02433bf250a1e723dea19acead79aafd874397"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-N3 全模/106-3-全國學測漢樺版-各科級分對照表 (1).pdf",
+          "bytes": 44347,
+          "sha256": "98809278af9c457bb9675c7bf4ce74373e550506d4e01fe1022576df9302c124"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-N4 全模/106第四次全國12月13日全體各科級分統計表.pdf",
+          "bytes": 61380,
+          "sha256": "aee465a99b8bc1b40819cf946485c3a6f5137e301ff5dcf25cf74c5102f00064"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-N5 全模/106學年度T5詳解.pdf",
+          "bytes": 8881071,
+          "sha256": "b80552bf2bf77558e1f8cb6b97aa4275321325b3b6b4143414dd7be6035a9495"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-S1 南模/106學年度學測南模-級距、五標.pdf",
+          "bytes": 198798,
+          "sha256": "290c00b67fb065438975feac9f54f243f268b85c7d56e09809afc9e10d24a41c"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/106-S1 南模/106學年度學測南模-詳解.pdf",
+          "bytes": 13779091,
+          "sha256": "112d159f0331d96a8bf7f8634e49309bb1b93d0fd023bc4d41e2d132daba0605"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/107-B2 北模/107北模第二次答案更正.jpg",
+          "bytes": 226021,
+          "sha256": "18e7124cbc6925c9449ff08e9416494a9f097e5f3bfdda8c9750611212eef557"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/107-B2 北模/107北模第二次級距.jpg",
+          "bytes": 63586,
+          "sha256": "9c4deb712bd14230e102ac1406d7be16e4e64f6c3b5c257716fb06f09252a06e"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/108-N2 全模 (文昌)/SKMBT_42119091710280國作.pdf",
+          "bytes": 217152,
+          "sha256": "bdb6253fe93f9c4489b02136b8128351c2353a26b846de5cb46514972457d7f8"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/108-N2 全模 (文昌)/SKMBT_42119091712460詳解.pdf",
+          "bytes": 2788594,
+          "sha256": "41a224dd11650848de02a96a7f3e4d048545e239c6b7bc842721b2d8f5e728b9"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/108-N2 全模 (銓達)/108學年度T2級分對照表.pdf",
+          "bytes": 831237,
+          "sha256": "83b260f515e5ccc6aea1c6ed24e5cfeb23edc91ed291093e96895e684112dc9b"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/108-N4 全模 (翰林)/108上高中模擬考-第四次全模-解答.pdf",
+          "bytes": 14562103,
+          "sha256": "d0e92277433b5ffb19a24e66005ed7c07b3b48e230314f46fc736c0ea607bad8"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/109-B2 北模/109-第2次北模全科詳解.pdf",
+          "bytes": 3933027,
+          "sha256": "337b59d1949b3cbd3b352ae57152b28bf7769414efd4711fd5ad12996e472590"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/109-N1 全模 (銓達)/原始分數與級分對照表.pdf",
+          "bytes": 1987808,
+          "sha256": "468cab24e9ff8776824aea320296cae03290ede94634c162fe3b3c1c83173cdf"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/109-N2 全模 (翰林)/詳解.pdf",
+          "bytes": 22530599,
+          "sha256": "f933f7b95aca669e2ce8c46164f994ffcac73a41c90176221a410df2cb572f9a"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/109-N3 全模 (翰林)/109翰林第三次五標.png",
+          "bytes": 689328,
+          "sha256": "dbfe6d67a702f42db5131118a6358224558b37a140c0b15341253a023b354f17"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/109-N3 全模 (翰林)/109翰林第三次級距.jpeg",
+          "bytes": 489332,
+          "sha256": "db113699802a115e2cdd711ea34add059ab4f2401bfd7dd994cbedb979e06f20"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/110-B1 北模/110學年-B1北模詳解.pdf",
+          "bytes": 4489173,
+          "sha256": "9a1e723e35656a0cfc63bf96519247e8b0b50621ce0b5eacf1276c6aa813e7aa"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/110-C1 中模/110學年中區模擬考-數AB1-B3.pdf",
+          "bytes": 1140360,
+          "sha256": "086417bc2f0f9cd18eabc0e508d929e610cfaf40aec840c7c2280a3726a71d24"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/110-N2 全模 (南一)/110上高中第二次全模南一版-答案卡.pdf",
+          "bytes": 7427319,
+          "sha256": "b25044f1d895c794944575810bf9cc00ef1e7a37b8931b06f697c2ee5ec0ea01"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/110-N2 全模 (南一)/110上高中第二次全模南一版-解答.pdf",
+          "bytes": 24688875,
+          "sha256": "304356c0c4c5d4e091e1b6a6c72778d78076a0738ead58b3de708f0613f15ee2"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-國語文綜合.pdf",
+          "bytes": 944415,
+          "sha256": "d18a27ce96d71230773d9fbc7167fc7fe03493ecb442e0fc577d85b2583766f1"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/110-N3 全模 (南一)/110年度學科能力第三次聯合模擬考-國語文綜合解析.pdf",
+          "bytes": 601539,
+          "sha256": "afd5a83f4bfc934aa95d663478e2d82c16b278c72707e4383c859f4a72ce8b71"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/110-N3 全模 (翰林)/解答本第三次-新竹區.pdf",
+          "bytes": 19113739,
+          "sha256": "e4768770baa520319793eb697345ef2862613107aa6a2a0cc4c4bdcd021f9180"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-B1 北模/第一次北模全科詳解.pdf",
+          "bytes": 4963377,
+          "sha256": "eea49218f09b30aa5554e378c15dbc56f26b92c6d180ca71f53315b303d288bd"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N1 全模 (翰林)/E1各科詳解.pdf",
+          "bytes": 5579619,
+          "sha256": "424840a50b6f29b74eb7fb0e098cc024d24c1f985b9017b5a5345b59e7732c45"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N1 全模 (翰林)/E1國語文綜合能力測驗_詳解.pdf",
+          "bytes": 5216488,
+          "sha256": "d1701411dd2755d6fa351f86e2787e84beaa87742126f66798e13208dfb11445"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N1 全模 (翰林)/各科五標統計表.pdf",
+          "bytes": 325763,
+          "sha256": "3044eeb87cb38186050481e95fb9c4bba48411c4651b378e337ae40c28ec2d61"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N1 全模 (翰林)/級距.pdf",
+          "bytes": 343583,
+          "sha256": "1dfade53a84f09cc4defcdc4017b50db8f2354c3e41876b55d54f9bbed86295d"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N3 全模 (南一)/111-N3 級距.png",
+          "bytes": 132341,
+          "sha256": "36b9a73e91543ff8ce9ced874f9eea1d280f13b4f7e17cdcae109df52b60ae77"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N3 全模 (南一)/111學年度南一第三次模考數A.B考科暨答案.pdf",
+          "bytes": 1224990,
+          "sha256": "e5e6ffadb19c8db2215c0a5dca47908a7f45e4c18902f493751149551691865f"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N3 全模 (翰林)/received_830531388264083.jpeg",
+          "bytes": 221482,
+          "sha256": "91b4605e65b39edf1647b6cb46c62612ef8526dd7e3a35273f91c28181211837"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N4 全模 (南一)/111-1模考-南一第4次全部科目解答本.pdf",
+          "bytes": 5486140,
+          "sha256": "2241dbba682040d58664a4f8d6f5fa78624fb94baf098f723a6bceef9295b0a5"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-N4 全模 (南一)/111-N4 級距+五標.png",
+          "bytes": 100584,
+          "sha256": "52e4ca12bd7c328c5b04e10f801fbf9cf603939f2c02207b6aff282d398e8e43"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/111-W6 全模 (文昌)/111-W6 五標+級距.png",
+          "bytes": 125505,
+          "sha256": "b9b0ff0e13e648471cdcc6ef7aacd3599a1e8eb41e1fb14db8923b090db724bc"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/112-N3 全模 (南一)/112-N3_級距及五標.png",
+          "bytes": 23644,
+          "sha256": "c634c2c3bc2e785d5d4a0ccb0b3d2e983368550dffe08fcb7ca2ae9e239e5b6b"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/112-N4 全模 (南一)/112-N4 五標+級距.png",
+          "bytes": 104755,
+          "sha256": "790bc5278d27b0514306010a19eb6b8c97a532878d2c90a4da01a8def409f866"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/112-W1 全模 (文昌)/112-W1 級距與五標.pdf",
+          "bytes": 62466,
+          "sha256": "23c89691f071b65c9cdc05b86d51b966b9dd8a6937d65564f3cbbde283370567"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E1 全模 (翰林)/113-E1 全體各科級分統計圖.pdf",
+          "bytes": 426876,
+          "sha256": "67d1582e8c888f98f9ecc0eb110f091fdcaad2446e29db5f3ffa15ce69c22388"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E1 全模 (翰林)/113-E1 原始分數與級分對照表.pdf",
+          "bytes": 95739,
+          "sha256": "56b590cf1f7a5dfe0524c249820f9f6485fe3785a0f8ac22ad4ec058081de1f1"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E1 全模 (翰林)/113-E1_答案更正.JPG",
+          "bytes": 182773,
+          "sha256": "f04f3757451b89b79e353006b6b47d5372423b1f07145f5bb4ca8df19d30aefc"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E2 北模 (翰林)/113-E2_級距及五標.pdf",
+          "bytes": 270770,
+          "sha256": "acd0d7aa6750d23716a2b95991c4b92ae7957eedc942a04c4c4c07e2070d0c79"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E3 北模 (翰林)/113-E3_原始分數與級分對照表.pdf",
+          "bytes": 107571,
+          "sha256": "4b2e169062fdde2165afc60f69d62c4911079d019a81298e0931ce3055700cf3"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E3 北模 (翰林)/113-E3_級距及五標.pdf",
+          "bytes": 292126,
+          "sha256": "a90a74afc9709a287ccc6068a6109b96c3f46792b051ddf77ff925d5682d4ef4"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E4 北模 (翰林)/113-E4 五標級分分布表.jpg",
+          "bytes": 245685,
+          "sha256": "5e9a859df1c170806dac29126f3474bf1659836e79131657d27804dbe7063756"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E4 北模 (翰林)/113-E4 原始分數級分對照表-1.jpg",
+          "bytes": 183386,
+          "sha256": "99e264fa2886487d2bb8ecfb42ae42199f58e902492d0d5024441afdc6d1c937"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E4 北模 (翰林)/113-E4 更新級距.png",
+          "bytes": 430262,
+          "sha256": "0df172d4d49d5d401c1c9ac64ac52e29273fa75862e152d29f2fd08b3b8376db"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E4 北模 (翰林)/113-E4_級距及五標.JPG",
+          "bytes": 473703,
+          "sha256": "9f88e9ac0d0239c78d0d44a74fb8454ac451d60d31f5ce58b6af7afda1ef9644"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-E4 北模 (翰林)/113-E4更新答案.jpg",
+          "bytes": 43696,
+          "sha256": "0fba182c3f26a8c227a6562045589ee63d9e0668383d301167997b3bee3f4a86"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-N1 全模 (南一)/113-N1_參考解答暨詳解.pdf",
+          "bytes": 5789011,
+          "sha256": "eeb04919e3955517f1c9fde23a47076f72fdf8543389d59e0e10db58651cb1a5"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-N2 全模 (南一)/113-N2 五標.png",
+          "bytes": 126908,
+          "sha256": "972e9f991bb7003b22d2907063e2719d06d2b18b3c803d632912934e557eff57"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-N2 全模 (南一)/113-N2 級距.webp",
+          "bytes": 5798,
+          "sha256": "73935358882786db37181e0844f6ce30b4d55c815623209fbd8523f15597bf69"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-N3 全模 (南一)/五標.webp",
+          "bytes": 36010,
+          "sha256": "83f44edba0b2ba9597c81df660f1952f002c9a09dfab6fe6b10d76b3a09c8bfd"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-N4 全模 (南一)/113-N4 五標&級距.png",
+          "bytes": 132077,
+          "sha256": "7a91baf7e9f1b9f8d9c82dcb8b2f18adaa5c8187d91bcdb97960eb72f07fd176"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-N4 全模 (南一)/113-N4 解答更正.pdf",
+          "bytes": 194137,
+          "sha256": "29740d22976620d05824681dbac0a22fd1d9781f54bc8023c3e8783e4b270594"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/113-N4 全模 (南一)/113-N4 詳解.pdf",
+          "bytes": 8923398,
+          "sha256": "26ebf7c68e76e8257ff224dcc86eac08216a60d38048f859a7a1383255423c3e"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E1 全模 (翰林)/5標+級距.png",
+          "bytes": 141608,
+          "sha256": "399120a813cbefb50d60f20177f6f6c842910f33dcf3a419385dd175488223ce"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E1 全模 (翰林)/全體各科級分統計圖.pdf",
+          "bytes": 345109,
+          "sha256": "5866c5f80513272fd1c28e2709e5888f429443991014d7dbfd5d09952d7ee03b"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E1 全模 (翰林)/原始分數與級分對照表.pdf",
+          "bytes": 107074,
+          "sha256": "fa100bb55d0fd99dd1782f1d69dffd35ad58a56f2217083ba1293b28b25b138d"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E2 北模 (翰林)/114-E2 五標.jpg",
+          "bytes": 37920,
+          "sha256": "af3cbefde3cfddc5c0ce7d67bdcf091dbc673785043ec6780173bf600b786db0"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E2 北模 (翰林)/原始分數與級分對照表.jpg",
+          "bytes": 133919,
+          "sha256": "24f47677ebb7b70fa916bcda55f747d4e4d01882d42b6dcf89cd9b1964c979b4"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E3 北模 (翰林)/五標.jpg",
+          "bytes": 45893,
+          "sha256": "4bb0d5cc5df9923064392cf24551770907823c17255972de19340ac91a2db587"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E3 北模 (翰林)/原始分數與級分對照表.jpg",
+          "bytes": 150627,
+          "sha256": "c814b81a7c751d412c73e214ed44cef9f6f2837d2d82bc0d400e3f1860af69fd"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E3 北模 (翰林)/解答更正表.pdf",
+          "bytes": 45507,
+          "sha256": "229b2f7fd3069e9d6d1274467c375421a2b743b09650aa6b4d01d1361764c1d4"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E4 北模 (翰林)/五標-1.jpg",
+          "bytes": 185922,
+          "sha256": "3e20ab087b9c814594cc889e27d656919122193b758d7a692d01db41f9682136"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-E4 北模 (翰林)/級分-1.jpg",
+          "bytes": 32221,
+          "sha256": "191bcce74f8edd3e21251f71841068d491ab46eed9b7cc9298c0877319ed4a02"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-N1 全模 (南一)/解答更正.pdf",
+          "bytes": 102172,
+          "sha256": "ad8fc9f5de033ecb1b5a16348fbd65bded2c282635feff76913cbfe2dbd5251f"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-N2 全模 (南一)/解答更正＆五標.jpg",
+          "bytes": 299745,
+          "sha256": "46e0b258f84496da373d6462516516020c5473c772f25ce61d2956208956bd69"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-N3 全模 (南一)/5標級距.png",
+          "bytes": 443848,
+          "sha256": "3391e0f118f4f8c15f3c6e4fe44cfd154d3ab5eb68ffcc1775c7b24cf128c00b"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-N3 全模 (南一)/全體五標及平均分數比較表(國、數).jpg",
+          "bytes": 131236,
+          "sha256": "7ea0421d722d9bd24905391165c4fb74c0eadd9c8fded208c8f619ee89ac2634"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-N3 全模 (南一)/全體五標及平均分數比較表(英、自然、社會).jpg",
+          "bytes": 121542,
+          "sha256": "d01cab880361b9e534faa89e69dab602fb4a74605db943c309f72a1100a26e84"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/114-N3 全模 (南一)/解答更正.png",
+          "bytes": 1037121,
+          "sha256": "87f4c25cafa8a4b55460acf04115c955dbac1e1156ce90895009076ffcc225d1"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/115-E1 全模 (翰林)/115-E1 五標+級距.png",
+          "bytes": 112649,
+          "sha256": "e5787f3ba75d503100dfc25e67db458f6999942d9f4d71fc0e1f83146677fc80"
+        },
+        {
+          "path": "exam_packs/學測/shared-data/模擬考/115-E1 全模 (翰林)/115-E1 分數對應級分.jpg",
+          "bytes": 164623,
+          "sha256": "e641a44b3e52ace1816d92fd6b6af89d2168bfbef406b90f90e17b4b3b6d3220"
+        }
+      ]
+    }
   ]
 }
 </canonical-source>
@@ -38004,15 +43763,31 @@ For both writing tasks, run the blind autonomous source discovery and source-sel
 
 Read this reference when the user adds past papers, mock exams, answer keys, scoring notes, or formatting examples.
 
-## Keep originals private
+## Preserve originals and their distribution boundary
 
-Put source files under the matching subject's `歷屆試題/` or `模擬考/`. These folders are git-ignored. Run `index-sources` to create `metadata/source-index.jsonl` with file paths, sizes, modification times, and SHA-256 fingerprints.
+Put source files under the matching subject's `歷屆試題/` or `模擬考/`.
+The ordinary Git tree ignores their large binaries, while the checked
+`exam_packs/學測/source-pack-manifest.json` and GitHub source-data release make
+the reviewed corpus reproducible. Run
+`python scripts/bootstrap_exam_sources.py --subject <科目> --verify-only` before
+a local full-paper run; remove `--verify-only` to fetch and safely install missing
+packs. The installer validates archive and per-file SHA-256 values and refuses
+unexpected archive paths.
+
+An ignore rule or package exclusion is never a retention instruction. Do not
+delete source papers, raw intake bundles, source registries or calibration evidence
+as part of output cleanup. Before any recursive cleanup, resolve the exact targets
+and prove they exclude those inputs. If a source is intentionally retired, require
+an explicit source-specific request and keep a recoverable replacement or manifest.
 
 For a downloaded multi-subject mock bundle, first run `scripts/ingest_gsat_bundle.py SOURCE --probe-pdfs` as a dry run. Use `--copy` to ingest while preserving the supplied folder; use the destructive `--execute` move mode only when the user explicitly requests moving the originals. The registry merge is hash-idempotent. If a folder is organized by subject rather than by bundle, the ingester may resolve the year/series against an already indexed bundle; otherwise pass `--bundle`, `--publisher`, and `--scope` explicitly.
 
 For CEEC GSAT papers, `scripts/download_ceec_gsat.py --min-roc-year 100` catalogs the official page and downloads only PDF questions, answer keys, and non-choice scoring principles. It writes `metadata/official-source-registry.jsonl`; preserve `source_kind: official_past_exam` and never merge old-regime mathematics with current Math A/B calibration.
 
-Do not move, rename, OCR, or publish the user's originals unless requested. An index is not permission to redistribute the file.
+Do not move, rename, OCR, or publish newly supplied user files unless requested.
+Repository-maintained source packs follow their published manifest and notices;
+an index by itself is not evidence that an arbitrary new file belongs in that
+release.
 
 ## Create one metadata record per item
 
@@ -38332,6 +44107,14 @@ profiles, curriculum specification, reference PDFs and separate Layout Profile.
 Learn aggregate form/coverage in the analysis pass; never pass historical stems,
 numeric tuples or figure topology to the new-item writer.
 
+For a local complete paper, reference PDFs are a required data layer. Verify the
+selected subject with `scripts/bootstrap_exam_sources.py --subject <科目>
+--verify-only` before treating a Paper or Layout Profile as source-backed. If the
+check is incomplete, install the selected source pack and rerun the check. The
+ordinary Git tree, a packaged Skill and the hosted-web projection may intentionally
+omit multi-gigabyte binaries; that packaging choice does not make the binaries
+optional for a source-verified local run and never authorizes their deletion.
+
 Additional implementation invariants from the failed stress test:
 
 - New content belongs in this run's exam JSON, never in a reusable script's
@@ -38350,6 +44133,10 @@ Additional implementation invariants from the failed stress test:
 - Missing sources, correct answers or form evidence cannot be excused by
   labelling a requested full exam as an internal preview. Repair the prerequisite
   or report an exact blocker. Never manufacture pass records.
+- Treat `歷屆試題/`, `模擬考/`, raw intake bundles and their registries as
+  protected inputs. Output cleanup must resolve its targets and exclude these
+  roots. Git-ignore and package-exclusion rules are distribution boundaries, not
+  retention policies.
 
 For HTML/PDF subject entry points add metadata.run_contract pointing to the same
 external run-contract.json, relative to the exam JSON. The handoff adapter

@@ -557,7 +557,11 @@ def build(root: Path, timeout_seconds: int, bundle_filter: str | None = None) ->
             preserved = [item for item in read_jsonl(target) if item.get("bundle") != bundle_filter]
             output_profiles = preserved + output_profiles
             output_profiles.sort(key=lambda item: (item.get("year") or 0, item.get("paper_id") or ""))
-        target.write_text("".join(json.dumps(item, ensure_ascii=False) + "\n" for item in output_profiles), encoding="utf-8")
+        target.write_text(
+            "".join(json.dumps(item, ensure_ascii=False) + "\n" for item in output_profiles),
+            encoding="utf-8",
+            newline="\n",
+        )
     if bundle_filter:
         all_profiles = []
         for target in (root / "exam_packs" / "學測" / "subjects").glob("*/metadata/papers.jsonl"):
@@ -594,7 +598,11 @@ def build(root: Path, timeout_seconds: int, bundle_filter: str | None = None) ->
         "gate": "Only hash-bound page/slot-reviewed profiles may claim full-paper readiness; parser confidence and reference recipes never establish verification.",
     }
     report_path = root / "exam_packs" / "學測" / "metadata" / "paper-profile-report.json"
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    report_path.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     print(f"已輸出 {report_path.relative_to(root)}")
     return 0
 
