@@ -3,7 +3,20 @@
   "template_pack_id": "gsat-115-layout-assets-v1",
   "repository": "https://github.com/niansia/taiwan-exam",
   "github_template_folder": "https://github.com/niansia/taiwan-exam/tree/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115",
-  "asset_policy": "Use component PDFs as fixed layout backgrounds; blank-template is a review packet, not a fixed-page exam skeleton.",
+  "asset_policy": "Formal output must use the verified component PDF bytes as immutable background layers; never OCR, retype, reflow, rasterize, or visually imitate their locked content. blank-template is a review packet, not a fixed-page exam skeleton.",
+  "formal_composition": {
+    "exact_binary_base_required": true,
+    "template_retypesetting_allowed": false,
+    "template_rasterization_allowed": false,
+    "allowed_overlays": [
+      "academic_year",
+      "exam_name",
+      "current_page",
+      "total_pages",
+      "newly_authored_body_within_the_inner_body_box"
+    ],
+    "missing_binary_behavior": "Stop formal rendering, report fixed-template import unavailable, and offer draft-only output or request the exact mapped assets. Do not reconstruct a lookalike template."
+  },
   "dynamic_fields": [
     "academic_year",
     "exam_name",
@@ -18,12 +31,6 @@
     "scoring_rules",
     "math_formula_variant"
   ],
-  "canonical_source": {
-    "repository_path": "scripts/gsat_115_templates.py",
-    "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/scripts/gsat_115_templates.py",
-    "sha256": "6a9bb894a3eb1c87f0760e60818c06711be5bb93b0bd1ea5dbec7afa2fdc339f",
-    "bytes": 22284
-  },
   "asset_count": 30,
   "subjects": [
     {

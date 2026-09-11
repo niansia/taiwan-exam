@@ -101,28 +101,38 @@ historical photograph or topic merely to satisfy the visual quota.
 For a 111–115-regime GSAT booklet, load
 `exam_packs/學測/templates/115/hosted-web-template-assets.json` before rendering.
 It gives a public download URL, SHA-256, byte count and page count for all 30
-fixed PDF components across the seven subjects, plus the canonical template
-source. It also records the GitHub template folder and each subject folder for
+fixed PDF components across the seven subjects. It also records the GitHub
+template folder and each subject folder for
 human inspection, but agents must use the per-file `download_url` rather than
 scraping GitHub's HTML. Do not make the user download or upload a template that
 the surface can retrieve itself.
 
-Use this capability order:
+For formal output, download only the requested subject's `cover-blank`,
+`inner-odd-blank`, `inner-even-blank` and, for Mathematics, the matching
+`formula-blank`. Verify `%PDF`, byte count and SHA-256. Use the original PDF
+bytes unchanged as immutable background/page-furniture layers. Overlay only
+the four allowed dynamic fields and that run's newly paginated body inside the
+measured body box.
 
-1. **Exact-asset path:** download only the requested subject's `cover-blank`,
-   `inner-odd-blank`, `inner-even-blank` and, for Mathematics, the matching
-   `formula-blank`. Verify `%PDF`, byte count and SHA-256. Use those PDFs as
-   fixed backgrounds/page furniture and overlay only the four allowed dynamic
-   fields and that run's newly paginated body.
-2. **Deterministic-rebuild path:** if remote binary PDFs cannot enter the file
-   runtime but code execution is available, extract the embedded canonical
-   `scripts/gsat_115_templates.py` section without alteration, render its
-   subject component markup to A4 PDF, and compare the result with the mapped
-   page roles and measured Layout Profile. This is reconstruction of the same
-   template, not an invitation to redesign it.
-3. **Capability failure:** if neither path is possible, use the embedded Layout
-   Profile only for a clearly labelled generic-layout draft. Do not claim the
-   fixed template was applied and do not call the PDF formally complete.
+The following are hard failures, not alternative rendering paths:
+
+- extracting or OCRing the cover and retyping it in another renderer;
+- converting the template to HTML, Word, Markdown, an editable document, or a
+  screenshot and then exporting that document to PDF;
+- substituting a font, rebuilding the answer-marking grids, or expressing a
+  template fraction with a generic equation object;
+- allowing the fixed text, fraction, comma, grid or scoring rule to reflow with
+  the newly authored body; or
+- recreating a visually similar page from source code or textual layout
+  instructions and then claiming it is the fixed asset.
+
+If remote binary PDFs cannot enter the file runtime, the surface cannot merge
+PDF layers, or the downloaded hash differs, stop formal rendering before item
+layout. Report the exact capability gap. A generic-layout draft may be produced
+only when the user accepts that downgrade, and it must not claim to use the
+fixed template. Canonical source code remains a local maintenance aid in the
+repository; it is deliberately absent from hosted knowledge and is not the
+hosted formal-output fallback.
 
 `blank-template.pdf` is only a compact preview packet. Never stretch a paper
 into its three or four pages. Render the substantive body first, count its real
@@ -132,6 +142,15 @@ signature banner, subject label and scoring rules must not be regenerated.
 Mathematics A and B must use their own formula component. Finally rasterize and
 inspect every composed page; a successful download or hash match does not prove
 that overlays, fractions, headers or body blocks landed correctly.
+
+For Mathematics A/B cover acceptance, compare the composed cover against the
+downloaded `cover-blank.pdf` at readable scale. Both answer-format examples,
+their fractions (`3/8` and `-7/50`), adjacent punctuation, marking grids and all
+locked scoring text must remain in the same line groups and positions as the
+base PDF. Any detached numerator/denominator, punctuation at a distant margin,
+font-family change, altered line break, or rebuilt grid is a release blocker.
+Do not repair such a page by nudging individual objects: discard it and compose
+again from the untouched base asset.
 
 A persistent Project may cache verified template bytes by SHA-256. It must
 redownload when the mapped hash changes. This avoids repeat downloads without

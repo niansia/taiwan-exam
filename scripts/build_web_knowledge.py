@@ -70,11 +70,6 @@ def source_paths(root: Path = ROOT) -> list[Path]:
         paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/difficulty-profile.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/layout-profiles/*.json")))
 
-    # Hosted agents cannot assume this repository is mounted. Embed the
-    # dependency-free canonical template definition so they can reconstruct the
-    # same locked cover/page furniture when binary-PDF import is unavailable.
-    paths.append(root / "scripts" / "gsat_115_templates.py")
-
     unique = sorted({path.resolve() for path in paths}, key=lambda path: path.relative_to(root).as_posix())
     missing = [path.relative_to(root).as_posix() for path in unique if not path.is_file()]
     if missing:

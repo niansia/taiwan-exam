@@ -13,9 +13,11 @@
 
 網頁版不可假設本儲存庫已掛載。先讀取
 `exam_packs/學測/templates/115/hosted-web-template-assets.json`，依當科元件的
-`download_url` 取得 PDF 並核對 SHA-256；若平台無法將遠端 PDF 交給
-檔案工具，才改用網頁知識檔內嵌的 `scripts/gsat_115_templates.py`
-確定性重建。兩者皆不可用時，只能標示為通用版面草稿。
+`download_url` 取得 PDF 並核對 SHA-256。正式輸出必須將這些 PDF 原始位元組
+當作不可重排的底層，只覆疊年份、測驗名稱、頁碼與當次正文。不得將
+模板 OCR、重打、轉成 HTML/Word、截圖、重畫或依外觀仿製。平台無法將
+原始 PDF 交給檔案工具或無法合併 PDF 圖層時，不得宣稱正式套版；只能
+回報缺口，或在使用者同意後交付通用版面草稿。
 
 建立七科挖空版 PDF 資產：
 

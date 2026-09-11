@@ -61,23 +61,27 @@ def build() -> dict:
             "assets": assets,
         })
 
-    source_relative = "scripts/gsat_115_templates.py"
-    source_path = ROOT / source_relative
-    source_data = source_path.read_bytes()
     return {
         "schema_version": 1,
         "template_pack_id": manifest["template_pack_id"],
         "repository": "https://github.com/niansia/taiwan-exam",
         "github_template_folder": TREE_ROOT + quote(PACK.relative_to(ROOT).as_posix(), safe="/"),
-        "asset_policy": "Use component PDFs as fixed layout backgrounds; blank-template is a review packet, not a fixed-page exam skeleton.",
+        "asset_policy": "Formal output must use the verified component PDF bytes as immutable background layers; never OCR, retype, reflow, rasterize, or visually imitate their locked content. blank-template is a review packet, not a fixed-page exam skeleton.",
+        "formal_composition": {
+            "exact_binary_base_required": True,
+            "template_retypesetting_allowed": False,
+            "template_rasterization_allowed": False,
+            "allowed_overlays": [
+                "academic_year",
+                "exam_name",
+                "current_page",
+                "total_pages",
+                "newly_authored_body_within_the_inner_body_box",
+            ],
+            "missing_binary_behavior": "Stop formal rendering, report fixed-template import unavailable, and offer draft-only output or request the exact mapped assets. Do not reconstruct a lookalike template.",
+        },
         "dynamic_fields": manifest["dynamic_fields"],
         "locked_fields": manifest["locked_fields"],
-        "canonical_source": {
-            "repository_path": source_relative,
-            "download_url": public_url(source_relative, raw=True),
-            "sha256": hashlib.sha256(source_data).hexdigest(),
-            "bytes": len(source_data),
-        },
         "asset_count": total_assets,
         "subjects": subjects,
     }

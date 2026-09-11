@@ -74,6 +74,9 @@ def test_hosted_web_template_map_covers_exact_fixed_assets():
     assert checked_in == build_hosted_web_template_map.build()
     assert checked_in["asset_count"] == 30
     assert len(checked_in["subjects"]) == 7
+    assert checked_in["formal_composition"]["exact_binary_base_required"] is True
+    assert checked_in["formal_composition"]["template_retypesetting_allowed"] is False
+    assert checked_in["formal_composition"]["template_rasterization_allowed"] is False
     assert checked_in["github_template_folder"].startswith("https://github.com/niansia/taiwan-exam/tree/main/")
     all_urls = []
     for subject in checked_in["subjects"]:
@@ -92,10 +95,10 @@ def test_hosted_web_template_map_covers_exact_fixed_assets():
 
     paths = {source.relative_to(ROOT).as_posix() for source in build_web_knowledge.source_paths()}
     assert "exam_packs/學測/templates/115/hosted-web-template-assets.json" in paths
-    assert "scripts/gsat_115_templates.py" in paths
+    assert "scripts/gsat_115_templates.py" not in paths
     built = build_web_knowledge.build("test")
     assert '<canonical-source path="exam_packs/學測/templates/115/hosted-web-template-assets.json">' in built
-    assert '<canonical-source path="scripts/gsat_115_templates.py">' in built
+    assert '<canonical-source path="scripts/gsat_115_templates.py">' not in built
     assert package_skill.should_include(path)
     assert not package_skill.should_include(ROOT / "scripts/build_hosted_web_template_map.py")
 
