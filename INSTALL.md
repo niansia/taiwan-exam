@@ -1,39 +1,130 @@
-# 給 AI 的一次安裝指引
+# Taiwan Exam 一次安裝指引
 
-> 2026-09-09：目前安裝包因重現 Defender「下載及附件」偵測而撤下。
-> 暫停新安裝／更新；不可改抓舊版、原始碼 ZIP 或解除安全封鎖。
-> 以下正常流程待修復及下載驗證通過後才恢復適用。
+這份文件主要給 AI 代理讀。目標是讓使用者只需貼一次儲存庫網址，之後直接用自然語言出題；不要把終端機操作轉嫁給不會寫程式的使用者。
 
-使用者只需要說「安裝這個技能」，後續說「依照 Taiwan Exam 出題」。
-請你完成環境支援的操作，不要求使用者操作終端機、搬資料夾或理解套件名稱。
-目標是原生技能安裝與後續重用，不是每個對話重新抓取 GitHub。
+## 目前可安裝的內容
 
-## 先找已安裝版本
+只使用 GitHub 上的公開原始碼：
 
-查目前平台的技能清單／原生安裝器，確認 `taiwan-exam-generator` 是否已啟用。
-若存在且完整，直接沿用；不要為了「確保最新」重新下載、覆寫或重裝。
-缺少某科資料、暫時不能連網或非必要依賴缺少，不是重裝技能的理由。
-若未出現在本次清單，先檢查啟用狀態、安裝範圍與是否需要新對話／重新載入。
-更新只有在使用者要求，或已確認損壞並取得修復授權後才處理；保留個人修改及私人考試資料。
+```text
+https://github.com/niansia/taiwan-exam
+```
 
-## 尚未安裝時
+預先封裝 ZIP／Release 仍因 2026-09-09 Defender 下載附件事件暫停。不可從 Git 歷史還原舊包、改用舊下載網址、關閉防毒、解除檔案封鎖或聲稱新的檔名已解決事件。若原始碼取得也觸發安全警告，停止安裝並明確回報。
 
-- **Codex 本機環境**：優先用內建 Skill Installer 從本 GitHub 儲存庫根目錄安裝完整技能，名稱為 `taiwan-exam-generator`。以實際安裝器的使用者級位置為準，不放入會被清除的對話暫存；不能把 clone 到普通工作目錄當成已註冊技能。
-- **Claude Code 本機環境**：透過可用的檔案／安裝工具將完整技能放入個人技能目錄 `~/.claude/skills/taiwan-exam-generator/`，確認 `SKILL.md` 可被原生技能清單找到。不要覆寫已存在內容。此範圍不自動涵蓋 Claude 網頁或雲端。
-- **Claude 網頁版**：使用帳號的 Skills 安裝入口。若你沒有上傳或確認權限，只請使用者完成首次所需的介面動作（Customize → Skills，上傳並啟用），不要說每個新對話都要上傳。
-- **ChatGPT 網頁版**：檢查當前帳號是否提供可用的原生技能／外掛安裝入口或工具。使用其實際支援的流程；此儲存庫不是已上架外掛，不能憑空給出安裝按鈕或編造工具。沒有入口時，明確說明該環境不能完成使用者要求的持久安裝，不能自動改成單次附件方案。
+## 代理的安裝流程
 
-技能包：暫停提供，請查看 README 的最新發布狀態。
+### 1. 先檢查既有安裝
 
-取得檔案不等於安裝。保留整個技能目錄的參考文件、腳本、結構規格與 exam_packs；核對 PACKAGE_MANIFEST.json 的檔案清單及雜湊。不要每次出題下載此包。平台自行載入已安裝資源不屬於要求使用者重新安裝。
+在目前平台列出或搜尋已啟用的技能，確認 `taiwan-exam-generator` 是否存在。
 
-## 驗證及簡短回報
+- 已存在且檔案完整：直接沿用；不要為了「確保最新」自動覆寫。
+- 使用者要求更新：先保存其私人 `exam_packs`、自訂模板與未提交工作，再比較版本。
+- 只缺某科參考資料：補該科資料，不要重裝整個 Skill。
+- 名稱存在但檔案不全：說明缺少項目，再採可復原的更新或重新安裝。
 
-確認原生技能已註冊／啟用，說明它適用於哪個帳號、工作區或本機範圍。
-只需告訴使用者下一句：「請依照 Taiwan Exam 這個 Skill，幫我出學測數 A 考卷一份。」
-如平台需要，請使用者開新對話測一次，不要求重新附檔；沒有實際測過新對話，應標示「跨對話呼叫待確認」。
-不要聲稱在本機安裝一次就自動同步所有平台／裝置。
+安裝範圍必須說清楚：使用者層級、單一工作區，或只在本次暫存環境有效。不得把「本次讀過 README」說成已永久安裝。
 
-**安裝成功不是完整考卷已校準。** 後續出題依 SKILL.md 與 references/first-use.md，優先沿用可取得且雜湊未變的有效參考資料。臨時執行容器、帳號技能儲存與私人試卷工作目錄的保存範圍不同，不可混為一談。
+### 2. 依平台安裝
 
-官方依據（2026-09-09 核對）：[Codex 技能](https://learn.chatgpt.com/docs/build-skills)、[Claude 技能](https://support.claude.com/en/articles/12512180-use-skills-in-claude)、[Claude Code 技能範圍](https://code.claude.com/docs/en/skills)。
+#### OpenAI Codex
+
+優先使用 Codex 內建的 Skill Installer，從上述 GitHub 儲存庫安裝為使用者層級技能。安裝器應保留完整儲存庫結構，讓 `SKILL.md`、`references/`、`scripts/`、`schemas/`、`templates/` 與 `exam_packs/` 位於同一技能根目錄。
+
+若內建安裝器不可用，才將經使用者同意取得的本機原始碼副本放到：
+
+- Windows：`%USERPROFILE%\.codex\skills\taiwan-exam-generator\`
+- macOS／Linux：`~/.codex/skills/taiwan-exam-generator/`
+
+若設定了自訂 `CODEX_HOME`，以該環境實際的 `skills` 目錄為準。不要猜測其他裝置或 ChatGPT 網頁版會自動同步。
+
+#### Claude Code
+
+安裝完整原始碼資料夾到個人技能位置：
+
+- Windows：`%USERPROFILE%\.claude\skills\taiwan-exam-generator\`
+- macOS／Linux：`~/.claude/skills/taiwan-exam-generator/`
+
+若使用者只要單一專案可用，可改放 `<專案>/.claude/skills/taiwan-exam-generator/`。`SKILL.md` 必須正好位於該技能資料夾根目錄；不要只複製一份 Markdown 而遺失支援資源。已存在同名資料夾時不要直接覆寫。
+
+參考：[Claude Code Skills](https://code.claude.com/docs/en/skills)。
+
+#### Gemini CLI
+
+優先使用 Gemini CLI 的技能管理功能安裝 Git 儲存庫；需要使用者確認時，讓產品顯示原生確認流程：
+
+```sh
+gemini skills install https://github.com/niansia/taiwan-exam
+```
+
+安裝後以 `/skills list` 確認，必要時用 `/skills reload`。若使用本機開發副本，可由代理選擇 `gemini skills link <本機資料夾>`；不要手動製造不受管理的重複副本。
+
+Gemini CLI 的使用者技能通常由 `~/.gemini/skills/` 或 `~/.agents/skills/` 發現，工作區技能則位於 `.gemini/skills/` 或 `.agents/skills/`。以當前版本實際顯示為準。
+
+參考：[Gemini CLI Agent Skills](https://geminicli.com/docs/cli/using-agent-skills/)。
+
+### 3. 驗證技能完整性
+
+至少確認下列項目存在且可讀：
+
+```text
+SKILL.md
+NOTICE
+ORIGIN.json
+references/first-use.md
+references/exam-pack-execution-contract.md
+scripts/validate_exam_release.py
+scripts/render_gsat_official.py
+schemas/exam.schema.json
+exam_packs/學測/manifest.json
+exam_packs/學測/templates/115/template-pack.json
+```
+
+確認技能名稱為 `taiwan-exam-generator`，並讓平台重新載入技能清單。若平台提供原生技能清單，必須看得到此名稱；只看到普通資料夾不算完成。
+
+### 4. 只準備當次需要的執行環境
+
+安裝 Skill 不等於一次安裝所有 PDF／瀏覽器工具。第一次實際出題時，依科目與輸出需求檢查：
+
+- Python 3.10+
+- `requirements.txt` 中的 PDF／HTML 依賴
+- 可用的 Chrome、Chromium 或 Edge（需要瀏覽器排版時）
+- 繁體中文字型與逐頁 PDF／影像檢查能力
+
+代理應在權限允許時自行準備必要依賴，並避免改動無關的系統設定。`xlrd` 只在匯入舊式 `.xls` 統計資料時才需要，不得阻擋一般安裝或出題。
+
+這個專案不需要 API key、遠端授權碼、裝置識別或維護者啟用。缺少正式卷校準資料仍可能阻擋完整考卷，但那是內容證據問題，不是安裝失敗。
+
+### 5. 向使用者回報
+
+回報必須包含：
+
+- 安裝的平台與範圍
+- 技能是否已被原生清單辨識
+- 是否尚缺當次出題才需要的 PDF／字型／參考資料
+- 下一句可直接使用的範例
+
+建議最後只給使用者這句：
+
+```text
+安裝完成。你現在可以說：「請使用 Taiwan Exam，出一份學測數學 A 完整模擬考，附答案、詳解與 PDF。」
+```
+
+若沒有實際跨新對話測試，只能寫「跨對話呼叫待確認」，不能保證永久可用。
+
+## 網頁版 GPT／Claude／Gemini
+
+若平台只有自訂指示、知識檔或附件上傳，可把 `SKILL.md` 與相關 `references/` 作為規則來源；但必須標示為**有限模式**。下列任一能力缺少時，不可宣稱完整支援：
+
+- 保留技能完整目錄並按需讀取檔案
+- 執行 Python 驗證器與排版器
+- 取得或讀取合法的官方參考資料
+- 檢查每一頁 PDF 的實際畫面
+
+一次附件上傳不等於跨對話安裝。不要捏造 ChatGPT、Claude.ai 或 Gemini 網頁版尚未提供的安裝按鈕、持久性或本機執行能力。
+
+## 更新與移除
+
+只有在使用者明確要求時更新。更新前先辨識專案自有檔案與使用者加入的私人資料，採可復原方式備份或搬移；不要用破壞性重設覆蓋工作。
+
+移除時只刪除已確認的技能安裝資料夾或使用平台的原生解除安裝功能。不得刪除其他專案、使用者的 `exam_packs` 副本或共享技能目錄。

@@ -37,14 +37,14 @@ INSTRUMENTATION = rf"""
     const pages = Array.from(document.querySelectorAll('.sheet')).map((sheet, sheetIndex) => {{
       const bounded = [
         sheet,
-        ...Array.from(sheet.querySelectorAll('.content,.notice,.cover-fill-example,.mark-example,.section-rule,.options,.fill-format,.figure')),
+        ...Array.from(sheet.querySelectorAll('.content,.notice,.cover-fill-example,.mark-example,.section-rule,.question,.prompt,.options,.option,.fill-format,.answer-lines,.answer-line,.figure,.trace')),
       ];
       const frames = bounded.map((container) => {{
         const frame = container.getBoundingClientRect();
         const tracked = new Set([
           ...Array.from(container.children),
           ...(container.matches('.content')
-            ? Array.from(container.querySelectorAll('.question,.stimulus,.options,.fill-format,.answer-lines,.figure,.figure img,table'))
+            ? Array.from(container.querySelectorAll('.question,.stimulus,.options,.fill-format,.answer-lines,.figure,.figure img,table,math,.formula-block,.solution,.solution li,.solution p,.trace'))
             : []),
         ]);
         const clipped = Array.from(tracked).flatMap((node) => {{
@@ -67,6 +67,10 @@ INSTRUMENTATION = rf"""
         }});
         return {{
           frame: describe(container),
+          bounds: {{left:frame.left, top:frame.top, right:frame.right, bottom:frame.bottom,
+                    width:frame.width, height:frame.height}},
+          clientWidth: container.clientWidth,
+          scrollWidth: container.scrollWidth,
           horizontalOverflowPx: Math.max(0, container.scrollWidth - container.clientWidth),
           overflowPx: Math.max(0, container.scrollHeight - container.clientHeight),
           clipped,
@@ -92,6 +96,12 @@ INSTRUMENTATION = rf"""
         overflowPx: Math.max(...frames.map((frame) => frame.overflowPx)),
         clipped: frames.flatMap((frame) => frame.clipped),
         contentUsedRatio,
+        blocks: content ? Array.from(content.children).map((node) => {{
+          const box = node.getBoundingClientRect();
+          const natural = Array.from(node.children).map((child) => child.getBoundingClientRect());
+          return {{element:describe(node), top:box.top-content.getBoundingClientRect().top,
+                   height:box.height, childrenBottom:natural.length ? Math.max(...natural.map(b=>b.bottom))-box.top : box.height}};
+        }}) : [],
         frames,
       }};
     }});

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "created_at": "2026-09-04T06:15:37.560392+00:00",
+  "created_at": "2026-09-09T15:59:14.279763+00:00",
   "exam": "學測",
   "official_coverage": {
     "roc_year_start": 100,
@@ -92,7 +92,7 @@
         "year_count": 16,
         "status_counts": {
           "auto_parsed": 15,
-          "verified": 10
+          "needs_review": 10
         },
         "papers": [
           {
@@ -284,8 +284,8 @@
             "duration_minutes": 90,
             "total_score": 50.0,
             "numbered_question_count": 2,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2022-official-b798418f7d09",
@@ -296,8 +296,8 @@
             "duration_minutes": 90,
             "total_score": 100.0,
             "numbered_question_count": 37,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2023-official-10c795009e60",
@@ -308,8 +308,8 @@
             "duration_minutes": 90,
             "total_score": 50.0,
             "numbered_question_count": 2,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2023-official-b5a3cef4fe9d",
@@ -320,8 +320,8 @@
             "duration_minutes": 90,
             "total_score": 100.0,
             "numbered_question_count": 37,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2024-official-afcc3c0fefdd",
@@ -332,8 +332,8 @@
             "duration_minutes": 90,
             "total_score": 50.0,
             "numbered_question_count": 2,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2024-official-f0a9043fca96",
@@ -344,8 +344,8 @@
             "duration_minutes": 90,
             "total_score": 100.0,
             "numbered_question_count": 36,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2025-official-c64c36a1cf6d",
@@ -356,8 +356,8 @@
             "duration_minutes": 90,
             "total_score": 50.0,
             "numbered_question_count": 2,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2025-official-ad9878a480fb",
@@ -368,8 +368,8 @@
             "duration_minutes": 90,
             "total_score": 100.0,
             "numbered_question_count": 36,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2026-official-3ea44f1b2c33",
@@ -380,8 +380,8 @@
             "duration_minutes": 90,
             "total_score": 50.0,
             "numbered_question_count": 2,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2026-official-9cee75fa62cc",
@@ -392,88 +392,13 @@
             "duration_minutes": 90,
             "total_score": 100.0,
             "numbered_question_count": 36,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           }
         ],
         "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
       },
-      "latest_verified_structures": [
-        {
-          "paper_id": "gsat-2026-official-3ea44f1b2c33",
-          "year": 2026,
-          "section": "國寫",
-          "duration_minutes": 90,
-          "total_score": 50.0,
-          "numbered_question_count": 2,
-          "scored_item_count": 2,
-          "source_kind": "official_past_exam",
-          "sections": [
-            {
-              "title": "國寫非選擇題",
-              "question_number_start": 1,
-              "question_number_end": 2,
-              "numbered_question_count": 2,
-              "scored_item_count": 2,
-              "question_type_mix": {
-                "guided_writing": 2
-              },
-              "subtotal_score": 50.0,
-              "score_rule": "占 50 分"
-            }
-          ],
-          "layout_evidence_status": "not-yet-verified"
-        },
-        {
-          "paper_id": "gsat-2026-official-9cee75fa62cc",
-          "year": 2026,
-          "section": "國綜",
-          "duration_minutes": 90,
-          "total_score": 100.0,
-          "numbered_question_count": 36,
-          "scored_item_count": 36,
-          "source_kind": "official_past_exam",
-          "sections": [
-            {
-              "title": "單選題",
-              "question_number_start": 1,
-              "question_number_end": 24,
-              "numbered_question_count": 24,
-              "scored_item_count": 24,
-              "question_type_mix": {
-                "single_choice": 24
-              },
-              "subtotal_score": 48.0,
-              "score_rule": "占 48 分"
-            },
-            {
-              "title": "多選題",
-              "question_number_start": 25,
-              "question_number_end": 31,
-              "numbered_question_count": 7,
-              "scored_item_count": 7,
-              "question_type_mix": {
-                "multiple_choice": 7
-              },
-              "subtotal_score": 28.0,
-              "score_rule": "占 28 分"
-            },
-            {
-              "title": "混合題或非選擇題",
-              "question_number_start": 32,
-              "question_number_end": 36,
-              "numbered_question_count": 5,
-              "scored_item_count": 5,
-              "question_type_mix": {
-                "mixed_group": 5
-              },
-              "subtotal_score": 24.0,
-              "score_rule": "占 24 分"
-            }
-          ],
-          "layout_evidence_status": "not-yet-verified"
-        }
-      ]
+      "latest_verified_structures": []
     },
     "數學A": {
       "official_item_statistics_count": 90,
@@ -505,7 +430,8 @@
         "paper_count": 5,
         "year_count": 5,
         "status_counts": {
-          "verified": 5
+          "needs_review": 4,
+          "verified": 1
         },
         "papers": [
           {
@@ -517,8 +443,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2023-official-fd0d3aebd2ff",
@@ -529,8 +455,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2024-official-c0dbc1bd50a8",
@@ -541,8 +467,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2025-official-265a18f8de05",
@@ -553,8 +479,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2026-official-e867988978a8",
@@ -563,10 +489,10 @@
             "regime": "111-present_108-curriculum",
             "section": null,
             "duration_minutes": 100,
-            "total_score": 100.0,
+            "total_score": 100,
             "numbered_question_count": 20,
             "structure_status": "verified",
-            "confidence": 1.0
+            "confidence": 0.98
           }
         ],
         "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
@@ -577,7 +503,7 @@
           "year": 2026,
           "section": null,
           "duration_minutes": 100,
-          "total_score": 100.0,
+          "total_score": 100,
           "numbered_question_count": 20,
           "scored_item_count": 20,
           "source_kind": "official_past_exam",
@@ -591,8 +517,8 @@
               "question_type_mix": {
                 "single_choice": 6
               },
-              "subtotal_score": 30.0,
-              "score_rule": "占 30 分"
+              "subtotal_score": 30,
+              "score_rule": "每題5分。每題有n個選項，其中只有一個是正確或最適當的選項。各題答對者，得該題的分數；答錯、未作答或劃記多於一個選項者，該題以零分計算。"
             },
             {
               "title": "多選題",
@@ -603,8 +529,8 @@
               "question_type_mix": {
                 "multiple_choice": 6
               },
-              "subtotal_score": 30.0,
-              "score_rule": "占 30 分"
+              "subtotal_score": 30,
+              "score_rule": "每題5分、5個選項。每題有n個選項，其中至少有一個是正確的選項。各題之選項獨立判定，所有選項均答對者，得該題全部的分數；答錯k個選項者，得該題(n-2k)/n的分數；但得分低於零分或所有選項均未作答者，該題以零分計算。"
             },
             {
               "title": "選填題",
@@ -615,8 +541,8 @@
               "question_type_mix": {
                 "fill_in": 5
               },
-              "subtotal_score": 25.0,
-              "score_rule": "占 25 分"
+              "subtotal_score": 25,
+              "score_rule": "每題5分。選填題每題有n個空格，須全部答對才給分，答錯不倒扣。"
             },
             {
               "title": "混合題或非選擇題",
@@ -625,10 +551,11 @@
               "numbered_question_count": 3,
               "scored_item_count": 3,
               "question_type_mix": {
-                "mixed_group": 3
+                "single_choice": 1,
+                "constructed_response": 2
               },
-              "subtotal_score": 15.0,
-              "score_rule": "占 15 分"
+              "subtotal_score": 15,
+              "score_rule": "第18題為五選一單選題3分；第19題非選擇題4分；第20題非選擇題8分。第19題規準有2項滿分證據，第20題有4項；部分給分及零分依同年度官方評分原則。"
             }
           ],
           "layout_evidence_status": "not-yet-verified"
@@ -748,7 +675,7 @@
         "paper_count": 5,
         "year_count": 5,
         "status_counts": {
-          "verified": 5
+          "needs_review": 5
         },
         "papers": [
           {
@@ -760,8 +687,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2023-official-958c9ad0e161",
@@ -772,8 +699,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2024-official-c378a43ffedb",
@@ -784,8 +711,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2025-official-ad6ed7218a4f",
@@ -796,8 +723,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2026-official-84ac78e7a8b2",
@@ -808,75 +735,13 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 20,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           }
         ],
         "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
       },
-      "latest_verified_structures": [
-        {
-          "paper_id": "gsat-2026-official-84ac78e7a8b2",
-          "year": 2026,
-          "section": null,
-          "duration_minutes": 100,
-          "total_score": 100.0,
-          "numbered_question_count": 20,
-          "scored_item_count": 20,
-          "source_kind": "official_past_exam",
-          "sections": [
-            {
-              "title": "單選題",
-              "question_number_start": 1,
-              "question_number_end": 7,
-              "numbered_question_count": 7,
-              "scored_item_count": 7,
-              "question_type_mix": {
-                "single_choice": 7
-              },
-              "subtotal_score": 35.0,
-              "score_rule": "占 35 分"
-            },
-            {
-              "title": "多選題",
-              "question_number_start": 8,
-              "question_number_end": 12,
-              "numbered_question_count": 5,
-              "scored_item_count": 5,
-              "question_type_mix": {
-                "multiple_choice": 5
-              },
-              "subtotal_score": 25.0,
-              "score_rule": "占 25 分"
-            },
-            {
-              "title": "選填題",
-              "question_number_start": 13,
-              "question_number_end": 17,
-              "numbered_question_count": 5,
-              "scored_item_count": 5,
-              "question_type_mix": {
-                "fill_in": 5
-              },
-              "subtotal_score": 25.0,
-              "score_rule": "占 25 分"
-            },
-            {
-              "title": "混合題或非選擇題",
-              "question_number_start": 18,
-              "question_number_end": 20,
-              "numbered_question_count": 3,
-              "scored_item_count": 3,
-              "question_type_mix": {
-                "mixed_group": 3
-              },
-              "subtotal_score": 15.0,
-              "score_rule": "占 15 分"
-            }
-          ],
-          "layout_evidence_status": "not-yet-verified"
-        }
-      ],
+      "latest_verified_structures": [],
       "current_opening_curve": {
         "section": "opening single-choice",
         "positions": [
@@ -1237,8 +1102,7 @@
         "year_count": 16,
         "status_counts": {
           "auto_parsed": 10,
-          "needs_review": 1,
-          "verified": 5
+          "needs_review": 6
         },
         "papers": [
           {
@@ -1382,8 +1246,8 @@
             "duration_minutes": 110,
             "total_score": 144.0,
             "numbered_question_count": 67,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2023-official-1f657289579f",
@@ -1394,8 +1258,8 @@
             "duration_minutes": 110,
             "total_score": 144.0,
             "numbered_question_count": 66,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2024-official-74a0026042bb",
@@ -1406,8 +1270,8 @@
             "duration_minutes": 110,
             "total_score": 144.0,
             "numbered_question_count": 64,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2025-official-1d1340c4aa07",
@@ -1418,8 +1282,8 @@
             "duration_minutes": 110,
             "total_score": 144.0,
             "numbered_question_count": 64,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2026-official-e4af275a5fbe",
@@ -1430,51 +1294,13 @@
             "duration_minutes": 110,
             "total_score": 144.0,
             "numbered_question_count": 65,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           }
         ],
         "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
       },
-      "latest_verified_structures": [
-        {
-          "paper_id": "gsat-2026-official-e4af275a5fbe",
-          "year": 2026,
-          "section": null,
-          "duration_minutes": 110,
-          "total_score": 144.0,
-          "numbered_question_count": 65,
-          "scored_item_count": 65,
-          "source_kind": "official_past_exam",
-          "sections": [
-            {
-              "title": "選擇題",
-              "question_number_start": 1,
-              "question_number_end": 38,
-              "numbered_question_count": 38,
-              "scored_item_count": 38,
-              "question_type_mix": {
-                "single_choice": 38
-              },
-              "subtotal_score": 76.0,
-              "score_rule": "占 76 分"
-            },
-            {
-              "title": "混合題或非選擇題",
-              "question_number_start": 39,
-              "question_number_end": 65,
-              "numbered_question_count": 27,
-              "scored_item_count": 27,
-              "question_type_mix": {
-                "mixed_group": 27
-              },
-              "subtotal_score": 68.0,
-              "score_rule": "占 68 分"
-            }
-          ],
-          "layout_evidence_status": "not-yet-verified"
-        }
-      ]
+      "latest_verified_structures": []
     },
     "自然": {
       "official_item_statistics_count": 996,
@@ -1552,8 +1378,7 @@
         "year_count": 16,
         "status_counts": {
           "auto_parsed": 7,
-          "needs_review": 4,
-          "verified": 5
+          "needs_review": 9
         },
         "papers": [
           {
@@ -1623,10 +1448,10 @@
             "regime": "100-106_old-structure",
             "section": null,
             "duration_minutes": 100,
-            "total_score": 48.0,
+            "total_score": 128.0,
             "numbered_question_count": 68,
             "structure_status": "auto_parsed",
-            "confidence": 0.83
+            "confidence": 0.91
           },
           {
             "paper_id": "gsat-2017-official-53352a3eac5b",
@@ -1697,8 +1522,8 @@
             "duration_minutes": 110,
             "total_score": 128.0,
             "numbered_question_count": 60,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2023-official-32e11be7ffbe",
@@ -1709,8 +1534,8 @@
             "duration_minutes": 110,
             "total_score": 128.0,
             "numbered_question_count": 61,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2024-official-479080cff932",
@@ -1721,8 +1546,8 @@
             "duration_minutes": 110,
             "total_score": 128.0,
             "numbered_question_count": 56,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2025-official-62b238bd1099",
@@ -1733,8 +1558,8 @@
             "duration_minutes": 110,
             "total_score": 128.0,
             "numbered_question_count": 57,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2026-official-9381c4030a41",
@@ -1745,51 +1570,13 @@
             "duration_minutes": 110,
             "total_score": 128.0,
             "numbered_question_count": 56,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           }
         ],
         "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
       },
-      "latest_verified_structures": [
-        {
-          "paper_id": "gsat-2026-official-9381c4030a41",
-          "year": 2026,
-          "section": null,
-          "duration_minutes": 110,
-          "total_score": 128.0,
-          "numbered_question_count": 56,
-          "scored_item_count": 56,
-          "source_kind": "official_past_exam",
-          "sections": [
-            {
-              "title": "選擇題",
-              "question_number_start": 1,
-              "question_number_end": 36,
-              "numbered_question_count": 36,
-              "scored_item_count": 36,
-              "question_type_mix": {
-                "single_choice": 36
-              },
-              "subtotal_score": 72.0,
-              "score_rule": "占 72 分"
-            },
-            {
-              "title": "混合題或非選擇題",
-              "question_number_start": 37,
-              "question_number_end": 56,
-              "numbered_question_count": 20,
-              "scored_item_count": 20,
-              "question_type_mix": {
-                "mixed_group": 20
-              },
-              "subtotal_score": 56.0,
-              "score_rule": "占 56 分"
-            }
-          ],
-          "layout_evidence_status": "not-yet-verified"
-        }
-      ]
+      "latest_verified_structures": []
     },
     "英文": {
       "official_item_statistics_count": 851,
@@ -1867,7 +1654,7 @@
         "year_count": 16,
         "status_counts": {
           "auto_parsed": 11,
-          "verified": 5
+          "needs_review": 5
         },
         "papers": [
           {
@@ -1889,10 +1676,10 @@
             "regime": "100-106_old-structure",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 157.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.87
           },
           {
             "paper_id": "gsat-2013-official-1c39e083a6b8",
@@ -1901,10 +1688,10 @@
             "regime": "100-106_old-structure",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 100.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.92
           },
           {
             "paper_id": "gsat-2014-official-cf13c981ad8e",
@@ -1913,10 +1700,10 @@
             "regime": "100-106_old-structure",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 100.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.92
           },
           {
             "paper_id": "gsat-2015-official-f43e4a2c26ab",
@@ -1925,10 +1712,10 @@
             "regime": "100-106_old-structure",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 100.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.92
           },
           {
             "paper_id": "gsat-2016-official-56ad827c96e9",
@@ -1937,10 +1724,10 @@
             "regime": "100-106_old-structure",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 80.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.87
           },
           {
             "paper_id": "gsat-2017-official-1ef52384175f",
@@ -1949,10 +1736,10 @@
             "regime": "100-106_old-structure",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 100.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.92
           },
           {
             "paper_id": "gsat-2018-official-5c1b4bede296",
@@ -1961,10 +1748,10 @@
             "regime": "107-110_transition",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 100.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.92
           },
           {
             "paper_id": "gsat-2019-official-b3c844ba252b",
@@ -1973,10 +1760,10 @@
             "regime": "107-110_transition",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 100.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.92
           },
           {
             "paper_id": "gsat-2020-official-515aae9676a3",
@@ -1985,10 +1772,10 @@
             "regime": "107-110_transition",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 100.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.92
           },
           {
             "paper_id": "gsat-2021-official-fe2e9350c9c0",
@@ -1997,10 +1784,10 @@
             "regime": "107-110_transition",
             "section": "英文",
             "duration_minutes": 100,
-            "total_score": null,
+            "total_score": 100.0,
             "numbered_question_count": 56,
             "structure_status": "auto_parsed",
-            "confidence": 0.79
+            "confidence": 0.92
           },
           {
             "paper_id": "gsat-2022-official-5877adb44710",
@@ -2011,8 +1798,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 50,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2023-official-79f8f0a5822b",
@@ -2023,8 +1810,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 50,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2024-official-09d35c2ed856",
@@ -2035,8 +1822,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 50,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2025-official-51c8d9f7c271",
@@ -2047,8 +1834,8 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 50,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           },
           {
             "paper_id": "gsat-2026-official-e5a644f01334",
@@ -2059,123 +1846,13 @@
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 50,
-            "structure_status": "verified",
-            "confidence": 1.0
+            "structure_status": "needs_review",
+            "confidence": 0.8
           }
         ],
         "warning": "Only verified profiles may define a formal full paper; auto-parsed historical rows remain audit evidence."
       },
-      "latest_verified_structures": [
-        {
-          "paper_id": "gsat-2026-official-e5a644f01334",
-          "year": 2026,
-          "section": "英文",
-          "duration_minutes": 100,
-          "total_score": 100.0,
-          "numbered_question_count": 50,
-          "scored_item_count": 50,
-          "source_kind": "official_past_exam",
-          "sections": [
-            {
-              "title": "詞彙題",
-              "question_number_start": 1,
-              "question_number_end": 10,
-              "numbered_question_count": 10,
-              "scored_item_count": 10,
-              "question_type_mix": {
-                "single_choice": 10
-              },
-              "subtotal_score": 10.0,
-              "score_rule": "占 10 分"
-            },
-            {
-              "title": "綜合測驗",
-              "question_number_start": 11,
-              "question_number_end": 20,
-              "numbered_question_count": 10,
-              "scored_item_count": 10,
-              "question_type_mix": {
-                "single_choice": 10
-              },
-              "subtotal_score": 10.0,
-              "score_rule": "占 10 分"
-            },
-            {
-              "title": "文意選填",
-              "question_number_start": 21,
-              "question_number_end": 30,
-              "numbered_question_count": 10,
-              "scored_item_count": 10,
-              "question_type_mix": {
-                "fill_in": 10
-              },
-              "subtotal_score": 10.0,
-              "score_rule": "占 10 分"
-            },
-            {
-              "title": "篇章結構",
-              "question_number_start": 31,
-              "question_number_end": 34,
-              "numbered_question_count": 4,
-              "scored_item_count": 4,
-              "question_type_mix": {
-                "single_choice": 4
-              },
-              "subtotal_score": 8.0,
-              "score_rule": "占 8 分"
-            },
-            {
-              "title": "閱讀測驗",
-              "question_number_start": 35,
-              "question_number_end": 46,
-              "numbered_question_count": 12,
-              "scored_item_count": 12,
-              "question_type_mix": {
-                "single_choice": 12
-              },
-              "subtotal_score": 24.0,
-              "score_rule": "占 24 分"
-            },
-            {
-              "title": "混合題",
-              "question_number_start": 47,
-              "question_number_end": 48,
-              "numbered_question_count": 2,
-              "scored_item_count": 2,
-              "question_type_mix": {
-                "mixed_group": 2
-              },
-              "subtotal_score": 10.0,
-              "score_rule": "占 10 分"
-            },
-            {
-              "title": "中譯英",
-              "question_number_start": 49,
-              "question_number_end": 49,
-              "numbered_question_count": 1,
-              "scored_item_count": 1,
-              "question_type_mix": {
-                "constructed_response": 1
-              },
-              "subtotal_score": 8.0,
-              "score_rule": "占 8 分"
-            },
-            {
-              "title": "英文作文",
-              "question_number_start": 50,
-              "question_number_end": 50,
-              "numbered_question_count": 1,
-              "scored_item_count": 1,
-              "question_type_mix": {
-                "constructed_response": 1
-              },
-              "subtotal_score": 20.0,
-              "score_rule": "占 20 分"
-            }
-          ],
-          "layout_evidence_status": "not-yet-verified"
-        }
-      ]
+      "latest_verified_structures": []
     }
   }
 }

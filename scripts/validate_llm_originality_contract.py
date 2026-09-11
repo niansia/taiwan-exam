@@ -80,7 +80,11 @@ def main() -> int:
     for item in questions:
         errors.extend(validate_item(item))
 
-    shared = {str(item.get("group_stimulus")) for item in questions if item.get("group_stimulus")}
+    stimulus_counts = Counter(str(item.get("group_stimulus")) for item in questions if item.get("group_stimulus"))
+    # A one-item source passage is already covered by that item's originality
+    # record.  The extra group record is required only when one material is
+    # reused across two or more scored items.
+    shared = {stimulus for stimulus, count in stimulus_counts.items() if count > 1}
     group_records = metadata.get("mixed_group_originality_records")
     if shared:
         if not isinstance(group_records, list) or len(group_records) < len(shared):

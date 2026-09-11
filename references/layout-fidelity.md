@@ -10,7 +10,7 @@ A verified Layout Profile must record, from an official paper in the same exam, 
 
 - cover title hierarchy, organization line, subject label, and year-label pattern;
 - exact instruction blocks and their order, including time, writing instruments, correction rules, answer-sheet rules, and scoring explanations;
-- paper size, page count target, printable area, margins, columns, baseline/font family and measured size ranges;
+- paper size, observed page-count range, printable area, margins, columns, baseline/font family and measured size ranges;
 - section-heading wording and hierarchy, question-number and option format, score labels, stimulus boxes, tables, figures, and answer-space rules;
 - running header/footer, page-number wording, total-page wording, signature reminder, and booklet/answer-sheet references;
 - subject-specific first-page and final-page behavior;
@@ -25,6 +25,12 @@ For mathematics fill-in items, blank underlines are not an acceptable substitute
 Place the machine-marked rail at the exact semantic blank in the item sentence; never center all rails by renderer default. A rail may wrap to a new line through normal text flow or occupy the left column beside a right-hand figure. For the measured 115 mathematics profile, use the DFKai `○` position glyph at approximately 25.98 pt and Times New Roman row identifiers at approximately 10.02 pt, then verify apparent circle diameter and line lengths on the rasterized page.
 
 A section heading and its instruction box appear once, at the first item of that section. A page break inside the section must not reprint them.
+
+Running elements are not generic decoration. Transcribe the selected profile's odd/even placement, wording, background strip, rule weight, page-number syntax, and whether the cover participates in numbering. Compute `current page` and `total pages` from the final rendered student booklet; never copy the reference paper's total or an authoring target into a shorter or longer result. The student booklet must not display an internal source hash, audit label, calibration note, version trace, or teacher-only status unless the official page role contains an equivalent required notice.
+
+Measure the question-number column independently from the prose column. Preserve the official number token (for example `1.`), normal/bold weight, hanging width, gap, continuation indentation, and the alignment of wrapped option text. Do not center the number over the stem, absorb it into the paragraph, or move it merely to make a figure fit.
+
+Answer spaces are subject- and section-specific evidence, not a default component. Render a line, grid, checkbox, table, or machine-marking rail only when the selected Layout Profile shows that response device in the question booklet for the same item role. When the official booklet directs the student to a separate answer sheet, suppress generic ruled lines even if `answer_space_lines` survives in legacy data. Blank space is never permission to invent three writing lines at the end of a page.
 
 For current GSAT 國寫, source attribution is inline paragraph-ending text. The closing full-width parenthesis follows the material's final sentence and wraps only through ordinary typesetting; it must not become a centered line, standalone paragraph, footnote block, or bibliography card. Multi-text prompts use small `甲`/`乙` identifiers when needed, never worksheet-like headings such as `材料一：` and `材料二：`. Include these nodes in the same overflow and orphan checks as the material paragraph so a source line cannot be pushed into an isolated bottom-page fragment.
 
@@ -54,4 +60,12 @@ Before PDF export, measure every fixed page container in the rendered browser DO
 
 After export, rasterize every page at review resolution. A contact sheet is only a navigation aid; inspect each page at readable scale, with extra attention to the last visible row of every figure and the area immediately above the footer. Do not mark the paper visually reviewed when only page count, text extraction, font inventory, or average density was checked.
 
-Page count is a constraint, but never alter question content, score, or wording merely to force pagination. Fix typography, spacing, and breaks inside the verified tolerance. A paper with correct questions but generic layout fails formal-layout validation.
+The comparison checklist must explicitly cover both alternating header orientations, the actual inner-page total, the first two question-number positions, section-change score/instruction treatment, and the final two student pages. A mismatch in any of these high-salience roles is a layout failure even if the main text does not overflow.
+
+## Typography and density outrank page count
+
+The count of physical pages is diagnostic evidence, not the objective function. Preserve the verified font family by role, apparent main-text size, line pitch, printable width, margins, option rhythm, and normal paragraph spacing before considering whether the candidate happens to end on the same page number as one administration. Do not use a global scale transform or subject-wide CSS override to make a paper shorter.
+
+If authentic new material needs an additional page, allow it and map each candidate page to the closest official **page role** for review. If the candidate is shorter, do not stretch gaps or figures; restore missing evidence and complete item blocks. A different page count is reported for editorial inspection but is not, by itself, pass or fail. An unexplained half-empty page, orphaned heading, tiny body type, overly wide text frame, altered typeface, or materially low whole-paper text volume remains a hard failure even when the final page number matches the reference.
+
+For each formal PDF, record the dominant interior typeface roles and weighted body-size range, and compare them with the selected Layout Profile. Raster review must judge apparent glyph size and weight, not only the embedded font name. A metrically different fallback font requires repagination and a new side-by-side review.

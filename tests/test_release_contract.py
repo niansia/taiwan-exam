@@ -146,10 +146,48 @@ def test_single_pass_and_missing_option_analysis_fail():
     assert len(release.independent_answer_errors(d)) >= 2
 
 
+def distribution_fixture(sequence):
+    labels = list('ABCD')
+    questions = [
+        {'id': f'q{i}', 'number': i, 'type': 'single_choice',
+         'options': [{'label': label, 'text': f'{label}-{i}'} for label in labels]}
+        for i in range(1, len(sequence) + 1)
+    ]
+    answers = [{'question_id': f'q{i}', 'final_answer': answer} for i, answer in enumerate(sequence, 1)]
+    return {'metadata': {'generation_mode': 'full-paper'}, 'questions': questions, 'answers': answers}
+
+
+def test_full_paper_answer_positions_are_near_even_without_pattern():
+    assert release.answer_distribution_errors(distribution_fixture('ABCDBDAC')) == []
+
+
+def test_full_paper_answer_positions_reject_concentration_and_cycle():
+    concentrated = release.answer_distribution_errors(distribution_fixture('AAAAABCD'))
+    assert any('not near-even' in error for error in concentrated)
+    cyclic = release.answer_distribution_errors(distribution_fixture('ABCDABCDABCD'))
+    assert any('mechanical' in error for error in cyclic)
+
+
 def test_nested_source_ids_are_not_ignored():
     d = {'questions': [{'number': 1, 'item_spec': {'literacy': {'source_ids': ['missing']}}}]}
     assert release.source_link_errors(d, [])
     assert not release.source_link_errors(d, {'sources': [{'source_id': 'missing'}]})
+
+
+def test_printed_major_question_can_expand_to_multiple_scored_units():
+    questions = [
+        {'number': 1, 'section_id': 'writing', 'type': 'guided_writing', 'score': 25,
+         'item_spec': {'scored_units': [
+             {'score': 4, 'type': 'guided_writing'},
+             {'score': 21, 'type': 'guided_writing'},
+         ]}},
+        {'number': 2, 'section_id': 'writing', 'type': 'guided_writing', 'score': 25},
+    ]
+    assert release.generated_scored_units(questions) == [
+        {'number': 1, 'section_id': 'writing', 'type': 'guided_writing', 'score': 4, 'option_count': None},
+        {'number': 1, 'section_id': 'writing', 'type': 'guided_writing', 'score': 21, 'option_count': None},
+        {'number': 2, 'section_id': 'writing', 'type': 'guided_writing', 'score': 25, 'option_count': None},
+    ]
 
 
 def test_number_swaps_flagged_across_forms(tmp_path):

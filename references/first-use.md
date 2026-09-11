@@ -10,6 +10,10 @@ requests reuse the installed enabled Skill, without another download or implicit
 update. Distinguish Skill persistence from transient execution containers. Reuse
 accessible evidence only while its hashes, regime and review remain valid; missing
 exam data should trigger scoped data preparation, not whole-Skill reinstallation.
+Codex, Claude Code and Gemini CLI may all consume the same Skill tree, but their
+installation locations, consent prompts and execution permissions differ. Follow
+the platform-native installer or discovery directory documented in INSTALL.md;
+never assume that a local installation propagates to a web chat or another device.
 
 1. Locate the complete Skill folder and read SKILL.md. Confirm supporting files
    are available. A fetched README or knowledge-file upload is not evidence of
@@ -49,4 +53,5 @@ exam data should trigger scoped data preparation, not whole-Skill reinstallation
 
 Report installation, software tests, editorial full-paper acceptance and examinee
 pilot calibration separately. Matching a platform's folder format does not prove
-this repository has been tested on ChatGPT web or Claude.
+that ChatGPT, Claude.ai or Gemini web can execute the local validation and PDF
+workflow.

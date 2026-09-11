@@ -48,6 +48,19 @@ For a generated item, record at least these novelty dimensions:
 
 At least the first three must be independently new. Changing only the fifth dimension is a context skin and fails.
 
+### Multiple forms: compare plans before full drafting
+
+Independent writing passes can still converge on the same familiar object or
+news source. Before expanding all forms, compare their proposed source relations,
+sample spaces, mathematical objects and ordered operations in an abstract suite
+matrix. Return only exclusions or required mechanism changes to each blind writer,
+not another form's stems, coefficients, diagrams or keys. Reserve distinct source
+relations where the same current event would otherwise produce the same exercise.
+After drafting, repeat the structural comparison on actual content: a new family
+label is not a different solution graph. Log real rejected items and replacements.
+If candidate comparison happened after an initial draft, say so; do not invent a
+prospective candidate history or claim the original run followed that order.
+
 ## Structural skin-swap test
 
 Compare the candidate with its nearest official, mock, and already-generated neighbors. Reject it if any of the following is true:

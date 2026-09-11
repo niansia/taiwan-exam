@@ -8,13 +8,76 @@ Keep a separate **context-texture** audit from the curriculum-unit audit. A pape
 
 - Main Chinese item text: `PMingLiU` / `MingLiU` (新細明體), nominal 11 pt.
 - Latin letters, numerals, and mathematical text: Times New Roman, nominal 11 pt.
-- Instructional and section text: `DFKai-SB` / 標楷體, commonly 12 pt.
+- Instruction rules: `DFKai-SB` / 標楷體, commonly 12 pt. Do not collapse these
+  with all section headings: the page-measured 115 Math A controlling profile
+  uses approximately 13.02 pt bold PMingLiU for section headings. Use the selected
+  profile's role measurements, not a universal 12 pt heading assumption.
 - In the 115 cover specimen, the organization and year lines are approximately 19.98 pt DFKai, the subject title approximately 25.98 pt DFKai/Times, the signature warning 18 pt DFKai, and the notice heading approximately 16.02 pt. Treat these as profile measurements rather than visual guesses.
 - Do not substitute Noto Serif TC for a mathematics paper when the Windows fonts above are available. Its glyph width, punctuation position, and apparent density are visibly different.
 - Never use Unicode presentation glyphs such as `₂` or `ⁿ` as the final formula representation. They carry font-specific miniature metrics and often look much smaller than the official notation. Store formula structure semantically and render subscripts/superscripts at the measured script ratio and baseline offset.
 - A renderer must check body text, inline formulas, display formulas, fractions, radicals, matrices, subscripts, superscripts, vectors, and cases separately. Matching the Chinese font does not imply that mathematical composition is correct.
 - The target is not merely the same nominal point size. Match apparent density, full-width Chinese punctuation, line spacing, formula axis, script baseline, and spacing around operators.
+- For the measured v4 Math A implementation, use the existing
+  `render_gsat_internal_review.py` components and PDF wrapper after the content
+  gate. Store math between `\(…\)` or `\[…\]`; the pinned `latex2mathml`
+  dependency produces static, screened MathML. It does not execute a TeX engine.
+  Check full-size fraction numerators/denominators as well as deliberately smaller
+  scripts. Times New Roman is the primary Latin face; MathML may need Cambria Math
+  for mathematical glyphs. Report and inspect that fallback, not byte-identical
+  font fidelity. Never switch to the generic 9.4 pt renderer to make content fit.
+- In `gsat-math-a-115-measured-v1`, body pitch is 20 pt, the content frame is
+  241 mm high, and the footer baseline is approximately 797.22 pt from page top.
+  Budget section rules, stimulus blocks, actual formula heights and item margins
+  within this frame. The final formula page is supplied by the maintained v4
+  component; it is not a blank extra-content page.
 - Cover examples must remain completely inside the bordered instruction box at final print metrics. Allow explanatory prose to wrap inside its remaining column; do not force a long sentence into one unbreakable flex row or visually shrink the entire example to hide overflow.
+
+## Avoid repeat mathematics proof repairs
+
+For timed runs also follow [fast-full-paper-workflow.md](fast-full-paper-workflow.md).
+The following rules concern the maintained mathematics renderer, not a faster
+question-writing substitute:
+
+- Keep reproducible formula/line-breaking fixes in the mathematics component,
+  not only in one paper's exported HTML. Measured v4 inline MathML reserves 4px
+  of vertical glyph clearance on each side; prompts/stimuli use strict Chinese
+  line breaking with normal word wrapping. This clearance prevents formula
+  ink from exceeding its inline box; it is not extra response space or a way
+  to satisfy page-density checks. Main type size and measured line pitch stay
+  unchanged. Display formulas retain block behavior.
+- Measured teacher explanations bind each inline formula only to its immediate
+  closing punctuation. Do not wrap a whole sentence, several formulas, a display
+  equation or an entire solution in `nowrap`. Overwide mathematics must still
+  fail containment; split the expression at a mathematically valid boundary
+  without changing the stated conditions or shrinking the type.
+- Use explicit delimiters and braced fractions/binomials when first authoring
+  both questions and explanations. Check component behavior once when renderer,
+  browser or fonts change, before spending time on a new full-paper layout.
+  `python -m pytest tests/test_measured_math_renderer.py -q` exercises these
+  components when working in the source checkout; it is not paper acceptance
+  and is not an installation prerequisite for end users.
+- Set the actual student page assignments, option geometry, marking rails and
+  teacher `answer_page_groups` before the first PDF. Diagnose all failed blocks
+  from the same DOM report together instead of changing one margin and printing
+  the entire paper after every small adjustment. Repair within the selected
+  profile, then rerun containment; density and full-page inspection still apply.
+- Write candidate decisions and second-solve notes once, then serialize those
+  actual findings into the required schema. Do not ask the model to rewrite
+  identical evidence at each handoff, and never auto-invent review verdicts.
+  Freeze the content after scope, answer and originality reconciliation, before
+  final PDF/page-review hashes are bound. Later content edits invalidate the
+  relevant reviews and require whole-paper rechecking.
+- Keep diagnostics in files and return a compact list of failed page/question
+  ids, measurements and causes to the model. Do not repeatedly echo a complete
+  MathML document or the entire successful DOM tree into the conversation.
+  Full evidence must remain available; a short display is not a reduced check.
+- Do not remove the shared content handoff or final delivery rerun to save a
+  small amount of runtime. Measure first: distinguish machine validation/export
+  seconds from model writing, review, tool round trips and repair time. An
+  unchanged-paper rendering regression does not establish a 20-minute newly
+  authored-paper result. After renderer changes regenerate affected proofs;
+  preserve prior delivered files, withdraw stale candidate review claims, and
+  compare every page before making a new acceptance claim.
 
 ## Stem rhetoric contract
 
@@ -46,6 +109,7 @@ Apply the full record and release thresholds in [math-difficulty-design.md](math
 - Hard items should require three or more linked operations, a non-obvious representation change, case separation, global consistency, or rejection of a tempting shortcut.
 - Treat operations as linked only when they require distinct choices or inferences. Several algebra lines, repeated matrix multiplication, or applying one area/ratio rule multiple times still count as one routine if no new decision is made.
 - Multiple-choice distractors must correspond to distinct mathematical claims. Do not create options by superficial sign or arithmetic changes.
+- For Math A, apply [the answer-count and close-option rules](math-difficulty-design.md#math-a-unpredictable-answer-counts-and-occasional-close-options): randomize the planned correct-option count across 1–5 without a fixed pattern; occasionally use one or two justified close-numerical-option items. Mathematical truth determines the final key, and closeness alone does not establish difficulty.
 - A diagram is part of the reasoning when scale, incidence, trend, partition, ordering, or correspondence must be extracted from it. It must not be decorative clip art.
 
 ## Visual and placement contract

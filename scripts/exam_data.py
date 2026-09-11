@@ -281,8 +281,13 @@ def validate_record(record: Any, expected_exam: str | None = None, expected_subj
         errors.append(f"subject 應為 {expected_subject}，實際為 {record['subject']}")
     if not isinstance(record["year"], int) or not 1900 <= record["year"] <= 2200:
         errors.append("year 必須是 1900-2200 的西元年整數")
-    if not isinstance(record["question_number"], int) or record["question_number"] < 1:
-        errors.append("question_number 必須是正整數")
+    question_number = record["question_number"]
+    if question_number is None:
+        scored_slot_id = record.get("scored_slot_id")
+        if not isinstance(scored_slot_id, str) or not re.fullmatch(r"[A-Za-z0-9_.:-]+", scored_slot_id):
+            errors.append("未編號計分單元必須提供 ASCII scored_slot_id")
+    elif not isinstance(question_number, int) or question_number < 1:
+        errors.append("question_number 必須是正整數或未編號計分單元的 null")
     if not isinstance(record["question_id"], str) or not re.fullmatch(r"[A-Za-z0-9_.:-]+", record["question_id"]):
         errors.append("question_id 僅可使用 ASCII 字母、數字、底線、句點、冒號與連字號")
     if record["question_type"] not in QUESTION_TYPES:
@@ -452,7 +457,7 @@ def import_csv(root: Path, exam: str, subject: str, input_path: Path, replace: b
         return 2
     for record in imported:
         existing_by_id[record["question_id"]] = record
-    ordered = sorted(existing_by_id.values(), key=lambda item: (item["year"], item["question_number"], item["question_id"]))
+    ordered = sorted(existing_by_id.values(), key=record_order_key)
     target.write_text("".join(json.dumps(item, ensure_ascii=False) + "\n" for item in ordered), encoding="utf-8")
     print(f"已匯入 {len(imported)} 筆；{target.relative_to(root).as_posix()} 現有 {len(ordered)} 筆。")
     return 0
@@ -532,6 +537,18 @@ def canonical_records_fingerprint(records: list[dict[str, Any]]) -> str:
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
+def record_order_key(record: dict[str, Any]) -> tuple[Any, ...]:
+    """Sort numbered items first, then stable unnumbered scoring slots."""
+    number = record.get("question_number")
+    return (
+        record["year"],
+        0 if isinstance(number, int) else 1,
+        number if isinstance(number, int) else 0,
+        str(record.get("scored_slot_id") or ""),
+        record["question_id"],
+    )
+
+
 def pattern_for(record: dict[str, Any]) -> dict[str, Any]:
     pattern = {
         "curriculum": record["curriculum"],
@@ -584,17 +601,21 @@ def writer_pattern_for(record: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def build_blueprints(root: Path) -> int:
+def build_blueprints(root: Path, exam_filter: str | None = None, subject_filter: str | None = None) -> int:
     code, _ = validate_repository(root, quiet=True)
     if code:
         validate_repository(root)
         return code
     built = 0
     for exam, subject, subject_path in subject_paths(root):
+        if exam_filter and exam != exam_filter:
+            continue
+        if subject_filter and subject != subject_filter:
+            continue
         records, _ = read_jsonl(subject_path / "metadata" / "questions.jsonl")
         if not records:
             continue
-        records = sorted(records, key=lambda item: (item["year"], item["question_number"], item["question_id"]))
+        records = sorted(records, key=record_order_key)
         years = Counter(record["year"] for record in records)
         curricula = sorted({record["curriculum"] for record in records})
         pattern_groups: dict[str, dict[str, Any]] = {}
@@ -943,7 +964,21 @@ def select_paper_profile(
         sections = profile.get("sections") or []
         total = profile.get("numbered_question_count")
         counts = [section.get("numbered_question_count") for section in sections]
-        reconciled = bool(total and counts and all(isinstance(value, int) for value in counts) and sum(counts) == total)
+        numbered_sections_valid = all(
+            isinstance(value, int)
+            or (
+                value is None
+                and section.get("question_number_start") is None
+                and section.get("question_number_end") is None
+            )
+            for section, value in zip(sections, counts)
+        )
+        reconciled = bool(
+            total
+            and counts
+            and numbered_sections_valid
+            and sum(value for value in counts if isinstance(value, int)) == total
+        )
         scores = [section.get("subtotal_score") for section in sections]
         score_reconciled = bool(
             profile.get("total_score") is not None
@@ -1298,7 +1333,9 @@ def parser() -> argparse.ArgumentParser:
     sub.add_parser("index-sources", help="索引本機來源檔，不複製題目文字")
     sub.add_parser("validate", help="驗證 manifests 與逐題 metadata")
     sub.add_parser("status", help="顯示各科資料與校準狀態")
-    sub.add_parser("build-blueprints", help="由 metadata 建立 learned blueprints")
+    builder = sub.add_parser("build-blueprints", help="由 metadata 建立 learned blueprints")
+    builder.add_argument("--exam", help="只重建指定考試，不更動其他校準資料")
+    builder.add_argument("--subject", help="只重建指定科目")
 
     importer = sub.add_parser("import-csv", help="匯入逐題 CSV metadata")
     importer.add_argument("--exam", required=True)
@@ -1335,7 +1372,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "status":
             return status(root)
         if args.command == "build-blueprints":
-            return build_blueprints(root)
+            return build_blueprints(root, args.exam, args.subject)
         if args.command == "import-csv":
             return import_csv(root, args.exam, args.subject, args.input.resolve(), args.replace)
         if args.command == "plan":

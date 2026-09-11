@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Reject under-filled GSAT 國綜/自然 interior pages.
+"""Reject under-filled or materially under-written GSAT 國綜/自然 papers.
 
-This validator is intentionally conservative: it compares the bottom of each
-candidate content block with the lower envelope measured from official ROC
-111–115 PDFs.  It is a rejection gate, not a substitute for visual review.
+This validator is intentionally conservative: it checks both where each page's
+content ends and how much extractable text the complete paper contains against
+official ROC 111–115 PDFs.  The second check prevents empty containers or large
+spacing from masquerading as substantive content.  It is a rejection gate, not
+a substitute for visual review.
 """
 
 from __future__ import annotations
@@ -18,6 +20,7 @@ import pymupdf
 
 
 ROOT = Path(__file__).resolve().parents[1]
+CONTENT_VOLUME_FLOOR = 0.80
 
 
 def load_analyzer() -> Any:
@@ -28,6 +31,24 @@ def load_analyzer() -> Any:
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def content_volume_metrics(pages: list[dict[str, Any]], reference_papers: list[dict[str, Any]]) -> dict[str, Any]:
+    candidate_chars = sum(int(page.get("compact_chars", 0)) for page in pages)
+    # When one official year controls the layout, compare with that paper.  If
+    # a year was not selected, use the smallest official total so the gate does
+    # not demand more prose than every valid recent form.
+    reference_chars = min(int(p["aggregate"]["compact_chars"]) for p in reference_papers)
+    minimum_chars = int(reference_chars * CONTENT_VOLUME_FLOOR)
+    ratio = candidate_chars / reference_chars if reference_chars else 0.0
+    return {
+        "candidate_compact_chars": candidate_chars,
+        "reference_compact_chars": reference_chars,
+        "minimum_compact_chars": minimum_chars,
+        "content_volume_floor": CONTENT_VOLUME_FLOOR,
+        "content_volume_ratio": round(ratio, 3),
+        "content_volume_pass": candidate_chars >= minimum_chars,
+    }
 
 
 def main() -> int:
@@ -52,6 +73,7 @@ def main() -> int:
 
     doc = pymupdf.open(args.pdf)
     pages = [analyzer.page_metrics(page, i + 1) for i, page in enumerate(doc)]
+    volume = content_volume_metrics(pages, reference_papers)
     # Candidate PDFs include a cover.  The final question page is checked too;
     # No filler, gratuitous source notes or artificial answer space may be used
     # to reach the floor. Page count is a separate check against short previews.
@@ -68,15 +90,17 @@ def main() -> int:
     ]
     page_count_pass = len(pages) in expected_counts
     report = {
-        "status": "pass" if not failures and page_count_pass else "fail",
+        "status": "pass" if not failures and volume["content_volume_pass"] else "fail",
         "subject": args.subject,
         "reference": "official GSAT ROC 111-115",
         "candidate_page_count": len(pages),
         "expected_page_counts": sorted(expected_counts),
         "page_count_pass": page_count_pass,
+        "page_count_note": "informational only; review candidate pages by functional role when the count differs",
         "content_page_floor": round(floor, 3),
+        **volume,
         "failed_pages": failures,
-        "note": "A pass still requires inspection of every rasterized page at readable scale.",
+        "note": "Text volume is an anti-padding floor, not a writing target. A pass still requires inspection of every rasterized page at readable scale.",
     }
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)

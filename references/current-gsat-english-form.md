@@ -60,14 +60,24 @@ The opening ten items are short context sentences, not definitions. In the local
 
 For each item, store `item_spec.lexical_scope` with:
 
-- `target_word`, `target_pos`, and four-entry `option_pos`;
+- `target_word` (lemma), `target_surface_form` (the exact printed correct option), `target_pos`, and four-entry `option_pos`;
 - two or more `disambiguating_evidence` cues, normally including a collocation/selectional restriction and a sentence-level semantic relation;
-- exactly three `distractor_confusion_basis` records explaining why each wrong option initially fits and what evidence defeats it;
+- exactly three structured `distractor_confusion_basis` records. Each record names the wrong option label and exact printed `surface_form`, sets `slot_feasible: true`, gives `initial_fit`, `defeating_evidence`, `plausibility_after_local_read` (`high` or `medium` for a real near miss), and one `competition_type` from `near_synonym`, `collocation`, `polysemy`, `argument_structure`, `register`, `semantic_prosody`, `word_family_or_form`, or `discourse_relation`;
 - CEEC level and morphology resolution for every option.
 
-All four choices should normally share the slot's usable part of speech. Meaning competition may exploit collocation, polysemy, argument structure, register, semantic prosody, or a familiar word used in a less familiar but in-scope sense. Same-spelling noun/verb conversion is welcome when the sentence genuinely tests usage; it must not become a fixed yearly trick.
+All four choices should normally share the slot's usable part of speech. Meaning competition may exploit collocation, polysemy, argument structure, register, semantic prosody, or a familiar word used in a less familiar but in-scope sense. Controlled word-form or word-family competition may use inflectional or derivational relations only when every option remains syntactically plausible at first reading and the full sentence supplies the deciding semantic or discourse evidence; a suffix-recognition or agreement-only item is too easy and fails. Same-spelling noun/verb conversion is welcome when the sentence genuinely tests usage; it must not become a fixed yearly trick.
 
 Reject an item when the answer follows from article choice, singular/plural form, a unique suffix, or one obviously unrelated option. Also reject four near-synonyms if the sentence supplies no decisive contextual evidence.
+
+Do not confuse grammatical sameness with good competition. All four alternatives normally remain usable in the slot, while their meanings or usages fail for different evidence-based reasons. Across ten items, use at least five of the competition families above, including at least one word-family/form near miss, at least one near-synonym or polysemy contrast, and at least one collocation or argument-structure contrast. At least eight items must leave two plausible wrong choices after a quick local read; the broader clause relation, semantic selection, or precise collocation should resolve them. Never satisfy this mix by placing a visibly wrong part of speech beside the answer.
+
+### Vocabulary answer binding
+
+For every vocabulary item, the answer record must contain `lexical_explanation` with `selected_option_label`, the exact printed `selected_surface_form`, at least two `evidence_cues`, and a concise `context_fit`. The rendered `reasoning` must explicitly use that same surface form. A lemma may be added in parentheses, but an explanation may not silently replace the selected word with a different derivation or near-synonym. For example, if the printed answer is *disrupted*, writing only “the delay interrupted the plan” fails even though the idea is close; the explanation must first state why *disrupted* fits. Bind all three distractor verdicts to their exact printed forms as well.
+
+### Higher-demand vocabulary profile
+
+The internal product profile intentionally keeps the opening section more demanding than a generic worksheet while remaining inside levels 1–5. Each item stores `item_spec.vocabulary_challenge` with `band`, `one_cue_shortcut_rejected: true`, `surface_only_elimination: false`, `two_plausible_distractors_after_local_read: true`, a concrete `decisive_relation`, and `reviewed_against_recent_ceec: true`. At least six items depend on a cross-clause relation, no more than one is a simple anchor, and at least five are medium-hard or hard by pre-pilot design. These are internal product floors responding to repeated under-difficulty, not claims about an official fixed quota; the labels remain estimates until pilot data exist. Within the ten vocabulary items, use all A–D positions and keep the largest/smallest counts within one. Across the complete homogeneous four-option single-choice population, the same near-even rule applies; also reject four identical positions in succession or a short cycle repeated three times. This is an anti-pattern gate, not a target sequence. Reordering requires exact surface-form, distractor, explanation, independent-solve, and hash remapping before both PDFs are regenerated.
 
 ## Other sections
 
@@ -76,9 +86,24 @@ Reject an item when the answer follows from article choice, singular/plural form
 - **Discourse structure:** each option must have a plausible local attachment; global topic flow, reference chains, chronology, contrast, or cause must resolve the four placements.
 - **Reading:** vary purpose, inference, reference, organization, attitude, vocabulary-in-context, evidence integration, and visual-text synthesis. Do not let every passage end in the same four question templates.
 - **Mixed:** combine at least two response modes and require transformation or synthesis, not sentence copying. Any supplied image, chart, notice, or map must be necessary evidence.
-- **Translation and composition:** use separate rubrics and recent official task forms. The composition prompt may use photos or other noncontinuous material; the question booklet does not become a ruled workbook.
+- **Translation and composition:** use separate rubrics and recent official task forms. The composition prompt may use photos or other noncontinuous material; the question booklet does not become a ruled workbook. Student-facing composition directions are written in Traditional Chinese, including the minimum 120-word requirement. English may appear as authentic input, labels, names, or a quoted phrase, but not as a substitute for the Chinese task explanation.
+
+### Whole-paper difficulty floor
+
+The 7,000-word reference list is a scope boundary, not a source of difficulty. Raise demand through relations inside the paper:
+
+- every numbered item records `item_spec.english_difficulty_contract` with at least two linked operations, `direct_lookup_or_copy_only: false`, `outside_vocabulary_required: false`, an evidence span, and option-specific distractor competition;
+- discourse-structure, reading, and mixed items require at least three linked operations. A long passage plus a locally copied sentence is still easy and fails;
+- across cloze, text completion, and discourse structure, at least twelve items must depend on cross-sentence or cross-paragraph cohesion rather than a single nearby grammar cue;
+- at least eight of the twelve reading items must require cross-sentence, cross-paragraph, or text–visual evidence, and every reading group must contain a cross-paragraph or text–visual inference;
+- at least three mixed items must synthesize prose with a second representation or transform evidence into a new conclusion. Direct transcription is not synthesis;
+- every wrong option must be initially plausible before full context and defeated by named textual evidence. Difficulty cannot come from off-list vocabulary, rare world knowledge, malformed grammar, or three absurd distractors.
+
+Run `scripts/validate_english_difficulty_design.py`. Its pass is structural; human review must still verify the claimed evidence spans and option competition.
 
 Translation and composition remain the two subparts of the final non-selected section in the same English booklet. The composition must state the minimum 120-word requirement and follow one verified current task form (for example, visual comparison, letter, or guided thematic writing); it is not the separate Chinese writing paper.
+
+The composition is not made difficult by an abrupt philosophical leap. Store `item_spec.composition_contract` with `directions_language: zh-TW`, `minimum_words: 120`, `student_accessible_context: true`, and a `prompt_coherence_review`. That review must record `status: pass`, `forced_moral_or_abstract_jump: false`, `multiple_valid_angles: true`, a concrete `task_bridge`, and, for a visual task, `visible_evidence_boundary: true`. The first and later writing moves must arise naturally from the same situation; a photograph cannot be used merely as a pretext for an unrelated moral, and students may not be required to invent supposedly visible facts. Review the prompt for authentic writing affordance, not merely grammatical correctness.
 
 ## Source ecology and originality
 
@@ -87,6 +112,19 @@ Find fresh source material independently after the simulated editorial lock date
 Create a fact ledger, close the source text, and compose a new passage with a different rhetorical sequence. A passage derived mainly by sentence-level paraphrase fails. Topic novelty alone is also insufficient: the questions must depend on relations in the newly written passage.
 
 Keep a paper-level mix of humanities, social life, science/technology, environment, culture, and everyday experience. Do not let a single fashionable domain dominate. Current events are candidates, not quotas.
+
+### English-specific innovation gate
+
+Apply the shared `subject_innovation_audit` to every scored task, including translation and composition. A new source, topic, proper noun, picture, vocabulary target, or option order is not sufficient. The audit's `mechanism_family` and `new_subject_mechanism` must match what the student actually does:
+
+- vocabulary: resolve a newly constructed semantic/usage competition through decisive clause or discourse evidence, not a definition shell with replaced words;
+- cloze and text completion: use a new dependency among meaning, reference, cohesion, syntax, or paragraph function; do not preserve a previous blank pattern and merely paraphrase the passage;
+- discourse structure and reading: require a new rhetorical sequence, evidence conflict, reference chain, comparison, inference, or text–visual relation; a fresh passage followed by the same purpose/detail/inference template in the same order fails;
+- mixed tasks: transform or synthesize evidence across response modes or representations; copying a phrase into a different answer box is not a new mechanism;
+- translation: create a new bundle of meaning, register, reference, information structure, and syntactic constraints. Replacing nouns inside a canonical Chinese-to-English sentence shell fails;
+- composition: create a coherent new writing decision with multiple defensible directions and a material-dependent bridge. A new photo or situation attached to a generic two-paragraph moral/reflection prompt fails.
+
+For grouped passage items, review both the passage's rhetorical architecture and each subquestion's operation. Two questions may share the same passage but must not be near-duplicate local lookups. In `metadata.subject_innovation_review`, inspect repetition separately across vocabulary, passage-based sections, mixed tasks, translation, and composition; explicitly reject repeated question-template sequences and a paper dominated by one evidence-span or rhetorical move. Run `scripts/validate_english_difficulty_design.py`; its structural pass does not replace comparison with the printed questions.
 
 For requests to increase recent examples, use the audited baseline and source-date
 windows in `evidence-backed-editorial-audit.md`. Count verified source-dependent
@@ -98,11 +136,15 @@ become automatic printed bibliography lines.
 
 The verified 115 paper has a cover plus eleven numbered body pages. Body pages use a one-column A4 frame, running page/total-page labels, the centered signature reminder, subject/year header, and bottom page number. Major section headings and their bordered instruction boxes appear once at each section start.
 
+Those twelve physical pages describe the verified 115 reference, not permission to shrink a new paper until it fits twelve pages. Keep the measured Times New Roman body role at approximately 11.04 pt, the verified Chinese heading/instruction fonts, printable width, and line rhythm. Let new passages repaginate naturally when needed. Remove redundant forced breaks and orphaned headings before changing any typography. A candidate with twelve pages but visibly smaller text or compressed leading fails; a longer candidate may pass when its page roles, density, and typography remain faithful.
+
 Vocabulary and cloze choices are normally one four-column row. Reading-comprehension and mixed-section choices are normally stacked one per line beneath the stem; do not reuse the vocabulary row merely because there are four alternatives. Longer choices use measured two-column or stacked arrangements. Never squeeze long alternatives into four equal cells. Passage paragraphs are justified with first-line indentation; item groups are underlined labels such as `第35至38題為題組`. Keep the question, all options, and any necessary figure together when feasible, and apply the full fixed-page overflow gate.
 
 Render real paragraphs as paragraphs. Do not encode a blank source line between every paragraph and then preserve it with `white-space: pre-wrap`; that produces artificial vertical holes. Use one first-line indent, normal inter-paragraph spacing, and measured line height. A deliberate block document (notice, schedule, form, or table) may use compact block spacing without paragraph indentation.
 
 The mixed section may use bordered text cards or visual panels. Grayscale photos and illustrations must pass the evidence-preservation rules in [visual-generation.md](visual-generation.md). The final non-selected page contains translation and composition prompts; do not add answer lines unless the selected official profile shows them in the question booklet.
+
+Pending complete item-level annotation, a full internal English paper must contain at least three answer-bearing visuals across at least two sections and at least two visual kinds. Count the mixed noncontinuous material and a visual composition task only when the questions genuinely depend on them; include at least one further reading or evidence-synthesis visual when those two alone would make the paper visually predictable. All necessary English outside the reference vocabulary envelope must be locally supported. If the visual is removed and the same answer or writing task remains, replace the item rather than treating the picture as decoration.
 
 For the verified 115 profile, the following section-level display rules are release-blocking:
 

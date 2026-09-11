@@ -37,3 +37,18 @@ def test_repeated_hard_reasoning_and_unrealistic_time_are_rejected():
     errors=m.validate(d)['errors']
     assert any('repeated hard-item' in e for e in errors)
     assert any('exceeds paper duration' in e for e in errors)
+
+def test_small_booklet_declares_only_feasible_required_bands():
+    d=paper();d['questions']=d['questions'][:2];d['answers']=d['answers'][:2]
+    d['metadata']['difficulty_balance_plan']={
+        'basis':'two-major-question writing booklet',
+        'required_bands':['簡單','中'],
+        'target_counts':{'簡單':1,'中':1,'中偏難':0,'難':0},
+        'target_points':{'簡單':2,'中':2,'中偏難':0,'難':0},
+    }
+    assert m.validate(d)['status']=='pass-structural-only'
+
+def test_printed_continuation_changes_content_hash():
+    d=paper();q=d['questions'][0];before=m.content_hash(q)
+    q['continuation_pages']={'3':'新增的續頁材料'}
+    assert m.content_hash(q)!=before

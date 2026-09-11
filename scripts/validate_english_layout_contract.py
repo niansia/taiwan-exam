@@ -83,6 +83,45 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
     if not mixed.get("visual_asset"):
         errors.append("115英文混合題首段須配置可讀的非連續文本或視覺證據，避免材料頁大面積留白")
 
+    composition = next(
+        (
+            question for question in exam.get("questions") or []
+            if question.get("section_id") == "composition" or question.get("type") == "guided_writing"
+        ),
+        None,
+    )
+    if not composition:
+        errors.append("115英文完整卷缺英文作文")
+    else:
+        prompt = str(composition.get("prompt") or "")
+        cjk_count = len(re.findall(r"[\u3400-\u9fff]", prompt))
+        latin_word_count = len(re.findall(r"[A-Za-z]+(?:[-'’][A-Za-z]+)*", prompt))
+        if cjk_count < 30:
+            errors.append("英文作文的學生作答提示必須以中文完整書寫")
+        if cjk_count and latin_word_count > max(20, cjk_count):
+            errors.append("英文作文題幹的英文指令過多，作答說明應以中文為主")
+        if "120" not in prompt or "單詞" not in prompt or "英文" not in prompt:
+            errors.append("英文作文題幹須以中文明示英文作文與至少120個單詞")
+        spec = composition.get("item_spec") if isinstance(composition.get("item_spec"), dict) else {}
+        contract = spec.get("composition_contract") if isinstance(spec.get("composition_contract"), dict) else {}
+        if contract.get("directions_language") != "zh-TW":
+            errors.append("英文作文 composition_contract 必須標示 directions_language=zh-TW")
+        if int(contract.get("minimum_words") or 0) != 120:
+            errors.append("英文作文 composition_contract 必須記錄 minimum_words=120")
+        if contract.get("student_accessible_context") is not True:
+            errors.append("英文作文情境必須在高中生日常生活或學習範疇內")
+        review = contract.get("prompt_coherence_review") if isinstance(contract.get("prompt_coherence_review"), dict) else {}
+        if review.get("status") != "pass":
+            errors.append("英文作文未通過題意連貫與自然性審查")
+        if review.get("forced_moral_or_abstract_jump") is not False:
+            errors.append("英文作文不得從圖片觀察硬跳到無關的抽象教訓")
+        if review.get("multiple_valid_angles") is not True:
+            errors.append("英文作文須容許多種合理取徑，不能暗藏單一標準故事")
+        if not str(review.get("task_bridge") or "").strip():
+            errors.append("英文作文兩段任務的語意橋接未說明")
+        if composition.get("visual_asset") and review.get("visible_evidence_boundary") is not True:
+            errors.append("看圖作文必須限定圖像可見證據，不得要求學生編造圖中不存在的細節")
+
     for question in exam.get("questions") or []:
         if not question.get("visual_asset"):
             continue

@@ -73,6 +73,24 @@ After selecting individual items, build a paper-level diversity matrix across:
 
 Reject motif saturation, repeated story worlds, repeated graph/shape topology, repeated solution shortcuts, or a sequence that mirrors one historical paper. Re-sample failed slots while preserving the formal Paper Profile and empirical difficulty envelope.
 
+## Subject-specific innovation audit
+
+The common originality record proves that the item was constructed through the blind candidate process. It does not by itself prove that the selected construction is meaningfully new inside its subject. For every scored item in a current-form 國綜, 英文, 社會, or 自然 paper, also store `item_spec.subject_innovation_audit` with:
+
+- `subject`, matching the paper subject;
+- `mechanism_family`, naming the subject operation rather than the surface topic;
+- `candidate_competition_linked: true`, confirming that the selected mechanism is one of the candidates in `originality_record` and was not invented after the audit;
+- `routine_template_recoverable: false`, meaning that no official, mock, or prior generated item can be recovered by swapping names, numbers, excerpts, images, labels, or sentence order while retaining the scored reasoning;
+- `surface_or_topic_novelty_only: false`, rejecting novelty claims based only on a current event, unusual noun, new source, photograph, grayscale conversion, or unfamiliar setting;
+- `new_subject_mechanism`, stating what new language, discourse, evidence, model, experiment, institutional, spatial, temporal, or cross-representation relation the candidate makes students operate on;
+- `evidence_or_reasoning_architecture`, listing the ordered evidence use and decisions that distinguish the item from a stock template;
+- `nearest_neighbor_difference`, identifying the nearest structural neighbor found in the official/mock/prior-generated audit and explaining a concrete difference in givens, evidence dependency, operation order, distractor logic, response decision, or visual topology;
+- `reviewer_decision: pass-subject-novelty`.
+
+The relevant subject reference defines what counts as a real mechanism. Empty prose, `N/A`, `new topic`, `different context`, `passed`, copied generic text, or metadata contradicted by the printed item is a release failure. A validator checks presence and internal consistency; a human or model reviewer must still compare the actual item with its recorded neighbor and solve it.
+
+Every complete paper in those four subjects also stores `metadata.subject_innovation_review` with the matching `subject`, `all_scored_items_reviewed: true`, passing `mechanism_saturation_review`, `representation_saturation_review`, and `section_or_domain_diversity_review`, plus `reviewer_decision: pass-subject-novelty`. These findings must describe actual paper-level evidence. The existing `paper_originality_matrix` remains required; this subject review narrows it to discipline-specific repetition and cannot replace it.
+
 ## Required provenance
 
 Every Item Spec must contain an originality record with:

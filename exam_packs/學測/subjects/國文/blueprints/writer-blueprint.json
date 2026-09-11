@@ -3,40 +3,40 @@
   "exam": "學測",
   "subject": "國文",
   "curricula": [
-    "108",
-    "historical-pre-111"
+    "108"
   ],
-  "record_count": 343,
+  "record_count": 30,
   "years": {
-    "minimum": 2019,
+    "minimum": 2022,
     "maximum": 2026,
     "counts": {
-      "2019": 84,
-      "2020": 42,
-      "2025": 144,
-      "2026": 73
+      "2022": 6,
+      "2023": 6,
+      "2024": 6,
+      "2025": 6,
+      "2026": 6
     }
   },
-  "metadata_fingerprint": "e9ee675804f268d7da7aa3e55d49398f3c8f5e7f6007a7abb13ee94073398121",
-  "built_at": "2026-09-04T07:21:59.218788+00:00",
-  "calibration_status": "insufficient-data",
+  "metadata_fingerprint": "41eae76a45893a59c50ef6fbbaf339d8cf8ebc120cbbdd7907020f08a6119b0a",
+  "built_at": "2026-09-09T16:55:56.787026+00:00",
+  "calibration_status": "ready",
   "calibration_by_curriculum": {
     "108": {
-      "record_count": 217,
-      "year_count": 2,
-      "official_record_count": 0,
-      "official_year_count": 0,
-      "mock_record_count": 217,
+      "record_count": 30,
+      "year_count": 5,
+      "official_record_count": 30,
+      "official_year_count": 5,
+      "mock_record_count": 0,
       "dimensions": {
         "semantic_sample": {
-          "status": "insufficient-data",
-          "record_count": 217,
-          "year_count": 2
+          "status": "ready",
+          "record_count": 30,
+          "year_count": 5
         },
         "official_semantic_anchor": {
-          "status": "insufficient-data",
-          "record_count": 0,
-          "year_count": 0
+          "status": "ready",
+          "record_count": 30,
+          "year_count": 5
         },
         "official_objective_difficulty": {
           "status": "ready",
@@ -45,2229 +45,317 @@
           "source_fingerprint": "0648ed9ed5d03b4925db00e760155adbeaa164ec5f492e3227951dd9a7e89421"
         },
         "difficulty_vector": {
-          "status": "insufficient-data",
-          "complete_count": 0,
-          "coverage": 0.0
+          "status": "ready",
+          "complete_count": 30,
+          "coverage": 1.0
         },
         "literacy_annotation": {
-          "status": "insufficient-data",
-          "complete_count": 0,
-          "coverage": 0.0
+          "status": "ready",
+          "complete_count": 30,
+          "coverage": 1.0
         },
         "stimulus_provenance": {
-          "status": "insufficient-data",
-          "competence_item_count": 0,
-          "complete_count": 0,
-          "coverage": 0
+          "status": "ready",
+          "competence_item_count": 25,
+          "complete_count": 25,
+          "coverage": 1.0
         },
         "constructed_response_calibration": {
-          "status": "insufficient-data",
+          "status": "ready",
           "required_by_official_structure": true,
-          "official_record_count": 0,
-          "complete_count": 0,
-          "year_count": 0
+          "official_record_count": 15,
+          "complete_count": 15,
+          "year_count": 5
         },
         "formal_layout": {
-          "status": "insufficient-data",
-          "verified_profile_count": 0,
-          "profile_ids": []
+          "status": "ready",
+          "verified_profile_count": 2,
+          "profile_ids": [
+            "gsat-chinese-comprehensive-115-measured-v1",
+            "gsat-chinese-writing-115-measured-v1"
+          ]
         }
       },
-      "status": "insufficient-data"
-    },
-    "historical-pre-111": {
-      "record_count": 126,
-      "year_count": 2,
-      "official_record_count": 0,
-      "official_year_count": 0,
-      "mock_record_count": 126,
-      "dimensions": {
-        "semantic_sample": {
-          "status": "insufficient-data",
-          "record_count": 126,
-          "year_count": 2
-        },
-        "official_semantic_anchor": {
-          "status": "insufficient-data",
-          "record_count": 0,
-          "year_count": 0
-        },
-        "official_objective_difficulty": {
-          "status": "insufficient-data",
-          "measured_item_count": 0,
-          "year_count": 0,
-          "source_fingerprint": "0648ed9ed5d03b4925db00e760155adbeaa164ec5f492e3227951dd9a7e89421"
-        },
-        "difficulty_vector": {
-          "status": "insufficient-data",
-          "complete_count": 0,
-          "coverage": 0.0
-        },
-        "literacy_annotation": {
-          "status": "insufficient-data",
-          "complete_count": 0,
-          "coverage": 0.0
-        },
-        "stimulus_provenance": {
-          "status": "insufficient-data",
-          "competence_item_count": 0,
-          "complete_count": 0,
-          "coverage": 0
-        },
-        "constructed_response_calibration": {
-          "status": "not-required",
-          "required_by_official_structure": false,
-          "official_record_count": 0,
-          "complete_count": 0,
-          "year_count": 0
-        },
-        "formal_layout": {
-          "status": "insufficient-data",
-          "verified_profile_count": 0,
-          "profile_ids": []
-        }
-      },
-      "status": "insufficient-data"
+      "status": "ready"
     }
   },
-  "calibration_notes": [
-    "資料含多個課綱版本；生成時必須指定 curriculum，禁止混合抽樣。",
-    "至少一個課綱版本少於 5 個年度，尚不足以聲稱長期歷史校準。",
-    "至少一個課綱版本少於 3 個年度的官方逐題語意標註；模考資料不可代替正式題型錨點。",
-    "逐題多維難度向量覆蓋不足；不可只用出版社的單一易中難標籤宣稱校準。",
-    "素養題分類與素材功能標註不足；完整模擬卷必須停在資料補標階段。",
-    "尚未形成可驗證的素養素材來源與發布日至考試日時間差分布；不得宣稱已學會時事取材節奏。",
-    "非選擇題／國寫尚缺官方評分規準與作答分布的結構化校準。",
-    "尚無逐字作答說明與視覺比對均通過的正式 Layout Profile；不得輸出仿正式整卷。"
-  ],
+  "calibration_notes": [],
   "source_visibility": "aggregate-only",
   "individual_source_question_ids_included": false,
   "individual_question_numbers_included": false,
   "distribution_policy": "multi-year probability envelope; never copy one historical paper's unit sequence",
   "distributions": {
     "unit": {
-      "作品的閱讀與理解 難易度：中": {
-        "count": 82,
-        "proportion": 0.239067
-      },
-      "B2.文意的理解、比較、分析、統整": {
-        "count": 58,
-        "proportion": 0.169096
-      },
-      "文意的理解、比較、分析、統整": {
-        "count": 49,
-        "proportion": 0.142857
-      },
-      "B3.內容的延伸與反思": {
-        "count": 12,
-        "proportion": 0.034985
-      },
-      "A1.字形、字音、字義的辨識與應用": {
-        "count": 11,
-        "proportion": 0.03207
-      },
-      "B2. 文意的理解、比較、分析、統整／B3. 內容的延伸": {
-        "count": 8,
-        "proportion": 0.023324
-      },
-      "作品的閱讀與理解 難易度：難": {
-        "count": 8,
-        "proportion": 0.023324
-      },
-      "B4.形式的推究與分析": {
-        "count": 7,
-        "proportion": 0.020408
-      },
-      "A2.語詞、成語意義的辨識與應用": {
-        "count": 6,
-        "proportion": 0.017493
-      },
-      "B1.訊息的檢索與擷取": {
-        "count": 6,
-        "proportion": 0.017493
-      },
-      "B1.訊息的檢索與擷取／B2.文意的理解、比較、分析、": {
-        "count": 6,
-        "proportion": 0.017493
-      },
-      "字形、字音、字義的辨識與應用": {
-        "count": 6,
-        "proportion": 0.017493
-      },
-      "B5.結合文學、文化知識的詮釋與鑑賞": {
+      "情意寫作": {
         "count": 5,
-        "proportion": 0.014577
+        "proportion": 0.166667
       },
-      "作品的閱讀與理解 難易度：易": {
+      "知性寫作": {
         "count": 5,
-        "proportion": 0.014577
+        "proportion": 0.166667
       },
-      "具備重要國學及文化常識 難易度：中": {
+      "知性統整": {
         "count": 5,
-        "proportion": 0.014577
+        "proportion": 0.166667
       },
-      "A3.語法的辨識與應用": {
+      "語文知識": {
+        "count": 5,
+        "proportion": 0.166667
+      },
+      "現代文閱讀": {
         "count": 4,
-        "proportion": 0.011662
+        "proportion": 0.133333
       },
-      "A5. 具備重要文學作家、作品、體類、流派的知識／": {
-        "count": 4,
-        "proportion": 0.011662
-      },
-      "詞語、成語意義的辨識與應用 難易度：中": {
-        "count": 4,
-        "proportion": 0.011662
-      },
-      "A4.表現手法、表述方式的辨識與應用": {
-        "count": 3,
-        "proportion": 0.008746
-      },
-      "文法結構的辨識與應用 難易度：中": {
-        "count": 3,
-        "proportion": 0.008746
-      },
-      "表現手法、表述方式的辨識與應用": {
-        "count": 3,
-        "proportion": 0.008746
-      },
-      "語法的辨識與應用 難易度：中": {
-        "count": 3,
-        "proportion": 0.008746
-      },
-      "B1. 訊息的檢索與擷取／B5. 結合文學、文化知識的詮": {
+      "古典閱讀": {
         "count": 2,
-        "proportion": 0.005831
+        "proportion": 0.066667
       },
-      "B1.訊息的檢索與擷取；B2.文意的理解、比較、分析、": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "修辭的辨識與應用 難易度：中": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "內容的延伸與反思": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "字形的辨識與應用 難易度：中": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "字義的辨識與應用 難易度：中": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "字音的辨識與應用 難易度：中": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "形式的推究與分析": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "訊息的檢索與擷取": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "語法的辨識與應用": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "語詞、成語意義的辨識與應用": {
-        "count": 2,
-        "proportion": 0.005831
-      },
-      "A2 語詞、成語意義的辨識與應用": {
+      "文史閱讀": {
         "count": 1,
-        "proportion": 0.002915
+        "proportion": 0.033333
       },
-      "A3.語法的辨識與應用／ B1.訊息的檢索與擷取": {
+      "科普閱讀": {
         "count": 1,
-        "proportion": 0.002915
+        "proportion": 0.033333
       },
-      "A4. 表現手法、表述方式的辨識與應用／ B1.訊息的檢": {
+      "美學閱讀": {
         "count": 1,
-        "proportion": 0.002915
+        "proportion": 0.033333
       },
-      "A4. 表現手法、表述方式的辨識與應用／ B2.文意的理": {
+      "藝術閱讀": {
         "count": 1,
-        "proportion": 0.002915
-      },
-      "A6.具備重要學術思想、文化的知識": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "B1.訊息的檢索與擷取／A5.具備重要文學作家、作品、": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "B1.訊息的檢索與擷取／B3.內容的延伸與反思": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "B2. 文意的理解、比較、分析、統整／A5. 具備重要文": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "B2. 文意的理解、比較、分析、統整／B4. 形式的推究": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "B2. 文意的理解、比較、分析、統整／B5. 結合文學、": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "B2.文意的理解、比較、分析、統整／ B3.內容的延伸": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "修辭的辨識與應用 難易度：易": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "具備重要文學作家、作品、體類、流派的知識": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "具備重要文學流派的常識 難易度：中": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "字形的辨識與應用 難易度：易": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "字義的辨識與應用 難易度：易": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "字音的辨識與應用 難易度：易": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "文意的理解、比較、分析、統整；內容的延伸與反思": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "瞭解重要學術思想的形成、內涵、特質及影響 難易度：中": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "結合文學、文化知識的詮釋與鑑賞": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "表現手法、表述方式的辨識與應用；文意的理解、比": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "認識重要文學體裁的特質 難易度：中": {
-        "count": 1,
-        "proportion": 0.002915
-      },
-      "重要作品的鑑賞與評析 難易度：中": {
-        "count": 1,
-        "proportion": 0.002915
+        "proportion": 0.033333
       }
     },
     "subunit": {
-      "(unknown)": {
-        "count": 343,
-        "proportion": 1.0
+      "字音辨識": {
+        "count": 5,
+        "proportion": 0.166667
+      },
+      "中文字型、媒介與辨識性": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "以52赫茲抒發獨特生命經驗": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "以細節呈現人物性格": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "吃甘蔗經驗的互文比較": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "名字、字形與自我認同": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "天文知識與文本預設": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "廳堂壁面與書畫設計": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "情緒調整與禮教觀點": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "樂齡出遊的意義與身心需求": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "歸納擬社會互動的特徵": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "比較福爾摩斯與華生的生活態度": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "比較臺灣與丹麥樂齡活動的內容與用意": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "由臉與共感說明豬魚選擇": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "當我打開課本：知識探索經驗": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "福爾摩斯創作與讀者補釋": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "縫隙的聯想與生命體悟": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "自敘帖的流傳與創作資訊": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "舉例評論貼標籤現象": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "花草樹木的氣味記憶": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "評論擬社會互動的正負影響": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "說明標籤用於人的正負作用": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "說明華生購買午餐的兩項錯誤": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "逃避或承擔倫理責任的選擇": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "鄭崇和家族史料判讀": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "隔閡、換位思考與關係回應": {
+        "count": 1,
+        "proportion": 0.033333
       }
     },
     "question_type": {
+      "guided_writing": {
+        "count": 15,
+        "proportion": 0.5
+      },
       "single_choice": {
-        "count": 246,
-        "proportion": 0.717201
-      },
-      "multiple_choice": {
-        "count": 66,
-        "proportion": 0.19242
-      },
-      "mixed_group": {
-        "count": 31,
-        "proportion": 0.090379
+        "count": 15,
+        "proportion": 0.5
       }
     },
     "section": {
-      "一、單選題（占 48 分）": {
-        "count": 144,
-        "proportion": 0.419825
+      "國寫-section-1": {
+        "count": 15,
+        "proportion": 0.5
       },
-      "一、單選題（占 68 分）": {
-        "count": 102,
-        "proportion": 0.297376
-      },
-      "二、多選題（占 28 分）": {
-        "count": 42,
-        "proportion": 0.122449
-      },
-      "第貳部分、混合題或非選擇題（占 24 分）": {
-        "count": 31,
-        "proportion": 0.090379
-      },
-      "二、多選題（占 32 分）": {
-        "count": 24,
-        "proportion": 0.069971
+      "國綜-section-1": {
+        "count": 15,
+        "proportion": 0.5
       }
     },
     "domain": {
-      "(unknown)": {
-        "count": 343,
-        "proportion": 1.0
+      "國寫": {
+        "count": 15,
+        "proportion": 0.5
+      },
+      "國綜": {
+        "count": 15,
+        "proportion": 0.5
       }
     },
     "score": {
-      "2.0": {
-        "count": 246,
-        "proportion": 0.717201
+      "2": {
+        "count": 15,
+        "proportion": 0.5
       },
-      "4.0": {
-        "count": 66,
-        "proportion": 0.19242
+      "21": {
+        "count": 5,
+        "proportion": 0.166667
       },
-      "(unknown)": {
-        "count": 31,
-        "proportion": 0.090379
+      "25": {
+        "count": 5,
+        "proportion": 0.166667
+      },
+      "4": {
+        "count": 5,
+        "proportion": 0.166667
       }
     },
     "difficulty_band": {
       "medium": {
-        "count": 273,
-        "proportion": 0.795918
+        "count": 15,
+        "proportion": 0.5
+      },
+      "medium_hard": {
+        "count": 11,
+        "proportion": 0.366667
       },
       "easy": {
-        "count": 37,
-        "proportion": 0.107872
+        "count": 3,
+        "proportion": 0.1
       },
       "hard": {
-        "count": 33,
-        "proportion": 0.09621
+        "count": 1,
+        "proportion": 0.033333
       }
     },
     "difficulty_basis": {
+      "empirical": {
+        "count": 15,
+        "proportion": 0.5
+      },
       "expert_review": {
-        "count": 343,
-        "proportion": 1.0
+        "count": 15,
+        "proportion": 0.5
       }
     },
     "source_kind": {
-      "mock_exam": {
-        "count": 343,
+      "official_past_exam": {
+        "count": 30,
         "proportion": 1.0
       }
     }
   },
   "aggregate_pattern_clusters": [
     {
-      "cluster_id": "aggregate-d4c90cb50ea4",
+      "cluster_id": "aggregate-3f5ff4dd2e9e",
       "pattern": {
-        "curriculum": "historical-pre-111",
+        "curriculum": "108",
         "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
         "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "作品的閱讀與理解 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 74,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.215743
-    },
-    {
-      "cluster_id": "aggregate-85da9f1f745a",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B2.文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 37,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.107872
-    },
-    {
-      "cluster_id": "aggregate-bab391bb3b93",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 24,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.069971
-    },
-    {
-      "cluster_id": "aggregate-af6fa032be0b",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "作品的閱讀與理解 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 8,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.023324
-    },
-    {
-      "cluster_id": "aggregate-924a4f83b19f",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 7,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.020408
-    },
-    {
-      "cluster_id": "aggregate-cfe594906264",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B2.文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 7,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.020408
-    },
-    {
-      "cluster_id": "aggregate-e776f799e693",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "作品的閱讀與理解 難易度：難",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 7,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.020408
-    },
-    {
-      "cluster_id": "aggregate-2db66f7d86f8",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 6,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.017493
-    },
-    {
-      "cluster_id": "aggregate-ed0206fa749b",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 6,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.017493
-    },
-    {
-      "cluster_id": "aggregate-0e717525c1a4",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A1.字形、字音、字義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 5,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.014577
-    },
-    {
-      "cluster_id": "aggregate-712b9f7571cd",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B2.文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 5,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.014577
-    },
-    {
-      "cluster_id": "aggregate-a24d0a3465ef",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "作品的閱讀與理解 難易度：易",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 5,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.014577
-    },
-    {
-      "cluster_id": "aggregate-c198feba57dc",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B2. 文意的理解、比較、分析、統整／B3. 內容的延伸",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 5,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.014577
-    },
-    {
-      "cluster_id": "aggregate-c1fb06ccb019",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 5,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.014577
-    },
-    {
-      "cluster_id": "aggregate-037a5d846c3c",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "字形、字音、字義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "score": 2,
+        "unit": "語文知識",
+        "subunit": "字音辨識",
+        "stimulus_type": "language_form",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
         }
       },
       "count": 4,
-      "supporting_year_count": 1,
+      "supporting_year_count": 4,
       "year_range": [
-        2025,
+        2022,
         2025
       ],
-      "proportion": 0.011662
+      "proportion": 0.133333
     },
     {
-      "cluster_id": "aggregate-5d3db8cd1161",
+      "cluster_id": "aggregate-006d2043337f",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
         "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B3.內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 4,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.011662
-    },
-    {
-      "cluster_id": "aggregate-877a99b83c9a",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B1.訊息的檢索與擷取",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 4,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.011662
-    },
-    {
-      "cluster_id": "aggregate-a0ead406fe22",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "具備重要國學及文化常識 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 4,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.011662
-    },
-    {
-      "cluster_id": "aggregate-a120d61cfee1",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B2.文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 4,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.011662
-    },
-    {
-      "cluster_id": "aggregate-ca215575f6f7",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "詞語、成語意義的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 4,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.011662
-    },
-    {
-      "cluster_id": "aggregate-15ba9a41fcea",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B5.結合文學、文化知識的詮釋與鑑賞",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 3,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.008746
-    },
-    {
-      "cluster_id": "aggregate-636346dc7e4b",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "A1.字形、字音、字義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 3,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.008746
-    },
-    {
-      "cluster_id": "aggregate-f9820c3dd1ce",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B4.形式的推究與分析",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 3,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.008746
-    },
-    {
-      "cluster_id": "aggregate-0e8cb2c3fbac",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "語法的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2019,
-        2019
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-22b38af34466",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A1.字形、字音、字義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-49bd22abdd74",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "A2.語詞、成語意義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-4b6f770131bb",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B2.文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-5033f2b551d7",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "修辭的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-6b3e3735175c",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "字形的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-75e41cb65cfc",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B2.文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-79f0c8f45a72",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A2.語詞、成語意義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-832b4f184b52",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B3.內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-87076da1e1b2",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "字義的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-8c7db5b532bf",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B4.形式的推究與分析",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-9796e28eff7d",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B3.內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-ab9ce70b687a",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A5. 具備重要文學作家、作品、體類、流派的知識／",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-b1c27b8be801",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "文法結構的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-b5e46db64d52",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B1.訊息的檢索與擷取；B2.文意的理解、比較、分析、",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-b90e7e51dcf2",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B3.內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-c7bf0d316efa",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "字音的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2019,
-        2020
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-d7180dff2ad0",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A3.語法的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-e46da617483f",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A4.表現手法、表述方式的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-e81bb1f59d3b",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "字形、字音、字義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-ee3437d48511",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B1.訊息的檢索與擷取／B2.文意的理解、比較、分析、",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-f77cd16674b5",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B2. 文意的理解、比較、分析、統整／B3. 內容的延伸",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 2,
-      "supporting_year_count": 2,
-      "year_range": [
-        2025,
-        2026
-      ],
-      "proportion": 0.005831
-    },
-    {
-      "cluster_id": "aggregate-03e68e872d07",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "文意的理解、比較、分析、統整；內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-06dff1545e98",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "結合文學、文化知識的詮釋與鑑賞",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-099c1e75664d",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "訊息的檢索與擷取",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-0c52c1355106",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "認識重要文學體裁的特質 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2020,
-        2020
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-0d9a46a4de3a",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "作品的閱讀與理解 難易度：難",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2020,
-        2020
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-113fa5d0de49",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B1. 訊息的檢索與擷取／B5. 結合文學、文化知識的詮",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-14940aa93e49",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B1.訊息的檢索與擷取／B2.文意的理解、比較、分析、",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-1841169a6926",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "訊息的檢索與擷取",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-192fb132bc68",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "語法的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-196d6b1f2868",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "字義的辨識與應用 難易度：易",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2019,
-        2019
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-1dca669cef89",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "語詞、成語意義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-27b02cf1d1f3",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "重要作品的鑑賞與評析 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2020,
-        2020
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-354314413af0",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-37090e2ffdc7",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B2. 文意的理解、比較、分析、統整／A5. 具備重要文",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-388384f3bb32",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A3.語法的辨識與應用／ B1.訊息的檢索與擷取",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-3c9870deba3b",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B1.訊息的檢索與擷取",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-3cc218d5d0aa",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B3.內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-3d1cb4a40caa",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "表現手法、表述方式的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-3d9549fdf868",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "具備重要文學作家、作品、體類、流派的知識",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-4027854ecb06",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B1.訊息的檢索與擷取／B2.文意的理解、比較、分析、",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-411834b850d6",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B1.訊息的檢索與擷取／B2.文意的理解、比較、分析、",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-47457ce2dbc9",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B1.訊息的檢索與擷取／A5.具備重要文學作家、作品、",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-4b75c0328131",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "A3.語法的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-559a7e14f71c",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "表現手法、表述方式的辨識與應用；文意的理解、比",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-5918aa6be7b0",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B4.形式的推究與分析",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "score": 2,
+        "unit": "語文知識",
+        "subunit": "字音辨識",
+        "stimulus_type": "language_form",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 5,
           "basis": "multi-item-aggregate"
@@ -2279,229 +367,21 @@
         2026,
         2026
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-5b419da6960b",
+      "cluster_id": "aggregate-0743e99776be",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B3.內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-5cfb0780d212",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "表現手法、表述方式的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-6354bb0ec4fb",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B2. 文意的理解、比較、分析、統整／B3. 內容的延伸",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-65f61839e58c",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
         "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B1.訊息的檢索與擷取／B3.內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-6c1e4924b9ee",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B2. 文意的理解、比較、分析、統整／B5. 結合文學、",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-730cbfc0e6dc",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "語詞、成語意義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-75b08b1086c0",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "A1.字形、字音、字義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-7694b2066b8a",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A4. 表現手法、表述方式的辨識與應用／ B1.訊息的檢",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-7f617d610e3a",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A4.表現手法、表述方式的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "score": 2,
+        "unit": "藝術閱讀",
+        "subunit": "自敘帖的流傳與創作資訊",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -2513,47 +393,47 @@
         2026,
         2026
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-90d0775be731",
+      "cluster_id": "aggregate-164b91745ce8",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "A5. 具備重要文學作家、作品、體類、流派的知識／",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-9f90de3de6cf",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
         "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "形式的推究與分析",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "score": 2,
+        "unit": "古典閱讀",
+        "subunit": "情緒調整與禮教觀點",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-1c48e1bc7c1d",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 4,
+        "unit": "知性統整",
+        "subunit": "說明標籤用於人的正負作用",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -2562,50 +442,24 @@
       "count": 1,
       "supporting_year_count": 1,
       "year_range": [
-        2025,
-        2025
+        2024,
+        2024
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-a343e061a519",
+      "cluster_id": "aggregate-239f2af27cad",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
         "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A2.語詞、成語意義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-a80bc98a1070",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "瞭解重要學術思想的形成、內涵、特質及影響 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "score": 2,
+        "unit": "科普閱讀",
+        "subunit": "天文知識與文本預設",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -2614,50 +468,50 @@
       "count": 1,
       "supporting_year_count": 1,
       "year_range": [
-        2019,
-        2019
+        2023,
+        2023
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-a81fd125dc7e",
+      "cluster_id": "aggregate-4f02d2fbd0a6",
       "pattern": {
-        "curriculum": "historical-pre-111",
+        "curriculum": "108",
         "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "修辭的辨識與應用 難易度：易",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 25,
+        "unit": "情意寫作",
+        "subunit": "當我打開課本：知識探索經驗",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
-          "overall": 1,
+          "overall": 4,
           "basis": "multi-item-aggregate"
         }
       },
       "count": 1,
       "supporting_year_count": 1,
       "year_range": [
-        2019,
-        2019
+        2022,
+        2022
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-a89aaabce205",
+      "cluster_id": "aggregate-50a15a500954",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B2.文意的理解、比較、分析、統整／ B3.內容的延伸",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 4,
+        "unit": "知性統整",
+        "subunit": "由臉與共感說明豬魚選擇",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -2669,125 +523,47 @@
         2026,
         2026
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-a984c0a7f010",
+      "cluster_id": "aggregate-565a1be18fd8",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-aab2c2aa84bd",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "具備重要文學流派的常識 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2019,
-        2019
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-b1f97411bf3a",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B2. 文意的理解、比較、分析、統整／B4. 形式的推究",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-b36d1693a071",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
         "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B4.形式的推究與分析",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "score": 2,
+        "unit": "現代文閱讀",
+        "subunit": "名字、字形與自我認同",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
-          "overall": 5,
+          "overall": 3,
           "basis": "multi-item-aggregate"
         }
       },
       "count": 1,
       "supporting_year_count": 1,
       "year_range": [
-        2025,
-        2025
+        2022,
+        2022
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-b8751baaadab",
+      "cluster_id": "aggregate-57acddd66516",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
         "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "語法的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "score": 2,
+        "unit": "現代文閱讀",
+        "subunit": "吃甘蔗經驗的互文比較",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -2799,47 +575,99 @@
         2025,
         2025
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-b9376fb3e7eb",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "文法結構的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2020,
-        2020
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-be187b91a4ab",
+      "cluster_id": "aggregate-5acb9421e9a7",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "表現手法、表述方式的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 21,
+        "unit": "知性寫作",
+        "subunit": "比較福爾摩斯與華生的生活態度",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-5e5f05cf5648",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 21,
+        "unit": "知性寫作",
+        "subunit": "舉例評論貼標籤現象",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-69af6f921116",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 25,
+        "unit": "情意寫作",
+        "subunit": "隔閡、換位思考與關係回應",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-6ec84ce4d499",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-1",
+        "domain": "國綜",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "美學閱讀",
+        "subunit": "廳堂壁面與書畫設計",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -2851,21 +679,151 @@
         2025,
         2025
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-c3e601e91257",
+      "cluster_id": "aggregate-70860697a1dc",
       "pattern": {
-        "curriculum": "historical-pre-111",
+        "curriculum": "108",
         "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "具備重要國學及文化常識 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 25,
+        "unit": "情意寫作",
+        "subunit": "縫隙的聯想與生命體悟",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-97a5ca3d3188",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 21,
+        "unit": "知性寫作",
+        "subunit": "評論擬社會互動的正負影響",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-ae5800479dde",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 21,
+        "unit": "知性寫作",
+        "subunit": "樂齡出遊的意義與身心需求",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-b4e81d4b7c2b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-1",
+        "domain": "國綜",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "古典閱讀",
+        "subunit": "以細節呈現人物性格",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-b8eca5203a2c",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 21,
+        "unit": "知性寫作",
+        "subunit": "逃避或承擔倫理責任的選擇",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-bc547dd3f6d3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 4,
+        "unit": "知性統整",
+        "subunit": "比較臺灣與丹麥樂齡活動的內容與用意",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -2874,24 +832,50 @@
       "count": 1,
       "supporting_year_count": 1,
       "year_range": [
-        2019,
-        2019
+        2022,
+        2022
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-c46ebf5effba",
+      "cluster_id": "aggregate-be3a73343fa0",
       "pattern": {
-        "curriculum": "historical-pre-111",
+        "curriculum": "108",
         "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
         "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "字音的辨識與應用 難易度：易",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "score": 2,
+        "unit": "文史閱讀",
+        "subunit": "鄭崇和家族史料判讀",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-c0e7e2e2b419",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-1",
+        "domain": "國綜",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "現代文閱讀",
+        "subunit": "中文字型、媒介與辨識性",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 1,
           "basis": "multi-item-aggregate"
@@ -2900,24 +884,24 @@
       "count": 1,
       "supporting_year_count": 1,
       "year_range": [
-        2019,
-        2019
+        2024,
+        2024
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-c70da1ccc0b5",
+      "cluster_id": "aggregate-ccf8ff06c8de",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B5.結合文學、文化知識的詮釋與鑑賞",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "section": "國綜-section-1",
+        "domain": "國綜",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "現代文閱讀",
+        "subunit": "福爾摩斯創作與讀者補釋",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -2929,23 +913,49 @@
         2026,
         2026
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-c868585d40b1",
+      "cluster_id": "aggregate-d5809014a383",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A5. 具備重要文學作家、作品、體類、流派的知識／",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 25,
+        "unit": "情意寫作",
+        "subunit": "花草樹木的氣味記憶",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
-          "overall": 5,
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-f21c26408850",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 25,
+        "unit": "情意寫作",
+        "subunit": "以52赫茲抒發獨特生命經驗",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
           "basis": "multi-item-aggregate"
         }
       },
@@ -2955,73 +965,47 @@
         2025,
         2025
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-c8b25e93b126",
+      "cluster_id": "aggregate-f79c85e13702",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B1.訊息的檢索與擷取／B2.文意的理解、比較、分析、",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 4,
+        "unit": "知性統整",
+        "subunit": "說明華生購買午餐的兩項錯誤",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
-          "overall": 1,
+          "overall": 3,
           "basis": "multi-item-aggregate"
         }
       },
       "count": 1,
       "supporting_year_count": 1,
       "year_range": [
-        2025,
-        2025
+        2023,
+        2023
       ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     },
     {
-      "cluster_id": "aggregate-cb09cbd47060",
+      "cluster_id": "aggregate-fb8093b0f0c4",
       "pattern": {
         "curriculum": "108",
         "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "A4. 表現手法、表述方式的辨識與應用／ B2.文意的理",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-d9e214a4fbfb",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "B1. 訊息的檢索與擷取／B5. 結合文學、文化知識的詮",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
+        "section": "國寫-section-1",
+        "domain": "國寫",
+        "question_type": "guided_writing",
+        "score": 4,
+        "unit": "知性統整",
+        "subunit": "歸納擬社會互動的特徵",
+        "stimulus_type": "reading_or_writing_prompt",
+        "requires_diagram": false,
         "difficulty": {
           "overall": 3,
           "basis": "multi-item-aggregate"
@@ -3033,293 +1017,7 @@
         2025,
         2025
       ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-da397f397a99",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "第貳部分、混合題或非選擇題（占 24 分）",
-        "domain": null,
-        "question_type": "mixed_group",
-        "score": null,
-        "unit": "B2.文意的理解、比較、分析、統整",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-df53b33538fe",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "A2.語詞、成語意義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-e010a4e07132",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "內容的延伸與反思",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-e28cc0c20491",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "形式的推究與分析",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-e4fef3ec54e9",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "A3.語法的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2025,
-        2025
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-e6c519506508",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 68 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "字形的辨識與應用 難易度：易",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2019,
-        2019
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-e7ae41614de1",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 28 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "A2 語詞、成語意義的辨識與應用",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-ed2cdb445847",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B5.結合文學、文化知識的詮釋與鑑賞",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 5,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-f6298d20165b",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "A6.具備重要學術思想、文化的知識",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-f740fb0c403f",
-      "pattern": {
-        "curriculum": "historical-pre-111",
-        "regime": "111學年度起",
-        "section": "二、多選題（占 32 分）",
-        "domain": null,
-        "question_type": "multiple_choice",
-        "score": 4.0,
-        "unit": "語法的辨識與應用 難易度：中",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 3,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2019,
-        2019
-      ],
-      "proportion": 0.002915
-    },
-    {
-      "cluster_id": "aggregate-f9b98e983b01",
-      "pattern": {
-        "curriculum": "108",
-        "regime": "111學年度起",
-        "section": "一、單選題（占 48 分）",
-        "domain": null,
-        "question_type": "single_choice",
-        "score": 2.0,
-        "unit": "B1.訊息的檢索與擷取",
-        "subunit": null,
-        "stimulus_type": null,
-        "requires_diagram": null,
-        "difficulty": {
-          "overall": 1,
-          "basis": "multi-item-aggregate"
-        }
-      },
-      "count": 1,
-      "supporting_year_count": 1,
-      "year_range": [
-        2026,
-        2026
-      ],
-      "proportion": 0.002915
+      "proportion": 0.033333
     }
   ]
 }

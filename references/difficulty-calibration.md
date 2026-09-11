@@ -76,6 +76,15 @@ Use `python scripts/summarize_four_band_reference.py --output <report.json>` to 
 
 Before administration, label difficulty `target` or `expert-estimated`. After a representative pilot, store achieved P, D, cohort description, sample size, administration conditions, and uncertainty. Do not claim that a generated item has an official-equivalent P merely because a model aimed at it.
 
+When a pre-pilot independent solve exposes an overstated author estimate,
+preserve both estimates and the actual shortest route. Either redesign the item
+for a required hard slot, or explicitly revise the editorial whole-paper plan
+if its accessible entries, discrimination opportunities and all four bands still
+meet the subject evidence. Never keep an inflated adjective merely to preserve a
+quota, silently count routine operations as new bottlenecks, or describe this
+expert reassessment as measured P/D. A genuinely failed hard-slot requirement
+still requires substantive replacement, not a more convenient label.
+
 An item misses calibration when any of these holds:
 
 - achieved P falls outside the accepted target interval;
@@ -107,6 +116,15 @@ Generate multiple candidates at the target slot, then compare them on the full d
 ## Constructed response
 
 Official objective-item P/D tables do not cover every constructed-response slot. Calibrate those slots from official rubric and score distributions, response examples, zero/full-credit rates when available, required evidence units, writing length, and expert double-scoring. Until those data are structured, a full-paper difficulty model remains incomplete even if objective-item curves are ready.
+
+The objective-only `difficulty-profile.json` deliberately retains
+`full_paper_status: insufficient-data`: that file alone cannot certify all paper
+dimensions. Read the integrated `writer-blueprint.json` curriculum calibration
+dimensions and the real source/rubric records as well. Do not flip the objective
+profile's field to ready to suppress a warning. Missing constructed-response
+rates remain null; actual rubric/evidence-unit review can support an editorial
+paper, but is not a measured full-paper score distribution. Likewise, historical
+source dates marked unverified do not establish a learned current-events lag.
 
 ## Hard gate
 

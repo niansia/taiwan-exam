@@ -30,6 +30,15 @@
         ,"llm_original_generation_contract": {"type": "object"}
         ,"paper_originality_matrix": {"type": "object"}
         ,"group_originality_records": {"type": "array"}
+        ,"mixed_group_originality_records": {"type": "array", "items": {"type": "object"}}
+        ,"layout_contract_version": {"type": "integer", "minimum": 1}
+        ,"cover_year_title": {"type": "string"}
+        ,"running_year_label": {"type": "string"}
+        ,"answer_page_groups": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        }
+        ,"answer_expected_page_count": {"type": "integer", "minimum": 1}
         ,"section_header_previews": {"type": "object"}
         ,"layout_fidelity_status": {"type": ["string", "null"], "enum": ["verified", "reference-only", "generic", null]}
         ,"paper_subject": {"type": ["string", "null"]}
@@ -87,6 +96,9 @@
             "properties": {
               "path": {"type": "string", "minLength": 1},
               "alt": {"type": "string", "minLength": 1},
+              "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+              "grayscale": {"type": "boolean"},
+              "max_height_mm": {"type": "number", "exclusiveMinimum": 0},
               "caption": {"type": ["string", "null"]},
               "width_percent": {"type": ["integer", "null"], "minimum": 20, "maximum": 100},
               "placement": {"type": "string", "enum": ["before_prompt", "after_prompt"]},

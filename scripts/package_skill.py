@@ -75,15 +75,18 @@ pack_verification.py pdf_provenance.py
 qa_math_current_form.py safe_rendering.py
 render_exam.py render_gsat_internal_review_pdf.py render_gsat_internal_review.py
 render_gsat_official_pdf.py render_gsat_official.py render_pdf.py render_visual.py
+gsat_115_templates.py render_gsat_template_assets.py
 summarize_four_band_reference.py validate_attribution.py
 validate_chinese_natural_scope.py validate_current_form_density.py
+validate_english_difficulty_design.py
 validate_english_layout_contract.py validate_english_vocabulary_scope.py
 validate_fixed_page_html.py validate_inspiration_pool.py
 validate_llm_originality_contract.py validate_math_curriculum.py
 validate_math_difficulty_design.py validate_paper_difficulty_balance.py
 validate_reference_page_density.py validate_rendered_paper.py
 validate_social_item_design.py validate_source_grounding.py
-validate_svg_text_geometry.py validate_writing_source_grounding.py
+validate_svg_text_geometry.py validate_visual_item_contract.py
+validate_writing_source_grounding.py
 validate_exam_release.py validate_exam_pack_contract.py
 '''.split())
 

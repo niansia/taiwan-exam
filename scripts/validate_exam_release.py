@@ -76,6 +76,50 @@ def independent_answer_errors(exam):
     return errors
 
 
+def answer_distribution_errors(exam):
+    """Reject conspicuous answer-key artifacts in a complete paper.
+
+    This operates on the final printed label order.  It intentionally checks
+    homogeneous single-choice populations only; multiple-selection inclusion
+    frequencies need a separate subject-aware review.
+    """
+    meta = exam.get('metadata') or {}
+    if meta.get('generation_mode') != 'full-paper':
+        return []
+    answer_by_id = {a.get('question_id'): a for a in exam.get('answers') or []}
+    populations = {}
+    for question in exam.get('questions') or []:
+        if question.get('type') != 'single_choice':
+            continue
+        labels = tuple(str(option.get('label')) for option in question.get('options') or [])
+        answer = str((answer_by_id.get(question.get('id')) or {}).get('final_answer') or '')
+        if len(labels) < 2 or len(set(labels)) != len(labels) or answer not in labels:
+            continue
+        populations.setdefault(labels, []).append((question.get('number'), answer))
+    errors = []
+    for labels, numbered_answers in populations.items():
+        if len(numbered_answers) < 2 * len(labels):
+            continue
+        sequence = [answer for _, answer in numbered_answers]
+        counts = Counter(sequence)
+        values = [counts[label] for label in labels]
+        if min(values) == 0 or max(values) - min(values) > 1:
+            errors.append(f'final single-choice answer positions are not near-even for {labels}: {dict(counts)}')
+        run = 1
+        for previous, current in zip(sequence, sequence[1:]):
+            run = run + 1 if current == previous else 1
+            if run >= 4:
+                errors.append('final single-choice answer key contains four identical positions in succession')
+                break
+        for period in range(2, min(5, len(sequence) // 3 + 1)):
+            span = period * 3
+            if any(sequence[start:start + period] * 3 == sequence[start:start + span]
+                   for start in range(0, len(sequence) - span + 1)):
+                errors.append(f'final single-choice answer key contains a mechanical period-{period} cycle repeated three times')
+                break
+    return errors
+
+
 def source_link_errors(exam, registry):
     if isinstance(registry, dict):
         registry = registry.get('sources') or []
@@ -88,6 +132,36 @@ def source_link_errors(exam, registry):
             if ref not in ids:
                 errors.append(f'Q{q.get("number")}: unresolved source id {ref}')
     return errors
+
+
+def generated_scored_units(questions):
+    """Expand authored major questions into the source-reviewed scored units.
+
+    Current 國寫 has two printed major questions but three independently scored
+    units: the first major question contains 4-point and 21-point responses.
+    Ordinary questions remain one scored unit, so other subjects are unchanged.
+    """
+    units = []
+    for question in questions:
+        declared = (question.get('item_spec') or {}).get('scored_units')
+        if not declared:
+            units.append({
+                'number': question.get('number'),
+                'section_id': question.get('section_id'),
+                'type': question.get('type'),
+                'score': question.get('score'),
+                'option_count': len(question.get('options') or []) if question.get('options') is not None else None,
+            })
+            continue
+        for unit in declared:
+            units.append({
+                'number': unit.get('number', question.get('number')),
+                'section_id': unit.get('section_id', question.get('section_id')),
+                'type': unit.get('type', question.get('type')),
+                'score': unit.get('score'),
+                'option_count': unit.get('option_count'),
+            })
+    return units
 
 
 def artifact_review_errors(artifact, base, exam_sha, role):
@@ -160,14 +234,15 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
             errors.append('國綜/國寫 profile mismatch')
         slots = ((profile.get('evidence') or {}).get('structure_review') or {}).get('slots') or []
         questions = exam.get('questions') or []
+        scored_units = generated_scored_units(questions)
         section_map = contract.get('section_map') or {}
-        if len(questions) != len(slots):
+        if len(scored_units) != len(slots):
             errors.append('generated scored units differ from verified slot inventory')
-        for q, slot in zip(questions, slots):
-            if section_map.get(q.get('section_id'), q.get('section_id')) != slot.get('section_id') or q.get('type') != slot.get('type') or q.get('score') != slot.get('score'):
-                errors.append(f'Q{q.get("number")}: section/type/score differs from source-reviewed slot')
-            if slot.get('option_count') is not None and len(q.get('options') or []) != slot['option_count']:
-                errors.append(f'Q{q.get("number")}: option count differs from source-reviewed slot')
+        for unit, slot in zip(scored_units, slots):
+            if section_map.get(unit.get('section_id'), unit.get('section_id')) != slot.get('section_id') or unit.get('type') != slot.get('type') or unit.get('score') != slot.get('score'):
+                errors.append(f'Q{unit.get("number")}: section/type/score differs from source-reviewed slot')
+            if slot.get('option_count') is not None and unit.get('option_count') != slot['option_count']:
+                errors.append(f'Q{unit.get("number")}: option count differs from source-reviewed slot')
         if meta.get('total_score') != profile.get('total_score') or meta.get('duration_minutes') != profile.get('duration_minutes'):
             errors.append('score/duration differs from verified profile')
     layouts = [load(p) for p in (pack / 'blueprints' / 'layout-profiles').glob('*.json')]
@@ -187,10 +262,13 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
         if (w.get('calibration_by_curriculum', {}).get(meta.get('curriculum'), {}).get('status') or w.get('calibration_status')) != 'ready':
             errors.append('pack calibration incomplete; no formal-calibration claim')
     errors.extend(independent_answer_errors(exam))
+    errors.extend(answer_distribution_errors(exam))
     source_path = base / contract.get('source_registry', '')
     registry = load(source_path) if source_path.is_file() else []
     errors.extend(source_link_errors(exam, registry))
-    commands = [('validate_paper_difficulty_balance.py', [exam_path]), ('validate_llm_originality_contract.py', [exam_path])]
+    commands = [('validate_paper_difficulty_balance.py', [exam_path]),
+                ('validate_llm_originality_contract.py', [exam_path]),
+                ('validate_visual_item_contract.py', [exam_path])]
     if subject in {'數學A', '數學B'}:
         commands += [('validate_math_curriculum.py', [exam_path]), ('validate_math_difficulty_design.py', [exam_path])]
     elif subject in {'國綜', '自然'}:
@@ -200,7 +278,8 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
         commands += [('validate_social_item_design.py', [exam_path])]
     elif subject == '英文':
         commands += [('validate_english_layout_contract.py', [exam_path]),
-                     ('validate_english_vocabulary_scope.py', [exam_path, base / contract.get('vocabulary_reference', '')])]
+                     ('validate_english_vocabulary_scope.py', [exam_path, base / contract.get('vocabulary_reference', '')]),
+                     ('validate_english_difficulty_design.py', [exam_path])]
     elif subject == '國寫':
         commands += [('validate_writing_source_grounding.py', [exam_path, source_path])]
     else:
@@ -229,9 +308,9 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
                 r = run_check('validate_current_form_density.py', [student_path, '--subject', subject, '--reference-year', str((profile or {}).get('year', 1911) - 1911)])
                 checks.append(r)
                 if r['exit_code']:errors.append('final student page count/density failed')
-            elif subject in {'英文', '社會'} and student_path.is_file() and reference:
+            elif subject in {'國寫', '數學A', '數學B', '英文', '社會'} and student_path.is_file() and reference:
                 r = run_check('validate_reference_page_density.py', [student_path, reference, '--subject', subject]); checks.append(r)
-                if r['exit_code']:errors.append('final student reference density failed')
+                if r['exit_code']:errors.append('final student reference density/content-volume failed')
         # Hash-bind qualitative reviews too. A filled-in pass field alone cannot
         # establish that an independent reading, corpus check or comparison ran.
         required = ['curriculum_semantics', 'source_grounding', 'corpus_originality', 'literacy', 'layout_comparison']

@@ -44,6 +44,18 @@ For selected-response items, evaluating five statements by the same mechanical t
 
 The first item after a section reset may be accessible, but it must not default to reading one value and substituting once. Later fill-in slots require special scrutiny because an apparently compact answer rail can hide an underpowered textbook exercise.
 
+### Math B feedback floor
+
+For every complete Math B paper, apply this stricter feedback-informed floor without changing the official position targets:
+
+- every item labelled `簡單` or `中` must still contain at least three genuine linked decisions; accessibility should come from a discoverable route, not from a one-line substitution;
+- the first three fill-in items must each combine at least three linked decisions with a total of at least two representation changes and constraint checks;
+- `shortcut_audit.direct_formula_substitution_only` must be `false` for every item;
+- `difficulty_design.innovation_audit` must record `formula_or_definition_recall_only: false`, `skin_swap_changes_solution_graph: true`, a concrete nearest-neighbour structural difference, and `reviewer_decision: pass-nonroutine`;
+- a latitude/longitude conversion by itself fails. The coordinates must feed a spherical distance, route comparison, or navigation constraint that still needs at least three operations.
+
+Record the paper-level declaration in `metadata.math_b_difficulty_floor` with `easy_medium_minimum_linked_decisions: 3`, `first_three_fill_ins_nonroutine: true`, and `audit_status: pass`. These fields are review evidence, not permission to relabel a routine item; the human audit must verify that the printed question actually realizes the record.
+
 ## Failure patterns
 
 Reject an item for a medium/hard slot when its complete solution can be reduced to one familiar routine, even if the prose or notation is elaborate. Typical failures include:
@@ -86,6 +98,53 @@ A designed discriminator must be mathematically diagnostic rather than tricky wo
 - which option, partial result, or rubric boundary reveals the difference.
 
 For single choice, normally derive at least three wrong options from named paths. For multiple selection, propositions must probe distinct consequences of one shared object rather than five disconnected facts. For fill-in and constructed response, record at least two plausible intermediate failures even when they are not printed as options.
+
+### Math A: unpredictable answer counts and occasional close options
+
+These are Math A authoring rules, not claimed CEEC answer-count frequencies or
+proof of a measured increase in difficulty. Do not automatically apply them to
+other subjects or change the selected paper's marking rules.
+
+- For a five-option multiple-selection item, randomize the intended number of
+  correct options over **1, 2, 3, 4, or 5** during fresh item planning. One correct
+  option and all five correct are both legitimate possibilities. Do not default
+  to two/three correct options, reuse a previous paper's answer-count sequence,
+  cycle through counts, or attach a count to a question number or difficulty
+  band. Do not require every possible count to appear in every paper; that would
+  itself create an exploitable pattern. Review the whole paper's actual counts
+  and label sets for conspicuous fixed patterns.
+- Randomness belongs to the authoring plan, **never to mathematical truth or
+  grading**. Construct five substantive claims about the new shared object,
+  independently prove or disprove each, and derive the final key from those
+  results. If the planned count cannot be realized coherently, revise the
+  claims or resample the plan and solve again; never flip an answer-key label
+  merely to match a sampled count. Zero correct options is not permitted.
+- Keep the standard student instruction that at least one option is correct;
+  do not reveal the count for an individual item. Do not add an extra
+  "all of the above" option: an all-correct item means all five actual
+  mathematical statements are true. All five still need distinct, nontrivial
+  evaluation. With four/five true statements, misconception paths may describe
+  incorrectly rejecting true statements; they do not require inventing three
+  false printed options. Retain every option's proof/counterexample in the
+  existing `independent_review.option_verdicts` and printable explanation.
+- Occasionally use a close-numerical-option design in **one or two suitable
+  selected-response items**, not throughout the paper and not as a compulsory
+  quota for every paper. It may make coarse estimation insufficient, but a
+  correct in-syllabus exact or sufficiently precise route must distinguish the
+  options within the normal hand-solving budget. Preserve legitimate efficient
+  reasoning; do not try to defeat every shortcut by increasing arithmetic load.
+- A nearby distractor must be reproduced by a specific plausible error, such
+  as an endpoint inclusion error, missed exceptional case, wrong rounding stage,
+  or omitted constraint. Record that derivation in the existing
+  `difficulty_design.misconception_paths`; do not create a distractor merely by
+  adding a small numerical offset to the correct answer. Check units, requested
+  precision, rounding/tolerance and mathematical equivalence so close values
+  remain unambiguously distinguishable under the printed conditions. Never
+  require precision absent from the source data or a diagram's scale.
+- Neither unfamiliar answer counts nor small gaps between options count as an
+  extra linked decision by themselves. Preserve the four-band distribution,
+  anti-collapse audit, scope and time budget. Any increased difficulty or
+  discrimination remains an expert hypothesis until a representative pilot.
 
 ## Paper-level target
 

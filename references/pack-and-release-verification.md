@@ -50,6 +50,12 @@ actual types inside mixed sections: `mixed_group` is NOT a response type.
 Copy and review exact section instructions, duration and answer-sheet rules.
 Never infer single-choice from “選擇題”; 115 自然 explicitly includes single AND
 multiple choice. Unknown mixes stay unknown until item-level review.
+Once a Natural Science profile is selected and item-level reviewed, the rendered
+candidate must expose that distinction: Questions 1–36 total 72 points, the
+first-part instruction says they contain both types and every multiple-choice
+stem prints its independently checked `（應選 n 項）` cue. The cover must include
+the actual single- and multiple-choice scoring rules; metadata or an answer-key
+type column cannot repair an incomplete candidate booklet.
 
 `evidence.structure_review` must contain:
 
@@ -107,6 +113,16 @@ Do not invent codes, candidate alternatives, data or no-shortcut review evidence
 國綜 requires authenticated excerpts, not invented prose with a real author's
 name. Follow subject-specific source/rights rules; keep unnecessary provenance
 and bibliographies out of student pages.
+
+For 國綜, the blueprint and `curriculum_semantics` review must also reconcile
+core-classical points to 20–25% of the whole-paper score, with confirmed work-list
+membership, actual text dependency and no duplicate/group-wide overcounting.
+Check every independently answered short-response subpart against the 40-character
+and 4-point ceilings, including a within-limit full-credit sample and a realistic
+rubric. Apply the detailed rules in `current-gsat-chinese-natural-form.md`;
+larger official major-question totals do not authorize one long response.
+This editorial check is separate from automated curriculum-code validation and
+does not change 國寫 limits or historical Paper Profiles.
 
 Across forms independently vary mechanisms, source selection, evidence roles,
 solution dependencies, representations and distractors. Rotating a fixed pool,

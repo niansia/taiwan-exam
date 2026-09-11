@@ -12,6 +12,7 @@ The buttons on that page link to the controlling PDFs. Resolve the current file 
 - CEEC high-school English reference vocabulary list for 111 onward: https://www.ceec.edu.tw/files/file_pool/1/0K213612821879129835/%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E5%8F%83%E8%80%83%E8%A9%9E%E5%BD%99%E8%A1%A8%28111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%29.pdf
 - Mathematics A and B: https://www.ceec.edu.tw/files/file_pool/1/0J305554315607771580/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E6%95%B8%E5%AD%B8%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29-1101.pdf
 - Social studies: https://www.ceec.edu.tw/files/file_pool/1/0J305554304528923536/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E7%A4%BE%E6%9C%83%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29-1101.pdf
+- Social-studies 108 curriculum (NAER; required-content code authority): https://stv.naer.edu.tw/data/course_outline/pta_18535_6408773_60398.pdf
 - Natural sciences: https://www.ceec.edu.tw/files/file_pool/1/0J270523661993479581/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E8%87%AA%E7%84%B6%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29.pdf
 
 ## Required use
@@ -23,5 +24,7 @@ The buttons on that page link to the controlling PDFs. Resolve the current file 
 5. Use recent official papers to calibrate annual form and difficulty, but use the specification PDF to decide whether knowledge is in scope.
 
 For English, resolve both the current examination specification and vocabulary list. The examination specification controls how the list is used: mainly levels 1–5, with occasional higher-level language for authentic use. Never convert the six vocabulary levels into a direct item-difficulty scale.
+
+For Social Studies, resolve both the CEEC examination specification and the NAER social-studies curriculum. The CEEC document controls goals, tested stage, response families and disciplinary balance; the NAER document controls whether a learning-content code belongs to Grade 10–11 required History, Geography or Civics. Do not put learning-performance codes (for example `歷1b-Ⅴ-2`) in a field that claims learning-content coverage.
 
 The user-provided overview image is a routing aid only. The linked CEEC PDFs, not the image text, control the detailed boundary.
