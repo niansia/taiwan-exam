@@ -26,7 +26,7 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 
 ### ChatGPT 網頁版
 
-在 ChatGPT Work 新對話輸入 `@skill-creator`，附上知識檔後貼上：
+先在目前的 ChatGPT「對話」模式輸入 `@skill-creator`。只要選單能選到它（如使用者畫面已出現藍色 `@skill-creator` 標籤），對話模式就可以建立 Skill，不必強制切換「工作」。若帳號在對話模式找不到它，再切到「工作」模式重試。附上知識檔後貼上：
 
 ```text
 請使用我附上的 taiwan-exam-web-knowledge.md 建立「Taiwan Exam Generator」Skill。
@@ -34,14 +34,14 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 完整考卷必須分開交付題目 PDF 與答案詳解 PDF，並完成逐頁檢查。
 ```
 
-建立後，在輸入框鍵入 `@` 選取 `Taiwan Exam Generator`，再貼上：
+建立後，在新對話的輸入框鍵入 `@`；確實能選到 `Taiwan Exam Generator` 才算保存成功。選取後再貼上：
 
 ```text
 請出一份 116 學測社會完整模擬考。
 請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成命題、解題驗證與逐頁版面檢查。
 ```
 
-若帳號沒有 Skills，可建立一個固定 Project，把同一知識檔與第一次設定文字放入 Project；不要把普通聊天的一次附件上傳稱為永久安裝。
+完整考卷、兩份 PDF 與逐頁檢查屬於成品工作，建議建立成功後切到「工作」模式執行；但這是能力與穩定性建議，不是建立或叫用 Skill 的硬性條件。若對話模式本身已有檔案建立與檢查能力，也可以直接使用。若帳號沒有 Skills，可建立一個固定 Project，把同一知識檔與第一次設定文字放入 Project；不要把普通聊天的一次附件上傳稱為永久安裝。
 
 ### Claude.ai 網頁版
 
@@ -160,7 +160,7 @@ $taiwan-exam-generator
 | OpenAI Codex 桌面版／CLI／IDE | 請代理使用內建 Skill Installer 從本儲存庫安裝使用者技能 | 完整：可讀參考資料、執行驗證、排版及檢查 PDF，仍取決於本機工具與授權 |
 | Claude Code | 安裝至個人 `skills` 目錄，或在單一專案使用專案技能 | 完整：可執行本機工作流程；安裝位置依 Claude Code 的使用者／專案範圍決定 |
 | Gemini CLI | 從 Git 儲存庫安裝 Agent Skill；也可連結本機副本 | 完整：可執行本機工作流程；首次安裝與啟用會依 Gemini CLI 要求確認 |
-| ChatGPT 網頁版 | 在 ChatGPT Work 用 `@skill-creator` 與 Web Knowledge 建立 Skill；或放入有固定指示的 Project | 可持續在該 Skill／Project 使用；完整 PDF 驗收仍取決於工作區工具 |
+| ChatGPT 網頁版 | 對話模式能選到 `@skill-creator` 就可建立；找不到時改用工作模式，或放入有固定指示的 Project | 可持續在該 Skill／Project 使用；完整 PDF 建議在工作模式執行，最終仍取決於帳號工具 |
 | Claude.ai | 把 Web Knowledge 加入 Project Knowledge 並設定 Project Instructions；安全 ZIP 恢復後才使用原生 Skill 上傳 | 可持續在該 Project 的各聊天使用；PDF 需要 Code execution/file creation |
 | Gemini 網頁版 | 建立 `Taiwan Exam` Gem，加入同版 Web Knowledge Markdown | 可持續在該 Gem 使用；完整 PDF 驗收取決於帳號提供的檔案建立與檢查工具 |
 

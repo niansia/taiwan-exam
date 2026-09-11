@@ -132,9 +132,9 @@ exam_packs/學測/templates/115/template-pack.json
 
 ### ChatGPT 網頁版
 
-需要帳號或工作區已提供 Skills。於 ChatGPT Work 輸入 `@skill-creator`，附上 `taiwan-exam-web-knowledge.md`，要求建立或更新 `Taiwan Exam Generator` 並保留其中的完整規則。儲存後，新對話輸入 `@` 選取該 Skill，再提出考卷需求。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
+需要帳號或工作區已提供 Skills。先在 ChatGPT 對話模式輸入 `@skill-creator`；只要原生選單能選到它，就可附上 `taiwan-exam-web-knowledge.md` 建立或更新 `Taiwan Exam Generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。儲存後，必須在新對話輸入 `@` 並實際選到該 Skill，才能回報跨對話可用。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
 
-官方說明：<https://learn.chatgpt.com/docs/build-skills>
+官方說明：<https://learn.chatgpt.com/docs/skills-and-plugins>、<https://learn.chatgpt.com/docs/build-skills>
 
 ### Claude.ai
 
