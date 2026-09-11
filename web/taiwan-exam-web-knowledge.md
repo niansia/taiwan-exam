@@ -388,8 +388,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 5085,
-    "sha256": "d5dc174b9b43a3fef70d23f364b93a0d92652a97254a1321f81edbf659a633a1"
+    "bytes": 5569,
+    "sha256": "23d0fef158108436908c6df3d69949b1fef4a6a46d07069cbde7c4f1270a552f"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -40024,19 +40024,29 @@ For every request for a complete paper:
 ## ChatGPT on the web
 
 ChatGPT and Codex can invoke a saved Skill explicitly or by matching its
-description. In ChatGPT, typing `@` selects an available Skill. In ChatGPT Work,
-the built-in `@skill-creator` can create or update a Skill from the consolidated
-`taiwan-exam-web-knowledge.md` when the workspace exposes Skills. Preserve the
-whole knowledge file rather than copying only its first Markdown page. If Skills
-are unavailable, use a persistent Project with the same knowledge and setup
-instruction instead of claiming an ordinary chat attachment is installed.
+description. In ChatGPT, typing `@` selects an available Skill. When
+`@skill-creator` appears in the native selector in Chat mode, use it there to
+create or update a Skill from the consolidated
+`taiwan-exam-web-knowledge.md`; switching to Work is not a prerequisite. If the
+selector is absent in Chat mode, try Work because availability can depend on
+the account or workspace. Preserve the whole knowledge file rather than copying
+only its first Markdown page. If Skills are unavailable in both modes, use a
+persistent Project with the same knowledge and setup instruction instead of
+claiming an ordinary chat attachment is installed.
 
-After it is saved, start a later chat with either `@Taiwan Exam Generator` or an
-ordinary request that explicitly says to use Taiwan Exam. Workspace policy may
-control whether user-created Skills and file/code tools are available; absence
-of those features is a platform limitation, not permission to simulate them.
+After it is saved, confirm persistence in a new chat by selecting
+`@Taiwan Exam Generator`; do not infer installation merely from a promise in the
+creation chat. Work mode is preferred for complete papers because they require
+files and finished deliverables, but it is not a hard requirement for creating
+or invoking the Skill. Chat mode may be used when it exposes the necessary file,
+code and inspection tools. Workspace policy may control whether user-created
+Skills and those tools are available; absence of a feature is a platform
+limitation, not permission to simulate it.
 
-Official reference: <https://learn.chatgpt.com/docs/build-skills>
+Official references:
+
+- <https://learn.chatgpt.com/docs/skills-and-plugins>
+- <https://learn.chatgpt.com/docs/build-skills>
 
 ## Claude.ai
 
