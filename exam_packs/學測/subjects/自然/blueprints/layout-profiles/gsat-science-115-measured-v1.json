@@ -1,0 +1,349 @@
+{
+  "profile_id": "gsat-science-115-measured-v1",
+  "exam": "學測",
+  "subject": "自然",
+  "section": null,
+  "curriculum": "108",
+  "regime": "111學年度起",
+  "reference_year": 2026,
+  "fidelity_status": "verified",
+  "source_files": [
+    {
+      "sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然試卷.pdf",
+      "page_count": 20
+    }
+  ],
+  "page_geometry": {
+    "paper_size": "A4",
+    "width_pt": 595.22,
+    "height_pt": 842.0,
+    "width_mm": 210,
+    "height_mm": 297,
+    "body_left_pt": 63.77,
+    "body_right_pt": 538.18,
+    "header_top_pt": 43.62,
+    "footer_baseline_pt": 799.42,
+    "cover_frame_pt": [
+      80.94,
+      272.34,
+      514.44,
+      698.64
+    ],
+    "measuring_method": "PyMuPDF glyph/vector bounding boxes plus Poppler full-page raster review"
+  },
+  "typography": {
+    "body": {
+      "family": "MingLiU",
+      "size_pt": 10.98
+    },
+    "instructions": {
+      "family": "DFKai-SB",
+      "size_pt": 12
+    },
+    "section_heading": {
+      "family": "PMingLiU",
+      "size_pt": 12.96,
+      "bold": true
+    },
+    "header_footer": {
+      "family": "DFKai-SB / Times New Roman",
+      "size_pt": 10.0
+    }
+  },
+  "cover": {
+    "hierarchy": [
+      "organisation",
+      "academic-year-title",
+      "subject",
+      "signature-banner",
+      "instructions-box"
+    ],
+    "subject_text": "自然考科",
+    "signature_background": "#d9d9d9",
+    "branding_policy": "生成卷須改標 Taiwan Exam 模擬試題，不得冒充大考中心；保留量測階層。"
+  },
+  "instructions": {
+    "transcription_status": "verified",
+    "blocks": [
+      {
+        "role": "duration",
+        "text": "考試時間：110分鐘"
+      },
+      {
+        "role": "answer_mode",
+        "text": "選擇題用2B鉛筆在「答題卷」上作答；更正時以橡皮擦擦拭，切勿使用修正帶（液）。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "除題目另有規定外，非選擇題用筆尖較粗之黑色墨水的筆在「答題卷」上作答；更正時，可以使用修正帶（液）。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "考生須依上述規定劃記或作答，若未依規定而導致答案難以辨識或評閱時，恐將影響成績。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "答題卷每人一張，不得要求增補。"
+      },
+      {
+        "role": "scoring_single",
+        "text": "單選題答對得該題分數；答錯、未作答或複選以零分計。"
+      },
+      {
+        "role": "scoring_multiple",
+        "text": "多選題依(n−2k)/n規則計分，低於零分或全未作答以零分計。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-1",
+        "text": "第壹部分、選擇題（占72分）"
+      },
+      {
+        "role": "section",
+        "section_id": "section-2",
+        "text": "第貳部分、混合題或非選擇題（占56分）；選擇與作圖用2B鉛筆，文字／計算依題示在答題卷作答。"
+      }
+    ],
+    "normalization": "抽取字型的異體字與數學符號已正規化；語義、用筆規則、配分與字數限制未省略。"
+  },
+  "section_styles": [
+    {
+      "id": "section-1",
+      "title": "選擇題",
+      "order": 1
+    },
+    {
+      "id": "section-2",
+      "title": "混合題或非選擇題",
+      "order": 2
+    }
+  ],
+  "question_styles": {
+    "columns": 1,
+    "description": "single-column integrated earth science, physics, chemistry and biology; preserve tables, graphs, formulae and answer-box geometry",
+    "answer_sheet_mode": "另附答題卷",
+    "source_notes": "只留必要的原作／資料改寫註記，不在題本加入審計資訊。"
+  },
+  "running_elements": {
+    "page_numbers": "封面不編內頁號；內頁1至19",
+    "alternating_headers": true,
+    "signature": "請記得在答題卷簽名欄位以正楷簽全名",
+    "footer_audit_labels": false
+  },
+  "pagination": {
+    "physical_pages": 20,
+    "cover_pages": 1,
+    "observed_items_by_physical_page": {
+      "2": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "3": [
+        5,
+        6
+      ],
+      "4": [
+        7,
+        8,
+        9
+      ],
+      "5": [
+        10,
+        11,
+        12
+      ],
+      "6": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "7": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "8": [
+        21,
+        22,
+        23
+      ],
+      "9": [
+        24,
+        25
+      ],
+      "10": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "11": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "12": [
+        35,
+        36,
+        37
+      ],
+      "13": [
+        38,
+        39
+      ],
+      "14": [],
+      "15": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "16": [
+        44,
+        45
+      ],
+      "17": [
+        46,
+        47,
+        48,
+        49
+      ],
+      "18": [
+        50,
+        51
+      ],
+      "19": [
+        52,
+        53
+      ],
+      "20": [
+        54,
+        55,
+        56
+      ]
+    },
+    "break_policy": "共同材料只印一次；避免拆散題幹與選項；跨頁處依此年度實際頁面處理。",
+    "reference_order_not_content_recipe": true
+  },
+  "evidence": {
+    "method": "page-by-page visual comparison and PDF text/vector measurement",
+    "confidence": 0.96,
+    "notes": "本檔只證明115參考題本的量測與逐頁檢視，不自動證明新生成PDF合格。",
+    "layout_review": {
+      "reviewer": "Codex / source-layout review",
+      "reviewed_at": "2026-09-10T00:00:00Z",
+      "method": "page-by-page",
+      "pages": [
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 1,
+          "observations": "封面110分鐘、兩種用筆及單選／多選計分。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 2,
+          "observations": "內頁題號1至4；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 3,
+          "observations": "內頁題號5至6；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 4,
+          "observations": "內頁題號7至9；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 5,
+          "observations": "內頁題號10至12；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 6,
+          "observations": "內頁題號13至16；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 7,
+          "observations": "內頁題號17至20；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 8,
+          "observations": "內頁題號21至23；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 9,
+          "observations": "內頁題號24至25；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 10,
+          "observations": "內頁題號26至30；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 11,
+          "observations": "內頁題號31至34；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 12,
+          "observations": "第35、36題後進入混合題，第37題開始。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 13,
+          "observations": "內頁題號38至39；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 14,
+          "observations": "第39題跨頁圖表續頁，沒有新題號。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 15,
+          "observations": "內頁題號40至43；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 16,
+          "observations": "內頁題號44至45；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 17,
+          "observations": "內頁題號46至49；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 18,
+          "observations": "內頁題號50至51；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 19,
+          "observations": "內頁題號52至53；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+          "page": 20,
+          "observations": "第54至56題隕石題組與最後作答表，題號止於56。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        }
+      ],
+      "unresolved": [],
+      "profile_sha256": "0c0b8ec193b39d098fba092a1c96616a41d74e4cd8f3334752e1fb6a348a819c"
+    }
+  }
+}

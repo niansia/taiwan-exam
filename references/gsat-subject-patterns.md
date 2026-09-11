@@ -47,6 +47,8 @@ Use an explicit content budget:
 
 The 115 official feature analysis is a reference point: about 20% basic language knowledge and 80% reading, roughly 45:55 classical/modern material by score, with textbook selections around 20% and A-category core selections dominating those textbook anchors. This is one observed administration, not a universal fixed quota.
 
+For new 國綜 papers, apply the separate user-requested editorial budget in [current-gsat-chinese-natural-form.md](current-gsat-chinese-natural-form.md): **20–25% of whole-paper points must genuinely depend on confirmed core classical selections**, not merely on any classical-language passage. Short-response subparts have a **40-character / 4-point ceiling**, with full short explanations designed for 4 points. Audit actual model-answer length, rubric demands and core-dependent points; neither a longer reading passage nor a familiar title alone satisfies these rules. Preserve the selected official major-question totals and keep 國寫 outside these limits.
+
 ## 國寫
 
 The current contract is two reading-guided tasks: one knowledge/argument-oriented task and one affective/literary task. Both require supplied material; recent prompts may combine continuous text with images or other non-continuous material.

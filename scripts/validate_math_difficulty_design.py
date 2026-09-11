@@ -41,7 +41,9 @@ def profile_targets(path: Path) -> dict[int, dict[str, Any]]:
     return {int(number): row.get("recommended_target", {}) for number, row in rows.items()}
 
 
-def validate_item(item: dict[str, Any], official: dict[int, dict[str, Any]]) -> tuple[list[str], dict[str, Any]]:
+def validate_item(
+    item: dict[str, Any], official: dict[int, dict[str, Any]], subject: str
+) -> tuple[list[str], dict[str, Any]]:
     number = int(item.get("number", 0))
     qid = str(item.get("id", f"q{number}"))
     score = float(item.get("score") or 0)
@@ -75,6 +77,8 @@ def validate_item(item: dict[str, Any], official: dict[int, dict[str, Any]]) -> 
 
     decisions = as_list(design.get("linked_decisions"))
     minimum = required_decisions(float(p_center) if isinstance(p_center, (int, float)) else None, number, question_type)
+    if subject == "數學B" and design.get("band") in {"簡單", "中"}:
+        minimum = max(minimum, 3)
     declared_minimum = design.get("minimum_linked_decisions")
     if not isinstance(declared_minimum, int) or declared_minimum < minimum:
         errors.append(f"{qid}: minimum_linked_decisions must be at least {minimum}")
@@ -130,6 +134,19 @@ def validate_item(item: dict[str, Any], official: dict[int, dict[str, Any]]) -> 
         errors.append(f"{qid}: shortcut audit must attempt at least two shortcuts")
     if shortcut.get("collapse_found") is not False or shortcut.get("reviewer_decision") != "pass-no-collapse":
         errors.append(f"{qid}: shortcut-collapse audit has not passed")
+    if subject == "數學B" and shortcut.get("direct_formula_substitution_only") is not False:
+        errors.append(f"{qid}: Math B must explicitly reject a direct-formula-only solution")
+
+    if subject == "數學B":
+        innovation = design.get("innovation_audit") if isinstance(design.get("innovation_audit"), dict) else {}
+        if innovation.get("formula_or_definition_recall_only") is not False:
+            errors.append(f"{qid}: Math B innovation audit must reject formula/definition recall")
+        if innovation.get("skin_swap_changes_solution_graph") is not True:
+            errors.append(f"{qid}: Math B skin-swap audit must change the solution graph")
+        if not str(innovation.get("nearest_neighbor_difference") or "").strip():
+            errors.append(f"{qid}: Math B innovation audit needs a structural nearest-neighbor difference")
+        if innovation.get("reviewer_decision") != "pass-nonroutine":
+            errors.append(f"{qid}: Math B non-routine innovation audit has not passed")
 
     burden = design.get("burden_audit") if isinstance(design.get("burden_audit"), dict) else {}
     for field in ("arithmetic_volume_primary", "prose_length_primary", "outside_knowledge_primary"):
@@ -185,7 +202,7 @@ def main() -> int:
     errors: list[str] = []
     summaries: list[dict[str, Any]] = []
     for item in exam.get("questions", []):
-        item_errors, summary = validate_item(item, official)
+        item_errors, summary = validate_item(item, official, subject)
         errors.extend(item_errors)
         summaries.append(summary)
 
@@ -239,6 +256,33 @@ def main() -> int:
                     "paper: at least one D-10-3 item must have medium/high discrimination, "
                     "three linked decisions, and a representation change or constraint check"
                 )
+        elif subject == "數學B":
+            floor = exam.get("metadata", {}).get("math_b_difficulty_floor", {})
+            if floor.get("easy_medium_minimum_linked_decisions") != 3:
+                errors.append("paper: Math B difficulty floor must require three decisions for easy/medium items")
+            if floor.get("first_three_fill_ins_nonroutine") is not True:
+                errors.append("paper: Math B difficulty floor must protect the first three fill-in items")
+            if floor.get("audit_status") != "pass":
+                errors.append("paper: Math B difficulty-floor audit is not pass")
+
+            fill_ins = sorted(
+                [item for item in questions if item.get("type") == "fill_in"],
+                key=lambda item: int(item.get("number", 0)),
+            )[:3]
+            if len(fill_ins) < 3:
+                errors.append("paper: Math B needs at least three fill-in items for the opening-fill-in audit")
+            for item in fill_ins:
+                qid = str(item.get("id", item.get("number")))
+                design = (item.get("item_spec") or {}).get("difficulty_design") or {}
+                decisions = as_list(design.get("linked_decisions"))
+                combined = int(design.get("representation_changes") or 0) + int(design.get("constraint_checks") or 0)
+                shortcut = design.get("shortcut_audit") or {}
+                if len(decisions) < 3:
+                    errors.append(f"{qid}: opening Math B fill-in needs at least three linked decisions")
+                if combined < 2:
+                    errors.append(f"{qid}: opening Math B fill-in needs two representation/constraint operations")
+                if shortcut.get("direct_formula_substitution_only") is not False:
+                    errors.append(f"{qid}: opening Math B fill-in collapses to direct substitution")
 
     report = {
         "status": "pass" if not errors else "fail",

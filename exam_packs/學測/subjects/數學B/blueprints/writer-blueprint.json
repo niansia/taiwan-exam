@@ -1,0 +1,1240 @@
+{
+  "schema_version": 1,
+  "exam": "學測",
+  "subject": "數學B",
+  "curricula": [
+    "108"
+  ],
+  "record_count": 30,
+  "years": {
+    "minimum": 2022,
+    "maximum": 2026,
+    "counts": {
+      "2022": 6,
+      "2023": 6,
+      "2024": 6,
+      "2025": 6,
+      "2026": 6
+    }
+  },
+  "metadata_fingerprint": "2f6f704c46edae973863dd06766330dc0aed5bdf82135ab6ee0e29e6eb0fc97c",
+  "built_at": "2026-09-09T16:56:38.077848+00:00",
+  "calibration_status": "ready",
+  "calibration_by_curriculum": {
+    "108": {
+      "record_count": 30,
+      "year_count": 5,
+      "official_record_count": 30,
+      "official_year_count": 5,
+      "mock_record_count": 0,
+      "dimensions": {
+        "semantic_sample": {
+          "status": "ready",
+          "record_count": 30,
+          "year_count": 5
+        },
+        "official_semantic_anchor": {
+          "status": "ready",
+          "record_count": 30,
+          "year_count": 5
+        },
+        "official_objective_difficulty": {
+          "status": "ready",
+          "measured_item_count": 90,
+          "year_count": 5,
+          "source_fingerprint": "fa6cc5f78e6b7712e522a170b389e1a8c7b6ea80db8f967031a72b4432d7a8c4"
+        },
+        "difficulty_vector": {
+          "status": "ready",
+          "complete_count": 30,
+          "coverage": 1.0
+        },
+        "literacy_annotation": {
+          "status": "ready",
+          "complete_count": 30,
+          "coverage": 1.0
+        },
+        "stimulus_provenance": {
+          "status": "ready",
+          "competence_item_count": 19,
+          "complete_count": 19,
+          "coverage": 1.0
+        },
+        "constructed_response_calibration": {
+          "status": "ready",
+          "required_by_official_structure": true,
+          "official_record_count": 10,
+          "complete_count": 10,
+          "year_count": 5
+        },
+        "formal_layout": {
+          "status": "ready",
+          "verified_profile_count": 1,
+          "profile_ids": [
+            "gsat-math-b-115-measured-v1"
+          ]
+        }
+      },
+      "status": "ready"
+    }
+  },
+  "calibration_notes": [],
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "individual_question_numbers_included": false,
+  "distribution_policy": "multi-year probability envelope; never copy one historical paper's unit sequence",
+  "distributions": {
+    "unit": {
+      "三角函數": {
+        "count": 5,
+        "proportion": 0.166667
+      },
+      "多項式函數": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "指數與對數": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "直線與圓": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "矩陣與變換": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "空間坐標與投影": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "空間幾何": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "二次函數": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "圓錐曲線": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "實數與絕對值": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "平面向量與變換": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數列": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數列與整除": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數列與遞迴": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數據分析": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "方程與不等式": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "條件機率": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "機率": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "百分比與不等式": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "直線與三角": {
+        "count": 1,
+        "proportion": 0.033333
+      }
+    },
+    "subunit": {
+      "三次函數的對稱與平移": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "三次方正比關係圖形": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "乘冪關係與對數值": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "二階矩陣乘法與元素和": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "交替播放週期與整除條件": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "兩直線交點距離": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "分段遞迴投注金額": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "四面體底面三角形面積": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "四面體邊長、體積與高": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "塔高偏移與傾斜角比較": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "射線與圓盤相交條件": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "對數方程與數值化簡": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "對稱條件與區間極值": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "平面截圓錐的軌跡辨識": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "投影圖上的點座標重建": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "指數不等式的整數解計數": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數線距離和方程": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "旋轉後向量及終點坐標": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "日照UVI的正弦模型參數": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "有限樣本空間的條件機率": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "正弦不等式的時間範圍": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "正弦值、塔高與垂直距離": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "正弦函數恆等變換": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "獨立事件與至少一事件發生": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "矩陣等式與線性組合": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "等比數列的封閉性判斷": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "線段內分點的投影座標": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "誤差百分比的整數解計數": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "離散次數分配的百分位數": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "點在線上與圓方程": {
+        "count": 1,
+        "proportion": 0.033333
+      }
+    },
+    "question_type": {
+      "constructed_response": {
+        "count": 10,
+        "proportion": 0.333333
+      },
+      "single_choice": {
+        "count": 10,
+        "proportion": 0.333333
+      },
+      "fill_in": {
+        "count": 5,
+        "proportion": 0.166667
+      },
+      "multiple_choice": {
+        "count": 5,
+        "proportion": 0.166667
+      }
+    },
+    "section": {
+      "section-1": {
+        "count": 10,
+        "proportion": 0.333333
+      },
+      "section-4": {
+        "count": 10,
+        "proportion": 0.333333
+      },
+      "section-2": {
+        "count": 5,
+        "proportion": 0.166667
+      },
+      "section-3": {
+        "count": 5,
+        "proportion": 0.166667
+      }
+    },
+    "domain": {
+      "三角函數": {
+        "count": 5,
+        "proportion": 0.166667
+      },
+      "多項式函數": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "指數與對數": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "直線與圓": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "矩陣與變換": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "空間坐標與投影": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "空間幾何": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "二次函數": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "圓錐曲線": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "實數與絕對值": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "平面向量與變換": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數列": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數列與整除": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數列與遞迴": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "數據分析": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "方程與不等式": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "條件機率": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "機率": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "百分比與不等式": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "直線與三角": {
+        "count": 1,
+        "proportion": 0.033333
+      }
+    },
+    "score": {
+      "5": {
+        "count": 20,
+        "proportion": 0.666667
+      },
+      "6": {
+        "count": 7,
+        "proportion": 0.233333
+      },
+      "4": {
+        "count": 2,
+        "proportion": 0.066667
+      },
+      "8": {
+        "count": 1,
+        "proportion": 0.033333
+      }
+    },
+    "difficulty_band": {
+      "medium": {
+        "count": 13,
+        "proportion": 0.433333
+      },
+      "medium_hard": {
+        "count": 13,
+        "proportion": 0.433333
+      },
+      "easy": {
+        "count": 4,
+        "proportion": 0.133333
+      }
+    },
+    "difficulty_basis": {
+      "empirical": {
+        "count": 20,
+        "proportion": 0.666667
+      },
+      "expert_review": {
+        "count": 10,
+        "proportion": 0.333333
+      }
+    },
+    "source_kind": {
+      "official_past_exam": {
+        "count": 30,
+        "proportion": 1.0
+      }
+    }
+  },
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "aggregate-0209c55ff604",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "數列與遞迴",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "數列與遞迴",
+        "subunit": "分段遞迴投注金額",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-02d027473441",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "指數與對數",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "指數與對數",
+        "subunit": "對數方程與數值化簡",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-043cea5f5fc0",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "數列",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "數列",
+        "subunit": "等比數列的封閉性判斷",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-109f6bdf9c4e",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "直線與圓",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "直線與圓",
+        "subunit": "射線與圓盤相交條件",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-19b7fd0ad765",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間坐標與投影",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "空間坐標與投影",
+        "subunit": "投影圖上的點座標重建",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-201fb61e0400",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "實數與絕對值",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "實數與絕對值",
+        "subunit": "數線距離和方程",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-25f326e92e47",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "圓錐曲線",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "圓錐曲線",
+        "subunit": "平面截圓錐的軌跡辨識",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-270db433a25e",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角函數",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "三角函數",
+        "subunit": "塔高偏移與傾斜角比較",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-2993e38ece1d",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "三角函數",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "三角函數",
+        "subunit": "正弦函數恆等變換",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-345b85b85e7a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角函數",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "三角函數",
+        "subunit": "正弦不等式的時間範圍",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-45ae73fef272",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "直線與三角",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "直線與三角",
+        "subunit": "兩直線交點距離",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-47fc80f78e4c",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "矩陣與變換",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "矩陣與變換",
+        "subunit": "矩陣等式與線性組合",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-4839722f74f6",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "方程與不等式",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "方程與不等式",
+        "subunit": "指數不等式的整數解計數",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-5eafa5c10b23",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "矩陣與變換",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "矩陣與變換",
+        "subunit": "二階矩陣乘法與元素和",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-64ce640b4f7b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角函數",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "三角函數",
+        "subunit": "正弦值、塔高與垂直距離",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-65de4dc87bb3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "數列與整除",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "數列與整除",
+        "subunit": "交替播放週期與整除條件",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-88acda10ff30",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "直線與圓",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "直線與圓",
+        "subunit": "點在線上與圓方程",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-906b4365bf0a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "條件機率",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "條件機率",
+        "subunit": "有限樣本空間的條件機率",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 1,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-9261b977cec9",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "平面向量與變換",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "平面向量與變換",
+        "subunit": "旋轉後向量及終點坐標",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-9d7e6e45216b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角函數",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "三角函數",
+        "subunit": "日照UVI的正弦模型參數",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-a09594687394",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "機率",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "機率",
+        "subunit": "獨立事件與至少一事件發生",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-b24af85d1621",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "指數與對數",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "指數與對數",
+        "subunit": "乘冪關係與對數值",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-b3e7a3f02f39",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "二次函數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "二次函數",
+        "subunit": "對稱條件與區間極值",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-bf0b539c72b9",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "數據分析",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "數據分析",
+        "subunit": "離散次數分配的百分位數",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-c1c0b2ac4949",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間幾何",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "空間幾何",
+        "subunit": "四面體底面三角形面積",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-c724b1b7f570",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間坐標與投影",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "空間坐標與投影",
+        "subunit": "線段內分點的投影座標",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-dd06b2cbff9c",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "百分比與不等式",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "百分比與不等式",
+        "subunit": "誤差百分比的整數解計數",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-e574f9a2759c",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間幾何",
+        "question_type": "constructed_response",
+        "score": 8,
+        "unit": "空間幾何",
+        "subunit": "四面體邊長、體積與高",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-e8e828308372",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "多項式函數",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "多項式函數",
+        "subunit": "三次函數的對稱與平移",
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-ffadedb3f895",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "多項式函數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "多項式函數",
+        "subunit": "三次方正比關係圖形",
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    }
+  ]
+}

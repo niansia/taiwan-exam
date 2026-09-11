@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "purpose": "Official item stubs for semantic unit/skill/visual annotation with CEEC P/D evidence when published; no question wording is copied.",
-  "candidate_count": 3549,
+  "candidate_count": 3552,
   "by_subject": {
-    "國文": 529,
+    "國文": 530,
     "數學A": 100,
     "數學B": 100,
     "數學（舊制）": 137,
     "社會": 1046,
     "自然": 771,
-    "英文": 866
+    "英文": 868
   },
   "year_coverage": {
     "國文": [

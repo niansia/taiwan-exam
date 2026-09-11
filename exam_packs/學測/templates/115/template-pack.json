@@ -1,0 +1,33 @@
+{
+  "template_pack_id": "gsat-115-layout-assets-v1",
+  "template_kind": "layout-only",
+  "reference_academic_year": 115,
+  "curriculum": "108",
+  "regime": "111學年度起",
+  "canonical_renderer": "scripts/render_gsat_template_assets.py",
+  "branding_policy": "保留115題本的版面階層與功能文字，但生成卷固定標示 Taiwan Exam 模擬試題，不冒充大考中心正式試題。",
+  "dynamic_fields": [
+    "academic_year",
+    "exam_name",
+    "current_page",
+    "total_pages"
+  ],
+  "locked_fields": [
+    "subject_label",
+    "duration",
+    "signature_banner",
+    "answer_mode_instructions",
+    "scoring_rules",
+    "math_formula_variant"
+  ],
+  "pagination_policy": "正文先依實際內容分頁，再填入current_page與total_pages；不得用固定頁數空殼逼迫正文縮放。",
+  "subjects": {
+    "國綜": {"slug": "chinese-comprehensive", "asset_dir": "assets/chinese-comprehensive", "layout_profile": "gsat-chinese-comprehensive-115-measured-v1", "inner_page_reference": 11},
+    "國寫": {"slug": "chinese-writing", "asset_dir": "assets/chinese-writing", "layout_profile": "gsat-chinese-writing-115-measured-v1", "inner_page_reference": 3},
+    "英文": {"slug": "english", "asset_dir": "assets/english", "layout_profile": "gsat-english-115-measured-v1", "inner_page_reference": 11},
+    "數學A": {"slug": "math-a", "asset_dir": "assets/math-a", "layout_profile": "gsat-math-a-115-measured-v1", "inner_page_reference": 7, "formula_variant": "math-a"},
+    "數學B": {"slug": "math-b", "asset_dir": "assets/math-b", "layout_profile": "gsat-math-b-115-measured-v1", "inner_page_reference": 7, "formula_variant": "math-b-no-angle-addition"},
+    "社會": {"slug": "social", "asset_dir": "assets/social", "layout_profile": "gsat-social-115-measured-v1", "inner_page_reference": 19},
+    "自然": {"slug": "science", "asset_dir": "assets/science", "layout_profile": "gsat-science-115-measured-v1", "inner_page_reference": 19}
+  }
+}

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import json
 import re
 from pathlib import Path
@@ -45,9 +46,45 @@ def validate_exam(exam: dict[str, Any], source_pool: dict[str, Any]) -> list[str
     if len(questions) != 2:
         errors.append("當代國寫完整卷必須有兩大題")
 
+    if exam.get("metadata", {}).get("generation_mode") == "full-paper":
+        policy = source_pool.get("selection_policy") or {}
+        if policy.get("publisher_neutral") is not True:
+            errors.append("完整國寫卷的 source pool 必須明記 publisher_neutral: true")
+        for field in ("preferred_publishers", "allowed_publishers", "publisher_whitelist"):
+            if policy.get(field):
+                errors.append(f"完整國寫卷不得設定 {field}；來源資格必須與出版者無關")
+
+        candidates = source_pool.get("sources", [])
+        publishers = [str(row.get("publisher") or "").strip() for row in candidates]
+        domains = [str(row.get("source_domain") or "").strip() for row in candidates]
+        if len(candidates) < 8:
+            errors.append("完整國寫卷的來源競賽至少需要8個候選")
+        if any(not value for value in publishers):
+            errors.append("完整國寫卷的每個來源候選都必須記錄 publisher")
+        elif len(set(publishers)) < 4:
+            errors.append("完整國寫卷的來源競賽至少需要4個不同出版者")
+        if any(not value for value in domains):
+            errors.append("完整國寫卷的每個來源候選都必須記錄 source_domain")
+        elif len(set(domains)) < 4:
+            errors.append("完整國寫卷的來源競賽至少需要4個不同領域")
+
+        if publishers and all(publishers):
+            publisher, count = Counter(publishers).most_common(1)[0]
+            if count > len(publishers) / 2 and not policy.get("dominant_publisher_justification"):
+                errors.append(
+                    f"完整國寫卷的候選池由「{publisher}」占過半，且未記錄外部可得性理由"
+                )
+
     for question in questions:
         qid = question.get("id") or f"question-{question.get('number', '?')}"
         prompt = str(question.get("prompt") or "")
+        continuation_text = "\n\n".join(
+            str(value) for _, value in sorted(
+                (question.get("continuation_pages") or {}).items(),
+                key=lambda item: int(item[0]),
+            )
+        )
+        material_text = "\n\n".join(part for part in (prompt, continuation_text) if part)
         spec = question.get("item_spec") or {}
         source_ids = spec.get("source_ids") or []
         mappings = spec.get("material_source_map") or []
@@ -58,13 +95,13 @@ def validate_exam(exam: dict[str, Any], source_pool: dict[str, Any]) -> list[str
             errors.append(f"{qid}: 缺少 paragraph-level material_source_map")
 
         for marker in BANNED_MARKERS:
-            if marker in prompt:
+            if marker in material_text:
                 errors.append(f"{qid}: 題面含禁止的虛構材料標記「{marker}」")
 
-        if MATERIAL_HEADING.search(prompt):
+        if MATERIAL_HEADING.search(material_text):
             errors.append(f"{qid}: 正式國寫題面不得用「材料一：／材料二：」作正文標題；多文請用甲、乙編記")
 
-        paragraphs = [part.strip() for part in re.split(r"\n\s*\n", prompt) if part.strip()]
+        paragraphs = [part.strip() for part in re.split(r"\n\s*\n", material_text) if part.strip()]
         for paragraph in paragraphs:
             if SOURCE_NOTE.fullmatch(paragraph):
                 errors.append(f"{qid}: 來源註記不得獨立成段，應緊接所屬正文末句")
@@ -98,7 +135,7 @@ def validate_exam(exam: dict[str, Any], source_pool: dict[str, Any]) -> list[str
         if unmapped:
             errors.append(f"{qid}: 題目來源未映射到材料段落：{', '.join(sorted(unmapped))}")
 
-        if prompt.count("改寫自") < len(set(source_ids)):
+        if material_text.count("改寫自") < len(set(source_ids)):
             errors.append(f"{qid}: 題面來源註記少於實際使用的來源數")
 
         if spec.get("writing_task_role") == "affective_expression":
@@ -131,7 +168,7 @@ def main() -> int:
         for error in errors:
             print(f"FAIL: {error}")
         return 1
-    print("PASS: 國寫材料均有逐段來源、正式來源註記版式，且第二大題具中文文學來源")
+    print("PASS: 國寫來源池不預設出版者，材料均有逐段來源、正式來源註記版式，且第二大題具中文文學來源")
     return 0
 
 

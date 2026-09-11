@@ -4,6 +4,11 @@ from pathlib import Path
 BANDS=('簡單','中','中偏難','難')
 def content_hash(q):
     content={k:q.get(k) for k in ('prompt','group_stimulus','options','visual_asset')}
+    # These optional fields also become visible student-facing content.  Bind
+    # them when used, while preserving existing hashes for ordinary items.
+    for key in ('continuation_pages','group_stimulus_page_splits','response_format_table'):
+        if q.get(key) is not None:
+            content[key]=q.get(key)
     return hashlib.sha256(json.dumps(content,ensure_ascii=False,sort_keys=True).encode()).hexdigest()
 def validate(d,asset_root=None):
     errors=[]; counts=collections.Counter(); points=collections.Counter();rows=[]; hard_evidence=collections.Counter()
@@ -29,8 +34,12 @@ def validate(d,asset_root=None):
             key=json.dumps([rec.get('linked_decisions'),rec.get('bottleneck'),rec.get('short_route')],ensure_ascii=False,sort_keys=True)
             hard_evidence[key]+=1
         rows.append(dict(number=n,band=band,score=q.get('score'),minutes=rec.get('expected_minutes')))
+    count=sum(counts.values())
+    required_bands=tuple(plan.get('required_bands') or BANDS)
+    if any(b not in BANDS for b in required_bands):errors.append('difficulty plan contains an unknown required band')
+    if count and len(required_bands)>count:errors.append('difficulty plan requires more bands than authored questions')
     for band in BANDS:
-        if not counts[band]:errors.append(f'paper missing {band}')
+        if band in required_bands and not counts[band]:errors.append(f'paper missing {band}')
         if counts[band]!=plan.get('target_counts',{}).get(band):errors.append(f'{band}: count differs from declared plan')
         if points[band]!=plan.get('target_points',{}).get(band):errors.append(f'{band}: score differs from declared plan')
     if not plan.get('basis'):errors.append('paper target basis missing')
@@ -40,7 +49,7 @@ def validate(d,asset_root=None):
     duration=d.get('metadata',{}).get('duration_minutes')
     minutes=sum(r['minutes'] for r in rows if isinstance(r['minutes'],(int,float)))+shared
     if isinstance(duration,(int,float)) and minutes>duration:errors.append('estimated solving time exceeds paper duration')
-    total=sum(points.values());count=sum(counts.values())
+    total=sum(points.values())
     return dict(status='pass-structural-only' if not errors else 'fail',errors=errors,count=dict(counts),points=dict(points),
         count_percent={b:round(100*counts[b]/count,1)for b in BANDS} if count else {},
         score_percent={b:round(100*points[b]/total,1)for b in BANDS} if total else {},items=rows,

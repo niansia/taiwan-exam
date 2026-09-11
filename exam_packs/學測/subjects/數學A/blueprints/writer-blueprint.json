@@ -1,0 +1,2322 @@
+{
+  "schema_version": 1,
+  "exam": "學測",
+  "subject": "數學A",
+  "curricula": [
+    "108"
+  ],
+  "record_count": 100,
+  "years": {
+    "minimum": 2022,
+    "maximum": 2026,
+    "counts": {
+      "2022": 20,
+      "2023": 20,
+      "2024": 20,
+      "2025": 20,
+      "2026": 20
+    }
+  },
+  "metadata_fingerprint": "0a02c7ade7991c5c4f088fc18201cc6348352a82d0d9831c3efcd51eff60e304",
+  "built_at": "2026-09-09T16:25:19.668423+00:00",
+  "calibration_status": "ready",
+  "calibration_by_curriculum": {
+    "108": {
+      "record_count": 100,
+      "year_count": 5,
+      "official_record_count": 100,
+      "official_year_count": 5,
+      "mock_record_count": 0,
+      "dimensions": {
+        "semantic_sample": {
+          "status": "ready",
+          "record_count": 100,
+          "year_count": 5
+        },
+        "official_semantic_anchor": {
+          "status": "ready",
+          "record_count": 100,
+          "year_count": 5
+        },
+        "official_objective_difficulty": {
+          "status": "ready",
+          "measured_item_count": 90,
+          "year_count": 5,
+          "source_fingerprint": "32527f797b5f76467b47daaf8bf2a470d0a21b555bd8c32ae00bc254379afb1e"
+        },
+        "difficulty_vector": {
+          "status": "ready",
+          "complete_count": 100,
+          "coverage": 1.0
+        },
+        "literacy_annotation": {
+          "status": "ready",
+          "complete_count": 100,
+          "coverage": 1.0
+        },
+        "stimulus_provenance": {
+          "status": "ready",
+          "competence_item_count": 26,
+          "complete_count": 26,
+          "coverage": 1.0
+        },
+        "constructed_response_calibration": {
+          "status": "ready",
+          "required_by_official_structure": true,
+          "official_record_count": 10,
+          "complete_count": 10,
+          "year_count": 5
+        },
+        "formal_layout": {
+          "status": "ready",
+          "verified_profile_count": 1,
+          "profile_ids": [
+            "gsat-math-a-115-measured-v1"
+          ]
+        }
+      },
+      "status": "ready"
+    }
+  },
+  "calibration_notes": [],
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "individual_question_numbers_included": false,
+  "distribution_policy": "multi-year probability envelope; never copy one historical paper's unit sequence",
+  "distributions": {
+    "unit": {
+      "空間幾何與向量": {
+        "count": 15,
+        "proportion": 0.15
+      },
+      "三角與幾何": {
+        "count": 14,
+        "proportion": 0.14
+      },
+      "平面向量": {
+        "count": 9,
+        "proportion": 0.09
+      },
+      "指數與對數": {
+        "count": 9,
+        "proportion": 0.09
+      },
+      "多項式函數": {
+        "count": 8,
+        "proportion": 0.08
+      },
+      "條件機率": {
+        "count": 6,
+        "proportion": 0.06
+      },
+      "三角函數": {
+        "count": 5,
+        "proportion": 0.05
+      },
+      "排列組合": {
+        "count": 5,
+        "proportion": 0.05
+      },
+      "矩陣與變換": {
+        "count": 5,
+        "proportion": 0.05
+      },
+      "古典機率與期望值": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "數列與遞迴": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "數據分析": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "直線與圓": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "矩陣與方程組": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "方程與不等式": {
+        "count": 3,
+        "proportion": 0.03
+      },
+      "實數與代數": {
+        "count": 1,
+        "proportion": 0.01
+      }
+    },
+    "subunit": {
+      "(unknown)": {
+        "count": 100,
+        "proportion": 1.0
+      }
+    },
+    "question_type": {
+      "single_choice": {
+        "count": 35,
+        "proportion": 0.35
+      },
+      "multiple_choice": {
+        "count": 30,
+        "proportion": 0.3
+      },
+      "fill_in": {
+        "count": 25,
+        "proportion": 0.25
+      },
+      "constructed_response": {
+        "count": 10,
+        "proportion": 0.1
+      }
+    },
+    "section": {
+      "section-1": {
+        "count": 30,
+        "proportion": 0.3
+      },
+      "section-2": {
+        "count": 30,
+        "proportion": 0.3
+      },
+      "section-3": {
+        "count": 25,
+        "proportion": 0.25
+      },
+      "section-4": {
+        "count": 15,
+        "proportion": 0.15
+      }
+    },
+    "domain": {
+      "空間幾何與向量": {
+        "count": 15,
+        "proportion": 0.15
+      },
+      "三角與幾何": {
+        "count": 14,
+        "proportion": 0.14
+      },
+      "平面向量": {
+        "count": 9,
+        "proportion": 0.09
+      },
+      "指數與對數": {
+        "count": 9,
+        "proportion": 0.09
+      },
+      "多項式函數": {
+        "count": 8,
+        "proportion": 0.08
+      },
+      "條件機率": {
+        "count": 6,
+        "proportion": 0.06
+      },
+      "三角函數": {
+        "count": 5,
+        "proportion": 0.05
+      },
+      "排列組合": {
+        "count": 5,
+        "proportion": 0.05
+      },
+      "矩陣與變換": {
+        "count": 5,
+        "proportion": 0.05
+      },
+      "古典機率與期望值": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "數列與遞迴": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "數據分析": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "直線與圓": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "矩陣與方程組": {
+        "count": 4,
+        "proportion": 0.04
+      },
+      "方程與不等式": {
+        "count": 3,
+        "proportion": 0.03
+      },
+      "實數與代數": {
+        "count": 1,
+        "proportion": 0.01
+      }
+    },
+    "score": {
+      "5": {
+        "count": 85,
+        "proportion": 0.85
+      },
+      "6": {
+        "count": 6,
+        "proportion": 0.06
+      },
+      "3": {
+        "count": 5,
+        "proportion": 0.05
+      },
+      "4": {
+        "count": 2,
+        "proportion": 0.02
+      },
+      "8": {
+        "count": 2,
+        "proportion": 0.02
+      }
+    },
+    "difficulty_band": {
+      "medium": {
+        "count": 37,
+        "proportion": 0.37
+      },
+      "medium_hard": {
+        "count": 34,
+        "proportion": 0.34
+      },
+      "hard": {
+        "count": 16,
+        "proportion": 0.16
+      },
+      "easy": {
+        "count": 13,
+        "proportion": 0.13
+      }
+    },
+    "difficulty_basis": {
+      "empirical": {
+        "count": 90,
+        "proportion": 0.9
+      },
+      "expert_review": {
+        "count": 10,
+        "proportion": 0.1
+      }
+    },
+    "source_kind": {
+      "official_past_exam": {
+        "count": 100,
+        "proportion": 1.0
+      }
+    }
+  },
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "aggregate-1cd5c8fc9aab",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "指數與對數",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "指數與對數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2023,
+        2025
+      ],
+      "proportion": 0.03
+    },
+    {
+      "cluster_id": "aggregate-5e09f8c69a15",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "多項式函數",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "多項式函數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 3,
+      "supporting_year_count": 2,
+      "year_range": [
+        2022,
+        2026
+      ],
+      "proportion": 0.03
+    },
+    {
+      "cluster_id": "aggregate-b6066fd43882",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "空間幾何與向量",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 3,
+      "supporting_year_count": 2,
+      "year_range": [
+        2022,
+        2023
+      ],
+      "proportion": 0.03
+    },
+    {
+      "cluster_id": "aggregate-f62d9573757d",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "三角函數",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "三角函數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2023,
+        2026
+      ],
+      "proportion": 0.03
+    },
+    {
+      "cluster_id": "aggregate-09097008cf4f",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "三角與幾何",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2025,
+        2026
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-2a4556493062",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "排列組合",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "排列組合",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2025,
+        2026
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-2c73126da2fb",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "數列與遞迴",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "數列與遞迴",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2022,
+        2026
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-41df2bcf787a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "方程與不等式",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "方程與不等式",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2022,
+        2025
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-4fb6e6232ca6",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "直線與圓",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "直線與圓",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2024,
+        2025
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-713752a71e2f",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "數據分析",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "數據分析",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2024,
+        2025
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-88c4210a18e6",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "矩陣與變換",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "矩陣與變換",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2023,
+        2024
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-994caac20a4b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "平面向量",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "平面向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-a056bfcdaa6f",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "指數與對數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "指數與對數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2022,
+        2025
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-a38493a58df3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "空間幾何與向量",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2023,
+        2025
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-abc52ca6e28d",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "三角函數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "三角函數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2024,
+        2025
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-b8868d1c94fd",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "多項式函數",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "多項式函數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-ba5a59335361",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "平面向量",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "平面向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2025,
+        2026
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-c3bf55f8b62b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "條件機率",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "條件機率",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2023,
+        2024
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-cbaef58d5ffe",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "平面向量",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "平面向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 2,
+      "supporting_year_count": 2,
+      "year_range": [
+        2023,
+        2025
+      ],
+      "proportion": 0.02
+    },
+    {
+      "cluster_id": "aggregate-0cac2ab2c7ba",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "排列組合",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "排列組合",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-0df3c3c42a8b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間幾何與向量",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-0f85d02fdd9c",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "方程與不等式",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "方程與不等式",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-1207f5b9d455",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "三角與幾何",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-140656e7bd90",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "多項式函數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "多項式函數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-17fb9a2f7847",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角與幾何",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-19632f7f9551",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "三角與幾何",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-1a2d541b0691",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "直線與圓",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "直線與圓",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-1ab8adbf7c59",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間幾何與向量",
+        "question_type": "constructed_response",
+        "score": 8,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-1dd3de71fc55",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "古典機率與期望值",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "古典機率與期望值",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-240884eb12a5",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "條件機率",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "條件機率",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-26e357239c03",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "數據分析",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "數據分析",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-2831cc2287b3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "數列與遞迴",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "數列與遞迴",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-2a35c53307f1",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角與幾何",
+        "question_type": "single_choice",
+        "score": 3,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-2b49dac151ee",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "矩陣與變換",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "矩陣與變換",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-2c09af43a838",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "指數與對數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "指數與對數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-347e853663c3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "條件機率",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "條件機率",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-39a3b5c015d3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "多項式函數",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "多項式函數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-3afb7b673d3d",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "三角與幾何",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-405a0f1158a4",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間幾何與向量",
+        "question_type": "single_choice",
+        "score": 3,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-4cdf0b7eaf5a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "條件機率",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "條件機率",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-4f53a74c86e2",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "排列組合",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "排列組合",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-50a5121087a2",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "排列組合",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "排列組合",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-51b83e0bdc2b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角與幾何",
+        "question_type": "single_choice",
+        "score": 3,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-57b684e50aee",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "古典機率與期望值",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "古典機率與期望值",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-6147c62b4b0b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "數列與遞迴",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "數列與遞迴",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-66923497cc36",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間幾何與向量",
+        "question_type": "single_choice",
+        "score": 3,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-70b7a1b6ad27",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "直線與圓",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "直線與圓",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-713dc7fd3e8b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "平面向量",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "平面向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-73efc0495b96",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "矩陣與變換",
+        "question_type": "single_choice",
+        "score": 3,
+        "unit": "矩陣與變換",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-7732d6c3d0ed",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "古典機率與期望值",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "古典機率與期望值",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 1,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-78cba39dc14b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角與幾何",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-7bf35c8f481a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "指數與對數",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "指數與對數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-7fc0e9d97aa5",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間幾何與向量",
+        "question_type": "constructed_response",
+        "score": 8,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-817302231dd9",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "矩陣與方程組",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "矩陣與方程組",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-849bb8d2b365",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "矩陣與方程組",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "矩陣與方程組",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-850c4a6c6957",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "矩陣與方程組",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "矩陣與方程組",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-8659272061cb",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "矩陣與方程組",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "矩陣與方程組",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 1,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-93413d0bd42c",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "條件機率",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "條件機率",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-99141c28b6ae",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "矩陣與變換",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "矩陣與變換",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-9cdbf3a7bc9a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "實數與代數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "實數與代數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-a123997a7a0d",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "空間幾何與向量",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-a562554c318b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "平面向量",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "平面向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-a9d20de72257",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "古典機率與期望值",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "古典機率與期望值",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-abd531f83a56",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "三角與幾何",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-ac83d55480d8",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "三角與幾何",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-b1ba84bcbc81",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "空間幾何與向量",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-bdc63eb51d59",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "三角與幾何",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-bfeaf18901d4",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "多項式函數",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "多項式函數",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-d6512f28ed7b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-3",
+        "domain": "平面向量",
+        "question_type": "fill_in",
+        "score": 5,
+        "unit": "平面向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-d9d621fae6cc",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "空間幾何與向量",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-dcc460160fc4",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "數據分析",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "數據分析",
+        "subunit": null,
+        "stimulus_type": "data_representation",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-def9506c54ed",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "指數與對數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "指數與對數",
+        "subunit": null,
+        "stimulus_type": "data_representation",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-e91cb7c35686",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "三角與幾何",
+        "question_type": "multiple_choice",
+        "score": 5,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-f07033b53258",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "指數與對數",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "指數與對數",
+        "subunit": null,
+        "stimulus_type": "defined_life_rules",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 1,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-f0b058d8b8cd",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "空間幾何與向量",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-f13bf1af0451",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "三角與幾何",
+        "question_type": "constructed_response",
+        "score": 6,
+        "unit": "三角與幾何",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    },
+    {
+      "cluster_id": "aggregate-ffe272d39d86",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "空間幾何與向量",
+        "question_type": "single_choice",
+        "score": 5,
+        "unit": "空間幾何與向量",
+        "subunit": null,
+        "stimulus_type": "mathematical_object",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.01
+    }
+  ]
+}

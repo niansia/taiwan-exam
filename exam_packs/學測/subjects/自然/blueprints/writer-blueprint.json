@@ -1,0 +1,1096 @@
+{
+  "schema_version": 1,
+  "exam": "學測",
+  "subject": "自然",
+  "curricula": [
+    "108"
+  ],
+  "record_count": 30,
+  "years": {
+    "minimum": 2022,
+    "maximum": 2026,
+    "counts": {
+      "2022": 6,
+      "2023": 6,
+      "2024": 6,
+      "2025": 6,
+      "2026": 6
+    }
+  },
+  "metadata_fingerprint": "d4bd9e63558b92a56a7f517e2b92a2d89f1ada28bf0d3572a54f7316fc1fe539",
+  "built_at": "2026-09-09T16:56:38.244875+00:00",
+  "calibration_status": "ready",
+  "calibration_by_curriculum": {
+    "108": {
+      "record_count": 30,
+      "year_count": 5,
+      "official_record_count": 30,
+      "official_year_count": 5,
+      "mock_record_count": 0,
+      "dimensions": {
+        "semantic_sample": {
+          "status": "ready",
+          "record_count": 30,
+          "year_count": 5
+        },
+        "official_semantic_anchor": {
+          "status": "ready",
+          "record_count": 30,
+          "year_count": 5
+        },
+        "official_objective_difficulty": {
+          "status": "ready",
+          "measured_item_count": 248,
+          "year_count": 5,
+          "source_fingerprint": "5272a5be518241d66a121ead001a70e31849ee6ab0f3c80a4b3a961b1a0811a7"
+        },
+        "difficulty_vector": {
+          "status": "ready",
+          "complete_count": 30,
+          "coverage": 1.0
+        },
+        "literacy_annotation": {
+          "status": "ready",
+          "complete_count": 30,
+          "coverage": 1.0
+        },
+        "stimulus_provenance": {
+          "status": "ready",
+          "competence_item_count": 22,
+          "complete_count": 22,
+          "coverage": 1.0
+        },
+        "constructed_response_calibration": {
+          "status": "ready",
+          "required_by_official_structure": true,
+          "official_record_count": 10,
+          "complete_count": 10,
+          "year_count": 5
+        },
+        "formal_layout": {
+          "status": "ready",
+          "verified_profile_count": 1,
+          "profile_ids": [
+            "gsat-science-115-measured-v1"
+          ]
+        }
+      },
+      "status": "ready"
+    }
+  },
+  "calibration_notes": [],
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "individual_question_numbers_included": false,
+  "distribution_policy": "multi-year probability envelope; never copy one historical paper's unit sequence",
+  "distributions": {
+    "unit": {
+      "生物": {
+        "count": 10,
+        "proportion": 0.333333
+      },
+      "地球科學": {
+        "count": 9,
+        "proportion": 0.3
+      },
+      "物理": {
+        "count": 6,
+        "proportion": 0.2
+      },
+      "化學": {
+        "count": 5,
+        "proportion": 0.166667
+      }
+    },
+    "subunit": {
+      "X光繞射與波長數量級": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "基本交互作用": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "太陽系矮行星分類": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "完全燃燒與分子式判定": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "星跡、半球與觀測緯度": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "月地距離與無線電訊號時間": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "有絲分裂與減數分裂": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "植物化合物對蜂鳥取食的影響": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "水力發電量與二氧化碳減排模型": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "溫度、基因表現與龜類性別": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "溫度與鹽類溶解度曲線": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "物質純化與分離方法": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "由圖表比較二鉻酸濃度": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "病毒基因與植株感染實驗": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "相圖、相變熱與莫耳比熱": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "空氣運動與水氣凝結": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "細胞分裂與組織更新": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "細胞學說的科學史": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "細胞形態與樣本來源": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "絕對星等與觀測位置": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "聖嬰、水色與沿岸湧升流": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "肉雞選育的飼料轉化率分析": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "能源消耗、熱量與冰山融化": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "虱目魚低溫調適與mRNA資料": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "西北颱路徑與風向轉變": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "速度時間圖與汽車運動": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "離子的荷質比": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "颱風路徑與平均移動速率": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "食肉植物捕器與同功構造": {
+        "count": 1,
+        "proportion": 0.033333
+      },
+      "黑碳沉降與冰雪消融": {
+        "count": 1,
+        "proportion": 0.033333
+      }
+    },
+    "question_type": {
+      "single_choice": {
+        "count": 13,
+        "proportion": 0.433333
+      },
+      "constructed_response": {
+        "count": 10,
+        "proportion": 0.333333
+      },
+      "multiple_choice": {
+        "count": 7,
+        "proportion": 0.233333
+      }
+    },
+    "section": {
+      "section-1": {
+        "count": 20,
+        "proportion": 0.666667
+      },
+      "section-2": {
+        "count": 10,
+        "proportion": 0.333333
+      }
+    },
+    "domain": {
+      "生物": {
+        "count": 10,
+        "proportion": 0.333333
+      },
+      "地球科學": {
+        "count": 9,
+        "proportion": 0.3
+      },
+      "物理": {
+        "count": 6,
+        "proportion": 0.2
+      },
+      "化學": {
+        "count": 5,
+        "proportion": 0.166667
+      }
+    },
+    "score": {
+      "2": {
+        "count": 23,
+        "proportion": 0.766667
+      },
+      "4": {
+        "count": 7,
+        "proportion": 0.233333
+      }
+    },
+    "difficulty_band": {
+      "medium_hard": {
+        "count": 11,
+        "proportion": 0.366667
+      },
+      "easy": {
+        "count": 9,
+        "proportion": 0.3
+      },
+      "medium": {
+        "count": 9,
+        "proportion": 0.3
+      },
+      "hard": {
+        "count": 1,
+        "proportion": 0.033333
+      }
+    },
+    "difficulty_basis": {
+      "empirical": {
+        "count": 20,
+        "proportion": 0.666667
+      },
+      "expert_review": {
+        "count": 10,
+        "proportion": 0.333333
+      }
+    },
+    "source_kind": {
+      "official_past_exam": {
+        "count": 30,
+        "proportion": 1.0
+      }
+    }
+  },
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "aggregate-077fe8953cf6",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "生物",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "生物",
+        "subunit": "肉雞選育的飼料轉化率分析",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-1bc309f7b695",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "物理",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "物理",
+        "subunit": "速度時間圖與汽車運動",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-24a187493101",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "物理",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "物理",
+        "subunit": "水力發電量與二氧化碳減排模型",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-45d41c1fc656",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "地球科學",
+        "question_type": "multiple_choice",
+        "score": 2,
+        "unit": "地球科學",
+        "subunit": "空氣運動與水氣凝結",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-46ae7a9f19b6",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "地球科學",
+        "question_type": "constructed_response",
+        "score": 2,
+        "unit": "地球科學",
+        "subunit": "絕對星等與觀測位置",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-4951690e4c8d",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "生物",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "生物",
+        "subunit": "有絲分裂與減數分裂",
+        "stimulus_type": "disciplinary_knowledge",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-53c85c996231",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "生物",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "生物",
+        "subunit": "植物化合物對蜂鳥取食的影響",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-5788e06adbe3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "物理",
+        "question_type": "multiple_choice",
+        "score": 2,
+        "unit": "物理",
+        "subunit": "基本交互作用",
+        "stimulus_type": "disciplinary_knowledge",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-624bc09ed14c",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "地球科學",
+        "question_type": "multiple_choice",
+        "score": 2,
+        "unit": "地球科學",
+        "subunit": "西北颱路徑與風向轉變",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-74ee2dbac1f1",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "生物",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "生物",
+        "subunit": "病毒基因與植株感染實驗",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-79756d8719ee",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "生物",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "生物",
+        "subunit": "虱目魚低溫調適與mRNA資料",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-7bdbc73369e6",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "地球科學",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "地球科學",
+        "subunit": "颱風路徑與平均移動速率",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-8deffa9bdb9a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "地球科學",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "地球科學",
+        "subunit": "聖嬰、水色與沿岸湧升流",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-9251b88175c7",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "生物",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "生物",
+        "subunit": "細胞學說的科學史",
+        "stimulus_type": "disciplinary_knowledge",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-b4faeb236381",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "物理",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "物理",
+        "subunit": "能源消耗、熱量與冰山融化",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-b8f1e57b6f2b",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "生物",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "生物",
+        "subunit": "食肉植物捕器與同功構造",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-bf82df133173",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "地球科學",
+        "question_type": "multiple_choice",
+        "score": 2,
+        "unit": "地球科學",
+        "subunit": "太陽系矮行星分類",
+        "stimulus_type": "disciplinary_knowledge",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-d1a0e4b11b7a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "化學",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "化學",
+        "subunit": "相圖、相變熱與莫耳比熱",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-d52e126c7c98",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "地球科學",
+        "question_type": "multiple_choice",
+        "score": 2,
+        "unit": "地球科學",
+        "subunit": "星跡、半球與觀測緯度",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-d62b3033f5aa",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "化學",
+        "question_type": "multiple_choice",
+        "score": 2,
+        "unit": "化學",
+        "subunit": "物質純化與分離方法",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2025,
+        2025
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-d62cbbbba786",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "化學",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "化學",
+        "subunit": "完全燃燒與分子式判定",
+        "stimulus_type": "disciplinary_knowledge",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-e144422d2fc0",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "地球科學",
+        "question_type": "constructed_response",
+        "score": 2,
+        "unit": "地球科學",
+        "subunit": "黑碳沉降與冰雪消融",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-e86d00800a32",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "地球科學",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "地球科學",
+        "subunit": "月地距離與無線電訊號時間",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-e97e55085d0f",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "生物",
+        "question_type": "constructed_response",
+        "score": 4,
+        "unit": "生物",
+        "subunit": "溫度、基因表現與龜類性別",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2026,
+        2026
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-ec049a020c0a",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "物理",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "物理",
+        "subunit": "X光繞射與波長數量級",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-f14e9b743304",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "生物",
+        "question_type": "multiple_choice",
+        "score": 2,
+        "unit": "生物",
+        "subunit": "細胞分裂與組織更新",
+        "stimulus_type": "disciplinary_knowledge",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-f49bb039b8c3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "化學",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "化學",
+        "subunit": "溫度與鹽類溶解度曲線",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 5,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2023,
+        2023
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-f78375ad79ed",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "物理",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "物理",
+        "subunit": "離子的荷質比",
+        "stimulus_type": "disciplinary_knowledge",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-f8b9deddc5f3",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "化學",
+        "question_type": "constructed_response",
+        "score": 2,
+        "unit": "化學",
+        "subunit": "由圖表比較二鉻酸濃度",
+        "stimulus_type": "scientific_data_or_context",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 4,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2022,
+        2022
+      ],
+      "proportion": 0.033333
+    },
+    {
+      "cluster_id": "aggregate-fa75dee7ae86",
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-1",
+        "domain": "生物",
+        "question_type": "single_choice",
+        "score": 2,
+        "unit": "生物",
+        "subunit": "細胞形態與樣本來源",
+        "stimulus_type": "disciplinary_knowledge",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 1,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "count": 1,
+      "supporting_year_count": 1,
+      "year_range": [
+        2024,
+        2024
+      ],
+      "proportion": 0.033333
+    }
+  ]
+}

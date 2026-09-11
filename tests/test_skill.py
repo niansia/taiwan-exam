@@ -32,6 +32,24 @@ class ExamDataTests(unittest.TestCase):
         record["difficulty"]["overall"] = 7
         self.assertTrue(any("1-5" in error for error in exam_data.validate_record(record)))
 
+    def test_unnumbered_scored_unit_requires_stable_slot_id(self) -> None:
+        record = json.loads((ROOT / "examples" / "synthetic-question.jsonl").read_text(encoding="utf-8"))
+        record["question_number"] = None
+        self.assertTrue(any("scored_slot_id" in error for error in exam_data.validate_record(record)))
+        record["scored_slot_id"] = "translation"
+        self.assertEqual([], exam_data.validate_record(record))
+
+    def test_unnumbered_scored_units_sort_after_numbered_items(self) -> None:
+        numbered = {"year": 2026, "question_number": 50, "question_id": "q50"}
+        composition = {
+            "year": 2026, "question_number": None, "scored_slot_id": "composition", "question_id": "composition"
+        }
+        translation = {
+            "year": 2026, "question_number": None, "scored_slot_id": "translation", "question_id": "translation"
+        }
+        ordered = sorted([translation, numbered, composition], key=exam_data.record_order_key)
+        self.assertEqual(["q50", "composition", "translation"], [item["question_id"] for item in ordered])
+
     def test_official_section_titles_match_numbered_metadata_titles(self) -> None:
         self.assertTrue(exam_data.section_labels_match("一、詞彙題（占 10 分）", "詞彙題"))
         self.assertTrue(exam_data.section_labels_match("第貳部分、混合題（占 10 分）", "混合題"))
@@ -247,6 +265,11 @@ class ExamDataTests(unittest.TestCase):
                 ROOT / "exam_packs" / "學測" / "shared-data" / "current-math-form-writer-profile.json"
             )
         )
+        for name in (
+            "validate_english_difficulty_design.py",
+            "validate_visual_item_contract.py",
+        ):
+            self.assertTrue(package_skill.should_include(ROOT / "scripts" / name))
 
     def test_packaged_paper_profiles_are_reference_only_official_and_source_blind(self) -> None:
         path = ROOT / "exam_packs" / "學測" / "subjects" / "英文" / "metadata" / "papers.jsonl"
@@ -274,6 +297,15 @@ class ExamDataTests(unittest.TestCase):
         constructed = [section for section in sections if section["title"] in {"中譯英", "英文作文"}]
         self.assertTrue(all(section["numbered_question_count"] is None for section in constructed))
         self.assertTrue(all(section["scored_item_count"] == 1 for section in constructed))
+
+    def test_public_english_profile_requires_new_local_review(self) -> None:
+        subject_path = ROOT / "exam_packs" / "學測" / "subjects" / "英文"
+        profiles, errors = exam_data.read_jsonl(subject_path / "metadata" / "papers.jsonl")
+        self.assertFalse(errors)
+        profile = next(row for row in profiles if row.get("year") == 2026)
+        self.assertEqual("needs_review", profile["structure_status"])
+        with self.assertRaises(ValueError):
+            exam_data.select_paper_profile(subject_path, "108", profile["paper_id"], None)
 
     def test_bundle_registry_merge_is_hash_idempotent(self) -> None:
         existing = [{"sha256": "a" * 64, "destination_relative_path": "old.pdf", "year": 2025}]

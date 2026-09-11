@@ -1,0 +1,173 @@
+{
+  "profile_id": "gsat-chinese-writing-115-measured-v1",
+  "exam": "學測",
+  "subject": "國文",
+  "section": "國寫",
+  "curriculum": "108",
+  "regime": "111學年度起",
+  "reference_year": 2026,
+  "fidelity_status": "verified",
+  "source_files": [
+    {
+      "sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/07-115學測國寫試卷.pdf",
+      "page_count": 4
+    }
+  ],
+  "page_geometry": {
+    "paper_size": "A4",
+    "width_pt": 595.32,
+    "height_pt": 842.04,
+    "width_mm": 210,
+    "height_mm": 297,
+    "body_left_pt": 63.86,
+    "body_right_pt": 538.13,
+    "header_top_pt": 43.36,
+    "footer_baseline_pt": 799.54,
+    "cover_frame_pt": [
+      96.86,
+      277.37,
+      498.58,
+      725.14
+    ],
+    "measuring_method": "PyMuPDF glyph/vector bounding boxes plus Poppler full-page raster review"
+  },
+  "typography": {
+    "body": {
+      "family": "DFKai-SB / MingLiU",
+      "size_pt": 12.0
+    },
+    "instructions": {
+      "family": "DFKai-SB",
+      "size_pt": 12
+    },
+    "section_heading": {
+      "family": "PMingLiU",
+      "size_pt": 12.96,
+      "bold": true
+    },
+    "header_footer": {
+      "family": "DFKai-SB / Times New Roman",
+      "size_pt": 10.0
+    }
+  },
+  "cover": {
+    "hierarchy": [
+      "organisation",
+      "academic-year-title",
+      "subject",
+      "signature-banner",
+      "instructions-box"
+    ],
+    "subject_text": "國語文寫作能力測驗",
+    "signature_background": "#d9d9d9",
+    "branding_policy": "生成卷須改標 Taiwan Exam 模擬試題，不得冒充大考中心；保留量測階層。"
+  },
+  "instructions": {
+    "transcription_status": "verified",
+    "blocks": [
+      {
+        "role": "duration",
+        "text": "考試時間：90分鐘。請妥善分配作答時間。"
+      },
+      {
+        "role": "item_count",
+        "text": "題型題數：非選擇題共二大題。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "限用中文書寫；惟專有名詞或試題有特殊要求者不在此限。"
+      },
+      {
+        "role": "answer_surface",
+        "text": "第一大題作答於答題卷正面，第二大題作答於答題卷背面。"
+      },
+      {
+        "role": "pen",
+        "text": "使用筆尖較粗（建議約0.5mm～0.7mm）之黑色墨水的筆；更正時可使用修正帶（液）。"
+      },
+      {
+        "role": "legibility",
+        "text": "力求字跡清晰且字體大小適中；難以辨識時恐影響成績。"
+      },
+      {
+        "role": "answer_sheet",
+        "text": "答題卷每人一張，不得要求增補。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-1",
+        "text": "說明：本部分共有二大題，各題配分標於題末；答案必須寫在答題卷上。"
+      }
+    ],
+    "normalization": "抽取字型的異體字與數學符號已正規化；語義、用筆規則、配分與字數限制未省略。"
+  },
+  "section_styles": [
+    {
+      "id": "section-1",
+      "title": "非選擇題（共二大題）",
+      "order": 1
+    }
+  ],
+  "question_styles": {
+    "columns": 1,
+    "description": "single-column reading-to-write; first task dense prose, second task uses a two-page image/text carrier",
+    "answer_sheet_mode": "另附答題卷",
+    "source_notes": "只留必要的原作／資料改寫註記，不在題本加入審計資訊。"
+  },
+  "running_elements": {
+    "page_numbers": "封面不編內頁號；內頁1至3",
+    "alternating_headers": true,
+    "signature": "請記得在答題卷簽名欄位以正楷簽全名",
+    "footer_audit_labels": false
+  },
+  "pagination": {
+    "physical_pages": 4,
+    "cover_pages": 1,
+    "observed_items_by_physical_page": {
+      "2": [
+        1
+      ],
+      "3": [
+        2
+      ],
+      "4": []
+    },
+    "break_policy": "共同材料只印一次；避免拆散題幹與選項；跨頁處依此年度實際頁面處理。",
+    "reference_order_not_content_recipe": true
+  },
+  "evidence": {
+    "method": "page-by-page visual comparison and PDF text/vector measurement",
+    "confidence": 0.96,
+    "notes": "本檔只證明115參考題本的量測與逐頁檢視，不自動證明新生成PDF合格。",
+    "layout_review": {
+      "reviewer": "Codex / source-layout review",
+      "reviewed_at": "2026-09-10T00:00:00Z",
+      "method": "page-by-page",
+      "pages": [
+        {
+          "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+          "page": 1,
+          "observations": "封面完整列出二大題、中文作答、正反面分題、0.5–0.7mm黑筆、修正與單張答題卷規則。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+          "page": 2,
+          "observations": "第一大題材料及80字4分、400字21分兩個獨立評分單元。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+          "page": 3,
+          "observations": "第二大題以幾米圖文開始，題名與25分作文指示跨至下一頁。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+          "page": 4,
+          "observations": "第二大題圖文續頁與完整寫作提示；沒有多餘空白仿頁。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        }
+      ],
+      "unresolved": [],
+      "profile_sha256": "f1e917a33f178c85376d514badd3c9c598252468ff93f7a5d4bbe3a3049f361d"
+    }
+  }
+}

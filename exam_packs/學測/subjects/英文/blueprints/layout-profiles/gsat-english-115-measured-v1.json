@@ -1,0 +1,346 @@
+{
+  "profile_id": "gsat-english-115-measured-v1",
+  "exam": "學測",
+  "subject": "英文",
+  "section": "英文",
+  "curriculum": "108",
+  "regime": "111學年度起",
+  "reference_year": 2026,
+  "fidelity_status": "verified",
+  "source_files": [
+    {
+      "sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文試卷.pdf",
+      "page_count": 12
+    }
+  ],
+  "page_geometry": {
+    "paper_size": "A4",
+    "width_pt": 595.32,
+    "height_pt": 842.04,
+    "width_mm": 210,
+    "height_mm": 297,
+    "body_left_pt": 63.82,
+    "body_right_pt": 539.63,
+    "header_top_pt": 41.92,
+    "footer_baseline_pt": 800.34,
+    "cover_frame_pt": [
+      81.0,
+      242.28,
+      514.44,
+      740.16
+    ],
+    "measuring_method": "PyMuPDF glyph/vector bounding boxes plus Poppler full-page raster review"
+  },
+  "typography": {
+    "body": {
+      "family": "Times New Roman",
+      "size_pt": 11.04
+    },
+    "instructions": {
+      "family": "DFKai-SB",
+      "size_pt": 12
+    },
+    "section_heading": {
+      "family": "PMingLiU",
+      "size_pt": 12.96,
+      "bold": true
+    },
+    "header_footer": {
+      "family": "DFKai-SB / Times New Roman",
+      "size_pt": 10.0
+    }
+  },
+  "cover": {
+    "hierarchy": [
+      "organisation",
+      "academic-year-title",
+      "subject",
+      "signature-banner",
+      "instructions-box"
+    ],
+    "subject_text": "英文考科",
+    "signature_background": "#d9d9d9",
+    "branding_policy": "生成卷須改標 Taiwan Exam 模擬試題，不得冒充大考中心；保留量測階層。"
+  },
+  "instructions": {
+    "transcription_status": "verified",
+    "blocks": [
+      {
+        "role": "duration",
+        "text": "考試時間：100分鐘"
+      },
+      {
+        "role": "answer_mode",
+        "text": "選擇題用2B鉛筆在「答題卷」上作答；更正時以橡皮擦擦拭，切勿使用修正帶（液）。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "除題目另有規定外，非選擇題用筆尖較粗之黑色墨水的筆在「答題卷」上作答；更正時，可以使用修正帶（液）。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "考生須依上述規定劃記或作答，若未依規定而導致答案難以辨識或評閱時，恐將影響成績。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "答題卷每人一張，不得要求增補。"
+      },
+      {
+        "role": "scoring_single",
+        "text": "單選題答對得該題分數；答錯、未作答或複選以零分計。"
+      },
+      {
+        "role": "scoring_multiple",
+        "text": "多選題依答錯選項數按(n−2k)/n比例計分，低於零分或全未作答以零分計。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-1",
+        "text": "說明：第1題至第10題為單選題，每題1分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-2",
+        "text": "說明：第11題至第20題為單選題，每題1分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-3",
+        "text": "說明：第21題至第30題為單選題，每題1分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-4",
+        "text": "說明：第31題至第34題為單選題，每題2分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-5",
+        "text": "說明：第35題至第46題為單選題，每題2分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-6",
+        "text": "說明：本部分共有1題組，每一子題配分標於題末；限在答題卷標示題號的作答區內作答。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-7",
+        "text": "說明：依題號將以下中文句子譯成正確、通順、達意的英文；每題4分，共8分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-8",
+        "text": "說明：依提示寫一篇英文作文，文長至少120個單詞。"
+      }
+    ],
+    "normalization": "抽取字型的異體字與數學符號已正規化；語義、用筆規則、配分與字數限制未省略。"
+  },
+  "section_styles": [
+    {
+      "id": "section-1",
+      "title": "詞彙題",
+      "order": 1
+    },
+    {
+      "id": "section-2",
+      "title": "綜合測驗",
+      "order": 2
+    },
+    {
+      "id": "section-3",
+      "title": "文意選填",
+      "order": 3
+    },
+    {
+      "id": "section-4",
+      "title": "篇章結構",
+      "order": 4
+    },
+    {
+      "id": "section-5",
+      "title": "閱讀測驗",
+      "order": 5
+    },
+    {
+      "id": "section-6",
+      "title": "混合題",
+      "order": 6
+    },
+    {
+      "id": "section-7",
+      "title": "中譯英",
+      "order": 7
+    },
+    {
+      "id": "section-8",
+      "title": "英文作文",
+      "order": 8
+    }
+  ],
+  "question_styles": {
+    "columns": 1,
+    "description": "single-column English passages; shared option banks remain adjacent; mixed-task store map and image-based composition retained",
+    "answer_sheet_mode": "另附答題卷",
+    "source_notes": "只留必要的原作／資料改寫註記，不在題本加入審計資訊。"
+  },
+  "running_elements": {
+    "page_numbers": "封面不編內頁號；內頁1至11",
+    "alternating_headers": true,
+    "signature": "請記得在答題卷簽名欄位以正楷簽全名",
+    "footer_audit_labels": false
+  },
+  "pagination": {
+    "physical_pages": 12,
+    "cover_pages": 1,
+    "observed_items_by_physical_page": {
+      "2": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "3": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "4": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "5": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "6": [
+        35,
+        36
+      ],
+      "7": [
+        37,
+        38
+      ],
+      "8": [
+        39,
+        40,
+        41,
+        42
+      ],
+      "9": [
+        43,
+        44,
+        45,
+        46
+      ],
+      "10": [],
+      "11": [
+        47,
+        48,
+        49,
+        50
+      ],
+      "12": []
+    },
+    "break_policy": "共同材料只印一次；避免拆散題幹與選項；跨頁處依此年度實際頁面處理。",
+    "reference_order_not_content_recipe": true
+  },
+  "evidence": {
+    "method": "page-by-page visual comparison and PDF text/vector measurement",
+    "confidence": 0.96,
+    "notes": "本檔只證明115參考題本的量測與逐頁檢視，不自動證明新生成PDF合格。",
+    "layout_review": {
+      "reviewer": "Codex / source-layout review",
+      "reviewed_at": "2026-09-10T00:00:00Z",
+      "method": "page-by-page",
+      "pages": [
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 1,
+          "observations": "封面100分鐘、選擇與非選擇用筆規則、單選與多選計分。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 2,
+          "observations": "內頁題號1至10；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 3,
+          "observations": "內頁題號11至20；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 4,
+          "observations": "內頁題號21至30；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 5,
+          "observations": "內頁題號31至34；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 6,
+          "observations": "內頁題號35至36；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 7,
+          "observations": "內頁題號37至38；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 8,
+          "observations": "內頁題號39至42；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 9,
+          "observations": "內頁題號43至46；逐題核對題號、作答型態、配分標示與圖表／選項連帶關係。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 10,
+          "observations": "混合題題組開頭、村落地圖與店家A至C。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 11,
+          "observations": "店家D至F及第47至50題三種作答型態。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        },
+        {
+          "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+          "page": 12,
+          "observations": "中譯英8分與至少120字、兩段式英文作文20分及三張提示圖。 同頁以PDF字框、向量線框與100dpi全頁影像核對版面。"
+        }
+      ],
+      "unresolved": [],
+      "profile_sha256": "a390efea09c418ccc81284387998ed9a0d7cecee080677f374cfb1d99501d709"
+    }
+  }
+}

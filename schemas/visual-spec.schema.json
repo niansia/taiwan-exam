@@ -83,7 +83,17 @@
     "source_creator": {"type": ["string", "null"]},
     "source_published_at": {"type": ["string", "null"], "format": "date"},
     "license_or_authorization": {"type": ["string", "null"]},
+    "source_asset_path": {"type": ["string", "null"], "minLength": 1},
+    "source_asset_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$"
+    },
     "crop_description": {"type": ["string", "null"]},
+    "processing_steps": {
+      "type": ["array", "null"],
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
     "grayscale_review": {
       "type": ["object", "null"],
       "additionalProperties": false,
@@ -159,7 +169,10 @@
         "required": [
           "source_url",
           "source_creator",
-          "license_or_authorization"
+          "license_or_authorization",
+          "source_asset_path",
+          "source_asset_sha256",
+          "processing_steps"
         ],
         "properties": {
           "source_url": {"type": "string", "format": "uri"},

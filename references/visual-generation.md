@@ -23,6 +23,21 @@ A strong paper may use all three. Do not satisfy the visual quota with four near
 
 For current GSAT mathematics, learn visual frequency and placement from ROC 111–115 official papers and same-period mocks, then distribute answer-bearing visuals across applicable single-choice, multiple-choice, fill-in, and mixed sections. Do not place the paper's only diagram in the final mixed group. Until item-level visual annotation is complete, an internal full-paper review candidate needs at least four required visuals or graphical representations across at least three sections; this is a provisional product floor, not a claimed CEEC statistic.
 
+Apply the same full-paper stability gate to the other visual-rich subjects. Pending complete subject/year annotation, the conservative internal floors are:
+
+| Subject | Required visual items | Sections | Distinct kinds | Minimum sourced real images | Additional spread |
+|---|---:|---:|---:|---:|---|
+| Mathematics A/B | 4 | 3 | 2 | 0 | include an item before the mixed section |
+| Natural Science | 8 | 2 | 4 | 2 | physics, chemistry, biology, and earth science |
+| Social Studies | 6 | 2 | 3 | 2 | history, geography, and civics |
+| English | 3 | 2 | 2 | 1 | include noncontinuous mixed evidence and the selected composition form when visual |
+
+These are provisional product floors, not CEEC frequency claims. The sourced-image column is a **minimum, never a target or ceiling**. Natural Science and Social Studies have no photo-count upper bound: after the floor is met, keep adding or retaining independently sourced photographs whenever each additional image supplies a distinct answer-bearing observation and improves section, source-family, evidence-role, or discipline coverage without damaging rights compliance, grayscale evidence survival, page density, or the official solving-time envelope. Do not stop at two just because the minimum passed, and do not pad a paper with ornamental photos to chase a larger number. A sourced real image means a camera photograph, archival photograph, microscope image, satellite observation, or comparable instrument observation with a traceable reusable source; generated photorealism and screenshots do not count. A completely annotated selected profile may require more. Run `scripts/validate_visual_item_contract.py`; it counts only evidence or required-for-solution visuals that have a completed visual-removal test. If a paper misses the envelope, delete and replace the failed item with a new visual reasoning mechanism. Adding an unrelated illustration to an unchanged text question does not count.
+
+For whole-paper content balance, Social Studies must keep history, geography, and civics close in both item count and score; Natural Science must do the same for physics, chemistry, biology, and earth science. Until a selected-year annotated profile sets a stricter distribution, reject a paper when the largest-to-smallest discipline item-count gap exceeds `3` or the score-share gap exceeds `8` percentage points. A balanced visual inventory does not compensate for an unbalanced subject inventory.
+
+Novelty is assessed on the information mechanism, solution graph, semantic data, and visual topology. A grayscale conversion, crop, rotation, relabeling, traced outline, or decorative restyle cannot make a copied figure or question new. Conversely, an original deterministic diagram can be highly novel without looking artistic when its representation forces a fresh, syllabus-bounded chain of inference. A multi-variable state surface, layered map, instrument trace, process cross-section, or text–image evidence panel is appropriate only when all external conventions are defined and the solution reduces to the selected curriculum.
+
 ## Choose the generation route
 
 Use a deterministic renderer when a pixel can change the answer:
@@ -47,7 +62,7 @@ If the context can be communicated clearly with original vector silhouettes plus
 
 For multi-panel photo options, generate each panel from a separate semantic description, normalize crop and contrast, then assemble and label the grid programmatically. Difficulty comes from the intended semantic contrast among panels, not from poor image quality or ambiguous cropping.
 
-Real photographs are allowed for English and social-studies stimuli when their provenance and rights permit reuse. Record the original URL or archive identifier, creator/agency when known, publication date, license or authorization, crop, and every tonal transformation. Do not treat "found on the web" as a rights status.
+Real photographs and authentic observation images are allowed for Natural Science, English, and Social Studies stimuli when their provenance and rights permit reuse. Record the original URL or archive identifier, creator/agency when known, publication date, license or authorization, preserved original-file path and SHA-256, crop, and every tonal transformation. The placed derivative must be a separately hashed fixed grayscale/bilevel raster; retaining only the transformed copy is insufficient. Do not treat "found on the web" as a rights status. Converting an internet image to black and white does not grant reuse rights, erase attribution requirements, or satisfy originality.
 
 Before converting a photograph, map each answer-bearing feature to one or more channels: shape, position, boundary, count, texture, readable label, relative tone, or measured value. Then render the exact placed crop in grayscale at the intended physical size and run an evidence-survival review. A reviewer must be able to point to every required feature without seeing the color original. If the item asks about hue, color category, color-coded legend, vegetation color, warning-light color, or any other chromatic fact, either add redundant deterministic encoding (labels, patterns, shapes, or values) and rewrite the item around that encoding, or reject the visual. Merely increasing contrast does not make a color-dependent question valid.
 
@@ -85,6 +100,21 @@ Before accepting a visual item, check all requested entries in `validation_check
 - keep alternative text observational and sufficient, but do not encode an inference or answer unavailable to sighted students.
 
 If any answer-bearing visual detail cannot be verified, reject and regenerate the item. Never repair an incorrect visual by changing the answer key alone.
+
+### Representation-topology rejection rule
+
+The renderer may share low-level utilities, but the final picture may not share one generic visual grammar across unrelated scientific representations. Inspect the actual SVG/raster, not only `visual_spec.kind`.
+
+- A coordinate or time-series graph has axes, units, ticks and plotted points/curves whose geometry carries values.
+- A vertical profile or geological cross-section has meaningful spatial coordinates, layers, boundaries or trajectories.
+- A spectrum has a calibrated wavelength/frequency axis and line or band positions.
+- A circuit, optical setup or experimental apparatus has connected components and a direction/path relevant to the model.
+- A pedigree, gel, process or causal network preserves the domain-specific node, lane, edge and direction semantics.
+- A data table has at least two genuine comparison dimensions and the solution uses a cross-cell comparison, lookup or transformation. A one-column list, a boxed formula, or values copied verbatim from the stem is not a table question.
+
+Reject a visual when all answer-bearing values and relations are duplicated in the prompt, when its rows merely paraphrase the stem, or when replacing it with a plain bullet list leaves the solution unchanged. In that situation, either move essential evidence out of the prose and into a correctly rendered figure, design a different visual mechanism, or remove the figure. Do not preserve it to satisfy visual counts or page density.
+
+For current full Natural Science papers using the measured choice-form contract, every deterministic visual records a `representation_audit` containing `topology_family`, `rendered_primitives`, `semantic_channels`, `declared_kind_matches_topology: true`, `verbatim_prompt_redundancy: false`, `removal_changes_answerability: true`, reviewer, and review time. Genuine tables additionally record `table_justification` and at least two `comparison_dimensions`. The whole-paper review must flag multiple near-identical label-row panels even when their metadata claims different kinds.
 
 ## Rendering
 

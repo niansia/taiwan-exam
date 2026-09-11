@@ -22,11 +22,17 @@ MAINTAINER_FILES = (
     '.github/workflows/distribution-security.yml',
 )
 PUBLIC_TESTS = set('''
-test_attribution.py test_audit_corpus_overlap.py test_exam_pack_contract.py
-test_failed_stress_suite.py test_paper_difficulty_balance.py test_pdf_provenance.py
-test_release_contract.py test_skill.py test_validate_english_layout_contract.py
-test_validate_english_vocabulary_scope.py test_validate_social_item_design.py
-test_validate_writing_source_grounding.py test_public_export.py test_optional_statistics_dependency.py test_scan_skill_release.py test_safe_rendering.py
+test_attribution.py test_audit_corpus_overlap.py test_build_official_question_queue.py
+test_density_content_volume.py test_exam_pack_contract.py test_failed_stress_suite.py
+test_gsat_115_templates.py test_math_b_content_distribution.py
+test_math_scope_polysemy.py test_measured_math_renderer.py
+test_natural_reasoning_and_blocks.py test_optional_statistics_dependency.py
+test_paper_difficulty_balance.py test_pdf_provenance.py test_public_export.py
+test_release_contract.py test_safe_rendering.py test_scan_skill_release.py
+test_skill.py test_validate_english_difficulty_design.py
+test_validate_english_layout_contract.py test_validate_english_vocabulary_scope.py
+test_validate_social_item_design.py test_validate_source_grounding.py
+test_validate_visual_item_contract.py test_validate_writing_source_grounding.py
 '''.split())
 
 

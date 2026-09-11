@@ -1,0 +1,362 @@
+{
+  "profile_id": "gsat-math-a-115-measured-v1",
+  "exam": "學測",
+  "subject": "數學A",
+  "section": null,
+  "curriculum": "108",
+  "regime": "111學年度起",
+  "reference_year": 2026,
+  "fidelity_status": "verified",
+  "source_files": [
+    {
+      "sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/115/03-115學測數學a試卷.pdf",
+      "page_count": 8
+    }
+  ],
+  "page_geometry": {
+    "paper_size": "A4",
+    "width_pt": 595.22,
+    "height_pt": 842,
+    "width_mm": 210,
+    "height_mm": 297,
+    "body_left_pt": 63.78,
+    "body_right_pt": 531.48,
+    "body_width_mm": 165,
+    "header_top_pt": 43.4,
+    "content_top_pt": 87,
+    "footer_baseline_pt": 797.22,
+    "footer_glyph_top_pt": 788.29,
+    "content_frame_height_mm": 241,
+    "cover_frame_pt": [
+      55.32,
+      211.86,
+      537.18,
+      781.92
+    ],
+    "measuring_method": "PyMuPDF glyph bboxes + vector rectangles, verified against all page rasters"
+  },
+  "typography": {
+    "body_chinese": {
+      "family": "PMingLiU",
+      "size_pt": 10.98,
+      "line_pitch_pt": 20
+    },
+    "body_latin": {
+      "family": "Times New Roman",
+      "size_pt": 10.98
+    },
+    "section_heading": {
+      "family": "PMingLiU",
+      "size_pt": 13.02,
+      "bold": true
+    },
+    "instructions": {
+      "family": "DFKai-SB",
+      "size_pt": 12,
+      "line_pitch_pt": 15.6
+    },
+    "header": {
+      "family": "DFKai-SB",
+      "size_pt": 10.98
+    },
+    "footer": {
+      "family": "Times New Roman",
+      "size_pt": 10.02
+    },
+    "fill_circle": {
+      "family": "DFKai-SB",
+      "size_pt": 25.98
+    },
+    "fill_row_label": {
+      "family": "Times New Roman",
+      "size_pt": 10.02
+    },
+    "formula": {
+      "main_pt": 10.98,
+      "scripts_observed_pt": [
+        6.42,
+        7.02
+      ],
+      "expected_semantics": [
+        "fractions",
+        "radicals",
+        "subscripts",
+        "superscripts",
+        "vectors",
+        "matrices"
+      ]
+    }
+  },
+  "cover": {
+    "hierarchy": [
+      "organisation",
+      "academic-year-title",
+      "subject",
+      "signature-banner",
+      "instructions-box"
+    ],
+    "organisation_size_pt": 19.98,
+    "year_title_size_pt": 19.98,
+    "subject_size_pt": 25.98,
+    "signature_size_pt": 18,
+    "signature_background": "#d9d9d9",
+    "instructions_title_size_pt": 16.02,
+    "frame_stroke_pt": 0.75,
+    "branding_policy": "Replace organisation with Taiwan Exam 模擬試題; do not impersonate CEEC. Keep measured hierarchy.",
+    "examples": [
+      "fraction-3-over-8",
+      "signed-minus-7-over-50"
+    ],
+    "no_extra_source_notes": true
+  },
+  "instructions": {
+    "transcription_status": "verified",
+    "blocks": [
+      {
+        "role": "duration",
+        "text": "考試時間：100分鐘"
+      },
+      {
+        "role": "answer_modes",
+        "text": "作答方式："
+      },
+      {
+        "role": "answer_mode",
+        "text": "選擇（填）題用2B鉛筆在「答題卷」上作答；更正時以橡皮擦擦拭，切勿使用修正帶（液）。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "除題目另有規定外，非選擇題用筆尖較粗之黑色墨水的筆在「答題卷」上作答；更正時，可以使用修正帶（液）。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "考生須依上述規定劃記或作答，若未依規定而導致答案難以辨識或評閱時，恐將影響成績。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "答題卷每人一張，不得要求增補。"
+      },
+      {
+        "role": "answer_mode",
+        "text": "選填題考生必須依各題的格式填答，且每一個列號只能在一個格子劃記。請仔細閱讀下面的例子。"
+      },
+      {
+        "role": "marking_example",
+        "text": "例：若答案格式是分子18-1列、分母18-2列，而依題意計算出來的答案是3/8，則考生必須分別在答題卷上的第18-1列的3與第18-2列的8劃記。",
+        "format": {
+          "kind": "fraction",
+          "numerator_slots": 1,
+          "denominator_slots": 1,
+          "rows": [
+            "18-1",
+            "18-2"
+          ],
+          "values": [
+            "3",
+            "8"
+          ]
+        }
+      },
+      {
+        "role": "marking_example",
+        "text": "例：若答案格式是分子19-1、19-2列、固定分母50，而答案是−7/50時，則考生必須分別在答題卷的第19-1列的−與第19-2列的7劃記。",
+        "format": {
+          "kind": "fraction",
+          "numerator_slots": 2,
+          "fixed_denominator": "50",
+          "rows": [
+            "19-1",
+            "19-2"
+          ],
+          "values": [
+            "−",
+            "7"
+          ]
+        }
+      },
+      {
+        "role": "scoring_single",
+        "text": "單選題：每題有n個選項，其中只有一個是正確或最適當的選項。各題答對者，得該題的分數；答錯、未作答或劃記多於一個選項者，該題以零分計算。"
+      },
+      {
+        "role": "scoring_multiple",
+        "text": "多選題：每題有n個選項，其中至少有一個是正確的選項。各題之選項獨立判定，所有選項均答對者，得該題全部的分數；答錯k個選項者，得該題(n−2k)/n的分數；但得分低於零分或所有選項均未作答者，該題以零分計算。"
+      },
+      {
+        "role": "scoring_fill",
+        "text": "選填題每題有n個空格，須全部答對才給分，答錯不倒扣。"
+      },
+      {
+        "role": "figure_note",
+        "text": "※試題中參考的附圖均為示意圖，試題後附有參考公式及數值。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-1",
+        "text": "說明：第1題至第6題，每題5分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-2",
+        "text": "說明：第7題至第12題，每題5分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-3",
+        "text": "說明：第13題至第17題，每題5分。"
+      },
+      {
+        "role": "section",
+        "section_id": "section-4",
+        "text": "說明︰本部分共有1題組，單選題每題3分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。\n選擇（填）題與「非選擇題作圖部分」使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，作答時必須寫出計算過程或理由，否則將酌予扣分。"
+      }
+    ],
+    "normalization": "Traditional Chinese glyph variants and typesetting spaces normalized; mathematical fractions and marking diagrams retained semantically."
+  },
+  "section_styles": [
+    {
+      "id": "part-one",
+      "title": "第壹部分、選擇（填）題（占85分）",
+      "size_pt": 13.02
+    },
+    {
+      "id": "section-1",
+      "title": "一、單選題（占30分）"
+    },
+    {
+      "id": "section-2",
+      "title": "二、多選題（占30分）"
+    },
+    {
+      "id": "section-3",
+      "title": "三、選填題（占25分）"
+    },
+    {
+      "id": "section-4",
+      "title": "第貳部分、混合題或非選擇題（占15分）"
+    }
+  ],
+  "question_styles": {
+    "columns": 1,
+    "number_weight": "normal",
+    "number_indent_pt": 18,
+    "option_labels": "(1)–(5)",
+    "option_layouts": [
+      "row-5",
+      "grid-3-2",
+      "grid-2",
+      "stack"
+    ],
+    "answer_rails": "inline circles with sequential per-question row ids; ruled integer or fractional form",
+    "mixed_response_lines": false,
+    "figures": "black lines; labels clear of edges; schematic unless specified",
+    "item_spacing": "distributed working gaps are part of mathematics form; no science 78% endpoint rule",
+    "source_notes": "only necessary factual/rights notes; no audit/source supplement blocks in question booklet"
+  },
+  "running_elements": {
+    "page_numbers": "cover unnumbered; inside page 1–7",
+    "alternating_headers": true,
+    "signature": "請記得在答題卷簽名欄位以正楷簽全名",
+    "signature_background": "#d9d9d9",
+    "footer": "- page -",
+    "footer_audit_labels": false
+  },
+  "pagination": {
+    "physical_pages": 8,
+    "numbered_pages": 7,
+    "cover_pages": 1,
+    "question_pages": 6,
+    "formula_pages": 1,
+    "break_policy": "do not split a question or options; section may start after preceding item; shared stimulus printed once",
+    "observed_items_by_physical_page": {
+      "2": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "3": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "4": [
+        9,
+        10
+      ],
+      "5": [
+        11,
+        12
+      ],
+      "6": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "7": [
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    "reference_order_not_content_recipe": true
+  },
+  "evidence": {
+    "method": "page-by-page visual comparison and PDF text/vector measurement",
+    "confidence": 0.96,
+    "notes": "Profile records reviewed official layout, not proof that any newly rendered exam passes. All 8 source pages inspected; output must undergo separate final gate.",
+    "layout_review": {
+      "profile_sha256": "e3152ac2d8a937c47325a5642c7b67c10f4a99ae5523aeec8b9586c7572beaf9",
+      "reviewer": "Codex / source-layout review",
+      "reviewed_at": "2026-09-09T15:48:29Z",
+      "method": "page-by-page",
+      "unresolved": [],
+      "pages": [
+        {
+          "page": 1,
+          "observations": "Reviewed both machine-marking examples, all five answer-mode bullets, all three scoring rules, gray signature banner and 0.75 pt enclosing rectangle; role-specific font measurements above.",
+          "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        },
+        {
+          "page": 2,
+          "observations": "Main heading and single-choice heading followed by framed instruction; questions 1–4; five options per item; math fractions and exponents increase local line boxes; ordinary prose approx11pt.",
+          "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        },
+        {
+          "page": 3,
+          "observations": "Questions 5–6 then multiple-choice section starts, questions 7–8; stacked matrix typography; alternating header columns; same text baseline family.",
+          "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        },
+        {
+          "page": 4,
+          "observations": "Questions 9–10 only; extended propositions and trapezoid figure; substantial distributed working gaps legitimate for mathematics, no bottom-density substitution.",
+          "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        },
+        {
+          "page": 5,
+          "observations": "Questions 11–12; displayed math and five stacked propositions; section heading not repeated; preserve explicit option geometry.",
+          "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        },
+        {
+          "page": 6,
+          "observations": "Fill section begins; questions13–16; numerator/denominator and coefficient/radical rails use25.98pt circle glyphs and10.02pt row ids; not ordinary underline blanks.",
+          "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        },
+        {
+          "page": 7,
+          "observations": "Question17 then mixed section and its full instruction box; group18–20 shares a right-side geometric drawing;3/4/8point response types; no answer lines in booklet.",
+          "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        },
+        {
+          "page": 8,
+          "observations": "Formula-only page with seven categories; series fractions, angle addition, triangle identities, mean/SD, correlation/regression and numeric constants; same page header/footer.",
+          "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3"
+        }
+      ]
+    }
+  }
+}

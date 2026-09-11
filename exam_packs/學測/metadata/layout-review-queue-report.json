@@ -1,16 +1,11 @@
 {
   "schema_version": 1,
-  "candidate_count": 7,
+  "candidate_count": 1,
   "reference_years": [
     2026
   ],
   "subjects": [
-    "國文",
-    "數學A",
-    "數學B",
-    "社會",
-    "自然",
-    "英文"
+    "數學A"
   ],
   "status": "pending-review",
   "gate": "No candidate becomes verified until instructions are transcribed and every rendered page passes visual review."
