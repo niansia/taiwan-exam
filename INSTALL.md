@@ -177,7 +177,9 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 
 ```text
 請採用我附上的 Taiwan Exam Skill，完整保留它的規則與支援資源，
-並儲存為之後對話可用的 Taiwan Exam Skill／Gem。不要另寫通用出題器。
+並儲存為之後對話可用的 Taiwan Exam Skill／Gem。
+依模板資產地圖下載並保存全部 30 個 PDF 支援資源，逐份驗證 SHA-256。
+不要另寫通用出題器，也不要將模板重打或重排。
 ```
 
 ### 以後直接這樣說
