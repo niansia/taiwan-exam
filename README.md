@@ -6,57 +6,148 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 
 > **ZIP／Release 仍暫停。** 舊草稿與舊 ZIP 已刪除；2026-09-11 的新候選雖通過最新版 Defender 檔案與附件檢查，一般 Chrome 下載仍回報 `ERR_BLOCKED_BY_CLIENT`，因此候選 release 與標籤也已撤下。不可從 Git 歷史取回或把通過的檔案掃描誤當成瀏覽器驗收。事實與復原條件見 [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json)、[安全事件紀錄](references/security-incident-2026-09-09.md)及[候選檢查紀錄](references/security-resolution-2026-09-11.md)。
 
-## 網頁版一分鐘開始
+## 三種使用方式
 
-不會寫程式也可以使用。先下載同一套規則自動彙整的[網頁版知識檔](web/taiwan-exam-web-knowledge.md)。它可用於 ChatGPT 的 Skill／Project、Claude Project 與 Gemini Gem，不是另一套命題器。
+| 你正在使用 | 第一次怎麼做 | 以後怎麼叫出來 |
+| --- | --- | --- |
+| ChatGPT、Claude.ai、Gemini 網頁版 | 上傳[網頁版知識檔](web/taiwan-exam-web-knowledge.md)，建立 Skill、Project 或 Gem | 開啟同一個 Skill／Project／Gem，再說要出的科目 |
+| Codex CLI、Claude Code、Gemini CLI | 從 GitHub 原始碼安裝完整 Skill | Codex 用 `$taiwan-exam-generator`、Claude Code 用 `/taiwan-exam-generator`；Gemini CLI 可直接用自然語言要求採用該 Skill |
+| Codex 或 Claude Code 桌面版 | 在聊天框請代理從本儲存庫安裝，不必自己搬檔案 | 從技能選單選取 Taiwan Exam，或輸入對應的 `$`／`/` 名稱 |
 
-第一次在 ChatGPT Work 的 Skill/Project、Claude Project 或 Gemini 的 Gem 建立頁面中，上傳這份 Markdown 並貼上：
+無論用哪一種方式，完整考卷都要分開交付「題目 PDF」與「答案詳解 PDF」，並完成內容、答案及逐頁版面檢查。只想試幾題時請明說「自訂練習」。
 
-```text
-請採用我附上的 Taiwan Exam Skill，完整保留它的規則與支援資源，
-並儲存為之後對話可用的 Taiwan Exam Skill／Gem。不要另寫通用出題器。
-```
+## 網頁版：ChatGPT、Claude.ai、Gemini
 
-以後開啟該 Skill／Gem，只要說：
+先下載同一套正式規則自動彙整的[網頁版知識檔](web/taiwan-exam-web-knowledge.md)。這是方便網頁平台讀取的單一 Markdown，不是另一套命題器。
 
-```text
-請使用 Taiwan Exam，出一份 116 學測數學 B 完整模擬考。
-請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成內容、答案與逐頁版面檢查。
-```
+### ChatGPT 網頁版
 
-ChatGPT Work 建立 Skill 後可在輸入框鍵入 `@` 選擇；Claude 可把 Markdown 放進 Project Knowledge；Gemini 到 `Gems > New Gem`，把 Markdown 加入 `Knowledge`。各平台完整步驟見[網頁版使用說明](references/web-platform-use.md)及 [INSTALL.md](INSTALL.md)。Claude 的原生 Skill ZIP 上傳路徑要等通過安全驗收的新 ZIP；目前不要使用舊包。帳號若未開放檔案建立或程式執行，AI 必須明確說明缺少的能力，不能用聊天文字冒充兩份已驗收 PDF。
-
-## 本機版一分鐘開始
-
-建議使用能讀寫本機檔案、執行驗證程式並檢查 PDF 的 AI 代理：Codex、Claude Code 或 Gemini CLI。Windows、macOS、Linux 使用同一份 Skill；路徑與工具差異由代理處理。
-
-第一次只要把下面這段貼給 AI：
+在 ChatGPT Work 新對話輸入 `@skill-creator`，附上知識檔後貼上：
 
 ```text
-請把 Taiwan Exam 安裝成我的使用者層級 Skill：
-https://github.com/niansia/taiwan-exam
-
-請先讀儲存庫中的 INSTALL.md，依我目前的 Codex／Claude Code／Gemini CLI
-與作業系統完成安裝及驗證。不要使用舊版 ZIP，不要關閉安全防護；
-若已安裝就沿用，不要覆寫我的私人考試資料。
+請使用我附上的 taiwan-exam-web-knowledge.md 建立「Taiwan Exam Generator」Skill。
+完整保留其中規則與資源索引，不要另寫一套通用出題器。
+完整考卷必須分開交付題目 PDF 與答案詳解 PDF，並完成逐頁檢查。
 ```
 
-安裝後可直接說：
+建立後，在輸入框鍵入 `@` 選取 `Taiwan Exam Generator`，再貼上：
 
 ```text
-請使用 Taiwan Exam，出一份 116 學測數學 B 完整模擬考，附答案、詳解與 PDF。
-請先核對課綱與卷型；每頁排版和公式都要檢查，未通過不得稱為正式版。
+請出一份 116 學測社會完整模擬考。
+請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成命題、解題驗證與逐頁版面檢查。
 ```
 
-或：
+若帳號沒有 Skills，可建立一個固定 Project，把同一知識檔與第一次設定文字放入 Project；不要把普通聊天的一次附件上傳稱為永久安裝。
+
+### Claude.ai 網頁版
+
+建立 `Taiwan Exam` Project，把知識檔加入 `Project Knowledge`，並把這段存入 `Project Instructions`：
 
 ```text
-請使用 Taiwan Exam，出學測社會與自然各一份。
-題目要原創、課綱內、重視材料推理；真實照片轉黑白後仍須保留解題證據。
-答案與詳解另外輸出。
+本 Project 一律採用 Knowledge 中的 Taiwan Exam Skill 規則出題。
+不要另寫通用命題器；完整考卷須分開交付題目 PDF 與答案詳解 PDF，
+並完成內容、答案與逐頁版面檢查。能力不足時請明確回報，不得以聊天文字冒充 PDF。
 ```
 
-只想試幾題時請明說「自訂練習」；完整模考不會因資料或工具不足而偷偷縮成短題組。
+以後進入同一個 Project，只要說：
+
+```text
+請依 Taiwan Exam Skill 出一份 116 學測英文完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
+```
+
+Claude 的原生 Skill ZIP 上傳要等本專案重新開放安全 ZIP；目前不要使用舊包。
+
+### Gemini 網頁版
+
+到 `Gems > New Gem`，名稱填 `Taiwan Exam`，把知識檔加入 `Knowledge`，並把這段放入 Instructions：
+
+```text
+採用 Knowledge 中的 Taiwan Exam Skill 全部規則；不要另寫通用命題器。
+完整考卷須分開交付題目 PDF 與答案詳解 PDF，並完成可用的內容與逐頁檢查。
+```
+
+以後從 `My Gems` 選取 `Taiwan Exam`，再說：
+
+```text
+請出一份 116 學測自然完整模擬考，依 Skill 交付題目 PDF 與答案詳解 PDF。
+```
+
+## CLI 版：Codex、Claude Code、Gemini CLI
+
+Windows、macOS、Linux 使用同一份 Skill。以下第一個區塊是在對應 AI 的互動視窗中輸入；只有 Gemini 的安裝指令是在一般終端機執行。
+
+### Codex CLI
+
+第一次在 Codex 輸入：
+
+```text
+$skill-installer
+請從 https://github.com/niansia/taiwan-exam 安裝 taiwan-exam-generator 為使用者層級 Skill。
+先讀 INSTALL.md，完成完整性檢查；不要使用舊 ZIP，也不要覆寫我的私人考試資料。
+```
+
+安裝後可用 `/skills` 確認；以後輸入：
+
+```text
+$taiwan-exam-generator
+請出一份 116 學測數學 B 完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
+```
+
+### Claude Code CLI
+
+第一次啟動 Claude Code 後貼上：
+
+```text
+請從 https://github.com/niansia/taiwan-exam 取得完整原始碼，先讀 INSTALL.md，
+再把 taiwan-exam-generator 安裝到我的使用者層級 Skills 並驗證。不要使用舊 ZIP，
+若已安裝就沿用，不要覆寫私人 exam_packs 或自訂模板。
+```
+
+以後可輸入 `/taiwan-exam-generator` 或從 `/` 選單選取技能，再接著說：
+
+```text
+請出一份 116 學測社會完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
+```
+
+### Gemini CLI
+
+第一次在一般終端機執行：
+
+```sh
+gemini skills install https://github.com/niansia/taiwan-exam
+```
+
+進入 Gemini CLI 後用 `/skills list` 確認，需要重新掃描時用 `/skills reload`。以後直接說：
+
+```text
+請使用 taiwan-exam-generator，出一份 116 學測英文完整模擬考，
+分開交付題目 PDF 與答案詳解 PDF，並完成逐頁檢查。
+```
+
+## 桌面版：Codex 與 Claude Code Desktop
+
+### Codex 桌面版
+
+不用開終端機。第一次在聊天框貼上：
+
+```text
+請使用 $skill-installer，從 https://github.com/niansia/taiwan-exam
+安裝 taiwan-exam-generator 為我的使用者層級 Skill。先讀 INSTALL.md 並完成驗證；
+不要使用舊 ZIP，也不要覆寫我的私人考試資料。
+```
+
+以後輸入 `$` 選取 `taiwan-exam-generator`，或直接貼上：
+
+```text
+$taiwan-exam-generator
+請出一份 116 學測國綜完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
+```
+
+### Claude Code Desktop
+
+在桌面版開啟一個本機資料夾，第一次貼上與 Claude Code CLI 相同的安裝文字。安裝後輸入 `/`，從技能清單選取 `taiwan-exam-generator`，再描述考卷需求。一般 ChatGPT／Claude 桌面聊天若沒有本機代理或技能安裝能力，請照上面的「網頁版」做法使用 Project／Skill；不要把兩者混為一談。
+
+各平台的安裝範圍、手動備援與驗證方式見 [INSTALL.md](INSTALL.md)。帳號若未開放檔案建立、程式執行或逐頁 PDF 檢查，AI 必須明確說明缺少的能力，不能用聊天文字冒充兩份已驗收 PDF。
 
 ## 平台支援
 
