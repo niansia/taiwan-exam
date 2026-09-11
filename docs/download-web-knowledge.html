@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://raw.githubusercontent.com; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>下載 Taiwan Exam 網頁版知識檔</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f3f5f7; color: #17202a; }
+    main { width: min(38rem, calc(100% - 2rem)); box-sizing: border-box; padding: 2rem; border: 1px solid #d8dee4; border-radius: 1rem; background: #fff; box-shadow: 0 1rem 3rem rgba(23, 32, 42, .10); }
+    h1 { margin: 0 0 .75rem; font-size: clamp(1.5rem, 5vw, 2rem); }
+    p { line-height: 1.7; }
+    button, a.button { display: inline-block; box-sizing: border-box; padding: .8rem 1rem; border: 0; border-radius: .55rem; background: #0969da; color: #fff; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+    button:hover, a.button:hover { background: #0550ae; }
+    small { display: block; margin-top: 1.25rem; line-height: 1.55; color: #57606a; }
+    #status { min-height: 1.7em; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0d1117; color: #e6edf3; }
+      main { background: #161b22; border-color: #30363d; box-shadow: none; }
+      small { color: #9da7b3; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Taiwan Exam 網頁版知識檔</h1>
+    <p id="status" role="status" aria-live="polite">正在準備下載……</p>
+    <p><button id="download" type="button">再次下載知識檔</button></p>
+    <small>檔名：taiwan-exam-web-knowledge.md<br>內容：純文字 Markdown，不是 ZIP 或執行檔。</small>
+    <noscript><p>瀏覽器已停用 JavaScript。請改用<a class="button" href="https://raw.githubusercontent.com/niansia/taiwan-exam/refs/heads/main/web/taiwan-exam-web-knowledge.md">開啟原始文字</a>，再使用瀏覽器的另存功能。</p></noscript>
+  </main>
+  <script>
+    const sourceUrl = "https://raw.githubusercontent.com/niansia/taiwan-exam/refs/heads/main/web/taiwan-exam-web-knowledge.md";
+    const filename = "taiwan-exam-web-knowledge.md";
+    const status = document.getElementById("status");
+    const button = document.getElementById("download");
+
+    async function downloadKnowledge() {
+      button.disabled = true;
+      status.textContent = "正在準備下載……";
+      try {
+        const response = await fetch(sourceUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const blob = await response.blob();
+        if (blob.size < 100000) throw new Error("檔案內容不完整");
+        const objectUrl = URL.createObjectURL(new Blob([blob], { type: "text/markdown;charset=utf-8" }));
+        const link = document.createElement("a");
+        link.href = objectUrl;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+        status.textContent = "下載已開始。完成後可把檔案上傳到 ChatGPT、Claude 或 Gemini。";
+      } catch (error) {
+        status.textContent = "自動下載失敗，請稍後再按一次；若仍失敗，請回到專案頁回報。";
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    button.addEventListener("click", downloadKnowledge);
+    downloadKnowledge();
+  </script>
+</body>
+</html>
