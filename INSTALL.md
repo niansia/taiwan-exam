@@ -154,9 +154,10 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 使用者逐份尋找；搜尋摘要不能取代實際 PDF。若介面無法搜尋、讀取
 或逐頁查看 PDF，必須保留相應的未驗證狀態。
 
-知識檔也內建七科固定版型元件的可驗證直連與確定性模板原始碼。
-網頁代理應自行取得當科 PDF 模板；遠端二進位檔無法進入檔案工具時，
-以內嵌原始碼重建。若兩者都無法執行，不得宣稱已套用固定模板。
+知識檔也內建七科固定版型元件的可驗證直連。網頁代理必須自行
+取得當科 PDF，核對雜湊後以原始位元組當作不可重排的底層；只覆疊四個
+可變欄位與正文。不得藉由 OCR、HTML、Word、截圖或改字型重建封面。
+平台無法匯入原始 PDF 或合併 PDF 圖層時，不得宣稱已套用固定模板。
 
 官方說明：<https://learn.chatgpt.com/docs/skills-and-plugins>、<https://learn.chatgpt.com/docs/build-skills>
 
