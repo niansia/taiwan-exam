@@ -61,12 +61,19 @@ def source_paths(root: Path = ROOT) -> list[Path]:
             paths.append(pack_root / name)
         if pack == "學測":
             paths.append(pack_root / "source-pack-manifest.json")
+            paths.append(pack_root / "metadata" / "official-current-web-sources.json")
+            paths.append(pack_root / "templates" / "115" / "hosted-web-template-assets.json")
         paths.extend(sorted((pack_root / "shared-data").glob("*.json")))
         paths.extend(sorted((pack_root / "templates").rglob("*.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/subject.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/writer-blueprint.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/difficulty-profile.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/layout-profiles/*.json")))
+
+    # Hosted agents cannot assume this repository is mounted. Embed the
+    # dependency-free canonical template definition so they can reconstruct the
+    # same locked cover/page furniture when binary-PDF import is unavailable.
+    paths.append(root / "scripts" / "gsat_115_templates.py")
 
     unique = sorted({path.resolve() for path in paths}, key=lambda path: path.relative_to(root).as_posix())
     missing = [path.relative_to(root).as_posix() for path in unique if not path.is_file()]

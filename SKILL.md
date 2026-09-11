@@ -55,6 +55,11 @@ and an answer-with-full-solutions PDF. Generate and visually inspect both with
 the surface's file/code tools. If that surface cannot create files, execute the
 required checks, or inspect every PDF page, state the exact limitation and do
 not label text-only output or an unchecked PDF as the completed formal paper.
+For a current-form full paper on a hosted surface, the official-source preflight
+in that reference is mandatory. Use the embedded
+`exam_packs/學測/metadata/official-current-web-sources.json` direct-link map;
+search results, filenames, answer keys, or aggregate statistics alone do not
+prove that the 111–115 question PDFs were opened and reviewed.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).
@@ -144,6 +149,8 @@ Do not average incompatible paper structures or infer a section recipe from loos
 A Paper Profile is not a Layout Profile. A formal paper must also select a subject/regime-compatible Layout Profile whose `fidelity_status` and instruction transcription are both `verified`. It must reproduce the official cover hierarchy, full作答注意事項, score explanations, section labels, page geometry, running headers/footers, typeface roles, apparent type size, line pitch, page-density behavior, answer-sheet references, and subject-specific answer spaces. A generic readable renderer may be called a preview only. The observed page count is reference evidence, not a target that outranks typography or substantive content: never shrink type, narrow margins, compress line spacing, enlarge figures, add blank answer lines, or truncate material merely to force the same number of physical pages.
 
 For a 111–115-regime GSAT booklet, first load [references/gsat-115-template-assets.md](references/gsat-115-template-assets.md) and `exam_packs/學測/templates/115/template-pack.json`. Use its subject-specific deterministic template for the cover, signature banner, full answer instructions, scoring rules, alternating running header/footer, and (for Mathematics A/B) the correct reference-formula variant. The LLM may supply only the named dynamic fields: academic year, test name, actual current page, and actual total inner pages. It must not paraphrase, shorten, expand, or regenerate the locked cover text. Mathematics A and B are separate formula assets; Math B must not inherit Math A's angle-addition block. Render body content first, obtain the real inner-page total, and only then fill page furniture. Never force body text into the reference year's page count, and never treat `blank-template.pdf` as a fixed-page exam skeleton. These assets are layout-only and must not become a reusable question generator, question bank, or batch-content source.
+
+On a hosted web surface, also load `exam_packs/學測/templates/115/hosted-web-template-assets.json`. Prefer its verified subject-specific PDF component URLs and check the downloaded byte hash before composition. If the surface cannot import remote binary PDFs but can execute code, reconstruct the same assets from the embedded canonical `scripts/gsat_115_templates.py` source, then perform the same rendered-page checks. Merely seeing a template link or its extracted text is not template application. If neither exact asset composition nor deterministic reconstruction is available, the result is a generic-layout draft and must not be labelled as having used the fixed template.
 
 ## Regression gates learned from full-paper review
 
