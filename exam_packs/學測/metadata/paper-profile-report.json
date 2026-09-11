@@ -1,33 +1,23 @@
 {
   "schema_version": 1,
-  "created_at": "2026-09-04T07:17:54.097206+00:00",
-  "paper_profile_count": 625,
+  "created_at": "2026-09-11T09:32:29.597125+00:00",
+  "paper_profile_count": 663,
   "by_status": {
-    "auto_parsed": 139,
-    "pending_ocr": 425,
-    "needs_review": 26,
-    "verified": 35
+    "pending_ocr": 447,
+    "needs_review": 59,
+    "auto_parsed": 157
   },
   "by_subject": {
-    "國文": 180,
-    "數學A": 22,
-    "數學B": 23,
-    "數學（共同範圍模考）": 76,
+    "國文": 191,
+    "數學A": 25,
+    "數學B": 27,
+    "數學（共同範圍模考）": 78,
     "數學（舊制）": 11,
-    "社會": 100,
-    "自然": 99,
-    "英文": 114
+    "社會": 105,
+    "自然": 106,
+    "英文": 120
   },
-  "full_paper_ready_count": 106,
-  "full_paper_ready_by_subject": {
-    "國文": 34,
-    "數學A": 8,
-    "數學B": 8,
-    "數學（共同範圍模考）": 6,
-    "數學（舊制）": 1,
-    "社會": 9,
-    "自然": 20,
-    "英文": 20
-  },
-  "gate": "Only manually verified profiles, or auto-parsed profiles with confidence >= 0.9 and reconciled counts, may claim exact full-paper simulation."
+  "full_paper_ready_count": 0,
+  "full_paper_ready_by_subject": {},
+  "gate": "Only hash-bound page/slot-reviewed profiles may claim full-paper readiness; parser confidence and reference recipes never establish verification."
 }

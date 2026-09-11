@@ -324,10 +324,18 @@ def write_reports(entries: list[dict[str, Any]], intake_entries: list[dict[str, 
     metadata_dir.mkdir(parents=True, exist_ok=True)
     registry = metadata_dir / "source-registry.jsonl"
     report = metadata_dir / "ingestion-report.json"
-    registry.write_text("".join(json.dumps(entry, ensure_ascii=False) + "\n" for entry in entries), encoding="utf-8")
+    registry.write_text(
+        "".join(json.dumps(entry, ensure_ascii=False) + "\n" for entry in entries),
+        encoding="utf-8",
+        newline="\n",
+    )
     payload = summarize(entries)
     payload["latest_intake"] = summarize(intake_entries)
-    report.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    report.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     return registry, report
 
 

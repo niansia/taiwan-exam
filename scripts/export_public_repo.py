@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # explicit so ZIP minimization cannot silently remove publication/CI safeguards.
 MAINTAINER_FILES = (
     'scripts/package_skill.py',
+    'scripts/build_source_release.py',
     'scripts/build_web_knowledge.py',
     'scripts/export_public_repo.py',
     'scripts/scan_skill_release.py',
@@ -30,6 +31,7 @@ test_math_scope_polysemy.py test_measured_math_renderer.py
 test_natural_reasoning_and_blocks.py test_optional_statistics_dependency.py
 test_paper_difficulty_balance.py test_pdf_provenance.py test_public_export.py
 test_release_contract.py test_safe_rendering.py test_scan_skill_release.py
+test_source_bootstrap.py
 test_skill.py test_validate_english_difficulty_design.py
 test_validate_english_layout_contract.py test_validate_english_vocabulary_scope.py
 test_validate_social_item_design.py test_validate_source_grounding.py

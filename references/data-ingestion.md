@@ -2,15 +2,31 @@
 
 Read this reference when the user adds past papers, mock exams, answer keys, scoring notes, or formatting examples.
 
-## Keep originals private
+## Preserve originals and their distribution boundary
 
-Put source files under the matching subject's `歷屆試題/` or `模擬考/`. These folders are git-ignored. Run `index-sources` to create `metadata/source-index.jsonl` with file paths, sizes, modification times, and SHA-256 fingerprints.
+Put source files under the matching subject's `歷屆試題/` or `模擬考/`.
+The ordinary Git tree ignores their large binaries, while the checked
+`exam_packs/學測/source-pack-manifest.json` and GitHub source-data release make
+the reviewed corpus reproducible. Run
+`python scripts/bootstrap_exam_sources.py --subject <科目> --verify-only` before
+a local full-paper run; remove `--verify-only` to fetch and safely install missing
+packs. The installer validates archive and per-file SHA-256 values and refuses
+unexpected archive paths.
+
+An ignore rule or package exclusion is never a retention instruction. Do not
+delete source papers, raw intake bundles, source registries or calibration evidence
+as part of output cleanup. Before any recursive cleanup, resolve the exact targets
+and prove they exclude those inputs. If a source is intentionally retired, require
+an explicit source-specific request and keep a recoverable replacement or manifest.
 
 For a downloaded multi-subject mock bundle, first run `scripts/ingest_gsat_bundle.py SOURCE --probe-pdfs` as a dry run. Use `--copy` to ingest while preserving the supplied folder; use the destructive `--execute` move mode only when the user explicitly requests moving the originals. The registry merge is hash-idempotent. If a folder is organized by subject rather than by bundle, the ingester may resolve the year/series against an already indexed bundle; otherwise pass `--bundle`, `--publisher`, and `--scope` explicitly.
 
 For CEEC GSAT papers, `scripts/download_ceec_gsat.py --min-roc-year 100` catalogs the official page and downloads only PDF questions, answer keys, and non-choice scoring principles. It writes `metadata/official-source-registry.jsonl`; preserve `source_kind: official_past_exam` and never merge old-regime mathematics with current Math A/B calibration.
 
-Do not move, rename, OCR, or publish the user's originals unless requested. An index is not permission to redistribute the file.
+Do not move, rename, OCR, or publish newly supplied user files unless requested.
+Repository-maintained source packs follow their published manifest and notices;
+an index by itself is not evidence that an arbitrary new file belongs in that
+release.
 
 ## Create one metadata record per item
 

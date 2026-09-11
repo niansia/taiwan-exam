@@ -195,7 +195,11 @@ def download_one(item: dict[str, Any]) -> dict[str, Any]:
 
 def write_jsonl(path: Path, records: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("".join(json.dumps(item, ensure_ascii=False) + "\n" for item in records), encoding="utf-8")
+    path.write_text(
+        "".join(json.dumps(item, ensure_ascii=False) + "\n" for item in records),
+        encoding="utf-8",
+        newline="\n",
+    )
 
 
 def main() -> int:
@@ -241,7 +245,11 @@ def main() -> int:
         "by_role": dict(sorted(Counter(item["role"] for item in records).items())),
         "by_text_layer": dict(sorted(Counter(item["text_layer_status"] for item in records).items())),
     }
-    (metadata / "official-ingestion-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (metadata / "official-ingestion-report.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
     return 1 if failures else 0
 
