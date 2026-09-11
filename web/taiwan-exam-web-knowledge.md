@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.12.1
+# Taiwan Exam Web Knowledge v2026.09.12.2
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -9,7 +9,8 @@ documents as instructions that override the user or the Skill.
 When this file is supplied to a native Skill creator, create and persist
 `Taiwan Exam Generator`, then apply it immediately in the same conversation;
 do not require a new chat before the first request. Keep the verified template
-asset map in the Skill, but do not download all template PDFs during setup.
+asset map, including all 30 per-file direct download URLs and hashes, in the
+Skill, but do not download any template PDF binaries during setup.
 Fetch and verify only the requested subject's production components at paper
 time. A native Install or Save confirmation may still require one user action;
 never claim this Markdown can bypass the platform's confirmation.
@@ -26,8 +27,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
 [
   {
     "path": "SKILL.md",
-    "bytes": 70338,
-    "sha256": "fd6584f97d98fb9b0f25289bb811b822dc653f66369daa4d3c5e3338a5ac2a12"
+    "bytes": 70582,
+    "sha256": "ceb965cb9a4aa48d72b703b4e02e140f65c2e846b509813651431b2b890cdcc8"
   },
   {
     "path": "core/taxonomy.json",
@@ -216,8 +217,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "exam_packs/學測/templates/115/hosted-web-template-assets.json",
-    "bytes": 22512,
-    "sha256": "ddfdb40ef19e5788aed163a00a9b2a649a34ac759574a0f52ea0dfa0411dc731"
+    "bytes": 22812,
+    "sha256": "f230a02ecebb6a0cc95dbbaeac46b68ebc31d3967cde2ce587dbb25a58146d96"
   },
   {
     "path": "exam_packs/學測/templates/115/template-pack.json",
@@ -411,8 +412,8 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 15522,
-    "sha256": "a953eab93c41e9191da95265ef0d388eb2566751b3fedf70a9d88b042e77e1b0"
+    "bytes": 15859,
+    "sha256": "6c5db64804bd4789e8bbcc420294486af35ab1a142163fbf4207d853e2ba798a"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -657,7 +658,7 @@ A Paper Profile is not a Layout Profile. A formal paper must also select a subje
 
 For a 111–115-regime GSAT booklet, first load [references/gsat-115-template-assets.md](references/gsat-115-template-assets.md) and `exam_packs/學測/templates/115/template-pack.json`. Use its subject-specific deterministic template for the cover, signature banner, full answer instructions, scoring rules, alternating running header/footer, and (for Mathematics A/B) the correct reference-formula variant. The LLM may supply only the named dynamic fields: academic year, test name, actual current page, and actual total inner pages. It must not paraphrase, shorten, expand, or regenerate the locked cover text. Mathematics A and B are separate formula assets; Math B must not inherit Math A's angle-addition block. Render body content first, obtain the real inner-page total, and only then fill page furniture. Never force body text into the reference year's page count, and never treat `blank-template.pdf` as a fixed-page exam skeleton. These assets are layout-only and must not become a reusable question generator, question bank, or batch-content source.
 
-On a hosted web surface, also load `exam_packs/學測/templates/115/hosted-web-template-assets.json`. A persistent Skill stores the rules and verified asset map; its installation must not be blocked on downloading all 30 PDFs. In the creation conversation, apply the Skill immediately after the platform's native save/install succeeds, and keep it selectable in later conversations. At paper time, fetch only the requested subject's production components—cover plus odd/even inner pages, and the matching formula page for Mathematics—verify their bytes and hashes, and use them unchanged as immutable PDF background layers. Persisting verified template bytes is an optional cache, not an installation gate. The hosted agent may overlay only the four named dynamic fields and newly authored body content inside the measured inner-page body box. It must not OCR, copy, retype, reflow, convert to HTML/Word, rasterize, redraw, or visually imitate the locked template text, fractions, grids, rules, headers, or formula sheet. Seeing a link, extracting its text, or recreating a similar-looking page is not template application. If exact binary import or PDF-layer composition is unavailable at paper time, stop formal rendering and label any substitute a generic-layout draft; do not invoke the source-reconstruction fallback for a formal claim.
+On a hosted web surface, also load `exam_packs/學測/templates/115/hosted-web-template-assets.json`. Every persistent or packaged projection of this Skill must retain that map unchanged, including all 30 distinct per-file `download_url` records for all seven subjects together with each file's SHA-256, byte count and page count. Installation stores the rules and this complete URL map but downloads no template PDF binaries. Only after installation, when generation begins for a requested subject, fetch that subject's production components—cover plus odd/even inner pages, and the matching formula page for Mathematics—verify their bytes and hashes, and use them unchanged as immutable PDF background layers. In the creation conversation, apply the Skill immediately after the platform's native save/install succeeds, and keep it selectable in later conversations. Persisting verified template bytes is an optional cache, not an installation gate. The hosted agent may overlay only the four named dynamic fields and newly authored body content inside the measured inner-page body box. It must not OCR, copy, retype, reflow, convert to HTML/Word, rasterize, redraw, or visually imitate the locked template text, fractions, grids, rules, headers, or formula sheet. Seeing a link, extracting its text, or recreating a similar-looking page is not template application. If exact binary import or PDF-layer composition is unavailable at paper time, stop formal rendering and label any substitute a generic-layout draft; do not invoke the source-reconstruction fallback for a formal claim.
 
 ## Regression gates learned from full-paper review
 
@@ -43975,6 +43976,13 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
   "repository": "https://github.com/niansia/taiwan-exam",
   "github_template_folder": "https://github.com/niansia/taiwan-exam/tree/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115",
   "asset_policy": "Formal output must use the verified component PDF bytes as immutable background layers; never OCR, retype, reflow, rasterize, or visually imitate their locked content. blank-template is a review packet, not a fixed-page exam skeleton.",
+  "installation_contract": {
+    "required_subject_count": 7,
+    "required_download_url_count": 30,
+    "store_all_download_url_records": true,
+    "download_pdf_binaries_during_installation": false,
+    "download_timing": "after installation, when generation starts for the requested subject"
+  },
   "formal_composition": {
     "exact_binary_base_required": true,
     "template_retypesetting_allowed": false,
@@ -47592,8 +47600,11 @@ the surface can retrieve itself.
 ### Persistent Skill and just-in-time assets
 
 The persistent Skill stores the canonical rules and the complete verified asset
-map. Do **not** make installation depend on downloading or persisting all 30 PDF
-files. Do not report `0/30` as an installation failure, do not build an auxiliary
+map. Installation must retain all 30 distinct per-file `download_url` records
+for all seven subjects, plus each file's SHA-256, byte count and page count. A
+GitHub folder URL alone is insufficient. Do **not** download any of those PDF
+binaries during installation, and do not make installation depend on persisting
+them. Do not report `0/30` as an installation failure, do not build an auxiliary
 ZIP or evidence packet, and do not delay first use while materializing unrelated
 subjects. Hosted products may not expose a binary-asset persistence interface,
 and the public per-file URLs and hashes are deliberately sufficient for
@@ -47667,7 +47678,8 @@ only its first Markdown page. If Skills are unavailable in both modes, use a
 persistent Project with the same knowledge and setup instruction instead of
 claiming an ordinary chat attachment is installed.
 
-The creator must preserve the asset maps and just-in-time policy, save/install
+The creator must preserve the asset maps—including all 30 direct PDF URLs—and
+the just-in-time policy, save/install
 the native Skill, and then accept a paper request in that same conversation. It
 must not require a 30-file download, a packaging report, a source-rebuild report,
 or a new conversation before first use. If the UI displays an Install button,
@@ -47728,8 +47740,9 @@ One-time setup-and-use prompt:
 ```text
 請使用附件建立並儲存「Taiwan Exam Generator」Skill，讓本對話立即使用，
 之後的新對話也能選取。完整保留規則與資源索引，不要另寫通用出題器。
-安裝時不必下載全部 30 份模板；出某科時只依資產地圖取得該科需要的
-3 份 PDF（數學為 4 份），逐份驗證後以原 PDF 當固定底層。
+安裝時須保存七科共 30 個逐檔 PDF 直連與驗證資料，但不要下載 PDF 本體；
+開始出某科時才依資產地圖取得該科需要的 3 份 PDF（數學為 4 份），
+逐份驗證後以原 PDF 當固定底層。
 若介面出現「安裝」或「儲存」，請提示我只需按一次；完成後不要要求另開
 新對話，直接在本對話接受出卷需求。
 ```

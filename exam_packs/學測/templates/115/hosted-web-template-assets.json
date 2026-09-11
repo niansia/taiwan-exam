@@ -4,6 +4,13 @@
   "repository": "https://github.com/niansia/taiwan-exam",
   "github_template_folder": "https://github.com/niansia/taiwan-exam/tree/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115",
   "asset_policy": "Formal output must use the verified component PDF bytes as immutable background layers; never OCR, retype, reflow, rasterize, or visually imitate their locked content. blank-template is a review packet, not a fixed-page exam skeleton.",
+  "installation_contract": {
+    "required_subject_count": 7,
+    "required_download_url_count": 30,
+    "store_all_download_url_records": true,
+    "download_pdf_binaries_during_installation": false,
+    "download_timing": "after installation, when generation starts for the requested subject"
+  },
   "formal_composition": {
     "exact_binary_base_required": true,
     "template_retypesetting_allowed": false,

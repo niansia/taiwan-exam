@@ -122,8 +122,11 @@ the surface can retrieve itself.
 ### Persistent Skill and just-in-time assets
 
 The persistent Skill stores the canonical rules and the complete verified asset
-map. Do **not** make installation depend on downloading or persisting all 30 PDF
-files. Do not report `0/30` as an installation failure, do not build an auxiliary
+map. Installation must retain all 30 distinct per-file `download_url` records
+for all seven subjects, plus each file's SHA-256, byte count and page count. A
+GitHub folder URL alone is insufficient. Do **not** download any of those PDF
+binaries during installation, and do not make installation depend on persisting
+them. Do not report `0/30` as an installation failure, do not build an auxiliary
 ZIP or evidence packet, and do not delay first use while materializing unrelated
 subjects. Hosted products may not expose a binary-asset persistence interface,
 and the public per-file URLs and hashes are deliberately sufficient for
@@ -197,7 +200,8 @@ only its first Markdown page. If Skills are unavailable in both modes, use a
 persistent Project with the same knowledge and setup instruction instead of
 claiming an ordinary chat attachment is installed.
 
-The creator must preserve the asset maps and just-in-time policy, save/install
+The creator must preserve the asset maps—including all 30 direct PDF URLs—and
+the just-in-time policy, save/install
 the native Skill, and then accept a paper request in that same conversation. It
 must not require a 30-file download, a packaging report, a source-rebuild report,
 or a new conversation before first use. If the UI displays an Install button,
@@ -258,8 +262,9 @@ One-time setup-and-use prompt:
 ```text
 請使用附件建立並儲存「Taiwan Exam Generator」Skill，讓本對話立即使用，
 之後的新對話也能選取。完整保留規則與資源索引，不要另寫通用出題器。
-安裝時不必下載全部 30 份模板；出某科時只依資產地圖取得該科需要的
-3 份 PDF（數學為 4 份），逐份驗證後以原 PDF 當固定底層。
+安裝時須保存七科共 30 個逐檔 PDF 直連與驗證資料，但不要下載 PDF 本體；
+開始出某科時才依資產地圖取得該科需要的 3 份 PDF（數學為 4 份），
+逐份驗證後以原 PDF 當固定底層。
 若介面出現「安裝」或「儲存」，請提示我只需按一次；完成後不要要求另開
 新對話，直接在本對話接受出卷需求。
 ```
