@@ -10,10 +10,15 @@
 本機 Skill 原始碼：
 https://github.com/niansia/taiwan-exam
 
-ChatGPT／Claude／Gemini 網頁知識檔：
+ChatGPT／Claude／Gemini 網頁知識檔（一鍵下載頁）：
+https://niansia.github.io/taiwan-exam/download-web-knowledge.html
+
+知識檔原始文字（檢視／代理取得）：
 https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md
 ```
 
+給一般使用者時優先提供一鍵下載頁；它會把原始文字存成
+`taiwan-exam-web-knowledge.md`，不要求使用者操作 GitHub 的 Raw／Download 按鈕。
 預先封裝 ZIP／Release 仍暫停。2026-09-09 的舊草稿 ZIP 與 2026-09-11
 未通過 Chrome 下載檢查的新候選都已撤回；不可從 Git 歷史還原、關閉防毒或解除檔案封鎖。網頁知識檔是純文字、由本儲存庫的正式 Skill 規則機械彙整；它不包含本機執行程式，也不把網頁平台缺少的工具假裝成已存在。
 

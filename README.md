@@ -10,7 +10,7 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 
 | 你正在使用 | 第一次怎麼做 | 以後怎麼叫出來 |
 | --- | --- | --- |
-| ChatGPT、Claude.ai、Gemini 網頁版 | 上傳[網頁版知識檔](web/taiwan-exam-web-knowledge.md)，建立 Skill、Project 或 Gem | 開啟同一個 Skill／Project／Gem，再說要出的科目 |
+| ChatGPT、Claude.ai、Gemini 網頁版 | 點[「直接下載網頁版知識檔」](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，再上傳以建立 Skill、Project 或 Gem | 開啟同一個 Skill／Project／Gem，再說要出的科目 |
 | Codex CLI、Claude Code、Gemini CLI | 從 GitHub 原始碼安裝完整 Skill | Codex 用 `$taiwan-exam-generator`、Claude Code 用 `/taiwan-exam-generator`；Gemini CLI 可直接用自然語言要求採用該 Skill |
 | Codex 或 Claude Code 桌面版 | 在聊天框請代理從本儲存庫安裝，不必自己搬檔案 | 從技能選單選取 Taiwan Exam，或輸入對應的 `$`／`/` 名稱 |
 
@@ -18,7 +18,11 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 
 ## 網頁版：ChatGPT、Claude.ai、Gemini
 
-先下載同一套正式規則自動彙整的[網頁版知識檔](web/taiwan-exam-web-knowledge.md)。這是方便網頁平台讀取的單一 Markdown，不是另一套命題器。
+### [⬇ 直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)
+
+點上面的連結後，瀏覽器會自動下載 `taiwan-exam-web-knowledge.md`；不需要理解 GitHub、尋找 `Raw` 或按右上角的小圖示。若瀏覽器阻擋自動下載，開啟的頁面會保留一個明顯的「再次下載」按鈕。[查看檔案內容與版本](web/taiwan-exam-web-knowledge.md)。
+
+這份檔案是同一套正式規則自動彙整、方便網頁平台讀取的單一 Markdown，不是另一套命題器，也不是 ZIP 或執行檔。
 
 ### ChatGPT 網頁版
 
