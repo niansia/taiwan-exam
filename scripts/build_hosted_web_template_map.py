@@ -67,6 +67,13 @@ def build() -> dict:
         "repository": "https://github.com/niansia/taiwan-exam",
         "github_template_folder": TREE_ROOT + quote(PACK.relative_to(ROOT).as_posix(), safe="/"),
         "asset_policy": "Formal output must use the verified component PDF bytes as immutable background layers; never OCR, retype, reflow, rasterize, or visually imitate their locked content. blank-template is a review packet, not a fixed-page exam skeleton.",
+        "installation_contract": {
+            "required_subject_count": 7,
+            "required_download_url_count": 30,
+            "store_all_download_url_records": True,
+            "download_pdf_binaries_during_installation": False,
+            "download_timing": "after installation, when generation starts for the requested subject",
+        },
         "formal_composition": {
             "exact_binary_base_required": True,
             "template_retypesetting_allowed": False,

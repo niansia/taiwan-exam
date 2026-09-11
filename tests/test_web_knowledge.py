@@ -20,7 +20,7 @@ def test_web_knowledge_is_deterministic_and_uses_canonical_skill():
     assert "student question paper" in first
     assert "answer-with-full-solutions paper" in first
     assert "apply it immediately in the same conversation" in first
-    assert "do not download all template PDFs during setup" in first
+    assert "do not download any template PDF binaries during setup" in first
     assert "Do not report `0/30` as an installation failure" in first
 
 
@@ -77,6 +77,13 @@ def test_hosted_web_template_map_covers_exact_fixed_assets():
     assert checked_in == build_hosted_web_template_map.build()
     assert checked_in["asset_count"] == 30
     assert len(checked_in["subjects"]) == 7
+    assert checked_in["installation_contract"] == {
+        "required_subject_count": 7,
+        "required_download_url_count": 30,
+        "store_all_download_url_records": True,
+        "download_pdf_binaries_during_installation": False,
+        "download_timing": "after installation, when generation starts for the requested subject",
+    }
     assert checked_in["formal_composition"]["exact_binary_base_required"] is True
     assert checked_in["formal_composition"]["template_retypesetting_allowed"] is False
     assert checked_in["formal_composition"]["template_rasterization_allowed"] is False

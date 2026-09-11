@@ -159,7 +159,9 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 雜湊後以原始位元組當作不可重排的底層；只覆疊四個
 可變欄位與正文。不得藉由 OCR、HTML、Word、截圖或改字型重建封面。
 平台無法匯入原始 PDF 或合併 PDF 圖層時，不得宣稱已套用固定模板。
-永久 Skill 只需保存規則與完整資產索引；不要求建立時下載全部 30 份，
+永久 Skill 必須保存規則與完整資產索引，包含七科共 30 個逐檔直接下載
+網址及其 SHA-256、大小與頁數；只有資料夾網址不合格。安裝時不下載任何
+模板 PDF，開始出題後才下載當科元件，
 也不得以 `0/30` 判定安裝失敗。完整快取可以加速，但只是選用最佳化。
 
 官方說明：<https://learn.chatgpt.com/docs/skills-and-plugins>、<https://learn.chatgpt.com/docs/build-skills>
@@ -181,8 +183,8 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 ```text
 請採用我附上的 Taiwan Exam Skill，完整保留它的規則與支援資源，
 並儲存為之後對話可用的 Taiwan Exam Skill／Gem。
-建立時保存模板資產地圖；不要下載全部 30 份。出卷時只下載並驗證當科
-正式組版所需的 3 份 PDF（數學為 4 份）。
+建立時保存七科共 30 個逐檔 PDF 直連與驗證資料，不下載 PDF 本體。
+開始出卷時才下載並驗證當科正式組版所需的 3 份 PDF（數學為 4 份）。
 不要另寫通用出題器，也不要將模板重打或重排。
 ```
 
