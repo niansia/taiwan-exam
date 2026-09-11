@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MAINTAINER_FILES = (
     'scripts/package_skill.py',
     'scripts/build_source_release.py',
+    'scripts/build_hosted_web_source_map.py',
+    'scripts/build_hosted_web_template_map.py',
     'scripts/build_web_knowledge.py',
     'scripts/export_public_repo.py',
     'scripts/scan_skill_release.py',

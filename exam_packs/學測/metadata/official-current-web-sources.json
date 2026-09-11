@@ -1,0 +1,1279 @@
+{
+  "schema_version": 1,
+  "exam": "學測",
+  "regime": "111學年度起",
+  "authority": "財團法人大學入學考試中心",
+  "official_listing_url": "https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634",
+  "roc_years": [
+    115,
+    114,
+    113,
+    112,
+    111
+  ],
+  "question_pdf_count": 35,
+  "document_count": 100,
+  "catalog_sha256": "b37f0162346c06e2e0d6387c6279cecab321ebea12b65b016787fd041b4c85a0",
+  "registry_sha256": "5265cd3cd38621ac7b30c14d026478a79e336066af3396544dd0c9d20099d860",
+  "subjects": [
+    {
+      "subject": "國綜",
+      "catalog_subject": "國文",
+      "section": "國綜",
+      "years": [
+        {
+          "roc_year": 115,
+          "calendar_year": 2026,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "01-115學測國綜試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054337448417166461/01-115%e5%ad%b8%e6%b8%ac%e5%9c%8b%e7%b6%9c%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 986727,
+              "sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國綜試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "01-115學測國語文綜合能力測驗答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q040596675162309932/01-115%e5%ad%b8%e6%b8%ac%e5%9c%8b%e8%aa%9e%e6%96%87%e7%b6%9c%e5%90%88%e8%83%bd%e5%8a%9b%e6%b8%ac%e9%a9%97%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 76439,
+              "sha256": "d371d9539c7cb7bce7e51e561bca91af4b3e8199dddcddb67f82fd2607a114f5",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國語文綜合能力測驗答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "115學測國文考科(國綜)非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054334089673796864/115%e5%ad%b8%e6%b8%ac%e5%9c%8b%e6%96%87%e8%80%83%e7%a7%91%28%e5%9c%8b%e7%b6%9c%29%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 164103,
+              "sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國綜)非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 114,
+          "calendar_year": 2025,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "01-114學測國綜試題",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p056424313827932684/01-114%e5%ad%b8%e6%b8%ac%e5%9c%8b%e7%b6%9c%e8%a9%a6%e9%a1%8c.pdf",
+              "bytes": 952241,
+              "sha256": "ad9878a480fb11e6c6a386b42deff9db52481e3a4f30542b94b4895a7388cd02",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜試題.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "01-114學測國語文綜合能力測驗答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p051548831591816379/01-114%e5%ad%b8%e6%b8%ac%e5%9c%8b%e8%aa%9e%e6%96%87%e7%b6%9c%e5%90%88%e8%83%bd%e5%8a%9b%e6%b8%ac%e9%a9%97%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 95087,
+              "sha256": "214f283160ab61a711349cd6b24643fb79aec20300b4cbf5bb454bcdf03a1c67",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國語文綜合能力測驗答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "01-114學測國綜非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p055377938076732468/01-114%e5%ad%b8%e6%b8%ac%e5%9c%8b%e7%b6%9c%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 213617,
+              "sha256": "4f462a4a7e25f7fea584b6fb35388b672a5920dbd7199feb7fc8407270d438d0",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 113,
+          "calendar_year": 2024,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "01-113學測國綜試題定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051429609806157906/01-113%e5%ad%b8%e6%b8%ac%e5%9c%8b%e7%b6%9c%e8%a9%a6%e9%a1%8c%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 891302,
+              "sha256": "f0a9043fca96e76b4e01cc532a64df58f447a3773f6dae54bdf940cc63229783",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國綜試題定稿.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "01-113學測國語文綜合能力測驗答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051429991629874988/01-113%e5%ad%b8%e6%b8%ac%e5%9c%8b%e8%aa%9e%e6%96%87%e7%b6%9c%e5%90%88%e8%83%bd%e5%8a%9b%e6%b8%ac%e9%a9%97%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 95167,
+              "sha256": "a7f91efc0a38016afb8ef749b981f79e5b63498947b95194a65d02405a30a2f3",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國語文綜合能力測驗答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "01-113學測國文考科(國綜)非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051430121163753905/01-113%e5%ad%b8%e6%b8%ac%e5%9c%8b%e6%96%87%e8%80%83%e7%a7%91%28%e5%9c%8b%e7%b6%9c%29%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 169043,
+              "sha256": "288457c62440bbedb0184420cd720f6e7bf2d2c40bd08589e92d6a010ab29d3d",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國文考科(國綜)非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 112,
+          "calendar_year": 2023,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "01-1-112學測國文(國綜)試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045361284386617720/01-1-112%e5%ad%b8%e6%b8%ac%e5%9c%8b%e6%96%87%28%e5%9c%8b%e7%b6%9c%29%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 966033,
+              "sha256": "b5a3cef4fe9de7fab6195c02655bd2ae452a4215375e9b7a85ab5a10707dcb46",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-1-112學測國文(國綜)試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "01-112學測國語文綜合能力測驗選擇題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045361875009344702/01-112%e5%ad%b8%e6%b8%ac%e5%9c%8b%e8%aa%9e%e6%96%87%e7%b6%9c%e5%90%88%e8%83%bd%e5%8a%9b%e6%b8%ac%e9%a9%97%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 96169,
+              "sha256": "97d6766a70a457c364bec496bc693589890000cd9e5bf799df4a46d6bbe3a672",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-112學測國語文綜合能力測驗選擇題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "01-112學測國綜非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n049421782210608146/01-112%e5%ad%b8%e6%b8%ac%e5%9c%8b%e7%b6%9c%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 181923,
+              "sha256": "64d6835f465ab74c5922cc6a698097ef351d739d83f102e84dae0b78700a5ddb",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-112學測國綜非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 111,
+          "calendar_year": 2022,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "01-1-111學測國綜試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053395009167828203/01-1-111%e5%ad%b8%e6%b8%ac%e5%9c%8b%e7%b6%9c%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 1168388,
+              "sha256": "b798418f7d09ffe0ee529bfa1fd6a6568b25105deb0b23101a8a40698506d1e6",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-1-111學測國綜試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "01-111學測國語文綜合能力測驗選擇題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052627939544064589/01-111%e5%ad%b8%e6%b8%ac%e5%9c%8b%e8%aa%9e%e6%96%87%e7%b6%9c%e5%90%88%e8%83%bd%e5%8a%9b%e6%b8%ac%e9%a9%97%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 95032,
+              "sha256": "2510fe51e3130ef6b259635e5814acd6ebc7af3e30d7346a9521fd3cfe3a63dd",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國語文綜合能力測驗選擇題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "01-111學測國綜非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052628210189943516/01-111%e5%ad%b8%e6%b8%ac%e5%9c%8b%e7%b6%9c%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 178393,
+              "sha256": "f8862038d3b0031c37e85f780b9502955955b5c47ef058fe955b80d7c5c33502",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國綜非選擇題評分原則.pdf"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "subject": "國寫",
+      "catalog_subject": "國文",
+      "section": "國寫",
+      "years": [
+        {
+          "roc_year": 115,
+          "calendar_year": 2026,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "07-115學測國寫試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054338512775247597/07-115%e5%ad%b8%e6%b8%ac%e5%9c%8b%e5%af%ab%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 663876,
+              "sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+              "pages": 4,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/115/07-115學測國寫試卷.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "115學測國文考科(國寫)非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054334768025403359/115%e5%ad%b8%e6%b8%ac%e5%9c%8b%e6%96%87%e8%80%83%e7%a7%91%28%e5%9c%8b%e5%af%ab%29%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 111938,
+              "sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國寫)非選擇題評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 114,
+          "calendar_year": 2025,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "07-114學測國寫試題",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p056425983094832020/07-114%e5%ad%b8%e6%b8%ac%e5%9c%8b%e5%af%ab%e8%a9%a6%e9%a1%8c.pdf",
+              "bytes": 187454,
+              "sha256": "c64c36a1cf6d9102edbd93af626c37b801bc3d28f66dcf2e42ff96c7b083ba93",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/114/07-114學測國寫試題.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "02-114學測國寫閱卷評分原則說明",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p055378361790934567/02-114%e5%ad%b8%e6%b8%ac%e5%9c%8b%e5%af%ab%e9%96%b1%e5%8d%b7%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87%e8%aa%aa%e6%98%8e.pdf",
+              "bytes": 246084,
+              "sha256": "35b6ebc2bc9cd9ee69778d171f79f32abcb58df8202801b7a8d7d9c3eab7c71a",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/114/02-114學測國寫閱卷評分原則說明.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 113,
+          "calendar_year": 2024,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "07-113學測國寫定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051428628384018349/07-113%e5%ad%b8%e6%b8%ac%e5%9c%8b%e5%af%ab%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 200480,
+              "sha256": "afcc3c0fefdd922629563717ec94eaa671356a14a63ef1af130f299dd53ad0f8",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/113/07-113學測國寫定稿.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "02-113學測國文考科(國寫)非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051428995914108862/02-113%e5%ad%b8%e6%b8%ac%e5%9c%8b%e6%96%87%e8%80%83%e7%a7%91%28%e5%9c%8b%e5%af%ab%29%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 117020,
+              "sha256": "02cde99ccb4d44db097197b1a4fd6f379fe808d1bfed936f20b2a7cd017e64ca",
+              "pages": 2,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/113/02-113學測國文考科(國寫)非選擇題評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 112,
+          "calendar_year": 2023,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "01-2-112學測國文(國寫)試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045360424111183163/01-2-112%e5%ad%b8%e6%b8%ac%e5%9c%8b%e6%96%87%28%e5%9c%8b%e5%af%ab%29%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 204152,
+              "sha256": "10c795009e60ee48206df372d93c8a198c42adf1ec75a8e10b13b6cb673e70c5",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-2-112學測國文(國寫)試卷.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "02-112學測國寫非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n049421534402770688/02-112%e5%ad%b8%e6%b8%ac%e5%9c%8b%e5%af%ab%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 590551,
+              "sha256": "64a0aa933a9a2d3852a2ab7664f11010c95737efdd07856d26c35b2ab55b80dd",
+              "pages": 2,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/112/02-112學測國寫非選擇題評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 111,
+          "calendar_year": 2022,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "01-2-111學測國寫試卷定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052630661359500564/01-2-111%e5%ad%b8%e6%b8%ac%e5%9c%8b%e5%af%ab%e8%a9%a6%e5%8d%b7%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 409449,
+              "sha256": "081dd1d6e95eb051c6329e55c3e79bb9493c39de8246736ff31f8ecde499aa8d",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-2-111學測國寫試卷定稿.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "01-111學測國寫非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052626894018146517/01-111%e5%ad%b8%e6%b8%ac%e5%9c%8b%e5%af%ab%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 418594,
+              "sha256": "68346af367a89dcf099ff3afce58250b1e37e2f762326256ba559f3f6050d230",
+              "pages": 2,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國寫非選擇題評分原則.pdf"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "subject": "英文",
+      "catalog_subject": "英文",
+      "section": "英文",
+      "years": [
+        {
+          "roc_year": 115,
+          "calendar_year": 2026,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "02-115學測英文試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054532302653501476/02-115%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 1286541,
+              "sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "02-115學測英文答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q040594609847120321/02-115%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 76153,
+              "sha256": "f8edda8733240b7d26cba9f80f89b4ffb42a58449319121fad9466d008811b11",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "115學測英文考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054335046832331817/115%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 271601,
+              "sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/115/115學測英文考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 114,
+          "calendar_year": 2025,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "02-114學測英文試題",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p056425554473267580/02-114%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%a9%a6%e9%a1%8c.pdf",
+              "bytes": 594448,
+              "sha256": "51c8d9f7c2715adf74cae808bde4906cfadee19d0ec379df3b33881c35960a78",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文試題.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "02-114學測英文答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p051545433631383724/02-114%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 100280,
+              "sha256": "f96658a07c24ef878493e9c40fea26f3497884dd621427ddb7d9cac3c6f0206f",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "03-114學測英文考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p055378620142741052/03-114%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 320797,
+              "sha256": "609912dd23603130c628ee6adeee21a58990d4a8e59bbfd0c17faa93fd11727a",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/114/03-114學測英文考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 113,
+          "calendar_year": 2024,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "02-113學測英文科定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051427482769341323/02-113%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%a7%91%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 699425,
+              "sha256": "09d35c2ed8561e0845dbbe305e12f5342b27f209fb44d801ff7f9f1f9e519ecf",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文科定稿.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "02-113學測英文答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051427843482078305/02-113%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 100135,
+              "sha256": "f6389b547afd21b819452dcfadb2382818e561149c67364586a9e931c1a1dd57",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "03-113學測英文考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051427944026947323/03-113%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 450899,
+              "sha256": "5151accdbf33c4f08b970bef114fda378ff49891434b8cce637375391ddbda2e",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/113/03-113學測英文考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 112,
+          "calendar_year": 2023,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "02-112學測英文試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045359274947649605/02-112%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 407346,
+              "sha256": "79f8f0a5822b9fbdc424cccbf88fdff124c80b9cf0bd8a56913901cd1bb0f741",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/112/02-112學測英文試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "02-112學測英文選擇題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045359936769376687/02-112%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 105171,
+              "sha256": "89b0cc3c35ffa589167d74b62fa427258abba9571331eb75097b46d2e30f45a7",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/112/02-112學測英文選擇題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "03-112學測英文非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n049421311322447606/03-112%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 771823,
+              "sha256": "ba292c5e93c739e5538fdd5bd955c92ae0cd51b9230c221b2d47af2552a63999",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/112/03-112學測英文非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 111,
+          "calendar_year": 2022,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "02-111學測英文試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053357638065462325/02-111%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 984200,
+              "sha256": "5877adb44710601bd1e9580e063d00f702acd7229a0fa97425290fe90044c358",
+              "pages": 12,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "02-111學測英文選擇題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052625594764853905/02-111%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88..pdf",
+              "bytes": 100214,
+              "sha256": "e3c22802d10fbf5225674eafc480200ad65bcdab46635f323d6e4f9f38808f03",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文選擇題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "02-111學測英文非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m088557831942240372/02-111%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 766887,
+              "sha256": "b9670729250bdd89c312e0cdc5551c6c7a0bfa6cb007b368b1d4bf00d6d6cda2",
+              "pages": 4,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文非選擇題評分原則.pdf"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "subject": "數學A",
+      "catalog_subject": "數學A",
+      "section": null,
+      "years": [
+        {
+          "roc_year": 115,
+          "calendar_year": 2026,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "03-115學測數學a試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054344158947111283/03-115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 343091,
+              "sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/115/03-115學測數學a試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "03-115學測數學a答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q040592802409726233/03-115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 71098,
+              "sha256": "0308d00e554aa2b1a1f68215df8c93943d4aa2ecd326127c3828b971867f67c0",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/115/03-115學測數學a答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "115學測數學a考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054335289912664889/115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 237527,
+              "sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/115/115學測數學a考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 114,
+          "calendar_year": 2025,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "03-114學測數學a試題",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p056503510203248955/03-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%a9%a6%e9%a1%8c.pdf",
+              "bytes": 581442,
+              "sha256": "265a18f8de05f24d13a503229943414ca50ad9441f056318d21850386427a290",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/114/03-114學測數學a試題.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "03-114學測數學a答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p051544393000727284/03-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 90255,
+              "sha256": "65666aea83fd2c71cb177fcc50852e0c69d0eb8cea8434dceed6e9ff0620803d",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/114/03-114學測數學a答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "04-114學測數學a考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p055379013856943041/04-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 251640,
+              "sha256": "1e17ff84022db05bdb1424ac45f73cb485d01661a8aad0e5f5debf54728168a4",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/114/04-114學測數學a考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 113,
+          "calendar_year": 2024,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "03-113學測數a試題定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051426180137211766/03-113%e5%ad%b8%e6%b8%ac%e6%95%b8a%e8%a9%a6%e9%a1%8c%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 589286,
+              "sha256": "c0dbc1bd50a8bedcf48ead6bf8e1fb0deef03d92113015e37dc20bb097be8e50",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/113/03-113學測數a試題定稿.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "03-113學測數學a答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051426632950938748/03-113%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 90334,
+              "sha256": "eecb107883266a831db61b4e2129bc6ca51862e502623bcea6180e3eabe73169",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/113/03-113學測數學a答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "04-113學測數學a考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051426762594817766/04-113%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 195467,
+              "sha256": "199887c5a084674cfb8f300facdefc70990a15b0a05b44428e7d75a52d461569",
+              "pages": 2,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/113/04-113學測數學a考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 112,
+          "calendar_year": 2023,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "03-112學測數學a試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045358375872115148/03-112%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 393666,
+              "sha256": "fd0d3aebd2ff9cd3b775db0642326ce0d5be0f5bf2bb3176294082fabe6b13cc",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/112/03-112學測數學a試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "03-112學測數學a選擇(填)題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045358876595832120/03-112%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e9%81%b8%e6%93%87%28%e5%a1%ab%29%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 93749,
+              "sha256": "d096806d2441209d715f16eec62e4834760032a830ffa30818d473dff5b3202d",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/112/03-112學測數學a選擇(填)題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "04-112學測數學a非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n049421028143125535/04-112%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 542072,
+              "sha256": "b56034e4428cd8a1f733b8d90d891c6429c6eefc06fe8dfe820f81c3057360ad",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/112/04-112學測數學a非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 111,
+          "calendar_year": 2022,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "03-111學測數學a試卷定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052633042401295651/03-111%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%a9%a6%e5%8d%b7%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 841538,
+              "sha256": "01ceb21ac453e1b8f1e2cdbc015f0d648f3b63c72d5d0c64555d6fd085c5aa9f",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a試卷定稿.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "03-111學測數學a選擇(填)題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053361187672613478/03-111%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e9%81%b8%e6%93%87%28%e5%a1%ab%29%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 95704,
+              "sha256": "176497242f9910d56ba0441bddae22ea9be597e48b6a3239ebb19860b11b6c1c",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a選擇(填)題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "03-111學測數學a非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053361096038734441/03-111%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 381525,
+              "sha256": "dd5905060a7eaeb04e994dc27ad08ef5b763dc704db33098839550d65b653015",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a非選擇題評分原則.pdf"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "subject": "數學B",
+      "catalog_subject": "數學B",
+      "section": null,
+      "years": [
+        {
+          "roc_year": 115,
+          "calendar_year": 2026,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "04-115學測數學b試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054533256912682493/04-115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 457844,
+              "sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "04-115學測數學b答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q040592403413040721/04-115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 71213,
+              "sha256": "ff1337781df5ee183f8e0a4b49f4690b297bbc547fefcb8f1669d01bdde610b3",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "115學測數學b考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054335782082987960/115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 217970,
+              "sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+              "pages": 3,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/115學測數學b考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 114,
+          "calendar_year": 2025,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "04-114學測數學b試題",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p056503860912551449/04-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e8%a9%a6%e9%a1%8c.pdf",
+              "bytes": 587465,
+              "sha256": "ad6ed7218a4f93cf9474afa14b5fc875ca7a7d3ccf84292aa5ceee3d390fda67",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b試題.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "04-114學測數學b答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p051541901400830673/04-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 89939,
+              "sha256": "3d3d916619a189b9fd0403460b8b30254929f3a8ce49ba58aadf0b7a3e35a3aa",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "05-114學測數學b考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p055377000559491425/05-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 223507,
+              "sha256": "fb637301db7d41141b5d948a9d46e2d997875b2fce42ebd450fa185b8428ae5c",
+              "pages": 2,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/05-114學測數學b考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 113,
+          "calendar_year": 2024,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "04-113學測數學b試題定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051423705511545740/04-113%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e8%a9%a6%e9%a1%8c%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 557552,
+              "sha256": "c378a43ffedb0aefc433152ea394570b6af5c9df97e654d9003a8ae82eb48feb",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b試題定稿.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "04-113學測數學b答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051424006334262722/04-113%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 90235,
+              "sha256": "adb3532af49ca9cf6735a54009e0d543efd66b3d1e4c5c1beb50d21f830ab48e",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "05-113學測數學b考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051424166979130740/05-113%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 322590,
+              "sha256": "bb1d904a06324d8376bc219d8ed9e51edabd33837988bc06bca581116746a5d9",
+              "pages": 4,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/05-113學測數學b考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 112,
+          "calendar_year": 2023,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "04-112學測數學b試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045357250979165004/04-112%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 583713,
+              "sha256": "958c9ad0e1618062aa43199ea6728e5711a7bc22e30decd39a60b093411a0fee",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/112/04-112學測數學b試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "04-112學測數學b選擇(填)題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045357541158913049/04-112%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e9%81%b8%e6%93%87%28%e5%a1%ab%29%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 95501,
+              "sha256": "3214ac3c724d2ff68b960e3df53b214f67f29893f2319cd50394aea64c65e221",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/112/04-112學測數學b選擇(填)題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "05-112學測數學b非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n049420845063802563/05-112%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 555644,
+              "sha256": "1df5b600242d8511abdd86fd836d21c3108043163f322a8fab58871527c0bee9",
+              "pages": 6,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/112/05-112學測數學b非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 111,
+          "calendar_year": 2022,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "04-111學測數學b試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053362985668390981/04-111%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 930394,
+              "sha256": "8752c7cb744419c301f1b495e5880143cd115163ea3275560de31acead73772b",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇(填)題答案",
+              "title": "04-111學測數學b選擇(填)題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053363176747148935/04-111%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e9%81%b8%e6%93%87%28%e5%a1%ab%29%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 95671,
+              "sha256": "bbcc536620e410692235de6c92896e7a1c8afde85da13380d540e2d5aa9b22a2",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b選擇(填)題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "04-111學測數學b非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053363287381026953/04-111%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8b%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 681475,
+              "sha256": "62375e3c3510fbb8d5235debcbdd3753409fe123ab63b398b2882cda342c7d1d",
+              "pages": 2,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b非選擇題評分原則.pdf"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "subject": "社會",
+      "catalog_subject": "社會",
+      "section": null,
+      "years": [
+        {
+          "roc_year": 115,
+          "calendar_year": 2026,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "05-115學測社會試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054534130270752519/05-115%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 5484034,
+              "sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+              "pages": 20,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "05-115學測社會答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q040582211712162219/05-115%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 74429,
+              "sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "115學測社會考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054335965162309932/115%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 471132,
+              "sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+              "pages": 9,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/115/115學測社會考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 114,
+          "calendar_year": 2025,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "05-114學測社會試題",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p056429479567292230/05-114%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e8%a9%a6%e9%a1%8c.pdf",
+              "bytes": 1971109,
+              "sha256": "1d1340c4aa079aa5afd9b37f7ac564d9b13b99c2e629238d6f6c17179d47a505",
+              "pages": 20,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會試題.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "05-114學測社會答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p051540219978700116/05-114%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 104934,
+              "sha256": "ff04e289ede3b49329406f393427b3d78c57e76cda3dd31445fabf7d215f67f8",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "06-114學測社會考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p055379523021477609/06-114%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 1519014,
+              "sha256": "ffcd6b8c779118f8831f03f273717194d2819850ed4579e7f60bd366a5fd5d1c",
+              "pages": 9,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/114/06-114學測社會考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 113,
+          "calendar_year": 2024,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "05-113學測社會科試題定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051421699906768624/05-113%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e7%a7%91%e8%a9%a6%e9%a1%8c%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 1411615,
+              "sha256": "74a0026042bb4ad13044dfebb468e909b4293ebffc5b0e7f0d49a2b5ae6aa06c",
+              "pages": 19,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會科試題定稿.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "05-113學測社會答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051422000729495697/05-113%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 104381,
+              "sha256": "bb63cf9b1ece3980e22d9f136a22769a362d4e0750b6b62963d68f40a4b8a2c0",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "06-113學測社會考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051422130263364624/06-113%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 395185,
+              "sha256": "d831198b0aaed4482b0757e8dd85ecc39003e911a00b1f9cc52ce44202ee187c",
+              "pages": 10,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/113/06-113學測社會考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 112,
+          "calendar_year": 2023,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "05-112學測社會試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045355860270752519/05-112%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 3228899,
+              "sha256": "1f657289579fdd7ffbc1e792e6d94aeb7548049567dbd774e6256c28cfdb1fe6",
+              "pages": 20,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/112/05-112學測社會試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "05-112學測社會選擇題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045356351993479581/05-112%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 109767,
+              "sha256": "175e0fe6dd12b665b583b150d0068b99d604828a2413f22302ced0771a655b02",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/112/05-112學測社會選擇題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "06-112學測社會非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n049420611993479581/06-112%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 451487,
+              "sha256": "bdc71d579065be3406beb369bfec97998d927ccd15c6f68a9e843a2b5f29a7dd",
+              "pages": 9,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/112/06-112學測社會非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 111,
+          "calendar_year": 2022,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "05-111學測社會試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053364108279287592/05-111%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 4320639,
+              "sha256": "434fcf740bad86eb9da73f28b85c9a6f740401eb2074b64ff36c45e7ffbf8937",
+              "pages": 18,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "05-111學測社會選擇題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052614459126969237/05-111%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88..pdf",
+              "bytes": 104950,
+              "sha256": "d99e85d32f48b1f5dfbcbd1a5b181864febc45e31b1c7849f4dfd11749debe85",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會選擇題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "05-111學測社會非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m084423432893869773/05-111%e5%ad%b8%e6%b8%ac%e7%a4%be%e6%9c%83%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 636529,
+              "sha256": "99dde69fe48f351a5033657448601a4d752d73a3b74ace4f3f6f0c7a50713e5c",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會非選擇題評分原則.pdf"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "subject": "自然",
+      "catalog_subject": "自然",
+      "section": null,
+      "years": [
+        {
+          "roc_year": 115,
+          "calendar_year": 2026,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "06-115學測自然試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054346117821958325/06-115%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 1918996,
+              "sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+              "pages": 20,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "06-115學測自然答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q040579122726476606/06-115%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 74103,
+              "sha256": "ba42c71786f7e34af2671bb5d18367aa80487b93afe668e12035594f571770c2",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "115學測自然考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0q054336274158996445/115%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 1033419,
+              "sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/115/115學測自然考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 114,
+          "calendar_year": 2025,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "114學測自然試題定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p080497875174268441/114%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e8%a9%a6%e9%a1%8c%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 1726416,
+              "sha256": "62b238bd109907dac0efb5dd4e019de1a59a3b283f031e90ae50fb32aafff136",
+              "pages": 20,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/114/114學測自然試題定稿.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "06-114學測自然答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p051538671981014603/06-114%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 98955,
+              "sha256": "217816174af6528a190fb31e2cde3c11df16380ae02aa4ed09f3284b3e8360c9",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/114/06-114學測自然答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "07-114學測自然考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0p055380385668390981/07-114%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 542029,
+              "sha256": "7390ab7e5d6e80f042b59a5e00ef600f1788e5c1e5fdaaeea956223b5bfdccab",
+              "pages": 8,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/114/07-114學測自然考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 113,
+          "calendar_year": 2024,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "06-113學測自然試題定稿",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051419133380092609/06-113%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e8%a9%a6%e9%a1%8c%e5%ae%9a%e7%a8%bf.pdf",
+              "bytes": 1471329,
+              "sha256": "479080cff932826975e9490218281b746e6740156f98b65637d1a43aeb0f8562",
+              "pages": 19,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然試題定稿.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "06-113學測自然答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051420394003729671/06-113%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 98814,
+              "sha256": "7beeea0aba1a060736cc5a944f2aa26abdaec0e6c0586dec8d5cc901dc31851a",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "07-113學測自然考科非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0o051420615648697608/07-113%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 364344,
+              "sha256": "4e2d96b3105188faae408e68746754adb46f8795ace7e85fff082767be03036f",
+              "pages": 7,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/113/07-113學測自然考科非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 112,
+          "calendar_year": 2023,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "06-112學測自然試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045354345199955411/06-112%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 1574812,
+              "sha256": "32e11be7ffbe9dda7a5b4e331b3c9b8e72385fc25bbb93d82f084531b5112b1d",
+              "pages": 20,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/112/06-112學測自然試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "06-112學測自然選擇題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n045354876377703465/06-112%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88.pdf",
+              "bytes": 104958,
+              "sha256": "be3cc952ad1d75650ef094661156a65c76723ac84e0dff1e724959e2a9531e0e",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/112/06-112學測自然選擇題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "07-112學測自然非選擇題參考答案與評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0n049420368813156510/07-112%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 416317,
+              "sha256": "2ddbee8c62886da244a7e3c674c1b4c6896db53656e502e5591740cc0a2acdba",
+              "pages": 5,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/112/07-112學測自然非選擇題參考答案與評分原則.pdf"
+            }
+          }
+        },
+        {
+          "roc_year": 111,
+          "calendar_year": 2022,
+          "documents": {
+            "question": {
+              "label": "試題內容",
+              "title": "06-111學測自然試卷",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m053364692537358519/06-111%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e8%a9%a6%e5%8d%b7.pdf",
+              "bytes": 2884638,
+              "sha256": "68f14585f9bdfa659579dbcdfe8ee26e48226ecbf069c84b3ff575d3ba46e857",
+              "pages": 20,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然試卷.pdf"
+            },
+            "answer": {
+              "label": "選擇題答案",
+              "title": "06-111學測自然選擇題答案",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052612982976213284/06-111%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88..pdf",
+              "bytes": 99530,
+              "sha256": "ab945453dd47e9467ba5909f4d4f18f982e0c588d51ef18a553b36ef32a48709",
+              "pages": 1,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然選擇題答案.pdf"
+            },
+            "scoring_rule": {
+              "label": "非選擇題評分原則",
+              "title": "06-111學測自然非選擇題評分原則",
+              "url": "https://www.ceec.edu.tw/files/file_pool/1/0m052613163411182211/06-111%e5%ad%b8%e6%b8%ac%e8%87%aa%e7%84%b6%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf",
+              "bytes": 501034,
+              "sha256": "f5510ac9ff919b81beacebedbeb0c948ac3c368c33fffd954f344c96c4e94424",
+              "pages": 5,
+              "text_layer_status": "extractable",
+              "local_path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然非選擇題評分原則.pdf"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

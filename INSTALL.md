@@ -149,6 +149,15 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 
 需要帳號或工作區已提供 Skills。先在 ChatGPT 對話模式輸入 `@skill-creator`；只要原生選單能選到它，就可附上 `taiwan-exam-web-knowledge.md` 建立或更新 `Taiwan Exam Generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。儲存後，必須在新對話輸入 `@` 並實際選到該 Skill，才能回報跨對話可用。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
 
+知識檔內含 111～115 各科正式試題、答案與評分原則的已驗證大考中心
+直連。完整卷命題前，網頁代理應自行開啟當科五年份試題，不要要求
+使用者逐份尋找；搜尋摘要不能取代實際 PDF。若介面無法搜尋、讀取
+或逐頁查看 PDF，必須保留相應的未驗證狀態。
+
+知識檔也內建七科固定版型元件的可驗證直連與確定性模板原始碼。
+網頁代理應自行取得當科 PDF 模板；遠端二進位檔無法進入檔案工具時，
+以內嵌原始碼重建。若兩者都無法執行，不得宣稱已套用固定模板。
+
 官方說明：<https://learn.chatgpt.com/docs/skills-and-plugins>、<https://learn.chatgpt.com/docs/build-skills>
 
 ### Claude.ai
