@@ -518,10 +518,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/fast-full-paper-workflow.md",
-    "bytes": 7297,
-    "sha256": "6029b8ae3774c4d46c7afcbd6dd95ae27a752dbeeeb2c7bb7ca5f91d36a68642",
-    "embedded_bytes": 7297,
-    "embedded_sha256": "6029b8ae3774c4d46c7afcbd6dd95ae27a752dbeeeb2c7bb7ca5f91d36a68642"
+    "bytes": 7833,
+    "sha256": "26e9674ed51fd679942dd9a45779825ededb5605b7145fd885f917189d89796d",
+    "embedded_bytes": 7833,
+    "embedded_sha256": "26e9674ed51fd679942dd9a45779825ededb5605b7145fd885f917189d89796d"
   },
   {
     "path": "references/first-use.md",
@@ -54633,7 +54633,12 @@ Treat 20 minutes as a per-paper **warm-run performance target**, not a universal
 - `warm`: the exact subject/regime Paper Profile, Layout Profile, blueprint fingerprint, renderer, validators, and reusable source-rights records have already passed compatibility checks;
 - `revision`: a user-requested correction of an identified paper, which is not a new-original-paper benchmark.
 
-The timed generation clock starts only after a fresh run contract has been created and compatible immutable inputs have been loaded. Report prerequisite/readiness time separately. Stop the clock only after the student PDF, answer material, required validation reports, provenance record, and hash-bound all-page review record exist. A PDF export alone is not completion.
+For a local warm-generation benchmark, the timed generation clock starts after
+a fresh run contract and compatible immutable inputs are loaded; report readiness
+time separately. Hosted runs instead retain the inclusive wall clock from
+reference_preflight in hosted_run_timing.py. Do not present that total as a
+readiness-excluded warm benchmark. Stop either clock only after both PDFs and
+required reviews exist. A PDF export alone is not completion.
 
 Never claim a warm-run number as a cold-start number. Never exclude failed candidate writing, repair passes, source verification, rendering, or page inspection from the timed total. If a process is retried, the retry remains inside the clock.
 
@@ -54667,9 +54672,16 @@ workflow rather than reconstructing the whole repository or all subjects.
 6. **Single controlled render loop** — render the validated content with the maintained subject component, run containment and density checks, then make only form-preserving pagination repairs. Content changes revoke affected solution, source-removal, and originality approvals.
 7. **Final gate** — render the final student and answer PDFs, apply document provenance, rasterize every page, inspect every page at readable scale, and bind reviews to final hashes. Run the shared content/delivery gate and record unresolved limitations.
 
-## Timing report
+## Local benchmark timing report
 
-Save `generation-timing.json` beside the paper. It must contain:
+For hosted delivery, generation-timing.json uses the recorded intervals/active
+format in hosted-quality-gates.md; do not replace it with the hand-authored report
+below. Its non-overlapping phases track the primary activity's wall time; extra
+parallel worker timings can be retained separately. The hosted checker computes
+its inclusive elapsed time and target_met from closed intervals.
+
+For a separate local warm-run benchmark, save its richer timing report beside
+the paper (use local-benchmark-timing.json when a hosted log also exists):
 
 - `schema_version`, `paper_id`, `subject`, `run_kind`, `target_minutes`, `started_at`, `completed_at`, and `elapsed_seconds`;
 - `clock_start_definition` and `clock_stop_definition` using the boundaries above;
@@ -54680,7 +54692,9 @@ Save `generation-timing.json` beside the paper. It must contain:
 - `quality_gates_waived: []`. Any nonempty value makes the timing run invalid as a complete-paper benchmark;
 - bottlenecks and a truthful note when the target was missed.
 
-Phase time may overlap when independent processes run concurrently, so the sum of phase durations may exceed wall-clock time. `elapsed_seconds` is the wall clock and controls `target_met`. Use a timezone-aware clock and never manually round a near miss downward.
+In this local benchmark report, worker phases may overlap, so their durations
+may exceed wall-clock time. elapsed_seconds is the wall clock and controls
+target_met. Use a timezone-aware clock; never round a near miss downward.
 
 ## Interpretation
 
