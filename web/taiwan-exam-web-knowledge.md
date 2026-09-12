@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.12.9
+# Taiwan Exam Web Knowledge v2026.09.13.1
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -70,10 +70,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 [
   {
     "path": "SKILL.md",
-    "bytes": 73961,
-    "sha256": "272cb72e5055d381e5105b3ca2b19618e6a5bbbc405e509120e961795bfcf473",
-    "embedded_bytes": 73961,
-    "embedded_sha256": "272cb72e5055d381e5105b3ca2b19618e6a5bbbc405e509120e961795bfcf473"
+    "bytes": 74359,
+    "sha256": "7e2e942c050d694a08725ffe4fc6398c779fc59f04d00024f70d56f722fe7c61",
+    "embedded_bytes": 74359,
+    "embedded_sha256": "7e2e942c050d694a08725ffe4fc6398c779fc59f04d00024f70d56f722fe7c61"
   },
   {
     "path": "core/taxonomy.json",
@@ -518,10 +518,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/fast-full-paper-workflow.md",
-    "bytes": 6973,
-    "sha256": "17c24ccf64f9ad4bb237c556fb39fcadfc536c15885ae683d8969f6ac8d598a3",
-    "embedded_bytes": 6973,
-    "embedded_sha256": "17c24ccf64f9ad4bb237c556fb39fcadfc536c15885ae683d8969f6ac8d598a3"
+    "bytes": 7297,
+    "sha256": "6029b8ae3774c4d46c7afcbd6dd95ae27a752dbeeeb2c7bb7ca5f91d36a68642",
+    "embedded_bytes": 7297,
+    "embedded_sha256": "6029b8ae3774c4d46c7afcbd6dd95ae27a752dbeeeb2c7bb7ca5f91d36a68642"
   },
   {
     "path": "references/first-use.md",
@@ -567,17 +567,24 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/hosted-pdf-production.md",
-    "bytes": 11040,
-    "sha256": "789428f9fb32f600432314d2dc628adacb5d2fe0e45a2cf233476c030bb1da18",
-    "embedded_bytes": 11040,
-    "embedded_sha256": "789428f9fb32f600432314d2dc628adacb5d2fe0e45a2cf233476c030bb1da18"
+    "bytes": 11172,
+    "sha256": "764a4e9b08ab1d64881929559f28ce4c85b69a2919f9a683651f1453ae05d045",
+    "embedded_bytes": 11172,
+    "embedded_sha256": "764a4e9b08ab1d64881929559f28ce4c85b69a2919f9a683651f1453ae05d045"
+  },
+  {
+    "path": "references/hosted-quality-gates.md",
+    "bytes": 6556,
+    "sha256": "792d7c44c42b9a931e7e7a55de60e250acf148a9817b61cac4180318cf7f8167",
+    "embedded_bytes": 6556,
+    "embedded_sha256": "792d7c44c42b9a931e7e7a55de60e250acf148a9817b61cac4180318cf7f8167"
   },
   {
     "path": "references/hosted-run-evidence.md",
-    "bytes": 6719,
-    "sha256": "f1fa9d4c3b42d20506f3a79bdf98dc08aff74289aa6e99655eaee24a9cb09381",
-    "embedded_bytes": 6719,
-    "embedded_sha256": "f1fa9d4c3b42d20506f3a79bdf98dc08aff74289aa6e99655eaee24a9cb09381"
+    "bytes": 7000,
+    "sha256": "fd07ab32ff355db312d7a0ed2d106987ae8ee4128b9e1e3732cc4bf3854b16b1",
+    "embedded_bytes": 7000,
+    "embedded_sha256": "fd07ab32ff355db312d7a0ed2d106987ae8ee4128b9e1e3732cc4bf3854b16b1"
   },
   {
     "path": "references/layout-fidelity.md",
@@ -693,10 +700,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "schemas/exam.schema.json",
-    "bytes": 5559,
-    "sha256": "9dde0ef7088eb4110051e72bd2e56f4d92eec5cfe62d3c943e2281cf1871d6fa",
-    "embedded_bytes": 5559,
-    "embedded_sha256": "9dde0ef7088eb4110051e72bd2e56f4d92eec5cfe62d3c943e2281cf1871d6fa"
+    "bytes": 5615,
+    "sha256": "3c2fca3f2988a2fe8fb8b88621d69110e29c93cf134492a3f9ec97182182c7eb",
+    "embedded_bytes": 5615,
+    "embedded_sha256": "3c2fca3f2988a2fe8fb8b88621d69110e29c93cf134492a3f9ec97182182c7eb"
   },
   {
     "path": "schemas/layout-profile.schema.json",
@@ -728,17 +735,17 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 8342,
-    "sha256": "bf51ef9aef03dddd79342a033e2c1c2f80f71d94d0fe2f6a9058d330dc944c48",
-    "embedded_bytes": 8342,
-    "embedded_sha256": "bf51ef9aef03dddd79342a033e2c1c2f80f71d94d0fe2f6a9058d330dc944c48"
+    "bytes": 14203,
+    "sha256": "4e5db06fb5cd31ad49646e86cff77b8c535826f5affbe4a043d7effcb83e1a94",
+    "embedded_bytes": 14203,
+    "embedded_sha256": "4e5db06fb5cd31ad49646e86cff77b8c535826f5affbe4a043d7effcb83e1a94"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
-    "bytes": 8721,
-    "sha256": "f823f45a035a921a6ff93732862e4c7ec7110fbd0212594cce49fc3fc9ad3162",
-    "embedded_bytes": 8721,
-    "embedded_sha256": "f823f45a035a921a6ff93732862e4c7ec7110fbd0212594cce49fc3fc9ad3162"
+    "bytes": 9408,
+    "sha256": "6d88b70786dfe60a2ec0464dea50a48be892c432964489b85bc1feaa0ad1ae65",
+    "embedded_bytes": 9408,
+    "embedded_sha256": "6d88b70786dfe60a2ec0464dea50a48be892c432964489b85bc1feaa0ad1ae65"
   },
   {
     "path": "scripts/fetch_hosted_template_assets.py",
@@ -748,11 +755,32 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "embedded_sha256": "1612c7e9c4cb26e6b99a33d640ad2942f8f21f26518a0484d3dbd71ca10c9eea"
   },
   {
+    "path": "scripts/hosted_blind_review.py",
+    "bytes": 4064,
+    "sha256": "91de1edf44d3877b2ddced19d0499dad9d7f6f99256f223c6e21b2dcbe3a1c3c",
+    "embedded_bytes": 4064,
+    "embedded_sha256": "91de1edf44d3877b2ddced19d0499dad9d7f6f99256f223c6e21b2dcbe3a1c3c"
+  },
+  {
+    "path": "scripts/hosted_item_layout.py",
+    "bytes": 4950,
+    "sha256": "5caf052a9745f32ed88b4e2bb6105b4b5511cef1a4ad4ae0416311d909bfc15d",
+    "embedded_bytes": 4950,
+    "embedded_sha256": "5caf052a9745f32ed88b4e2bb6105b4b5511cef1a4ad4ae0416311d909bfc15d"
+  },
+  {
+    "path": "scripts/hosted_run_timing.py",
+    "bytes": 3522,
+    "sha256": "588572500f52345f7e42821febf4993e5d57de120402fb14c1cee064cb861fff",
+    "embedded_bytes": 3522,
+    "embedded_sha256": "588572500f52345f7e42821febf4993e5d57de120402fb14c1cee064cb861fff"
+  },
+  {
     "path": "scripts/inspect_hosted_pdf.py",
-    "bytes": 6500,
-    "sha256": "2347eb8e7a86f32f11c8bd4c1bbfa5dad34c966e28bf41af05d5eaf3005262c1",
-    "embedded_bytes": 6500,
-    "embedded_sha256": "2347eb8e7a86f32f11c8bd4c1bbfa5dad34c966e28bf41af05d5eaf3005262c1"
+    "bytes": 8548,
+    "sha256": "743823c397885e9dd29e9bb61ed0e2c81f65b9c06c583d2c39c143414b148aa8",
+    "embedded_bytes": 8548,
+    "embedded_sha256": "743823c397885e9dd29e9bb61ed0e2c81f65b9c06c583d2c39c143414b148aa8"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -923,6 +951,11 @@ from the first item onward: save small recoverable checkpoints, review difficult
 and originality during writing, and reserve time for both PDFs. Run the embedded
 `check_hosted_run.py` before formal delivery. Zero mechanically blocking pages
 does not clear unresolved layout review flags or missing editorial checks.
+Measure phases from preflight, review shortest routes in a separate blind context
+before final composition, and reserve answer rails below measured content and
+figures. Final delivery requires readable item crops as well as every page;
+follow [references/hosted-quality-gates.md](references/hosted-quality-gates.md).
+The time benchmark never waives QA. Never manufacture missing timing or reviews.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).
@@ -54585,6 +54618,11 @@ the accepted PDF area. Watermark/fixture tests do not establish exam acceptance.
 <canonical-source path="references/fast-full-paper-workflow.md">
 # Timed full-paper workflow
 
+Hosted runs must also follow hosted-quality-gates.md: start the actual phase
+logger before preflight, preserve it across repairs, and finish item-level review
+and independent difficulty QA even when target_met becomes false. Missing timing
+blocks evidence-complete; it cannot be reconstructed from a chat's total duration.
+
 Read this reference when a user asks for faster generation, a timed benchmark, or a target such as one complete paper within 20 minutes. Speed is measured under the same complete-paper contract as ordinary generation. This workflow changes scheduling and cache use; it never lowers educational, originality, source, rights, layout, or review gates.
 
 ## What the time means
@@ -55079,6 +55117,8 @@ At least one finalist must be a recent Chinese-authored literary or reflective w
 
 Use with `web-platform-use.md` for every hosted complete paper. This is the same
 Skill's layout implementation, not a generic question generator or weaker gate.
+Follow hosted-quality-gates.md for measured item flow, final item crops and
+non-waivable collisions before any final quality claim.
 
 ## Prove the rendering route before drafting
 
@@ -55247,12 +55287,121 @@ as "all layout checks passed" while warnings, missing difficulty reviews or
 unviewed pages remain. Repairs require new PDF hashes, rasters and page reviews.
 </canonical-source>
 
+<canonical-source path="references/hosted-quality-gates.md">
+# Hosted quality: actual content and measured work
+
+Required with hosted-run-evidence.md. These helpers detect specific defects;
+they cannot turn fabricated reviews into real visual or academic acceptance.
+
+## Layout before claims
+
+Do not overlay fill-in circles after laying out the page. Use
+`hosted_item_layout.reserve_rail(content_boxes, x=..., slots=..., bottom_limit=...)`
+with actual renderer bounds of stem, math, options AND figure. The rail starts
+below their lowest bottom with at least 6 pt clearance. None requires moving or
+reflowing the item. Draw with draw_rail and advance to next_y. Never shrink text
+or clip diagrams to recover space. Special answer patterns need equivalent
+measured flow blocks; draw_rail only provides plain numbered circles.
+
+Keep measured non-overlapping blocks for every item. Inline equations belong
+inside their stem block; figures, display formulas and rails get separate blocks.
+Before composition run hosted_item_layout.geometry_errors to check cross-item
+figure/stem intersections and rail gaps. compose_hosted_pdf additionally rejects
+native rail labels intersecting text or outlined math. The final inspector and
+checker repeat this on saved bytes. answer-rail-content-collision cannot be waived.
+
+After composition offset measured body page numbers for the cover. Write
+layout.json with pdf_sha256 and parts: each has id, page (one-based), bbox
+[x0,y0,x1,y1] in PDF points, components [{role,bbox}]. Long items/solutions have
+multiple parts with the same id. Include continuations, shared stimulus and full
+figures. Cover/formula pages get whole-page review, not fictional question IDs.
+
+```text
+python scripts/hosted_item_layout.py --pdf question.pdf --layout layout.json --output item-crops --report question-items.json
+```
+
+The report starts pending. Open EVERY crop at readable resolution (2 pixels/pt),
+inspect stem, options, rail, equations and every diagram label, then add status
+pass and concrete observations to each part. Keep crops unchanged. Repeat for
+solutions; register each report as pdfs.ROLE.item_review. The checker rerenders
+crops from final bytes and verifies geometry, coverage and freshness. A contact
+sheet is not item review. Renderer boxes can omit content: compare crops to the
+authored content AND whole pages. The narrow rail detector cannot discover all
+clipped/outlined objects, and supplied geometry is not independently inferred.
+
+## Measured density, not a prose waiver
+
+For large-bottom-void-review, issue_dispositions must include reference_pdf
+(path/sha256), reference_page (one-based), page_role (cover/formula/body/solutions),
+and decision/reason. Choose a comparable same-subject page from the embedded
+official 111–115 source map; verify/download once and retain it in the run.
+The checker verifies its hash against that map and remeasures both PDF pages.
+Candidate bottom void cannot exceed reference by over 10 percentage points.
+This conservative review threshold is project policy, not an official exam rule.
+Editorial review must verify role compatibility: never compare an interior page
+to a sparse cover/formula page. A self-created reference or scratch-space reason
+cannot waive failure. Reflow and inspect new bytes when it fails.
+
+## Independent difficulty before final rendering
+
+For math run hosted_blind_review.py exam.json blind-packet.json. It retains visible
+questions, options, visuals and solutions, excluding author labels and item_spec.
+Supply actual referenced visuals and compatible 111–115 anchors to a separate
+reviewer context without prior judgments. Request shortest valid routes, necessary
+decisions, shortcut searches, provisional difficulty/time and specific year/item
+comparisons. Correctness alone does not fulfil difficulty QA. Seek linear-combination
+shortcuts, small-n enumeration and unused conditions; long solutions do not prove
+required solving effort.
+
+The difficulty report adds blind_packet (path/sha256), real author_context and
+reviewer_context identifiers. Each item adds shortest_route, decisive_steps,
+shortcut_search, anchor_comparison, expected_minutes, difficulty_band
+(very_easy/easy/medium/hard/very_hard), unresolved (empty after resolution).
+The checker reconstructs the packet, rejects same-context reviews, and blocks
+author time over 1.5 times the independent estimate or two-band overestimation.
+Revise items or adopt the defensible estimate, then rerun the existing whole-paper
+balance audit using it; never inflate estimates to reach 80–92 minutes. These
+twenty-item papers also need the independent estimates to meet the existing
+80–92 minute target and three-decision coverage of at least 50 points. These
+thresholds are review policy, not student psychometrics. Fields cannot authenticate
+reviewer identity: never invent a second context. If none is available, preserve
+pending work for review in a fresh context.
+
+Four required math visuals is a coverage floor, NOT four fixed picture types.
+Derive information relationships first, then choose representations. Do not reuse
+a permanent geometry/function/probability menu or merely rotate constants. Compare
+accessible prior papers' mechanisms, shortcuts and visual topology.
+
+## Required timing and earlier rejection
+
+Start hosted_run_timing.py generation-timing.json PAPER_ID phase reference_preflight
+before loading references. At transitions use phase with authoring, solving,
+difficulty_qa, render_repair or visual_qa; finish closes the final interval.
+Use all six actual phases, repeat names for repairs, preserve the log in recovery
+material, and register it as run-state.timing. Never reconstruct missing intervals
+from memory. The checker requires positive, ordered, closed intervals for all
+phases and computes total/per-phase times. Interruptions remain wall time.
+Above 1200 seconds it reports target_met=false and continues QA; the benchmark
+is not a delivery deadline. Missing timing is pending. Do not exclude template
+acquisition or repairs to improve reported speed.
+
+Review difficulty in small batches and repair body layout BEFORE fixed-template
+composition. Cache verified immutable assets/source metrics. The compositor
+reuses font bytes and parity-template reference rasters within one call while
+checking every output page's locked pixels. Changed content/PDFs revoke dependent
+reviews. If interrupted, save editable work, reviews, timing and exact next action.
+Never call unfinished PDFs complete. Without a timing log, do not attribute an
+entire 25-minute run to one phase or promise to remove the platform's timeout.
+</canonical-source>
+
 <canonical-source path="references/hosted-run-evidence.md">
 # Recoverable hosted work and evidence-complete delivery
 
 Use for every hosted full paper, including a single paper with no requested time
 target. This is the recorded implementation of web-platform-use's hosted gate,
 not a substitute for local validate_exam_release or a new academic standard.
+Apply [hosted-quality-gates.md](hosted-quality-gates.md) alongside this format:
+actual PDF collisions, item crops, blind difficulty and timing are mandatory.
 
 ## Work that survives interruption
 
@@ -55295,8 +55444,8 @@ or symlinks out of the directory are accepted. Hash each file after saving it.
 Do not invent successful review observations or manufacture reviewer identities.
 
 `run-state.json` has schema_version 1, paper_id, current_phase, next_action,
-exam (`path`, `sha256`), checks, and pdfs. exam.json uses the existing exam schema:
-metadata.paper_id, metadata.subject, questions with unique id and section, and
+exam (`path`, `sha256`), timing (`path`, `sha256`), checks, and pdfs. exam.json uses the existing exam schema:
+metadata.paper_id, metadata.subject, questions with unique id and section_id, and
 the full authored answers and item specifications. Its hash binds each review.
 
 `checks` maps each of these names to an artifact (`path`, `sha256`):
@@ -55324,15 +55473,16 @@ Use the embedded validate_paper_difficulty_balance.py for its structural audit;
 its output alone does not prove achieved difficulty. Reference actual reports
 in the observations and retain them in the recovery copy.
 
-`pdfs.question` and `pdfs.solution` each contain file, inspection and visual_review
+`pdfs.question` and `pdfs.solution` each contain file, inspection, item_review and visual_review
 artifact records plus exam_sha256. Inspection is the unchanged output of
 inspect_hosted_pdf.py on that final PDF. The visual_review JSON contains
 pdf_sha256 and pages, one for EVERY actual page: page, raster_sha256, status,
 observations, and issue_dispositions. Each unresolved inspector issue blocks
 completion. A legitimate role-specific warning can be adjudicated with
 `{"decision":"justified","reason":"actual page/reference observation"}`.
-For example, a fixed formula page may legitimately differ from a body page;
-an unexplained half-empty interior page cannot be dismissed as "no clipping".
+Bottom-void findings additionally require the actual verified official reference
+PDF and numeric comparison specified in hosted-quality-gates.md. Prose alone
+cannot waive them. Hard collision findings can never be waived by a reason.
 Repairing a warning means regenerating and inspecting new bytes, not writing
 "fixed" against the obsolete raster. Hard mechanical failures always block.
 
@@ -57287,6 +57437,7 @@ Any later paper request:
       "additionalProperties": false,
       "required": ["title", "exam", "subject", "calibration_level"],
       "properties": {
+        "paper_id": {"type": "string", "minLength": 1},
         "title": {"type": "string"},
         "subtitle": {"type": ["string", "null"]},
         "exam": {"type": "string"},
@@ -57961,11 +58112,17 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import pymupdf
+from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, bottom_void
+from hosted_item_layout import geometry_errors, crop_bytes
+from hosted_run_timing import timing_errors, summary as timing_summary
+from hosted_blind_review import packet, review_errors
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
 PAPER_GATES = ('structure_scope', 'difficulty_balance', 'source_grounding',
                'template_composition', 'answer_separation')
+SOURCE_MAP = Path(__file__).resolve().parents[1] / 'exam_packs/學測/metadata/official-current-web-sources.json'
 
 
 def sha(path):
@@ -57999,6 +58156,11 @@ def check(state_path: Path) -> dict:
     need(state.get('schema_version') == 1, 'unsupported schema_version')
     need(bool(state.get('paper_id')), 'missing paper_id')
     need(not state.get('failed_checks'), 'run: unresolved failed checks remain')
+    timing_path = file(state.get('timing'), 'timing')
+    timing = None
+    if timing_path:
+        timing = json.loads(timing_path.read_text(encoding='utf-8-sig'))
+        errors.extend(timing_errors(timing, state.get('paper_id')))
     exam_path = file(state.get('exam'), 'exam')
     if exam_path is None:
         return {'status': 'pending', 'errors': errors, 'formal_acceptance': False}
@@ -58035,13 +58197,23 @@ def check(state_path: Path) -> dict:
                 file(previous, 'originality/history')
             if review.get('comparison_scope') == 'available-history':
                 need(bool(review.get('history')), 'originality: history evidence missing')
+        if name == 'difficulty' and exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
+            blind_path = file(review.get('blind_packet'), 'difficulty/blind_packet')
+            if blind_path:
+                need(json.loads(blind_path.read_text(encoding='utf-8-sig')) == packet(exam),
+                     'difficulty: packet changed or includes author labels')
+            for question in items:
+                if question.get('visual_asset'):
+                    file(question['visual_asset'], f'difficulty/{question["id"]}/visual')
+            need(bool(review.get('author_context')), 'difficulty: missing real author context')
+            errors.extend(review_errors(exam, review))
         if name == 'visuals' and exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
             required = [r for r in review.get('items', [])
                         if r.get('status') == 'pass' and r.get('required_for_answer') is True]
             need(len({r.get('visual_id') for r in required if r.get('visual_id')}) >= 4,
                  'visuals: math requires four distinct answer-bearing visuals')
-            sections = {q.get('section') for q in items
-                        if q.get('id') in {r.get('id') for r in required} and q.get('section')}
+            sections = {q.get('section_id') for q in items
+                        if q.get('id') in {r.get('id') for r in required} and q.get('section_id')}
             need(len(sections) >= 3, 'visuals: math requires coverage of three sections')
             need(len({r.get('visual_role') for r in required if r.get('visual_role')}) >= 2,
                  'visuals: math requires more than one visual role')
@@ -58056,6 +58228,45 @@ def check(state_path: Path) -> dict:
             continue
         pdf_hash = sha(pdf)
         pdf_hashes.append(pdf_hash)
+        # Read the actual bytes again: a hand-edited "zero issues" JSON must not
+        # conceal collisions or omitted PDF pages. This check does not rerender
+        # the complete fixed-template composition.
+        with pymupdf.open(pdf) as actual:
+            actual_count = len(actual)
+            actual_issues = {}
+            for number, actual_page in enumerate(actual, 1):
+                collisions = rail_collision_samples(actual_page)
+                need(not collisions,
+                     f'{role}/page-{number}: actual PDF answer-rail-content-collision')
+                rect = actual_page.rect
+                need(not actual_page.rotation and abs(rect.width-595.28) <= 1 and abs(rect.height-841.89) <= 1,
+                     f'{role}/page-{number}: actual PDF non-A4-or-rotated')
+                text = actual_page.get_text()
+                need('\ufffd' not in text and '\x00' not in text,
+                     f'{role}/page-{number}: actual PDF replacement-or-null-glyph')
+                spans = [s for b in actual_page.get_text('dict')['blocks']
+                         for line in b.get('lines', []) for s in line['spans']]
+                need(all(rect.contains(pymupdf.Rect(s['bbox'])) for s in spans),
+                     f'{role}/page-{number}: actual PDF text-outside-page')
+                actual_issues[number] = set()
+                if bottom_void(actual_page) > .32:
+                    actual_issues[number].add('large-bottom-void-review')
+            item_path = file(bundle.get('item_review'), f'{role}/item_review')
+            if item_path:
+                item_review = json.loads(item_path.read_text(encoding='utf-8-sig'))
+                need(item_review.get('pdf_sha256') == pdf_hash, f'{role}: stale item crops')
+                parts = item_review.get('parts', [])
+                need({part.get('id') for part in parts} == expected, f'{role}: item crop coverage incomplete')
+                layout_errors = geometry_errors(actual, parts)
+                errors.extend(f'{role}: {error}' for error in layout_errors)
+                if not layout_errors:
+                    for part in parts:
+                        crop = file({'path': part.get('raster_path'), 'sha256': part.get('raster_sha256')},
+                                    f'{role}/{part.get("id")}/crop')
+                        need(crop is not None and crop.read_bytes() == crop_bytes(actual[part['page']-1], part['bbox']),
+                             f'{role}/{part.get("id")}: crop is not from final PDF')
+                        need(part.get('status') == 'pass' and bool(part.get('observations')),
+                             f'{role}/{part.get("id")}: readable item review missing')
         scan = json.loads(scan_path.read_text(encoding='utf-8-sig'))
         review = json.loads(review_path.read_text(encoding='utf-8-sig'))
         need(scan.get('status') == 'mechanical-review-only', f'{role}: invalid inspector report')
@@ -58063,6 +58274,7 @@ def check(state_path: Path) -> dict:
         need(scan.get('pdf_sha256') == review.get('pdf_sha256') == pdf_hash,
              f'{role}: inspection is not bound to final PDF')
         count = scan.get('page_count', 0)
+        need(count == actual_count, f'{role}: inspector omitted actual PDF pages')
         pages = scan.get('pages', [])
         expected_pages = set(range(1, count + 1)) if type(count) is int and count > 0 else set()
         need(bool(expected_pages) and {p.get('page') for p in pages} == expected_pages
@@ -58074,7 +58286,9 @@ def check(state_path: Path) -> dict:
         by_page = {r.get('page'): r for r in rows}
         for page in pages:
             n = page.get('page')
-            need(not {'non-A4-or-rotated', 'replacement-or-null-glyph', 'text-outside-page'}
+            need(actual_issues.get(n, set()).issubset(set(page.get('issues', []))),
+                 f'{role}/page-{n}: inspector omitted actual density findings')
+            need(not HARD_FAILURES
                  .intersection(page.get('issues', [])), f'{role}/page-{n}: mechanical failure')
             raster = file({'path': page.get('raster_path'),
                            'sha256': page.get('raster_sha256')}, f'{role}/page-{n}/raster')
@@ -58089,11 +58303,28 @@ def check(state_path: Path) -> dict:
                 # A repaired PDF needs a new inspector report, not "fixed" on old bytes.
                 need(finding.get('decision') == 'justified' and bool(finding.get('reason')),
                      f'{role}/page-{n}/{issue}: unresolved review flag')
+                if issue == 'large-bottom-void-review':
+                    reference = file(finding.get('reference_pdf'), f'{role}/page-{n}/density-reference')
+                    if reference:
+                        source_map = json.loads(SOURCE_MAP.read_text(encoding='utf-8-sig'))
+                        approved = {document['sha256'] for subject in source_map['subjects']
+                                    if subject['subject'] == exam['metadata']['subject']
+                                    for year in subject['years'] for document in year['documents'].values()}
+                        need(sha(reference) in approved and sha(reference) != pdf_hash,
+                             f'{role}/page-{n}: density reference must be a verified same-subject official source')
+                        with pymupdf.open(reference) as ref, pymupdf.open(pdf) as candidate:
+                            rn = finding.get('reference_page', 0)
+                            need(finding.get('page_role') in {'cover','formula','body','solutions'},
+                                 f'{role}/page-{n}: density page role missing')
+                            if need(type(rn) is int and 1 <= rn <= len(ref), f'{role}/page-{n}: invalid reference page'):
+                                need(bottom_void(candidate[n-1]) <= bottom_void(ref[rn-1]) + .10,
+                                     f'{role}/page-{n}: bottom void exceeds reference by over 10 percentage points')
     need(len(pdf_hashes) == 2 and len(set(pdf_hashes)) == 2,
          'two distinct question and solution PDFs required')
     return {'status': 'evidence-complete' if not errors else 'pending',
             'paper_id': state.get('paper_id'), 'errors': errors,
             'formal_acceptance': False,
+            'timing': timing_summary(timing) if timing and not timing_errors(timing, state.get('paper_id')) else None,
             'scope': 'Evidence completeness and freshness only; recorded judgments need real review.'}
 
 
@@ -58103,7 +58334,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     try:
         result = check(args.state)
-    except (ValueError, TypeError, KeyError, OSError, AttributeError) as exc:
+    except (ValueError, TypeError, KeyError, OSError, AttributeError, IndexError, RuntimeError, OverflowError) as exc:
         result = {'status': 'pending', 'errors': [f'Malformed/missing evidence: {type(exc).__name__}'],
                   'formal_acceptance': False}
     print(json.dumps(result, ensure_ascii=False, indent=2))
@@ -58128,6 +58359,7 @@ from pathlib import Path
 import pymupdf
 
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, verify
+from inspect_hosted_pdf import rail_collision_samples
 
 
 def sha(data: bytes) -> str:
@@ -58152,7 +58384,7 @@ def check_body(page, box) -> None:
         raise ValueError("Body overlay paints outside measured body box; remove headers/backgrounds, do not clip them away")
 
 
-def write_field(page, box, text: str, font, size: float, *, align: str = "center") -> None:
+def write_field(page, box, text: str, font, size: float, *, align: str = "center", resource=None) -> None:
     rect = pymupdf.Rect(box)
     if any(not font.has_glyph(ord(c)) for c in text):
         raise ValueError(f"Dynamic-field font lacks a glyph in {text!r}")
@@ -58169,8 +58401,7 @@ def write_field(page, box, text: str, font, size: float, *, align: str = "center
     # Browser-produced templates leave a content transformation in their
     # stream. Isolate it before appending anything in page-point coordinates.
     page.wrap_contents()
-    buffer = font.buffer
-    font_name = "TEField" + sha(buffer)[:12]
+    buffer, font_name = resource if resource else field_resource(font)
     if not any(row[4] == font_name for row in page.get_fonts()):
         page.insert_font(fontname=font_name, fontbuffer=buffer)
     for character in text:
@@ -58178,6 +58409,11 @@ def write_field(page, box, text: str, font, size: float, *, align: str = "center
         # one reusable font resource avoids embedding a font for every glyph.
         page.insert_text((x, y), character, fontname=font_name, fontsize=size)
         x += font.text_length(character, fontsize=size)
+
+
+def field_resource(font):
+    buffer = font.buffer
+    return buffer, 'TEField' + sha(buffer)[:12]
 
 
 def page_base(out, asset, source_page=0):
@@ -58206,18 +58442,22 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 hashes[record["component"]] = sha(data)
         font = pymupdf.Font(fontfile=str(font_path))
         digits = pymupdf.Font("tiro")
+        font_resource, digit_resource = field_resource(font), field_resource(digits)
+        base_pixels = {}
         with pymupdf.open(body) as body_doc, pymupdf.open() as out:
             if not len(body_doc):
                 raise ValueError("Empty body")
             for page in body_doc:
                 check_body(page, geometry["body"])
+                if rail_collision_samples(page):
+                    raise ValueError('Body answer-rail-content-collision; reflow before fixed-template composition')
             has_formula = subject in {"數學A", "數學B"} and kind == "questions"
             total = len(body_doc) + int(has_formula)
             proofs = []
             if kind == "questions":
                 page = page_base(out, assets["cover-blank"])
                 box = geometry["cover_title"]
-                write_field(page, box, f"{year}學年度{title}", font, 19.98 if has_formula else 18)
+                write_field(page, box, f"{year}學年度{title}", font, 19.98 if has_formula else 18, resource=font_resource)
                 if masked_pixels(page, [box]) != masked_pixels(assets["cover-blank"][0], [box]):
                     raise ValueError("Cover title changed locked pixels")
                 proofs.append({"page": 1, "component": "cover-blank", "locked_pixels_match": True})
@@ -58236,12 +58476,14 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                     page.show_pdf_page(page.rect, body_doc, index)
                 fields = geometry[parity]
                 write_field(page, fields["year_name"], f"{year}年{running_name}", font, 10,
-                            align="right" if parity == "odd" else "left")
-                write_field(page, fields["current_page"], str(number), digits, 10)
-                write_field(page, fields["total_pages"], str(total), digits, 10)
-                write_field(page, fields["footer"], str(number), digits, 8)
+                            align="right" if parity == "odd" else "left", resource=font_resource)
+                write_field(page, fields["current_page"], str(number), digits, 10, resource=digit_resource)
+                write_field(page, fields["total_pages"], str(total), digits, 10, resource=digit_resource)
+                write_field(page, fields["footer"], str(number), digits, 8, resource=digit_resource)
                 masks = [*fields.values(), geometry["body"]]
-                if masked_pixels(page, masks) != masked_pixels(assets[component][0], masks):
+                if component not in base_pixels:
+                    base_pixels[component] = masked_pixels(assets[component][0], masks)
+                if masked_pixels(page, masks) != base_pixels[component]:
                     raise ValueError(f"Page {number} changed locked header/footer pixels")
                 proofs.append({"page": len(out), "inner_number": number, "component": component,
                                "formula_component": "formula-blank" if formula else None,
@@ -58472,6 +58714,275 @@ if __name__ == "__main__":
     raise SystemExit(main())
 </canonical-source>
 
+<canonical-source path="scripts/hosted_blind_review.py">
+#!/usr/bin/env python3
+"""Build a label-free difficulty packet; never synthesize a review or identity."""
+import argparse
+import json
+from pathlib import Path
+
+
+def packet(exam):
+    questions = []
+    for q in exam['questions']:
+        row = {k: q[k] for k in ('id','number','section_id','type','prompt','group_stimulus') if k in q}
+        if q.get('options'):
+            row['options'] = [{k: option[k] for k in ('label','text')} for option in q['options']]
+        if q.get('visual_asset'):
+            row['visual_asset'] = {k: q['visual_asset'][k] for k in ('path','sha256','alt','caption')
+                                   if k in q['visual_asset']}
+        questions.append(row)
+    # Author's difficulty labels/reviews and item_spec never enter the packet.
+    answers = [{k: a[k] for k in ('question_id','final_answer','reasoning') if k in a}
+               for a in exam.get('answers', [])]
+    return {'subject': exam['metadata']['subject'], 'questions': questions, 'answers': answers}
+
+
+def review_errors(exam, review):
+    errors = []
+    bands = ['very_easy','easy','medium','hard','very_hard']
+    rows = {r.get('id'):r for r in review.get('items', [])}
+    if not review.get('reviewer_context') or review.get('author_context') == review.get('reviewer_context'):
+        errors.append('difficulty: a separate blind reviewer context is required')
+    for question in exam['questions']:
+        row = rows.get(question['id'], {})
+        prefix = f'difficulty/{question["id"]}'
+        for field in ('shortest_route','decisive_steps','shortcut_search','anchor_comparison'):
+            if not row.get(field):
+                errors.append(f'{prefix}: missing {field}')
+        steps = row.get('decisive_steps')
+        if not isinstance(steps, list) or not steps or not all(isinstance(s,str) and s.strip() for s in steps):
+            errors.append(f'{prefix}: decisive_steps must list actual decisions')
+        minutes = row.get('expected_minutes')
+        if type(minutes) not in (int,float) or not 0 < minutes <= 100:
+            errors.append(f'{prefix}: invalid independent time estimate')
+            continue
+        if row.get('difficulty_band') not in bands or row.get('unresolved') != []:
+            errors.append(f'{prefix}: unresolved or missing independent judgment')
+        declared = question.get('expected_minutes')
+        if type(declared) in (int,float) and declared > minutes * 1.5:
+            errors.append(f'{prefix}: author time exceeds blind estimate by over 50%; revise and rebalance')
+        design = (question.get('item_spec') or {}).get('difficulty_design') or {}
+        estimated = design.get('expert_estimate', {}).get('difficulty_band')
+        if estimated in bands and row.get('difficulty_band') in bands:
+            if bands.index(estimated) - bands.index(row['difficulty_band']) >= 2:
+                errors.append(f'{prefix}: author difficulty exceeds blind estimate by two bands')
+    if len(exam['questions']) == 20:
+        total = sum(r.get('expected_minutes', 0) for r in rows.values()
+                    if type(r.get('expected_minutes')) in (int,float))
+        if not 80 <= total <= 92:
+            errors.append(f'difficulty: blind hand-solving total {total:g} minutes is outside existing 80-92 target')
+        decision_score = sum(q.get('score', 0) or 0 for q in exam['questions']
+                             if isinstance(rows.get(q['id'], {}).get('decisive_steps'), list)
+                             and len(rows[q['id']]['decisive_steps']) >= 3)
+        if decision_score < 50:
+            errors.append('difficulty: blind three-decision coverage below existing 50-point floor')
+    return errors
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('exam', type=Path)
+    parser.add_argument('output', type=Path)
+    args = parser.parse_args()
+    args.output.write_text(json.dumps(packet(json.loads(args.exam.read_text(encoding='utf-8'))),
+                                     ensure_ascii=False, indent=2), encoding='utf-8')
+</canonical-source>
+
+<canonical-source path="scripts/hosted_item_layout.py">
+#!/usr/bin/env python3
+"""Measured item blocks, flow rails and readable final-PDF crops (no questions)."""
+from __future__ import annotations
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import pymupdf
+
+
+def reserve_rail(content_boxes, *, x, slots, bottom_limit, gap=8, diameter=24,
+                 label_height=12, after=12):
+    """Reserve AFTER the union of actual laid-out stem, math, options and figure.
+
+    None means move/reflow the whole item before drawing anything. Callers must
+    measure wrapped text and figures, not estimate bottom from line counts.
+    """
+    if not content_boxes or slots < 1 or gap < 6 or after < 6:
+        raise ValueError('Measured content and positive rail clearance required')
+    top = max(pymupdf.Rect(b).y1 for b in content_boxes) + gap
+    box = [x, top, x + slots * (diameter + 10), top + label_height + 3 + diameter]
+    return None if box[3] + after > bottom_limit else {'bbox': box, 'next_y': box[3] + after}
+
+
+def draw_rail(page, reservation, number, slots, diameter=24, label_height=12):
+    """Draw into the reserved block; never overlay a rail onto completed stems."""
+    box = pymupdf.Rect(reservation['bbox'])
+    if slots * (diameter + 10) > box.width or label_height + 3 + diameter > box.height:
+        raise ValueError('Rail exceeds its reservation')
+    for index in range(slots):
+        x = box.x0 + index * (diameter + 10)
+        page.insert_text((x, box.y0 + 10), f'({number}-{index+1})', fontsize=9, fontname='tiro')
+        y = box.y0 + label_height + 3
+        page.draw_circle((x + diameter / 2, y + diameter / 2), diameter / 2, width=.7)
+    page.draw_line((box.x0, box.y1), (box.x1, box.y1), width=.7)
+
+
+def geometry_errors(doc, parts):
+    """Non-overlapping block boxes: inline math belongs INSIDE its stem block.
+
+    Boxes are supplied by the renderer and still require visual verification;
+    this cannot discover undeclared/omitted content by itself.
+    """
+    errors, blocks = [], []
+    for part in parts:
+        page_no = part['page']
+        box = pymupdf.Rect(part['bbox'])
+        if not 1 <= page_no <= len(doc) or box.is_empty or box.is_infinite:
+            errors.append('invalid item page/box')
+            continue
+        if not doc[page_no-1].rect.contains(box) or box.width < 100 or box.height < 20:
+            errors.append('item crop outside page or unreadably small')
+        components = part.get('components', [])
+        if not components:
+            errors.append('missing measured layout components')
+        for component in components:
+            r = pymupdf.Rect(component['bbox'])
+            if r.is_empty or not box.contains(r):
+                errors.append('component outside item crop')
+            blocks.append((page_no, part['id'], component['role'], r))
+    for i, (p, item, role, a) in enumerate(blocks):
+        for q, other, other_role, b in blocks[i+1:]:
+            if p != q:
+                continue
+            overlap = a & b
+            if overlap.width > .5 and overlap.height > .5:
+                errors.append(f'page {p}: {item}/{role} overlaps {other}/{other_role}')
+            if (role == 'answer_rail' or other_role == 'answer_rail') and min(a.x1,b.x1) > max(a.x0,b.x0):
+                vertical_gap = max(b.y0-a.y1, a.y0-b.y1)
+                if vertical_gap < 6:
+                    errors.append(f'page {p}: answer rail clearance below 6 pt')
+    return errors
+
+
+def crop_bytes(page, bbox):
+    return page.get_pixmap(clip=pymupdf.Rect(bbox), matrix=pymupdf.Matrix(2,2), alpha=False).tobytes('png')
+
+
+def crop_items(pdf, layout, output):
+    raw = pdf.read_bytes()
+    digest = hashlib.sha256(raw).hexdigest()
+    if layout.get('pdf_sha256') != digest:
+        raise ValueError('Layout does not describe this final PDF')
+    with pymupdf.open(stream=raw, filetype='pdf') as doc:
+        errors = geometry_errors(doc, layout['parts'])
+        if errors:
+            raise ValueError('; '.join(errors))
+        target = output / digest[:16]
+        target.mkdir(parents=True, exist_ok=True)
+        parts = []
+        for index, part in enumerate(layout['parts']):
+            data = crop_bytes(doc[part['page']-1], part['bbox'])
+            path = target / f'item-part-{index+1:03}.png'
+            path.write_bytes(data)
+            parts.append({**part, 'raster_path': str(path), 'raster_sha256': hashlib.sha256(data).hexdigest(),
+                          'status': 'pending', 'observations': ''})
+    return {'pdf_sha256': digest, 'parts': parts}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    for name in ('pdf', 'layout', 'output', 'report'):
+        parser.add_argument('--'+name, type=Path, required=True)
+    args = parser.parse_args()
+    result = crop_items(args.pdf, json.loads(args.layout.read_text(encoding='utf-8')), args.output)
+    args.report.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+</canonical-source>
+
+<canonical-source path="scripts/hosted_run_timing.py">
+#!/usr/bin/env python3
+"""Persist actual phase transitions; time targets never waive QA.
+
+Usage: hosted_run_timing.py generation-timing.json PAPER_ID phase PHASE
+       hosted_run_timing.py generation-timing.json PAPER_ID finish
+Switching phase closes the previous interval. Repeat phases for repairs. Gaps
+and interruptions remain wall time, not falsely reported as active CPU time.
+"""
+from __future__ import annotations
+import argparse
+from datetime import datetime, timezone
+import json
+import math
+from pathlib import Path
+import time
+
+PHASES = {'reference_preflight', 'authoring', 'solving', 'render_repair', 'visual_qa', 'difficulty_qa'}
+
+
+def timing_errors(report, paper_id):
+    errors = []
+    rows = report.get('intervals', [])
+    if report.get('paper_id') != paper_id or report.get('active') is not None:
+        errors.append('timing: wrong paper or unfinished interval')
+    if {r.get('phase') for r in rows} != PHASES:
+        errors.append('timing: all six measured phases required')
+    previous = None
+    for row in rows:
+        start, end = row.get('start'), row.get('end')
+        if not all(type(v) in (int,float) and math.isfinite(v) for v in (start,end)):
+            errors.append('timing: invalid clock reading')
+            continue
+        if end <= start or (previous is not None and start < previous):
+            errors.append('timing: reversed or overlapping intervals')
+        previous = end
+    if not rows:
+        errors.append('timing: no measured intervals')
+    return errors
+
+
+def transition(path, paper_id, phase=None):
+    now = time.time()
+    report = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {
+        'paper_id': paper_id, 'intervals': [], 'active': None}
+    if report['paper_id'] != paper_id:
+        raise ValueError('Refusing to mix paper clocks')
+    if report.get('finished_at'):
+        report.pop('finished_at')  # A later repair reopens the SAME measured run.
+    if report['active']:
+        active = report['active']
+        if now <= active['start']:
+            raise ValueError('Clock moved backwards; retain log and investigate')
+        report['intervals'].append({**active, 'end': now})
+    report['active'] = {'phase': phase, 'start': now} if phase else None
+    if phase is None:
+        report['finished_at'] = datetime.now(timezone.utc).isoformat()
+    report['updated_at'] = datetime.now(timezone.utc).isoformat()
+    temporary = path.with_suffix(path.suffix + '.tmp')
+    temporary.write_text(json.dumps(report, indent=2), encoding='utf-8')
+    temporary.replace(path)
+    return report
+
+
+def summary(report):
+    rows = report['intervals']
+    elapsed = rows[-1]['end'] - rows[0]['start'] if rows else 0
+    return {'wall_seconds': elapsed, 'target_seconds': 1200, 'target_met': elapsed <= 1200,
+            'phase_seconds': {phase: sum(r['end']-r['start'] for r in rows if r['phase']==phase)
+                              for phase in sorted(PHASES)}}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('path', type=Path)
+    parser.add_argument('paper_id')
+    parser.add_argument('action', choices=('phase','finish'))
+    parser.add_argument('phase', nargs='?', choices=sorted(PHASES))
+    args = parser.parse_args()
+    if (args.action == 'phase') != (args.phase is not None):
+        parser.error('phase requires a phase name; finish takes none')
+    report = transition(args.path, args.paper_id, args.phase)
+    print(json.dumps(summary(report), indent=2))
+</canonical-source>
+
 <canonical-source path="scripts/inspect_hosted_pdf.py">
 #!/usr/bin/env python3
 """Rasterize a saved PDF and report mechanical layout risks; never self-approve it.
@@ -58492,7 +59003,51 @@ import pymupdf
 
 
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
-HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page"}
+HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
+                 "answer-rail-content-collision"}
+
+
+def rail_collision_samples(page) -> list[dict]:
+    """Detect answer-position labels crossing native text or outlined math.
+
+    Deliberately local to numbered rails: global glyph intersection would flag
+    legitimate kerning, radicals and fractions. This is not a general proof of
+    collision-free layout. Outline-only labels still require component review.
+    """
+    labels = [w for w in page.get_text('words')
+              if re.fullmatch(r'\(\d{1,2}[-–]\d{1,2}\)', w[4])]
+    chars = [c for b in page.get_text('rawdict')['blocks'] for l in b.get('lines', [])
+             for s in l['spans'] for c in s['chars'] if not c['c'].isspace()]
+    outlines = [d for d in page.get_drawings()
+                if d.get('fill') is not None and min(d['fill']) < .5
+                and 0 < d['rect'].width < 35 and 0 < d['rect'].height < 35]
+    findings = []
+    for word in labels:
+        label = pymupdf.Rect(word[:4])
+        candidates = []
+        for c in chars:
+            r = pymupdf.Rect(c['bbox'])
+            # Label characters and the rail's circle are expected components.
+            if label.contains(r) or c['c'] in {'○', '◯'}:
+                continue
+            candidates.append((r, 'text', c['c']))
+        candidates.extend((d['rect'], 'outlined-math', '') for d in outlines)
+        for rect, kind, text in candidates:
+            overlap = rect & label
+            if overlap.width > .7 and overlap.height > .7:
+                findings.append({'label': word[4], 'label_bbox': list(label),
+                                 'kind': kind, 'text': text, 'content_bbox': list(rect),
+                                 'intersection': list(overlap)})
+    return findings
+
+
+def bottom_void(page, body_box=None):
+    body = pymupdf.Rect(body_box or [64, 87, page.rect.width - 64, 775])
+    pix = page.get_pixmap(clip=body, colorspace=pymupdf.csGRAY, alpha=False)
+    samples = pix.samples
+    last = next((r for r in range(pix.height - 1, -1, -1)
+                 if min(samples[r * pix.stride:r * pix.stride + pix.width]) < 240), -1)
+    return round((pix.height - last - 1) / pix.height, 3)
 
 
 def table_collision_samples(page) -> list[dict]:
@@ -58550,6 +59105,9 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             if leaked:
                 issues.append("raw-math-markup-review")
             table_collisions = table_collision_samples(page)
+            rail_collisions = rail_collision_samples(page)
+            if rail_collisions:
+                issues.append('answer-rail-content-collision')
             if table_collisions:
                 issues.append("table-grid-text-collision-review")
             for span in spans:
@@ -58559,11 +59117,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             # Measure visible pixels, not PDF object bounds: fixed templates
             # include white page-size rectangles that are NOT printed content.
             # The same applies to white image margins and clipped Form XObjects.
-            body_pix = page.get_pixmap(clip=body, colorspace=pymupdf.csGRAY, alpha=False)
-            samples = body_pix.samples
-            last_ink = next((row for row in range(body_pix.height - 1, -1, -1)
-                             if min(samples[row * body_pix.stride: row * body_pix.stride + body_pix.width]) < 240), -1)
-            void = round((body_pix.height - last_ink - 1) / body_pix.height, 3)
+            void = bottom_void(page, body)
             if void > .32:
                 issues.append("large-bottom-void-review")
             raster = target / f"page-{number:03}.png"
@@ -58572,11 +59126,12 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "raster_sha256": hashlib.sha256(raster.read_bytes()).hexdigest(),
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
+                          "rail_collision_samples": rail_collisions,
                           "bottom_void_ratio": void,
                           "fonts": sorted({s["font"] for s in spans}),
                           "sizes_pt": sorted({round(s["size"], 2) for s in spans}),
                           "visual_review": "not-performed-by-this-tool"})
-    return {"status": "mechanical-review-only", "pdf_sha256": digest, "pdf_path": str(pdf),
+    return {"inspector_version": 2, "status": "mechanical-review-only", "pdf_sha256": digest, "pdf_path": str(pdf),
             "page_count": len(pages), "pages": pages,
             "blocking_pages": [p["page"] for p in pages if HARD_FAILURES.intersection(p["issues"])],
             "review_flag_pages": [p["page"] for p in pages if p["issues"]],

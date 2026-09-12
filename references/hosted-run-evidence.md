@@ -3,6 +3,8 @@
 Use for every hosted full paper, including a single paper with no requested time
 target. This is the recorded implementation of web-platform-use's hosted gate,
 not a substitute for local validate_exam_release or a new academic standard.
+Apply [hosted-quality-gates.md](hosted-quality-gates.md) alongside this format:
+actual PDF collisions, item crops, blind difficulty and timing are mandatory.
 
 ## Work that survives interruption
 
@@ -45,8 +47,8 @@ or symlinks out of the directory are accepted. Hash each file after saving it.
 Do not invent successful review observations or manufacture reviewer identities.
 
 `run-state.json` has schema_version 1, paper_id, current_phase, next_action,
-exam (`path`, `sha256`), checks, and pdfs. exam.json uses the existing exam schema:
-metadata.paper_id, metadata.subject, questions with unique id and section, and
+exam (`path`, `sha256`), timing (`path`, `sha256`), checks, and pdfs. exam.json uses the existing exam schema:
+metadata.paper_id, metadata.subject, questions with unique id and section_id, and
 the full authored answers and item specifications. Its hash binds each review.
 
 `checks` maps each of these names to an artifact (`path`, `sha256`):
@@ -74,15 +76,16 @@ Use the embedded validate_paper_difficulty_balance.py for its structural audit;
 its output alone does not prove achieved difficulty. Reference actual reports
 in the observations and retain them in the recovery copy.
 
-`pdfs.question` and `pdfs.solution` each contain file, inspection and visual_review
+`pdfs.question` and `pdfs.solution` each contain file, inspection, item_review and visual_review
 artifact records plus exam_sha256. Inspection is the unchanged output of
 inspect_hosted_pdf.py on that final PDF. The visual_review JSON contains
 pdf_sha256 and pages, one for EVERY actual page: page, raster_sha256, status,
 observations, and issue_dispositions. Each unresolved inspector issue blocks
 completion. A legitimate role-specific warning can be adjudicated with
 `{"decision":"justified","reason":"actual page/reference observation"}`.
-For example, a fixed formula page may legitimately differ from a body page;
-an unexplained half-empty interior page cannot be dismissed as "no clipping".
+Bottom-void findings additionally require the actual verified official reference
+PDF and numeric comparison specified in hosted-quality-gates.md. Prose alone
+cannot waive them. Hard collision findings can never be waived by a reason.
 Repairing a warning means regenerating and inspecting new bytes, not writing
 "fixed" against the obsolete raster. Hard mechanical failures always block.
 

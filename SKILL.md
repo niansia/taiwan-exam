@@ -84,6 +84,11 @@ from the first item onward: save small recoverable checkpoints, review difficult
 and originality during writing, and reserve time for both PDFs. Run the embedded
 `check_hosted_run.py` before formal delivery. Zero mechanically blocking pages
 does not clear unresolved layout review flags or missing editorial checks.
+Measure phases from preflight, review shortest routes in a separate blind context
+before final composition, and reserve answer rails below measured content and
+figures. Final delivery requires readable item crops as well as every page;
+follow [references/hosted-quality-gates.md](references/hosted-quality-gates.md).
+The time benchmark never waives QA. Never manufacture missing timing or reviews.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).

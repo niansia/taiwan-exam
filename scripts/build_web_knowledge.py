@@ -32,6 +32,7 @@ AUTHORING_REFERENCES = {
     "gsat-subject-patterns.md",
     "hosted-pdf-production.md",
     "hosted-run-evidence.md",
+    "hosted-quality-gates.md",
     "gsat-writing-111-115-selection-calibration.md",
     "gsat-writing-source-ecology.md",
     "layout-fidelity.md",
@@ -61,6 +62,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "compose_hosted_pdf.py")
     paths.append(root / "scripts" / "inspect_hosted_pdf.py")
     paths.append(root / "scripts" / "check_hosted_run.py")
+    paths.extend(root / 'scripts' / name for name in ('hosted_item_layout.py', 'hosted_run_timing.py', 'hosted_blind_review.py'))
     paths.append(root / "scripts" / "validate_math_difficulty_design.py")
     paths.append(root / "scripts" / "validate_paper_difficulty_balance.py")
 
