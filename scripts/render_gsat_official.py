@@ -20,7 +20,7 @@ from render_exam import question_number_display, answer_question_label, answer_h
 STYLE = r"""
 @page { size: A4; margin: 13mm 17mm 15mm 17mm; }
 * { box-sizing: border-box; }
-html { background:#ddd; color:#111; font-family:"Noto Serif TC","PMingLiU","Times New Roman",serif; }
+html { background:#ddd; color:#111; font-family:"Noto Serif TC","PMingLiU","Times New Roman","Noto Serif CJK TC",serif; }
 body { width:210mm; margin:0 auto; background:#fff; font-size:9.4pt; line-height:1.48; }
 .cover { position:relative; z-index:3; background:#fff; min-height:269mm; break-after:page; padding:14mm 7mm 0; }
 .brand { text-align:center; font-size:13pt; letter-spacing:.11em; margin-top:10mm; }
@@ -118,7 +118,7 @@ def verified_layout_css(meta: dict[str, Any], subject: str) -> str:
     except (TypeError, ValueError):
         return ""
     raw_families = [part.strip() for part in str(body.get("family") or "").split("/") if part.strip()]
-    fallbacks = ["PMingLiU", "MingLiU", "Times New Roman", "serif"]
+    fallbacks = ["PMingLiU", "MingLiU", "Noto Serif CJK TC", "Times New Roman", "serif"]
     families = []
     for family in [*raw_families, *fallbacks]:
         if family not in families:
@@ -138,8 +138,8 @@ def verified_layout_css(meta: dict[str, Any], subject: str) -> str:
         page_css +
         f'@page {{ margin-left:{left:.2f}mm; margin-right:{right:.2f}mm; }}\n'
         f'body {{ font-family:{family_css}; font-size:{size:.2f}pt; }}\n'
-        '.section-rule,.notice-box { font-family:"DFKai-SB","KaiTi","PMingLiU",serif; }\n'
-        '.section-title,.group-label,.qno { font-family:"PMingLiU","MingLiU",serif; }'
+        '.section-rule,.notice-box { font-family:"DFKai-SB","KaiTi","PMingLiU","Noto Serif CJK TC",serif; }\n'
+        '.section-title,.group-label,.qno { font-family:"PMingLiU","MingLiU","Noto Serif CJK TC",serif; }'
     )
 
 

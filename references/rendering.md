@@ -9,6 +9,12 @@ See [rendering-security-review.md](rendering-security-review.md).
 
 Read this reference when producing a formal paper, answer booklet, HTML, or PDF.
 
+Linux HTML-to-PDF rendering needs a Traditional Chinese font installed in the
+file runtime. On Debian/Ubuntu, install `fonts-noto-cjk`; the renderers explicitly
+include its `Noto Serif CJK TC` family. A browser's generic serif substitution
+does not establish Chinese glyph or text-extraction fidelity. Verify both the
+rendered page and extracted text, including the first character of headings.
+
 The named renderer commands and `.sheet`/HTML containment implementation below
 apply to a complete local checkout. Without that tree on a hosted surface, use
 the exact-PDF composition and hosted-equivalent observable checks in

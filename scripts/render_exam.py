@@ -17,7 +17,7 @@ STYLE = """
 @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
 :root { --ink: #111; --muted: #555; --rule: #222; --light: #e8e8e8; }
 * { box-sizing: border-box; }
-html { color: var(--ink); background: #ececec; font-family: "Noto Serif TC", "PMingLiU", "Times New Roman", serif; }
+html { color: var(--ink); background: #ececec; font-family: "Noto Serif TC", "Noto Serif CJK TC", "PMingLiU", "Times New Roman", serif; }
 body { width: 210mm; margin: 0 auto; padding: 14mm 16mm; background: white; line-height: 1.65; font-size: 11.5pt; }
 .exam-header { text-align: center; border-bottom: 2px solid var(--rule); padding-bottom: 5mm; margin-bottom: 5mm; }
 .exam-title { margin: 0; font-size: 21pt; letter-spacing: .08em; font-weight: 700; }

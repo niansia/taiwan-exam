@@ -25,7 +25,7 @@ STYLE = r"""
 @page { size:A4; margin:0; }
 * { box-sizing:border-box; }
 html,body { margin:0; padding:0; background:#fff; color:#111;
-  font-family:"Noto Serif TC","PMingLiU","Times New Roman",serif; }
+  font-family:"Noto Serif TC","PMingLiU","Times New Roman","Noto Serif CJK TC",serif; }
 body { font-size:10.35pt; line-height:1.56; }
 body.paper-英文 { font-size:9.75pt; line-height:1.49; }
 body.paper-英文 .sheet:not(.cover) { padding-left:20.5mm; padding-right:20.5mm; }
@@ -43,7 +43,7 @@ body.paper-英文 .question.section-reading { margin-bottom:1.35mm; line-height:
 .english-blank { display:inline-block; min-width:13mm; border-bottom:.65px solid #222;
   text-align:center; line-height:1.12; text-indent:0; margin:0 .45mm; }
 body.paper-國寫 {
-  font-family:"DFKai-SB","BiauKai","標楷體","PMingLiU",serif;
+  font-family:"DFKai-SB","BiauKai","標楷體","PMingLiU","Noto Serif CJK TC",serif;
   font-size:12pt;
   line-height:1.69;
 }
@@ -53,21 +53,21 @@ body.paper-國寫 .prompt,body.paper-國寫 .stimulus,body.paper-國寫 .writing
   letter-spacing:.01em;
 }
 body.paper-數學A,body.paper-數學B {
-  font-family:"Times New Roman","PMingLiU","MingLiU","新細明體",serif;
+  font-family:"Times New Roman","PMingLiU","MingLiU","新細明體","Noto Serif CJK TC",serif;
   font-size:11pt;
   line-height:1.58;
 }
 body.paper-數學A .math-cover .notice,body.paper-數學B .math-cover .notice,
 body.paper-數學A .section-head,body.paper-數學B .section-head,
 body.paper-數學A .section-rule,body.paper-數學B .section-rule {
-  font-family:"DFKai-SB","BiauKai","標楷體","PMingLiU",serif;
+  font-family:"DFKai-SB","BiauKai","標楷體","PMingLiU","Noto Serif CJK TC",serif;
 }
 body.paper-數學A .math-inline,body.paper-數學B .math-inline,
 body.paper-數學A .option,body.paper-數學B .option {
-  font-family:"Times New Roman","PMingLiU","新細明體",serif;
+  font-family:"Times New Roman","PMingLiU","新細明體","Noto Serif CJK TC",serif;
 }
 .paper-數學A sub,.paper-數學A sup,.paper-數學B sub,.paper-數學B sup {
-  font-family:"Times New Roman",serif;
+  font-family:"Times New Roman","Noto Serif CJK TC",serif;
   font-size:.76em;
   line-height:0;
   position:relative;
@@ -91,10 +91,10 @@ body.paper-數學A .option,body.paper-數學B .option {
 .notice ul { padding-left:1.35em; margin:0; }
 .notice li { margin:0 0 1.1mm; }
 .math-cover { padding:20mm 22mm 14mm; }
-.math-cover .org { margin-top:5mm; font:19.98pt/1.15 "DFKai-SB","BiauKai","標楷體",serif; }
-.math-cover .year { margin-top:3mm; font:19.98pt/1.15 "DFKai-SB","BiauKai","標楷體",serif; }
-.math-cover .subject { margin:5mm 0 3mm; font:25.98pt/1.12 "DFKai-SB","BiauKai","標楷體",serif; }
-.math-cover .sign { margin-bottom:4mm; font:18pt/1.2 "DFKai-SB","BiauKai","標楷體",serif; }
+.math-cover .org { margin-top:5mm; font:19.98pt/1.15 "DFKai-SB","BiauKai","標楷體","Noto Serif CJK TC",serif; }
+.math-cover .year { margin-top:3mm; font:19.98pt/1.15 "DFKai-SB","BiauKai","標楷體","Noto Serif CJK TC",serif; }
+.math-cover .subject { margin:5mm 0 3mm; font:25.98pt/1.12 "DFKai-SB","BiauKai","標楷體","Noto Serif CJK TC",serif; }
+.math-cover .sign { margin-bottom:4mm; font:18pt/1.2 "DFKai-SB","BiauKai","標楷體","Noto Serif CJK TC",serif; }
 .math-cover .notice { width:100%; padding:3.5mm 5mm 3mm; font-size:12pt; line-height:1.30; min-height:162mm; }
 .math-cover .notice h1 { margin-bottom:2mm; font-size:16.02pt; }
 .math-cover .notice h2 { margin:1.8mm 0 .7mm; font-size:12pt; }
@@ -163,8 +163,8 @@ body.paper-數學A .option,body.paper-數學B .option {
 .answer-line { height:6mm; border-bottom:.5px solid #aaa; }
 .fill-format { display:inline-flex; align-items:center; margin:0 .8mm; vertical-align:middle; }
 .fill-slots { display:inline-flex; gap:.35mm; align-items:center; justify-content:center; }
-.fill-slot { position:relative; display:inline-flex; width:9.16mm; height:9.16mm; align-items:center; justify-content:center; font:10.02pt/1 "Times New Roman",serif; background:#fff; }
-.fill-slot::before { content:"○"; position:absolute; inset:-.1mm 0 0; display:flex; align-items:center; justify-content:center; font:25.98pt/1 "DFKai-SB","BiauKai","標楷體",serif; z-index:0; }
+.fill-slot { position:relative; display:inline-flex; width:9.16mm; height:9.16mm; align-items:center; justify-content:center; font:10.02pt/1 "Times New Roman","Noto Serif CJK TC",serif; background:#fff; }
+.fill-slot::before { content:"○"; position:absolute; inset:-.1mm 0 0; display:flex; align-items:center; justify-content:center; font:25.98pt/1 "DFKai-SB","BiauKai","標楷體","Noto Serif CJK TC",serif; z-index:0; }
 .fill-slot > span { position:relative; z-index:1; white-space:nowrap; }
 .integer-rail { display:inline-flex; justify-content:center; padding:0 1mm .75mm; border-bottom:1px solid #222; }
 .fill-fraction { display:inline-grid; grid-template-rows:auto auto; gap:.45mm; align-items:center; vertical-align:middle; }
@@ -198,10 +198,10 @@ body.paper-數學A .option,body.paper-數學B .option {
 .measured-math .header { height:14.5mm; font-size:10.98pt; line-height:14pt;
   grid-template-columns:31mm 1fr 35mm; gap:1mm; margin:0 3.18pt; }
 .measured-math .header .mid { border:0; padding:0; font-weight:400;
-  font-family:"DFKai-SB",serif; background:#d9d9d9; line-height:14pt; white-space:nowrap;
+  font-family:"DFKai-SB","Noto Serif CJK TC",serif; background:#d9d9d9; line-height:14pt; white-space:nowrap;
   width:max-content; max-width:100%; justify-self:center; }
 .measured-math .content { height:241mm; padding:0 3.18pt; }
-.measured-math .section-head { font-family:"PMingLiU",serif; font-size:13.02pt;
+.measured-math .section-head { font-family:"PMingLiU","Noto Serif CJK TC",serif; font-size:13.02pt;
   line-height:21pt; margin:0 0 4pt; letter-spacing:0; }
 .measured-math .section-rule { font-size:12pt; line-height:15.6pt;
   border:.75pt solid #000; padding:1.5pt 2pt; margin:0 -3.18pt 8pt; }
@@ -217,7 +217,7 @@ body.paper-數學A .option,body.paper-數學B .option {
 .measured-math .footer { left:22.5mm; right:22.5mm; bottom:15mm; font-size:10.02pt; color:#000; }
 .measured-math .footer .center { grid-column:1; text-align:left; }
 .measured-math .footer .outer-right { grid-column:3; text-align:right; }
-.measured-math math { font-size:1em; font-family:"Times New Roman","Cambria Math",serif;
+.measured-math math { font-size:1em; font-family:"Times New Roman","Cambria Math","Noto Serif CJK TC",serif;
   padding-block:4px; }
 .measured-math math[display="inline"] { display:inline-block; }
 .measured-math math[display="block"] { margin:4pt 0; }
@@ -281,16 +281,16 @@ body.paper-數學A .option,body.paper-數學B .option {
 .measured-math .answer-content .solution { line-height:18pt;
   line-break:strict; overflow-wrap:normal; word-break:normal; }
 .measured-math .answer-content .solution h2 { line-height:20pt; }
-.measured-social { font-family:"Times New Roman","PMingLiU","MingLiU",serif; font-size:11.04pt; line-height:17.4pt; }
+.measured-social { font-family:"Times New Roman","PMingLiU","MingLiU","Noto Serif CJK TC",serif; font-size:11.04pt; line-height:17.4pt; }
 .measured-social .sheet:not(.cover) { padding:30mm 20.59mm 15mm 22.056mm; }
 .measured-social .content { height:247mm; padding-top:0; }
-.measured-social .header { position:absolute; left:22.056mm; right:20.59mm; top:14.78mm; height:12mm; font:10pt/13pt "DFKai-SB","Times New Roman",serif; }
-.measured-social .header .mid { font:10pt/13pt "DFKai-SB",serif; background:#ddd; text-decoration:none; }
-.measured-social .footer { left:22.056mm; right:20.59mm; bottom:13.56mm; font:10pt "Times New Roman",serif; }
+.measured-social .header { position:absolute; left:22.056mm; right:20.59mm; top:14.78mm; height:12mm; font:10pt/13pt "DFKai-SB","Times New Roman","Noto Serif CJK TC",serif; }
+.measured-social .header .mid { font:10pt/13pt "DFKai-SB","Noto Serif CJK TC",serif; background:#ddd; text-decoration:none; }
+.measured-social .footer { left:22.056mm; right:20.59mm; bottom:13.56mm; font:10pt "Times New Roman","Noto Serif CJK TC",serif; }
 .measured-social .footer .center { grid-column:1; text-align:left; }
 .measured-social .footer .outer-right { grid-column:3; text-align:right; }
 .measured-social .section-head { font-size:12.96pt; line-height:18pt; margin:0 0 5pt; }
-.measured-social .section-rule { font:12pt/16pt "DFKai-SB",serif; border:1px solid #777; padding:2pt; margin:0 0 6pt; }
+.measured-social .section-rule { font:12pt/16pt "DFKai-SB","Noto Serif CJK TC",serif; border:1px solid #777; padding:2pt; margin:0 0 6pt; }
 .measured-social .question { grid-template-columns:15pt minmax(0,1fr); column-gap:3pt; margin:0 0 6pt; }
 .measured-social .qno { font-weight:400; }
 .measured-social .score { float:none; font-size:inherit; margin-left:0; }
@@ -301,7 +301,7 @@ body.paper-數學A .option,body.paper-數學B .option {
 .measured-social .stimulus { margin:0 0 5pt; padding:0 0 0 18pt; white-space:normal; }
 .measured-social .figure { margin:7pt auto; }
 .measured-social .figure figcaption { font-size:10pt; line-height:14pt; }
-.measured-social .social-cover { padding:31.5mm 28.52mm 18mm; font-family:"DFKai-SB",serif; }
+.measured-social .social-cover { padding:31.5mm 28.52mm 18mm; font-family:"DFKai-SB","Noto Serif CJK TC",serif; }
 .measured-social .social-cover .org,.measured-social .social-cover .year { margin:0; font-size:18pt; line-height:30pt; letter-spacing:0; }
 .measured-social .social-cover .subject { margin:1pt 0 25pt; font-size:24pt; line-height:30pt; letter-spacing:0; }
 .measured-social .social-cover .sign { margin:0 0 18pt; font-size:16pt; line-height:21pt; background:#ddd; text-decoration:none; white-space:nowrap; }
@@ -311,7 +311,7 @@ body.paper-數學A .option,body.paper-數學B .option {
 .measured-social .social-cover .notice ul { margin:0 0 12pt; padding-left:25pt; }
 .measured-social .social-cover .notice li { margin:0; }
 .measured-social .answer-sheet { padding-top:17mm!important; }
-.measured-social .answer-header { display:flex; justify-content:space-between; height:12mm; font:10pt "DFKai-SB",serif; }
+.measured-social .answer-header { display:flex; justify-content:space-between; height:12mm; font:10pt "DFKai-SB","Noto Serif CJK TC",serif; }
 .measured-social .answer-content { height:250mm; }
 .measured-social .answer-content h1 { font-size:16pt; line-height:23pt; margin:0 0 8pt; text-align:center; }
 .measured-social .answer-grid { font-size:11.04pt; line-height:15pt; table-layout:fixed; }
