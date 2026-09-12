@@ -58,6 +58,8 @@ def build(root: Path = ROOT) -> dict:
     document_count = 0
     question_count = 0
     for output_subject, catalog_subject, section in SUBJECTS:
+        papers_path = root / "exam_packs" / "學測" / "subjects" / catalog_subject / "metadata" / "papers.jsonl"
+        papers = read_jsonl(papers_path)
         years = []
         for roc_year in YEARS:
             documents = {}
@@ -98,11 +100,23 @@ def build(root: Path = ROOT) -> dict:
                 }
                 document_count += 1
                 question_count += role == "question"
-            years.append({"roc_year": roc_year, "calendar_year": roc_year + 1911, "documents": documents})
+            profiles = [p for p in papers if p.get("year") == roc_year + 1911
+                        and p.get("source_kind") == "official_past_exam"
+                        and p.get("section") == section]
+            if len(profiles) != 1:
+                raise ValueError(f"Expected one Paper Profile for {roc_year} {output_subject}")
+            profile = profiles[0]
+            if not any(s.get("sha256") == documents["question"]["sha256"]
+                       and s.get("role") == "question" for s in profile["source_files"]):
+                raise ValueError(f"Paper Profile/source mismatch for {roc_year} {output_subject}")
+            years.append({"roc_year": roc_year, "calendar_year": roc_year + 1911,
+                          "documents": documents, "paper_profile": profile})
         subject_records.append({
             "subject": output_subject,
             "catalog_subject": catalog_subject,
             "section": section,
+            "paper_profile_registry": papers_path.relative_to(root).as_posix(),
+            "paper_profile_registry_sha256": sha256_file(papers_path),
             "years": years,
         })
 

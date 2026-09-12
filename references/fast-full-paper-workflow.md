@@ -27,6 +27,13 @@ Invalidate a cache entry when any bound hash, profile id, editorial-lock conditi
 
 Never cache or reuse generated stems, passages, option sets, numeric tuples, solution graphs, distractor paths, visual topology, prompt metaphors, or a previous paper's section sequence as a shortcut. Do not write a reusable question bank, hard-coded paper builder, or batch content generator. New scored content stays in the current run's `exam.json` and must pass the originality firewall.
 
+This prohibition concerns inheritance by a **new paper**, not resuming the same
+identified run after interruption. Persist the phase/artifact evidence described
+in `web-platform-use.md`; revalidate hashes, then continue from the first unfinished
+phase. Do not discard solved items or redownload verified assets on every user
+“continue”. In hosted mode, use that reference's bounded-loading and transport
+workflow rather than reconstructing the whole repository or all subjects.
+
 ## Fast path, one paper at a time
 
 1. **Readiness gate** — validate the selected pack, subject, Paper Profile, Layout Profile, blueprint fingerprint, scope references, renderer, and required private inputs. Fail early with an exact gap report rather than starting an impossible benchmark.

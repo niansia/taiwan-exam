@@ -10,6 +10,11 @@ import build_hosted_web_source_map
 import build_hosted_web_template_map
 import fetch_hosted_template_assets
 import package_skill
+import read_web_knowledge
+import pytest
+import base64
+import threading
+import pack_verification
 
 
 def test_web_knowledge_is_deterministic_and_uses_canonical_skill():
@@ -51,6 +56,11 @@ def test_hosted_web_source_map_is_complete_current_form_evidence():
         assert [row["roc_year"] for row in subject["years"]] == [115, 114, 113, 112, 111]
         for year in subject["years"]:
             documents = year["documents"]
+            profile = year["paper_profile"]
+            registry = ROOT / subject["paper_profile_registry"]
+            originals = [json.loads(line) for line in registry.read_text(encoding="utf-8-sig").splitlines() if line]
+            assert profile == next(p for p in originals if p["paper_id"] == profile["paper_id"])
+            assert any(s["sha256"] == documents["question"]["sha256"] for s in profile["source_files"])
             assert {"question", "scoring_rule"} <= documents.keys()
             if subject["subject"] != "國寫":
                 assert "answer" in documents
@@ -149,3 +159,105 @@ def test_web_knowledge_excludes_private_intake_and_security_incident():
     paths = {path.relative_to(ROOT).as_posix() for path in build_web_knowledge.source_paths()}
     assert not any("歷屆試題" in path or "模擬考" in path for path in paths)
     assert "references/security-incident-2026-09-09.md" not in paths
+
+
+def test_scoped_extraction_preserves_content_and_all_template_urls(tmp_path):
+    knowledge = tmp_path / "knowledge.md"
+    knowledge.write_text(build_web_knowledge.build("test"), encoding="utf-8")
+    out = tmp_path / "refs"
+    result = read_web_knowledge.extract(knowledge, subject="數學A", output_dir=out)
+    selected = {row["path"] for row in result["files"]}
+    assert result["selected_bytes"] < result["knowledge_bytes"] * 0.8
+    assert "references/current-gsat-math-scope.md" in selected
+    assert "references/current-gsat-social-form.md" not in selected
+    assert not any("/subjects/社會/" in p or "/會考/" in p for p in selected)
+    for path in selected:
+        assert (out / path).read_text(encoding="utf-8") == (ROOT / path).read_text(encoding="utf-8-sig").rstrip() + "\n"
+    manifest = json.loads((out / "exam_packs/學測/templates/115/hosted-web-template-assets.json").read_text(encoding="utf-8"))
+    assert sum(len(s["assets"]) for s in manifest["subjects"]) == 30
+    # An unchanged reference directory is reusable without overwriting content.
+    assert read_web_knowledge.extract(knowledge, subject="數學A", output_dir=out) == result
+    (out / "SKILL.md").write_text("user change", encoding="utf-8")
+    with pytest.raises(ValueError, match="Preserve existing"):
+        read_web_knowledge.extract(knowledge, subject="數學A", output_dir=out)
+
+
+def test_embedded_checksum_and_safe_paths(tmp_path):
+    knowledge = tmp_path / "knowledge.md"
+    content = build_web_knowledge.build("test")
+    knowledge.write_text(content.replace("# Taiwan Exam Generator\n", "# Changed Skill\n", 1), encoding="utf-8")
+    with pytest.raises(ValueError, match="checksum"):
+        read_web_knowledge.extract(knowledge, paths=["SKILL.md"], output_dir=tmp_path / "out")
+    assert not (tmp_path / "out/SKILL.md").exists()
+    knowledge.write_text(content.replace('"SKILL.md"', '"../escape.md"'), encoding="utf-8")
+    with pytest.raises(ValueError, match="Unsafe"):
+        read_web_knowledge.extract(knowledge, subject="數學A")
+    assert package_skill.should_include(ROOT / "scripts/read_web_knowledge.py")
+
+
+def test_template_parallel_partial_resume_and_zero_network_cache(tmp_path, monkeypatch):
+    original = fetch_hosted_template_assets.fetch_record
+    barrier = threading.Barrier(4)
+    calls = []
+
+    def flaky(record, **kwargs):
+        calls.append(record["component"])
+        barrier.wait(timeout=5)  # Sequential fetching cannot pass this test.
+        if record["component"] == "formula-blank":
+            raise RuntimeError("simulated timeout")
+        return original(record, **kwargs)
+
+    monkeypatch.setattr(fetch_hosted_template_assets, "fetch_record", flaky)
+    args = dict(map_path=fetch_hosted_template_assets.DEFAULT_MAP, local_root=ROOT, timeout=1, attempts=1)
+    result = fetch_hosted_template_assets.materialize("數學A", tmp_path, **args)
+    assert result["status"] == "partial" and result["verified"] == 3
+    assert len(result["errors"]) == 1
+    calls.clear()
+
+    def recovered(record, **kwargs):
+        calls.append(record["component"])
+        return original(record, **kwargs)
+
+    monkeypatch.setattr(fetch_hosted_template_assets, "fetch_record", recovered)
+    result = fetch_hosted_template_assets.materialize("數學A", tmp_path, **args)
+    assert result["status"] == "verified"
+    assert calls == ["formula-blank"]
+    calls.clear()
+    result = fetch_hosted_template_assets.materialize("數學A", tmp_path, **args)
+    assert calls == [] and result["verified"] == 4
+    corrupted = Path(result["assets"][0]["path"])
+    corrupted.write_bytes(b"bad cache")
+    result = fetch_hosted_template_assets.materialize("數學A", tmp_path, **args)
+    assert result["status"] == "partial" and corrupted.read_bytes() == b"bad cache"
+
+
+def test_template_api_fallback_decodes_exact_bytes(monkeypatch):
+    manifest = json.loads(fetch_hosted_template_assets.DEFAULT_MAP.read_text(encoding="utf-8"))
+    record = manifest["subjects"][0]["assets"][0]
+    expected = (ROOT / record["repository_path"]).read_bytes()
+    calls = []
+
+    def fake_request(url, **kwargs):
+        calls.append(url)
+        if url == record["download_url"]:
+            raise RuntimeError("raw timeout")
+        return json.dumps({"encoding": "base64", "content": base64.encodebytes(expected).decode()}).encode()
+
+    monkeypatch.setattr(fetch_hosted_template_assets, "request_bytes", fake_request)
+    data, transport = fetch_hosted_template_assets.fetch_record(record, timeout=1, attempts=1, local_root=None)
+    fetch_hosted_template_assets.verify(record, data)
+    assert data == expected and transport == "github-contents-base64" and len(calls) == 2
+
+
+def test_hosted_math_a_controlling_structure_is_source_reviewed():
+    manifest = json.loads((ROOT / "exam_packs/學測/metadata/official-current-web-sources.json").read_text(encoding="utf-8"))
+    year = next(s for s in manifest["subjects"] if s["subject"] == "數學A")["years"][0]
+    profile = year["paper_profile"]
+    assert year["roc_year"] == 115
+    assert pack_verification.paper_errors(profile, ROOT) == []
+    review = profile["evidence"]["structure_review"]
+    for source in profile["source_files"]:
+        assert {p["page"] for p in review["pages"] if p["source_sha256"] == source["sha256"]} == set(range(1, source["page_count"] + 1))
+    assert [(s["number"], s["type"], s["score"]) for s in review["slots"][-3:]] == [
+        (18, "single_choice", 3), (19, "constructed_response", 4), (20, "constructed_response", 8)
+    ]

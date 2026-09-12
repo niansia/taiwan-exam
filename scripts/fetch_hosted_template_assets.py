@@ -12,6 +12,7 @@ import base64
 import hashlib
 import json
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote
@@ -76,6 +77,9 @@ def verify(record: dict, data: bytes) -> None:
 
 def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_root: Path | None,
                 timeout: int, attempts: int) -> dict:
+    if timeout <= 0 or attempts not in (1, 2):
+        raise ValueError("Use a positive timeout and one or two attempts per transport")
+    started = time.monotonic()
     manifest = load_map(map_path, timeout=timeout, attempts=attempts)
     subject_record = next((row for row in manifest["subjects"] if row["subject"] == subject), None)
     if subject_record is None:
@@ -83,13 +87,15 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
 
     wanted = PRODUCTION_COMPONENTS - ({"formula-blank"} if subject not in {"數學A", "數學B"} else set())
     records = [row for row in subject_record["assets"] if row["component"] in wanted]
-    if {row["component"] for row in records} != wanted:
+    if {row["component"] for row in records} != wanted or len(records) != len(wanted):
         raise ValueError(f"Incomplete production component map for {subject}")
 
     target = output_dir.resolve() / subject_record["slug"]
+    if target.resolve().parent != output_dir.resolve():
+        raise ValueError("Invalid subject slug")
     target.mkdir(parents=True, exist_ok=True)
-    written = []
-    for record in sorted(records, key=lambda row: row["component"]):
+
+    def acquire(record: dict) -> dict:
         destination = target / f"{record['component']}.pdf"
         if destination.is_file():
             data = destination.read_bytes()
@@ -99,20 +105,35 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
             data, transport = fetch_record(record, timeout=timeout, attempts=attempts, local_root=local_root)
             verify(record, data)
             destination.write_bytes(data)
-        written.append({
+        return {
             "component": record["component"],
             "path": str(destination),
             "bytes": len(data),
             "sha256": record["sha256"],
             "transport": transport,
-        })
+        }
+
+    def attempt(record: dict) -> dict:
+        try:
+            return {"asset": acquire(record)}
+        except (OSError, ValueError, RuntimeError) as exc:
+            return {"error": {"component": record["component"], "message": str(exc)}}
+
+    # Independent downloads overlap; a failed component does not discard the
+    # verified successes. A later call checks cached bytes and retries only gaps.
+    with ThreadPoolExecutor(max_workers=min(4, len(records))) as pool:
+        results = list(pool.map(attempt, sorted(records, key=lambda row: row["component"])))
+    written = [row["asset"] for row in results if "asset" in row]
+    errors = [row["error"] for row in results if "error" in row]
 
     return {
-        "status": "verified",
+        "status": "partial" if errors else "verified",
         "subject": subject,
         "expected": len(wanted),
         "verified": len(written),
         "assets": written,
+        "errors": errors,
+        "elapsed_seconds": round(time.monotonic() - started, 3),
     }
 
 
@@ -122,8 +143,8 @@ def main() -> int:
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--map", dest="map_path", type=Path, default=DEFAULT_MAP if DEFAULT_MAP.is_file() else None)
     parser.add_argument("--local-root", type=Path)
-    parser.add_argument("--timeout", type=int, default=30)
-    parser.add_argument("--attempts", type=int, default=2)
+    parser.add_argument("--timeout", type=int, default=15, help="Per socket-operation timeout, not an overall deadline")
+    parser.add_argument("--attempts", type=int, choices=(1, 2), default=1)
     args = parser.parse_args()
     result = materialize(
         args.subject,
@@ -134,7 +155,7 @@ def main() -> int:
         attempts=args.attempts,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    return 0
+    return 0 if result["status"] == "verified" else 1
 
 
 if __name__ == "__main__":

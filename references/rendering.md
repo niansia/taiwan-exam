@@ -9,6 +9,14 @@ See [rendering-security-review.md](rendering-security-review.md).
 
 Read this reference when producing a formal paper, answer booklet, HTML, or PDF.
 
+The named renderer commands and `.sheet`/HTML containment implementation below
+apply to a complete local checkout. Without that tree on a hosted surface, use
+the exact-PDF composition and hosted-equivalent observable checks in
+`web-platform-use.md`; do not fetch the whole renderer tree or introduce an
+unnecessary HTML conversion before composing immutable PDF backgrounds. Direct
+PDF composition still needs measured containment, formulas, substantive density,
+separate question/solution files and actual all-page raster inspection.
+
 For PDF exports, also read [pdf-provenance.md](pdf-provenance.md). The export
 helpers add non-visible provenance by default and verify that every rendered page
 is unchanged by marking. This check must not be confused with layout acceptance.
