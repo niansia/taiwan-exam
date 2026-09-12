@@ -52,6 +52,8 @@ def api_url(repository_path: str) -> str:
 def fetch_record(record: dict, *, timeout: int, attempts: int, local_root: Path | None) -> tuple[bytes, str]:
     if local_root is not None:
         candidate = (local_root / record["repository_path"]).resolve()
+        if not candidate.is_relative_to(local_root.resolve()):
+            raise ValueError("Template path escapes local mirror")
         if candidate.is_file():
             return candidate.read_bytes(), "local-mirror"
 
@@ -75,10 +77,30 @@ def verify(record: dict, data: bytes) -> None:
         raise ValueError(f"SHA-256 mismatch: {record['repository_path']}")
 
 
+def read_resource_pdf(path: Path, subject_record: dict, records: list[dict]) -> dict[str, bytes]:
+    """Read requested attachments only. Never execute embedded content or trust it by name."""
+    import pymupdf
+    result = {}
+    with pymupdf.open(path) as doc:
+        names = doc.embfile_names()
+        if len(names) != len(set(names)):
+            raise ValueError("Duplicate resource attachment name")
+        for record in records:
+            name = f"{subject_record['slug']}--{record['component']}.pdf"
+            if name not in names:
+                raise ValueError(f"Missing PDF attachment {name}; the platform may have removed attachments")
+            data = doc.embfile_get(name)
+            verify(record, data)
+            result[record["component"]] = data
+    return result
+
+
 def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_root: Path | None,
-                timeout: int, attempts: int) -> dict:
+                timeout: int, attempts: int, resource_pdf: Path | None = None) -> dict:
     if timeout <= 0 or attempts not in (1, 2):
         raise ValueError("Use a positive timeout and one or two attempts per transport")
+    if resource_pdf and (map_path is None or not map_path.is_file()):
+        raise ValueError("Offline extraction requires the map from the uploaded knowledge file")
     started = time.monotonic()
     manifest = load_map(map_path, timeout=timeout, attempts=attempts)
     subject_record = next((row for row in manifest["subjects"] if row["subject"] == subject), None)
@@ -89,6 +111,10 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
     records = [row for row in subject_record["assets"] if row["component"] in wanted]
     if {row["component"] for row in records} != wanted or len(records) != len(wanted):
         raise ValueError(f"Incomplete production component map for {subject}")
+
+    # Validate all requested attachments before writing anything. No network
+    # fallback for an explicitly supplied corrupt carrier; report the mismatch.
+    offline = read_resource_pdf(resource_pdf, subject_record, records) if resource_pdf else {}
 
     target = output_dir.resolve() / subject_record["slug"]
     if target.resolve().parent != output_dir.resolve():
@@ -102,7 +128,10 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
             verify(record, data)
             transport = "verified-existing"
         else:
-            data, transport = fetch_record(record, timeout=timeout, attempts=attempts, local_root=local_root)
+            if resource_pdf:
+                data, transport = offline[record["component"]], "uploaded-resource-pdf"
+            else:
+                data, transport = fetch_record(record, timeout=timeout, attempts=attempts, local_root=local_root)
             verify(record, data)
             destination.write_bytes(data)
         return {
@@ -143,6 +172,7 @@ def main() -> int:
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--map", dest="map_path", type=Path, default=DEFAULT_MAP if DEFAULT_MAP.is_file() else None)
     parser.add_argument("--local-root", type=Path)
+    parser.add_argument("--resource-pdf", type=Path, help="Uploaded data-only PDF carrier; requires PyMuPDF and a local --map")
     parser.add_argument("--timeout", type=int, default=15, help="Per socket-operation timeout, not an overall deadline")
     parser.add_argument("--attempts", type=int, choices=(1, 2), default=1)
     args = parser.parse_args()
@@ -153,6 +183,7 @@ def main() -> int:
         local_root=args.local_root,
         timeout=args.timeout,
         attempts=args.attempts,
+        resource_pdf=args.resource_pdf,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result["status"] == "verified" else 1

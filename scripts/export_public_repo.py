@@ -20,6 +20,9 @@ MAINTAINER_FILES = (
     'scripts/build_hosted_web_source_map.py',
     'scripts/build_hosted_web_template_map.py',
     'scripts/build_web_knowledge.py',
+    'scripts/build_template_resource_pdf.py',
+    'web/taiwan-exam-web-knowledge.md',
+    'web/taiwan-exam-template-resources.pdf',
     'scripts/export_public_repo.py',
     'scripts/scan_skill_release.py',
     'maintenance/test_download_attachment.ps1',
@@ -38,7 +41,7 @@ test_skill.py test_validate_english_difficulty_design.py
 test_validate_english_layout_contract.py test_validate_english_vocabulary_scope.py
 test_validate_social_item_design.py test_validate_source_grounding.py
 test_validate_visual_item_contract.py test_validate_writing_source_grounding.py
-test_web_knowledge.py
+test_web_knowledge.py test_web_download_page.py test_hosted_pdf_runtime.py
 '''.split())
 
 

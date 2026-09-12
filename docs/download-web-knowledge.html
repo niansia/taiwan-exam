@@ -28,14 +28,18 @@
     <h1>Taiwan Exam 網頁版知識檔</h1>
     <p id="status" role="status" aria-live="polite">正在準備下載……</p>
     <p><button id="download" type="button">再次下載知識檔</button></p>
-    <small>版本：2026.09.12.4<br>檔名：taiwan-exam-web-knowledge.md<br>內容：純文字 Markdown，不是 ZIP 或執行檔。</small>
-    <noscript><p>瀏覽器已停用 JavaScript。請改用<a class="button" href="https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=2026.09.12.4">開啟原始文字</a>，再使用瀏覽器的另存功能。</p></noscript>
+    <p>若 AI 無法連網下載模板，可把離線資源 PDF 附到出卷對話。它內含 30 個原始 PDF 附件，約 3.5 MB，不含程式；AI 只取用當科。安裝時不必下載。</p>
+    <p><button id="templates" type="button">下載離線模板資源 PDF</button></p>
+    <small>版本：2026.09.12.6<br>知識檔：taiwan-exam-web-knowledge.md<br>模板備援：taiwan-exam-template-resources.pdf<br>不是 ZIP 或執行檔。平台仍需能建立、解出及檢查 PDF。請用新知識檔更新原本已儲存的 Skill。</small>
+    <noscript><p>瀏覽器已停用 JavaScript。請改用<a class="button" href="https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=2026.09.12.6">開啟原始文字</a>或<a href="https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-template-resources.pdf">開啟模板資源 PDF</a>，再使用瀏覽器的另存功能。</p></noscript>
   </main>
   <script>
-    const sourceUrl = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=2026.09.12.4";
+    const sourceUrl = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=2026.09.12.6";
     const filename = "taiwan-exam-web-knowledge.md";
+    const templateUrl = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-template-resources.pdf?v=2026.09.12.6";
     const status = document.getElementById("status");
     const button = document.getElementById("download");
+    const templateButton = document.getElementById("templates");
 
     async function downloadKnowledge() {
       button.disabled = true;
@@ -62,7 +66,33 @@
     }
 
     button.addEventListener("click", downloadKnowledge);
-    downloadKnowledge();
+    async function downloadTemplates() {
+      templateButton.disabled = true;
+      status.textContent = "正在下載離線模板資源 PDF……";
+      try {
+        const response = await fetch(templateUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const blob = await response.blob();
+        if (blob.size < 1000000 || await blob.slice(0, 5).text() !== "%PDF-") throw new Error("PDF 不完整");
+        const objectUrl = URL.createObjectURL(new Blob([blob], { type: "application/pdf" }));
+        const link = document.createElement("a");
+        link.href = objectUrl;
+        link.download = "taiwan-exam-template-resources.pdf";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+        status.textContent = "模板資源下載已開始。請附到出卷對話，並使用最新版知識檔。";
+      } catch (error) {
+        status.textContent = "模板下載失敗，請稍後再按一次；不需要自行到 GitHub 找檔案。";
+      } finally {
+        templateButton.disabled = false;
+      }
+    }
+    templateButton.addEventListener("click", downloadTemplates);
+    // One click starts only the selected download, avoiding multi-download blocks.
+    if (location.hash === "#templates") downloadTemplates();
+    else downloadKnowledge();
   </script>
 </body>
 </html>

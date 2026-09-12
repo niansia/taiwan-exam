@@ -44,6 +44,16 @@ For every request for a complete paper:
    report that exact limitation and do not call the result a completed formal
    paper. The user may move the same request to a capable surface.
 
+## Requested year and reusable reference version
+
+Follow `official-gsat-specifications.md#academic-year-regime-and-reference-year`.
+For a 116 or later mock, default to compatible current-regime profiles and the
+115 measured templates; 111–115 describes the calibration corpus, not an expiry
+period. Keep the requested mock year distinct from the reference year. Do not
+search repeatedly for a future-year official booklet or demand a new template
+solely to change the printed year. Check relevant official updates once and
+reuse that dated result on continuation; apply actual changes where announced.
+
 ## Release-calibrated official sources and live spot checks
 
 For every complete current-form GSAT paper, load
@@ -124,7 +134,12 @@ historical photograph or topic merely to satisfy the visual quota.
 
 ## Fixed-template acquisition and composition
 
-For a 111–115-regime GSAT booklet, load
+Also follow `hosted-pdf-production.md`: prove the route before drafting, use the
+embedded PDF compositor, and inspect actual saved outputs. It defines the
+data-only offline carrier and concrete regression checks for body math, answer
+table overflow, fill-in rails, source literacy and unjustified bottom voids.
+
+For a current-regime GSAT booklet using the maintained 115 reference templates, load
 `exam_packs/學測/templates/115/hosted-web-template-assets.json` before rendering.
 It gives a public download URL, SHA-256, byte count and page count for all 30
 fixed PDF components across the seven subjects. It also records the GitHub
@@ -143,13 +158,15 @@ binaries during installation, and do not make installation depend on persisting
 them. Do not report `0/30` as an installation failure, do not build an auxiliary
 ZIP or evidence packet, and do not delay first use while materializing unrelated
 subjects. Hosted products may not expose a binary-asset persistence interface,
-and the public per-file URLs and hashes are deliberately sufficient for
-just-in-time retrieval.
+and public per-file URLs and hashes support just-in-time retrieval when the
+generation runtime can download. They cannot bypass a runtime's network block.
+The optional data-only resource PDF is a generation-time offline upload, not an
+installation prerequisite. Its attachment bytes are verified against this map.
 
 Never download or deliver `github-pages.zip`, a repository source archive, a
 Pages deployment archive, or an all-template ZIP for this workflow. Those are
-not template components and do not solve binary handoff. Use only the requested
-subject's per-file URLs from the verified map.
+not template components and do not solve binary handoff. Materialize only the
+requested subject's mapped components, from its URLs or the optional carrier.
 
 At paper time, retrieve only the requested subject's production components:
 `cover-blank`, `inner-odd-blank`, `inner-even-blank` and, for Mathematics, the
@@ -197,8 +214,9 @@ The following are hard failures, not alternative rendering paths:
 Before declaring template transport unavailable, attempt the per-file raw URL,
 and GitHub Contents API/base64 path, preferably through the embedded helper.
 These are two transports, not three separate retry cycles: the helper already
-tries both. Do not repeat equivalent attempts through another wrapper. If verified
-bytes still cannot enter the file runtime, the surface cannot merge PDF layers,
+tries both. Do not repeat equivalent attempts through another wrapper. Use an
+uploaded resource PDF, or ask once for that one resource file if runtime network
+access is blocked. If verified bytes still cannot enter the file runtime, the surface cannot merge PDF layers,
 or the downloaded hash differs, stop formal rendering before item layout and
 report the exact attempted transports. A generic-layout draft may be produced
 only when the user accepts that downgrade, and it must not claim to use the

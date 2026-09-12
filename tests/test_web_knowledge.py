@@ -91,6 +91,12 @@ def test_hosted_template_fetcher_is_packaged_and_embedded(tmp_path):
     assert package_skill.should_include(script)
     paths = {path.relative_to(ROOT).as_posix() for path in build_web_knowledge.source_paths()}
     assert "scripts/fetch_hosted_template_assets.py" in paths
+    for helper in ("compose_hosted_pdf.py", "inspect_hosted_pdf.py"):
+        assert "scripts/" + helper in paths
+        assert package_skill.should_include(ROOT / "scripts" / helper)
+    assert "references/hosted-pdf-production.md" in paths
+    assert not package_skill.should_include(ROOT / "scripts/build_template_resource_pdf.py")
+    assert not package_skill.should_include(ROOT / "web/taiwan-exam-template-resources.pdf")
     result = fetch_hosted_template_assets.materialize(
         "數學A",
         tmp_path,
