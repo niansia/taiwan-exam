@@ -623,10 +623,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/rendering.md",
-    "bytes": 6526,
-    "sha256": "85f6c4d976f434aedebb8c1b3c37e320be874e9633c56468dbf32f5a44001e0e",
-    "embedded_bytes": 6526,
-    "embedded_sha256": "85f6c4d976f434aedebb8c1b3c37e320be874e9633c56468dbf32f5a44001e0e"
+    "bytes": 6922,
+    "sha256": "6e4dd995b6f091a05527d28a5ee92af4df17ed2bf1e821ee675e46f57255b1f4",
+    "embedded_bytes": 6922,
+    "embedded_sha256": "6e4dd995b6f091a05527d28a5ee92af4df17ed2bf1e821ee675e46f57255b1f4"
   },
   {
     "path": "references/social-required-content-codes.json",
@@ -56115,6 +56115,12 @@ figure without changing its answer-bearing information and recheck its layout.
 See [rendering-security-review.md](rendering-security-review.md).
 
 Read this reference when producing a formal paper, answer booklet, HTML, or PDF.
+
+Linux HTML-to-PDF rendering needs a Traditional Chinese font installed in the
+file runtime. On Debian/Ubuntu, install `fonts-noto-cjk`; the renderers explicitly
+include its `Noto Serif CJK TC` family. A browser's generic serif substitution
+does not establish Chinese glyph or text-extraction fidelity. Verify both the
+rendered page and extracted text, including the first character of headings.
 
 The named renderer commands and `.sheet`/HTML containment implementation below
 apply to a complete local checkout. Without that tree on a hosted surface, use
