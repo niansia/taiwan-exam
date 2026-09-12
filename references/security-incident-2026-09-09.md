@@ -1,6 +1,14 @@
-# Defender download detection: open investigation
+# Defender download detection: historical incident and replacement resolution
 
-Distribution remains suspended. On 2026-09-11 a new v0.7.0 candidate based on
+Current status, 2026-09-12: the unchanged v0.7.1 replacement is cleared through
+reviewed fixes, Defender/attachment scans, maintainer confirmation of normal
+downloads from the stable public URL, and independent public-asset ClamAV scans.
+See [the hash-bound resolution](security-resolution-2026-09-12.md) and
+`SOFTWARE_RELEASE_STATUS.json`. Older affected hashes remain withdrawn; no
+Microsoft false-positive determination is claimed. The historical account below
+records the earlier suspension and evidence without rewriting those results.
+
+Distribution was suspended on 2026-09-11. A new v0.7.0 candidate based on
 the substantive code and distribution-boundary fixes passed current Defender
 ZIP/member scans and Attachment Services, but a normal Chrome click on the
 public GitHub release asset still produced `ERR_BLOCKED_BY_CLIENT`. The
