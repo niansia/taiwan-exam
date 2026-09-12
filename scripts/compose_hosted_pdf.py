@@ -15,6 +15,7 @@ from pathlib import Path
 import pymupdf
 
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, verify
+from inspect_hosted_pdf import rail_collision_samples
 
 
 def sha(data: bytes) -> str:
@@ -39,7 +40,7 @@ def check_body(page, box) -> None:
         raise ValueError("Body overlay paints outside measured body box; remove headers/backgrounds, do not clip them away")
 
 
-def write_field(page, box, text: str, font, size: float, *, align: str = "center") -> None:
+def write_field(page, box, text: str, font, size: float, *, align: str = "center", resource=None) -> None:
     rect = pymupdf.Rect(box)
     if any(not font.has_glyph(ord(c)) for c in text):
         raise ValueError(f"Dynamic-field font lacks a glyph in {text!r}")
@@ -56,8 +57,7 @@ def write_field(page, box, text: str, font, size: float, *, align: str = "center
     # Browser-produced templates leave a content transformation in their
     # stream. Isolate it before appending anything in page-point coordinates.
     page.wrap_contents()
-    buffer = font.buffer
-    font_name = "TEField" + sha(buffer)[:12]
+    buffer, font_name = resource if resource else field_resource(font)
     if not any(row[4] == font_name for row in page.get_fonts()):
         page.insert_font(fontname=font_name, fontbuffer=buffer)
     for character in text:
@@ -65,6 +65,11 @@ def write_field(page, box, text: str, font, size: float, *, align: str = "center
         # one reusable font resource avoids embedding a font for every glyph.
         page.insert_text((x, y), character, fontname=font_name, fontsize=size)
         x += font.text_length(character, fontsize=size)
+
+
+def field_resource(font):
+    buffer = font.buffer
+    return buffer, 'TEField' + sha(buffer)[:12]
 
 
 def page_base(out, asset, source_page=0):
@@ -93,18 +98,22 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 hashes[record["component"]] = sha(data)
         font = pymupdf.Font(fontfile=str(font_path))
         digits = pymupdf.Font("tiro")
+        font_resource, digit_resource = field_resource(font), field_resource(digits)
+        base_pixels = {}
         with pymupdf.open(body) as body_doc, pymupdf.open() as out:
             if not len(body_doc):
                 raise ValueError("Empty body")
             for page in body_doc:
                 check_body(page, geometry["body"])
+                if rail_collision_samples(page):
+                    raise ValueError('Body answer-rail-content-collision; reflow before fixed-template composition')
             has_formula = subject in {"數學A", "數學B"} and kind == "questions"
             total = len(body_doc) + int(has_formula)
             proofs = []
             if kind == "questions":
                 page = page_base(out, assets["cover-blank"])
                 box = geometry["cover_title"]
-                write_field(page, box, f"{year}學年度{title}", font, 19.98 if has_formula else 18)
+                write_field(page, box, f"{year}學年度{title}", font, 19.98 if has_formula else 18, resource=font_resource)
                 if masked_pixels(page, [box]) != masked_pixels(assets["cover-blank"][0], [box]):
                     raise ValueError("Cover title changed locked pixels")
                 proofs.append({"page": 1, "component": "cover-blank", "locked_pixels_match": True})
@@ -123,12 +132,14 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                     page.show_pdf_page(page.rect, body_doc, index)
                 fields = geometry[parity]
                 write_field(page, fields["year_name"], f"{year}年{running_name}", font, 10,
-                            align="right" if parity == "odd" else "left")
-                write_field(page, fields["current_page"], str(number), digits, 10)
-                write_field(page, fields["total_pages"], str(total), digits, 10)
-                write_field(page, fields["footer"], str(number), digits, 8)
+                            align="right" if parity == "odd" else "left", resource=font_resource)
+                write_field(page, fields["current_page"], str(number), digits, 10, resource=digit_resource)
+                write_field(page, fields["total_pages"], str(total), digits, 10, resource=digit_resource)
+                write_field(page, fields["footer"], str(number), digits, 8, resource=digit_resource)
                 masks = [*fields.values(), geometry["body"]]
-                if masked_pixels(page, masks) != masked_pixels(assets[component][0], masks):
+                if component not in base_pixels:
+                    base_pixels[component] = masked_pixels(assets[component][0], masks)
+                if masked_pixels(page, masks) != base_pixels[component]:
                     raise ValueError(f"Page {number} changed locked header/footer pixels")
                 proofs.append({"page": len(out), "inner_number": number, "component": component,
                                "formula_component": "formula-blank" if formula else None,

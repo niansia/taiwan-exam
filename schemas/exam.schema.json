@@ -10,6 +10,7 @@
       "additionalProperties": false,
       "required": ["title", "exam", "subject", "calibration_level"],
       "properties": {
+        "paper_id": {"type": "string", "minLength": 1},
         "title": {"type": "string"},
         "subtitle": {"type": ["string", "null"]},
         "exam": {"type": "string"},

@@ -1,5 +1,10 @@
 # Timed full-paper workflow
 
+Hosted runs must also follow hosted-quality-gates.md: start the actual phase
+logger before preflight, preserve it across repairs, and finish item-level review
+and independent difficulty QA even when target_met becomes false. Missing timing
+blocks evidence-complete; it cannot be reconstructed from a chat's total duration.
+
 Read this reference when a user asks for faster generation, a timed benchmark, or a target such as one complete paper within 20 minutes. Speed is measured under the same complete-paper contract as ordinary generation. This workflow changes scheduling and cache use; it never lowers educational, originality, source, rights, layout, or review gates.
 
 ## What the time means

@@ -107,7 +107,8 @@ def test_hosted_template_fetcher_is_packaged_and_embedded(tmp_path):
     assert package_skill.should_include(script)
     paths = {path.relative_to(ROOT).as_posix() for path in build_web_knowledge.source_paths()}
     assert "scripts/fetch_hosted_template_assets.py" in paths
-    for helper in ("compose_hosted_pdf.py", "inspect_hosted_pdf.py"):
+    for helper in ("compose_hosted_pdf.py", "inspect_hosted_pdf.py", "check_hosted_run.py",
+                   "hosted_item_layout.py", "hosted_run_timing.py", "hosted_blind_review.py"):
         assert "scripts/" + helper in paths
         assert package_skill.should_include(ROOT / "scripts" / helper)
     assert "references/hosted-pdf-production.md" in paths

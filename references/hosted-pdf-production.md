@@ -2,6 +2,8 @@
 
 Use with `web-platform-use.md` for every hosted complete paper. This is the same
 Skill's layout implementation, not a generic question generator or weaker gate.
+Follow hosted-quality-gates.md for measured item flow, final item crops and
+non-waivable collisions before any final quality claim.
 
 ## Prove the rendering route before drafting
 

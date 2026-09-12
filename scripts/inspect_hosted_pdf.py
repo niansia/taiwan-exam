@@ -17,7 +17,51 @@ import pymupdf
 
 
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
-HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page"}
+HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
+                 "answer-rail-content-collision"}
+
+
+def rail_collision_samples(page) -> list[dict]:
+    """Detect answer-position labels crossing native text or outlined math.
+
+    Deliberately local to numbered rails: global glyph intersection would flag
+    legitimate kerning, radicals and fractions. This is not a general proof of
+    collision-free layout. Outline-only labels still require component review.
+    """
+    labels = [w for w in page.get_text('words')
+              if re.fullmatch(r'\(\d{1,2}[-–]\d{1,2}\)', w[4])]
+    chars = [c for b in page.get_text('rawdict')['blocks'] for l in b.get('lines', [])
+             for s in l['spans'] for c in s['chars'] if not c['c'].isspace()]
+    outlines = [d for d in page.get_drawings()
+                if d.get('fill') is not None and min(d['fill']) < .5
+                and 0 < d['rect'].width < 35 and 0 < d['rect'].height < 35]
+    findings = []
+    for word in labels:
+        label = pymupdf.Rect(word[:4])
+        candidates = []
+        for c in chars:
+            r = pymupdf.Rect(c['bbox'])
+            # Label characters and the rail's circle are expected components.
+            if label.contains(r) or c['c'] in {'○', '◯'}:
+                continue
+            candidates.append((r, 'text', c['c']))
+        candidates.extend((d['rect'], 'outlined-math', '') for d in outlines)
+        for rect, kind, text in candidates:
+            overlap = rect & label
+            if overlap.width > .7 and overlap.height > .7:
+                findings.append({'label': word[4], 'label_bbox': list(label),
+                                 'kind': kind, 'text': text, 'content_bbox': list(rect),
+                                 'intersection': list(overlap)})
+    return findings
+
+
+def bottom_void(page, body_box=None):
+    body = pymupdf.Rect(body_box or [64, 87, page.rect.width - 64, 775])
+    pix = page.get_pixmap(clip=body, colorspace=pymupdf.csGRAY, alpha=False)
+    samples = pix.samples
+    last = next((r for r in range(pix.height - 1, -1, -1)
+                 if min(samples[r * pix.stride:r * pix.stride + pix.width]) < 240), -1)
+    return round((pix.height - last - 1) / pix.height, 3)
 
 
 def table_collision_samples(page) -> list[dict]:
@@ -75,6 +119,9 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             if leaked:
                 issues.append("raw-math-markup-review")
             table_collisions = table_collision_samples(page)
+            rail_collisions = rail_collision_samples(page)
+            if rail_collisions:
+                issues.append('answer-rail-content-collision')
             if table_collisions:
                 issues.append("table-grid-text-collision-review")
             for span in spans:
@@ -84,11 +131,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             # Measure visible pixels, not PDF object bounds: fixed templates
             # include white page-size rectangles that are NOT printed content.
             # The same applies to white image margins and clipped Form XObjects.
-            body_pix = page.get_pixmap(clip=body, colorspace=pymupdf.csGRAY, alpha=False)
-            samples = body_pix.samples
-            last_ink = next((row for row in range(body_pix.height - 1, -1, -1)
-                             if min(samples[row * body_pix.stride: row * body_pix.stride + body_pix.width]) < 240), -1)
-            void = round((body_pix.height - last_ink - 1) / body_pix.height, 3)
+            void = bottom_void(page, body)
             if void > .32:
                 issues.append("large-bottom-void-review")
             raster = target / f"page-{number:03}.png"
@@ -97,11 +140,12 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "raster_sha256": hashlib.sha256(raster.read_bytes()).hexdigest(),
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
+                          "rail_collision_samples": rail_collisions,
                           "bottom_void_ratio": void,
                           "fonts": sorted({s["font"] for s in spans}),
                           "sizes_pt": sorted({round(s["size"], 2) for s in spans}),
                           "visual_review": "not-performed-by-this-tool"})
-    return {"status": "mechanical-review-only", "pdf_sha256": digest, "pdf_path": str(pdf),
+    return {"inspector_version": 2, "status": "mechanical-review-only", "pdf_sha256": digest, "pdf_path": str(pdf),
             "page_count": len(pages), "pages": pages,
             "blocking_pages": [p["page"] for p in pages if HARD_FAILURES.intersection(p["issues"])],
             "review_flag_pages": [p["page"] for p in pages if p["issues"]],
