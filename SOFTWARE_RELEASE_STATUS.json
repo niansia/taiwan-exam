@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "suspended",
-  "reason": "The replacement v0.7.1 candidate passes current Defender archive/member and Attachment Services scans. Normal browser acceptance remains unverified; the automated Chrome control download of a document-only corpus ZIP also returned ERR_BLOCKED_BY_CLIENT.",
+  "reason": "The maintainer confirmed the v0.7.1 draft ZIP downloads normally; its downloaded SHA-256 matches the scanned archive. GitHub changed the URL on publication, so acceptance of the stable URL remains pending. The unchanged asset is a prerelease, not the latest install release.",
   "incident": "references/security-incident-2026-09-09.md",
   "resolution": null,
   "reviewed_fix_candidate": {
@@ -9,7 +9,8 @@
     "reference": "references/security-resolution-2026-09-12.md",
     "candidate_version": "0.7.1",
     "candidate_archive_sha256": "18e9a07760ac544f98e58945b3b44e18153e0f038a7864a83f3816e829ccfec8",
-    "browser_result": "awaiting-normal-browser-verification",
+    "browser_result": "draft-url-user-confirmed-stable-url-pending",
+    "download_url": "https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip",
     "security_scan": "maintenance/security-scan-2026-09-12.json"
   },
   "withdrawn_archive_sha256": [
