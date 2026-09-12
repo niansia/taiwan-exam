@@ -11,6 +11,7 @@
       "required": ["title", "exam", "subject", "calibration_level"],
       "properties": {
         "paper_id": {"type": "string", "minLength": 1},
+        "current_event_plan": {"type": "object"},
         "title": {"type": "string"},
         "subtitle": {"type": ["string", "null"]},
         "exam": {"type": "string"},

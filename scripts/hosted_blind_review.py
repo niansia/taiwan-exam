@@ -36,6 +36,8 @@ def review_errors(exam, review):
         steps = row.get('decisive_steps')
         if not isinstance(steps, list) or not steps or not all(isinstance(s,str) and s.strip() for s in steps):
             errors.append(f'{prefix}: decisive_steps must list actual decisions')
+        if (question.get('item_spec') or {}).get('current_event') and (not isinstance(steps,list) or len(steps) < 3):
+            errors.append(f'{prefix}: topical arithmetic alone is not literacy; independently verify three linked decisions')
         minutes = row.get('expected_minutes')
         if type(minutes) not in (int,float) or not 0 < minutes <= 100:
             errors.append(f'{prefix}: invalid independent time estimate')

@@ -82,6 +82,7 @@ download_ceec_gsat.py exam_data.py import_ceec_gsat_difficulty.py ingest_gsat_bu
 fetch_hosted_template_assets.py read_web_knowledge.py pack_verification.py pdf_provenance.py
 compose_hosted_pdf.py inspect_hosted_pdf.py check_hosted_run.py
 hosted_item_layout.py hosted_run_timing.py hosted_blind_review.py
+validate_math_context.py
 qa_math_current_form.py safe_rendering.py
 render_exam.py render_gsat_internal_review_pdf.py render_gsat_internal_review.py
 render_gsat_official_pdf.py render_gsat_official.py render_pdf.py render_visual.py

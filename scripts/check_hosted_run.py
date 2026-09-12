@@ -15,6 +15,7 @@ from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, bottom_voi
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary
 from hosted_blind_review import packet, review_errors
+from validate_math_context import validate as math_context_errors, source_note_samples
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -64,6 +65,7 @@ def check(state_path: Path) -> dict:
         return {'status': 'pending', 'errors': errors, 'formal_acceptance': False}
     exam_hash = sha(exam_path)
     exam = json.loads(exam_path.read_text(encoding='utf-8-sig'))
+    errors.extend(math_context_errors(exam))
     items = exam.get('questions', [])
     ids = [item.get('id') for item in items]
     need(bool(ids) and all(isinstance(i, str) and i.strip() for i in ids)
@@ -140,6 +142,8 @@ def check(state_path: Path) -> dict:
                 need(not actual_page.rotation and abs(rect.width-595.28) <= 1 and abs(rect.height-841.89) <= 1,
                      f'{role}/page-{number}: actual PDF non-A4-or-rotated')
                 text = actual_page.get_text()
+                if exam.get('metadata', {}).get('subject') in {'數學A','數學B'}:
+                    need(not source_note_samples(text), f'{role}/page-{number}: printed math source note')
                 need('\ufffd' not in text and '\x00' not in text,
                      f'{role}/page-{number}: actual PDF replacement-or-null-glyph')
                 spans = [s for b in actual_page.get_text('dict')['blocks']

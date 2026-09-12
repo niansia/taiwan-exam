@@ -70,3 +70,14 @@ The original 25m49s run has no complete measured phase log available here; its
 largest bottleneck cannot be stated as a measured fact. Platform execution limits
 remain outside the Skill's control. Update the installed web knowledge attachment;
 a GitHub change does not automatically replace an account's existing Skill.
+
+## Subsequent current-context policy update: 2026.09.13.2
+
+The math policy now selects 2–4 recent model-dependent items in a default full
+paper, checks event/publication dates against the editorial lock, and keeps
+provenance in internal records instead of printing source-note rows or URLs.
+The new gate is used by hosted/local release checks; PDF text inspection catches
+printed notes even if they are absent from source metadata. Other subjects'
+passage attribution remains unchanged. Date, leakage and nonroutine-review
+regressions join the existing layout/release checks; these remain software
+tests, not evidence that an entire new exam achieves originality or difficulty.

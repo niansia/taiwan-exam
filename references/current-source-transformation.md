@@ -1,8 +1,19 @@
 # Transforming current sources into original exam material
 
 Use this reference when an item or writing prompt begins from a current event, article, official dataset, scientific mission, product update, or emerging field.
+For Math A/B, also apply math-current-events-and-sourcing.md: default 2–4 recent
+model-dependent items, a 365-day event/publication window, and internal-only
+source records. The printed attribution rules below for 國寫 do not apply to math.
 
 ## Freeze the editorial world
+
+Across subjects, include candidates from the previous year's events/results in
+bounded source discovery where they support the subject's curriculum and task.
+Do not replace literary quality, historical reasoning or disciplinary depth with
+recency alone. A source described as recent needs an event/result date and a
+publication date within 365 days of the editorial lock; refreshed pages alone
+do not qualify. Subject profiles control selection, with the specific 2–4-item
+default and mathematical modelling gate defined for Math A/B in the reference above.
 
 Set `editorial_lock_at` before discovery. A source must have been publicly available by that date, and every volatile fact must be frozen in a source record with its publication or update date and access date. The simulated paper may not quietly incorporate later information. A recent event whose facts are still changing can be used only when the printed material supplies a complete snapshot and the question does not depend on predicting the unresolved outcome.
 

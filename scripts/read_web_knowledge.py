@@ -14,8 +14,8 @@ import re
 
 
 SUBJECT_REFERENCES = {
-    "數學A": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md"},
-    "數學B": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md"},
+    "數學A": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md", "math-current-events-and-sourcing.md"},
+    "數學B": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md", "math-current-events-and-sourcing.md"},
     "英文": {"current-gsat-english-form.md"},
     "社會": {"current-gsat-social-form.md", "social-required-content-codes.json"},
     "自然": {"current-gsat-chinese-natural-form.md"},
