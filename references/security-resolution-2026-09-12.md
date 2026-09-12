@@ -1,7 +1,9 @@
 # Replacement candidate review, 2026-09-12
 
-Status: local checks passed; normal browser acceptance pending. This document
-does not clear the public distribution hold or assert vendor confirmation.
+Status: local checks and maintainer browser download of the draft URL passed.
+The stable URL introduced by GitHub publication still needs browser acceptance.
+The unchanged asset is staged as a prerelease; the install-release hold remains.
+This document does not assert vendor confirmation.
 
 The replacement incorporates reviewed source-installation path/collision and
 atomic-write fixes, stricter source/profile evidence checks, scored-slot planning
@@ -33,3 +35,23 @@ A passing local candidate can be held in a private GitHub draft for the
 maintainer to download normally. Record acceptance of these exact bytes and this
 URL before promoting it. A changed archive or URL requires new checks. No
 browser result is inferred from a command-line download or an attachment API pass.
+
+## Maintainer download evidence
+
+On 2026-09-12 the maintainer reported that the bottom ZIP asset could be downloaded
+safely and supplied a screenshot identifying the v0.7.1 draft. The downloaded
+`taiwan-exam-generator-v0.7.1.zip` is 4,551,413 bytes and its locally verified
+SHA-256 matches the candidate above. No local username or device identifier is
+retained in this record. The tested draft URL was:
+`https://github.com/niansia/taiwan-exam/releases/download/untagged-b63e4bbea22ef4a26cbe/taiwan-exam-generator-v0.7.1.zip`.
+
+The exact asset was retained when GitHub published v0.7.1 as a prerelease; its
+asset ID is 559168049. Publication changed its URL to the stable URL above.
+Automated Chrome at the stable URL again returned ERR_BLOCKED_BY_CLIENT, so a
+maintainer check of that URL is pending before marking the version latest/ready.
+The earlier draft result is not relabeled as a stable-URL browser result.
+
+After publication, a separate HTTPS download from the stable public URL also
+matched the recorded SHA-256. This verifies published bytes, not browser
+acceptance. The stable-URL scan report is also published in
+`downloads/security-scan.json` for the independent distribution CI check.

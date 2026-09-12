@@ -77,16 +77,18 @@ Windows / Python 3.10.10 的乾淨公開副本完整測試：399 通過、2 跳�
 就緒檢查已回傳 0，七份試卷均為 prerequisites-ready；沒有遺漏題型。
 公開原始碼不包含私有原卷，CI 會測試其缺檔行為，不能宣稱 CI 已閱讀原卷。
 
-軟體 ZIP 的公開發布仍依 `SOFTWARE_RELEASE_STATUS.json` 暫停，等待一般
-瀏覽器下載的確認。9 月 12 日的自動化 Chrome 對純文件來源 ZIP 也顯示
+維護者已確認 v0.7.1 草稿 ZIP 可正常下載，下載檔案 4,551,413 bytes 的
+SHA-256 與掃描版本一致。同一附件已放到 v0.7.1 預發布頁；GitHub 改變了
+下載網址，因此最新正式安裝版仍依 `SOFTWARE_RELEASE_STATUS.json` 暫停，
+等待新固定網址的一般瀏覽器下載確認。9 月 12 日的自動化 Chrome 對純文件來源 ZIP 也顯示
 ERR_BLOCKED_BY_CLIENT，不能因此判定新候選有惡意程式。工具安全政策
 不允許開啟下載紀錄頁；未變更瀏覽器或系統防護設定。詳細證據見
 [候選修正紀錄](../references/security-resolution-2026-09-12.md)。
 
-GitHub 的修正分支、私有候選草稿與遠端 CI 用於完成發布前驗證；公開主分支
-與正式下載需依最後驗證結果更新。本次尚未產出最初要求的七份新試卷及七份詳解。
+GitHub 主分支同步程式修正、README 與驗證紀錄；正式版標示需依最後下載
+驗證結果更新。本次尚未產出最初要求的七份新試卷及七份詳解。
 
 遠端驗證：修正 Linux 繁體字型後，Windows／Ubuntu × Python 3.10／3.12
-四組全部通過，見 https://github.com/niansia/taiwan-exam/actions/runs/34691482574 。
+四組全部通過，見 https://github.com/niansia/taiwan-exam/actions/runs/34691774206 。
 另更新 GitHub Actions 為已核對版本與 SHA 的 Node 24 原生執行版本，
 避免依賴已棄用的 Node 20 自動相容模式。

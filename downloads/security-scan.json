@@ -1,0 +1,38 @@
+{
+  "schema_version": 3,
+  "status": "pass",
+  "checked_utc": "2026-09-12T11:38:03.454624+00:00",
+  "scope": "ZIP, extracted members and Windows attachment Save; browser/vendor acceptance remains separate",
+  "scans": [
+    {
+      "target": "archive",
+      "returncode": 0,
+      "output": "Scan starting...\nScan finished.\nScanning <scan-target> found no threats.\n"
+    },
+    {
+      "target": "extracted-members",
+      "returncode": 0,
+      "output": "Scan starting...\nScan finished.\nScanning <scan-target> found no threats.\n"
+    }
+  ],
+  "source_url": "https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip",
+  "archive_sha256": "18e9a07760ac544f98e58945b3b44e18153e0f038a7864a83f3816e829ccfec8",
+  "engine": {
+    "AMEngineVersion": "1.1.26080.3",
+    "AMProductVersion": "4.18.26080.3",
+    "AntivirusSignatureVersion": "1.459.170.0",
+    "AntivirusSignatureAge": 0,
+    "AntivirusEnabled": true,
+    "RealTimeProtectionEnabled": true
+  },
+  "file_count": 308,
+  "attachment_check": {
+    "status": "pass",
+    "method": "IAttachmentExecute.Save",
+    "archive_sha256": "18e9a07760ac544f98e58945b3b44e18153e0f038a7864a83f3816e829ccfec8",
+    "hresult": 0,
+    "hresult_hex": "0x00000000",
+    "source_url": "https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip",
+    "returncode": 0
+  }
+}
