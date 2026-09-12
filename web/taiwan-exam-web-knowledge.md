@@ -567,10 +567,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/hosted-pdf-production.md",
-    "bytes": 11172,
-    "sha256": "764a4e9b08ab1d64881929559f28ce4c85b69a2919f9a683651f1453ae05d045",
-    "embedded_bytes": 11172,
-    "embedded_sha256": "764a4e9b08ab1d64881929559f28ce4c85b69a2919f9a683651f1453ae05d045"
+    "bytes": 11504,
+    "sha256": "91674c7e05431e4bc759a4ebdc4df5955c64e6fd14431a7b338025e44c423784",
+    "embedded_bytes": 11504,
+    "embedded_sha256": "91674c7e05431e4bc759a4ebdc4df5955c64e6fd14431a7b338025e44c423784"
   },
   {
     "path": "references/hosted-quality-gates.md",
@@ -55122,10 +55122,14 @@ non-waivable collisions before any final quality claim.
 
 ## Prove the rendering route before drafting
 
-1. Extract only the requested subject's references, the template map and the
-   three embedded helpers (`fetch_hosted_template_assets.py`,
-   `compose_hosted_pdf.py`, `inspect_hosted_pdf.py`) into one working directory.
-   Keep imports together. PyMuPDF supplies PDF operations. Do not claim its
+1. Use read_web_knowledge.py with --subject and --output-dir to extract the
+   requested subject's references, maps and embedded helpers into a versioned
+   directory, preserving canonical scripts/ and exam_packs/ paths. This includes
+   fetch_hosted_template_assets, compose_hosted_pdf, inspect_hosted_pdf,
+   check_hosted_run and its hosted_item_layout/hosted_run_timing/hosted_blind_review
+   imports. Do not flatten the files or omit official-current-web-sources.json,
+   which the measured density gate needs. Read selected guidance, not a dump of
+   every extracted file. PyMuPDF supplies PDF operations. Do not claim its
    absence without trying the installed PDF library; if dependency installation
    is unavailable, name that actual capability gap.
 2. Fetch the subject's three/four production components with the existing bounded
