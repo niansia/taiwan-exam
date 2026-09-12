@@ -85,3 +85,8 @@ ERR_BLOCKED_BY_CLIENT，不能因此判定新候選有惡意程式。工具安�
 
 GitHub 的修正分支、私有候選草稿與遠端 CI 用於完成發布前驗證；公開主分支
 與正式下載需依最後驗證結果更新。本次尚未產出最初要求的七份新試卷及七份詳解。
+
+遠端驗證：修正 Linux 繁體字型後，Windows／Ubuntu × Python 3.10／3.12
+四組全部通過，見 https://github.com/niansia/taiwan-exam/actions/runs/34691482574 。
+另更新 GitHub Actions 為已核對版本與 SHA 的 Node 24 原生執行版本，
+避免依賴已棄用的 Node 20 自動相容模式。

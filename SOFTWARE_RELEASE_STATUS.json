@@ -8,7 +8,7 @@
     "kind": "reviewed-code-fix",
     "reference": "references/security-resolution-2026-09-12.md",
     "candidate_version": "0.7.1",
-    "candidate_archive_sha256": "2444f9d300ddadcd5e02094205c466417924f663396f6f4899fb96040564e6b4",
+    "candidate_archive_sha256": "18e9a07760ac544f98e58945b3b44e18153e0f038a7864a83f3816e829ccfec8",
     "browser_result": "awaiting-normal-browser-verification",
     "security_scan": "maintenance/security-scan-2026-09-12.json"
   },
