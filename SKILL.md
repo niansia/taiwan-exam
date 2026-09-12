@@ -63,6 +63,13 @@ hash-bound 111–115 aggregate, and use
 checks. Do not claim a timed-out PDF was opened, but do not refuse or downgrade
 solely because an immutable CEEC URL times out when the compatible embedded
 release calibration has no relevant unresolved fields.
+Read the hosted reference's bounded-loading/continuation procedure at generation
+time: load only applicable sections, fetch the requested subject's components
+concurrently with verified cache reuse, and resume the same paper from saved
+phase evidence instead of repeatedly reinstalling or restarting. Its embedded
+source map includes each year's actual Paper Profile; preserve `needs_review`
+states and reconcile specific gaps. A ready aggregate or verified layout does
+not promote a pending structure to verified.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).

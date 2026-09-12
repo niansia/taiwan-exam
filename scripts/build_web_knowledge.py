@@ -55,6 +55,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.extend(sorted((root / "schemas").glob("*.json")))
     paths.extend(sorted((root / "templates").glob("*.*")))
     paths.append(root / "scripts" / "fetch_hosted_template_assets.py")
+    paths.append(root / "scripts" / "read_web_knowledge.py")
 
     for pack in ("學測", "會考"):
         pack_root = root / "exam_packs" / pack
@@ -88,12 +89,15 @@ def build(version: str, root: Path = ROOT) -> str:
         # projection is one portable Markdown file and must be byte-stable on
         # Windows, macOS and Linux.
         text = raw.decode("utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
+        payload = text.rstrip() + "\n"
         records.append({
             "path": relative,
             "bytes": len(raw),
             "sha256": hashlib.sha256(raw).hexdigest(),
+            "embedded_bytes": len(payload.encode("utf-8")),
+            "embedded_sha256": hashlib.sha256(payload.encode("utf-8")).hexdigest(),
         })
-        sections.append(f'\n<canonical-source path="{relative}">\n{text.rstrip()}\n</canonical-source>\n')
+        sections.append(f'\n<canonical-source path="{relative}">\n{payload}</canonical-source>\n')
 
     manifest = json.dumps(records, ensure_ascii=False, indent=2)
     header = f"""# Taiwan Exam Web Knowledge v{version}
@@ -113,8 +117,18 @@ Fetch and verify only the requested subject's production components at paper
 time. A native Install or Save confirmation may still require one user action;
 never claim this Markdown can bypass the platform's confirmation.
 
-For hosted generation, use the embedded release-time calibration as the
-hash-bound 111–115 evidence layer. Time-box live CEEC spot checks; a transport
+For hosted generation, read the root and hosted workflow, then only the requested
+subject's references. Do not dump or reconstruct every subject into the model
+context. The embedded `scripts/read_web_knowledge.py` can extract selected paths
+or an initial subject route in one call and verify their portable payload hashes;
+read additional linked references when applicable. It does not generate questions.
+Keep the full knowledge file and all 30 URL records for later subject requests.
+
+Use the embedded release-time records as the hash-bound 111–115 evidence layer,
+preserving their actual review status. Paper Profiles are embedded per year in
+`official-current-web-sources.json`; a needs_review record is NOT verified just
+because a Layout Profile or aggregate blueprint is ready. Repair the specific
+structure/evidence gap, not the whole corpus. Time-box live CEEC spot checks; a transport
 timeout is not a reason to refuse when compatible embedded profiles have no
 relevant unresolved fields. Materialize and run the embedded
 `scripts/fetch_hosted_template_assets.py`; GitHub Contents API base64 is a valid

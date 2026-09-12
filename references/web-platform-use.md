@@ -49,10 +49,13 @@ For every request for a complete paper:
 For every complete current-form GSAT paper, load
 `exam_packs/學測/metadata/official-current-web-sources.json`. It contains the
 verified direct CEEC links, hashes, page counts and local mirror paths for the
-ROC 111–115 question papers, answers and scoring principles. The embedded
-verified Paper Profiles, Layout Profiles, difficulty profiles and aggregate
-subject references were produced from those frozen papers and are the primary
-hosted-runtime calibration. The URL map is the live spot-check locator; the CEEC
+ROC 111–115 question papers, answers and scoring principles. Each year also
+embeds the actual `paper_profile` from its hash-identified source registry.
+Preserve its review status: `needs_review` is NOT verified. Neither an available
+URL nor a verified Layout Profile proves a Paper Profile's scored-slot structure.
+The Paper Profiles, Layout Profiles, difficulty profiles and aggregate subject
+references form the hosted-runtime evidence; their separate review states must
+be inspected. The URL map is the live spot-check locator; the CEEC
 general-paper listing is the discovery fallback. Do not make a non-technical
 user find or upload these public files manually.
 
@@ -60,8 +63,12 @@ Before drafting, do all of the following for the requested subject only:
 
 1. Load the compatible embedded Paper Profile, Layout Profile, difficulty
    profile and subject-form reference. Confirm their source hashes, years,
-   curriculum, review status and unresolved fields. These release-time records,
-   not model memory, establish the five-year aggregate.
+   curriculum, review status and unresolved fields. In hosted mode, the mapped
+   year's `paper_profile` is the projection of `metadata/papers.jsonl`; do not
+   search for a missing local JSONL file. These records, not model memory,
+   supply the five-year evidence. A pending controlling structure requires
+   targeted reconciliation of its counts, scored slots and scoring evidence;
+   record that review separately without rewriting the embedded original status.
 2. Time-box live source access: try the controlling 115 question PDF and at
    least one other mapped year, with no more than two attempts per URL. When a
    PDF opens, confirm its displayed year/subject, page count and answer-bearing
@@ -162,6 +169,15 @@ connector already returns an asset as base64, that is a valid exact-binary
 transport: decode it in the file runtime and verify it. Do not report “no binary
 handoff” merely because the transport representation is base64.
 
+The helper overlaps up to four independent downloads, with a default 15-second
+socket timeout and one attempt per transport. This is not a strict overall
+deadline imposed on the platform's network stack. It returns component-level
+errors and a nonzero exit status for a partial result while retaining verified
+successes. Repeat with the same cache directory to retry only missing components;
+never call a partial result a template pass. A changed/corrupt existing file is
+reported, not silently overwritten. Use a fresh cache directory for a new asset
+version and preserve the conflicting file for inspection.
+
 For formal output, use the original verified PDF bytes unchanged as immutable
 background/page-furniture layers. Overlay only the four allowed dynamic fields
 and that run's newly paginated body inside the measured body box.
@@ -179,7 +195,9 @@ The following are hard failures, not alternative rendering paths:
   instructions and then claiming it is the fixed asset.
 
 Before declaring template transport unavailable, attempt the per-file raw URL,
-the GitHub Contents API/base64 path and the embedded fetch helper. If verified
+and GitHub Contents API/base64 path, preferably through the embedded helper.
+These are two transports, not three separate retry cycles: the helper already
+tries both. Do not repeat equivalent attempts through another wrapper. If verified
 bytes still cannot enter the file runtime, the surface cannot merge PDF layers,
 or the downloaded hash differs, stop formal rendering before item layout and
 report the exact attempted transports. A generic-layout draft may be produced
@@ -229,6 +247,59 @@ coverage, keep the measured apparent size, line pitch and printable width,
 embed or subset it when possible, and inspect every raster. Missing glyphs,
 material reflow, visibly wrong type roles or altered density are failures; a
 different internal font name alone is not.
+
+## Bounded loading and continuation
+
+Read this section for every hosted full-paper run, not only timed requests.
+
+- At generation time, inspect file creation, PDF composition, raster inspection
+  and network/file handoff once, before expensive drafting. Use existing
+  capability evidence in the same unchanged runtime. A real missing capability
+  needs one concrete blocker report, not repeated “continue” prompts.
+- Keep the entire uploaded knowledge file available, but read `SKILL.md`, this
+  reference and applicable subject references only. Do not print the complete
+  manifest, restore every section, or load other subjects' blueprints into model
+  context. Read the embedded `scripts/read_web_knowledge.py` section once and
+  materialize that helper if needed. Run it with `--subject 數學A --output-dir
+  <versioned-reference-directory>` for the initial route, or repeated `--path`
+  arguments for precise retrieval. The knowledge-file path is its positional
+  argument. The helper lists paths and byte counts, not the whole content.
+  Follow additional applicable reference links; this is selective loading,
+  not a replacement or summary of the canonical rules. For cross-subject JSON,
+  inspect only the requested subject/year records in the model context.
+- Portable `embedded_sha256` / `embedded_bytes` verify normalized embedded
+  sections. The original `sha256` / `bytes` describe upstream source bytes,
+  which may have different line endings. Do not repeatedly attempt to make
+  normalized LF text match an original CRLF hash. Template PDFs remain exact
+  binary matches, without any normalization.
+- Overlap independent template downloads and source lookups where supported.
+  Use at most two live-source attempts per URL and a roughly 90-second budget
+  for optional live calibration checks when timeout controls are available.
+  Do not start more optional checks once that budget is spent. A genuinely
+  unresolved structure or scoring issue is separate required evidence work;
+  identify the specific missing fact instead of retrying every historical PDF.
+- Continue planning, original writing, solving, rendering and inspection within
+  the active turn when possible. Do not ask the user to approve each completed
+  phase or reply “continue” merely to start the next routine phase. Long work
+  still needs short progress updates, not voluminous manifests in chat.
+- Save one small `run-state.json` beside the current paper after each meaningful
+  phase: paper ID, request/subject/year, knowledge/profile/template hashes,
+  current phase, artifact paths and hashes, solved item IDs, inspected page IDs
+  bound to PDF hashes, failed checks, attempted URLs and next action. A phase
+  name alone is not evidence; verify the cited files before resuming. Do not
+  regenerate a completed phase just because a new message arrives.
+- “Continue” resumes this same paper and its surviving files, not a new paper
+  or installation. Reuse already written items only within that identified run;
+  a new-paper request must get new content. Changed items revoke dependent
+  solves and layout checks; changed PDF bytes revoke prior page inspection.
+  If a hosted runtime expires and its files are gone, say so and recover only
+  accessible checkpoint artifacts; never claim persistent native Skill storage
+  also permanently preserves a temporary generation workspace.
+
+These measures reduce repeated preparation; they cannot raise a provider's turn,
+context, execution or storage limits. Record elapsed time and interruptions under
+`fast-full-paper-workflow.md`; neither single-turn completion nor 20 minutes is
+guaranteed. Missing answer validation or all-page review still blocks delivery.
 
 ## ChatGPT on the web
 

@@ -20,6 +20,8 @@
       "subject": "國綜",
       "catalog_subject": "國文",
       "section": "國綜",
+      "paper_profile_registry": "exam_packs/學測/subjects/國文/metadata/papers.jsonl",
+      "paper_profile_registry_sha256": "b58efb84fceca3becd62bfc911081149934b6152155fa9eab88e1f45b99b2a8b",
       "years": [
         {
           "roc_year": 115,
@@ -54,6 +56,104 @@
               "pages": 3,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國綜)非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2026-official-9cee75fa62cc",
+            "exam": "學測",
+            "year": 2026,
+            "subject": "國文",
+            "section": "國綜",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-115",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國綜試卷.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "d371d9539c7cb7bce7e51e561bca91af4b3e8199dddcddb67f82fd2607a114f5",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國語文綜合能力測驗答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 36,
+            "scored_item_count": 36,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 24,
+                "numbered_question_count": 24,
+                "scored_item_count": 24,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 24
+                },
+                "subtotal_score": 48.0,
+                "score_rule": "占 48 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 25,
+                "question_number_end": 31,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 7
+                },
+                "subtotal_score": 28.0,
+                "score_rule": "占 28 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "混合題或非選擇題",
+                "order": 3,
+                "question_number_start": 32,
+                "question_number_end": 36,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 5
+                },
+                "subtotal_score": 24.0,
+                "score_rule": "占 24 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 36 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -91,6 +191,104 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2025-official-ad9878a480fb",
+            "exam": "學測",
+            "year": 2025,
+            "subject": "國文",
+            "section": "國綜",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-114",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "ad9878a480fb11e6c6a386b42deff9db52481e3a4f30542b94b4895a7388cd02",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜試題.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "4f462a4a7e25f7fea584b6fb35388b672a5920dbd7199feb7fc8407270d438d0",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              },
+              {
+                "sha256": "214f283160ab61a711349cd6b24643fb79aec20300b4cbf5bb454bcdf03a1c67",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國語文綜合能力測驗答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 36,
+            "scored_item_count": 36,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 24,
+                "numbered_question_count": 24,
+                "scored_item_count": 24,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 24
+                },
+                "subtotal_score": 48.0,
+                "score_rule": "占 48 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 25,
+                "question_number_end": 31,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 7
+                },
+                "subtotal_score": 28.0,
+                "score_rule": "占 28 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "混合題或非選擇題",
+                "order": 3,
+                "question_number_start": 32,
+                "question_number_end": 36,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 5
+                },
+                "subtotal_score": 24.0,
+                "score_rule": "占 24 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 36 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -126,6 +324,104 @@
               "pages": 3,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國文考科(國綜)非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2024-official-f0a9043fca96",
+            "exam": "學測",
+            "year": 2024,
+            "subject": "國文",
+            "section": "國綜",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-113",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "f0a9043fca96e76b4e01cc532a64df58f447a3773f6dae54bdf940cc63229783",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國綜試題定稿.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "288457c62440bbedb0184420cd720f6e7bf2d2c40bd08589e92d6a010ab29d3d",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              },
+              {
+                "sha256": "a7f91efc0a38016afb8ef749b981f79e5b63498947b95194a65d02405a30a2f3",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國語文綜合能力測驗答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 36,
+            "scored_item_count": 36,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 24,
+                "numbered_question_count": 24,
+                "scored_item_count": 24,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 24
+                },
+                "subtotal_score": 48.0,
+                "score_rule": "占 48 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 25,
+                "question_number_end": 31,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 7
+                },
+                "subtotal_score": 28.0,
+                "score_rule": "占 28 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "混合題或非選擇題",
+                "order": 3,
+                "question_number_start": 32,
+                "question_number_end": 36,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 5
+                },
+                "subtotal_score": 24.0,
+                "score_rule": "占 24 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 36 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -163,6 +459,104 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-112學測國綜非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2023-official-b5a3cef4fe9d",
+            "exam": "學測",
+            "year": 2023,
+            "subject": "國文",
+            "section": "國綜",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-112",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "b5a3cef4fe9de7fab6195c02655bd2ae452a4215375e9b7a85ab5a10707dcb46",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-1-112學測國文(國綜)試卷.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "64d6835f465ab74c5922cc6a698097ef351d739d83f102e84dae0b78700a5ddb",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-112學測國綜非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              },
+              {
+                "sha256": "97d6766a70a457c364bec496bc693589890000cd9e5bf799df4a46d6bbe3a672",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-112學測國語文綜合能力測驗選擇題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 37,
+            "scored_item_count": 37,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 25,
+                "numbered_question_count": 25,
+                "scored_item_count": 25,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 25
+                },
+                "subtotal_score": 50.0,
+                "score_rule": "占 50 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 26,
+                "question_number_end": 32,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 7
+                },
+                "subtotal_score": 28.0,
+                "score_rule": "占 28 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "混合題或非選擇題",
+                "order": 3,
+                "question_number_start": 33,
+                "question_number_end": 37,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 5
+                },
+                "subtotal_score": 22.0,
+                "score_rule": "占 22 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.76,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 41 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -199,6 +593,104 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國綜非選擇題評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2022-official-b798418f7d09",
+            "exam": "學測",
+            "year": 2022,
+            "subject": "國文",
+            "section": "國綜",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-111",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "b798418f7d09ffe0ee529bfa1fd6a6568b25105deb0b23101a8a40698506d1e6",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-1-111學測國綜試卷.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "f8862038d3b0031c37e85f780b9502955955b5c47ef058fe955b80d7c5c33502",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國綜非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              },
+              {
+                "sha256": "2510fe51e3130ef6b259635e5814acd6ebc7af3e30d7346a9521fd3cfe3a63dd",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國語文綜合能力測驗選擇題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 100.0,
+            "numbered_question_count": 37,
+            "scored_item_count": 37,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 25,
+                "numbered_question_count": 25,
+                "scored_item_count": 25,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 25
+                },
+                "subtotal_score": 50.0,
+                "score_rule": "占 50 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 26,
+                "question_number_end": 32,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 7
+                },
+                "subtotal_score": 28.0,
+                "score_rule": "占 28 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "混合題或非選擇題",
+                "order": 3,
+                "question_number_start": 33,
+                "question_number_end": 37,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 5
+                },
+                "subtotal_score": 22.0,
+                "score_rule": "占 22 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 37 distinct Arabic item markers and 2 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         }
       ]
@@ -207,6 +699,8 @@
       "subject": "國寫",
       "catalog_subject": "國文",
       "section": "國寫",
+      "paper_profile_registry": "exam_packs/學測/subjects/國文/metadata/papers.jsonl",
+      "paper_profile_registry_sha256": "b58efb84fceca3becd62bfc911081149934b6152155fa9eab88e1f45b99b2a8b",
       "years": [
         {
           "roc_year": 115,
@@ -231,6 +725,66 @@
               "pages": 3,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國寫)非選擇題評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2026-official-3ea44f1b2c33",
+            "exam": "學測",
+            "year": 2026,
+            "subject": "國文",
+            "section": "國寫",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-115",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/07-115學測國寫試卷.pdf",
+                "role": "question",
+                "page_count": 4
+              },
+              {
+                "sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國寫)非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "scored_item_count": 2,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "國寫非選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 2,
+                "numbered_question_count": 2,
+                "scored_item_count": 2,
+                "group_count": null,
+                "question_type_mix": {
+                  "guided_writing": 2
+                },
+                "subtotal_score": 50.0,
+                "score_rule": "占 50 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 2 Chinese-numbered writing prompts.",
+              "reviewed_at": null
             }
           }
         },
@@ -258,6 +812,66 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/114/02-114學測國寫閱卷評分原則說明.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2025-official-c64c36a1cf6d",
+            "exam": "學測",
+            "year": 2025,
+            "subject": "國文",
+            "section": "國寫",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-114",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "c64c36a1cf6d9102edbd93af626c37b801bc3d28f66dcf2e42ff96c7b083ba93",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/07-114學測國寫試題.pdf",
+                "role": "question",
+                "page_count": 3
+              },
+              {
+                "sha256": "35b6ebc2bc9cd9ee69778d171f79f32abcb58df8202801b7a8d7d9c3eab7c71a",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/02-114學測國寫閱卷評分原則說明.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "scored_item_count": 2,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "國寫非選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 2,
+                "numbered_question_count": 2,
+                "scored_item_count": 2,
+                "group_count": null,
+                "question_type_mix": {
+                  "guided_writing": 2
+                },
+                "subtotal_score": 50.0,
+                "score_rule": "占 50 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 2 Chinese-numbered writing prompts.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -283,6 +897,66 @@
               "pages": 2,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/113/02-113學測國文考科(國寫)非選擇題評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2024-official-afcc3c0fefdd",
+            "exam": "學測",
+            "year": 2024,
+            "subject": "國文",
+            "section": "國寫",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-113",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "afcc3c0fefdd922629563717ec94eaa671356a14a63ef1af130f299dd53ad0f8",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/07-113學測國寫定稿.pdf",
+                "role": "question",
+                "page_count": 3
+              },
+              {
+                "sha256": "02cde99ccb4d44db097197b1a4fd6f379fe808d1bfed936f20b2a7cd017e64ca",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/02-113學測國文考科(國寫)非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 2
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "scored_item_count": 2,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "國寫非選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 2,
+                "numbered_question_count": 2,
+                "scored_item_count": 2,
+                "group_count": null,
+                "question_type_mix": {
+                  "guided_writing": 2
+                },
+                "subtotal_score": 50.0,
+                "score_rule": "占 50 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 2 Chinese-numbered writing prompts.",
+              "reviewed_at": null
             }
           }
         },
@@ -310,6 +984,66 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/112/02-112學測國寫非選擇題評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2023-official-10c795009e60",
+            "exam": "學測",
+            "year": 2023,
+            "subject": "國文",
+            "section": "國寫",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-112",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "10c795009e60ee48206df372d93c8a198c42adf1ec75a8e10b13b6cb673e70c5",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/112/01-2-112學測國文(國寫)試卷.pdf",
+                "role": "question",
+                "page_count": 3
+              },
+              {
+                "sha256": "64a0aa933a9a2d3852a2ab7664f11010c95737efdd07856d26c35b2ab55b80dd",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/112/02-112學測國寫非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 2
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "scored_item_count": 2,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "國寫非選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 2,
+                "numbered_question_count": 2,
+                "scored_item_count": 2,
+                "group_count": null,
+                "question_type_mix": {
+                  "guided_writing": 2
+                },
+                "subtotal_score": 50.0,
+                "score_rule": "占 50 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 2 Chinese-numbered writing prompts.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -336,6 +1070,66 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國寫非選擇題評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2022-official-081dd1d6e95e",
+            "exam": "學測",
+            "year": 2022,
+            "subject": "國文",
+            "section": "國寫",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-111",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "081dd1d6e95eb051c6329e55c3e79bb9493c39de8246736ff31f8ecde499aa8d",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-2-111學測國寫試卷定稿.pdf",
+                "role": "question",
+                "page_count": 3
+              },
+              {
+                "sha256": "68346af367a89dcf099ff3afce58250b1e37e2f762326256ba559f3f6050d230",
+                "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/111/01-111學測國寫非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 2
+              }
+            ],
+            "duration_minutes": 90,
+            "total_score": 50.0,
+            "numbered_question_count": 2,
+            "scored_item_count": 2,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "國寫非選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 2,
+                "numbered_question_count": 2,
+                "scored_item_count": 2,
+                "group_count": null,
+                "question_type_mix": {
+                  "guided_writing": 2
+                },
+                "subtotal_score": 50.0,
+                "score_rule": "占 50 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 2 Chinese-numbered writing prompts.",
+              "reviewed_at": null
+            }
           }
         }
       ]
@@ -344,6 +1138,8 @@
       "subject": "英文",
       "catalog_subject": "英文",
       "section": "英文",
+      "paper_profile_registry": "exam_packs/學測/subjects/英文/metadata/papers.jsonl",
+      "paper_profile_registry_sha256": "6d4da883c85a6b2512cabae7e37d9c929b23ad840998c3d3fc6d1ec0edc310ff",
       "years": [
         {
           "roc_year": 115,
@@ -378,6 +1174,184 @@
               "pages": 3,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/英文/歷屆試題/115/115學測英文考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2026-official-e5a644f01334",
+            "exam": "學測",
+            "year": 2026,
+            "subject": "英文",
+            "section": "英文",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-115",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文試卷.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "f8edda8733240b7d26cba9f80f89b4ffb42a58449319121fad9466d008811b11",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/115學測英文考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "scored_item_count": 52,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "詞彙題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 10,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "綜合測驗",
+                "order": 2,
+                "question_number_start": 11,
+                "question_number_end": 20,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "文意選填",
+                "order": 3,
+                "question_number_start": 21,
+                "question_number_end": 30,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "篇章結構",
+                "order": 4,
+                "question_number_start": 31,
+                "question_number_end": 34,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 4
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-5",
+                "title": "閱讀測驗",
+                "order": 5,
+                "question_number_start": 35,
+                "question_number_end": 46,
+                "numbered_question_count": 12,
+                "scored_item_count": 12,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 12
+                },
+                "subtotal_score": 24.0,
+                "score_rule": "占 24 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-6",
+                "title": "混合題",
+                "order": 6,
+                "question_number_start": 47,
+                "question_number_end": 50,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 4
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-7",
+                "title": "中譯英",
+                "order": 7,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-8",
+                "title": "英文作文",
+                "order": 8,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 20.0,
+                "score_rule": "占 20 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.77,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 34 distinct Arabic item markers and 4 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -415,6 +1389,184 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/英文/歷屆試題/114/03-114學測英文考科非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2025-official-51c8d9f7c271",
+            "exam": "學測",
+            "year": 2025,
+            "subject": "英文",
+            "section": "英文",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-114",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "51c8d9f7c2715adf74cae808bde4906cfadee19d0ec379df3b33881c35960a78",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文試題.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "f96658a07c24ef878493e9c40fea26f3497884dd621427ddb7d9cac3c6f0206f",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "609912dd23603130c628ee6adeee21a58990d4a8e59bbfd0c17faa93fd11727a",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/03-114學測英文考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "scored_item_count": 52,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "詞彙題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 10,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "綜合測驗",
+                "order": 2,
+                "question_number_start": 11,
+                "question_number_end": 20,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "文意選填",
+                "order": 3,
+                "question_number_start": 21,
+                "question_number_end": 30,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "篇章結構",
+                "order": 4,
+                "question_number_start": 31,
+                "question_number_end": 34,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 4
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-5",
+                "title": "閱讀測驗",
+                "order": 5,
+                "question_number_start": 35,
+                "question_number_end": 46,
+                "numbered_question_count": 12,
+                "scored_item_count": 12,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 12
+                },
+                "subtotal_score": 24.0,
+                "score_rule": "占 24 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-6",
+                "title": "混合題",
+                "order": 6,
+                "question_number_start": 47,
+                "question_number_end": 50,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 4
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-7",
+                "title": "中譯英",
+                "order": 7,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-8",
+                "title": "英文作文",
+                "order": 8,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 20.0,
+                "score_rule": "占 20 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.77,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 34 distinct Arabic item markers and 4 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -450,6 +1602,184 @@
               "pages": 3,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/英文/歷屆試題/113/03-113學測英文考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2024-official-09d35c2ed856",
+            "exam": "學測",
+            "year": 2024,
+            "subject": "英文",
+            "section": "英文",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-113",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "09d35c2ed8561e0845dbbe305e12f5342b27f209fb44d801ff7f9f1f9e519ecf",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文科定稿.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "f6389b547afd21b819452dcfadb2382818e561149c67364586a9e931c1a1dd57",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "5151accdbf33c4f08b970bef114fda378ff49891434b8cce637375391ddbda2e",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/03-113學測英文考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "scored_item_count": 52,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "詞彙題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 10,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "綜合測驗",
+                "order": 2,
+                "question_number_start": 11,
+                "question_number_end": 20,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "文意選填",
+                "order": 3,
+                "question_number_start": 21,
+                "question_number_end": 30,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "篇章結構",
+                "order": 4,
+                "question_number_start": 31,
+                "question_number_end": 34,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 4
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-5",
+                "title": "閱讀測驗",
+                "order": 5,
+                "question_number_start": 35,
+                "question_number_end": 46,
+                "numbered_question_count": 12,
+                "scored_item_count": 12,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 12
+                },
+                "subtotal_score": 24.0,
+                "score_rule": "占 24 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-6",
+                "title": "混合題",
+                "order": 6,
+                "question_number_start": 47,
+                "question_number_end": 50,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 4
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-7",
+                "title": "中譯英",
+                "order": 7,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-8",
+                "title": "英文作文",
+                "order": 8,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 20.0,
+                "score_rule": "占 20 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.77,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 34 distinct Arabic item markers and 4 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -487,6 +1817,184 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/英文/歷屆試題/112/03-112學測英文非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2023-official-79f8f0a5822b",
+            "exam": "學測",
+            "year": 2023,
+            "subject": "英文",
+            "section": "英文",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-112",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "79f8f0a5822b9fbdc424cccbf88fdff124c80b9cf0bd8a56913901cd1bb0f741",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/112/02-112學測英文試卷.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "89b0cc3c35ffa589167d74b62fa427258abba9571331eb75097b46d2e30f45a7",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/112/02-112學測英文選擇題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "ba292c5e93c739e5538fdd5bd955c92ae0cd51b9230c221b2d47af2552a63999",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/112/03-112學測英文非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "scored_item_count": 52,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "詞彙題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 10,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "綜合測驗",
+                "order": 2,
+                "question_number_start": 11,
+                "question_number_end": 20,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "文意選填",
+                "order": 3,
+                "question_number_start": 21,
+                "question_number_end": 30,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "篇章結構",
+                "order": 4,
+                "question_number_start": 31,
+                "question_number_end": 34,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 4
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-5",
+                "title": "閱讀測驗",
+                "order": 5,
+                "question_number_start": 35,
+                "question_number_end": 46,
+                "numbered_question_count": 12,
+                "scored_item_count": 12,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 12
+                },
+                "subtotal_score": 24.0,
+                "score_rule": "占 24 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-6",
+                "title": "混合題",
+                "order": 6,
+                "question_number_start": 47,
+                "question_number_end": 50,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 4
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-7",
+                "title": "中譯英",
+                "order": 7,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-8",
+                "title": "英文作文",
+                "order": 8,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 20.0,
+                "score_rule": "占 20 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.77,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 34 distinct Arabic item markers and 9 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -523,6 +2031,184 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文非選擇題評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2022-official-5877adb44710",
+            "exam": "學測",
+            "year": 2022,
+            "subject": "英文",
+            "section": "英文",
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-111",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "5877adb44710601bd1e9580e063d00f702acd7229a0fa97425290fe90044c358",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文試卷.pdf",
+                "role": "question",
+                "page_count": 12
+              },
+              {
+                "sha256": "e3c22802d10fbf5225674eafc480200ad65bcdab46635f323d6e4f9f38808f03",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文選擇題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "b9670729250bdd89c312e0cdc5551c6c7a0bfa6cb007b368b1d4bf00d6d6cda2",
+                "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/111/02-111學測英文非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 4
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 50,
+            "scored_item_count": 52,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "詞彙題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 10,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "綜合測驗",
+                "order": 2,
+                "question_number_start": 11,
+                "question_number_end": 20,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "文意選填",
+                "order": 3,
+                "question_number_start": 21,
+                "question_number_end": 30,
+                "numbered_question_count": 10,
+                "scored_item_count": 10,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 10
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "篇章結構",
+                "order": 4,
+                "question_number_start": 31,
+                "question_number_end": 34,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 4
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-5",
+                "title": "閱讀測驗",
+                "order": 5,
+                "question_number_start": 35,
+                "question_number_end": 46,
+                "numbered_question_count": 12,
+                "scored_item_count": 12,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 12
+                },
+                "subtotal_score": 24.0,
+                "score_rule": "占 24 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-6",
+                "title": "混合題",
+                "order": 6,
+                "question_number_start": 47,
+                "question_number_end": 50,
+                "numbered_question_count": 4,
+                "scored_item_count": 4,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 4
+                },
+                "subtotal_score": 10.0,
+                "score_rule": "占 10 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-7",
+                "title": "中譯英",
+                "order": 7,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 8.0,
+                "score_rule": "占 8 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-8",
+                "title": "英文作文",
+                "order": 8,
+                "question_number_start": null,
+                "question_number_end": null,
+                "numbered_question_count": null,
+                "scored_item_count": 1,
+                "group_count": null,
+                "question_type_mix": {
+                  "constructed_response": 1
+                },
+                "subtotal_score": 20.0,
+                "score_rule": "占 20 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.77,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 35 distinct Arabic item markers and 3 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         }
       ]
@@ -531,6 +2217,8 @@
       "subject": "數學A",
       "catalog_subject": "數學A",
       "section": null,
+      "paper_profile_registry": "exam_packs/學測/subjects/數學A/metadata/papers.jsonl",
+      "paper_profile_registry_sha256": "a7044f3b767a8060c98c8b632243607fa04795d9ad40812e7ba723b510018424",
       "years": [
         {
           "roc_year": 115,
@@ -565,6 +2253,405 @@
               "pages": 3,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/115/115學測數學a考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2026-official-e867988978a8",
+            "exam": "學測",
+            "year": 2026,
+            "subject": "數學A",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-115",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/115/03-115學測數學a試卷.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "0308d00e554aa2b1a1f68215df8c93943d4aa2ecd326127c3828b971867f67c0",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/115/03-115學測數學a答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/115/115學測數學a考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "verified",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 6,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 6
+                },
+                "subtotal_score": 30,
+                "score_rule": "每題5分；選對唯一正確或最適當選項得全分；答錯、未作答或劃記多於一個選項得0分。",
+                "instructions_pattern": "說明：第1題至第6題，每題5分。"
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 7,
+                "question_number_end": 12,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 6
+                },
+                "subtotal_score": 30,
+                "score_rule": "每題5分，5個選項獨立判定；答錯k個選項得該題分數的(5−2k)/5；低於0分或全部未作答得0分。",
+                "instructions_pattern": "說明：第7題至第12題，每題5分。"
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25,
+                "score_rule": "每題5分；每題所有空格全部答對得全分，答錯不倒扣。",
+                "instructions_pattern": "說明：第13題至第17題，每題5分。"
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": 1,
+                "question_type_mix": {
+                  "single_choice": 1,
+                  "constructed_response": 2
+                },
+                "subtotal_score": 15,
+                "score_rule": "第18題單選3分；第19題非選擇4分；第20題非選擇8分；非選擇依官方評分原則給部分分數。",
+                "instructions_pattern": "說明：本部分共有1題組，單選題每題3分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。選擇（填）題與「非選擇題作圖部分」使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，作答時必須寫出計算過程或理由，否則將酌予扣分。"
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 1,
+              "notes": "Reconciled the official question booklet (8 pages), answer sheet (1 page), and scoring principles (3 pages); 20 scored units, Part I 85 plus Part II 15. Historical item content is not a reusable writing template.",
+              "reviewed_at": "2026-09-12",
+              "structure_review": {
+                "profile_sha256": "fdff40a8a496631961b3ad61af1ee11e18af8b93088c1e184fedc7276d9c3ae8",
+                "reviewer": "Codex / direct official-PDF structure review",
+                "reviewed_at": "2026-09-12",
+                "method": "page-by-page",
+                "unresolved": [],
+                "pages": [
+                  {
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 1,
+                    "observations": "Official 115 Math A cover: 100 minutes; separate answer sheet, 2B for selected/fill responses and black ink for constructed responses; single, multiple and fill scoring rules; no numbered assessment on cover."
+                  },
+                  {
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 2,
+                    "observations": "Printed page 1: Part I 85 points; single-choice Q1–6, five points each. Q1–4 shown, each has five alternatives."
+                  },
+                  {
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 3,
+                    "observations": "Printed page 2: Q5–6 finish single-choice block. Multiple-choice heading Q7–12, five points each; Q7–8 shown with five independent alternatives."
+                  },
+                  {
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 4,
+                    "observations": "Printed page 3: Q9–10 continue multiple-choice block; five alternatives per item."
+                  },
+                  {
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 5,
+                    "observations": "Printed page 4: Q11–12 finish multiple-choice block; five alternatives per item."
+                  },
+                  {
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 6,
+                    "observations": "Printed page 5: fill-in heading Q13–17, five points each; Q13–16 shown with machine-marking fraction/radical rails, not separate scored questions per digit."
+                  },
+                  {
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 7,
+                    "observations": "Printed page 6: Q17 completes fill-in. Part II 15 points has one shared-stimulus group Q18–20: Q18 single-choice with five options and 3 points, Q19 constructed response 4 points, Q20 constructed response 8 points. No multiple-selection subpart here."
+                  },
+                  {
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 8,
+                    "observations": "Printed page 7: reference formulas and constants only; no extra scored item. Eight physical pages including cover, seven numbered inner pages."
+                  },
+                  {
+                    "source_sha256": "0308d00e554aa2b1a1f68215df8c93943d4aa2ecd326127c3828b971867f67c0",
+                    "page": 1,
+                    "observations": "Official key covers Q1–18; Q13–17 use digit rows inside five scored fill-in items. Q19 and Q20 are marked non-selection, not option lists."
+                  },
+                  {
+                    "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+                    "page": 1,
+                    "observations": "Constructed-response overview and Q19 rubric: complete reasoning required; full/partial/zero credit distinguished. Q19 is a single scored constructed response, not a choice item."
+                  },
+                  {
+                    "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+                    "page": 2,
+                    "observations": "Q20 solution and beginning of its rubric; multiple calculations within the one Q20 task, not independently numbered subparts."
+                  },
+                  {
+                    "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+                    "page": 3,
+                    "observations": "Continuation of Q20 rubric: completes four full-credit criteria, alternative partial-credit routes and zero-credit condition. Together with prompt gives one eight-point scored unit."
+                  }
+                ],
+                "slots": [
+                  {
+                    "id": "q1",
+                    "number": 1,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 2,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q2",
+                    "number": 2,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 2,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q3",
+                    "number": 3,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 2,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q4",
+                    "number": 4,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 2,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q5",
+                    "number": 5,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 3,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q6",
+                    "number": 6,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 3,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q7",
+                    "number": 7,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 3,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q8",
+                    "number": 8,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 3,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q9",
+                    "number": 9,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 4,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q10",
+                    "number": 10,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 4,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q11",
+                    "number": 11,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 5,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q12",
+                    "number": 12,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 5,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q13",
+                    "number": 13,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 6,
+                    "response_format": "machine-marked digit slots"
+                  },
+                  {
+                    "id": "q14",
+                    "number": 14,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 6,
+                    "response_format": "machine-marked digit slots"
+                  },
+                  {
+                    "id": "q15",
+                    "number": 15,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 6,
+                    "response_format": "machine-marked digit slots"
+                  },
+                  {
+                    "id": "q16",
+                    "number": 16,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 6,
+                    "response_format": "machine-marked digit slots"
+                  },
+                  {
+                    "id": "q17",
+                    "number": 17,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 7,
+                    "response_format": "machine-marked digit slots"
+                  },
+                  {
+                    "id": "q18",
+                    "number": 18,
+                    "section_id": "section-4",
+                    "type": "single_choice",
+                    "score": 3,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 7,
+                    "response_format": "mark selected option(s) on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q19",
+                    "number": 19,
+                    "section_id": "section-4",
+                    "type": "constructed_response",
+                    "score": 4,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 7,
+                    "response_format": "written reasoning in separate answer sheet"
+                  },
+                  {
+                    "id": "q20",
+                    "number": 20,
+                    "section_id": "section-4",
+                    "type": "constructed_response",
+                    "score": 8,
+                    "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+                    "page": 7,
+                    "response_format": "written reasoning in separate answer sheet"
+                  }
+                ]
+              }
             }
           }
         },
@@ -602,6 +2689,120 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/114/04-114學測數學a考科非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2025-official-265a18f8de05",
+            "exam": "學測",
+            "year": 2025,
+            "subject": "數學A",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-114",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "265a18f8de05f24d13a503229943414ca50ad9441f056318d21850386427a290",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/114/03-114學測數學a試題.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "65666aea83fd2c71cb177fcc50852e0c69d0eb8cea8434dceed6e9ff0620803d",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/114/03-114學測數學a答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "1e17ff84022db05bdb1424ac45f73cb485d01661a8aad0e5f5debf54728168a4",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/114/04-114學測數學a考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 6,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 6
+                },
+                "subtotal_score": 30.0,
+                "score_rule": "占 30 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 7,
+                "question_number_end": 12,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 6
+                },
+                "subtotal_score": 30.0,
+                "score_rule": "占 30 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 21 distinct Arabic item markers and 2 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -637,6 +2838,120 @@
               "pages": 2,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/113/04-113學測數學a考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2024-official-c0dbc1bd50a8",
+            "exam": "學測",
+            "year": 2024,
+            "subject": "數學A",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-113",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "c0dbc1bd50a8bedcf48ead6bf8e1fb0deef03d92113015e37dc20bb097be8e50",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/113/03-113學測數a試題定稿.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "eecb107883266a831db61b4e2129bc6ca51862e502623bcea6180e3eabe73169",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/113/03-113學測數學a答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "199887c5a084674cfb8f300facdefc70990a15b0a05b44428e7d75a52d461569",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/113/04-113學測數學a考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 2
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 6,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 6
+                },
+                "subtotal_score": 30.0,
+                "score_rule": "占 30 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 7,
+                "question_number_end": 12,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 6
+                },
+                "subtotal_score": 30.0,
+                "score_rule": "占 30 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -674,6 +2989,120 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/112/04-112學測數學a非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2023-official-fd0d3aebd2ff",
+            "exam": "學測",
+            "year": 2023,
+            "subject": "數學A",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-112",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "fd0d3aebd2ff9cd3b775db0642326ce0d5be0f5bf2bb3176294082fabe6b13cc",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/112/03-112學測數學a試卷.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "d096806d2441209d715f16eec62e4834760032a830ffa30818d473dff5b3202d",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/112/03-112學測數學a選擇(填)題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "b56034e4428cd8a1f733b8d90d891c6429c6eefc06fe8dfe820f81c3057360ad",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/112/04-112學測數學a非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 6,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 6
+                },
+                "subtotal_score": 30.0,
+                "score_rule": "占 30 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 7,
+                "question_number_end": 12,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 6
+                },
+                "subtotal_score": 30.0,
+                "score_rule": "占 30 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 4 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -710,6 +3139,120 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a非選擇題評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2022-official-01ceb21ac453",
+            "exam": "學測",
+            "year": 2022,
+            "subject": "數學A",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-111",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "01ceb21ac453e1b8f1e2cdbc015f0d648f3b63c72d5d0c64555d6fd085c5aa9f",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a試卷定稿.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "176497242f9910d56ba0441bddae22ea9be597e48b6a3239ebb19860b11b6c1c",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a選擇(填)題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "dd5905060a7eaeb04e994dc27ad08ef5b763dc704db33098839550d65b653015",
+                "relative_path": "exam_packs/學測/subjects/數學A/歷屆試題/111/03-111學測數學a非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 6,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 6
+                },
+                "subtotal_score": 30.0,
+                "score_rule": "占 30 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 7,
+                "question_number_end": 12,
+                "numbered_question_count": 6,
+                "scored_item_count": 6,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 6
+                },
+                "subtotal_score": 30.0,
+                "score_rule": "占 30 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 2 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         }
       ]
@@ -718,6 +3261,8 @@
       "subject": "數學B",
       "catalog_subject": "數學B",
       "section": null,
+      "paper_profile_registry": "exam_packs/學測/subjects/數學B/metadata/papers.jsonl",
+      "paper_profile_registry_sha256": "735ae403b663ddd453b217fbcbeed9607d8b920a88f9411a5ab695940326eeb9",
       "years": [
         {
           "roc_year": 115,
@@ -752,6 +3297,120 @@
               "pages": 3,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/115學測數學b考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2026-official-84ac78e7a8b2",
+            "exam": "學測",
+            "year": 2026,
+            "subject": "數學B",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-115",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b試卷.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "ff1337781df5ee183f8e0a4b49f4690b297bbc547fefcb8f1669d01bdde610b3",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/115學測數學b考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 3
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 7,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 7
+                },
+                "subtotal_score": 35.0,
+                "score_rule": "占 35 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 8,
+                "question_number_end": 12,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 2 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -789,6 +3448,120 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/05-114學測數學b考科非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2025-official-ad6ed7218a4f",
+            "exam": "學測",
+            "year": 2025,
+            "subject": "數學B",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-114",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "ad6ed7218a4f93cf9474afa14b5fc875ca7a7d3ccf84292aa5ceee3d390fda67",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b試題.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "3d3d916619a189b9fd0403460b8b30254929f3a8ce49ba58aadf0b7a3e35a3aa",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "fb637301db7d41141b5d948a9d46e2d997875b2fce42ebd450fa185b8428ae5c",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/05-114學測數學b考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 2
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 7,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 7
+                },
+                "subtotal_score": 35.0,
+                "score_rule": "占 35 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 8,
+                "question_number_end": 12,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 2 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -824,6 +3597,120 @@
               "pages": 4,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/05-113學測數學b考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2024-official-c378a43ffedb",
+            "exam": "學測",
+            "year": 2024,
+            "subject": "數學B",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-113",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "c378a43ffedb0aefc433152ea394570b6af5c9df97e654d9003a8ae82eb48feb",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b試題定稿.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "adb3532af49ca9cf6735a54009e0d543efd66b3d1e4c5c1beb50d21f830ab48e",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "bb1d904a06324d8376bc219d8ed9e51edabd33837988bc06bca581116746a5d9",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/05-113學測數學b考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 4
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 7,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 7
+                },
+                "subtotal_score": 35.0,
+                "score_rule": "占 35 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 8,
+                "question_number_end": 12,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 1 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -861,6 +3748,120 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/112/05-112學測數學b非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2023-official-958c9ad0e161",
+            "exam": "學測",
+            "year": 2023,
+            "subject": "數學B",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-112",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "958c9ad0e1618062aa43199ea6728e5711a7bc22e30decd39a60b093411a0fee",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/112/04-112學測數學b試卷.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "3214ac3c724d2ff68b960e3df53b214f67f29893f2319cd50394aea64c65e221",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/112/04-112學測數學b選擇(填)題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "1df5b600242d8511abdd86fd836d21c3108043163f322a8fab58871527c0bee9",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/112/05-112學測數學b非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 6
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 7,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 7
+                },
+                "subtotal_score": 35.0,
+                "score_rule": "占 35 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 8,
+                "question_number_end": 12,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 1 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -897,6 +3898,120 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b非選擇題評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2022-official-8752c7cb7444",
+            "exam": "學測",
+            "year": 2022,
+            "subject": "數學B",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-111",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "8752c7cb744419c301f1b495e5880143cd115163ea3275560de31acead73772b",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b試卷.pdf",
+                "role": "question",
+                "page_count": 8
+              },
+              {
+                "sha256": "bbcc536620e410692235de6c92896e7a1c8afde85da13380d540e2d5aa9b22a2",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b選擇(填)題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "62375e3c3510fbb8d5235debcbdd3753409fe123ab63b398b2882cda342c7d1d",
+                "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/111/04-111學測數學b非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 2
+              }
+            ],
+            "duration_minutes": 100,
+            "total_score": 100.0,
+            "numbered_question_count": 20,
+            "scored_item_count": 20,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "單選題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 7,
+                "numbered_question_count": 7,
+                "scored_item_count": 7,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 7
+                },
+                "subtotal_score": 35.0,
+                "score_rule": "占 35 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "多選題",
+                "order": 2,
+                "question_number_start": 8,
+                "question_number_end": 12,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "multiple_choice": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-3",
+                "title": "選填題",
+                "order": 3,
+                "question_number_start": 13,
+                "question_number_end": 17,
+                "numbered_question_count": 5,
+                "scored_item_count": 5,
+                "group_count": null,
+                "question_type_mix": {
+                  "fill_in": 5
+                },
+                "subtotal_score": 25.0,
+                "score_rule": "占 25 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-4",
+                "title": "混合題或非選擇題",
+                "order": 4,
+                "question_number_start": 18,
+                "question_number_end": 20,
+                "numbered_question_count": 3,
+                "scored_item_count": 3,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 3
+                },
+                "subtotal_score": 15.0,
+                "score_rule": "占 15 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 2 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         }
       ]
@@ -905,6 +4020,8 @@
       "subject": "社會",
       "catalog_subject": "社會",
       "section": null,
+      "paper_profile_registry": "exam_packs/學測/subjects/社會/metadata/papers.jsonl",
+      "paper_profile_registry_sha256": "e4b9562c02f477a496db22b885ab1f1dc5404def8a8251d5db3259d2f4d8547a",
       "years": [
         {
           "roc_year": 115,
@@ -939,6 +4056,88 @@
               "pages": 9,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/社會/歷屆試題/115/115學測社會考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2026-official-e4af275a5fbe",
+            "exam": "學測",
+            "year": 2026,
+            "subject": "社會",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-115",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會試卷.pdf",
+                "role": "question",
+                "page_count": 20
+              },
+              {
+                "sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/115學測社會考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 9
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 65,
+            "scored_item_count": 65,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 38,
+                "numbered_question_count": 38,
+                "scored_item_count": 38,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 38
+                },
+                "subtotal_score": 76.0,
+                "score_rule": "占 76 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 39,
+                "question_number_end": 65,
+                "numbered_question_count": 27,
+                "scored_item_count": 27,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 27
+                },
+                "subtotal_score": 68.0,
+                "score_rule": "占 68 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.79,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 51 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -976,6 +4175,88 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/社會/歷屆試題/114/06-114學測社會考科非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2025-official-1d1340c4aa07",
+            "exam": "學測",
+            "year": 2025,
+            "subject": "社會",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-114",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "1d1340c4aa079aa5afd9b37f7ac564d9b13b99c2e629238d6f6c17179d47a505",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會試題.pdf",
+                "role": "question",
+                "page_count": 20
+              },
+              {
+                "sha256": "ff04e289ede3b49329406f393427b3d78c57e76cda3dd31445fabf7d215f67f8",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "ffcd6b8c779118f8831f03f273717194d2819850ed4579e7f60bd366a5fd5d1c",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/06-114學測社會考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 9
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 64,
+            "scored_item_count": 64,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 42,
+                "numbered_question_count": 42,
+                "scored_item_count": 42,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 42
+                },
+                "subtotal_score": 84.0,
+                "score_rule": "占 84 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 43,
+                "question_number_end": 64,
+                "numbered_question_count": 22,
+                "scored_item_count": 22,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 22
+                },
+                "subtotal_score": 60.0,
+                "score_rule": "占 60 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.79,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 51 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -1011,6 +4292,88 @@
               "pages": 10,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/社會/歷屆試題/113/06-113學測社會考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2024-official-74a0026042bb",
+            "exam": "學測",
+            "year": 2024,
+            "subject": "社會",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-113",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "74a0026042bb4ad13044dfebb468e909b4293ebffc5b0e7f0d49a2b5ae6aa06c",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會科試題定稿.pdf",
+                "role": "question",
+                "page_count": 19
+              },
+              {
+                "sha256": "bb63cf9b1ece3980e22d9f136a22769a362d4e0750b6b62963d68f40a4b8a2c0",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "d831198b0aaed4482b0757e8dd85ecc39003e911a00b1f9cc52ce44202ee187c",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/06-113學測社會考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 10
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 64,
+            "scored_item_count": 64,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 35,
+                "numbered_question_count": 35,
+                "scored_item_count": 35,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 35
+                },
+                "subtotal_score": 70.0,
+                "score_rule": "占 70 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 36,
+                "question_number_end": 64,
+                "numbered_question_count": 29,
+                "scored_item_count": 29,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 29
+                },
+                "subtotal_score": 74.0,
+                "score_rule": "占 74 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.79,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 50 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -1048,6 +4411,88 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/社會/歷屆試題/112/06-112學測社會非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2023-official-1f657289579f",
+            "exam": "學測",
+            "year": 2023,
+            "subject": "社會",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-112",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "1f657289579fdd7ffbc1e792e6d94aeb7548049567dbd774e6256c28cfdb1fe6",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/112/05-112學測社會試卷.pdf",
+                "role": "question",
+                "page_count": 20
+              },
+              {
+                "sha256": "175e0fe6dd12b665b583b150d0068b99d604828a2413f22302ced0771a655b02",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/112/05-112學測社會選擇題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "bdc71d579065be3406beb369bfec97998d927ccd15c6f68a9e843a2b5f29a7dd",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/112/06-112學測社會非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 9
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 66,
+            "scored_item_count": 66,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 45,
+                "numbered_question_count": 45,
+                "scored_item_count": 45,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 45
+                },
+                "subtotal_score": 90.0,
+                "score_rule": "占 90 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 46,
+                "question_number_end": 66,
+                "numbered_question_count": 21,
+                "scored_item_count": 21,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 21
+                },
+                "subtotal_score": 54.0,
+                "score_rule": "占 54 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.78,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 51 distinct Arabic item markers and 4 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -1084,6 +4529,88 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會非選擇題評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2022-official-434fcf740bad",
+            "exam": "學測",
+            "year": 2022,
+            "subject": "社會",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-111",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "434fcf740bad86eb9da73f28b85c9a6f740401eb2074b64ff36c45e7ffbf8937",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會試卷.pdf",
+                "role": "question",
+                "page_count": 18
+              },
+              {
+                "sha256": "d99e85d32f48b1f5dfbcbd1a5b181864febc45e31b1c7849f4dfd11749debe85",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會選擇題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "99dde69fe48f351a5033657448601a4d752d73a3b74ace4f3f6f0c7a50713e5c",
+                "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/111/05-111學測社會非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 8
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 144.0,
+            "numbered_question_count": 67,
+            "scored_item_count": 67,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 46,
+                "numbered_question_count": 46,
+                "scored_item_count": 46,
+                "group_count": null,
+                "question_type_mix": {
+                  "single_choice": 46
+                },
+                "subtotal_score": 92.0,
+                "score_rule": "占 92 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 47,
+                "question_number_end": 67,
+                "numbered_question_count": 21,
+                "scored_item_count": 21,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 21
+                },
+                "subtotal_score": 52.0,
+                "score_rule": "占 52 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.78,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 49 distinct Arabic item markers and 1 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         }
       ]
@@ -1092,6 +4619,8 @@
       "subject": "自然",
       "catalog_subject": "自然",
       "section": null,
+      "paper_profile_registry": "exam_packs/學測/subjects/自然/metadata/papers.jsonl",
+      "paper_profile_registry_sha256": "c22153ea6cc1c18bf6a86e6f61df2000cbf9cc6de4d19dd2c4d7e91d83a44b4c",
       "years": [
         {
           "roc_year": 115,
@@ -1126,6 +4655,86 @@
               "pages": 8,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/自然/歷屆試題/115/115學測自然考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2026-official-9381c4030a41",
+            "exam": "學測",
+            "year": 2026,
+            "subject": "自然",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-115",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然試卷.pdf",
+                "role": "question",
+                "page_count": 20
+              },
+              {
+                "sha256": "ba42c71786f7e34af2671bb5d18367aa80487b93afe668e12035594f571770c2",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/115學測自然考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 8
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 56,
+            "scored_item_count": 56,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 36,
+                "numbered_question_count": 36,
+                "scored_item_count": 36,
+                "group_count": null,
+                "question_type_mix": {},
+                "subtotal_score": 72.0,
+                "score_rule": "占 72 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 37,
+                "question_number_end": 56,
+                "numbered_question_count": 20,
+                "scored_item_count": 20,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 20
+                },
+                "subtotal_score": 56.0,
+                "score_rule": "占 56 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 56 distinct Arabic item markers and 1 section headings; section counts do not reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -1163,6 +4772,86 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/自然/歷屆試題/114/07-114學測自然考科非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2025-official-62b238bd1099",
+            "exam": "學測",
+            "year": 2025,
+            "subject": "自然",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-114",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "62b238bd109907dac0efb5dd4e019de1a59a3b283f031e90ae50fb32aafff136",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/114學測自然試題定稿.pdf",
+                "role": "question",
+                "page_count": 20
+              },
+              {
+                "sha256": "217816174af6528a190fb31e2cde3c11df16380ae02aa4ed09f3284b3e8360c9",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/06-114學測自然答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "7390ab7e5d6e80f042b59a5e00ef600f1788e5c1e5fdaaeea956223b5bfdccab",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/07-114學測自然考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 8
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 57,
+            "scored_item_count": 57,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 36,
+                "numbered_question_count": 36,
+                "scored_item_count": 36,
+                "group_count": null,
+                "question_type_mix": {},
+                "subtotal_score": 72.0,
+                "score_rule": "占 72 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 37,
+                "question_number_end": 57,
+                "numbered_question_count": 21,
+                "scored_item_count": 21,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 21
+                },
+                "subtotal_score": 56.0,
+                "score_rule": "占 56 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 57 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -1198,6 +4887,86 @@
               "pages": 7,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/自然/歷屆試題/113/07-113學測自然考科非選擇題參考答案與評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2024-official-479080cff932",
+            "exam": "學測",
+            "year": 2024,
+            "subject": "自然",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-113",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "479080cff932826975e9490218281b746e6740156f98b65637d1a43aeb0f8562",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然試題定稿.pdf",
+                "role": "question",
+                "page_count": 19
+              },
+              {
+                "sha256": "7beeea0aba1a060736cc5a944f2aa26abdaec0e6c0586dec8d5cc901dc31851a",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "4e2d96b3105188faae408e68746754adb46f8795ace7e85fff082767be03036f",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/07-113學測自然考科非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 7
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 56,
+            "scored_item_count": 56,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 36,
+                "numbered_question_count": 36,
+                "scored_item_count": 36,
+                "group_count": null,
+                "question_type_mix": {},
+                "subtotal_score": 72.0,
+                "score_rule": "占 72 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 37,
+                "question_number_end": 56,
+                "numbered_question_count": 20,
+                "scored_item_count": 20,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 20
+                },
+                "subtotal_score": 56.0,
+                "score_rule": "占 56 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 60 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         },
@@ -1235,6 +5004,86 @@
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/自然/歷屆試題/112/07-112學測自然非選擇題參考答案與評分原則.pdf"
             }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2023-official-32e11be7ffbe",
+            "exam": "學測",
+            "year": 2023,
+            "subject": "自然",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-112",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "32e11be7ffbe9dda7a5b4e331b3c9b8e72385fc25bbb93d82f084531b5112b1d",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/112/06-112學測自然試卷.pdf",
+                "role": "question",
+                "page_count": 20
+              },
+              {
+                "sha256": "be3cc952ad1d75650ef094661156a65c76723ac84e0dff1e724959e2a9531e0e",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/112/06-112學測自然選擇題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "2ddbee8c62886da244a7e3c674c1b4c6896db53656e502e5591740cc0a2acdba",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/112/07-112學測自然非選擇題參考答案與評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 5
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 61,
+            "scored_item_count": 61,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 36,
+                "numbered_question_count": 36,
+                "scored_item_count": 36,
+                "group_count": null,
+                "question_type_mix": {},
+                "subtotal_score": 72.0,
+                "score_rule": "占 72 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 37,
+                "question_number_end": 61,
+                "numbered_question_count": 25,
+                "scored_item_count": 25,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 25
+                },
+                "subtotal_score": 56.0,
+                "score_rule": "占 56 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 61 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
+            }
           }
         },
         {
@@ -1270,6 +5119,86 @@
               "pages": 5,
               "text_layer_status": "extractable",
               "local_path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然非選擇題評分原則.pdf"
+            }
+          },
+          "paper_profile": {
+            "paper_id": "gsat-2022-official-68f14585f9bd",
+            "exam": "學測",
+            "year": 2022,
+            "subject": "自然",
+            "section": null,
+            "curriculum": "108",
+            "regime": "111學年度起",
+            "publisher": "大學入學考試中心",
+            "bundle": "official-111",
+            "source_kind": "official_past_exam",
+            "source_files": [
+              {
+                "sha256": "68f14585f9bdfa659579dbcdfe8ee26e48226ecbf069c84b3ff575d3ba46e857",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然試卷.pdf",
+                "role": "question",
+                "page_count": 20
+              },
+              {
+                "sha256": "ab945453dd47e9467ba5909f4d4f18f982e0c588d51ef18a553b36ef32a48709",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然選擇題答案.pdf",
+                "role": "answer",
+                "page_count": 1
+              },
+              {
+                "sha256": "f5510ac9ff919b81beacebedbeb0c948ac3c368c33fffd954f344c96c4e94424",
+                "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/111/06-111學測自然非選擇題評分原則.pdf",
+                "role": "scoring_rule",
+                "page_count": 5
+              }
+            ],
+            "duration_minutes": 110,
+            "total_score": 128.0,
+            "numbered_question_count": 60,
+            "scored_item_count": 60,
+            "structure_status": "needs_review",
+            "sections": [
+              {
+                "id": "section-1",
+                "title": "選擇題",
+                "order": 1,
+                "question_number_start": 1,
+                "question_number_end": 36,
+                "numbered_question_count": 36,
+                "scored_item_count": 36,
+                "group_count": null,
+                "question_type_mix": {},
+                "subtotal_score": 72.0,
+                "score_rule": "占 72 分",
+                "instructions_pattern": null
+              },
+              {
+                "id": "section-2",
+                "title": "混合題或非選擇題",
+                "order": 2,
+                "question_number_start": 37,
+                "question_number_end": 60,
+                "numbered_question_count": 24,
+                "scored_item_count": 24,
+                "group_count": null,
+                "question_type_mix": {
+                  "mixed_group": 24
+                },
+                "subtotal_score": 56.0,
+                "score_rule": "占 56 分",
+                "instructions_pattern": null
+              }
+            ],
+            "layout": {
+              "paper_size": "A4",
+              "columns": 1,
+              "answer_sheet_mode": "另附答題卷"
+            },
+            "evidence": {
+              "method": "official_document",
+              "confidence": 0.8,
+              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 60 distinct Arabic item markers and 2 section headings; section counts reconcile with the paper total.",
+              "reviewed_at": null
             }
           }
         }
