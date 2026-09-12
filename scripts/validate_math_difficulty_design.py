@@ -134,19 +134,19 @@ def validate_item(
         errors.append(f"{qid}: shortcut audit must attempt at least two shortcuts")
     if shortcut.get("collapse_found") is not False or shortcut.get("reviewer_decision") != "pass-no-collapse":
         errors.append(f"{qid}: shortcut-collapse audit has not passed")
-    if subject == "數學B" and shortcut.get("direct_formula_substitution_only") is not False:
-        errors.append(f"{qid}: Math B must explicitly reject a direct-formula-only solution")
+    if shortcut.get("direct_formula_substitution_only") is not False:
+        errors.append(f"{qid}: mathematics must explicitly reject a direct-formula-only solution")
 
-    if subject == "數學B":
+    if subject in {"數學A", "數學B"}:
         innovation = design.get("innovation_audit") if isinstance(design.get("innovation_audit"), dict) else {}
         if innovation.get("formula_or_definition_recall_only") is not False:
-            errors.append(f"{qid}: Math B innovation audit must reject formula/definition recall")
+            errors.append(f"{qid}: mathematics innovation audit must reject formula/definition recall")
         if innovation.get("skin_swap_changes_solution_graph") is not True:
-            errors.append(f"{qid}: Math B skin-swap audit must change the solution graph")
+            errors.append(f"{qid}: mathematics skin-swap audit must change the solution graph")
         if not str(innovation.get("nearest_neighbor_difference") or "").strip():
-            errors.append(f"{qid}: Math B innovation audit needs a structural nearest-neighbor difference")
+            errors.append(f"{qid}: mathematics innovation audit needs a structural nearest-neighbor difference")
         if innovation.get("reviewer_decision") != "pass-nonroutine":
-            errors.append(f"{qid}: Math B non-routine innovation audit has not passed")
+            errors.append(f"{qid}: mathematics non-routine innovation audit has not passed")
 
     burden = design.get("burden_audit") if isinstance(design.get("burden_audit"), dict) else {}
     for field in ("arithmetic_volume_primary", "prose_length_primary", "outside_knowledge_primary"):

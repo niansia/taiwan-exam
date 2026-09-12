@@ -28,11 +28,18 @@
     "proficient_move": "Evidence-based move that resolves the item."
   },
   "shortcut_audit": {
+    "direct_formula_substitution_only": null,
     "attempted_shortcuts": [
       "direct substitution",
       "single familiar formula"
     ],
     "collapse_found": null,
+    "reviewer_decision": "pending"
+  },
+  "innovation_audit": {
+    "formula_or_definition_recall_only": null,
+    "skin_swap_changes_solution_graph": null,
+    "nearest_neighbor_difference": "",
     "reviewer_decision": "pending"
   },
   "burden_audit": {

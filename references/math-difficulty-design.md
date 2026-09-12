@@ -58,6 +58,21 @@ Record the paper-level declaration in `metadata.math_b_difficulty_floor` with `e
 
 ## Failure patterns
 
+Both Math A and Math B require `shortcut_audit.direct_formula_substitution_only:
+false` and the `innovation_audit` fields described above. The stricter Math B
+three-decision floor remains specific to Math B; Math A retains its position
+targets and accessible entry questions. Compare actual solution graphs with
+accessible recent papers, recording concrete differences and comparison scope.
+Do not declare cross-paper novelty when no earlier papers are available.
+
+A harmonic-combination item that reveals all coefficients then only asks for
+period, amplitude and zeros is a routine-property candidate, not an automatic
+medium/hard or original item. Five statements do not constitute five linked
+decisions. This is a rejection diagnostic, not a replacement question template:
+do not ban trigonometry, hard-code a different graph, or solve repetition with a
+rotating list of scenarios. The same applies to decorative two-state diagrams.
+Derive a new task and information relationship before choosing its depiction.
+
 Reject an item for a medium/hard slot when its complete solution can be reduced to one familiar routine, even if the prose or notation is elaborate. Typical failures include:
 
 - solve one exposed 2-by-2 linear system and apply a requested arithmetic expression;

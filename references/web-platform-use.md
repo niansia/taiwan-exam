@@ -269,6 +269,9 @@ different internal font name alone is not.
 ## Bounded loading and continuation
 
 Read this section for every hosted full-paper run, not only timed requests.
+Also apply [hosted-run-evidence.md](hosted-run-evidence.md). Its portable checker
+is embedded with the PDF helpers; it closes the gap between saved proofs and
+recorded difficulty, originality and all-page review. It does not judge content.
 
 - At generation time, inspect file creation, PDF composition, raster inspection
   and network/file handoff once, before expensive drafting. Use existing
@@ -306,6 +309,10 @@ Read this section for every hosted full-paper run, not only timed requests.
   bound to PDF hashes, failed checks, attempted URLs and next action. A phase
   name alone is not evidence; verify the cited files before resuming. Do not
   regenerate a completed phase just because a new message arrives.
+- Save after each small solved/reviewed item batch as well, and before a long
+  render, source request or inspection pass. Do not wait until all writing is
+  complete to check the shortest solution, novelty and planned visual necessity.
+  Use the evidence format and deadline-reserve procedure in hosted-run-evidence.
 - “Continue” resumes this same paper and its surviving files, not a new paper
   or installation. Reuse already written items only within that identified run;
   a new-paper request must get new content. Changed items revoke dependent
