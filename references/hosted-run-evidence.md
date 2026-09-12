@@ -47,7 +47,15 @@ or symlinks out of the directory are accepted. Hash each file after saving it.
 Do not invent successful review observations or manufacture reviewer identities.
 
 `run-state.json` has schema_version 1, paper_id, current_phase, next_action,
-exam (`path`, `sha256`), timing (`path`, `sha256`), checks, and pdfs. exam.json uses the existing exam schema:
+exam (`path`, `sha256`), timing (`path`, `sha256`), template_asset_dir, checks, and pdfs.
+template_asset_dir is a relative directory INSIDE this run containing the selected
+subject's verified `cover-blank.pdf`, `inner-odd-blank.pdf`, `inner-even-blank.pdf`
+and, for Math A/B, `formula-blank.pdf`. Keep these assets in recovery material.
+The gate verifies their size/SHA against the canonical map, then independently
+compares both FINAL PDFs with those assets. It checks every page's locked pixels,
+reachable original PDF content streams, actual page counters and math formula body.
+An unused attachment, screenshot, retyped lookalike or `template_composition: pass`
+cannot stand in for that comparison. Template checks do not inspect body pedagogy. exam.json uses the existing exam schema:
 metadata.paper_id, metadata.subject, questions with unique id and section_id, and
 the full authored answers and item specifications. Its hash binds each review.
 
@@ -73,7 +81,7 @@ Every review JSON contains exam_sha256, status and nonempty observations.
 The first four also have items: one record per actual question id, with id,
 status and observations. Only visuals may use not_applicable with a reason.
 Use the embedded validate_paper_difficulty_balance.py for its structural audit;
-its output alone does not prove achieved difficulty. Reference actual reports
+The final checker also executes it directly; its output alone does not prove achieved difficulty. Reference actual reports
 in the observations and retain them in the recovery copy.
 
 `pdfs.question` and `pdfs.solution` each contain file, inspection, item_review and visual_review

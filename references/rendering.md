@@ -33,7 +33,7 @@ The bundled CSS is a generic practice renderer. It is not evidence of official f
 
 Use `scripts/render_exam.py` / `scripts/render_pdf.py` only for custom practice
 that is not a complete-paper simulation. They reject full-paper/profile-bearing
-data even when a metadata flag claims verified layout. For full GSAT review
+data even when a metadata flag claims verified layout. For internal GSAT component review
 proofs use the maintained subject components `render_gsat_internal_review.py`
 or `render_gsat_official.py` and their PDF wrappers after the shared Exam Pack
 handoff passes. Do not create another batch renderer. These components control:
@@ -43,7 +43,26 @@ handoff passes. Do not create another batch renderer. These components control:
 - question numbering, scoring labels, option alignment, section hierarchy, and group stimuli;
 - separation of student paper and answer key.
 
-For measured Math A/B v4, use `render_gsat_internal_review.py` and its PDF
+For delivered GSAT PDFs in ALL seven subjects, use the original fixed assets
+and `compose_hosted_pdf.py` described in hosted-pdf-production.md even locally.
+Prepare measured transparent body-only pages; omit covers, headers, footers and
+math formula pages BEFORE export. Do not erase or crop those objects from a
+previous full-page generic PDF to pretend it was a measured body overlay.
+The old HTML cover/furniture generators remain internal diagnostics only.
+The local wrapper's fixed route accepts an already measured body PDF:
+
+```text
+python scripts/render_gsat_official_pdf.py exam.json questions.pdf --contract run-contract.json --body question-body.pdf --font <TC-font-file> --kind questions
+python scripts/render_gsat_official_pdf.py exam.json solutions.pdf --contract run-contract.json --body solution-body.pdf --font <TC-font-file> --kind answers
+```
+
+It runs the content handoff, composes canonical layers, applies non-visible
+provenance and verifies FINAL saved bytes. Its legacy full HTML route requires
+`--proof-only`; a contract alone cannot authorize recreated furniture. The local
+delivery gate independently repeats fixed-template verification for both PDFs.
+Continue all readable page/item, body typography and independent content review.
+
+For measured Math A/B v4 internal body/component proofs, use `render_gsat_internal_review.py` and its PDF
 wrapper, not the generic official-named component. Both student and teacher
 documents must consist of actual fixed `.sheet` pages. Before rendering answers,
 plan `metadata.answer_page_groups` as ordered lists of question ids: each answer

@@ -15,6 +15,9 @@ from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, bottom_voi
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary
 from hosted_blind_review import packet, review_errors
+from verify_fixed_template_pdf import verify_pdf
+from validate_math_difficulty_design import validate as math_design
+from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples
 
 
@@ -66,6 +69,14 @@ def check(state_path: Path) -> dict:
     exam_hash = sha(exam_path)
     exam = json.loads(exam_path.read_text(encoding='utf-8-sig'))
     errors.extend(math_context_errors(exam))
+    # Execute the embedded checks on actual authored content. A passing review
+    # claiming that these ran is not an equivalent execution path.
+    errors.extend('difficulty_balance: ' + e for e in difficulty_balance(exam, root)['errors'])
+    if exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
+        errors.extend('math_design: ' + e for e in math_design(exam)['errors'])
+        questions = exam.get('questions', [])
+        need(len(questions) == 20 and {q.get('number') for q in questions} == set(range(1, 21)),
+             'math structure: current full paper requires 20 numbered items')
     items = exam.get('questions', [])
     ids = [item.get('id') for item in items]
     need(bool(ids) and all(isinstance(i, str) and i.strip() for i in ids)
@@ -97,7 +108,7 @@ def check(state_path: Path) -> dict:
                 file(previous, 'originality/history')
             if review.get('comparison_scope') == 'available-history':
                 need(bool(review.get('history')), 'originality: history evidence missing')
-        if name == 'difficulty' and exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
+        if name == 'difficulty':
             blind_path = file(review.get('blind_packet'), 'difficulty/blind_packet')
             if blind_path:
                 need(json.loads(blind_path.read_text(encoding='utf-8-sig')) == packet(exam),
@@ -107,6 +118,20 @@ def check(state_path: Path) -> dict:
                     file(question['visual_asset'], f'difficulty/{question["id"]}/visual')
             need(bool(review.get('author_context')), 'difficulty: missing real author context')
             errors.extend(review_errors(exam, review))
+            source_map = json.loads(SOURCE_MAP.read_text(encoding='utf-8-sig'))
+            approved = {d['sha256'] for s in source_map['subjects']
+                        if s['subject'] == exam['metadata']['subject']
+                        for year in s['years'] for d in year['documents'].values()}
+            for row in review.get('items', []):
+                anchor = row.get('anchor') or {}
+                reference = file(anchor.get('reference_pdf'), f'difficulty/{row.get("id")}/anchor')
+                if reference:
+                    need(sha(reference) in approved,
+                         f'difficulty/{row.get("id")}: anchor must be a verified same-subject official source')
+                    with pymupdf.open(reference) as ref:
+                        page = anchor.get('page')
+                        need(type(page) is int and 1 <= page <= len(ref) and bool(anchor.get('item')),
+                             f'difficulty/{row.get("id")}: locate the actual anchor page and item')
         if name == 'visuals' and exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
             required = [r for r in review.get('items', [])
                         if r.get('status') == 'pass' and r.get('required_for_answer') is True]
@@ -128,9 +153,15 @@ def check(state_path: Path) -> dict:
             continue
         pdf_hash = sha(pdf)
         pdf_hashes.append(pdf_hash)
-        # Read the actual bytes again: a hand-edited "zero issues" JSON must not
-        # conceal collisions or omitted PDF pages. This check does not rerender
-        # the complete fixed-template composition.
+        template_dir = state.get('template_asset_dir')
+        asset_dir = (root / template_dir).resolve() if isinstance(template_dir, str) and template_dir else None
+        if need(asset_dir is not None and not Path(template_dir).is_absolute()
+                and asset_dir.is_relative_to(root) and asset_dir.is_dir(),
+                'template_asset_dir: retain the verified subject assets inside the run directory'):
+            fixed = verify_pdf(pdf, exam['metadata']['subject'],
+                               'questions' if role == 'question' else 'answers', asset_dir)
+            errors.extend(f'{role}/fixed-template: {e}' for e in fixed['errors'])
+        # Read final bytes again, independently of a hand-edited zero-issues report.
         with pymupdf.open(pdf) as actual:
             actual_count = len(actual)
             actual_issues = {}
@@ -218,7 +249,8 @@ def check(state_path: Path) -> dict:
                             rn = finding.get('reference_page', 0)
                             need(finding.get('page_role') in {'cover','formula','body','solutions'},
                                  f'{role}/page-{n}: density page role missing')
-                            if need(type(rn) is int and 1 <= rn <= len(ref), f'{role}/page-{n}: invalid reference page'):
+                            if (need(type(rn) is int and 1 <= rn <= len(ref), f'{role}/page-{n}: invalid reference page')
+                                    and need(type(n) is int and 1 <= n <= len(candidate), f'{role}/page-{n}: stale candidate page')):
                                 need(bottom_void(candidate[n-1]) <= bottom_void(ref[rn-1]) + .10,
                                      f'{role}/page-{n}: bottom void exceeds reference by over 10 percentage points')
     need(len(pdf_hashes) == 2 and len(set(pdf_hashes)) == 2,

@@ -12,7 +12,7 @@ non-waivable collisions before any final quality claim.
    directory, preserving canonical scripts/ and exam_packs/ paths. This includes
    fetch_hosted_template_assets, compose_hosted_pdf, inspect_hosted_pdf,
    check_hosted_run and its hosted_item_layout/hosted_run_timing/hosted_blind_review
-   imports, plus validate_math_context.py. Do not flatten the files or omit
+   imports, plus verify_fixed_template_pdf.py, validate_math_context.py and both difficulty validators. Do not flatten the files or omit
    official-current-web-sources.json, which the measured density gate needs.
    Read selected guidance, not a dump of
    every extracted file. PyMuPDF supplies PDF operations. Do not claim its
@@ -39,7 +39,11 @@ non-waivable collisions before any final quality claim.
    across chats. Native Skill installation still stores URLs, not PDF binaries.
 5. Make a small labelled layout-only smoke proof using the fixed cover and one
    transparent body page. Check field fitting, real math glyphs, composition,
-   rasterization and viewing. Resume from cached evidence in the same runtime;
+   rasterization and viewing. Do this for question AND answer composition and
+   run verify_fixed_template_pdf.py on each saved proof. A Math question smoke
+   proof includes the original formula page. This is a small layout-only proof,
+   not a fake completed exam or reusable question template.
+   Resume from cached evidence in the same runtime;
    do not repeat setup for each phase or continuation.
 
 Offline command (agent runs it; no coding required of the user):
@@ -66,6 +70,22 @@ Use the embedded compositor for the maintained PDF-overlay route:
 ```text
 python scripts/compose_hosted_pdf.py --subject 數學A --body <body-only.pdf> --asset-dir <versioned-cache/math-a> --year 116 --title 學科能力測驗模擬試題 --running-name 學測 --font <available-TC-serif-or-Kai-font> --output <question-proof.pdf> --report <composition-proof.json>
 ```
+
+The compositor reopens the saved file for independent fixed-template checking.
+After provenance/export or any later PDF change, run again on BOTH final files:
+
+```text
+python scripts/verify_fixed_template_pdf.py question.pdf --subject 數學A --kind questions --asset-dir templates/math-a --output question-fixed.json
+python scripts/verify_fixed_template_pdf.py solution.pdf --subject 數學A --kind answers --asset-dir templates/math-a --output solution-fixed.json
+```
+
+Use the actual subject for 國綜、國寫、英文、數學A、數學B、社會、自然. The verifier
+uses canonical geometry, never author-enlarged masks. It returns a nonzero exit
+for rebuilt cover/formula text, altered fixed furniture, wrong page parity,
+missing original streams or false counters. The hosted final gate repeats the
+comparison itself; it does not trust these JSON reports. No generic full-page
+LaTeX/HTML/PDF route becomes valid by copying the official title or adding
+“nonofficial mock”. XeLaTeX/HTML can typeset NEW body content only.
 
 For the explanation paper use `--kind answers` and explanation body pages; it
 uses the same odd/even furniture but does not prepend student instructions or a

@@ -197,8 +197,19 @@ def main() -> int:
         print(f"ERROR unsupported subject: {subject}")
         return 2
     profile = args.profile or profile_for(subject)
-    official = profile_targets(profile)
+    report = validate(exam, profile)
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0 if not report['errors'] else 1
 
+
+def validate(exam: dict, profile: Path | None = None) -> dict:
+    subject = exam.get('metadata', {}).get('subject')
+    if subject not in {'數學A', '數學B'}:
+        return {'status': 'fail', 'errors': ['unsupported math subject']}
+    official = profile_targets(profile or profile_for(subject))
     errors: list[str] = []
     summaries: list[dict[str, Any]] = []
     for item in exam.get("questions", []):
@@ -296,11 +307,7 @@ def main() -> int:
         "errors": errors,
         "note": "Design validation only; achieved P/D require representative pilot data.",
     }
-    if args.report:
-        args.report.parent.mkdir(parents=True, exist_ok=True)
-        args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if not errors else 1
+    return report
 
 
 if __name__ == "__main__":
