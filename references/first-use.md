@@ -35,8 +35,10 @@ never assume that a local installation propagates to a web chat or another devic
    still block a formal paper; do not use optional-dependency handling to bypass it.
 4. Read the manifest and subject records. Run exam_data.py status and
    audit_exam_pack.py when execution is available. Portable packs omit private
-   PDFs and have reference-only Paper Profiles. Zero verified profiles with
-   pass-claims-only is not generation readiness.
+   PDFs and may use hash-bound release profiles instead. For a local checkout,
+   zero verified profiles with pass-claims-only is not generation readiness. On
+   hosted web, apply the embedded release-calibration rules in
+   web-platform-use.md rather than requiring absent private/local binaries.
 5. Follow official-gsat-specifications.md and data-ingestion.md to obtain
    relevant official sources when network access and rights permit. Do not
    download unrelated years/subjects merely because a bulk helper exists. Keep

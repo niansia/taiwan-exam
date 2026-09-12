@@ -163,6 +163,11 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 網址及其 SHA-256、大小與頁數；只有資料夾網址不合格。安裝時不下載任何
 模板 PDF，開始出題後才下載當科元件，
 也不得以 `0/30` 判定安裝失敗。完整快取可以加速，但只是選用最佳化。
+出卷時先執行內建 `fetch_hosted_template_assets.py`；raw URL 失敗時改走
+GitHub Contents API/base64，解碼後驗證。大考中心個別歷史 PDF 逾時時，
+使用已綁定來源雜湊的內建 release calibration 並另記 live access 狀態，
+不得因此拒絕整卷。網頁版缺少本機 validator 路徑時，執行同等的內建
+schema/profile 檢查；缺少 PMingLiU／DFKai 名稱本身也不是拒絕理由。
 
 官方說明：<https://learn.chatgpt.com/docs/skills-and-plugins>、<https://learn.chatgpt.com/docs/build-skills>
 

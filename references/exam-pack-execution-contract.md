@@ -17,6 +17,11 @@ check is incomplete, install the selected source pack and rerun the check. The
 ordinary Git tree, a packaged Skill and the hosted-web projection may intentionally
 omit multi-gigabyte binaries; that packaging choice does not make the binaries
 optional for a source-verified local run and never authorizes their deletion.
+For hosted web execution, the hash-bound release profiles and aggregate
+references embedded in the Web Knowledge file are the source-calibration layer;
+use the time-boxed live spot checks and hosted-equivalent validation defined in
+`web-platform-use.md`. A CEEC transport timeout or missing local checkout is not
+the same as missing calibration evidence.
 
 Additional implementation invariants from the failed stress test:
 

@@ -54,6 +54,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.extend(sorted((root / "core").glob("*.json")))
     paths.extend(sorted((root / "schemas").glob("*.json")))
     paths.extend(sorted((root / "templates").glob("*.*")))
+    paths.append(root / "scripts" / "fetch_hosted_template_assets.py")
 
     for pack in ("學測", "會考"):
         pack_root = root / "exam_packs" / pack
@@ -111,6 +112,17 @@ Skill, but do not download any template PDF binaries during setup.
 Fetch and verify only the requested subject's production components at paper
 time. A native Install or Save confirmation may still require one user action;
 never claim this Markdown can bypass the platform's confirmation.
+
+For hosted generation, use the embedded release-time calibration as the
+hash-bound 111–115 evidence layer. Time-box live CEEC spot checks; a transport
+timeout is not a reason to refuse when compatible embedded profiles have no
+relevant unresolved fields. Materialize and run the embedded
+`scripts/fetch_hosted_template_assets.py`; GitHub Contents API base64 is a valid
+binary transport after decoding and hash verification. If local validator
+commands are absent, run the hosted-equivalent checks from the embedded schemas
+and profiles. Do not refuse solely because proprietary font names are absent;
+preserve locked template bytes and verify a metric-compatible Traditional
+Chinese body font by inspecting every rendered page.
 
 Do not create or reuse a generic question batch generator. For a complete paper,
 write genuinely new items and deliver two separately downloadable PDFs: the

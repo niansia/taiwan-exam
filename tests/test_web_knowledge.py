@@ -8,6 +8,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_web_knowledge
 import build_hosted_web_source_map
 import build_hosted_web_template_map
+import fetch_hosted_template_assets
 import package_skill
 
 
@@ -22,6 +23,10 @@ def test_web_knowledge_is_deterministic_and_uses_canonical_skill():
     assert "apply it immediately in the same conversation" in first
     assert "do not download any template PDF binaries during setup" in first
     assert "Do not report `0/30` as an installation failure" in first
+    assert "source_calibration: embedded_release_verified" in first
+    assert "validator_mode: hosted_equivalent" in first
+    assert "GitHub Contents API base64 is a valid" in first
+    assert "Never download or deliver `github-pages.zip`" in first
 
 
 def test_web_knowledge_covers_all_current_gsat_subject_blueprints():
@@ -69,6 +74,27 @@ def test_hosted_web_source_map_is_complete_current_form_evidence():
 def test_web_builder_is_maintainer_only_not_skill_payload():
     assert not package_skill.should_include(ROOT / "scripts/build_web_knowledge.py")
     assert not package_skill.should_include(ROOT / "web/taiwan-exam-web-knowledge.md")
+
+
+def test_hosted_template_fetcher_is_packaged_and_embedded(tmp_path):
+    script = ROOT / "scripts/fetch_hosted_template_assets.py"
+    assert package_skill.should_include(script)
+    paths = {path.relative_to(ROOT).as_posix() for path in build_web_knowledge.source_paths()}
+    assert "scripts/fetch_hosted_template_assets.py" in paths
+    result = fetch_hosted_template_assets.materialize(
+        "數學A",
+        tmp_path,
+        map_path=ROOT / "exam_packs/學測/templates/115/hosted-web-template-assets.json",
+        local_root=ROOT,
+        timeout=1,
+        attempts=1,
+    )
+    assert result["status"] == "verified"
+    assert result["expected"] == result["verified"] == 4
+    assert {row["component"] for row in result["assets"]} == {
+        "cover-blank", "inner-odd-blank", "inner-even-blank", "formula-blank"
+    }
+    assert {row["transport"] for row in result["assets"]} == {"local-mirror"}
 
 
 def test_hosted_web_template_map_covers_exact_fixed_assets():
