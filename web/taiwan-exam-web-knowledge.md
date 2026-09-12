@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.12.8
+# Taiwan Exam Web Knowledge v2026.09.12.9
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -70,10 +70,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 [
   {
     "path": "SKILL.md",
-    "bytes": 73539,
-    "sha256": "0f26bfe242483aa29bc8d702d16bb0433aa7f0fd0b5a627db0c73e967b5dfc6d",
-    "embedded_bytes": 73539,
-    "embedded_sha256": "0f26bfe242483aa29bc8d702d16bb0433aa7f0fd0b5a627db0c73e967b5dfc6d"
+    "bytes": 73961,
+    "sha256": "272cb72e5055d381e5105b3ca2b19618e6a5bbbc405e509120e961795bfcf473",
+    "embedded_bytes": 73961,
+    "embedded_sha256": "272cb72e5055d381e5105b3ca2b19618e6a5bbbc405e509120e961795bfcf473"
   },
   {
     "path": "core/taxonomy.json",
@@ -567,10 +567,17 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/hosted-pdf-production.md",
-    "bytes": 10559,
-    "sha256": "928266e20be84c5bba6cbd08ab1b291d2e84fe363d1d1c9ef788498e428e3337",
-    "embedded_bytes": 10559,
-    "embedded_sha256": "928266e20be84c5bba6cbd08ab1b291d2e84fe363d1d1c9ef788498e428e3337"
+    "bytes": 11040,
+    "sha256": "789428f9fb32f600432314d2dc628adacb5d2fe0e45a2cf233476c030bb1da18",
+    "embedded_bytes": 11040,
+    "embedded_sha256": "789428f9fb32f600432314d2dc628adacb5d2fe0e45a2cf233476c030bb1da18"
+  },
+  {
+    "path": "references/hosted-run-evidence.md",
+    "bytes": 6719,
+    "sha256": "f1fa9d4c3b42d20506f3a79bdf98dc08aff74289aa6e99655eaee24a9cb09381",
+    "embedded_bytes": 6719,
+    "embedded_sha256": "f1fa9d4c3b42d20506f3a79bdf98dc08aff74289aa6e99655eaee24a9cb09381"
   },
   {
     "path": "references/layout-fidelity.md",
@@ -588,10 +595,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/math-difficulty-design.md",
-    "bytes": 15073,
-    "sha256": "a3b6787e3c64d1168a9b9af8385379a2a7233ecae8d6aa0d046e2721a5491e0f",
-    "embedded_bytes": 15073,
-    "embedded_sha256": "a3b6787e3c64d1168a9b9af8385379a2a7233ecae8d6aa0d046e2721a5491e0f"
+    "bytes": 16088,
+    "sha256": "9322908ceb67adbae6b5702863d8b95ec696b9629a4128c1487d15ab7687ea2f",
+    "embedded_bytes": 16088,
+    "embedded_sha256": "9322908ceb67adbae6b5702863d8b95ec696b9629a4128c1487d15ab7687ea2f"
   },
   {
     "path": "references/official-gsat-specifications.md",
@@ -651,10 +658,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 24906,
-    "sha256": "cd527da1506c4c20c66f498a852924f84ab675887c5eb7e98f326f7b4c7313b4",
-    "embedded_bytes": 24906,
-    "embedded_sha256": "cd527da1506c4c20c66f498a852924f84ab675887c5eb7e98f326f7b4c7313b4"
+    "bytes": 25464,
+    "sha256": "e61c05eaefa371c418821e9f018efedf845696b138eae0b217e6e800c06cab82",
+    "embedded_bytes": 25464,
+    "embedded_sha256": "e61c05eaefa371c418821e9f018efedf845696b138eae0b217e6e800c06cab82"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -720,6 +727,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "embedded_sha256": "62e507ca320cf817168a38ed24f19c48f866af70bbd277ecf01e678d5d74a4f5"
   },
   {
+    "path": "scripts/check_hosted_run.py",
+    "bytes": 8342,
+    "sha256": "bf51ef9aef03dddd79342a033e2c1c2f80f71d94d0fe2f6a9058d330dc944c48",
+    "embedded_bytes": 8342,
+    "embedded_sha256": "bf51ef9aef03dddd79342a033e2c1c2f80f71d94d0fe2f6a9058d330dc944c48"
+  },
+  {
     "path": "scripts/compose_hosted_pdf.py",
     "bytes": 8721,
     "sha256": "f823f45a035a921a6ff93732862e4c7ec7110fbd0212594cce49fc3fc9ad3162",
@@ -748,6 +762,20 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "embedded_sha256": "5a7c5cfae74aabd31755913b8509f279b60f20c25d53eb8a67cfc8f76e847c67"
   },
   {
+    "path": "scripts/validate_math_difficulty_design.py",
+    "bytes": 17195,
+    "sha256": "3e598e4842ecee211be76771a446288162cf570ca1a516b35aee029cda01c423",
+    "embedded_bytes": 17195,
+    "embedded_sha256": "3e598e4842ecee211be76771a446288162cf570ca1a516b35aee029cda01c423"
+  },
+  {
+    "path": "scripts/validate_paper_difficulty_balance.py",
+    "bytes": 5183,
+    "sha256": "f77e2f67ae89d37c603ec393c2d3ec39809ceb3d6d37cba1bd4356337b5ed5aa",
+    "embedded_bytes": 5183,
+    "embedded_sha256": "f77e2f67ae89d37c603ec393c2d3ec39809ceb3d6d37cba1bd4356337b5ed5aa"
+  },
+  {
     "path": "templates/current-gsat-math-scope.json",
     "bytes": 1244,
     "sha256": "51a319e2613bc661811f9ca29f3e483102007074de9fcc034c90d5f4666d0823",
@@ -770,10 +798,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "templates/math-difficulty-design-record.json",
-    "bytes": 1735,
-    "sha256": "20443b1997a7a33e0effd09a4874ee13bfcf474c343e4294dfd42e117ea0e425",
-    "embedded_bytes": 1735,
-    "embedded_sha256": "20443b1997a7a33e0effd09a4874ee13bfcf474c343e4294dfd42e117ea0e425"
+    "bytes": 1977,
+    "sha256": "01cd119bbaa3cc8507dd003ba99dded85f08e2243929f65d90dc6ee1e78818be",
+    "embedded_bytes": 1977,
+    "embedded_sha256": "01cd119bbaa3cc8507dd003ba99dded85f08e2243929f65d90dc6ee1e78818be"
   },
   {
     "path": "templates/paper-originality-matrix.json",
@@ -889,6 +917,12 @@ phase evidence instead of repeatedly reinstalling or restarting. Its embedded
 source map includes each year's actual Paper Profile; preserve `needs_review`
 states and reconcile specific gaps. A ready aggregate or verified layout does
 not promote a pending structure to verified.
+
+For every hosted full paper, use [references/hosted-run-evidence.md](references/hosted-run-evidence.md)
+from the first item onward: save small recoverable checkpoints, review difficulty
+and originality during writing, and reserve time for both PDFs. Run the embedded
+`check_hosted_run.py` before formal delivery. Zero mechanically blocking pages
+does not clear unresolved layout review flags or missing editorial checks.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).
@@ -55204,6 +55238,120 @@ paths/hashes and per-page findings. No claim of “only template missing” unle
 each other gate was actually performed with no unresolved result. Passing unit
 tests, a smoke proof, or these three helpers is not end-to-end hosted exam
 acceptance, nor proof that every platform/model will follow the Skill.
+
+Before a formal delivery, run `scripts/check_hosted_run.py run-state.json` under
+[hosted-run-evidence.md](hosted-run-evidence.md). The saved PDF inspector's exit
+code 0 means no mechanical hard failure was found; `review_flag_pages` and each
+page's `issues` still require evidence-bound adjudication. Do not summarize this
+as "all layout checks passed" while warnings, missing difficulty reviews or
+unviewed pages remain. Repairs require new PDF hashes, rasters and page reviews.
+</canonical-source>
+
+<canonical-source path="references/hosted-run-evidence.md">
+# Recoverable hosted work and evidence-complete delivery
+
+Use for every hosted full paper, including a single paper with no requested time
+target. This is the recorded implementation of web-platform-use's hosted gate,
+not a substitute for local validate_exam_release or a new academic standard.
+
+## Work that survives interruption
+
+Create one run directory and paper_id before writing. Save exam.json, original
+editable visual assets, candidate decisions and independent solution records in
+small batches (normally two to four items), updating run-state.json each time.
+Review each item's shortest solution, provisional difficulty, comparison with
+recent accessible mechanisms, and visual-removal test before proceeding. Preserve
+failed items and reasons separately; only selected items enter the paper.
+
+Record turn_started_at, measured elapsed time, known runtime limits if exposed,
+and next_action. A user's reported approximately 25-minute interruption is an
+observation, not a universal provider guarantee. When a limit is known, reserve
+at least five minutes for saving and remaining review; begin checkpoint handoff
+before that reserve is consumed. Without a visible limit, save periodically and
+before every long operation rather than assuming unlimited time. These are
+scheduling margins, not claims that five minutes is enough to inspect any paper.
+
+Do not spend the remaining budget drafting more content while difficulty and
+layout checks accumulate. Finish missing content review before rendering. If
+the remaining work cannot fit, save and expose a continuation record with exact
+next actions; do not claim the paper complete or attach unchecked PDFs as formal
+deliverables. Continue autonomously in the same active turn when possible; no
+per-phase approval is required. If the platform ends the turn, a later "continue"
+resumes the same run after verifying saved files. A changed item revokes its
+dependent reviews; a changed PDF revokes its page reviews. Missing temporary
+files require the saved recovery material, not a claim that they persist forever.
+
+When interruption risk is known, keep an accessible recovery copy of exam.json,
+run-state.json and review/visual files; an optional data-only recovery bundle may
+contain those run files, never the Skill executable tree. It is a work checkpoint,
+not a third completed exam or a request to install again. A JSON index alone
+cannot recover missing referenced files. Show a short progress/next-action note.
+
+## Evidence format and checker
+
+Run from the run directory. All paths below are relative to it, including raster
+paths emitted by `inspect_hosted_pdf.py --rasters rasters/...`. No external paths
+or symlinks out of the directory are accepted. Hash each file after saving it.
+Do not invent successful review observations or manufacture reviewer identities.
+
+`run-state.json` has schema_version 1, paper_id, current_phase, next_action,
+exam (`path`, `sha256`), checks, and pdfs. exam.json uses the existing exam schema:
+metadata.paper_id, metadata.subject, questions with unique id and section, and
+the full authored answers and item specifications. Its hash binds each review.
+
+`checks` maps each of these names to an artifact (`path`, `sha256`):
+
+- answers: every item independently solved, options adjudicated and key compared;
+- difficulty: shortest routes, genuine decisions, provisional bands and collapse
+  findings per item; execute the embedded validate_math_difficulty_design.py for
+  mathematics using the extracted subject difficulty profile;
+- originality: concrete structural differences per item, candidate selection and
+  recent-paper comparison; carry comparison_scope (`available-history` or
+  `no-history-available`) and history (hash-bound artifact records). Available
+  history must really be supplied. No-history never means globally original;
+- visuals: every item reviewed, including explicit not_applicable findings for
+  nonvisual items. Required visuals have required_for_answer true, visual_id and
+  visual_role, and observations explaining the visual-removal result. Reused
+  group visuals count once. The existing math floor remains four distinct
+  answer-bearing visuals across three sections and more than one role;
+- structure_scope, difficulty_balance, source_grounding, template_composition,
+  answer_separation: whole-paper findings and actual supporting evidence.
+
+Every review JSON contains exam_sha256, status and nonempty observations.
+The first four also have items: one record per actual question id, with id,
+status and observations. Only visuals may use not_applicable with a reason.
+Use the embedded validate_paper_difficulty_balance.py for its structural audit;
+its output alone does not prove achieved difficulty. Reference actual reports
+in the observations and retain them in the recovery copy.
+
+`pdfs.question` and `pdfs.solution` each contain file, inspection and visual_review
+artifact records plus exam_sha256. Inspection is the unchanged output of
+inspect_hosted_pdf.py on that final PDF. The visual_review JSON contains
+pdf_sha256 and pages, one for EVERY actual page: page, raster_sha256, status,
+observations, and issue_dispositions. Each unresolved inspector issue blocks
+completion. A legitimate role-specific warning can be adjudicated with
+`{"decision":"justified","reason":"actual page/reference observation"}`.
+For example, a fixed formula page may legitimately differ from a body page;
+an unexplained half-empty interior page cannot be dismissed as "no clipping".
+Repairing a warning means regenerating and inspecting new bytes, not writing
+"fixed" against the obsolete raster. Hard mechanical failures always block.
+
+Execute `python scripts/check_hosted_run.py run-state.json` using the extracted
+helper location as appropriate. Nonzero exit lists missing/stale checks and
+unresolved page findings. `evidence-complete` certifies completeness/freshness
+of recorded evidence only; it cannot independently certify truthful reviews,
+mathematical correctness, difficulty, global novelty or fidelity to an unseen
+source. Formal completion still requires actual editorial judgment under Skill.
+
+## Avoid repeated mechanisms
+
+Before each new paper, read accessible prior-run originality reports and compare
+mechanism_family, representation/visual topology, unknown, constraint interaction,
+solution graph and distractor logic. Keep these concise records as a cumulative
+series history, including rejected saturated motifs. Identical curriculum units
+are normal; renamed objects or changed constants do not reset the mechanism.
+Do not embed prior stems or a permanent unit-to-figure menu as authoring templates.
+A user screenshot diagnoses a failure; it is not a mandatory future question.
 </canonical-source>
 
 <canonical-source path="references/layout-fidelity.md">
@@ -55450,6 +55598,21 @@ For every complete Math B paper, apply this stricter feedback-informed floor wit
 Record the paper-level declaration in `metadata.math_b_difficulty_floor` with `easy_medium_minimum_linked_decisions: 3`, `first_three_fill_ins_nonroutine: true`, and `audit_status: pass`. These fields are review evidence, not permission to relabel a routine item; the human audit must verify that the printed question actually realizes the record.
 
 ## Failure patterns
+
+Both Math A and Math B require `shortcut_audit.direct_formula_substitution_only:
+false` and the `innovation_audit` fields described above. The stricter Math B
+three-decision floor remains specific to Math B; Math A retains its position
+targets and accessible entry questions. Compare actual solution graphs with
+accessible recent papers, recording concrete differences and comparison scope.
+Do not declare cross-paper novelty when no earlier papers are available.
+
+A harmonic-combination item that reveals all coefficients then only asks for
+period, amplitude and zeros is a routine-property candidate, not an automatic
+medium/hard or original item. Five statements do not constitute five linked
+decisions. This is a rejection diagnostic, not a replacement question template:
+do not ban trigonometry, hard-code a different graph, or solve repetition with a
+rotating list of scenarios. The same applies to decorative two-state diagrams.
+Derive a new task and information relationship before choosing its depiction.
 
 Reject an item for a medium/hard slot when its complete solution can be reduced to one familiar routine, even if the prose or notation is elaborate. Typical failures include:
 
@@ -56735,6 +56898,9 @@ different internal font name alone is not.
 ## Bounded loading and continuation
 
 Read this section for every hosted full-paper run, not only timed requests.
+Also apply [hosted-run-evidence.md](hosted-run-evidence.md). Its portable checker
+is embedded with the PDF helpers; it closes the gap between saved proofs and
+recorded difficulty, originality and all-page review. It does not judge content.
 
 - At generation time, inspect file creation, PDF composition, raster inspection
   and network/file handoff once, before expensive drafting. Use existing
@@ -56772,6 +56938,10 @@ Read this section for every hosted full-paper run, not only timed requests.
   bound to PDF hashes, failed checks, attempted URLs and next action. A phase
   name alone is not evidence; verify the cited files before resuming. Do not
   regenerate a completed phase just because a new message arrives.
+- Save after each small solved/reviewed item batch as well, and before a long
+  render, source request or inspection pass. Do not wait until all writing is
+  complete to check the shortest solution, novelty and planned visual necessity.
+  Use the evidence format and deadline-reserve procedure in hosted-run-evidence.
 - “Continue” resumes this same paper and its surviving files, not a new paper
   or installation. Reuse already written items only within that identified run;
   a new-paper request must get new content. Changed items revoke dependent
@@ -57778,6 +57948,168 @@ Any later paper request:
 }
 </canonical-source>
 
+<canonical-source path="scripts/check_hosted_run.py">
+#!/usr/bin/env python3
+"""Check saved hosted-run evidence; never infer mathematical or visual quality.
+
+Read-only, offline, and portable alongside the embedded PDF inspector. A result
+of evidence-complete means recorded reviews are current, not independently true.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+
+ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
+PAPER_GATES = ('structure_scope', 'difficulty_balance', 'source_grounding',
+               'template_composition', 'answer_separation')
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def check(state_path: Path) -> dict:
+    state = json.loads(state_path.read_text(encoding='utf-8-sig'))
+    root = state_path.resolve().parent
+    errors = []
+
+    def need(ok, message):
+        if not ok:
+            errors.append(message)
+        return ok
+
+    def file(record, label):
+        if not isinstance(record, dict):
+            need(False, f'{label}: missing artifact')
+            return None
+        relative = record.get('path', '')
+        path = (root / relative).resolve()
+        if not need(bool(relative) and not Path(relative).is_absolute()
+                    and path.is_relative_to(root) and path.is_file(),
+                    f'{label}: missing or external artifact'):
+            return None
+        if not need(record.get('sha256') == sha(path), f'{label}: stale artifact hash'):
+            return None
+        return path
+
+    need(state.get('schema_version') == 1, 'unsupported schema_version')
+    need(bool(state.get('paper_id')), 'missing paper_id')
+    need(not state.get('failed_checks'), 'run: unresolved failed checks remain')
+    exam_path = file(state.get('exam'), 'exam')
+    if exam_path is None:
+        return {'status': 'pending', 'errors': errors, 'formal_acceptance': False}
+    exam_hash = sha(exam_path)
+    exam = json.loads(exam_path.read_text(encoding='utf-8-sig'))
+    items = exam.get('questions', [])
+    ids = [item.get('id') for item in items]
+    need(bool(ids) and all(isinstance(i, str) and i.strip() for i in ids)
+         and len(set(ids)) == len(ids), 'exam: missing or duplicate item IDs')
+    expected = set(ids)
+    need(exam.get('metadata', {}).get('paper_id') == state.get('paper_id'),
+         'exam: paper_id mismatch')
+
+    for name in ITEM_GATES + PAPER_GATES:
+        path = file(state.get('checks', {}).get(name), name)
+        if path is None:
+            continue
+        review = json.loads(path.read_text(encoding='utf-8-sig'))
+        need(review.get('exam_sha256') == exam_hash, f'{name}: reviewed exam changed')
+        need(review.get('status') == 'pass' and bool(review.get('observations')),
+             f'{name}: missing passing review with observations')
+        if name in ITEM_GATES:
+            rows = review.get('items', [])
+            need({r.get('id') for r in rows} == expected and len(rows) == len(expected),
+                 f'{name}: item coverage incomplete or duplicate')
+            for row in rows:
+                allowed = {'pass', 'not_applicable'} if name == 'visuals' else {'pass'}
+                need(row.get('status') in allowed and bool(row.get('observations')),
+                     f'{name}/{row.get("id")}: review pending or unsupported')
+        if name == 'originality':
+            need(review.get('comparison_scope') in {'available-history', 'no-history-available'},
+                 'originality: disclose accessible comparison scope')
+            for previous in review.get('history', []):
+                file(previous, 'originality/history')
+            if review.get('comparison_scope') == 'available-history':
+                need(bool(review.get('history')), 'originality: history evidence missing')
+        if name == 'visuals' and exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
+            required = [r for r in review.get('items', [])
+                        if r.get('status') == 'pass' and r.get('required_for_answer') is True]
+            need(len({r.get('visual_id') for r in required if r.get('visual_id')}) >= 4,
+                 'visuals: math requires four distinct answer-bearing visuals')
+            sections = {q.get('section') for q in items
+                        if q.get('id') in {r.get('id') for r in required} and q.get('section')}
+            need(len(sections) >= 3, 'visuals: math requires coverage of three sections')
+            need(len({r.get('visual_role') for r in required if r.get('visual_role')}) >= 2,
+                 'visuals: math requires more than one visual role')
+
+    pdf_hashes = []
+    for role in ('question', 'solution'):
+        bundle = state.get('pdfs', {}).get(role, {})
+        pdf = file(bundle.get('file'), f'{role}/pdf')
+        scan_path = file(bundle.get('inspection'), f'{role}/inspection')
+        review_path = file(bundle.get('visual_review'), f'{role}/visual_review')
+        if not all((pdf, scan_path, review_path)):
+            continue
+        pdf_hash = sha(pdf)
+        pdf_hashes.append(pdf_hash)
+        scan = json.loads(scan_path.read_text(encoding='utf-8-sig'))
+        review = json.loads(review_path.read_text(encoding='utf-8-sig'))
+        need(scan.get('status') == 'mechanical-review-only', f'{role}: invalid inspector report')
+        need(bundle.get('exam_sha256') == exam_hash, f'{role}: PDF predates content revision')
+        need(scan.get('pdf_sha256') == review.get('pdf_sha256') == pdf_hash,
+             f'{role}: inspection is not bound to final PDF')
+        count = scan.get('page_count', 0)
+        pages = scan.get('pages', [])
+        expected_pages = set(range(1, count + 1)) if type(count) is int and count > 0 else set()
+        need(bool(expected_pages) and {p.get('page') for p in pages} == expected_pages
+             and len(pages) == count, f'{role}: incomplete raster inspection')
+        need(not scan.get('blocking_pages'), f'{role}: mechanical blocking pages remain')
+        rows = review.get('pages', [])
+        need({p.get('page') for p in rows} == expected_pages and len(rows) == count,
+             f'{role}: not every page visually reviewed')
+        by_page = {r.get('page'): r for r in rows}
+        for page in pages:
+            n = page.get('page')
+            need(not {'non-A4-or-rotated', 'replacement-or-null-glyph', 'text-outside-page'}
+                 .intersection(page.get('issues', [])), f'{role}/page-{n}: mechanical failure')
+            raster = file({'path': page.get('raster_path'),
+                           'sha256': page.get('raster_sha256')}, f'{role}/page-{n}/raster')
+            row = by_page.get(n, {})
+            need(raster is not None and row.get('raster_sha256') == page.get('raster_sha256'),
+                 f'{role}/page-{n}: viewed raster changed or missing')
+            need(row.get('status') == 'pass' and bool(row.get('observations')),
+                 f'{role}/page-{n}: visual review incomplete')
+            dispositions = row.get('issue_dispositions', {})
+            for issue in page.get('issues', []):
+                finding = dispositions.get(issue, {})
+                # A repaired PDF needs a new inspector report, not "fixed" on old bytes.
+                need(finding.get('decision') == 'justified' and bool(finding.get('reason')),
+                     f'{role}/page-{n}/{issue}: unresolved review flag')
+    need(len(pdf_hashes) == 2 and len(set(pdf_hashes)) == 2,
+         'two distinct question and solution PDFs required')
+    return {'status': 'evidence-complete' if not errors else 'pending',
+            'paper_id': state.get('paper_id'), 'errors': errors,
+            'formal_acceptance': False,
+            'scope': 'Evidence completeness and freshness only; recorded judgments need real review.'}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('state', type=Path)
+    args = parser.parse_args()
+    try:
+        result = check(args.state)
+    except (ValueError, TypeError, KeyError, OSError, AttributeError) as exc:
+        result = {'status': 'pending', 'errors': [f'Malformed/missing evidence: {type(exc).__name__}'],
+                  'formal_acceptance': False}
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    raise SystemExit(0 if result['status'] == 'evidence-complete' else 2)
+</canonical-source>
+
 <canonical-source path="scripts/compose_hosted_pdf.py">
 #!/usr/bin/env python3
 """Compose existing body pages onto verified fixed PDFs; never author questions.
@@ -58383,6 +58715,382 @@ if __name__ == "__main__":
     raise SystemExit(main())
 </canonical-source>
 
+<canonical-source path="scripts/validate_math_difficulty_design.py">
+#!/usr/bin/env python3
+"""Validate pre-pilot difficulty and discrimination design for current GSAT math."""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+from typing import Any
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def as_list(value: Any) -> list[Any]:
+    return value if isinstance(value, list) else []
+
+
+def required_decisions(p_center: float | None, number: int, question_type: str) -> int:
+    if p_center is None:
+        return 4 if number == 20 else 3
+    if p_center < 0.20:
+        return 4
+    if p_center < 0.40:
+        return 3
+    if p_center < 0.65:
+        if question_type in {"single_choice", "multiple_choice"} and number not in {1, 2, 7, 8, 18}:
+            return 3
+        return 2
+    return 2
+
+
+def profile_for(subject: str) -> Path:
+    return ROOT / "exam_packs" / "學測" / "subjects" / subject / "blueprints" / "difficulty-profile.json"
+
+
+def profile_targets(path: Path) -> dict[int, dict[str, Any]]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    current = data.get("curricula", {}).get("108", {})
+    rows = current.get("by_question_number", {})
+    return {int(number): row.get("recommended_target", {}) for number, row in rows.items()}
+
+
+def validate_item(
+    item: dict[str, Any], official: dict[int, dict[str, Any]], subject: str
+) -> tuple[list[str], dict[str, Any]]:
+    number = int(item.get("number", 0))
+    qid = str(item.get("id", f"q{number}"))
+    score = float(item.get("score") or 0)
+    question_type = str(item.get("type", ""))
+    spec = item.get("item_spec") if isinstance(item.get("item_spec"), dict) else {}
+    design = spec.get("difficulty_design") if isinstance(spec.get("difficulty_design"), dict) else None
+    errors: list[str] = []
+    summary = {"id": qid, "number": number, "score": score, "level": "missing", "linked_decisions": 0}
+    if design is None:
+        return [f"{qid}: missing difficulty_design"], summary
+
+    target = official.get(number, {})
+    p_center = design.get("target_p_center")
+    official_p = target.get("p_center")
+    if official_p is not None:
+        if not isinstance(p_center, (int, float)):
+            errors.append(f"{qid}: target_p_center must be numeric for an objective slot")
+        elif abs(float(p_center) - float(official_p)) > 0.02:
+            errors.append(f"{qid}: target_p_center {p_center} does not match official profile {official_p}")
+        expected_range = target.get("p_range")
+        if design.get("target_p_range") != expected_range:
+            errors.append(f"{qid}: target_p_range does not match official profile {expected_range}")
+        official_d = target.get("discrimination_floor")
+        if official_d is not None and design.get("target_d_floor") != official_d:
+            errors.append(f"{qid}: target_d_floor does not match official profile {official_d}")
+    elif design.get("target_basis") not in {"constructed-response-expert", "official-rubric-expert"}:
+        errors.append(f"{qid}: constructed-response slot needs an explicit expert/rubric target basis")
+
+    if design.get("metric_type") not in {"answer_rate", "score_rate", "constructed_response"}:
+        errors.append(f"{qid}: invalid metric_type")
+
+    decisions = as_list(design.get("linked_decisions"))
+    minimum = required_decisions(float(p_center) if isinstance(p_center, (int, float)) else None, number, question_type)
+    if subject == "數學B" and design.get("band") in {"簡單", "中"}:
+        minimum = max(minimum, 3)
+    declared_minimum = design.get("minimum_linked_decisions")
+    if not isinstance(declared_minimum, int) or declared_minimum < minimum:
+        errors.append(f"{qid}: minimum_linked_decisions must be at least {minimum}")
+    if len(decisions) < minimum:
+        errors.append(f"{qid}: only {len(decisions)} linked decisions; require at least {minimum}")
+    decision_ids = [str(row.get("id", "")) for row in decisions if isinstance(row, dict)]
+    descriptions = [str(row.get("description", "")).strip().lower() for row in decisions if isinstance(row, dict)]
+    if len(set(decision_ids)) != len(decisions) or "" in decision_ids:
+        errors.append(f"{qid}: linked decision ids must be present and unique")
+    if len(set(descriptions)) != len(decisions) or "" in descriptions:
+        errors.append(f"{qid}: linked decision descriptions must be present and distinct")
+    for row in decisions:
+        if not isinstance(row, dict) or not row.get("kind") or not row.get("trigger_evidence"):
+            errors.append(f"{qid}: every linked decision needs kind and trigger_evidence")
+            break
+
+    representation_changes = design.get("representation_changes")
+    constraint_checks = design.get("constraint_checks")
+    if not isinstance(representation_changes, int) or representation_changes < 0:
+        errors.append(f"{qid}: representation_changes must be a non-negative integer")
+        representation_changes = 0
+    if not isinstance(constraint_checks, int) or constraint_checks < 0:
+        errors.append(f"{qid}: constraint_checks must be a non-negative integer")
+        constraint_checks = 0
+    if isinstance(p_center, (int, float)) and float(p_center) < 0.40 and representation_changes + constraint_checks < 1:
+        errors.append(f"{qid}: hard target requires a representation change or constraint check")
+
+    paths = as_list(design.get("misconception_paths"))
+    min_paths = 3 if question_type in {"single_choice", "multiple_choice"} else 2
+    if len(paths) < min_paths:
+        errors.append(f"{qid}: only {len(paths)} misconception paths; require at least {min_paths}")
+    path_ids = [str(row.get("id", "")) for row in paths if isinstance(row, dict)]
+    path_errors = [str(row.get("error", "")).strip().lower() for row in paths if isinstance(row, dict)]
+    if len(set(path_ids)) != len(paths) or "" in path_ids:
+        errors.append(f"{qid}: misconception path ids must be present and unique")
+    if len(set(path_errors)) != len(paths) or "" in path_errors:
+        errors.append(f"{qid}: misconception errors must be present and distinct")
+    for row in paths:
+        if not isinstance(row, dict) or not row.get("predicted_outcome"):
+            errors.append(f"{qid}: every misconception path needs a predicted_outcome")
+            break
+
+    discrimination = design.get("discrimination_design") if isinstance(design.get("discrimination_design"), dict) else {}
+    level = discrimination.get("level")
+    if level not in {"low", "medium", "high"}:
+        errors.append(f"{qid}: invalid discrimination level")
+        level = "missing"
+    if not discrimination.get("lower_group_move") or not discrimination.get("proficient_move"):
+        errors.append(f"{qid}: discrimination design needs lower_group_move and proficient_move")
+
+    shortcut = design.get("shortcut_audit") if isinstance(design.get("shortcut_audit"), dict) else {}
+    if len(as_list(shortcut.get("attempted_shortcuts"))) < 2:
+        errors.append(f"{qid}: shortcut audit must attempt at least two shortcuts")
+    if shortcut.get("collapse_found") is not False or shortcut.get("reviewer_decision") != "pass-no-collapse":
+        errors.append(f"{qid}: shortcut-collapse audit has not passed")
+    if shortcut.get("direct_formula_substitution_only") is not False:
+        errors.append(f"{qid}: mathematics must explicitly reject a direct-formula-only solution")
+
+    if subject in {"數學A", "數學B"}:
+        innovation = design.get("innovation_audit") if isinstance(design.get("innovation_audit"), dict) else {}
+        if innovation.get("formula_or_definition_recall_only") is not False:
+            errors.append(f"{qid}: mathematics innovation audit must reject formula/definition recall")
+        if innovation.get("skin_swap_changes_solution_graph") is not True:
+            errors.append(f"{qid}: mathematics skin-swap audit must change the solution graph")
+        if not str(innovation.get("nearest_neighbor_difference") or "").strip():
+            errors.append(f"{qid}: mathematics innovation audit needs a structural nearest-neighbor difference")
+        if innovation.get("reviewer_decision") != "pass-nonroutine":
+            errors.append(f"{qid}: mathematics non-routine innovation audit has not passed")
+
+    burden = design.get("burden_audit") if isinstance(design.get("burden_audit"), dict) else {}
+    for field in ("arithmetic_volume_primary", "prose_length_primary", "outside_knowledge_primary"):
+        if burden.get(field) is not False:
+            errors.append(f"{qid}: burden_audit.{field} must be false")
+
+    time_audit = design.get("time_audit") if isinstance(design.get("time_audit"), dict) else {}
+    expected_minutes = time_audit.get("expected_minutes")
+    if not isinstance(expected_minutes, (int, float)) or not 0 < float(expected_minutes) <= 10:
+        errors.append(f"{qid}: time_audit.expected_minutes must be in (0, 10]")
+        expected_minutes = 0
+    item_minutes = item.get("expected_minutes")
+    if not isinstance(item_minutes, (int, float)) or abs(float(item_minutes) - float(expected_minutes)) > 0.01:
+        errors.append(f"{qid}: item expected_minutes must match time_audit.expected_minutes")
+    if not time_audit.get("intended_short_route"):
+        errors.append(f"{qid}: time audit needs an intended_short_route")
+    for field in ("calculator_required", "exhaustive_enumeration_required"):
+        if time_audit.get(field) is not False:
+            errors.append(f"{qid}: time_audit.{field} must be false")
+    if time_audit.get("hand_calculation_feasible") is not True:
+        errors.append(f"{qid}: hand calculation feasibility has not passed")
+
+    estimate = design.get("expert_estimate") if isinstance(design.get("expert_estimate"), dict) else {}
+    if estimate.get("difficulty_band") not in {"very_easy", "easy", "medium", "hard", "very_hard"}:
+        errors.append(f"{qid}: invalid expert difficulty band")
+    if estimate.get("discrimination_level") != level:
+        errors.append(f"{qid}: expert discrimination level must match discrimination_design")
+    confidence = estimate.get("confidence")
+    if not isinstance(confidence, (int, float)) or not 0 <= float(confidence) <= 1:
+        errors.append(f"{qid}: expert confidence must be between 0 and 1")
+    if estimate.get("status") != "provisional-until-representative-pilot":
+        errors.append(f"{qid}: expert estimate must remain provisional until pilot")
+
+    summary.update({"level": level, "linked_decisions": len(decisions), "required": minimum, "expected_minutes": expected_minutes})
+    return errors, summary
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("exam_json", type=Path)
+    parser.add_argument("--profile", type=Path)
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+
+    exam = json.loads(args.exam_json.read_text(encoding="utf-8"))
+    subject = str(exam.get("metadata", {}).get("subject", ""))
+    if subject not in {"數學A", "數學B"}:
+        print(f"ERROR unsupported subject: {subject}")
+        return 2
+    profile = args.profile or profile_for(subject)
+    official = profile_targets(profile)
+
+    errors: list[str] = []
+    summaries: list[dict[str, Any]] = []
+    for item in exam.get("questions", []):
+        item_errors, summary = validate_item(item, official, subject)
+        errors.extend(item_errors)
+        summaries.append(summary)
+
+    questions = exam.get("questions", [])
+    total_score = sum(float(item.get("score") or 0) for item in questions)
+    medium_high_score = sum(row["score"] for row in summaries if row["level"] in {"medium", "high"})
+    three_decision_score = sum(row["score"] for row in summaries if row["linked_decisions"] >= 3)
+    expected_minutes = sum(float(row.get("expected_minutes") or 0) for row in summaries)
+    if len(questions) == 20:
+        if total_score != 100:
+            errors.append(f"paper: expected 100 points, found {total_score:g}")
+        if medium_high_score < 75:
+            errors.append(f"paper: medium/high discrimination covers only {medium_high_score:g} points; require 75")
+        if three_decision_score < 50:
+            errors.append(f"paper: three-decision demand covers only {three_decision_score:g} points; require 50")
+        if not 80 <= expected_minutes <= 92:
+            errors.append(f"paper: expected hand-solving time is {expected_minutes:g} minutes; require 80-92")
+        for start in range(len(summaries) - 2):
+            if all(row["level"] == "low" for row in summaries[start : start + 3]):
+                numbers = [row["number"] for row in summaries[start : start + 3]]
+                errors.append(f"paper: three consecutive low-discrimination items {numbers}")
+        section_ids = []
+        for item in questions:
+            sid = str(item.get("section_id", ""))
+            if sid not in section_ids:
+                section_ids.append(sid)
+        for sid in section_ids:
+            section_rows = [row for row, item in zip(summaries, questions) if str(item.get("section_id", "")) == sid]
+            if section_rows and not any(row["level"] == "high" for row in section_rows):
+                errors.append(f"paper: section {sid!r} has no high-discrimination item")
+
+        if subject == "數學A":
+            counting_pairs = []
+            for item, row in zip(questions, summaries):
+                spec = item.get("item_spec") if isinstance(item.get("item_spec"), dict) else {}
+                scope_codes = set(str(code) for code in as_list(spec.get("scope_codes")))
+                if "D-10-3" in scope_codes:
+                    counting_pairs.append((item, row))
+            if not counting_pairs:
+                errors.append("paper: Math A needs at least one D-10-3 counting/combinatorics item")
+            elif not any(
+                row["level"] in {"medium", "high"}
+                and row["linked_decisions"] >= 3
+                and (
+                    int((item.get("item_spec") or {}).get("difficulty_design", {}).get("representation_changes") or 0)
+                    + int((item.get("item_spec") or {}).get("difficulty_design", {}).get("constraint_checks") or 0)
+                ) >= 1
+                for item, row in counting_pairs
+            ):
+                errors.append(
+                    "paper: at least one D-10-3 item must have medium/high discrimination, "
+                    "three linked decisions, and a representation change or constraint check"
+                )
+        elif subject == "數學B":
+            floor = exam.get("metadata", {}).get("math_b_difficulty_floor", {})
+            if floor.get("easy_medium_minimum_linked_decisions") != 3:
+                errors.append("paper: Math B difficulty floor must require three decisions for easy/medium items")
+            if floor.get("first_three_fill_ins_nonroutine") is not True:
+                errors.append("paper: Math B difficulty floor must protect the first three fill-in items")
+            if floor.get("audit_status") != "pass":
+                errors.append("paper: Math B difficulty-floor audit is not pass")
+
+            fill_ins = sorted(
+                [item for item in questions if item.get("type") == "fill_in"],
+                key=lambda item: int(item.get("number", 0)),
+            )[:3]
+            if len(fill_ins) < 3:
+                errors.append("paper: Math B needs at least three fill-in items for the opening-fill-in audit")
+            for item in fill_ins:
+                qid = str(item.get("id", item.get("number")))
+                design = (item.get("item_spec") or {}).get("difficulty_design") or {}
+                decisions = as_list(design.get("linked_decisions"))
+                combined = int(design.get("representation_changes") or 0) + int(design.get("constraint_checks") or 0)
+                shortcut = design.get("shortcut_audit") or {}
+                if len(decisions) < 3:
+                    errors.append(f"{qid}: opening Math B fill-in needs at least three linked decisions")
+                if combined < 2:
+                    errors.append(f"{qid}: opening Math B fill-in needs two representation/constraint operations")
+                if shortcut.get("direct_formula_substitution_only") is not False:
+                    errors.append(f"{qid}: opening Math B fill-in collapses to direct substitution")
+
+    report = {
+        "status": "pass" if not errors else "fail",
+        "subject": subject,
+        "question_count": len(questions),
+        "total_score": total_score,
+        "medium_high_discrimination_score": medium_high_score,
+        "three_or_more_linked_decisions_score": three_decision_score,
+        "expected_hand_solving_minutes": expected_minutes,
+        "items": summaries,
+        "errors": errors,
+        "note": "Design validation only; achieved P/D require representative pilot data.",
+    }
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0 if not errors else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_paper_difficulty_balance.py">
+"""Structural four-band audit, deliberately not a achieved-difficulty certificate."""
+import argparse,collections,hashlib,json
+from pathlib import Path
+BANDS=('簡單','中','中偏難','難')
+def content_hash(q):
+    content={k:q.get(k) for k in ('prompt','group_stimulus','options','visual_asset')}
+    # These optional fields also become visible student-facing content.  Bind
+    # them when used, while preserving existing hashes for ordinary items.
+    for key in ('continuation_pages','group_stimulus_page_splits','response_format_table'):
+        if q.get(key) is not None:
+            content[key]=q.get(key)
+    return hashlib.sha256(json.dumps(content,ensure_ascii=False,sort_keys=True).encode()).hexdigest()
+def validate(d,asset_root=None):
+    errors=[]; counts=collections.Counter(); points=collections.Counter();rows=[]; hard_evidence=collections.Counter()
+    plan=d.get('metadata',{}).get('difficulty_balance_plan',{})
+    answers={a['question_id']:a for a in d.get('answers',[])}
+    for q in d.get('questions',[]):
+        rec=q.get('item_spec',{}).get('difficulty_design',{});band=rec.get('band');n=q.get('number')
+        if band not in BANDS:errors.append(f'Q{n}: missing four-band estimate');continue
+        counts[band]+=1;points[band]+=float(q.get('score',0))
+        if answers.get(q['id'],{}).get('difficulty_label')!=band:errors.append(f'Q{n}: answer label mismatch')
+        if q.get('item_spec',{}).get('difficulty',{}).get('label')!=band:errors.append(f'Q{n}: item label mismatch')
+        for f in ('basis','confidence','short_route','misconception','linked_decisions','bottleneck'):
+            if not rec.get(f):errors.append(f'Q{n}: missing {f}')
+        if rec.get('content_sha256')!=content_hash(q):errors.append(f'Q{n}: changed content requires review')
+        asset=q.get('visual_asset')
+        if asset and asset_root is not None:
+            path=Path(asset_root)/asset.get('path','')
+            if not path.is_file() or asset.get('sha256')!=hashlib.sha256(path.read_bytes()).hexdigest():errors.append(f'Q{n}: visual asset changed or missing hash; review required')
+        if not isinstance(rec.get('expected_minutes'),(float,int)) or rec['expected_minutes']<=0:errors.append(f'Q{n}: invalid time')
+        if band=='難' and (len(rec.get('linked_decisions',[]))<3 or len(rec.get('bottleneck',[]))<2):errors.append(f'Q{n}: insufficient declared hard bottlenecks')
+        if band in ('中偏難','難') and rec.get('shortcut_status')!='reviewed-no-direct-collapse':errors.append(f'Q{n}: shortcut review missing')
+        if band in ('中偏難','難'):
+            key=json.dumps([rec.get('linked_decisions'),rec.get('bottleneck'),rec.get('short_route')],ensure_ascii=False,sort_keys=True)
+            hard_evidence[key]+=1
+        rows.append(dict(number=n,band=band,score=q.get('score'),minutes=rec.get('expected_minutes')))
+    count=sum(counts.values())
+    required_bands=tuple(plan.get('required_bands') or BANDS)
+    if any(b not in BANDS for b in required_bands):errors.append('difficulty plan contains an unknown required band')
+    if count and len(required_bands)>count:errors.append('difficulty plan requires more bands than authored questions')
+    for band in BANDS:
+        if band in required_bands and not counts[band]:errors.append(f'paper missing {band}')
+        if counts[band]!=plan.get('target_counts',{}).get(band):errors.append(f'{band}: count differs from declared plan')
+        if points[band]!=plan.get('target_points',{}).get(band):errors.append(f'{band}: score differs from declared plan')
+    if not plan.get('basis'):errors.append('paper target basis missing')
+    if any(n>1 for n in hard_evidence.values()):errors.append('repeated hard-item reasoning evidence: review template reuse rather than quota labels')
+    shared=plan.get('shared_reading_minutes',0)
+    if not isinstance(shared,(int,float)) or shared<0:errors.append('invalid shared reading time');shared=0
+    duration=d.get('metadata',{}).get('duration_minutes')
+    minutes=sum(r['minutes'] for r in rows if isinstance(r['minutes'],(int,float)))+shared
+    if isinstance(duration,(int,float)) and minutes>duration:errors.append('estimated solving time exceeds paper duration')
+    total=sum(points.values())
+    return dict(status='pass-structural-only' if not errors else 'fail',errors=errors,count=dict(counts),points=dict(points),
+        count_percent={b:round(100*counts[b]/count,1)for b in BANDS} if count else {},
+        score_percent={b:round(100*points[b]/total,1)for b in BANDS} if total else {},items=rows,
+        estimated_minutes=minutes,
+        caution='Expert estimates and recorded short routes require substantive review; no achieved P/D is inferred.')
+def main():
+    ap=argparse.ArgumentParser();ap.add_argument('exam',type=Path);ap.add_argument('--output',type=Path);a=ap.parse_args()
+    r=validate(json.loads(a.exam.read_text(encoding='utf-8-sig')),a.exam.parent)
+    if a.output:a.output.write_text(json.dumps(r,ensure_ascii=False,indent=2),encoding='utf-8')
+    print(json.dumps({k:v for k,v in r.items()if k!='items'},ensure_ascii=False));return bool(r['errors'])
+if __name__=='__main__':raise SystemExit(main())
+</canonical-source>
+
 <canonical-source path="templates/current-gsat-math-scope.json">
 {
   "schema_version": 1,
@@ -58514,11 +59222,18 @@ if __name__ == "__main__":
     "proficient_move": "Evidence-based move that resolves the item."
   },
   "shortcut_audit": {
+    "direct_formula_substitution_only": null,
     "attempted_shortcuts": [
       "direct substitution",
       "single familiar formula"
     ],
     "collapse_found": null,
+    "reviewer_decision": "pending"
+  },
+  "innovation_audit": {
+    "formula_or_definition_recall_only": null,
+    "skin_swap_changes_solution_graph": null,
+    "nearest_neighbor_difference": "",
     "reviewer_decision": "pending"
   },
   "burden_audit": {

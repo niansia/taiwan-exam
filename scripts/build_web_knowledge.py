@@ -31,6 +31,7 @@ AUTHORING_REFERENCES = {
     "gsat-115-template-assets.md",
     "gsat-subject-patterns.md",
     "hosted-pdf-production.md",
+    "hosted-run-evidence.md",
     "gsat-writing-111-115-selection-calibration.md",
     "gsat-writing-source-ecology.md",
     "layout-fidelity.md",
@@ -59,6 +60,9 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "read_web_knowledge.py")
     paths.append(root / "scripts" / "compose_hosted_pdf.py")
     paths.append(root / "scripts" / "inspect_hosted_pdf.py")
+    paths.append(root / "scripts" / "check_hosted_run.py")
+    paths.append(root / "scripts" / "validate_math_difficulty_design.py")
+    paths.append(root / "scripts" / "validate_paper_difficulty_balance.py")
 
     for pack in ("學測", "會考"):
         pack_root = root / "exam_packs" / pack

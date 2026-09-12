@@ -79,6 +79,12 @@ source map includes each year's actual Paper Profile; preserve `needs_review`
 states and reconcile specific gaps. A ready aggregate or verified layout does
 not promote a pending structure to verified.
 
+For every hosted full paper, use [references/hosted-run-evidence.md](references/hosted-run-evidence.md)
+from the first item onward: save small recoverable checkpoints, review difficulty
+and originality during writing, and reserve time for both PDFs. Run the embedded
+`check_hosted_run.py` before formal delivery. Zero mechanically blocking pages
+does not clear unresolved layout review flags or missing editorial checks.
+
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).
 Verify actual `exam_packs` source PDFs, scored-slot structure and separate layout

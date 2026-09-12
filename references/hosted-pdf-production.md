@@ -161,3 +161,10 @@ paths/hashes and per-page findings. No claim of “only template missing” unle
 each other gate was actually performed with no unresolved result. Passing unit
 tests, a smoke proof, or these three helpers is not end-to-end hosted exam
 acceptance, nor proof that every platform/model will follow the Skill.
+
+Before a formal delivery, run `scripts/check_hosted_run.py run-state.json` under
+[hosted-run-evidence.md](hosted-run-evidence.md). The saved PDF inspector's exit
+code 0 means no mechanical hard failure was found; `review_flag_pages` and each
+page's `issues` still require evidence-bound adjudication. Do not summarize this
+as "all layout checks passed" while warnings, missing difficulty reviews or
+unviewed pages remain. Repairs require new PDF hashes, rasters and page reviews.
