@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.13.3
+# Taiwan Exam Web Knowledge v2026.09.13.4
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -63,7 +63,17 @@ student question paper and the answer-with-full-solutions paper. Apply every
 available content and layout gate. If the hosted surface cannot create or inspect
 the PDFs, disclose the limitation and do not claim formal completion.
 
-Before drafting, follow `references/hosted-pdf-production.md`: prove that exact
+Before drafting, run `scripts/prepare_hosted_run.py` as described in
+`references/hosted-pdf-production.md`. It checks the selected subject's embedded
+calibration and verified template components and makes two small composition
+proofs. Use an uploaded resource PDF first; otherwise template acquisition has
+an overall 45-second default deadline, not repeated unbounded socket waits.
+The final difficulty/density checker accepts the hash-bound `calibration.json`
+from this preflight. Original official question PDFs are optional for additional
+item-to-item review, never a new dependency discovered at final delivery.
+Read the subject's capsule and required guidance selectively; extracting files
+does not require pasting every file into the conversation context.
+Follow `references/hosted-pdf-production.md`: prove that exact
 template bytes exist in the file runtime and that the embedded compositor works.
 If runtime networking is blocked, use/request the single data-only
 `taiwan-exam-template-resources.pdf` from the asset map's offline_resource link.
@@ -80,10 +90,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 [
   {
     "path": "SKILL.md",
-    "bytes": 76153,
-    "sha256": "3103c4d05c3c8e1c8342701e276cb7dda22ae8f5411ac461e1ce477bff7e10d2",
-    "embedded_bytes": 76153,
-    "embedded_sha256": "3103c4d05c3c8e1c8342701e276cb7dda22ae8f5411ac461e1ce477bff7e10d2"
+    "bytes": 76752,
+    "sha256": "da31bdb1c9912da40ebecd9a8ad88e14ec8b028380df78dc46955a54f245e3d8",
+    "embedded_bytes": 76752,
+    "embedded_sha256": "da31bdb1c9912da40ebecd9a8ad88e14ec8b028380df78dc46955a54f245e3d8"
   },
   {
     "path": "core/taxonomy.json",
@@ -105,6 +115,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "sha256": "0827c82d1e32336efb43ad9db068b8176daef24abe06fc23a3b7a6a2e1072e48",
     "embedded_bytes": 408,
     "embedded_sha256": "0827c82d1e32336efb43ad9db068b8176daef24abe06fc23a3b7a6a2e1072e48"
+  },
+  {
+    "path": "exam_packs/學測/metadata/hosted-page-metrics.json",
+    "bytes": 30719,
+    "sha256": "4595a58f25f6ebeabd4aa0d24966bdda48f7d4a7453b5d29e1d35c8b1c5f250d",
+    "embedded_bytes": 30719,
+    "embedded_sha256": "4595a58f25f6ebeabd4aa0d24966bdda48f7d4a7453b5d29e1d35c8b1c5f250d"
   },
   {
     "path": "exam_packs/學測/metadata/official-current-web-sources.json",
@@ -577,24 +594,24 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/hosted-pdf-production.md",
-    "bytes": 12904,
-    "sha256": "87324ade10030bf5b0f75255cc296001a005d5a55e72331c21a0c68274be759e",
-    "embedded_bytes": 12904,
-    "embedded_sha256": "87324ade10030bf5b0f75255cc296001a005d5a55e72331c21a0c68274be759e"
+    "bytes": 13960,
+    "sha256": "a0ac161936528201b1c2bfc6911e53304383ccc1f68b6fff318bbd3fd23916a2",
+    "embedded_bytes": 13960,
+    "embedded_sha256": "a0ac161936528201b1c2bfc6911e53304383ccc1f68b6fff318bbd3fd23916a2"
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 8986,
-    "sha256": "f41117657f52e44c9dc8e90e12d676bf81598e9cd07d2313d465767bfcc64ad0",
-    "embedded_bytes": 8986,
-    "embedded_sha256": "f41117657f52e44c9dc8e90e12d676bf81598e9cd07d2313d465767bfcc64ad0"
+    "bytes": 10824,
+    "sha256": "fddfe46e201caab4760c894c756d65ca2d14d924af3611901087c9f20c8af2ea",
+    "embedded_bytes": 10824,
+    "embedded_sha256": "fddfe46e201caab4760c894c756d65ca2d14d924af3611901087c9f20c8af2ea"
   },
   {
     "path": "references/hosted-run-evidence.md",
-    "bytes": 7724,
-    "sha256": "e04536b8beca5030de1d2821f17de67ac9a156d5a2269c6489f053546787bcc0",
-    "embedded_bytes": 7724,
-    "embedded_sha256": "e04536b8beca5030de1d2821f17de67ac9a156d5a2269c6489f053546787bcc0"
+    "bytes": 8471,
+    "sha256": "f875c322dfb48577cc24a7f169fab9c01eedec227d8c6d9a1829b6dfa9ee5760",
+    "embedded_bytes": 8471,
+    "embedded_sha256": "f875c322dfb48577cc24a7f169fab9c01eedec227d8c6d9a1829b6dfa9ee5760"
   },
   {
     "path": "references/layout-fidelity.md",
@@ -752,10 +769,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 16940,
-    "sha256": "83a1b3807cac41f55b8b5a793d44a3b06f34d7283bd96c67ba5ca0c53ed8d047",
-    "embedded_bytes": 16940,
-    "embedded_sha256": "83a1b3807cac41f55b8b5a793d44a3b06f34d7283bd96c67ba5ca0c53ed8d047"
+    "bytes": 19096,
+    "sha256": "d505d23c29b74d7f539a3ef66e180f48042025786fea4b679684bf3c584082b6",
+    "embedded_bytes": 19096,
+    "embedded_sha256": "d505d23c29b74d7f539a3ef66e180f48042025786fea4b679684bf3c584082b6"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -766,10 +783,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/fetch_hosted_template_assets.py",
-    "bytes": 8840,
-    "sha256": "1612c7e9c4cb26e6b99a33d640ad2942f8f21f26518a0484d3dbd71ca10c9eea",
-    "embedded_bytes": 8840,
-    "embedded_sha256": "1612c7e9c4cb26e6b99a33d640ad2942f8f21f26518a0484d3dbd71ca10c9eea"
+    "bytes": 9171,
+    "sha256": "a6defa591ebc36f5f06c9480631871e088dbfeaacd6536391ab8795b23bd85af",
+    "embedded_bytes": 9171,
+    "embedded_sha256": "a6defa591ebc36f5f06c9480631871e088dbfeaacd6536391ab8795b23bd85af"
   },
   {
     "path": "scripts/hosted_blind_review.py",
@@ -777,6 +794,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "sha256": "d084a1c5e3ec69466c28a248d18fd5bbb676bfcbc0100c3d8f87e1e0fd115f7d",
     "embedded_bytes": 6773,
     "embedded_sha256": "d084a1c5e3ec69466c28a248d18fd5bbb676bfcbc0100c3d8f87e1e0fd115f7d"
+  },
+  {
+    "path": "scripts/hosted_calibration.py",
+    "bytes": 5405,
+    "sha256": "f7374fc5a0113a632292ff9b252263adaa1333344c302ff538766ac58f235bcc",
+    "embedded_bytes": 5405,
+    "embedded_sha256": "f7374fc5a0113a632292ff9b252263adaa1333344c302ff538766ac58f235bcc"
   },
   {
     "path": "scripts/hosted_item_layout.py",
@@ -798,6 +822,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "sha256": "ae441e352c94bba33b779cdd897b12b89be7da77feffd6e11b747268be0ae8d8",
     "embedded_bytes": 8743,
     "embedded_sha256": "ae441e352c94bba33b779cdd897b12b89be7da77feffd6e11b747268be0ae8d8"
+  },
+  {
+    "path": "scripts/prepare_hosted_run.py",
+    "bytes": 6499,
+    "sha256": "966ff0675bec7ea9798449f2c206363326d6f02bb483972b87c9adbd645ec5a3",
+    "embedded_bytes": 6499,
+    "embedded_sha256": "966ff0675bec7ea9798449f2c206363326d6f02bb483972b87c9adbd645ec5a3"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -991,8 +1022,16 @@ figures. Final delivery requires readable item crops as well as every page;
 follow [references/hosted-quality-gates.md](references/hosted-quality-gates.md).
 The time benchmark never waives QA. Never manufacture missing timing or reviews.
 For ALL seven GSAT subjects, use a separate difficulty reviewer supplied with the
-actual ordered questions, continuations, visuals, solutions and verified official
-anchor pages, without author difficulty labels. Adopt the independent bands and
+actual ordered questions, continuations, visuals, solutions and a verified
+calibration basis, without author difficulty labels. Before drafting, run
+`prepare_hosted_run.py` to check embedded subject calibration, template bytes and
+small question/answer layout proofs. The default offline basis is the canonical
+aggregate profile plus independent expert review; original official PDFs remain
+an optional, stronger item-to-item comparison when actually available. Never
+claim an unseen official page was read or promote aggregate targets to achieved
+difficulty. Neither difficulty nor density QA may start a new original-PDF
+download dependency at final delivery. See hosted-quality-gates.md for the two
+explicit evidence formats. Adopt the independent bands and
 rebalance before PDF production. In Math A/B, assess shortcuts using options and
 earlier subquestions: routine arithmetic steps and supplied intermediate results
 are not new decisions. Never make a hard label fit by lengthening the solution.
@@ -1326,6 +1365,1060 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
   "historical_subjects": ["數學（舊制）", "數學（共同範圍模考）"],
   "official_baseline": "official-baseline.json",
   "status": "awaiting_historical_metadata"
+}
+</canonical-source>
+
+<canonical-source path="exam_packs/學測/metadata/hosted-page-metrics.json">
+{
+  "schema_version": 1,
+  "algorithm_sha256": "11ef67e153b0cddfbf911e09ae91ce7c0574004ae1a03b4f9e2bb5d9af708ee4",
+  "scope": "Numeric bottom-void measurements, not page images or a visual approval. Scoring-rule pages are rubric references, not full worked solutions.",
+  "pages": [
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.105
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.001
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.097
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.023
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 9,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 10,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 11,
+      "page_role": "body",
+      "bottom_void": 0.023
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 12,
+      "page_role": "body",
+      "bottom_void": 0.129
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.103
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.23
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.071
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.023
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.015
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.118
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.494
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.049
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.083
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.337
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.278
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.054
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.265
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "body",
+      "bottom_void": 0.029
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 9,
+      "page_role": "body",
+      "bottom_void": 0.028
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 10,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 11,
+      "page_role": "body",
+      "bottom_void": 0.192
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 12,
+      "page_role": "body",
+      "bottom_void": 0.372
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.012
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.453
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.096
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.029
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.205
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.26
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.08
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.185
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "formula",
+      "bottom_void": 0.09
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.007
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.526
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.109
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.188
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.039
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.016
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.18
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.052
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "formula",
+      "bottom_void": 0.211
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.195
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.078
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.064
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.247
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.084
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.058
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 9,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 10,
+      "page_role": "body",
+      "bottom_void": 0.017
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 11,
+      "page_role": "body",
+      "bottom_void": 0.048
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 12,
+      "page_role": "body",
+      "bottom_void": 0.033
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 13,
+      "page_role": "body",
+      "bottom_void": 0.096
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 14,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 15,
+      "page_role": "body",
+      "bottom_void": 0.116
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 16,
+      "page_role": "body",
+      "bottom_void": 0.036
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 17,
+      "page_role": "body",
+      "bottom_void": 0.068
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 18,
+      "page_role": "body",
+      "bottom_void": 0.004
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 19,
+      "page_role": "body",
+      "bottom_void": 0.019
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 20,
+      "page_role": "body",
+      "bottom_void": 0.153
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.012
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 4,
+      "page_role": "solutions",
+      "bottom_void": 0.006
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 5,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 6,
+      "page_role": "solutions",
+      "bottom_void": 0.01
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 7,
+      "page_role": "solutions",
+      "bottom_void": 0.001
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 8,
+      "page_role": "solutions",
+      "bottom_void": 0.026
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 9,
+      "page_role": "solutions",
+      "bottom_void": 0.09
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.11
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.017
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.215
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.068
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "body",
+      "bottom_void": 0.042
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 9,
+      "page_role": "body",
+      "bottom_void": 0.003
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 10,
+      "page_role": "body",
+      "bottom_void": 0.045
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 11,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 12,
+      "page_role": "body",
+      "bottom_void": 0.004
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 13,
+      "page_role": "body",
+      "bottom_void": 0.007
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 14,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 15,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 16,
+      "page_role": "body",
+      "bottom_void": 0.033
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 17,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 18,
+      "page_role": "body",
+      "bottom_void": 0.013
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 19,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 20,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.084
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.031
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 4,
+      "page_role": "solutions",
+      "bottom_void": 0.029
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 5,
+      "page_role": "solutions",
+      "bottom_void": 0.047
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 6,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 7,
+      "page_role": "solutions",
+      "bottom_void": 0.071
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 8,
+      "page_role": "solutions",
+      "bottom_void": 0.788
+    }
+  ]
 }
 </canonical-source>
 
@@ -55208,8 +56301,16 @@ non-waivable collisions before any final quality claim.
    every extracted file. PyMuPDF supplies PDF operations. Do not claim its
    absence without trying the installed PDF library; if dependency installation
    is unavailable, name that actual capability gap.
-2. Fetch the subject's three/four production components with the existing bounded
-   helper. Verify bytes in the SAME runtime that will compose the paper, not just
+2. Run prepare_hosted_run.py with the selected subject, run directory, paper ID
+   and an available Chinese font. It first verifies embedded calibration, then
+   acquires the subject's three/four production components and composes both
+   small layout proofs. Supply an uploaded carrier first. Without one, the whole
+   network fetch subprocess is bounded to 45 seconds by default (maximum 60),
+   including fallback transports. Preserve verified cached components on timeout.
+   Original official question PDFs are NOT required for this offline route:
+   calibration.json contains aggregate targets/rubric guidance and certified
+   numeric page measurements. Do not fetch a 115 original as a last-stage gate.
+   Verify bytes in the SAME runtime that will compose the paper, not just
    in a web-search or connector tool. A URL, preview, text extract or base64
    response in another tool is not proof the runtime possesses the file.
 3. If runtime networking is unavailable, use an already uploaded
@@ -55239,8 +56340,15 @@ non-waivable collisions before any final quality claim.
 Offline command (agent runs it; no coding required of the user):
 
 ```text
-python scripts/fetch_hosted_template_assets.py --subject 數學A --map exam_packs/學測/templates/115/hosted-web-template-assets.json --resource-pdf <uploaded-resource.pdf> --output-dir <versioned-cache>
+python scripts/prepare_hosted_run.py --subject 數學A --run-dir <run> --paper-id <paper-id> --font <available-TC-font> --resource-pdf <uploaded-resource.pdf>
 ```
+
+The compact preflight.json records readiness, measured elapsed time, calibration
+artifact and template_asset_dir. It starts/preserves generation-timing.json and
+does not author items or mark any academic/visual gate passed. Merge its artifact
+fields into run-state.json; open the proof rasters before authoring. Reuse the
+same run on continuation; never repeat full knowledge reading or download a
+source per item. Test actual new mathematical typesetting in the first item batch.
 
 Neither `github-pages.zip` nor the full repository is part of this route.
 Downloading resources at generation time does not reopen the suspended software
@@ -55431,11 +56539,20 @@ clipped/outlined objects, and supplied geometry is not independently inferred.
 
 ## Measured density, not a prose waiver
 
-For large-bottom-void-review, issue_dispositions must include reference_pdf
-(path/sha256), reference_page (one-based), page_role (cover/formula/body/solutions),
-and decision/reason. Choose a comparable same-subject page from the embedded
-official 111–115 source map; verify/download once and retain it in the run.
-The checker verifies its hash against that map and remeasures both PDF pages.
+For large-bottom-void-review, the default offline issue disposition contains
+`kind: embedded-page-metric`, `source_sha256`, `reference_page` (one-based),
+`page_role` (cover/formula/body/solutions), and decision/reason. Select a comparable
+page from the subject's preflight `calibration.json.page_metrics`. These numeric
+measurements were built from byte/hash-verified official sources at release time;
+no original question text or source PDF is included. The checker reconstructs the
+capsule from canonical files, validates source identity and measurement algorithm,
+requires the actual candidate role to match, and remeasures the candidate PDF.
+Scoring-rule pages are rubric references, not full worked solutions: their use
+still needs a concrete editorial explanation of compatible density and content.
+Alternatively retain an already available same-subject official 111–115 PDF and
+use `reference_pdf: {path, sha256}`, reference_page, page_role and decision/reason.
+This legacy route verifies its source hash and remeasures both PDFs. Choose the
+route at preflight, never start downloading originals during final QA.
 Candidate bottom void cannot exceed reference by over 10 percentage points.
 This conservative review threshold is project policy, not an official exam rule.
 Editorial review must verify role compatibility: never compare an interior page
@@ -55446,11 +56563,26 @@ cannot waive failure. Reflow and inspect new bytes when it fails.
 
 For all seven subjects run hosted_blind_review.py exam.json blind-packet.json. It retains visible
 questions in printed order, options, continuations, response tables, visuals and solutions, excluding author labels and item_spec.
-Supply actual referenced visuals and compatible 111–115 anchors to a separate
+Supply actual referenced visuals and compatible 111–115 calibration to a separate
 reviewer context without prior judgments. Request shortest valid routes, necessary
-decisions, shortcut searches, provisional difficulty/time and specific year/item
-comparisons. Reuse verified source PDFs instead of downloading one per item.
-Every item includes `anchor: {reference_pdf: {path, sha256}, page, item}` where
+decisions, shortcut searches, provisional difficulty/time and concrete comparisons
+against the available calibration. Default offline route: give the reviewer the
+subject's preflight `calibration.json` and record each item's
+`anchor: {kind: embedded-calibration, key: ...}`. For objective Math A/B items the
+key is `slot:N` for the actual question number; other objective subjects use
+`objective`. Constructed responses and 國寫 use `constructed-response`, with
+explicit rubric/task-demand comparison to aggregate patterns (and the embedded
+writing rubric for 國寫). Never borrow 國綜 objective P/D for 國寫. Preserve the
+objective profile's `full_paper_status: insufficient-data`: its statistics do
+not cover all constructed responses or establish empirical difficulty of new
+papers. The checker verifies the whole saved capsule against canonical content;
+author-written readiness flags are insufficient. `anchor_comparison` must say
+what historical aggregate/rubric feature supports or challenges the estimate,
+including shortest-route differences and limitations; numbers alone cannot pass
+academic review. Aggregate review is not a claim of viewing individual originals.
+
+If a compatible original PDF is already available, a stronger item-to-item route
+remains supported: `anchor: {reference_pdf: {path, sha256}, page, item}` where
 page is one-based and item identifies the compared official question/task.
 The checker verifies the actual source bytes against the embedded same-subject
 111–115 map and checks the page exists. The reviewer must actually read that
@@ -55580,6 +56712,15 @@ Do not invent successful review observations or manufacture reviewer identities.
 
 `run-state.json` has schema_version 1, paper_id, current_phase, next_action,
 exam (`path`, `sha256`), timing (`path`, `sha256`), template_asset_dir, checks, and pdfs.
+For the default offline route also register `calibration: {path, sha256}` from
+preflight.json. Keep calibration.json, template assets, editable work and reviews
+in recovery material. The checker reconstructs calibration from canonical files;
+rewriting the capsule and updating its hash cannot validate altered statistics.
+An older run may retain existing content and use the new capsule, but the actual
+reviewer must redo any comparison whose basis changes; never relabel a missing
+original-PDF review as an already completed aggregate review. The preflight helper
+preserves existing exam.json and run-state.json, reporting fields to merge rather
+than overwriting the run or manufacturing completed gates.
 template_asset_dir is a relative directory INSIDE this run containing the selected
 subject's verified `cover-blank.pdf`, `inner-odd-blank.pdf`, `inner-even-blank.pdf`
 and, for Math A/B, `formula-blank.pdf`. Keep these assets in recovery material.
@@ -55623,8 +56764,9 @@ pdf_sha256 and pages, one for EVERY actual page: page, raster_sha256, status,
 observations, and issue_dispositions. Each unresolved inspector issue blocks
 completion. A legitimate role-specific warning can be adjudicated with
 `{"decision":"justified","reason":"actual page/reference observation"}`.
-Bottom-void findings additionally require the actual verified official reference
-PDF and numeric comparison specified in hosted-quality-gates.md. Prose alone
+Bottom-void findings additionally require a verified embedded page measurement
+or an already available official reference PDF and numeric comparison specified
+in hosted-quality-gates.md. Prose alone
 cannot waive them. Hard collision findings can never be waived by a reason.
 Repairing a warning means regenerating and inspecting new bytes, not writing
 "fixed" against the obsolete raster. Hard mechanical failures always block.
@@ -58367,6 +59509,7 @@ from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples
+from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -58430,6 +59573,14 @@ def check(state_path: Path) -> dict:
     need(bool(ids) and all(isinstance(i, str) and i.strip() for i in ids)
          and len(set(ids)) == len(ids), 'exam: missing or duplicate item IDs')
     expected = set(ids)
+    calibration = None
+    if state.get('calibration'):
+        calibration_path = file(state['calibration'], 'calibration')
+        if calibration_path:
+            saved = json.loads(calibration_path.read_text(encoding='utf-8-sig'))
+            canonical = snapshot(exam['metadata']['subject'])
+            if need(saved == canonical, 'calibration: stale, altered or wrong-subject snapshot'):
+                calibration = canonical
     need(exam.get('metadata', {}).get('paper_id') == state.get('paper_id'),
          'exam: paper_id mismatch')
 
@@ -58472,6 +59623,12 @@ def check(state_path: Path) -> dict:
                         for year in s['years'] for d in year['documents'].values()}
             for row in review.get('items', []):
                 anchor = row.get('anchor') or {}
+                if anchor.get('kind') == 'embedded-calibration':
+                    if need(calibration is not None, f'difficulty/{row.get("id")}: verified offline calibration missing'):
+                        question = next((q for q in items if q['id'] == row.get('id')), {})
+                        errors.extend(f'difficulty/{row.get("id")}: {e}'
+                                      for e in anchor_errors(question, anchor, calibration))
+                    continue
                 reference = file(anchor.get('reference_pdf'), f'difficulty/{row.get("id")}/anchor')
                 if reference:
                     need(sha(reference) in approved,
@@ -58585,6 +59742,20 @@ def check(state_path: Path) -> dict:
                 need(finding.get('decision') == 'justified' and bool(finding.get('reason')),
                      f'{role}/page-{n}/{issue}: unresolved review flag')
                 if issue == 'large-bottom-void-review':
+                    if finding.get('kind') == 'embedded-page-metric':
+                        if need(calibration is not None, f'{role}/page-{n}: verified offline calibration missing'):
+                            expected_role = ('solutions' if role == 'solution' else 'cover' if n == 1 else
+                                             'formula' if n == actual_count and exam['metadata']['subject'] in {'數學A', '數學B'}
+                                             else 'body')
+                            try:
+                                limit = density_limit(calibration, finding, expected_role)
+                                with pymupdf.open(pdf) as candidate:
+                                    if need(type(n) is int and 1 <= n <= len(candidate), f'{role}/page-{n}: stale candidate page'):
+                                        need(bottom_void(candidate[n-1]) <= limit,
+                                             f'{role}/page-{n}: bottom void exceeds reference by over 10 percentage points')
+                            except ValueError as exc:
+                                need(False, f'{role}/page-{n}: {exc}')
+                        continue
                     reference = file(finding.get('reference_pdf'), f'{role}/page-{n}/density-reference')
                     if reference:
                         source_map = json.loads(SOURCE_MAP.read_text(encoding='utf-8-sig'))
@@ -58932,7 +60103,12 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
             else:
                 data, transport = fetch_record(record, timeout=timeout, attempts=attempts, local_root=local_root)
             verify(record, data)
-            destination.write_bytes(data)
+            # An overall preflight deadline may terminate this worker process.
+            # Publish complete verified bytes atomically; never leave a truncated
+            # destination that poisons the next cache verification.
+            temporary = destination.with_suffix('.pdf.part')
+            temporary.write_bytes(data)
+            temporary.replace(destination)
         return {
             "component": record["component"],
             "path": str(destination),
@@ -59097,6 +60273,115 @@ if __name__ == '__main__':
     args = parser.parse_args()
     args.output.write_text(json.dumps(packet(json.loads(args.exam.read_text(encoding='utf-8'))),
                                      ensure_ascii=False, indent=2), encoding='utf-8')
+</canonical-source>
+
+<canonical-source path="scripts/hosted_calibration.py">
+#!/usr/bin/env python3
+"""Offline aggregate calibration; never represent an unseen original as viewed."""
+from __future__ import annotations
+
+import hashlib
+import inspect
+import json
+from pathlib import Path
+
+from inspect_hosted_pdf import bottom_void
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE_PATH = 'exam_packs/學測/metadata/official-current-web-sources.json'
+METRICS_PATH = 'exam_packs/學測/metadata/hosted-page-metrics.json'
+SUBJECTS = ('國綜', '國寫', '英文', '數學A', '數學B', '自然', '社會')
+
+
+def algorithm_hash():
+    return hashlib.sha256(inspect.getsource(bottom_void).replace('\r\n', '\n').encode()).hexdigest()
+
+
+def snapshot(subject, root=ROOT):
+    """Reconstruct from canonical extracted files, not author-supplied evidence."""
+    if subject not in SUBJECTS:
+        raise ValueError('Unknown calibration subject')
+    sources = {}
+
+    def read(relative):
+        text = (root / relative).read_text(encoding='utf-8-sig').rstrip() + '\n'
+        sources[relative] = hashlib.sha256(text.encode()).hexdigest()
+        return json.loads(text) if relative.endswith('.json') else text
+
+    source_map = read(SOURCE_PATH)
+    record = next(s for s in source_map['subjects'] if s['subject'] == subject)
+    controlling = max(record['years'], key=lambda y: y['roc_year'])
+    profile = controlling['paper_profile']
+    if profile.get('structure_status') != 'verified':
+        raise ValueError('Controlling paper structure is not verified')
+    base = f"exam_packs/學測/subjects/{record['catalog_subject']}/blueprints/"
+    writer = read(base + 'writer-blueprint.json')
+    calibration = writer['calibration_by_curriculum']['108']
+    if calibration.get('status') != 'ready':
+        raise ValueError('Embedded subject calibration is not ready')
+    clusters = [c for c in writer['aggregate_pattern_clusters']
+                if c['pattern'].get('curriculum') == '108'
+                and (subject not in {'國綜', '國寫'} or
+                     c['pattern'].get('section', '').startswith(subject))]
+    if not clusters:
+        raise ValueError('No subject-specific aggregate patterns')
+    objective = None
+    writing_rubric = None
+    if subject == '國寫':
+        writing_rubric = read('references/gsat-writing-111-115-selection-calibration.md')
+    else:
+        objective = read(base + 'difficulty-profile.json')['curricula']['108']
+        if objective.get('status') != 'ready':
+            raise ValueError('Objective calibration is not ready')
+    metrics = read(METRICS_PATH)
+    if metrics.get('algorithm_sha256') != algorithm_hash():
+        raise ValueError('Page measurements use a stale algorithm; rebuild at release time')
+    pages = [p for p in metrics['pages'] if p['subject'] == subject]
+    approved = {d['sha256']: d for y in record['years'] for d in y['documents'].values()}
+    if not pages:
+        raise ValueError('No offline page measurements for subject')
+    for page in pages:
+        doc = approved.get(page.get('source_sha256'))
+        if (not doc or type(page.get('page')) is not int or
+                not 1 <= page['page'] <= doc['pages'] or
+                type(page.get('bottom_void')) not in (int, float) or
+                not 0 <= page['bottom_void'] <= 1):
+            raise ValueError('Page measurement is not bound to a valid official source')
+    return {'schema_version': 1, 'subject': subject,
+            'basis': 'aggregate-profile-plus-expert-review',
+            'limitations': ['Original PDFs are not materialized or viewed by this snapshot.',
+                           'Historical aggregate targets do not prove achieved difficulty of new items.',
+                           'Constructed responses require expert rubric review, not objective P/D.'],
+            'source_hashes': sources, 'paper_profile': profile,
+            'calibration_status': calibration, 'objective_profile': objective,
+            'aggregate_patterns': clusters, 'writing_rubric': writing_rubric,
+            'page_metrics': pages}
+
+
+def anchor_errors(question, anchor, calibration):
+    if anchor.get('kind') != 'embedded-calibration':
+        return ['unknown offline anchor kind']
+    constructed = (calibration['subject'] == '國寫' or
+                   question.get('type') in {'constructed_response', 'essay', 'short_answer'})
+    if constructed:
+        expected = 'constructed-response'
+    elif calibration['subject'] in {'數學A', '數學B'}:
+        expected = f"slot:{question.get('number')}"
+        if str(question.get('number')) not in (calibration['objective_profile'] or {}).get('by_question_number', {}):
+            return ['no objective position calibration; use a compatible original anchor']
+    else:
+        expected = 'objective'
+    return [] if anchor.get('key') == expected else [f'offline anchor key must be {expected}']
+
+
+def density_limit(calibration, finding, expected_role):
+    """Return a source-derived limit only for the actual candidate page role."""
+    matches = [p for p in calibration['page_metrics']
+               if p['source_sha256'] == finding.get('source_sha256')
+               and p['page'] == finding.get('reference_page')]
+    if len(matches) != 1 or matches[0]['page_role'] != expected_role or finding.get('page_role') != expected_role:
+        raise ValueError('Offline density reference must match subject and actual page role')
+    return matches[0]['bottom_void'] + .10
 </canonical-source>
 
 <canonical-source path="scripts/hosted_item_layout.py">
@@ -59465,6 +60750,129 @@ if __name__ == "__main__":
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(report, ensure_ascii=True, indent=2))
     raise SystemExit(2 if report["blocking_pages"] else 0)
+</canonical-source>
+
+<canonical-source path="scripts/prepare_hosted_run.py">
+#!/usr/bin/env python3
+"""Check offline calibration and fixed-PDF production BEFORE authoring a paper."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+import pymupdf
+from compose_hosted_pdf import compose
+from fetch_hosted_template_assets import DEFAULT_MAP, materialize
+from hosted_calibration import SUBJECTS, snapshot
+from hosted_run_timing import transition
+
+
+def save(path, data):
+    raw = (json.dumps(data, ensure_ascii=False, indent=2) + '\n').encode()
+    temporary = path.with_suffix(path.suffix + '.tmp')
+    temporary.write_bytes(raw)
+    temporary.replace(path)
+    return hashlib.sha256(raw).hexdigest()
+
+
+def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
+    if not 0 < deadline <= 60:
+        raise ValueError('Resource deadline must be positive and at most 60 seconds')
+    if resource_pdf:
+        return materialize(subject, output, map_path=DEFAULT_MAP, local_root=None,
+                           timeout=10, attempts=1, resource_pdf=resource_pdf)
+    # A socket timeout does not bound repeated reads. Isolate the existing
+    # parallel fetcher in a killable child so slow streams cannot consume a turn.
+    command = [sys.executable, str(Path(__file__).with_name('fetch_hosted_template_assets.py')),
+               '--subject', subject, '--output-dir', str(output), '--map', str(DEFAULT_MAP),
+               '--timeout', '10', '--attempts', '1']
+    if local_root:
+        command += ['--local-root', str(local_root)]
+    try:
+        result = subprocess.run(command, capture_output=True, encoding='utf-8',
+                                env={**os.environ, 'PYTHONIOENCODING': 'utf-8'}, timeout=deadline)
+    except subprocess.TimeoutExpired:
+        return {'status': 'partial', 'errors': [{'message': 'Overall template acquisition deadline reached; '
+                'retain verified cached components and use the offline resource PDF.'}]}
+    if result.returncode and not result.stdout.strip():
+        raise ValueError('Template helper failed: ' + result.stderr[-500:])
+    return json.loads(result.stdout)
+
+
+def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=45):
+    started = time.monotonic()
+    run_dir = run_dir.resolve()
+    run_dir.mkdir(parents=True, exist_ok=True)
+    timing = run_dir / 'generation-timing.json'
+    # Never replace authored content, reviews or run-state on resume.
+    for name in ('preflight.json', 'run-state.json'):
+        if (run_dir / name).exists():
+            previous = json.loads((run_dir / name).read_text(encoding='utf-8-sig'))
+            if previous.get('paper_id') != paper_id or previous.get('subject', subject) != subject:
+                raise ValueError('Refusing to reuse another paper or subject run directory')
+    transition(timing, paper_id, 'reference_preflight')
+    report = {'paper_id': paper_id, 'subject': subject, 'status': 'pending', 'errors': [],
+              'scope': 'Resource readiness and small layout proofs only; no exam or quality approval.'}
+    try:
+        calibration = snapshot(subject)
+        digest = save(run_dir / 'calibration.json', calibration)
+        report['calibration'] = {'path': 'calibration.json', 'sha256': digest}
+        report['calibration_basis'] = calibration['basis']
+        report['original_pdf_required'] = False
+        assets = acquire(subject, run_dir / 'templates', resource_pdf, local_root, deadline)
+        if assets['status'] != 'verified':
+            raise ValueError('Required template components unavailable: ' + json.dumps(assets['errors'], ensure_ascii=False))
+        asset_dir = Path(assets['assets'][0]['path']).parent
+        report['template_asset_dir'] = asset_dir.relative_to(run_dir).as_posix()
+        proof_dir = run_dir / 'preflight-proofs'
+        proof_dir.mkdir(exist_ok=True)
+        body = proof_dir / 'body.pdf'
+        with pymupdf.open() as doc:
+            page = doc.new_page(width=595.28, height=841.89)
+            page.insert_text((80, 140), 'Layout preflight only: 1 + 1 = 2', fontsize=12)
+            body.write_bytes(doc.tobytes())
+        proofs = {}
+        for kind in ('questions', 'answers'):
+            output = proof_dir / f'{kind}.pdf'
+            result = compose(subject, body, asset_dir, output, year='116', title='學科能力測驗模擬試題',
+                             running_name='學測', font_path=font, kind=kind)
+            proofs[kind] = {'path': output.relative_to(run_dir).as_posix(), 'sha256': result['pdf_sha256']}
+            with pymupdf.open(output) as doc:
+                for index, page in enumerate(doc, 1):
+                    page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5)).save(proof_dir / f'{kind}-{index}.png')
+        report.update(status='ready-for-authoring', proofs=proofs,
+                      next_action='Open the small proof rasters and check field/font fit; read the selected subject '
+                      'calibration and curriculum guidance. Draft, solve and independently review small batches. '
+                      'Use aggregate anchors honestly; final QA needs no original-PDF download. '
+                      'Test actual body math typography separately before full composition.')
+    except (OSError, ValueError, KeyError, RuntimeError) as exc:
+        report['errors'].append(str(exc))
+        report['next_action'] = 'Resolve the named resource/rendering gap before drafting; retain existing work.'
+    report['elapsed_seconds'] = round(time.monotonic() - started, 3)
+    save(run_dir / 'preflight.json', report)
+    return report
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--subject', required=True, choices=SUBJECTS)
+    parser.add_argument('--run-dir', required=True, type=Path)
+    parser.add_argument('--paper-id', required=True)
+    parser.add_argument('--font', required=True, type=Path)
+    parser.add_argument('--resource-pdf', type=Path)
+    parser.add_argument('--local-root', type=Path)
+    parser.add_argument('--deadline', type=float, default=45)
+    args = parser.parse_args()
+    result = prepare(args.subject, args.run_dir, args.paper_id, args.font,
+                     resource_pdf=args.resource_pdf, local_root=args.local_root, deadline=args.deadline)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    raise SystemExit(0 if result['status'] == 'ready-for-authoring' else 2)
 </canonical-source>
 
 <canonical-source path="scripts/read_web_knowledge.py">

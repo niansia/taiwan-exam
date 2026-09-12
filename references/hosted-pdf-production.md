@@ -18,8 +18,16 @@ non-waivable collisions before any final quality claim.
    every extracted file. PyMuPDF supplies PDF operations. Do not claim its
    absence without trying the installed PDF library; if dependency installation
    is unavailable, name that actual capability gap.
-2. Fetch the subject's three/four production components with the existing bounded
-   helper. Verify bytes in the SAME runtime that will compose the paper, not just
+2. Run prepare_hosted_run.py with the selected subject, run directory, paper ID
+   and an available Chinese font. It first verifies embedded calibration, then
+   acquires the subject's three/four production components and composes both
+   small layout proofs. Supply an uploaded carrier first. Without one, the whole
+   network fetch subprocess is bounded to 45 seconds by default (maximum 60),
+   including fallback transports. Preserve verified cached components on timeout.
+   Original official question PDFs are NOT required for this offline route:
+   calibration.json contains aggregate targets/rubric guidance and certified
+   numeric page measurements. Do not fetch a 115 original as a last-stage gate.
+   Verify bytes in the SAME runtime that will compose the paper, not just
    in a web-search or connector tool. A URL, preview, text extract or base64
    response in another tool is not proof the runtime possesses the file.
 3. If runtime networking is unavailable, use an already uploaded
@@ -49,8 +57,15 @@ non-waivable collisions before any final quality claim.
 Offline command (agent runs it; no coding required of the user):
 
 ```text
-python scripts/fetch_hosted_template_assets.py --subject 數學A --map exam_packs/學測/templates/115/hosted-web-template-assets.json --resource-pdf <uploaded-resource.pdf> --output-dir <versioned-cache>
+python scripts/prepare_hosted_run.py --subject 數學A --run-dir <run> --paper-id <paper-id> --font <available-TC-font> --resource-pdf <uploaded-resource.pdf>
 ```
+
+The compact preflight.json records readiness, measured elapsed time, calibration
+artifact and template_asset_dir. It starts/preserves generation-timing.json and
+does not author items or mark any academic/visual gate passed. Merge its artifact
+fields into run-state.json; open the proof rasters before authoring. Reuse the
+same run on continuation; never repeat full knowledge reading or download a
+source per item. Test actual new mathematical typesetting in the first item batch.
 
 Neither `github-pages.zip` nor the full repository is part of this route.
 Downloading resources at generation time does not reopen the suspended software

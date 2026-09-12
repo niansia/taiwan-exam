@@ -93,8 +93,16 @@ figures. Final delivery requires readable item crops as well as every page;
 follow [references/hosted-quality-gates.md](references/hosted-quality-gates.md).
 The time benchmark never waives QA. Never manufacture missing timing or reviews.
 For ALL seven GSAT subjects, use a separate difficulty reviewer supplied with the
-actual ordered questions, continuations, visuals, solutions and verified official
-anchor pages, without author difficulty labels. Adopt the independent bands and
+actual ordered questions, continuations, visuals, solutions and a verified
+calibration basis, without author difficulty labels. Before drafting, run
+`prepare_hosted_run.py` to check embedded subject calibration, template bytes and
+small question/answer layout proofs. The default offline basis is the canonical
+aggregate profile plus independent expert review; original official PDFs remain
+an optional, stronger item-to-item comparison when actually available. Never
+claim an unseen official page was read or promote aggregate targets to achieved
+difficulty. Neither difficulty nor density QA may start a new original-PDF
+download dependency at final delivery. See hosted-quality-gates.md for the two
+explicit evidence formats. Adopt the independent bands and
 rebalance before PDF production. In Math A/B, assess shortcuts using options and
 earlier subquestions: routine arithmetic steps and supplied intermediate results
 are not new decisions. Never make a hard label fit by lengthening the solution.
