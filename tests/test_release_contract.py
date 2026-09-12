@@ -38,7 +38,7 @@ def reviewed_profile(tmp_path):
          'evidence': {'method': 'manual_review', 'confidence': 0.8}}
     p['evidence']['structure_review'] = {'profile_sha256': pv.profile_digest(p), 'reviewer': 'test-fixture',
         'reviewed_at': '2026-09-09T00:00:00Z', 'method': 'page-by-page', 'unresolved': [],
-        'pages': [{'source_sha256': sha, 'page': 2, 'observations': 'synthetic observation'}],
+        'pages': [{'source_sha256': sha, 'page': i, 'observations': 'synthetic observation'} for i in (1, 2)],
         'slots': [{'id': 'one', 'number': 1, 'section_id': 's1', 'type': 'single_choice', 'score': 2,
                    'option_count': 2, 'source_sha256': sha, 'page': 2}]}
     return p
@@ -76,6 +76,16 @@ def test_changed_source_and_profile_invalidate_review(tmp_path):
     assert any('stale profile' in e for e in pv.paper_errors(p))
 
 
+def test_parser_preserves_review_when_private_sources_are_not_installed(tmp_path):
+    p = reviewed_profile(tmp_path)
+    assert build_paper_profiles.preserve_reviewed_profile(p, tmp_path)
+    (tmp_path / 'source.pdf').unlink()
+    assert build_paper_profiles.preserve_reviewed_profile(p, tmp_path)
+    assert pv.paper_errors(p, tmp_path)  # absence still blocks generation
+    (tmp_path / 'source.pdf').write_bytes(b'changed reference')
+    assert not build_paper_profiles.preserve_reviewed_profile(p, tmp_path)
+
+
 def test_mixed_group_is_not_response_type(tmp_path):
     p = reviewed_profile(tmp_path)
     p['evidence']['structure_review']['slots'][0]['type'] = 'mixed_group'
@@ -86,6 +96,48 @@ def test_missing_option_count_is_rejected(tmp_path):
     p = reviewed_profile(tmp_path)
     p['evidence']['structure_review']['slots'][0].pop('option_count')
     assert any('option count' in e for e in pv.paper_errors(p))
+
+
+@pytest.mark.parametrize('score', [True, '2', float('nan'), float('inf'), -1, None])
+def test_invalid_scores_fail_without_crashing(tmp_path, score):
+    p = reviewed_profile(tmp_path)
+    p['evidence']['structure_review']['slots'][0]['score'] = score
+    assert any('score' in e for e in pv.paper_errors(p))
+
+
+def test_structure_review_requires_unique_all_page_observations(tmp_path):
+    p = reviewed_profile(tmp_path)
+    p['evidence']['structure_review']['pages'].pop(0)
+    assert any('every reference page' in e for e in pv.paper_errors(p))
+    p['evidence']['structure_review']['pages'] *= 2
+    assert any('duplicated page' in e for e in pv.paper_errors(p))
+
+
+def test_numbered_inventory_cannot_shift_without_changing_count(tmp_path):
+    p = reviewed_profile(tmp_path)
+    p['evidence']['structure_review']['slots'][0]['number'] = 2
+    assert any('consecutive printed' in e for e in pv.paper_errors(p))
+
+
+def test_generated_number_and_subpart_bindings_are_checked():
+    slots = [{'id': 'q1-a', 'number': 1, 'section_id': 's', 'type': 'constructed_response', 'score': 2},
+             {'id': 'q1-b', 'number': 1, 'section_id': 's', 'type': 'constructed_response', 'score': 2}]
+    q = {'number': 1, 'section_id': 's', 'type': 'constructed_response', 'score': 4,
+         'item_spec': {'scored_units': [{'slot_id': 'q1-a', 'score': 2}, {'slot_id': 'q1-b', 'score': 2}]}}
+    assert release.scored_unit_errors([q], slots) == []
+    q['number'] = 2
+    assert any('number/section' in e for e in release.scored_unit_errors([q], slots))
+    q['number'] = 1
+    q['item_spec']['scored_units'].reverse()
+    assert any('slot_id' in e for e in release.scored_unit_errors([q], slots))
+    q['score'] = 5
+    assert any('parent score' in e for e in release.scored_unit_errors([q], slots))
+
+
+def test_duplicate_question_ids_fail():
+    exam = answer_fixture()
+    exam['questions'] *= 2
+    assert any('question ids' in e for e in release.independent_answer_errors(exam))
 
 
 def test_layout_must_match_subject_and_cover_all_pages(tmp_path):
@@ -122,6 +174,8 @@ def test_legacy_suite_and_selftest_are_excluded_from_package():
         assert not package_skill.should_include(ROOT / 'scripts' / name)
     assert not package_skill.should_include(ROOT / 'scripts/new_unreviewed_batch_builder.py')
     assert package_skill.should_include(ROOT / 'scripts/validate_exam_release.py')
+    assert not package_skill.should_include(ROOT / 'old-private-sources.zip')
+    assert not package_skill.should_include(ROOT / 'nested/previous-release.7z')
 
 
 def answer_fixture():

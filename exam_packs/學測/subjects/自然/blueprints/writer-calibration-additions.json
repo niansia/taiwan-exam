@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "15c1f1f40fc620dc6a1d957a0b84a3c4579f495d558ef9625b0eb582f4ba2147",
+  "review_ledger_sha256": "df16720c26caa2f69c65495473430eb53ea76906b9c63810fc62f30642547689",
+  "record_count": 6,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然試題定稿.pdf",
+      "sha256": "479080cff932826975e9490218281b746e6740156f98b65637d1a43aeb0f8562",
+      "page_count": 19
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然答案.pdf",
+      "sha256": "7beeea0aba1a060736cc5a944f2aa26abdaec0e6c0586dec8d5cc901dc31851a",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/114學測自然試題定稿.pdf",
+      "sha256": "62b238bd109907dac0efb5dd4e019de1a59a3b283f031e90ae50fb32aafff136",
+      "page_count": 20
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/06-114學測自然答案.pdf",
+      "sha256": "217816174af6528a190fb31e2cde3c11df16380ae02aa4ed09f3284b3e8360c9",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然試卷.pdf",
+      "sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "page_count": 20
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然答案.pdf",
+      "sha256": "ba42c71786f7e34af2671bb5d18367aa80487b93afe668e12035594f571770c2",
+      "page_count": 1
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-c97f61f1cfe9",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.5,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "跨單元",
+        "question_type": "multiple_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-13d6089136d9",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.5,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}

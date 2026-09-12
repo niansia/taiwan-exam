@@ -35,6 +35,18 @@ The first checks EXISTING verified claims: no verified profiles with
 `pass-claims-only` is NOT readiness. `--revoke-unsupported` is a maintenance
 operation that demotes unsupported claims without deleting source materials.
 
+Run `python scripts/audit_exam_pack.py --readiness --output <readiness.json>` for
+the seven 115-reference booklets. Unlike the claims audit, it checks missing
+profiles, compatible layouts, local source hashes, curriculum calibration and
+every scored slot's matching aggregate cluster. A blocked report returns 1;
+`exam_data.py plan --full-paper` returns 2 when it writes an incomplete plan.
+Do not treat that diagnostic file as a calibrated plan. `--metadata-only` is for
+public-source CI and explicitly does not verify local PDF availability.
+
+`exam_data.py status` reports the distributed `writer-blueprint.json`; absence of
+private `questions.jsonl` or `learned-blueprint.json` is normal in a distribution.
+An aggregate `ready` label alone does not establish complete slot coverage.
+
 Open actual selected source PDFs, verify hashes/exam/year/section and page counts.
 Resolve disagreements using original pages, not hardcoded recipes. Use 111–115
 as primary form evidence; older material is content-only. Keep coverage counts
@@ -65,6 +77,19 @@ type column cannot repair an incomplete candidate booklet.
   observations, not copied pass strings;
 - `slots`: every scored unit with unique id, number (null if unnumbered),
   section_id, actual type, score, option_count for choices, source_sha256 and page.
+
+The page inventory includes every source page, including cover and final pages,
+without duplicate observations. Printed questions with scored subparts declare
+`item_spec.scored_units`; each unit carries `slot_id` matching the reviewed slot,
+score and response type, and all subpart scores sum to the printed parent score.
+Separately authored unnumbered tasks use `number: null`, `item_spec.slot_id` and
+an `answer_label` such as 中譯英1 or 英文作文. `number_display` controls a local
+printed label (e.g. 1. within translation); it may be empty. Renderers retain
+authored order and use the answer label instead of displaying a null number.
+The English booklet therefore has 50 Arabic-numbered questions and 53 scored
+units (two 4-point translations plus composition); 國寫 has two main tasks and
+three scored units. Plans expose both counts and retain exact source-reviewed
+slot order, without guessing order from a section's aggregate type mix.
 
 Only set verified after completing the review and resolving findings. A recipe,
 confidence 1.0, matching total or `official_document` label never establishes

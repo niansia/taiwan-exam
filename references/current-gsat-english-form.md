@@ -14,10 +14,10 @@ Select an exact verified Paper Profile. The verified 115 profile has 100 minutes
 | selected response | discourse structure | 31–34 | 8 |
 | selected response | reading | 35–46 | 24 |
 | mixed | mixed group | 47–50 | 10 |
-| non-selected | Chinese-to-English translation | two sentences, one scored unit | 8 |
+| non-selected | Chinese-to-English translation | two separately scored sentences (4 points each) | 8 |
 | non-selected | English composition | one scored unit | 20 |
 
-This yields 50 Arabic-numbered items and 52 scored units. The 115 discourse-structure section is one passage with four gaps and five options. Do not reuse the older two-passage arrangement when the simulated paper claims the 115-onward form.
+This yields 50 Arabic-numbered items and 53 scored units. Text completion is selected response with a shared ten-option bank; mixed items 47–48 are free-response word blanks. The 115 discourse-structure section is one passage with four gaps and five options. Do not reuse the older two-passage arrangement when the simulated paper claims the 115-onward form.
 
 The official 115-onward specification describes group passages of roughly 180–400 words, primarily continuous text, with diverse genres and topics and occasional images or tables. It also states that the same booklet must contain selected response, mixed response, Chinese-to-English translation, and English composition. Never split translation/composition into a separate paper or omit them from a “complete English paper.” Preserve the selected profile's grouping and task operations; do not turn every section into unrelated one-sentence blanks.
 

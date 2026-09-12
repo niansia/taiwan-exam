@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "subject": "社會",
+  "reviewer": "Codex source-analysis review",
+  "reviewed_at": "2026-09-12",
+  "method": "Selected item text, contextual pages and official answers/rubrics reviewed; necessary figures visually inspected.",
+  "limitations": "Not an independent human review or empirical P/D estimate. Supplements section/type coverage only; existing curriculum, difficulty, originality and finished-PDF gates still apply.",
+  "records": [
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 58,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會科試題定稿.pdf",
+        "sha256": "74a0026042bb4ad13044dfebb468e909b4293ebffc5b0e7f0d49a2b5ae6aa06c",
+        "page_count": 19,
+        "pages_reviewed": [
+          18
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會答案.pdf",
+        "sha256": "bb63cf9b1ece3980e22d9f136a22769a362d4e0750b6b62963d68f40a4b8a2c0",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "由課程項目推論殖民時期女子教育的角色期待，區分初等課程與後續職業結果。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": false,
+      "domain": "歷史",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 59,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會科試題定稿.pdf",
+        "sha256": "74a0026042bb4ad13044dfebb468e909b4293ebffc5b0e7f0d49a2b5ae6aa06c",
+        "page_count": 19,
+        "pages_reviewed": [
+          18
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會答案.pdf",
+        "sha256": "bb63cf9b1ece3980e22d9f136a22769a362d4e0750b6b62963d68f40a4b8a2c0",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "由職業集中情形判斷性別角色造成的水平隔離，區別升遷阻礙概念。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": false,
+      "domain": "公民",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 63,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會科試題定稿.pdf",
+        "sha256": "74a0026042bb4ad13044dfebb468e909b4293ebffc5b0e7f0d49a2b5ae6aa06c",
+        "page_count": 19,
+        "pages_reviewed": [
+          19
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會答案.pdf",
+        "sha256": "bb63cf9b1ece3980e22d9f136a22769a362d4e0750b6b62963d68f40a4b8a2c0",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "以移民聚落史推論都市文化景觀的可驗證遺存，不擴張為人口階段或高科技產業結論。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": false,
+      "domain": "地理",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 57,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會試題.pdf",
+        "sha256": "1d1340c4aa079aa5afd9b37f7ac564d9b13b99c2e629238d6f6c17179d47a505",
+        "page_count": 20,
+        "pages_reviewed": [
+          18
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會答案.pdf",
+        "sha256": "ff04e289ede3b49329406f393427b3d78c57e76cda3dd31445fabf7d215f67f8",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "將生產技術改善對供給的作用，與其他市場情境的供需變化作類比。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": false,
+      "domain": "公民",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 59,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會試題.pdf",
+        "sha256": "1d1340c4aa079aa5afd9b37f7ac564d9b13b99c2e629238d6f6c17179d47a505",
+        "page_count": 20,
+        "pages_reviewed": [
+          19
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會答案.pdf",
+        "sha256": "ff04e289ede3b49329406f393427b3d78c57e76cda3dd31445fabf7d215f67f8",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "比較機械化農業擴大量產及多樣經營的獲利方式，排除品牌升級與外包壓低工資；漫畫已目視核對。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": true,
+      "domain": "地理",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 60,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會試題.pdf",
+        "sha256": "1d1340c4aa079aa5afd9b37f7ac564d9b13b99c2e629238d6f6c17179d47a505",
+        "page_count": 20,
+        "pages_reviewed": [
+          19
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會答案.pdf",
+        "sha256": "ff04e289ede3b49329406f393427b3d78c57e76cda3dd31445fabf7d215f67f8",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "綜合漫畫中多國顧客與農產輸出的描繪推論貿易訴求，區別孤立與保護政策；漫畫已目視核對。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": true,
+      "domain": "歷史",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 58,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會試卷.pdf",
+        "sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+        "page_count": 20,
+        "pages_reviewed": [
+          18
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會答案.pdf",
+        "sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "由遷出地與欲追查的移入影響，選擇能反映目的地人口變動的史料。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": false,
+      "domain": "歷史",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 62,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會試卷.pdf",
+        "sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+        "page_count": 20,
+        "pages_reviewed": [
+          19
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會答案.pdf",
+        "sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "把具體散播行為評價連到刑罰對權利限制的正當化要求，排除嚇阻與報應論。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": false,
+      "domain": "公民",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 64,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會試卷.pdf",
+        "sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+        "page_count": 20,
+        "pages_reviewed": [
+          20
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會答案.pdf",
+        "sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "將海峽位置連到相鄰海域與石油航路方向，題旁產量圖非本題必要資訊。",
+      "reasoning_operations": [
+        "證據連結",
+        "概念辨析"
+      ],
+      "requires_diagram": false,
+      "domain": "地理",
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    }
+  ]
+}

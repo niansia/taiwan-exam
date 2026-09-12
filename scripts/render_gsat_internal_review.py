@@ -18,6 +18,7 @@ from typing import Any
 
 from gsat_115_templates import formula_markup as gsat_115_formula_markup
 from render_exam import esc, image_data_uri, text_block, validate_exam
+from render_exam import question_number_display, answer_question_label, answer_heading
 
 
 STYLE = r"""
@@ -583,7 +584,7 @@ def _question(q: dict[str, Any], subject: str, base: Path, show_stimulus: bool, 
         core = f'<div class="stem-side"><div>{prompt}{fill}</div>{visual}</div>{option_html}{response_html}{lines}'
     else:
         core = f'{prompt}{visual}{option_html}{fill}{response_html}{lines}'
-    number_display = q.get("number_display") or f'{q["number"]}.'
+    number_display = question_number_display(q)
     section_class = f' section-{esc(q.get("section_id") or "")}' if q.get("section_id") else ""
     return f'{group}{stimulus}<article class="question{section_class}"{height_style}><div class="qno">{esc(number_display)}</div><div>{core}</div></article>'
 
@@ -742,7 +743,7 @@ def _pages(exam: dict[str, Any], base: Path) -> str:
     prior_stimulus: str | None = None
     current_section: str | None = None
     for page_no in range(2, total + 1):
-        qs = sorted((q for q in exam["questions"] if int(q.get("page", 2)) == page_no), key=lambda x: x["number"])
+        qs = [q for q in exam['questions'] if int(q.get('page', 2)) == page_no]
         body: list[str] = []
         shown_paths: set[str] = set()
         i = 0
@@ -766,7 +767,8 @@ def _pages(exam: dict[str, Any], base: Path) -> str:
             if stimulus:
                 global_group = [x for x in exam["questions"] if x.get("group_stimulus") == stimulus]
                 if len(global_group) > 1:
-                    label = f'第 {global_group[0]["number"]} 至 {global_group[-1]["number"]} 題為題組'
+                    if global_group[0].get('number') is not None and global_group[-1].get('number') is not None:
+                        label = f'第 {global_group[0]["number"]} 至 {global_group[-1]["number"]} 題為題組'
                     if prior_stimulus == stimulus:
                         if subject == "英文":
                             label = None
@@ -847,7 +849,7 @@ def _answers(exam: dict[str, Any]) -> str:
         if isinstance(value, list):
             return "、".join(item_text(item) for item in value)
         return item_text(value)
-    number = {q["id"]: q["number"] for q in exam["questions"]}
+    number = {q["id"]: answer_question_label(q) for q in exam["questions"]}
     answers = exam.get("answers") or []
     difficulty_names = {
         "easy": "簡單", "medium": "中", "medium_hard": "中偏難", "hard": "難", "very_hard": "難",
@@ -869,7 +871,7 @@ def _answers(exam: dict[str, Any]) -> str:
         body = '<ol>' + ''.join(f'<li>{answer_text(x)}</li>' for x in reasoning) + '</ol>' if reasoning else ""
         for block in a.get("explanation_blocks") or []:
             body += f'<p><b>{esc(block.get("title") or "說明")}：</b>{answer_text(block.get("content"))}</p>'
-        details.append(f'<article class="solution"><h2>第 {esc(number.get(a["question_id"]))} 題　答案：{answer_text(a.get("final_answer"))}</h2>{body}</article>')
+        details.append(f'<article class="solution"><h2>{answer_heading(number.get(a["question_id"]))}　答案：{answer_text(a.get("final_answer"))}</h2>{body}</article>')
     quick_pages = []
     # Keep each table inside an explicit page-sized chunk.  The capacity is
     # slightly below the physical maximum so borders and wrapped CJK text do

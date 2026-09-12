@@ -116,6 +116,7 @@ def validate_exam(exam: Any) -> list[str]:
             errors.append(f"metadata 缺少 {key}")
     section_ids = {section.get("id") for section in exam["sections"]}
     seen_numbers: set[int] = set()
+    seen_ids = set()
     for index, question in enumerate(exam["questions"], 1):
         for key in ("id", "number", "section_id", "type", "prompt"):
             if key not in question:
@@ -123,9 +124,18 @@ def validate_exam(exam: Any) -> list[str]:
         if question.get("section_id") not in section_ids:
             errors.append(f"第 {index} 筆 question 指向未知 section")
         number = question.get("number")
-        if number in seen_numbers:
-            errors.append(f"題號 {number} 重複")
-        seen_numbers.add(number)
+        if not question.get('id') or question.get('id') in seen_ids:
+            errors.append(f'第 {index} 筆 question 的 id 缺少或重複')
+        seen_ids.add(question.get('id'))
+        if number is None:
+            if not question.get('answer_label') or not (question.get('item_spec') or {}).get('slot_id'):
+                errors.append(f'第 {index} 筆無連續題號的 question 需要 answer_label 與 item_spec.slot_id')
+        elif not isinstance(number, int) or isinstance(number, bool) or number < 1:
+            errors.append(f'第 {index} 筆 question 的題號必須為正整數或 null')
+        else:
+            if number in seen_numbers:
+                errors.append(f"題號 {number} 重複")
+            seen_numbers.add(number)
     if metadata.get("generation_mode") == "full-paper":
         expected = metadata.get("expected_question_count")
         if not metadata.get("paper_profile_id"):
@@ -194,6 +204,20 @@ def render_visual(asset: Any, asset_base: Path | None) -> str:
     )
 
 
+def question_number_display(question: dict[str, Any]) -> str:
+    if 'number_display' in question:
+        return question['number_display']
+    return f"{question['number']}." if question.get('number') is not None else ''
+
+
+def answer_question_label(question: dict[str, Any]):
+    return question['number'] if question.get('number') is not None else question.get('answer_label') or question['id']
+
+
+def answer_heading(label) -> str:
+    return f'第 {esc(label)} 題' if isinstance(label, int) else esc(label)
+
+
 def render_question(question: dict[str, Any], asset_base: Path | None = None) -> str:
     score = question.get("score")
     score_html = f'<span class="score">（{esc(score)} 分）</span>' if score is not None else ""
@@ -217,7 +241,7 @@ def render_question(question: dict[str, Any], asset_base: Path | None = None) ->
     content = f"{visual}{prompt_html}" if placement == "before_prompt" else f"{prompt_html}{visual}"
     return (
         '<article class="question">'
-        f'<div class="question-number">{esc(question["number"])}.</div>'
+        f'<div class="question-number">{esc(question_number_display(question))}</div>'
         '<div class="question-body">'
         f'{score_html}{stimulus_html}{content}{options_html}{lines_html}'
         "</div></article>"
@@ -259,7 +283,7 @@ def render_answer_detail(answer: dict[str, Any], number: Any, asset_base: Path |
         verification_html += f"｜{text_block(verification_notes)}"
     verification_html += "</p>"
     return (
-        f'<article class="solution-card"><h2>第 {esc(number)} 題</h2>'
+        f'<article class="solution-card"><h2>{answer_heading(number)}</h2>'
         f'<p class="solution-meta">{meta_html}</p>{reasoning_html}{visual_html}'
         f'{"".join(blocks)}{errors_html}{verification_html}</article>'
     )
@@ -276,7 +300,7 @@ def render_exam(exam: dict[str, Any], include_answers: bool = True, asset_base: 
     instructions = "".join(f"<li>{text_block(item)}</li>" for item in exam["instructions"])
     sections_html = []
     questions_by_section: dict[str, list[dict[str, Any]]] = {section["id"]: [] for section in exam["sections"]}
-    for question in sorted(exam["questions"], key=lambda item: item["number"]):
+    for question in exam["questions"]:
         questions_by_section[question["section_id"]].append(question)
     for section in exam["sections"]:
         notes = "".join(f"<p>{text_block(item)}</p>" for item in section.get("instructions", []))
@@ -291,7 +315,7 @@ def render_exam(exam: dict[str, Any], include_answers: bool = True, asset_base: 
     if include_answers and answers:
         rows = []
         details = []
-        number_by_id = {question["id"]: question["number"] for question in exam["questions"]}
+        number_by_id = {question["id"]: answer_question_label(question) for question in exam["questions"]}
         for answer in answers:
             number = number_by_id.get(answer["question_id"], answer["question_id"])
             rows.append(

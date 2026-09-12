@@ -96,6 +96,8 @@ def subject_paths(root: Path) -> Iterable[tuple[str, str, Path]]:
 
 
 def resolve_subject(root: Path, exam: str, subject: str) -> Path:
+    if exam == "學測":
+        subject = {"國綜": "國文", "國寫": "國文", "數A": "數學A", "數B": "數學B"}.get(subject, subject)
     for found_exam, found_subject, path in subject_paths(root):
         if found_exam == exam and found_subject == subject:
             return path
@@ -908,7 +910,7 @@ def status(root: Path) -> int:
     code, counts = validate_repository(root, quiet=True)
     rows = []
     for exam, subject, subject_path in subject_paths(root):
-        blueprint_path = subject_path / "blueprints" / "learned-blueprint.json"
+        blueprint_path = subject_path / "blueprints" / "writer-blueprint.json"
         difficulty_path = subject_path / "blueprints" / "difficulty-profile.json"
         official_pd_count = 0
         if difficulty_path.exists():
@@ -918,18 +920,20 @@ def status(root: Path) -> int:
         if blueprint_path.exists():
             blueprint = load_json(blueprint_path)
             status_value = blueprint.get("calibration_status", "unknown")
-            years = f"{blueprint['years']['minimum']}-{blueprint['years']['maximum']}"
+            span = blueprint.get('years') or {}
+            years = f"{span.get('minimum', '?')}-{span.get('maximum', '?')}"
         elif counts.get((exam, subject), 0):
             status_value = "待建 Blueprint"
         elif official_pd_count:
             status_value = "僅官方難度；缺語意標註"
         rows.append((exam, subject, counts.get((exam, subject), 0), official_pd_count, years, status_value))
-    header = ["考試", "科目", "語意題數", "官方P/D", "語意年度", "整卷狀態"]
+    header = ["考試", "科目", "本機逐題資料", "官方P/D", "彙整年度", "Writer 校準狀態"]
     widths = [max(len(str(row[index])) for row in (header, *rows)) for index in range(len(header))]
     print("  ".join(str(value).ljust(widths[index]) for index, value in enumerate(header)))
     print("  ".join("-" * width for width in widths))
     for row in rows:
         print("  ".join(str(value).ljust(widths[index]) for index, value in enumerate(row)))
+    print("彙整 Blueprint 可隨發行版提供；本機逐題資料為 0 不代表沒有校準。完整前置檢查：python scripts/audit_exam_pack.py --readiness")
     return code
 
 
@@ -938,6 +942,7 @@ def select_paper_profile(
     curriculum: str | None,
     paper_id: str | None,
     paper_year: int | None,
+    section: str | None = None,
 ) -> dict[str, Any]:
     profiles, errors = read_jsonl(subject_path / "metadata" / "papers.jsonl")
     if errors:
@@ -948,6 +953,8 @@ def select_paper_profile(
         profiles = [profile for profile in profiles if profile.get("year") == paper_year]
     if curriculum:
         profiles = [profile for profile in profiles if profile.get("curriculum") == curriculum]
+    if section:
+        profiles = [profile for profile in profiles if profile.get('section') == section]
 
     def ready(profile: dict[str, Any]) -> bool:
         from pack_verification import paper_errors
@@ -992,6 +999,8 @@ def select_paper_profile(
     if not ready_profiles:
         target = paper_id or (f"{paper_year} 年" if paper_year else "相容")
         raise ValueError(f"找不到可通過全卷結構門檻的 {target} Paper Profile；請先複核題數、大題配方、配分與時間。")
+    if len({p.get('section') for p in ready_profiles if p.get('section') in {'國綜', '國寫'}}) > 1:
+        raise ValueError("國文包含兩份不同試卷；請以 --subject 國綜 或 --subject 國寫 指定，或提供 --paper-id。")
     return sorted(
         ready_profiles,
         key=lambda profile: (
@@ -1046,6 +1055,28 @@ def section_labels_match(source: str | None, target: str | None) -> bool:
     if not source_key or not target_key:
         return False
     return source_key == target_key or source_key in target_key or target_key in source_key
+
+
+def matching_slot_patterns(patterns, paper, slot):
+    section_id = slot['section_id']
+    title = next((s['title'] for s in paper['sections'] if s['id'] == section_id), None)
+    if paper.get('section') in {'國綜', '國寫'}:
+        section_id = paper['section'] + '-' + section_id
+    def response_type(pattern):
+        # Historical annotation used task labels for these two English
+        # sections. Normalize only known equivalents, never across sections.
+        if paper.get('subject') == '英文':
+            if slot['section_id'] == 'section-3' and pattern.get('unit') == '文意選填' and pattern.get('question_type') == 'fill_in':
+                return 'single_choice'
+            if slot['section_id'] == 'section-8' and pattern.get('unit') == '英文作文' and pattern.get('question_type') == 'guided_writing':
+                return 'constructed_response'
+        return pattern.get('question_type')
+    def section_match(source):
+        if source and re.fullmatch(r'(?:國綜-|國寫-)?section-\d+', source):
+            return source == section_id
+        return section_labels_match(source, title)
+    return [item for item in patterns if response_type(item['pattern']) == slot['type']
+            and section_match(item['pattern'].get('section'))]
 
 
 def overall_from_target_p(p_value: float) -> int:
@@ -1123,11 +1154,13 @@ def generate_plan(
 ) -> int:
     subject_path = resolve_subject(root, exam, subject)
     paper_profile = None
+    subject = subject if subject in {'國綜', '國寫'} else subject_path.name
     layout_profile = None
     if full_paper:
         if difficulty:
             raise ValueError("完整模擬卷必須保留官方逐題難度曲線；--difficulty 僅適用於自訂練習。")
-        paper_profile = select_paper_profile(subject_path, curriculum, paper_id, paper_year)
+        paper_profile = select_paper_profile(subject_path, curriculum, paper_id, paper_year,
+                                             subject if subject in {'國綜', '國寫'} else None)
         paper_count = paper_profile["numbered_question_count"]
         if count is not None and count != paper_count:
             raise ValueError(f"--count {count} 與 Paper Profile 的整卷題數 {paper_count} 不一致")
@@ -1137,7 +1170,8 @@ def generate_plan(
     blueprint_path = subject_path / "blueprints" / "writer-blueprint.json"
     if not blueprint_path.exists():
         raise ValueError(f"{exam}/{subject} 尚無 aggregate-only writer blueprint；請先匯入 metadata 並執行 build-blueprints。")
-    blueprint = load_json(blueprint_path)
+    from writer_calibration import load_writer
+    blueprint = load_writer(subject_path, root if full_paper else None)
     curricula = blueprint.get("curricula", [])
     if not curriculum and len(curricula) > 1:
         raise ValueError(f"Blueprint 含多個課綱版本 {curricula}；請用 --curriculum 明確指定，禁止混合抽樣。")
@@ -1173,28 +1207,23 @@ def generate_plan(
     difficulty_profile = load_json(difficulty_profile_path) if difficulty_profile_path.exists() else None
     items = []
     missing_pattern_slots: list[dict[str, Any]] = []
-    section_targets: dict[int, tuple[str, str | None]] = {}
+    target_slots = [None] * count
     if paper_profile:
-        for section in paper_profile["sections"]:
-            start = section.get("question_number_start")
-            end = section.get("question_number_end")
-            type_slots: list[str] = []
-            for question_type, amount in (section.get("question_type_mix") or {}).items():
-                type_slots.extend([question_type] * amount)
-            if isinstance(start, int) and isinstance(end, int):
-                for offset, position in enumerate(range(start, end + 1)):
-                    desired_type = type_slots[offset] if offset < len(type_slots) else None
-                    section_targets[position] = (section["title"], desired_type)
-    for index in range(1, count + 1):
-        target_section, target_type = section_targets.get(index, (None, None))
+        target_slots = paper_profile['evidence']['structure_review']['slots']
+        count = len(target_slots)
+    for index, slot in enumerate(target_slots, 1):
+        target_section = slot.get('section_id') if slot else None
+        target_type = slot.get('type') if slot else None
+        target = ({'target_slot_id': slot['id'], 'target_number': slot.get('number'),
+                   'target_score': slot['score'], 'target_option_count': slot.get('option_count'),
+                   'target_required_selection_count': slot.get('required_selection_count'),
+                   'target_response_format': slot.get('response_format'),
+                   'target_scoring_dependency': slot.get('scoring_dependency')}
+                  if slot else {})
+        section_title = next((s['title'] for s in paper_profile['sections'] if s['id'] == target_section), None) if paper_profile else None
         candidates = patterns
         if paper_profile and target_section:
-            candidates = [
-                item
-                for item in candidates
-                if section_labels_match(item["pattern"].get("section"), target_section)
-                and (not target_type or item["pattern"].get("question_type") == target_type)
-            ]
+            candidates = matching_slot_patterns(patterns, paper_profile, slot)
             if not candidates:
                 missing_pattern_slots.append(
                     {"position": index, "section": target_section, "question_type": target_type}
@@ -1202,6 +1231,7 @@ def generate_plan(
                 items.append(
                     {
                         "item_id": f"generated-{index:02d}",
+                        **target,
                         "target_position": index,
                         "target_section": target_section,
                         "target_question_type": target_type,
@@ -1226,8 +1256,8 @@ def generate_plan(
         writer_pattern = dict(pattern)
         aggregate_cluster_id = group["cluster_id"]
         target_difficulty = official_difficulty_target(
-            difficulty_profile, selected_curriculum, index, target_section
-        ) if paper_profile and exam == "學測" else None
+            difficulty_profile, selected_curriculum, slot.get('number'), section_title
+        ) if paper_profile and exam == "學測" and target_type in {'single_choice', 'multiple_choice'} and isinstance(slot.get('number'), int) else None
         items.append(
             {
                 "item_id": f"generated-{index:02d}",
@@ -1236,6 +1266,9 @@ def generate_plan(
                 "target_question_type": target_type,
                 "pattern_status": "matched_aggregate_cluster",
                 **writer_pattern,
+                "aggregate_response_type": pattern.get('question_type'),
+                **target,
+                **({'section': target_section, 'question_type': target_type, 'score': slot['score']} if slot else {}),
                 "curriculum": selected_curriculum,
                 "current_form_cluster_id": aggregate_cluster_id,
                 "aggregate_support_count": int(group.get("count") or 0),
@@ -1253,8 +1286,10 @@ def generate_plan(
         "exam": exam,
         "subject": subject,
         "count": count,
+        "numbered_question_count": paper_profile['numbered_question_count'] if paper_profile else count,
         "seed": seed,
         "calibration_level": (
+            "incomplete-pattern-coverage" if missing_pattern_slots else
             "historically-calibrated" if curriculum_status.get("status") == "ready" else "exploratory-uncalibrated"
         ),
         "blueprint_fingerprint": blueprint["metadata_fingerprint"],
@@ -1322,7 +1357,7 @@ def generate_plan(
         print(f"已輸出 Item Specs：{output}")
     else:
         print(rendered, end="")
-    return 0
+    return 2 if missing_pattern_slots else 0
 
 
 def parser() -> argparse.ArgumentParser:

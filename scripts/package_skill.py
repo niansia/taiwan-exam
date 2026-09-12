@@ -56,11 +56,14 @@ PRIVATE_REPORTS = {
     "gsat-writing-source-ecology-audit-2026-09-05.md",
 }
 MAINTAINER_ONLY_FILES = {
+    "requirements-test.txt",
     "SOFTWARE_RELEASE_STATUS.json",
     "references/rendering-security-review.md",
     "references/security-incident-2026-09-09.md",
     "references/security-resolution-2026-09-11.md",
     "references/software-release-security.md",
+    "docs/production-readiness-2026-09-12.md",
+    "references/security-resolution-2026-09-12.md",
 }
 
 # Reviewed reusable tools only. New batch/question generators must not enter a
@@ -71,7 +74,7 @@ analyze_historical_content.py analyze_mock_bundle.py analyze_mock_exam_dataset.p
 analyze_pdf_visuals.py analyze_recent_math_form.py analyze_stimulus_ecology.py
 analyze_writing_source_corpus.py audit_corpus_overlap.py audit_item_originality.py
 audit_source_novelty.py audit_exam_pack.py audit_generated_suite.py
-bootstrap_exam_sources.py
+bootstrap_exam_sources.py writer_calibration.py
 build_gsat_difficulty_profiles.py build_layout_review_queue.py
 build_official_question_queue.py build_paper_profiles.py build_pdf_contact_sheets.py
 build_question_candidates.py build_visual_queue.py download_ceec_gsat_statistics.py
@@ -99,6 +102,10 @@ validate_exam_release.py validate_exam_pack_contract.py
 
 def should_include(path: Path) -> bool:
     rel = path.relative_to(ROOT)
+    if path.suffix.lower() in {'.zip', '.7z', '.rar', '.tar', '.gz'}:
+        # Source/data releases are separate. Never nest an old release or the
+        # output archive itself into a Skill archive from an arbitrary folder.
+        return False
     if not rel.parts or rel.parts[0] in EXCLUDED_TOP_LEVEL or rel.parts[0].startswith("drive-download"):
         return False
     if rel.name == "PACKAGE_MANIFEST.json" or rel.name == ".env" or rel.name.startswith(".env."):
@@ -161,19 +168,25 @@ def main() -> int:
     parser.add_argument("--version", default="0.7.0")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--public-release", action="store_true", help="Also require confirmed licensing declarations; does not publish anything")
+    parser.add_argument('--release-candidate', action='store_true',
+                        help='Run all local publication scans while distribution stays suspended; only a private draft may host this candidate for browser acceptance')
     parser.add_argument('--source-url', help='Actual stable public HTTPS download URL; required for public-release checks')
     args = parser.parse_args()
+    if args.public_release and args.release_candidate:
+        parser.error('choose public-release or release-candidate, not both')
+    publication_checks = args.public_release or args.release_candidate
 
-    if args.public_release:
+    if publication_checks:
         try:
-            require_publication_open(ROOT)
+            if args.public_release:
+                require_publication_open(ROOT)
             from scan_skill_release import validate_source_url
             validate_source_url(args.source_url)
         except (OSError, ValueError) as exc:
             print(json.dumps({'error': str(exc), 'status': 'publication-blocked'}, ensure_ascii=False))
             return 2
 
-    attribution = validate_attribution(ROOT, public_release=args.public_release)
+    attribution = validate_attribution(ROOT, public_release=publication_checks)
     if attribution["status"] != "pass":
         print(json.dumps({"error": "Attribution check failed", "details": attribution}, ensure_ascii=False, indent=2))
         return 2
@@ -183,7 +196,7 @@ def main() -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
 
     files = sorted(
-        path for path in ROOT.rglob("*") if path.is_file() and should_include(path)
+        path for path in ROOT.rglob("*") if path.is_file() and path.resolve() != output and should_include(path)
     )
     entries = []
     archive_root = "taiwan-exam-generator"
@@ -199,7 +212,7 @@ def main() -> int:
             "name": "taiwan-exam-generator",
             "version": args.version,
             "schema_version": 1,
-            "distribution_status": "release-candidate-not-published" if args.public_release else "internal-review",
+            "distribution_status": "release-candidate-not-published" if publication_checks else "internal-review",
             "origin": attribution["origin"],
             "attribution_check": {"status": "pass", "scope": attribution["scope"], "notice_sha256": attribution["notice_sha256"], "warnings": attribution["warnings"]},
             "exam_acceptance": "not-established-by-packager",
@@ -213,7 +226,7 @@ def main() -> int:
             (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8"),
         )
 
-    if args.public_release:
+    if publication_checks:
         from scan_skill_release import scan_release
         report = scan_release(output, source_url=args.source_url)
         output.with_suffix('.security.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

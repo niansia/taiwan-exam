@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "f8825408ee35694efaa60ff6e8f738432afdd88b2891ec64959b8d9dacf6ba1c",
+  "review_ledger_sha256": "523840d4179f9a1d07e5bca7325baa441089ff304a9499dc97a8f4f587afec40",
+  "record_count": 9,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國綜試題定稿.pdf",
+      "sha256": "f0a9043fca96e76b4e01cc532a64df58f447a3773f6dae54bdf940cc63229783",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國語文綜合能力測驗答案.pdf",
+      "sha256": "a7f91efc0a38016afb8ef749b981f79e5b63498947b95194a65d02405a30a2f3",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜試題.pdf",
+      "sha256": "ad9878a480fb11e6c6a386b42deff9db52481e3a4f30542b94b4895a7388cd02",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國語文綜合能力測驗答案.pdf",
+      "sha256": "214f283160ab61a711349cd6b24643fb79aec20300b4cbf5bb454bcdf03a1c67",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國綜試卷.pdf",
+      "sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國語文綜合能力測驗答案.pdf",
+      "sha256": "d371d9539c7cb7bce7e51e561bca91af4b3e8199dddcddb67f82fd2607a114f5",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+      "sha256": "288457c62440bbedb0184420cd720f6e7bf2d2c40bd08589e92d6a010ab29d3d",
+      "page_count": 3
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜非選擇題參考答案與評分原則.pdf",
+      "sha256": "4f462a4a7e25f7fea584b6fb35388b672a5920dbd7199feb7fc8407270d438d0",
+      "page_count": 3
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+      "sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+      "page_count": 3
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-787a41c35150",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.333333,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-2",
+        "domain": "跨單元",
+        "question_type": "multiple_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-b134703a2d20",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.333333,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-3",
+        "domain": "跨單元",
+        "question_type": "constructed_response",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-58526d4f33cd",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.333333,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-3",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}

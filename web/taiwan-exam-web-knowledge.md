@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.12.6
+# Taiwan Exam Web Knowledge v2026.09.12.8
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -21,6 +21,10 @@ context. The embedded `scripts/read_web_knowledge.py` can extract selected paths
 or an initial subject route in one call and verify their portable payload hashes;
 read additional linked references when applicable. It does not generate questions.
 Keep the full knowledge file and all 30 URL records for later subject requests.
+When present, load the same subject's `writer-calibration-additions.json` beside
+its base writer blueprint. Its aggregate clusters supplement section/type
+coverage. Do not reconstruct the analysis ledger or treat estimated additions
+as empirical statistics. Current verified slots control options and scores.
 
 The 111–115 corpus and 115 template labels are reference years, not expiry dates.
 For 116 and later mocks, default to compatible current-regime profiles and fixed
@@ -94,10 +98,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "exam_packs/學測/metadata/official-current-web-sources.json",
-    "bytes": 234542,
-    "sha256": "a1512b67d6a127f6c07901af63cccd9dac2c7a4167078085201ceafb795b0e02",
-    "embedded_bytes": 234542,
-    "embedded_sha256": "a1512b67d6a127f6c07901af63cccd9dac2c7a4167078085201ceafb795b0e02"
+    "bytes": 403782,
+    "sha256": "f366e18020e808570abe34616501ee725803b1cb7fa2d0d6fa946207d6ae0a15",
+    "embedded_bytes": 403782,
+    "embedded_sha256": "f366e18020e808570abe34616501ee725803b1cb7fa2d0d6fa946207d6ae0a15"
   },
   {
     "path": "exam_packs/學測/official-baseline.json",
@@ -163,6 +167,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "embedded_sha256": "f8825408ee35694efaa60ff6e8f738432afdd88b2891ec64959b8d9dacf6ba1c"
   },
   {
+    "path": "exam_packs/學測/subjects/國文/blueprints/writer-calibration-additions.json",
+    "bytes": 5207,
+    "sha256": "03a9b92754576c5fc574bde895a408d63981cafc8064c436101a16651f1a8c0a",
+    "embedded_bytes": 5207,
+    "embedded_sha256": "03a9b92754576c5fc574bde895a408d63981cafc8064c436101a16651f1a8c0a"
+  },
+  {
     "path": "exam_packs/學測/subjects/國文/subject.json",
     "bytes": 77,
     "sha256": "ebdf557d97a5142ee49c50261daaef4f4adda33dacd209a3b79f0ec8ad5bfb3f",
@@ -219,6 +230,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "embedded_sha256": "fb15a83ca85faef9f2b725f74c6948cbebef2ff77027a522252fff1a8e7c3cb5"
   },
   {
+    "path": "exam_packs/學測/subjects/數學B/blueprints/writer-calibration-additions.json",
+    "bytes": 2608,
+    "sha256": "49745181dcc4615a147a094c5e5901dcc5fd6dc83a75875e58dc917082718742",
+    "embedded_bytes": 2608,
+    "embedded_sha256": "49745181dcc4615a147a094c5e5901dcc5fd6dc83a75875e58dc917082718742"
+  },
+  {
     "path": "exam_packs/學測/subjects/數學B/subject.json",
     "bytes": 69,
     "sha256": "1e1f06364fabc3e0580abc181a56a0edd4c6794b72f5298704919143ed6e0140",
@@ -268,6 +286,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "embedded_sha256": "82828bb20c7837cf31c19aad405bd6f4c08f7c97485a460b421ff1c0626bc445"
   },
   {
+    "path": "exam_packs/學測/subjects/社會/blueprints/writer-calibration-additions.json",
+    "bytes": 2602,
+    "sha256": "fa3523514241b225c9ad403b6f7aa6461d98af963e3be487583537696ac50eac",
+    "embedded_bytes": 2602,
+    "embedded_sha256": "fa3523514241b225c9ad403b6f7aa6461d98af963e3be487583537696ac50eac"
+  },
+  {
     "path": "exam_packs/學測/subjects/社會/subject.json",
     "bytes": 102,
     "sha256": "380542c57f965ee2f837dcb102262432a6839c7deabb745bc823530abc0ec882",
@@ -296,6 +321,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "embedded_sha256": "15c1f1f40fc620dc6a1d957a0b84a3c4579f495d558ef9625b0eb582f4ba2147"
   },
   {
+    "path": "exam_packs/學測/subjects/自然/blueprints/writer-calibration-additions.json",
+    "bytes": 3455,
+    "sha256": "270ce1c9b03da16b96b90115beadc009991dba4bfb7b09fe23925481dc87fa0e",
+    "embedded_bytes": 3455,
+    "embedded_sha256": "270ce1c9b03da16b96b90115beadc009991dba4bfb7b09fe23925481dc87fa0e"
+  },
+  {
     "path": "exam_packs/學測/subjects/自然/subject.json",
     "bytes": 127,
     "sha256": "824539ccfe60d2a479a3476d7d554e35372d31d9cd0c492e489bebd2cf0b565e",
@@ -312,9 +344,9 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   {
     "path": "exam_packs/學測/subjects/英文/blueprints/layout-profiles/gsat-english-115-measured-v1.json",
     "bytes": 11150,
-    "sha256": "847fcaac356a518272e65566e4c0b75b6c20d508ec3cd01f0415d6e17f1800cc",
+    "sha256": "ff08d43232889ee3e51a6b2a4b4b5dae28d824180efbc88b9fd9d9171434d622",
     "embedded_bytes": 11150,
-    "embedded_sha256": "847fcaac356a518272e65566e4c0b75b6c20d508ec3cd01f0415d6e17f1800cc"
+    "embedded_sha256": "ff08d43232889ee3e51a6b2a4b4b5dae28d824180efbc88b9fd9d9171434d622"
   },
   {
     "path": "exam_packs/學測/subjects/英文/blueprints/writer-blueprint.json",
@@ -322,6 +354,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "sha256": "e2551a6501acf6adb13302908c3f21eca1141d14200884ff212a08d05a1006bd",
     "embedded_bytes": 29147,
     "embedded_sha256": "e2551a6501acf6adb13302908c3f21eca1141d14200884ff212a08d05a1006bd"
+  },
+  {
+    "path": "exam_packs/學測/subjects/英文/blueprints/writer-calibration-additions.json",
+    "bytes": 5944,
+    "sha256": "6f6949277796d3c0a5f58d2089e8a7fd4981c14179a4e8bdc5fef63edc6625c6",
+    "embedded_bytes": 5944,
+    "embedded_sha256": "6f6949277796d3c0a5f58d2089e8a7fd4981c14179a4e8bdc5fef63edc6625c6"
   },
   {
     "path": "exam_packs/學測/subjects/英文/subject.json",
@@ -409,10 +448,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 21702,
-    "sha256": "442cf9c847c9e58e9f71ff0de10cd418a8bf8e199b0d5a9ee82baa56db4e4478",
-    "embedded_bytes": 21702,
-    "embedded_sha256": "442cf9c847c9e58e9f71ff0de10cd418a8bf8e199b0d5a9ee82baa56db4e4478"
+    "bytes": 21838,
+    "sha256": "bfbdcb0e70e98e6a40c5d32d92f0ba62f727edb6138c12d0c012a8856d18cbc2",
+    "embedded_bytes": 21838,
+    "embedded_sha256": "bfbdcb0e70e98e6a40c5d32d92f0ba62f727edb6138c12d0c012a8856d18cbc2"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -451,10 +490,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/data-ingestion.md",
-    "bytes": 5577,
-    "sha256": "1139f98d45ee941cc199dd366ccdf33b5c65972406faa187698898b5363b8fa3",
-    "embedded_bytes": 5577,
-    "embedded_sha256": "1139f98d45ee941cc199dd366ccdf33b5c65972406faa187698898b5363b8fa3"
+    "bytes": 6758,
+    "sha256": "dafc46072b53ec42e841fc248e01ea9fd59dc4a41891ff350d4ed5c3d05f7e42",
+    "embedded_bytes": 6758,
+    "embedded_sha256": "dafc46072b53ec42e841fc248e01ea9fd59dc4a41891ff350d4ed5c3d05f7e42"
   },
   {
     "path": "references/difficulty-calibration.md",
@@ -570,10 +609,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/pack-and-release-verification.md",
-    "bytes": 14995,
-    "sha256": "54f6ee4f8420ad415a7c9ef06f252557a9b906be1c61719be6bf230c8b713b87",
-    "embedded_bytes": 14995,
-    "embedded_sha256": "54f6ee4f8420ad415a7c9ef06f252557a9b906be1c61719be6bf230c8b713b87"
+    "bytes": 16737,
+    "sha256": "db8d069649ec99ff6d5b69319e0089b14e30e9a1f39c8192652f828db5a0fca8",
+    "embedded_bytes": 16737,
+    "embedded_sha256": "db8d069649ec99ff6d5b69319e0089b14e30e9a1f39c8192652f828db5a0fca8"
   },
   {
     "path": "references/pdf-provenance.md",
@@ -647,10 +686,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "schemas/exam.schema.json",
-    "bytes": 5439,
-    "sha256": "ecf185fffd75349f6b069018b2ec3d0d8497b7605abb7a197e54f6bb6691b10d",
-    "embedded_bytes": 5439,
-    "embedded_sha256": "ecf185fffd75349f6b069018b2ec3d0d8497b7605abb7a197e54f6bb6691b10d"
+    "bytes": 5559,
+    "sha256": "9dde0ef7088eb4110051e72bd2e56f4d92eec5cfe62d3c943e2281cf1871d6fa",
+    "embedded_bytes": 5559,
+    "embedded_sha256": "9dde0ef7088eb4110051e72bd2e56f4d92eec5cfe62d3c943e2281cf1871d6fa"
   },
   {
     "path": "schemas/layout-profile.schema.json",
@@ -1197,7 +1236,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       "catalog_subject": "國文",
       "section": "國綜",
       "paper_profile_registry": "exam_packs/學測/subjects/國文/metadata/papers.jsonl",
-      "paper_profile_registry_sha256": "b58efb84fceca3becd62bfc911081149934b6152155fa9eab88e1f45b99b2a8b",
+      "paper_profile_registry_sha256": "bc564e024d0e640efcaf5d8574d645ec5328f70ab4d2a8274496be5494000f22",
       "years": [
         {
           "roc_year": 115,
@@ -1268,8 +1307,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
             "duration_minutes": 90,
             "total_score": 100.0,
             "numbered_question_count": 36,
-            "scored_item_count": 36,
-            "structure_status": "needs_review",
+            "scored_item_count": 40,
+            "structure_status": "verified",
             "sections": [
               {
                 "id": "section-1",
@@ -1283,9 +1322,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "single_choice": 24
                 },
-                "subtotal_score": 48.0,
-                "score_rule": "占 48 分",
-                "instructions_pattern": null
+                "subtotal_score": 48,
+                "score_rule": "每題2分；僅唯一正確選項得分，錯誤、未答或多劃0分。",
+                "instructions_pattern": "說明：第1題至第24題，每題2分。"
               },
               {
                 "id": "section-2",
@@ -1299,9 +1338,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "multiple_choice": 7
                 },
-                "subtotal_score": 28.0,
-                "score_rule": "占 28 分",
-                "instructions_pattern": null
+                "subtotal_score": 28,
+                "score_rule": "每題4分；n=5，答錯k選項得4×(5−2k)/5分，低於0分或全未答以0分計。",
+                "instructions_pattern": "說明：第25題至第31題，每題4分。"
               },
               {
                 "id": "section-3",
@@ -1310,14 +1349,15 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_number_start": 32,
                 "question_number_end": 36,
                 "numbered_question_count": 5,
-                "scored_item_count": 5,
-                "group_count": null,
+                "scored_item_count": 9,
+                "group_count": 1,
                 "question_type_mix": {
-                  "mixed_group": 5
+                  "constructed_response": 7,
+                  "single_choice": 2
                 },
-                "subtotal_score": 24.0,
-                "score_rule": "占 24 分",
-                "instructions_pattern": null
+                "subtotal_score": 24,
+                "score_rule": "32三個2分回應；33為2及4分；34兩個4分回應；35、36各2分單選。非選依個別官方規準給分。",
+                "instructions_pattern": "說明：本部分共有1題組，選擇題每題2分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。選擇題使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，並依題目指示作答。"
               }
             ],
             "layout": {
@@ -1326,10 +1366,548 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
               "answer_sheet_mode": "另附答題卷"
             },
             "evidence": {
-              "method": "official_document",
-              "confidence": 0.8,
-              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 36 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
-              "reviewed_at": null
+              "method": "manual_review",
+              "confidence": 1,
+              "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+              "notes": "2026-09-12本機依實際PDF逐頁文字、表格與必要影像核對，並對照官方答案及全部評分原則頁。計分小題与部分給分判準分開；維持題號及總分。僅結構證據，非新卷內容／教育品質驗收。",
+              "structure_review": {
+                "profile_sha256": "e7c624e9e9c327fe836107c9ea65f29e01c973745705d0a926568818aa13f64d",
+                "reviewer": "Codex / source-PDF structure reconciliation",
+                "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+                "method": "page-by-page",
+                "pages": [
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 1,
+                    "observations": "封面90分鐘、單選及多選計分規則、獨立答題卷與用筆規定。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 2,
+                    "observations": "q1 single_choice 2分/4選項；q2 single_choice 2分/4選項；q3 single_choice 2分/4選項；q4 single_choice 2分/4選項；q5 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 3,
+                    "observations": "q6 single_choice 2分/4選項；q7 single_choice 2分/4選項；q8 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 4,
+                    "observations": "q9 single_choice 2分/4選項；q10 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 5,
+                    "observations": "q11 single_choice 2分/4選項；q12 single_choice 2分/4選項；q13 single_choice 2分/4選項；q14 single_choice 2分/4選項；q15 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 6,
+                    "observations": "q16 single_choice 2分/4選項；q17 single_choice 2分/4選項；q18 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 7,
+                    "observations": "q19 single_choice 2分/4選項；q20 single_choice 2分/4選項；q21 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 8,
+                    "observations": "q22 single_choice 2分/4選項；q23 single_choice 2分/4選項；q24 single_choice 2分/4選項；q25 multiple_choice 4分/5選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 9,
+                    "observations": "q26 multiple_choice 4分/5選項；q27 multiple_choice 4分/5選項；q28 multiple_choice 4分/5選項；q29 multiple_choice 4分/5選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 10,
+                    "observations": "多選30–31後出現混合部分24分及完整作答說明；題組正文從下頁開始。 q30 multiple_choice 4分/5選項；q31 multiple_choice 4分/5選項"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 11,
+                    "observations": "32(1)2分；32(2)兩個各15字回應，評分規則分列各2分；跨頁材料延續。 q32-1 constructed_response 2分；q32-2-1 constructed_response 2分；q32-2-2 constructed_response 2分"
+                  },
+                  {
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 12,
+                    "observations": "33(1)2分、33(2)4分；34(1)(2)各4分；35、36均四選一各2分。 q33-1 constructed_response 2分；q33-2 constructed_response 4分；q34-1 constructed_response 4分；q34-2 constructed_response 4分；q35 single_choice 2分/4選項；q36 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "d371d9539c7cb7bce7e51e561bca91af4b3e8199dddcddb67f82fd2607a114f5",
+                    "page": 1,
+                    "observations": "逐題核對官方答案表的單／多選與非選擇標示；數字或單詞答案內容不納入新題藍圖。"
+                  },
+                  {
+                    "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+                    "page": 1,
+                    "observations": "非選32–34概述；32(1)2分、32(2)①2分，32(2)②續頁。"
+                  },
+                  {
+                    "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+                    "page": 2,
+                    "observations": "32(2)②2分；33(1)2分、33(2)4分，其中33(2)一個整合回應、依完整性給部分分數。"
+                  },
+                  {
+                    "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+                    "page": 3,
+                    "observations": "34(1)4分、34(2)4分，分別評閱，正確完整4、部分2、錯誤或空白0。"
+                  }
+                ],
+                "slots": [
+                  {
+                    "id": "q1",
+                    "number": 1,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q2",
+                    "number": 2,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q3",
+                    "number": 3,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q4",
+                    "number": 4,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q5",
+                    "number": 5,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q6",
+                    "number": 6,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q7",
+                    "number": 7,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q8",
+                    "number": 8,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q9",
+                    "number": 9,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q10",
+                    "number": 10,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q11",
+                    "number": 11,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q12",
+                    "number": 12,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q13",
+                    "number": 13,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q14",
+                    "number": 14,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q15",
+                    "number": 15,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q16",
+                    "number": 16,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q17",
+                    "number": 17,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q18",
+                    "number": 18,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q19",
+                    "number": 19,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q20",
+                    "number": 20,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q21",
+                    "number": 21,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q22",
+                    "number": 22,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q23",
+                    "number": 23,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q24",
+                    "number": 24,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q25",
+                    "number": 25,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q26",
+                    "number": 26,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q27",
+                    "number": 27,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q28",
+                    "number": 28,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q29",
+                    "number": 29,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q30",
+                    "number": 30,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q31",
+                    "number": 31,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q32-1",
+                    "number": 32,
+                    "section_id": "section-3",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 11,
+                    "response_format": "written response in separate answer area",
+                    "subpart_id": "1",
+                    "maximum_characters": 10
+                  },
+                  {
+                    "id": "q32-2-1",
+                    "number": 32,
+                    "section_id": "section-3",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 11,
+                    "response_format": "written response in separate answer area",
+                    "subpart_id": "2-1",
+                    "maximum_characters": 15
+                  },
+                  {
+                    "id": "q32-2-2",
+                    "number": 32,
+                    "section_id": "section-3",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 11,
+                    "response_format": "written response in separate answer area",
+                    "subpart_id": "2-2",
+                    "maximum_characters": 15
+                  },
+                  {
+                    "id": "q33-1",
+                    "number": 33,
+                    "section_id": "section-3",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 12,
+                    "response_format": "written response in separate answer area",
+                    "subpart_id": "1",
+                    "maximum_characters": 15
+                  },
+                  {
+                    "id": "q33-2",
+                    "number": 33,
+                    "section_id": "section-3",
+                    "type": "constructed_response",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 12,
+                    "response_format": "written response in separate answer area",
+                    "subpart_id": "2",
+                    "maximum_characters": 40
+                  },
+                  {
+                    "id": "q34-1",
+                    "number": 34,
+                    "section_id": "section-3",
+                    "type": "constructed_response",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 12,
+                    "response_format": "written response in separate answer area",
+                    "subpart_id": "1",
+                    "maximum_characters": 40
+                  },
+                  {
+                    "id": "q34-2",
+                    "number": 34,
+                    "section_id": "section-3",
+                    "type": "constructed_response",
+                    "score": 4,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 12,
+                    "response_format": "written response in separate answer area",
+                    "subpart_id": "2",
+                    "maximum_characters": 30
+                  },
+                  {
+                    "id": "q35",
+                    "number": 35,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 12,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q36",
+                    "number": 36,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+                    "page": 12,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  }
+                ],
+                "unresolved": []
+              }
             }
           }
         },
@@ -1876,7 +2454,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       "catalog_subject": "國文",
       "section": "國寫",
       "paper_profile_registry": "exam_packs/學測/subjects/國文/metadata/papers.jsonl",
-      "paper_profile_registry_sha256": "b58efb84fceca3becd62bfc911081149934b6152155fa9eab88e1f45b99b2a8b",
+      "paper_profile_registry_sha256": "bc564e024d0e640efcaf5d8574d645ec5328f70ab4d2a8274496be5494000f22",
       "years": [
         {
           "roc_year": 115,
@@ -1931,8 +2509,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
             "duration_minutes": 90,
             "total_score": 50.0,
             "numbered_question_count": 2,
-            "scored_item_count": 2,
-            "structure_status": "needs_review",
+            "scored_item_count": 3,
+            "structure_status": "verified",
             "sections": [
               {
                 "id": "section-1",
@@ -1941,14 +2519,14 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_number_start": 1,
                 "question_number_end": 2,
                 "numbered_question_count": 2,
-                "scored_item_count": 2,
+                "scored_item_count": 3,
                 "group_count": null,
                 "question_type_mix": {
-                  "guided_writing": 2
+                  "guided_writing": 3
                 },
-                "subtotal_score": 50.0,
-                "score_rule": "占 50 分",
-                "instructions_pattern": null
+                "subtotal_score": 50,
+                "score_rule": "兩大題各25分；第一大題兩小題4及21分，第二大題25分。各小題依官方等第規準評閱；第一及第二大題作答面不得互換，違者該大題扣1分。",
+                "instructions_pattern": "說明：本部分共有二大題，各題配分標於題末。請依各題指示作答，答案必須寫在「答題卷」上。第一大題限作答於答題卷「正面」，第二大題限作答於答題卷「背面」。作答使用筆尖較粗之黑色墨水的筆書寫，且不得使用鉛筆。若因字跡潦草、未標示題號、標錯題號等原因，致評閱人員無法清楚辨識者，恐將影響成績。"
               }
             ],
             "layout": {
@@ -1957,10 +2535,88 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
               "answer_sheet_mode": "另附答題卷"
             },
             "evidence": {
-              "method": "official_document",
-              "confidence": 0.8,
-              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 2 Chinese-numbered writing prompts.",
-              "reviewed_at": null
+              "method": "manual_review",
+              "confidence": 1,
+              "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+              "notes": "2026-09-12本機依實際PDF逐頁文字、表格與必要影像核對，並對照官方答案及全部評分原則頁。計分小題与部分給分判準分開；維持題號及總分。僅結構證據，非新卷內容／教育品質驗收。",
+              "structure_review": {
+                "profile_sha256": "57470e8271e5dc0922d07b2147d615dc581d74f394d9d276d4e9da64ad338b33",
+                "reviewer": "Codex / source-PDF structure reconciliation",
+                "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+                "method": "page-by-page",
+                "pages": [
+                  {
+                    "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+                    "page": 1,
+                    "observations": "封面確認90分鐘、兩大題、中文書寫、第一大題正面與第二大題背面作答；無計分題。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+                    "page": 2,
+                    "observations": "第一大題完整材料與兩小題；第一小題4分、80字／4行；第二小題21分、400字／19行。 q1-1 guided_writing 4分；q1-2 guided_writing 21分"
+                  },
+                  {
+                    "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+                    "page": 3,
+                    "observations": "第二大題材料甲與提示，跨頁延續，沒有新增獨立計分題。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+                    "page": 4,
+                    "observations": "第二大題材料乙與完整作文要求，25分、文長不限；兩大題共50分。 q2 guided_writing 25分"
+                  },
+                  {
+                    "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+                    "page": 1,
+                    "observations": "閱卷概述確認兩大題各25分，第一大題兩小題、第二大題一篇作文；說明分題雙閱程序。"
+                  },
+                  {
+                    "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+                    "page": 2,
+                    "observations": "第一大題第一小題4分、80字；第二小題21分、400字；分列等第評分與越區扣分。"
+                  },
+                  {
+                    "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+                    "page": 3,
+                    "observations": "第二大題25分，文長不限；完整、部分及零分等第與越區扣分。"
+                  }
+                ],
+                "slots": [
+                  {
+                    "id": "q1-1",
+                    "number": 1,
+                    "section_id": "section-1",
+                    "type": "guided_writing",
+                    "score": 4,
+                    "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+                    "page": 2,
+                    "response_format": "Chinese response within 80 characters / 4 lines",
+                    "subpart_id": "1"
+                  },
+                  {
+                    "id": "q1-2",
+                    "number": 1,
+                    "section_id": "section-1",
+                    "type": "guided_writing",
+                    "score": 21,
+                    "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+                    "page": 2,
+                    "response_format": "Chinese discussion within 400 characters / 19 lines",
+                    "subpart_id": "2"
+                  },
+                  {
+                    "id": "q2",
+                    "number": 2,
+                    "section_id": "section-1",
+                    "type": "guided_writing",
+                    "score": 25,
+                    "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+                    "page": 4,
+                    "response_format": "Chinese composition, no stated word limit"
+                  }
+                ],
+                "unresolved": []
+              }
             }
           }
         },
@@ -2315,7 +2971,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       "catalog_subject": "英文",
       "section": "英文",
       "paper_profile_registry": "exam_packs/學測/subjects/英文/metadata/papers.jsonl",
-      "paper_profile_registry_sha256": "6d4da883c85a6b2512cabae7e37d9c929b23ad840998c3d3fc6d1ec0edc310ff",
+      "paper_profile_registry_sha256": "bfd3aaee9d86f18d17dc0f5e85083f75c1b22e6c35cc97de049709197ba588c7",
       "years": [
         {
           "roc_year": 115,
@@ -2359,7 +3015,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
             "subject": "英文",
             "section": "英文",
             "curriculum": "108",
-            "regime": "111學年度起",
+            "regime": "115學年度起",
             "publisher": "大學入學考試中心",
             "bundle": "official-115",
             "source_kind": "official_past_exam",
@@ -2386,8 +3042,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
             "duration_minutes": 100,
             "total_score": 100.0,
             "numbered_question_count": 50,
-            "scored_item_count": 52,
-            "structure_status": "needs_review",
+            "scored_item_count": 53,
+            "structure_status": "verified",
             "sections": [
               {
                 "id": "section-1",
@@ -2401,9 +3057,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "single_choice": 10
                 },
-                "subtotal_score": 10.0,
-                "score_rule": "占 10 分",
-                "instructions_pattern": null
+                "subtotal_score": 10,
+                "score_rule": "單選，唯一正確選項得本題分數；答錯、未答、多劃以0分計。",
+                "instructions_pattern": "說明：第1題至第10題為單選題，每題1分。"
               },
               {
                 "id": "section-2",
@@ -2417,9 +3073,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "single_choice": 10
                 },
-                "subtotal_score": 10.0,
-                "score_rule": "占 10 分",
-                "instructions_pattern": null
+                "subtotal_score": 10,
+                "score_rule": "單選，唯一正確選項得本題分數；答錯、未答、多劃以0分計。",
+                "instructions_pattern": "說明：第11題至第20題為單選題，每題1分。"
               },
               {
                 "id": "section-3",
@@ -2431,11 +3087,11 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "scored_item_count": 10,
                 "group_count": null,
                 "question_type_mix": {
-                  "fill_in": 10
+                  "single_choice": 10
                 },
-                "subtotal_score": 10.0,
-                "score_rule": "占 10 分",
-                "instructions_pattern": null
+                "subtotal_score": 10,
+                "score_rule": "單選，唯一正確選項得本題分數；答錯、未答、多劃以0分計。",
+                "instructions_pattern": "說明：第21題至第30題為單選題，每題1分。"
               },
               {
                 "id": "section-4",
@@ -2449,9 +3105,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "single_choice": 4
                 },
-                "subtotal_score": 8.0,
-                "score_rule": "占 8 分",
-                "instructions_pattern": null
+                "subtotal_score": 8,
+                "score_rule": "單選，唯一正確選項得本題分數；答錯、未答、多劃以0分計。",
+                "instructions_pattern": "說明：第31題至第34題為單選題，每題2分。"
               },
               {
                 "id": "section-5",
@@ -2465,9 +3121,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "single_choice": 12
                 },
-                "subtotal_score": 24.0,
-                "score_rule": "占 24 分",
-                "instructions_pattern": null
+                "subtotal_score": 24,
+                "score_rule": "單選，唯一正確選項得本題分數；答錯、未答、多劃以0分計。",
+                "instructions_pattern": "說明：第35題至第46題為單選題，每題2分。"
               },
               {
                 "id": "section-6",
@@ -2477,13 +3133,15 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_number_end": 50,
                 "numbered_question_count": 4,
                 "scored_item_count": 4,
-                "group_count": null,
+                "group_count": 1,
                 "question_type_mix": {
-                  "mixed_group": 4
+                  "fill_in": 2,
+                  "multiple_choice": 1,
+                  "constructed_response": 1
                 },
-                "subtotal_score": 10.0,
-                "score_rule": "占 10 分",
-                "instructions_pattern": null
+                "subtotal_score": 10,
+                "score_rule": "47、48、50各2分，字形或拼字錯誤1分；49六選項多選4分，按封面(n−2k)/n計分。",
+                "instructions_pattern": "說明：本部分共有1題組，每一子題配分標於題末。限在答題卷標示題號的作答區內作答，並以規定用筆作答。"
               },
               {
                 "id": "section-7",
@@ -2492,14 +3150,14 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_number_start": null,
                 "question_number_end": null,
                 "numbered_question_count": null,
-                "scored_item_count": 1,
+                "scored_item_count": 2,
                 "group_count": null,
                 "question_type_mix": {
-                  "constructed_response": 1
+                  "constructed_response": 2
                 },
-                "subtotal_score": 8.0,
-                "score_rule": "占 8 分",
-                "instructions_pattern": null
+                "subtotal_score": 8,
+                "score_rule": "兩小題各4分，每錯扣0.5分，同樣錯誤只扣一次，扣完為止。",
+                "instructions_pattern": "說明：依題號將以下中文句子譯成正確、通順、達意的英文。每題4分，共8分。"
               },
               {
                 "id": "section-8",
@@ -2513,9 +3171,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "constructed_response": 1
                 },
-                "subtotal_score": 20.0,
-                "score_rule": "占 20 分",
-                "instructions_pattern": null
+                "subtotal_score": 20,
+                "score_rule": "作文20分，以內容、組織、文法句構、字彙拼字整體評分；字數明顯不足或未分段各扣1分。",
+                "instructions_pattern": "說明：依提示寫一篇英文作文，文長至少120個單詞（words）。"
               }
             ],
             "layout": {
@@ -2524,10 +3182,680 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
               "answer_sheet_mode": "另附答題卷"
             },
             "evidence": {
-              "method": "official_document",
-              "confidence": 0.77,
-              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 34 distinct Arabic item markers and 4 section headings; section counts do not reconcile with the paper total.",
-              "reviewed_at": null
+              "method": "manual_review",
+              "confidence": 1,
+              "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+              "notes": "2026-09-12本機依實際PDF逐頁文字、表格與必要影像核對，並對照官方答案及全部評分原則頁。計分小題与部分給分判準分開；維持題號及總分。僅結構證據，非新卷內容／教育品質驗收。",
+              "structure_review": {
+                "profile_sha256": "85a5e00006ee127c8a09feb31c2eafd581a8d19da8561be1c37614e17128e04a",
+                "reviewer": "Codex / source-PDF structure reconciliation",
+                "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+                "method": "page-by-page",
+                "pages": [
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 1,
+                    "observations": "封面100分鐘、單多選計分規則及分離答題卷。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "observations": "詞彙1–10各1分、四選一；綜合測驗標題與說明在頁尾。 q1 single_choice 1分/4選項；q2 single_choice 1分/4選項；q3 single_choice 1分/4選項；q4 single_choice 1分/4選項；q5 single_choice 1分/4選項；q6 single_choice 1分/4選項；q7 single_choice 1分/4選項；q8 single_choice 1分/4選項；q9 single_choice 1分/4選項；q10 single_choice 1分/4選項"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "observations": "兩組五空綜合測驗11–15、16–20，各題四選一1分。 q11 single_choice 1分/4選項；q12 single_choice 1分/4選項；q13 single_choice 1分/4選項；q14 single_choice 1分/4選項；q15 single_choice 1分/4選項；q16 single_choice 1分/4選項；q17 single_choice 1分/4選項；q18 single_choice 1分/4選項；q19 single_choice 1分/4選項；q20 single_choice 1分/4選項"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "observations": "文意選填21–30每題1分，官方明列單選；共用A–J十選項，非自由填答。 q21 single_choice 1分/10選項；q22 single_choice 1分/10選項；q23 single_choice 1分/10選項；q24 single_choice 1分/10選項；q25 single_choice 1分/10選項；q26 single_choice 1分/10選項；q27 single_choice 1分/10選項；q28 single_choice 1分/10選項；q29 single_choice 1分/10選項；q30 single_choice 1分/10選項"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 5,
+                    "observations": "篇章結構31–34每題2分，單一文章共用A–E五選項。 q31 single_choice 2分/5選項；q32 single_choice 2分/5選項；q33 single_choice 2分/5選項；q34 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 6,
+                    "observations": "閱讀35–38題組開始；本頁35–36，選项A–D；總閱讀35–46每題2分。 q35 single_choice 2分/4選項；q36 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 7,
+                    "observations": "閱讀37–38延續；38的四個地圖為選項，不是新題。 q37 single_choice 2分/4選項；q38 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 8,
+                    "observations": "閱讀39–42四選一各2分。 q39 single_choice 2分/4選項；q40 single_choice 2分/4選項；q41 single_choice 2分/4選項；q42 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 9,
+                    "observations": "閱讀43–46四選一各2分。 q43 single_choice 2分/4選項；q44 single_choice 2分/4選項；q45 single_choice 2分/4選項；q46 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 10,
+                    "observations": "混合部分10分、一題組；本頁是非連續材料的前段，無獨立作答空。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 11,
+                    "observations": "47與48各自由填一個變化字形單詞2分；49六個商店標籤多選4分；50短語簡答2分。 q47 fill_in 2分；q48 fill_in 2分；q49 multiple_choice 4分/6選項；q50 constructed_response 2分"
+                  },
+                  {
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 12,
+                    "observations": "中譯英兩個重新編號的句子各4分，非一個8分單位；作文20分、至少120詞、兩段與圖片。 translation-1 constructed_response 4分；translation-2 constructed_response 4分；composition constructed_response 20分"
+                  },
+                  {
+                    "source_sha256": "f8edda8733240b7d26cba9f80f89b4ffb42a58449319121fad9466d008811b11",
+                    "page": 1,
+                    "observations": "逐題核對官方答案表的單／多選與非選擇標示；數字或單詞答案內容不納入新題藍圖。"
+                  },
+                  {
+                    "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+                    "page": 1,
+                    "observations": "混合47、48、50各2分，正確字形2、字形拼字錯誤1；中譯英與作文類型概述。"
+                  },
+                  {
+                    "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+                    "page": 2,
+                    "observations": "翻譯兩小題各4分，錯誤扣0.5且相同錯誤只扣一次；作文四面向整體評閱及字數、分段扣分。"
+                  },
+                  {
+                    "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+                    "page": 3,
+                    "observations": "作文內容、組織、文法句構、字彙拼字評分指標與零分條件；非新計分題。"
+                  }
+                ],
+                "slots": [
+                  {
+                    "id": "q1",
+                    "number": 1,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q2",
+                    "number": 2,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q3",
+                    "number": 3,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q4",
+                    "number": 4,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q5",
+                    "number": 5,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q6",
+                    "number": 6,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q7",
+                    "number": 7,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q8",
+                    "number": 8,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q9",
+                    "number": 9,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q10",
+                    "number": 10,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 2,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q11",
+                    "number": 11,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q12",
+                    "number": 12,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q13",
+                    "number": 13,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q14",
+                    "number": 14,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q15",
+                    "number": 15,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q16",
+                    "number": 16,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q17",
+                    "number": 17,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q18",
+                    "number": 18,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q19",
+                    "number": 19,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q20",
+                    "number": 20,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 3,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q21",
+                    "number": 21,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q22",
+                    "number": 22,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q23",
+                    "number": 23,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q24",
+                    "number": 24,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q25",
+                    "number": 25,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q26",
+                    "number": 26,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q27",
+                    "number": 27,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q28",
+                    "number": 28,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q29",
+                    "number": 29,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q30",
+                    "number": 30,
+                    "section_id": "section-3",
+                    "type": "single_choice",
+                    "score": 1,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 4,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 10
+                  },
+                  {
+                    "id": "q31",
+                    "number": 31,
+                    "section_id": "section-4",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 5,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q32",
+                    "number": 32,
+                    "section_id": "section-4",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 5,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q33",
+                    "number": 33,
+                    "section_id": "section-4",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 5,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q34",
+                    "number": 34,
+                    "section_id": "section-4",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 5,
+                    "response_format": "mark one letter from the shared printed option bank",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q35",
+                    "number": 35,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 6,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q36",
+                    "number": 36,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 6,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q37",
+                    "number": 37,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 7,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q38",
+                    "number": 38,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 7,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q39",
+                    "number": 39,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 8,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q40",
+                    "number": 40,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 8,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q41",
+                    "number": 41,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 8,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q42",
+                    "number": 42,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 8,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q43",
+                    "number": 43,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 9,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q44",
+                    "number": 44,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 9,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q45",
+                    "number": 45,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 9,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q46",
+                    "number": 46,
+                    "section_id": "section-5",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 9,
+                    "response_format": "mark one of four options",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q47",
+                    "number": 47,
+                    "section_id": "section-6",
+                    "type": "fill_in",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 11,
+                    "response_format": "one word with required form transformation"
+                  },
+                  {
+                    "id": "q48",
+                    "number": 48,
+                    "section_id": "section-6",
+                    "type": "fill_in",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 11,
+                    "response_format": "one word with required form transformation"
+                  },
+                  {
+                    "id": "q49",
+                    "number": 49,
+                    "section_id": "section-6",
+                    "type": "multiple_choice",
+                    "score": 4,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 6
+                  },
+                  {
+                    "id": "q50",
+                    "number": 50,
+                    "section_id": "section-6",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 11,
+                    "response_format": "short phrase response"
+                  },
+                  {
+                    "id": "translation-1",
+                    "number": null,
+                    "section_id": "section-7",
+                    "type": "constructed_response",
+                    "score": 4,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 12,
+                    "response_format": "translate the separately numbered sentence",
+                    "printed_label": "中譯英1"
+                  },
+                  {
+                    "id": "translation-2",
+                    "number": null,
+                    "section_id": "section-7",
+                    "type": "constructed_response",
+                    "score": 4,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 12,
+                    "response_format": "translate the separately numbered sentence",
+                    "printed_label": "中譯英2"
+                  },
+                  {
+                    "id": "composition",
+                    "number": null,
+                    "section_id": "section-8",
+                    "type": "constructed_response",
+                    "score": 20,
+                    "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+                    "page": 12,
+                    "response_format": "two-paragraph composition, at least 120 words"
+                  }
+                ],
+                "unresolved": []
+              }
             }
           }
         },
@@ -4438,7 +5766,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       "catalog_subject": "數學B",
       "section": null,
       "paper_profile_registry": "exam_packs/學測/subjects/數學B/metadata/papers.jsonl",
-      "paper_profile_registry_sha256": "735ae403b663ddd453b217fbcbeed9607d8b920a88f9411a5ab695940326eeb9",
+      "paper_profile_registry_sha256": "3875797fcb25e18be6cf6618b9ba4df5a7b797e8239a452a5bb125a034573efc",
       "years": [
         {
           "roc_year": 115,
@@ -4510,7 +5838,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
             "total_score": 100.0,
             "numbered_question_count": 20,
             "scored_item_count": 20,
-            "structure_status": "needs_review",
+            "structure_status": "verified",
             "sections": [
               {
                 "id": "section-1",
@@ -4524,9 +5852,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "single_choice": 7
                 },
-                "subtotal_score": 35.0,
-                "score_rule": "占 35 分",
-                "instructions_pattern": null
+                "subtotal_score": 35,
+                "score_rule": "每題5分，唯一正確選項得分；錯誤、未答或多劃0分。",
+                "instructions_pattern": "說明：第1題至第7題，每題5分。"
               },
               {
                 "id": "section-2",
@@ -4540,9 +5868,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "multiple_choice": 5
                 },
-                "subtotal_score": 25.0,
-                "score_rule": "占 25 分",
-                "instructions_pattern": null
+                "subtotal_score": 25,
+                "score_rule": "每題5分，n=5；答錯k選項得5−2k分，低於0分或全未答以0分計。",
+                "instructions_pattern": "說明：第8題至第12題，每題5分。"
               },
               {
                 "id": "section-3",
@@ -4556,9 +5884,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "fill_in": 5
                 },
-                "subtotal_score": 25.0,
-                "score_rule": "占 25 分",
-                "instructions_pattern": null
+                "subtotal_score": 25,
+                "score_rule": "每題5分；所有格全對給分，答錯不倒扣。",
+                "instructions_pattern": "說明：第13題至第17題，每題5分。"
               },
               {
                 "id": "section-4",
@@ -4568,13 +5896,14 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_number_end": 20,
                 "numbered_question_count": 3,
                 "scored_item_count": 3,
-                "group_count": null,
+                "group_count": 1,
                 "question_type_mix": {
-                  "mixed_group": 3
+                  "single_choice": 1,
+                  "constructed_response": 2
                 },
-                "subtotal_score": 15.0,
-                "score_rule": "占 15 分",
-                "instructions_pattern": null
+                "subtotal_score": 15,
+                "score_rule": "18單選3分，19及20非選擇各6分；依官方規準給部分分數。",
+                "instructions_pattern": "說明：本部分共有1題組，單選題每題3分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。選擇（填）題與「非選擇題作圖部分」使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，作答時必須寫出計算過程或理由，否則將酌予扣分。"
               }
             ],
             "layout": {
@@ -4583,10 +5912,294 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
               "answer_sheet_mode": "另附答題卷"
             },
             "evidence": {
-              "method": "official_document",
-              "confidence": 0.8,
-              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 20 distinct Arabic item markers and 2 section headings; section counts do not reconcile with the paper total.",
-              "reviewed_at": null
+              "method": "manual_review",
+              "confidence": 1,
+              "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+              "notes": "2026-09-12本機依實際PDF逐頁文字、表格與必要影像核對，並對照官方答案及全部評分原則頁。計分小題与部分給分判準分開；維持題號及總分。僅結構證據，非新卷內容／教育品質驗收。",
+              "structure_review": {
+                "profile_sha256": "63566d9d7922a1325442f06aa6d6a1806382aa1df3f1445a70a516e09cc6a2d5",
+                "reviewer": "Codex / source-PDF structure reconciliation",
+                "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+                "method": "page-by-page",
+                "pages": [
+                  {
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 1,
+                    "observations": "封面100分鐘；單、多選與選填計分；選填分數格式及數字列號示例。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 2,
+                    "observations": "q1 single_choice 5分/5選項；q2 single_choice 5分/5選項；q3 single_choice 5分/5選項；q4 single_choice 5分/5選項"
+                  },
+                  {
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 3,
+                    "observations": "q5 single_choice 5分/5選項；q6 single_choice 5分/5選項；q7 single_choice 5分/5選項"
+                  },
+                  {
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 4,
+                    "observations": "q8 multiple_choice 5分/5選項；q9 multiple_choice 5分/5選項；q10 multiple_choice 5分/5選項"
+                  },
+                  {
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 5,
+                    "observations": "多選11–12後為選填13–17說明；本頁13使用兩整數格，四捨五入至整數。 q11 multiple_choice 5分/5選項；q12 multiple_choice 5分/5選項；q13 fill_in 5分"
+                  },
+                  {
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 6,
+                    "observations": "選填14–16；每題5分，14兩位整數，15兩個分數四個分子／母欄位，16分數；每題整體計分，不逐格計分。 q14 fill_in 5分；q15 fill_in 5分；q16 fill_in 5分"
+                  },
+                  {
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 7,
+                    "observations": "選填17後混合一題組；18五選一3分、19書面推理6分、20書面推理6分。 q17 fill_in 5分；q18 single_choice 3分/5選項；q19 constructed_response 6分；q20 constructed_response 6分"
+                  },
+                  {
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 8,
+                    "observations": "參考公式頁，無新增計分題；數B公式不含數A和角公式。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "ff1337781df5ee183f8e0a4b49f4690b297bbc547fefcb8f1669d01bdde610b3",
+                    "page": 1,
+                    "observations": "逐題核對官方答案表的單／多選與非選擇標示；數字或單詞答案內容不納入新題藍圖。"
+                  },
+                  {
+                    "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+                    "page": 1,
+                    "observations": "非選評分概述，19書面解題示例開始；一題內的推導步驟不新增題號。"
+                  },
+                  {
+                    "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+                    "page": 2,
+                    "observations": "19其他解法與滿分、部分、零分判準；兩項必要判準共成6分題。"
+                  },
+                  {
+                    "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+                    "page": 3,
+                    "observations": "20其他解法及兩項滿分判準；同一6分題，沒有額外單選。"
+                  }
+                ],
+                "slots": [
+                  {
+                    "id": "q1",
+                    "number": 1,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 2,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q2",
+                    "number": 2,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 2,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q3",
+                    "number": 3,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 2,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q4",
+                    "number": 4,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 2,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q5",
+                    "number": 5,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 3,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q6",
+                    "number": 6,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 3,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q7",
+                    "number": 7,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 3,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q8",
+                    "number": 8,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 4,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q9",
+                    "number": 9,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 4,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q10",
+                    "number": 10,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 4,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q11",
+                    "number": 11,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 5,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q12",
+                    "number": 12,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 5,
+                    "response_format": "mark selected option(s)",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q13",
+                    "number": 13,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 5,
+                    "response_format": "machine-marked digit rails; all slots in the numbered item must be correct"
+                  },
+                  {
+                    "id": "q14",
+                    "number": 14,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 6,
+                    "response_format": "machine-marked digit rails; all slots in the numbered item must be correct"
+                  },
+                  {
+                    "id": "q15",
+                    "number": 15,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 6,
+                    "response_format": "machine-marked digit rails; all slots in the numbered item must be correct"
+                  },
+                  {
+                    "id": "q16",
+                    "number": 16,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 6,
+                    "response_format": "machine-marked digit rails; all slots in the numbered item must be correct"
+                  },
+                  {
+                    "id": "q17",
+                    "number": 17,
+                    "section_id": "section-3",
+                    "type": "fill_in",
+                    "score": 5,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 7,
+                    "response_format": "machine-marked digit rails; all slots in the numbered item must be correct"
+                  },
+                  {
+                    "id": "q18",
+                    "number": 18,
+                    "section_id": "section-4",
+                    "type": "single_choice",
+                    "score": 3,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q19",
+                    "number": 19,
+                    "section_id": "section-4",
+                    "type": "constructed_response",
+                    "score": 6,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 7,
+                    "response_format": "written response in separate answer area"
+                  },
+                  {
+                    "id": "q20",
+                    "number": 20,
+                    "section_id": "section-4",
+                    "type": "constructed_response",
+                    "score": 6,
+                    "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+                    "page": 7,
+                    "response_format": "written response in separate answer area"
+                  }
+                ],
+                "unresolved": []
+              }
             }
           }
         },
@@ -5197,7 +6810,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       "catalog_subject": "社會",
       "section": null,
       "paper_profile_registry": "exam_packs/學測/subjects/社會/metadata/papers.jsonl",
-      "paper_profile_registry_sha256": "e4b9562c02f477a496db22b885ab1f1dc5404def8a8251d5db3259d2f4d8547a",
+      "paper_profile_registry_sha256": "04d2f46d973840b75f6700f770af8660915687e23a3e0286138431acf5d7f3cb",
       "years": [
         {
           "roc_year": 115,
@@ -5268,8 +6881,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
             "duration_minutes": 110,
             "total_score": 144.0,
             "numbered_question_count": 65,
-            "scored_item_count": 65,
-            "structure_status": "needs_review",
+            "scored_item_count": 68,
+            "structure_status": "verified",
             "sections": [
               {
                 "id": "section-1",
@@ -5283,9 +6896,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_type_mix": {
                   "single_choice": 38
                 },
-                "subtotal_score": 76.0,
-                "score_rule": "占 76 分",
-                "instructions_pattern": null
+                "subtotal_score": 76,
+                "score_rule": "38道四選一各2分；唯一正確選項得分，錯誤、未答或多劃0分。",
+                "instructions_pattern": "說明：第1題至第38題為單選題，每題2分。"
               },
               {
                 "id": "section-2",
@@ -5294,14 +6907,15 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_number_start": 39,
                 "question_number_end": 65,
                 "numbered_question_count": 27,
-                "scored_item_count": 27,
-                "group_count": null,
+                "scored_item_count": 30,
+                "group_count": 11,
                 "question_type_mix": {
-                  "mixed_group": 27
+                  "single_choice": 16,
+                  "constructed_response": 14
                 },
-                "subtotal_score": 68.0,
-                "score_rule": "占 68 分",
-                "instructions_pattern": null
+                "subtotal_score": 68,
+                "score_rule": "16道單選各2分；11個非選題號共36分，44、46、52各4分，其餘各3分。42、52、56的勾選先決計分條件依官方評分規則保留。",
+                "instructions_pattern": "說明：本部分共有11題組，單選題每題2分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。選擇題與「非選擇題作圖部分」使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，並依題目指示作答。"
               }
             ],
             "layout": {
@@ -5310,10 +6924,913 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
               "answer_sheet_mode": "另附答題卷"
             },
             "evidence": {
-              "method": "official_document",
-              "confidence": 0.79,
-              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 51 distinct Arabic item markers and 0 section headings; section counts reconcile with the paper total.",
-              "reviewed_at": null
+              "method": "manual_review",
+              "confidence": 1,
+              "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+              "notes": "2026-09-12本機依實際PDF逐頁文字、表格與必要影像核對，並對照官方答案及全部評分原則頁。計分小題与部分給分判準分開；維持題號及總分。僅結構證據，非新卷內容／教育品質驗收。",
+              "structure_review": {
+                "profile_sha256": "ce875565229a064e5a4ac68f17c5c507d8ea175ee568691158c93db1d68de769",
+                "reviewer": "Codex / source-PDF structure reconciliation",
+                "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+                "method": "page-by-page",
+                "pages": [
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 1,
+                    "observations": "封面110分鐘；單選計分、分離答題卷與用筆規定。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 2,
+                    "observations": "第一部分1–38單選，每題2分，共76分。 q1 single_choice 2分/4選項；q2 single_choice 2分/4選項；q3 single_choice 2分/4選項；q4 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 3,
+                    "observations": "q5 single_choice 2分/4選項；q6 single_choice 2分/4選項；q7 single_choice 2分/4選項；q8 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 4,
+                    "observations": "q9 single_choice 2分/4選項；q10 single_choice 2分/4選項；q11 single_choice 2分/4選項；q12 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 5,
+                    "observations": "q13 single_choice 2分/4選項；q14 single_choice 2分/4選項；q15 single_choice 2分/4選項；q16 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 6,
+                    "observations": "q17 single_choice 2分/4選項；q18 single_choice 2分/4選項；q19 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 7,
+                    "observations": "q20 single_choice 2分/4選項；q21 single_choice 2分/4選項；q22 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 8,
+                    "observations": "q23 single_choice 2分/4選項；q24 single_choice 2分/4選項；q25 single_choice 2分/4選項；q26 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 9,
+                    "observations": "q27 single_choice 2分/4選項；q28 single_choice 2分/4選項；q29 single_choice 2分/4選項；q30 single_choice 2分/4選項；q31 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 10,
+                    "observations": "q32 single_choice 2分/4選項；q33 single_choice 2分/4選項；q34 single_choice 2分/4選項；q35 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 11,
+                    "observations": "36–38完成選擇部分；混合部分11題組68分；39單選2分、40表格短答3分10字。 q36 single_choice 2分/4選項；q37 single_choice 2分/4選項；q38 single_choice 2分/4選項；q39 single_choice 2分/4選項；q40 constructed_response 3分"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 12,
+                    "observations": "41、43單選2分；42勾選加25字理由共3分且勾選為評分先決條件；44題幹續至下頁表格。 q41 single_choice 2分/4選項；q42 constructed_response 3分；q43 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 13,
+                    "observations": "44表格勾選2分、35字比較2分；45單選2分與46題組材料。 q44-check constructed_response 2分；q44-reason constructed_response 2分；q45 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 14,
+                    "observations": "46勾選2分與30字理由2分；47–48單選各2分；49提示續至下頁作答表格。 q46-check constructed_response 2分；q46-reason constructed_response 2分；q47 single_choice 2分/4選項；q48 single_choice 2分/4選項；q49 constructed_response 3分"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 15,
+                    "observations": "49表格35字3分；50–51單選2分；52兩欄各2分，評分原則另規定勾選錯誤全題0分。 q50 single_choice 2分/4選項；q51 single_choice 2分/4選項；q52-check constructed_response 2分；q52-reason constructed_response 2分"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 16,
+                    "observations": "53–54共用兩幅地圖與資料，整頁無新增獨立計分題。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 17,
+                    "observations": "53、55單選2分；54短答3分10字；56勾選加20字理由3分，勾選為計分先決條件。 q53 single_choice 2分/4選項；q54 constructed_response 3分；q55 single_choice 2分/4選項；q56 constructed_response 3分"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 18,
+                    "observations": "57–59各四選一2分；含組合敘述的選項仍為單選。 q57 single_choice 2分/4選項；q58 single_choice 2分/4選項；q59 single_choice 2分/4選項"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 19,
+                    "observations": "60短答25字3分；61–62四選一各2分；63概念圖3分。 q60 constructed_response 3分；q61 single_choice 2分/4選項；q62 single_choice 2分/4選項；q63 constructed_response 3分"
+                  },
+                  {
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 20,
+                    "observations": "64單選2分；65兩欄聯合評分3分，甲12字、乙勾選；全卷至65。 q64 single_choice 2分/4選項；q65 constructed_response 3分"
+                  },
+                  {
+                    "source_sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212",
+                    "page": 1,
+                    "observations": "逐題核對官方答案表的單／多選與非選擇標示；數字或單詞答案內容不納入新題藍圖。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 1,
+                    "observations": "11個非選题共36分：8題3分、3題4分；40分級規則開始。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 2,
+                    "observations": "40零分條件；42整合表格3分，左欄錯誤或未答則全題0，右欄完整性控制部分分數。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 3,
+                    "observations": "42零分條件；44兩欄各2分可獨立部分給分；46兩欄各2分。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 4,
+                    "observations": "46部分／零分；49四項關係之完整性控制同一3分題。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 5,
+                    "observations": "49剩餘零分条件；52兩欄各2分但勾選錯誤全題0；56表格參考。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 6,
+                    "observations": "56合併3分且勾選為先決條件；54短答3分評分開始。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 7,
+                    "observations": "54剩餘部分／零分；60短答3分。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 8,
+                    "observations": "60剩餘零分條件；63概念圖3分，線段與標示整合評分。"
+                  },
+                  {
+                    "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+                    "page": 9,
+                    "observations": "63零分條件；65兩欄合併3分，雙欄正確3、依精確度與勾選給部分分數。"
+                  }
+                ],
+                "slots": [
+                  {
+                    "id": "q1",
+                    "number": 1,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q2",
+                    "number": 2,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q3",
+                    "number": 3,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q4",
+                    "number": 4,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q5",
+                    "number": 5,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q6",
+                    "number": 6,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q7",
+                    "number": 7,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q8",
+                    "number": 8,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q9",
+                    "number": 9,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q10",
+                    "number": 10,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q11",
+                    "number": 11,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q12",
+                    "number": 12,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q13",
+                    "number": 13,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q14",
+                    "number": 14,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q15",
+                    "number": 15,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q16",
+                    "number": 16,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q17",
+                    "number": 17,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q18",
+                    "number": 18,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q19",
+                    "number": 19,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q20",
+                    "number": 20,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q21",
+                    "number": 21,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q22",
+                    "number": 22,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q23",
+                    "number": 23,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q24",
+                    "number": 24,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q25",
+                    "number": 25,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q26",
+                    "number": 26,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q27",
+                    "number": 27,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q28",
+                    "number": 28,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q29",
+                    "number": 29,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q30",
+                    "number": 30,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q31",
+                    "number": 31,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q32",
+                    "number": 32,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q33",
+                    "number": 33,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q34",
+                    "number": 34,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q35",
+                    "number": 35,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q36",
+                    "number": 36,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q37",
+                    "number": 37,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q38",
+                    "number": 38,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q39",
+                    "number": 39,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q40",
+                    "number": 40,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 3,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 11,
+                    "response_format": "10-character response"
+                  },
+                  {
+                    "id": "q41",
+                    "number": 41,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 12,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q42",
+                    "number": 42,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 3,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 12,
+                    "response_format": "checkbox plus 25-character reason; incorrect checkbox makes the entire item zero"
+                  },
+                  {
+                    "id": "q43",
+                    "number": 43,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 12,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q44-check",
+                    "number": 44,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 13,
+                    "response_format": "checkbox cell",
+                    "subpart_id": "check"
+                  },
+                  {
+                    "id": "q44-reason",
+                    "number": 44,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 13,
+                    "response_format": "written comparison/reason",
+                    "subpart_id": "reason"
+                  },
+                  {
+                    "id": "q45",
+                    "number": 45,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 13,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q46-check",
+                    "number": 46,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 14,
+                    "response_format": "checkbox cell",
+                    "subpart_id": "check"
+                  },
+                  {
+                    "id": "q46-reason",
+                    "number": 46,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 14,
+                    "response_format": "written comparison/reason",
+                    "subpart_id": "reason"
+                  },
+                  {
+                    "id": "q47",
+                    "number": 47,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 14,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q48",
+                    "number": 48,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 14,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q49",
+                    "number": 49,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 3,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 14,
+                    "response_format": "35-character response"
+                  },
+                  {
+                    "id": "q50",
+                    "number": 50,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 15,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q51",
+                    "number": 51,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 15,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q52-check",
+                    "number": 52,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 15,
+                    "response_format": "checkbox cell",
+                    "subpart_id": "check",
+                    "scoring_dependency": "If the checkbox in q52 is incorrect, the entire q52 receives zero."
+                  },
+                  {
+                    "id": "q52-reason",
+                    "number": 52,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 15,
+                    "response_format": "written comparison/reason",
+                    "subpart_id": "reason",
+                    "scoring_dependency": "If the checkbox in q52 is incorrect, the entire q52 receives zero."
+                  },
+                  {
+                    "id": "q53",
+                    "number": 53,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 17,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q54",
+                    "number": 54,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 3,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 17,
+                    "response_format": "10-character response"
+                  },
+                  {
+                    "id": "q55",
+                    "number": 55,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 17,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q56",
+                    "number": 56,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 3,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 17,
+                    "response_format": "checkbox plus 20-character reason; incorrect checkbox makes the entire item zero"
+                  },
+                  {
+                    "id": "q57",
+                    "number": 57,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 18,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q58",
+                    "number": 58,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 18,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q59",
+                    "number": 59,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 18,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q60",
+                    "number": 60,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 3,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 19,
+                    "response_format": "25-character response"
+                  },
+                  {
+                    "id": "q61",
+                    "number": 61,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 19,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q62",
+                    "number": 62,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 19,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q63",
+                    "number": 63,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 3,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 19,
+                    "response_format": "draw a conceptual graph"
+                  },
+                  {
+                    "id": "q64",
+                    "number": 64,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 20,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 4
+                  },
+                  {
+                    "id": "q65",
+                    "number": 65,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 3,
+                    "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+                    "page": 20,
+                    "response_format": "12-character completion and checkbox scored jointly"
+                  }
+                ],
+                "unresolved": []
+              }
             }
           }
         },
@@ -5796,7 +8313,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       "catalog_subject": "自然",
       "section": null,
       "paper_profile_registry": "exam_packs/學測/subjects/自然/metadata/papers.jsonl",
-      "paper_profile_registry_sha256": "c22153ea6cc1c18bf6a86e6f61df2000cbf9cc6de4d19dd2c4d7e91d83a44b4c",
+      "paper_profile_registry_sha256": "1cf9d5fba6217a520437bf89bce27c52ac83f0f70b0deabded4670f6fdc0c229",
       "years": [
         {
           "roc_year": 115,
@@ -5867,8 +8384,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
             "duration_minutes": 110,
             "total_score": 128.0,
             "numbered_question_count": 56,
-            "scored_item_count": 56,
-            "structure_status": "needs_review",
+            "scored_item_count": 67,
+            "structure_status": "verified",
             "sections": [
               {
                 "id": "section-1",
@@ -5879,10 +8396,13 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "numbered_question_count": 36,
                 "scored_item_count": 36,
                 "group_count": null,
-                "question_type_mix": {},
-                "subtotal_score": 72.0,
-                "score_rule": "占 72 分",
-                "instructions_pattern": null
+                "question_type_mix": {
+                  "single_choice": 24,
+                  "multiple_choice": 12
+                },
+                "subtotal_score": 72,
+                "score_rule": "36題每題2分，24單選、12多選。多選按n=5之(n−2k)/n比例給分，低於0或全未答為0；各多選題另印應選項數。",
+                "instructions_pattern": "說明：第1題至第36題，含單選題及多選題，每題2分。"
               },
               {
                 "id": "section-2",
@@ -5891,14 +8411,16 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
                 "question_number_start": 37,
                 "question_number_end": 56,
                 "numbered_question_count": 20,
-                "scored_item_count": 20,
-                "group_count": null,
+                "scored_item_count": 31,
+                "group_count": 6,
                 "question_type_mix": {
-                  "mixed_group": 20
+                  "multiple_choice": 6,
+                  "constructed_response": 19,
+                  "single_choice": 6
                 },
-                "subtotal_score": 56.0,
-                "score_rule": "占 56 分",
-                "instructions_pattern": null
+                "subtotal_score": 56,
+                "score_rule": "12道選擇題每題2分（6單選、6多選）；8個非選題號各4分，依原卷印出的分項配分及官方評分規則。",
+                "instructions_pattern": "說明：本部分共有6題組，選擇題每題2分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。選擇題與「非選擇題作圖部分」使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，作答時必須寫出計算過程或理由，否則將酌予扣分。"
               }
             ],
             "layout": {
@@ -5907,10 +8429,921 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
               "answer_sheet_mode": "另附答題卷"
             },
             "evidence": {
-              "method": "official_document",
-              "confidence": 0.8,
-              "notes": "Legacy reference recipe only; requires page-by-page source reconciliation and scored-slot inventory. Detected 56 distinct Arabic item markers and 1 section headings; section counts do not reconcile with the paper total.",
-              "reviewed_at": null
+              "method": "manual_review",
+              "confidence": 1,
+              "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+              "notes": "2026-09-12本機依實際PDF逐頁文字、表格與必要影像核對，並對照官方答案及全部評分原則頁。計分小題与部分給分判準分開；維持題號及總分。僅結構證據，非新卷內容／教育品質驗收。",
+              "structure_review": {
+                "profile_sha256": "b6682e16f8160b6f2672fb4e99002e48c152c8a588dc2b8e04bc8068a4fdab64",
+                "reviewer": "Codex / source-PDF structure reconciliation",
+                "reviewed_at": "2026-09-12T10:33:55.529475+00:00",
+                "method": "page-by-page",
+                "pages": [
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 1,
+                    "observations": "封面110分鐘；單、多選分別計分；非選擇採獨立答題區。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 2,
+                    "observations": "第一部分1–36共72分，明確含單選及多選，每題2分。 q1 single_choice 2分/5選項；q2 single_choice 2分/5選項；q3 single_choice 2分/5選項；q4 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 3,
+                    "observations": "q5 single_choice 2分/5選項；q6 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 4,
+                    "observations": "q7 multiple_choice 2分/5選項；q8 multiple_choice 2分/5選項；q9 multiple_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 5,
+                    "observations": "q10 single_choice 2分/5選項；q11 multiple_choice 2分/5選項；q12 multiple_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 6,
+                    "observations": "q13 single_choice 2分/5選項；q14 single_choice 2分/5選項；q15 single_choice 2分/5選項；q16 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 7,
+                    "observations": "q17 single_choice 2分/5選項；q18 single_choice 2分/5選項；q19 single_choice 2分/5選項；q20 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 8,
+                    "observations": "q21 single_choice 2分/5選項；q22 single_choice 2分/5選項；q23 multiple_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 9,
+                    "observations": "q24 single_choice 2分/5選項；q25 multiple_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 10,
+                    "observations": "q26 multiple_choice 2分/5選項；q27 multiple_choice 2分/5選項；q28 single_choice 2分/5選項；q29 single_choice 2分/5選項；q30 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 11,
+                    "observations": "q31 multiple_choice 2分/5選項；q32 multiple_choice 2分/5選項；q33 single_choice 2分/5選項；q34 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 12,
+                    "observations": "35多選2項，36单選，混合部分56分、6題組開始；37多選3項。 q35 multiple_choice 2分/5選項；q36 single_choice 2分/5選項；q37 multiple_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 13,
+                    "observations": "38(a)(b)各2分；39五個親緣樹選項、應選2項。 q38-a constructed_response 2分；q38-b constructed_response 2分；q39 multiple_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 14,
+                    "observations": "40–43共用四圖與狀態表的整頁材料；無新增計分單位。 本頁無獨立計分單位，為前後文或卷面資料。"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 15,
+                    "observations": "40與43五選一各2分；41表格兩個勾選各1分、理由2分；42(a)分子式與(b)作圖各2分。 q40 single_choice 2分/5選項；q41-check-1 constructed_response 1分；q41-check-2 constructed_response 1分；q41-reason constructed_response 2分；q42-a constructed_response 2分；q42-b constructed_response 2分；q43 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 16,
+                    "observations": "44–46題組材料與表格；44應選2項、45應選3項，每題2分。 q44 multiple_choice 2分/5選項；q45 multiple_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 17,
+                    "observations": "46(a)(b)各2分；47單選2分、48應選2項2分；49波形圖2分、反射箭號1分、折射箭號1分。 q46-a constructed_response 2分；q46-b constructed_response 2分；q47 single_choice 2分/5選項；q48 multiple_choice 2分/5選項；q49-a constructed_response 2分；q49-b-reflection constructed_response 1分；q49-b-refraction constructed_response 1分"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 18,
+                    "observations": "50潮位作圖2分、潮差計算2分；51五選一2分。 q50-plot constructed_response 2分；q50-calculation constructed_response 2分；q51 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 19,
+                    "observations": "52多選2項2分；53(a)理由1分、(b)理由1分、(c)八點作圖2分。 q52 multiple_choice 2分/5選項；q53-a constructed_response 1分；q53-b constructed_response 1分；q53-c constructed_response 2分"
+                  },
+                  {
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 20,
+                    "observations": "54定年表勾選與理由依評分規則各2分；55、56五選一各2分；末頁至56，無額外題。 q54-check constructed_response 2分；q54-reason constructed_response 2分；q55 single_choice 2分/5選項；q56 single_choice 2分/5選項"
+                  },
+                  {
+                    "source_sha256": "ba42c71786f7e34af2671bb5d18367aa80487b93afe668e12035594f571770c2",
+                    "page": 1,
+                    "observations": "逐題核對官方答案表的單／多選與非選擇標示；數字或單詞答案內容不納入新題藍圖。"
+                  },
+                  {
+                    "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                    "page": 1,
+                    "observations": "八個非選題各4分共32分；38(a)2分、(b)2分，後者兩基因合併作答可部分給分。"
+                  },
+                  {
+                    "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                    "page": 2,
+                    "observations": "41表格兩勾選各1分與理由2分；42(a)2分，42(b)圖跨頁。"
+                  },
+                  {
+                    "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                    "page": 3,
+                    "observations": "42(b)2分，單一N作圖為部分分數；46(a)2分需計算過程。"
+                  },
+                  {
+                    "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                    "page": 4,
+                    "observations": "46(b)2分；49(a)波形圖2分。"
+                  },
+                  {
+                    "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                    "page": 5,
+                    "observations": "49(b)反射及折射各1分；50繪圖及計算參考延續下頁評分。"
+                  },
+                  {
+                    "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                    "page": 6,
+                    "observations": "50繪圖2分及計算2分；53(a)(b)各1分理由。"
+                  },
+                  {
+                    "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                    "page": 7,
+                    "observations": "53(c)八點圖2分；54勾選2分，理由規則續頁。"
+                  },
+                  {
+                    "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+                    "page": 8,
+                    "observations": "54理由2分、部分原因1分；無額外計分題。"
+                  }
+                ],
+                "slots": [
+                  {
+                    "id": "q1",
+                    "number": 1,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q2",
+                    "number": 2,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q3",
+                    "number": 3,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q4",
+                    "number": 4,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 2,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q5",
+                    "number": 5,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q6",
+                    "number": 6,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 3,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q7",
+                    "number": 7,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q8",
+                    "number": 8,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q9",
+                    "number": 9,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 4,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q10",
+                    "number": 10,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q11",
+                    "number": 11,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q12",
+                    "number": 12,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 5,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q13",
+                    "number": 13,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q14",
+                    "number": 14,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q15",
+                    "number": 15,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q16",
+                    "number": 16,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 6,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q17",
+                    "number": 17,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q18",
+                    "number": 18,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q19",
+                    "number": 19,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q20",
+                    "number": 20,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 7,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q21",
+                    "number": 21,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q22",
+                    "number": 22,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q23",
+                    "number": 23,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 8,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q24",
+                    "number": 24,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q25",
+                    "number": 25,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 9,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q26",
+                    "number": 26,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 3
+                  },
+                  {
+                    "id": "q27",
+                    "number": 27,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 3
+                  },
+                  {
+                    "id": "q28",
+                    "number": 28,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q29",
+                    "number": 29,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q30",
+                    "number": 30,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 10,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q31",
+                    "number": 31,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q32",
+                    "number": 32,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q33",
+                    "number": 33,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q34",
+                    "number": 34,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 11,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q35",
+                    "number": 35,
+                    "section_id": "section-1",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 12,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q36",
+                    "number": 36,
+                    "section_id": "section-1",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 12,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q37",
+                    "number": 37,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 12,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 3
+                  },
+                  {
+                    "id": "q38-a",
+                    "number": 38,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 13,
+                    "response_format": "short response",
+                    "subpart_id": "a"
+                  },
+                  {
+                    "id": "q38-b",
+                    "number": 38,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 13,
+                    "response_format": "gene-expression comparison; at most 20 characters",
+                    "subpart_id": "b"
+                  },
+                  {
+                    "id": "q39",
+                    "number": 39,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 13,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q40",
+                    "number": 40,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 15,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q41-check-1",
+                    "number": 41,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 1,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 15,
+                    "response_format": "first checkbox cell",
+                    "subpart_id": "check-1"
+                  },
+                  {
+                    "id": "q41-check-2",
+                    "number": 41,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 1,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 15,
+                    "response_format": "second checkbox cell",
+                    "subpart_id": "check-2"
+                  },
+                  {
+                    "id": "q41-reason",
+                    "number": 41,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 15,
+                    "response_format": "written evidence-based reason",
+                    "subpart_id": "reason"
+                  },
+                  {
+                    "id": "q42-a",
+                    "number": 42,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 15,
+                    "response_format": "molecular formula",
+                    "subpart_id": "a"
+                  },
+                  {
+                    "id": "q42-b",
+                    "number": 42,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 15,
+                    "response_format": "draw on structural formula",
+                    "subpart_id": "b"
+                  },
+                  {
+                    "id": "q43",
+                    "number": 43,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 15,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q44",
+                    "number": 44,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 16,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q45",
+                    "number": 45,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 16,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 3
+                  },
+                  {
+                    "id": "q46-a",
+                    "number": 46,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 17,
+                    "response_format": "calculation with units and reasoning",
+                    "subpart_id": "a"
+                  },
+                  {
+                    "id": "q46-b",
+                    "number": 46,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 17,
+                    "response_format": "calculation with units and reasoning",
+                    "subpart_id": "b"
+                  },
+                  {
+                    "id": "q47",
+                    "number": 47,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 17,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q48",
+                    "number": 48,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 17,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q49-a",
+                    "number": 49,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 17,
+                    "response_format": "waveform drawing",
+                    "subpart_id": "a"
+                  },
+                  {
+                    "id": "q49-b-reflection",
+                    "number": 49,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 1,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 17,
+                    "response_format": "reflection ray drawing",
+                    "subpart_id": "b-reflection"
+                  },
+                  {
+                    "id": "q49-b-refraction",
+                    "number": 49,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 1,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 17,
+                    "response_format": "refraction ray drawing",
+                    "subpart_id": "b-refraction"
+                  },
+                  {
+                    "id": "q50-plot",
+                    "number": 50,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 18,
+                    "response_format": "plot and connect given points",
+                    "subpart_id": "plot"
+                  },
+                  {
+                    "id": "q50-calculation",
+                    "number": 50,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 18,
+                    "response_format": "range calculation with reasoning",
+                    "subpart_id": "calculation"
+                  },
+                  {
+                    "id": "q51",
+                    "number": 51,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 18,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q52",
+                    "number": 52,
+                    "section_id": "section-2",
+                    "type": "multiple_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 19,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5,
+                    "required_selection_count": 2
+                  },
+                  {
+                    "id": "q53-a",
+                    "number": 53,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 1,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 19,
+                    "response_format": "direction and reasoning",
+                    "subpart_id": "a"
+                  },
+                  {
+                    "id": "q53-b",
+                    "number": 53,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 1,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 19,
+                    "response_format": "data-row inference and reasoning",
+                    "subpart_id": "b"
+                  },
+                  {
+                    "id": "q53-c",
+                    "number": 53,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 19,
+                    "response_format": "plot eight points",
+                    "subpart_id": "c"
+                  },
+                  {
+                    "id": "q54-check",
+                    "number": 54,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 20,
+                    "response_format": "checkbox response",
+                    "subpart_id": "check"
+                  },
+                  {
+                    "id": "q54-reason",
+                    "number": 54,
+                    "section_id": "section-2",
+                    "type": "constructed_response",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 20,
+                    "response_format": "reason within 20 characters",
+                    "subpart_id": "reason"
+                  },
+                  {
+                    "id": "q55",
+                    "number": 55,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 20,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  },
+                  {
+                    "id": "q56",
+                    "number": 56,
+                    "section_id": "section-2",
+                    "type": "single_choice",
+                    "score": 2,
+                    "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+                    "page": 20,
+                    "response_format": "mark on separate answer sheet",
+                    "option_count": 5
+                  }
+                ],
+                "unresolved": []
+              }
             }
           }
         },
@@ -17960,6 +21393,147 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
 }
 </canonical-source>
 
+<canonical-source path="exam_packs/學測/subjects/國文/blueprints/writer-calibration-additions.json">
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "f8825408ee35694efaa60ff6e8f738432afdd88b2891ec64959b8d9dacf6ba1c",
+  "review_ledger_sha256": "523840d4179f9a1d07e5bca7325baa441089ff304a9499dc97a8f4f587afec40",
+  "record_count": 9,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國綜試題定稿.pdf",
+      "sha256": "f0a9043fca96e76b4e01cc532a64df58f447a3773f6dae54bdf940cc63229783",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國語文綜合能力測驗答案.pdf",
+      "sha256": "a7f91efc0a38016afb8ef749b981f79e5b63498947b95194a65d02405a30a2f3",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜試題.pdf",
+      "sha256": "ad9878a480fb11e6c6a386b42deff9db52481e3a4f30542b94b4895a7388cd02",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國語文綜合能力測驗答案.pdf",
+      "sha256": "214f283160ab61a711349cd6b24643fb79aec20300b4cbf5bb454bcdf03a1c67",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國綜試卷.pdf",
+      "sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國語文綜合能力測驗答案.pdf",
+      "sha256": "d371d9539c7cb7bce7e51e561bca91af4b3e8199dddcddb67f82fd2607a114f5",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+      "sha256": "288457c62440bbedb0184420cd720f6e7bf2d2c40bd08589e92d6a010ab29d3d",
+      "page_count": 3
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜非選擇題參考答案與評分原則.pdf",
+      "sha256": "4f462a4a7e25f7fea584b6fb35388b672a5920dbd7199feb7fc8407270d438d0",
+      "page_count": 3
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+      "sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+      "page_count": 3
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-787a41c35150",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.333333,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-2",
+        "domain": "跨單元",
+        "question_type": "multiple_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-b134703a2d20",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.333333,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-3",
+        "domain": "跨單元",
+        "question_type": "constructed_response",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-58526d4f33cd",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.333333,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "國綜-section-3",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}
+</canonical-source>
+
 <canonical-source path="exam_packs/學測/subjects/國文/subject.json">
 {"id":"chinese","name":"國文","sections":["國綜","國寫"],"domains":[]}
 </canonical-source>
@@ -24161,6 +27735,78 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         2023
       ],
       "proportion": 0.033333
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="exam_packs/學測/subjects/數學B/blueprints/writer-calibration-additions.json">
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "fb15a83ca85faef9f2b725f74c6948cbebef2ff77027a522252fff1a8e7c3cb5",
+  "review_ledger_sha256": "4b87b23d651c1f75bf247d14fd8e6ad84df20bf61967f3552189c098b229356a",
+  "record_count": 3,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b試題定稿.pdf",
+      "sha256": "c378a43ffedb0aefc433152ea394570b6af5c9df97e654d9003a8ae82eb48feb",
+      "page_count": 8
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b答案.pdf",
+      "sha256": "adb3532af49ca9cf6735a54009e0d543efd66b3d1e4c5c1beb50d21f830ab48e",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b試題.pdf",
+      "sha256": "ad6ed7218a4f93cf9474afa14b5fc875ca7a7d3ccf84292aa5ceee3d390fda67",
+      "page_count": 8
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b答案.pdf",
+      "sha256": "3d3d916619a189b9fd0403460b8b30254929f3a8ce49ba58aadf0b7a3e35a3aa",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b試卷.pdf",
+      "sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "page_count": 8
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b答案.pdf",
+      "sha256": "ff1337781df5ee183f8e0a4b49f4690b297bbc547fefcb8f1669d01bdde610b3",
+      "page_count": 1
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-2b519e9ac305",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 1.0,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
     }
   ]
 }
@@ -32930,6 +36576,78 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
 }
 </canonical-source>
 
+<canonical-source path="exam_packs/學測/subjects/社會/blueprints/writer-calibration-additions.json">
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "82828bb20c7837cf31c19aad405bd6f4c08f7c97485a460b421ff1c0626bc445",
+  "review_ledger_sha256": "b4813db88e444b55135e1f23d616423834571b3193044eaff695d842db31317f",
+  "record_count": 9,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會科試題定稿.pdf",
+      "sha256": "74a0026042bb4ad13044dfebb468e909b4293ebffc5b0e7f0d49a2b5ae6aa06c",
+      "page_count": 19
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會答案.pdf",
+      "sha256": "bb63cf9b1ece3980e22d9f136a22769a362d4e0750b6b62963d68f40a4b8a2c0",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會試題.pdf",
+      "sha256": "1d1340c4aa079aa5afd9b37f7ac564d9b13b99c2e629238d6f6c17179d47a505",
+      "page_count": 20
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會答案.pdf",
+      "sha256": "ff04e289ede3b49329406f393427b3d78c57e76cda3dd31445fabf7d215f67f8",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會試卷.pdf",
+      "sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "page_count": 20
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會答案.pdf",
+      "sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212",
+      "page_count": 1
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-13d6089136d9",
+      "count": 9,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 1.0,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}
+</canonical-source>
+
 <canonical-source path="exam_packs/學測/subjects/社會/subject.json">
 {"id":"social","name":"社會","sections":["社會"],"domains":["歷史","地理","公民與社會"]}
 </canonical-source>
@@ -41129,6 +44847,105 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
 }
 </canonical-source>
 
+<canonical-source path="exam_packs/學測/subjects/自然/blueprints/writer-calibration-additions.json">
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "15c1f1f40fc620dc6a1d957a0b84a3c4579f495d558ef9625b0eb582f4ba2147",
+  "review_ledger_sha256": "df16720c26caa2f69c65495473430eb53ea76906b9c63810fc62f30642547689",
+  "record_count": 6,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然試題定稿.pdf",
+      "sha256": "479080cff932826975e9490218281b746e6740156f98b65637d1a43aeb0f8562",
+      "page_count": 19
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然答案.pdf",
+      "sha256": "7beeea0aba1a060736cc5a944f2aa26abdaec0e6c0586dec8d5cc901dc31851a",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/114學測自然試題定稿.pdf",
+      "sha256": "62b238bd109907dac0efb5dd4e019de1a59a3b283f031e90ae50fb32aafff136",
+      "page_count": 20
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/06-114學測自然答案.pdf",
+      "sha256": "217816174af6528a190fb31e2cde3c11df16380ae02aa4ed09f3284b3e8360c9",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然試卷.pdf",
+      "sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "page_count": 20
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然答案.pdf",
+      "sha256": "ba42c71786f7e34af2671bb5d18367aa80487b93afe668e12035594f571770c2",
+      "page_count": 1
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-c97f61f1cfe9",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.5,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "跨單元",
+        "question_type": "multiple_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-13d6089136d9",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.5,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}
+</canonical-source>
+
 <canonical-source path="exam_packs/學測/subjects/自然/subject.json">
 {"id":"science","name":"自然","sections":["自然"],"domains":["物理","化學","生物","地球科學","探究與實作"]}
 </canonical-source>
@@ -46697,7 +50514,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
   "subject": "英文",
   "section": "英文",
   "curriculum": "108",
-  "regime": "111學年度起",
+  "regime": "115學年度起",
   "reference_year": 2026,
   "fidelity_status": "verified",
   "source_files": [
@@ -47033,7 +50850,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         }
       ],
       "unresolved": [],
-      "profile_sha256": "a390efea09c418ccc81284387998ed9a0d7cecee080677f374cfb1d99501d709"
+      "profile_sha256": "f6fa03378ce7d02a489af5c1c46a44ab306ed7b4466ea3043527010cb0e2d0fb"
     }
   }
 }
@@ -48178,6 +51995,174 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
 }
 </canonical-source>
 
+<canonical-source path="exam_packs/學測/subjects/英文/blueprints/writer-calibration-additions.json">
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "e2551a6501acf6adb13302908c3f21eca1141d14200884ff212a08d05a1006bd",
+  "review_ledger_sha256": "33195f4837892b5b101cd879b54ba7ad0959a4edccf146533356a871672a401b",
+  "record_count": 12,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文科定稿.pdf",
+      "sha256": "09d35c2ed8561e0845dbbe305e12f5342b27f209fb44d801ff7f9f1f9e519ecf",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文答案.pdf",
+      "sha256": "f6389b547afd21b819452dcfadb2382818e561149c67364586a9e931c1a1dd57",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文試題.pdf",
+      "sha256": "51c8d9f7c2715adf74cae808bde4906cfadee19d0ec379df3b33881c35960a78",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文答案.pdf",
+      "sha256": "f96658a07c24ef878493e9c40fea26f3497884dd621427ddb7d9cac3c6f0206f",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文試卷.pdf",
+      "sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文答案.pdf",
+      "sha256": "f8edda8733240b7d26cba9f80f89b4ffb42a58449319121fad9466d008811b11",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/03-113學測英文考科非選擇題參考答案與評分原則.pdf",
+      "sha256": "5151accdbf33c4f08b970bef114fda378ff49891434b8cce637375391ddbda2e",
+      "page_count": 3
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/03-114學測英文考科非選擇題參考答案與評分原則.pdf",
+      "sha256": "609912dd23603130c628ee6adeee21a58990d4a8e59bbfd0c17faa93fd11727a",
+      "page_count": 3
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/115學測英文考科非選擇題參考答案與評分原則.pdf",
+      "sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+      "page_count": 3
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-2b519e9ac305",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.25,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "篇章結構",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-d355e372b105",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.25,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-6",
+        "domain": "跨單元",
+        "question_type": "constructed_response",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-fdd2c71fd87b",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.25,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-6",
+        "domain": "跨單元",
+        "question_type": "fill_in",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-07d0d2e824da",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.25,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-6",
+        "domain": "跨單元",
+        "question_type": "multiple_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}
+</canonical-source>
+
 <canonical-source path="exam_packs/學測/subjects/英文/subject.json">
 {"id":"english","name":"英文","sections":["英文"],"domains":[]}
 </canonical-source>
@@ -49316,10 +53301,10 @@ Select an exact verified Paper Profile. The verified 115 profile has 100 minutes
 | selected response | discourse structure | 31–34 | 8 |
 | selected response | reading | 35–46 | 24 |
 | mixed | mixed group | 47–50 | 10 |
-| non-selected | Chinese-to-English translation | two sentences, one scored unit | 8 |
+| non-selected | Chinese-to-English translation | two separately scored sentences (4 points each) | 8 |
 | non-selected | English composition | one scored unit | 20 |
 
-This yields 50 Arabic-numbered items and 52 scored units. The 115 discourse-structure section is one passage with four gaps and five options. Do not reuse the older two-passage arrangement when the simulated paper claims the 115-onward form.
+This yields 50 Arabic-numbered items and 53 scored units. Text completion is selected response with a shared ten-option bank; mixed items 47–48 are free-response word blanks. The 115 discourse-structure section is one passage with four gaps and five options. Do not reuse the older two-passage arrangement when the simulated paper claims the 115-onward form.
 
 The official 115-onward specification describes group passages of roughly 180–400 words, primarily continuous text, with diverse genres and topics and occasional images or tables. It also states that the same booklet must contain selected response, mixed response, Chinese-to-English translation, and English composition. Never split translation/composition into a separate paper or omit them from a “complete English paper.” Preserve the selected profile's grouping and task operations; do not turn every section into unrelated one-sentence blanks.
 
@@ -50188,6 +54173,25 @@ Use `templates/question-metadata.csv` or write JSON Lines that conform to `schem
 - rights and provenance: source file fingerprint, source URL, and whether source text can be published.
 
 Do not infer empirical answer rate or discrimination from prose. Leave unknown fields null or absent.
+
+### Incremental review of distributed blueprints
+
+When the private records behind a distributed blueprint are unavailable, preserve
+that blueprint. Record newly inspected official items in
+`metadata/calibration-additions.json`, including question/rubric hashes, reviewed
+pages, semantic observations, reasoning operations and estimated difficulty
+vectors. This analysis ledger must not be shown to the item-writing pass.
+Each added section/type family needs observations from at least three official
+years. This supplements form coverage; it does not establish empirical item
+statistics, every curriculum unit, or independent human review.
+
+Run `python scripts/writer_calibration.py` in the analysis phase to build
+`blueprints/writer-calibration-additions.json`. The shared loader validates the
+base and ledger fingerprints, reproducible aggregation and (for local full
+papers) original PDF hashes. It returns aggregate clusters only. Rebuilding the
+base invalidates the extension until it is reviewed and rebuilt. Full-paper
+planning, readiness and final release use this same composite fingerprint.
+The hosted knowledge projection includes only the checked aggregate extension.
 
 Keep `requires_diagram` as `null` until the source question page has been checked. False means the item was reviewed and does not require a visual; it must not be used as a default for unreviewed material.
 
@@ -51806,6 +55810,18 @@ The first checks EXISTING verified claims: no verified profiles with
 `pass-claims-only` is NOT readiness. `--revoke-unsupported` is a maintenance
 operation that demotes unsupported claims without deleting source materials.
 
+Run `python scripts/audit_exam_pack.py --readiness --output <readiness.json>` for
+the seven 115-reference booklets. Unlike the claims audit, it checks missing
+profiles, compatible layouts, local source hashes, curriculum calibration and
+every scored slot's matching aggregate cluster. A blocked report returns 1;
+`exam_data.py plan --full-paper` returns 2 when it writes an incomplete plan.
+Do not treat that diagnostic file as a calibrated plan. `--metadata-only` is for
+public-source CI and explicitly does not verify local PDF availability.
+
+`exam_data.py status` reports the distributed `writer-blueprint.json`; absence of
+private `questions.jsonl` or `learned-blueprint.json` is normal in a distribution.
+An aggregate `ready` label alone does not establish complete slot coverage.
+
 Open actual selected source PDFs, verify hashes/exam/year/section and page counts.
 Resolve disagreements using original pages, not hardcoded recipes. Use 111–115
 as primary form evidence; older material is content-only. Keep coverage counts
@@ -51836,6 +55852,19 @@ type column cannot repair an incomplete candidate booklet.
   observations, not copied pass strings;
 - `slots`: every scored unit with unique id, number (null if unnumbered),
   section_id, actual type, score, option_count for choices, source_sha256 and page.
+
+The page inventory includes every source page, including cover and final pages,
+without duplicate observations. Printed questions with scored subparts declare
+`item_spec.scored_units`; each unit carries `slot_id` matching the reviewed slot,
+score and response type, and all subpart scores sum to the printed parent score.
+Separately authored unnumbered tasks use `number: null`, `item_spec.slot_id` and
+an `answer_label` such as 中譯英1 or 英文作文. `number_display` controls a local
+printed label (e.g. 1. within translation); it may be empty. Renderers retain
+authored order and use the answer label instead of displaying a null number.
+The English booklet therefore has 50 Arabic-numbered questions and 53 scored
+units (two 4-point translations plus composition); 國寫 has two main tasks and
+three scored units. Plans expose both counts and retain exact source-reviewed
+slot order, without guessing order from a section's aggregate type mix.
 
 Only set verified after completing the review and resolving findings. A recipe,
 confidence 1.0, matching total or `official_document` label never establishes
@@ -53155,7 +57184,9 @@ Any later paper request:
         "required": ["id", "number", "section_id", "type", "prompt"],
         "properties": {
           "id": {"type": "string"},
-          "number": {"type": "integer", "minimum": 1},
+          "number": {"type": ["integer", "null"], "minimum": 1},
+          "number_display": {"type": "string"},
+          "answer_label": {"type": "string", "minLength": 1},
           "section_id": {"type": "string"},
           "type": {"type": "string"},
           "score": {"type": ["number", "null"]},

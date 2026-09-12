@@ -7,10 +7,16 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
+import re
 from collections import Counter
 from pathlib import Path
 
 ITEM_TYPES = {'single_choice', 'multiple_choice', 'fill_in', 'constructed_response', 'guided_writing'}
+
+
+def positive_score(value):
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) and value > 0
 
 
 def digest(value):
@@ -28,10 +34,14 @@ def source_errors(profile, root=None):
         errors.append('no reference source files')
     for source in sources:
         sha = source.get('sha256', '')
-        if len(sha) != 64 or set(sha) <= {'0'}:
+        if not isinstance(sha, str) or not re.fullmatch(r'[a-f0-9]{64}', sha) or set(sha) <= {'0'}:
             errors.append('reference hash missing or withheld; local re-verification required')
         if root is not None:
-            path = Path(root) / source.get('relative_path', '')
+            relative = source.get('relative_path', '')
+            path = Path(root) / relative
+            if not relative or Path(relative).is_absolute() or Path(root).resolve() not in path.resolve().parents:
+                errors.append('reference path must remain inside the pack root')
+                continue
             if not path.is_file():
                 errors.append(f'reference unavailable: {source.get("relative_path")}')
             elif hashlib.sha256(path.read_bytes()).hexdigest() != sha:
@@ -52,11 +62,19 @@ def review_errors(profile, review_name, root=None):
     pages = review.get('pages') or []
     if not pages:
         errors.append(f'{review_name}: missing page observations')
+    refs = [(p.get('source_sha256'), p.get('page')) for p in pages]
+    if len(set(refs)) != len(refs):
+        errors.append(f'{review_name}: duplicated page observations')
     for p in pages:
         s = sources.get(p.get('source_sha256'))
         number = p.get('page')
         if not s or not isinstance(number, int) or not 1 <= number <= (s.get('page_count') or 0) or not p.get('observations'):
             errors.append(f'{review_name}: invalid page reference or empty observations')
+    for sha, source in sources.items():
+        count = source.get('page_count')
+        covered = {number for source_sha, number in refs if source_sha == sha}
+        if not isinstance(count, int) or count < 1 or covered != set(range(1, count + 1)):
+            errors.append(f'{review_name}: review must cover every reference page, including cover/final page')
     if review.get('unresolved') != []:
         errors.append(f'{review_name}: unresolved findings must be explicitly empty')
     return errors
@@ -74,17 +92,22 @@ def paper_errors(profile, root=None):
     if any(not x for x in ids) or len(set(ids)) != len(ids):
         errors.append('scored-slot ids missing or duplicated')
     section_ids = {s.get('id') for s in sections}
+    if None in section_ids or '' in section_ids or len(section_ids) != len(sections):
+        errors.append('section ids missing or duplicated')
     refs = {(p.get('source_sha256'), p.get('page')) for p in
             ((profile.get('evidence') or {}).get('structure_review') or {}).get('pages', [])}
     for slot in slots:
         if slot.get('type') not in ITEM_TYPES or slot.get('section_id') not in section_ids:
             errors.append('slot needs an actual response type and known section; mixed_group is not a response type')
-        if not isinstance(slot.get('score'), (int, float)) or slot['score'] <= 0:
+        if not positive_score(slot.get('score')):
             errors.append('slot score missing or invalid')
         if (slot.get('source_sha256'), slot.get('page')) not in refs:
             errors.append('slot lacks a reviewed source-page reference')
         if slot.get('type') in {'single_choice', 'multiple_choice'} and (not isinstance(slot.get('option_count'), int) or slot['option_count'] < 2):
             errors.append('choice slot option count missing')
+        required = slot.get('required_selection_count')
+        if required is not None and (slot.get('type') != 'multiple_choice' or not isinstance(required, int) or not 1 <= required <= (slot.get('option_count') or 0)):
+            errors.append('multiple-choice required selection count invalid')
     for section in sections:
         selected = [s for s in slots if s.get('section_id') == section.get('id')]
         if len(selected) != section.get('scored_item_count'):
@@ -93,14 +116,20 @@ def paper_errors(profile, root=None):
             errors.append(f'{section.get("id")}: response-type inventory mismatch or unresolved mix')
         if not section.get('instructions_pattern') or not section.get('score_rule'):
             errors.append(f'{section.get("id")}: exact instructions/scoring rule not reviewed')
-        if abs(sum(s.get('score', 0) or 0 for s in selected) - (section.get('subtotal_score') or 0)) > 1e-6:
+        if (not positive_score(section.get('subtotal_score')) or any(not positive_score(s.get('score')) for s in selected)
+                or abs(sum(s['score'] for s in selected) - section['subtotal_score']) > 1e-6):
             errors.append(f'{section.get("id")}: slot scores do not reconcile')
-    if not sections or sum(s.get('subtotal_score', 0) or 0 for s in sections) != profile.get('total_score'):
+    if (not sections or any(not positive_score(s.get('subtotal_score')) for s in sections)
+            or not positive_score(profile.get('total_score')) or sum(s['subtotal_score'] for s in sections) != profile.get('total_score')):
         errors.append('section scores do not reconcile with paper')
     numbered = {s.get('number') for s in slots if s.get('number') is not None}
     if len(numbered) != profile.get('numbered_question_count'):
         errors.append('numbered count does not reconcile with scored-slot inventory')
-    if not profile.get('duration_minutes'):
+    if (any(not isinstance(n, int) or isinstance(n, bool) or n < 1 for n in numbered)
+            or (isinstance(profile.get('numbered_question_count'), int)
+                and numbered != set(range(1, profile['numbered_question_count'] + 1)))):
+        errors.append('numbered slots must cover consecutive printed question numbers from 1')
+    if not positive_score(profile.get('duration_minutes')):
         errors.append('duration not verified')
     return errors
 

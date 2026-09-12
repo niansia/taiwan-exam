@@ -37,6 +37,15 @@ is not a remote license check or an approval requirement for local exam use.
 
 Before publication:
 
+An incident hold may require checking replacement bytes before reopening public
+distribution. `package_skill.py --release-candidate --source-url ACTUAL_URL`
+runs the same attribution, archive/member and attachment scans as a public
+build, without changing the hold. A passing candidate may be uploaded to a
+private GitHub draft for maintainer browser acceptance. It must not be promoted
+or advertised as an install release until the documented resolution and normal
+download check are complete. Promote the exact checked bytes; rebuilding or
+changing the download URL invalidates the browser result.
+
 1. Review code changes, dependencies, archive contents and callers of removed
    tools. Preserve source licenses; exclude private data and unneeded executables.
 2. Run regression tests. A functional pass is not an antivirus pass.

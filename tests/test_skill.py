@@ -289,16 +289,16 @@ class ExamDataTests(unittest.TestCase):
         self.assertIsNotNone(result)
         numbered, scored, sections, total_score = result
         self.assertEqual(50, numbered)
-        self.assertEqual(52, scored)
+        self.assertEqual(53, scored)
         self.assertEqual(100, total_score)
         mixed = next(section for section in sections if section["title"] == "混合題")
         self.assertEqual(4, mixed["numbered_question_count"])
         self.assertEqual(4, mixed["scored_item_count"])
         constructed = [section for section in sections if section["title"] in {"中譯英", "英文作文"}]
         self.assertTrue(all(section["numbered_question_count"] is None for section in constructed))
-        self.assertTrue(all(section["scored_item_count"] == 1 for section in constructed))
+        self.assertEqual([2, 1], [section['scored_item_count'] for section in constructed])
 
-    def test_public_english_profile_requires_new_local_review(self) -> None:
+    def test_public_english_profile_has_bound_review_but_requires_local_sources(self) -> None:
         subject_path = ROOT / "exam_packs" / "學測" / "subjects" / "英文"
         profiles, errors = exam_data.read_jsonl(subject_path / "metadata" / "papers.jsonl")
         self.assertFalse(errors)
@@ -306,9 +306,11 @@ class ExamDataTests(unittest.TestCase):
             row for row in profiles
             if row.get("year") == 2026 and row.get("source_kind") == "official_past_exam"
         )
-        self.assertEqual("needs_review", profile["structure_status"])
-        with self.assertRaises(ValueError):
-            exam_data.select_paper_profile(subject_path, "108", profile["paper_id"], None)
+        import pack_verification
+        self.assertEqual("verified", profile["structure_status"])
+        self.assertFalse(pack_verification.paper_errors(profile))
+        with tempfile.TemporaryDirectory() as directory:
+            self.assertTrue(any('reference unavailable' in error for error in pack_verification.paper_errors(profile, Path(directory))))
 
     def test_bundle_registry_merge_is_hash_idempotent(self) -> None:
         existing = [{"sha256": "a" * 64, "destination_relative_path": "old.pdf", "year": 2025}]

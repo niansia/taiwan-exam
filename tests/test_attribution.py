@@ -122,3 +122,37 @@ def test_public_release_is_not_silently_enabled(project, monkeypatch):
     monkeypatch.setattr(sys, "argv", ["package_skill.py", "--public-release", "--output", str(archive)])
     assert package_skill.main() == 2
     assert not archive.exists()
+
+
+def test_candidate_requires_public_licensing(project, monkeypatch):
+    archive = project / 'candidate.zip'
+    monkeypatch.setattr(package_skill, 'ROOT', project)
+    monkeypatch.setattr(sys, 'argv', ['package_skill.py', '--release-candidate',
+        '--source-url', 'https://github.com/example/example/releases/download/v1/candidate.zip',
+        '--output', str(archive)])
+    assert package_skill.main() == 2
+    assert not archive.exists()
+
+
+def test_scanned_candidate_does_not_reopen_incident(project, monkeypatch):
+    import scan_skill_release
+    shutil.copyfile(ROOT / 'ORIGIN.json', project / 'ORIGIN.json')
+    shutil.copyfile(ROOT / 'LICENSE', project / 'LICENSE')
+    state = project / 'SOFTWARE_RELEASE_STATUS.json'
+    state.write_text('{"status":"suspended","resolution":null}', encoding='utf-8')
+    before = state.read_bytes()
+    archive = project / 'candidate.zip'
+    calls = []
+    def scanner(path, source_url):
+        calls.append((path, source_url))
+        return {'status': 'pass'}
+    monkeypatch.setattr(scan_skill_release, 'scan_release', scanner)
+    monkeypatch.setattr(package_skill, 'ROOT', project)
+    monkeypatch.setattr(sys, 'argv', ['package_skill.py', '--release-candidate',
+        '--source-url', 'https://github.com/example/example/releases/download/v1/candidate.zip',
+        '--output', str(archive)])
+    assert package_skill.main() == 0
+    assert len(calls) == 1
+    assert state.read_bytes() == before
+    with ZipFile(archive) as z:
+        assert json.loads(z.read('taiwan-exam-generator/PACKAGE_MANIFEST.json'))['distribution_status'] == 'release-candidate-not-published'

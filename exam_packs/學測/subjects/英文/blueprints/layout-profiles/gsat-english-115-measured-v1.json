@@ -4,7 +4,7 @@
   "subject": "英文",
   "section": "英文",
   "curriculum": "108",
-  "regime": "111學年度起",
+  "regime": "115學年度起",
   "reference_year": 2026,
   "fidelity_status": "verified",
   "source_files": [
@@ -340,7 +340,7 @@
         }
       ],
       "unresolved": [],
-      "profile_sha256": "a390efea09c418ccc81284387998ed9a0d7cecee080677f374cfb1d99501d709"
+      "profile_sha256": "f6fa03378ce7d02a489af5c1c46a44ab306ed7b4466ea3043527010cb0e2d0fb"
     }
   }
 }

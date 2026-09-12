@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "subject": "國文",
+  "reviewer": "Codex source-analysis review",
+  "reviewed_at": "2026-09-12",
+  "method": "Selected item text, contextual pages and official answers/rubrics reviewed; necessary figures visually inspected.",
+  "limitations": "Not an independent human review or empirical P/D estimate. Supplements section/type coverage only; existing curriculum, difficulty, originality and finished-PDF gates still apply.",
+  "records": [
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 25,
+      "part": null,
+      "section": "國綜-section-2",
+      "type": "multiple_choice",
+      "score": 4,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國綜試題定稿.pdf",
+        "sha256": "f0a9043fca96e76b4e01cc532a64df58f447a3773f6dae54bdf940cc63229783",
+        "page_count": 12,
+        "pages_reviewed": [
+          8
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國語文綜合能力測驗答案.pdf",
+        "sha256": "a7f91efc0a38016afb8ef749b981f79e5b63498947b95194a65d02405a30a2f3",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "五個語境分辨成語的褒貶、慣用義和適用對象；排除以字面推測語義。",
+      "reasoning_operations": [
+        "語境詞義判讀",
+        "逐項對照"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 25,
+      "part": null,
+      "section": "國綜-section-2",
+      "type": "multiple_choice",
+      "score": 4,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜試題.pdf",
+        "sha256": "ad9878a480fb11e6c6a386b42deff9db52481e3a4f30542b94b4895a7388cd02",
+        "page_count": 12,
+        "pages_reviewed": [
+          8
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國語文綜合能力測驗答案.pdf",
+        "sha256": "214f283160ab61a711349cd6b24643fb79aec20300b4cbf5bb454bcdf03a1c67",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "同形詞跨文言句的比較；辨認詞性、介詞關係與實詞義，不能只認字形。",
+      "reasoning_operations": [
+        "語境詞義判讀",
+        "逐項對照"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 25,
+      "part": null,
+      "section": "國綜-section-2",
+      "type": "multiple_choice",
+      "score": 4,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國綜試卷.pdf",
+        "sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+        "page_count": 12,
+        "pages_reviewed": [
+          8
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國語文綜合能力測驗答案.pdf",
+        "sha256": "d371d9539c7cb7bce7e51e561bca91af4b3e8199dddcddb67f82fd2607a114f5",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "比較文言虛詞和自謙詞在兩個語境的意義，排除字同義異。",
+      "reasoning_operations": [
+        "語境詞義判讀",
+        "逐項對照"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 32,
+      "part": "1",
+      "section": "國綜-section-3",
+      "type": "constructed_response",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國綜試題定稿.pdf",
+        "sha256": "f0a9043fca96e76b4e01cc532a64df58f447a3773f6dae54bdf940cc63229783",
+        "page_count": 12,
+        "pages_reviewed": [
+          11
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+        "sha256": "288457c62440bbedb0184420cd720f6e7bf2d2c40bd08589e92d6a010ab29d3d",
+        "page_count": 3,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "依上文定義判定回憶方式；區別主動重建與感官突然喚起。",
+      "reasoning_operations": [
+        "定義對應",
+        "證據擷取"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 2,
+        "concept_depth": 2,
+        "calculation_depth": 1,
+        "reasoning_steps": 2,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 1
+      },
+      "scoring_observations": "單一關鍵分類，正確2分，錯誤0分；10字內。"
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 34,
+      "part": "1",
+      "section": "國綜-section-3",
+      "type": "constructed_response",
+      "score": 4,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜試題.pdf",
+        "sha256": "ad9878a480fb11e6c6a386b42deff9db52481e3a4f30542b94b4895a7388cd02",
+        "page_count": 12,
+        "pages_reviewed": [
+          11,
+          12
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜非選擇題參考答案與評分原則.pdf",
+        "sha256": "4f462a4a7e25f7fea584b6fb35388b672a5920dbd7199feb7fc8407270d438d0",
+        "page_count": 3,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "把人物身分框架連到對行為的介意原因，需同時交代身分與原因。",
+      "reasoning_operations": [
+        "跨文本連結",
+        "因果解釋"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 1
+      },
+      "scoring_observations": "兩項語意完整4分，部分不完整2分，無關0分；30字內。"
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 32,
+      "part": "1",
+      "section": "國綜-section-3",
+      "type": "constructed_response",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國綜試卷.pdf",
+        "sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+        "page_count": 12,
+        "pages_reviewed": [
+          11
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/115學測國文考科(國綜)非選擇題參考答案與評分原則.pdf",
+        "sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+        "page_count": 3,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "由三段家族敘事歸納角色責任的共同點，避免各自事件羅列。",
+      "reasoning_operations": [
+        "跨段歸納",
+        "簡短表述"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 1
+      },
+      "scoring_observations": "共同責任概念正確2分，無關0分；10字內。"
+    },
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 34,
+      "part": null,
+      "section": "國綜-section-3",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國綜試題定稿.pdf",
+        "sha256": "f0a9043fca96e76b4e01cc532a64df58f447a3773f6dae54bdf940cc63229783",
+        "page_count": 12,
+        "pages_reviewed": [
+          12
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/113/01-113學測國語文綜合能力測驗答案.pdf",
+        "sha256": "a7f91efc0a38016afb8ef749b981f79e5b63498947b95194a65d02405a30a2f3",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "比較兩首詞的夢境與現實，辨別夢醒情感與作者身世，排除只適用單篇的概括。",
+      "reasoning_operations": [
+        "跨篇比較",
+        "主旨判斷"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 32,
+      "part": null,
+      "section": "國綜-section-3",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國綜試題.pdf",
+        "sha256": "ad9878a480fb11e6c6a386b42deff9db52481e3a4f30542b94b4895a7388cd02",
+        "page_count": 12,
+        "pages_reviewed": [
+          11,
+          12
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/114/01-114學測國語文綜合能力測驗答案.pdf",
+        "sha256": "214f283160ab61a711349cd6b24643fb79aec20300b4cbf5bb454bcdf03a1c67",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "將概念框架論述套用兩項外部看法，辨別全稱否定與必要條件。",
+      "reasoning_operations": [
+        "觀點遷移",
+        "命題判斷"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 35,
+      "part": null,
+      "section": "國綜-section-3",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國綜試卷.pdf",
+        "sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+        "page_count": 12,
+        "pages_reviewed": [
+          11,
+          12
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/國文/歷屆試題/115/01-115學測國語文綜合能力測驗答案.pdf",
+        "sha256": "d371d9539c7cb7bce7e51e561bca91af4b3e8199dddcddb67f82fd2607a114f5",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "比較自述、他述和口述整理的敘事聲音及視角；不將文本未支持的情感或權力關係當事實。",
+      "reasoning_operations": [
+        "敘事視角",
+        "跨篇驗證"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 1,
+        "reasoning_steps": 3,
+        "reading_load": 3,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 4
+    }
+  ]
+}

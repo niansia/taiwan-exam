@@ -72,6 +72,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
         paths.extend(sorted((pack_root / "templates").rglob("*.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/subject.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/writer-blueprint.json")))
+        paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/writer-calibration-additions.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/difficulty-profile.json")))
         paths.extend(sorted((pack_root / "subjects").glob("*/blueprints/layout-profiles/*.json")))
 
@@ -86,6 +87,9 @@ def build(version: str, root: Path = ROOT) -> str:
     records = []
     sections = []
     for path in source_paths(root):
+        if path.name == 'writer-calibration-additions.json':
+            from writer_calibration import load_writer
+            load_writer(path.parent.parent)  # Validate evidence before projection; never embed the item ledger.
         relative = path.relative_to(root).as_posix()
         raw = path.read_bytes()
         # The checked-in sources may use platform-native line endings. The web
@@ -126,6 +130,10 @@ context. The embedded `scripts/read_web_knowledge.py` can extract selected paths
 or an initial subject route in one call and verify their portable payload hashes;
 read additional linked references when applicable. It does not generate questions.
 Keep the full knowledge file and all 30 URL records for later subject requests.
+When present, load the same subject's `writer-calibration-additions.json` beside
+its base writer blueprint. Its aggregate clusters supplement section/type
+coverage. Do not reconstruct the analysis ledger or treat estimated additions
+as empirical statistics. Current verified slots control options and scores.
 
 The 111–115 corpus and 115 template labels are reference years, not expiry dates.
 For 116 and later mocks, default to compatible current-regime profiles and fixed

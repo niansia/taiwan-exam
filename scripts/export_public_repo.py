@@ -27,6 +27,16 @@ MAINTAINER_FILES = (
     'scripts/scan_skill_release.py',
     'maintenance/test_download_attachment.ps1',
     '.github/workflows/distribution-security.yml',
+    '.github/workflows/tests.yml',
+    'requirements-test.txt',
+    'SOFTWARE_RELEASE_STATUS.json',
+    'references/rendering-security-review.md',
+    'references/security-incident-2026-09-09.md',
+    'references/security-resolution-2026-09-11.md',
+    'references/security-resolution-2026-09-12.md',
+    'maintenance/security-scan-2026-09-12.json',
+    'references/software-release-security.md',
+    'docs/production-readiness-2026-09-12.md',
 )
 PUBLIC_TESTS = set('''
 test_attribution.py test_audit_corpus_overlap.py test_build_official_question_queue.py
@@ -36,7 +46,7 @@ test_math_scope_polysemy.py test_measured_math_renderer.py
 test_natural_reasoning_and_blocks.py test_optional_statistics_dependency.py
 test_paper_difficulty_balance.py test_pdf_provenance.py test_public_export.py
 test_release_contract.py test_safe_rendering.py test_scan_skill_release.py
-test_source_bootstrap.py
+test_source_bootstrap.py test_production_readiness.py test_writer_calibration.py
 test_skill.py test_validate_english_difficulty_design.py
 test_validate_english_layout_contract.py test_validate_english_vocabulary_scope.py
 test_validate_social_item_design.py test_validate_source_grounding.py
@@ -100,9 +110,11 @@ def export(destination: Path, version: str, *, internal_review: bool = False, so
                 target.parent.mkdir(exist_ok=True)
                 shutil.copyfile(source, target)
                 test_count += 1
-        (destination / 'downloads').mkdir()
-        shutil.copyfile(archive, destination / 'downloads/taiwan-exam-generator.zip')
+        # The source repository never carries an install ZIP. Distribution is
+        # a separately reviewed Release asset; a suspended export must remain
+        # suspended and retain the policy that enforces that boundary.
         if not internal_review:
+            (destination / 'downloads').mkdir()
             shutil.copyfile(archive.with_suffix('.security.json'), destination / 'downloads/security-scan.json')
         copy_maintainer_files(destination)
     return dict(destination=str(destination), public_test_files=test_count,
