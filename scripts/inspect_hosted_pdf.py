@@ -14,11 +14,12 @@ from pathlib import Path
 import re
 
 import pymupdf
+from validate_math_context import source_note_samples
 
 
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
-                 "answer-rail-content-collision"}
+                 "answer-rail-content-collision", "printed-math-source-note"}
 
 
 def rail_collision_samples(page) -> list[dict]:
@@ -116,6 +117,8 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             if "\ufffd" in all_text or "\x00" in all_text:
                 issues.append("replacement-or-null-glyph")
             leaked = sorted(set(RAW_MATH.findall(all_text))) if math else []
+            if math and source_note_samples(all_text):
+                issues.append('printed-math-source-note')
             if leaked:
                 issues.append("raw-math-markup-review")
             table_collisions = table_collision_samples(page)

@@ -78,6 +78,8 @@ reviewer identity: never invent a second context. If none is available, preserve
 pending work for review in a fresh context.
 
 Four required math visuals is a coverage floor, NOT four fixed picture types.
+Apply math-current-events-and-sourcing.md for recent-event model design and
+internal-only source records; topical arithmetic does not satisfy literacy.
 Derive information relationships first, then choose representations. Do not reuse
 a permanent geometry/function/probability menu or merely rotate constants. Compare
 accessible prior papers' mechanisms, shortcuts and visual topology.

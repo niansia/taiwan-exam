@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.13.1
+# Taiwan Exam Web Knowledge v2026.09.13.2
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -70,10 +70,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 [
   {
     "path": "SKILL.md",
-    "bytes": 74359,
-    "sha256": "7e2e942c050d694a08725ffe4fc6398c779fc59f04d00024f70d56f722fe7c61",
-    "embedded_bytes": 74359,
-    "embedded_sha256": "7e2e942c050d694a08725ffe4fc6398c779fc59f04d00024f70d56f722fe7c61"
+    "bytes": 74716,
+    "sha256": "8c1be940c91235ac2cd57baac828fb81d5877e0a643842e352c5c80d3a0e824a",
+    "embedded_bytes": 74716,
+    "embedded_sha256": "8c1be940c91235ac2cd57baac828fb81d5877e0a643842e352c5c80d3a0e824a"
   },
   {
     "path": "core/taxonomy.json",
@@ -483,10 +483,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/current-source-transformation.md",
-    "bytes": 7302,
-    "sha256": "cfad85f892e1cb560fc3f374e359b2c583819f38b22ec9e2c55fd91a4db34023",
-    "embedded_bytes": 7302,
-    "embedded_sha256": "cfad85f892e1cb560fc3f374e359b2c583819f38b22ec9e2c55fd91a4db34023"
+    "bytes": 8108,
+    "sha256": "b630ea5abda8c96e80ed659d2018cce9dd9c044d9b3226ac29b6d2dbfdfa0c19",
+    "embedded_bytes": 8108,
+    "embedded_sha256": "b630ea5abda8c96e80ed659d2018cce9dd9c044d9b3226ac29b6d2dbfdfa0c19"
   },
   {
     "path": "references/data-ingestion.md",
@@ -567,17 +567,17 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/hosted-pdf-production.md",
-    "bytes": 11504,
-    "sha256": "91674c7e05431e4bc759a4ebdc4df5955c64e6fd14431a7b338025e44c423784",
-    "embedded_bytes": 11504,
-    "embedded_sha256": "91674c7e05431e4bc759a4ebdc4df5955c64e6fd14431a7b338025e44c423784"
+    "bytes": 11538,
+    "sha256": "be518d51175e1438005003eaab419fd133b761c640f6a450aedc933eef128c89",
+    "embedded_bytes": 11538,
+    "embedded_sha256": "be518d51175e1438005003eaab419fd133b761c640f6a450aedc933eef128c89"
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 6556,
-    "sha256": "792d7c44c42b9a931e7e7a55de60e250acf148a9817b61cac4180318cf7f8167",
-    "embedded_bytes": 6556,
-    "embedded_sha256": "792d7c44c42b9a931e7e7a55de60e250acf148a9817b61cac4180318cf7f8167"
+    "bytes": 6708,
+    "sha256": "158adbaea039a4632dc93923b48ab05a7de5ecd1184678fcc96093d5cfbcd71b",
+    "embedded_bytes": 6708,
+    "embedded_sha256": "158adbaea039a4632dc93923b48ab05a7de5ecd1184678fcc96093d5cfbcd71b"
   },
   {
     "path": "references/hosted-run-evidence.md",
@@ -599,6 +599,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "sha256": "b1189b15c783e8065f137767f2890be01b5df7ec2cb7c32fe4f4b7761a1e751e",
     "embedded_bytes": 6945,
     "embedded_sha256": "b1189b15c783e8065f137767f2890be01b5df7ec2cb7c32fe4f4b7761a1e751e"
+  },
+  {
+    "path": "references/math-current-events-and-sourcing.md",
+    "bytes": 4924,
+    "sha256": "0b9035346ba0148e18a29929d86f187ac75d4728228b3ae37d1431605310db27",
+    "embedded_bytes": 4924,
+    "embedded_sha256": "0b9035346ba0148e18a29929d86f187ac75d4728228b3ae37d1431605310db27"
   },
   {
     "path": "references/math-difficulty-design.md",
@@ -700,10 +707,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "schemas/exam.schema.json",
-    "bytes": 5615,
-    "sha256": "3c2fca3f2988a2fe8fb8b88621d69110e29c93cf134492a3f9ec97182182c7eb",
-    "embedded_bytes": 5615,
-    "embedded_sha256": "3c2fca3f2988a2fe8fb8b88621d69110e29c93cf134492a3f9ec97182182c7eb"
+    "bytes": 5665,
+    "sha256": "871ab88d83caf8f325bd2cbaadf1a241f5ecc041d8482c7123be20682828428b",
+    "embedded_bytes": 5665,
+    "embedded_sha256": "871ab88d83caf8f325bd2cbaadf1a241f5ecc041d8482c7123be20682828428b"
   },
   {
     "path": "schemas/layout-profile.schema.json",
@@ -735,10 +742,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 14203,
-    "sha256": "4e5db06fb5cd31ad49646e86cff77b8c535826f5affbe4a043d7effcb83e1a94",
-    "embedded_bytes": 14203,
-    "embedded_sha256": "4e5db06fb5cd31ad49646e86cff77b8c535826f5affbe4a043d7effcb83e1a94"
+    "bytes": 14527,
+    "sha256": "c1fbcbd6ce13d7dc45fc1334102490627560a585edcd41abbb45292d5db8fd53",
+    "embedded_bytes": 14527,
+    "embedded_sha256": "c1fbcbd6ce13d7dc45fc1334102490627560a585edcd41abbb45292d5db8fd53"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -756,10 +763,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 4064,
-    "sha256": "91de1edf44d3877b2ddced19d0499dad9d7f6f99256f223c6e21b2dcbe3a1c3c",
-    "embedded_bytes": 4064,
-    "embedded_sha256": "91de1edf44d3877b2ddced19d0499dad9d7f6f99256f223c6e21b2dcbe3a1c3c"
+    "bytes": 4308,
+    "sha256": "e63a9b36f445c0b0657af20b0fed268e1e02bd16d3f83e3f158ffbe94517b9dc",
+    "embedded_bytes": 4308,
+    "embedded_sha256": "e63a9b36f445c0b0657af20b0fed268e1e02bd16d3f83e3f158ffbe94517b9dc"
   },
   {
     "path": "scripts/hosted_item_layout.py",
@@ -777,17 +784,24 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
-    "bytes": 8548,
-    "sha256": "743823c397885e9dd29e9bb61ed0e2c81f65b9c06c583d2c39c143414b148aa8",
-    "embedded_bytes": 8548,
-    "embedded_sha256": "743823c397885e9dd29e9bb61ed0e2c81f65b9c06c583d2c39c143414b148aa8"
+    "bytes": 8743,
+    "sha256": "ae441e352c94bba33b779cdd897b12b89be7da77feffd6e11b747268be0ae8d8",
+    "embedded_bytes": 8743,
+    "embedded_sha256": "ae441e352c94bba33b779cdd897b12b89be7da77feffd6e11b747268be0ae8d8"
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 5353,
-    "sha256": "5a7c5cfae74aabd31755913b8509f279b60f20c25d53eb8a67cfc8f76e847c67",
-    "embedded_bytes": 5353,
-    "embedded_sha256": "5a7c5cfae74aabd31755913b8509f279b60f20c25d53eb8a67cfc8f76e847c67"
+    "bytes": 5431,
+    "sha256": "6af9c052b941e12f96dc8c1a715cbf02eb38070141fedf4471152e289e9b45dd",
+    "embedded_bytes": 5431,
+    "embedded_sha256": "6af9c052b941e12f96dc8c1a715cbf02eb38070141fedf4471152e289e9b45dd"
+  },
+  {
+    "path": "scripts/validate_math_context.py",
+    "bytes": 5313,
+    "sha256": "22595968c5877cee5bf9a2cb321e41a385989624245cf08ec2a009160ef5188d",
+    "embedded_bytes": 5313,
+    "embedded_sha256": "22595968c5877cee5bf9a2cb321e41a385989624245cf08ec2a009160ef5188d"
   },
   {
     "path": "scripts/validate_math_difficulty_design.py",
@@ -956,6 +970,10 @@ before final composition, and reserve answer rails below measured content and
 figures. Final delivery requires readable item crops as well as every page;
 follow [references/hosted-quality-gates.md](references/hosted-quality-gates.md).
 The time benchmark never waives QA. Never manufacture missing timing or reviews.
+For Math A/B, follow [references/math-current-events-and-sourcing.md](references/math-current-events-and-sourcing.md):
+use 2–4 genuinely model-dependent recent contexts in a default full paper,
+verify events/results within the previous year, retain internal provenance, and
+keep source-note rows/URLs off the math question and ordinary solution booklets.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).
@@ -54128,8 +54146,19 @@ Reject a paper if its search record names a preferred/allowed publisher list, if
 # Transforming current sources into original exam material
 
 Use this reference when an item or writing prompt begins from a current event, article, official dataset, scientific mission, product update, or emerging field.
+For Math A/B, also apply math-current-events-and-sourcing.md: default 2–4 recent
+model-dependent items, a 365-day event/publication window, and internal-only
+source records. The printed attribution rules below for 國寫 do not apply to math.
 
 ## Freeze the editorial world
+
+Across subjects, include candidates from the previous year's events/results in
+bounded source discovery where they support the subject's curriculum and task.
+Do not replace literary quality, historical reasoning or disciplinary depth with
+recency alone. A source described as recent needs an event/result date and a
+publication date within 365 days of the editorial lock; refreshed pages alone
+do not qualify. Subject profiles control selection, with the specific 2–4-item
+default and mathematical modelling gate defined for Math A/B in the reference above.
 
 Set `editorial_lock_at` before discovery. A source must have been publicly available by that date, and every volatile fact must be frozen in a source record with its publication or update date and access date. The simulated paper may not quietly incorporate later information. A recent event whose facts are still changing can be used only when the printed material supplies a complete snapshot and the question does not depend on predicting the unresolved outcome.
 
@@ -55141,8 +55170,9 @@ non-waivable collisions before any final quality claim.
    directory, preserving canonical scripts/ and exam_packs/ paths. This includes
    fetch_hosted_template_assets, compose_hosted_pdf, inspect_hosted_pdf,
    check_hosted_run and its hosted_item_layout/hosted_run_timing/hosted_blind_review
-   imports. Do not flatten the files or omit official-current-web-sources.json,
-   which the measured density gate needs. Read selected guidance, not a dump of
+   imports, plus validate_math_context.py. Do not flatten the files or omit
+   official-current-web-sources.json, which the measured density gate needs.
+   Read selected guidance, not a dump of
    every extracted file. PyMuPDF supplies PDF operations. Do not claim its
    absence without trying the installed PDF library; if dependency installation
    is unavailable, name that actual capability gap.
@@ -55386,6 +55416,8 @@ reviewer identity: never invent a second context. If none is available, preserve
 pending work for review in a fresh context.
 
 Four required math visuals is a coverage floor, NOT four fixed picture types.
+Apply math-current-events-and-sourcing.md for recent-event model design and
+internal-only source records; topical arithmetic does not satisfy literacy.
 Derive information relationships first, then choose representations. Do not reuse
 a permanent geometry/function/probability menu or merely rotate constants. Compare
 accessible prior papers' mechanisms, shortcuts and visual topology.
@@ -55704,6 +55736,89 @@ Every Item Spec must contain an originality record with:
 - final reviewer decision.
 
 Every mixed group also needs a group-level record covering stimulus originality, subpart dependency, leakage, and integration. A paper cannot pass when any scored item or mixed group lacks this record.
+</canonical-source>
+
+<canonical-source path="references/math-current-events-and-sourcing.md">
+# Mathematics: current events, meaningful literacy and clean booklets
+
+Apply to Math A/B on hosted and local surfaces. This is the maintainer's editorial
+policy, not a claim that official math papers never cite sources. Other subjects
+keep their own source-note and passage-attribution rules.
+
+## A few current contexts, not a news quiz
+
+For a default full 20-item math paper, plan 2–4 items inspired by events, public
+results, research achievements or official datasets within 365 days before the
+actual editorial lock. Dates use the Taiwan calendar date (Asia/Taipei).
+Use at least two unrelated source families; shared-event
+subparts do not establish diversity. Retain pure mathematics and the existing
+unit, difficulty and context-balance gates. Do not force a science/technology
+theme, a fixed topic menu, or all-newspaper subject matter onto the whole paper.
+
+Do one bounded discovery pass using primary announcements, research papers,
+original datasets or the responsible institution's release. Verify event/result
+date AND publication date, not a refreshed page timestamp. Do not use anticipated
+future events as established results. Retain factual snapshots in the internal
+inspiration registry and reuse them within the run. If verification is unavailable,
+save pending work rather than invent dates, institutions or achievements.
+The aggregate-only firewall concerns historical exam content; it does not ban
+reading primary event evidence during the separate source-discovery pass.
+
+Apply current-source-transformation.md: extract an information relationship,
+compare curriculum bridges, construct a new mathematical object, and supply all
+external rules inside the stem. No news awareness or university coursework may
+be required. Clearly mark invented values as simplified modelling or simulated
+data; never present them as an actual government or research result.
+
+## Literacy must change the reasoning
+
+Require interpretation/model selection, mathematical inference, and a constraint
+check or contextual interpretation. These are functional decisions, not a fixed
+three-sentence template. Possible decisions include choosing a relevant quantity,
+reconciling constraints, comparing feasible plans, interpreting uncertainty or
+testing an assumption. Do not permanently map them to particular units/events.
+
+A population table followed only by percentages, totals and proportional sample
+counts does not become literacy because its values are recent. Five independent
+calculations are not five linked modelling decisions. Such a question does not
+satisfy the current-context quota. The independent difficulty reviewer must find
+at least three genuinely linked decisions and identify what inference changes
+when the event-derived relation is removed. Look for shortcuts; do not add prose
+or arithmetic volume to manufacture difficulty. Novelty still requires different
+information relationships/solution graphs from accessible earlier papers.
+
+## Internal provenance and honest models
+
+Neither the math question booklet nor ordinary answer booklet should print
+`資料來源：`, bibliography rows, URLs, DOI strings or adapted-source footnotes.
+Keep publisher, title, dates, URL, checked facts and modelling changes in the
+internal registry, available separately if the user asks for an audit. Do not
+automatically render it. A mathematically necessary factual description in the
+stem is allowed; remove agency names/dates that only decorate the task. Neutral
+names and fictional values are allowed in an explicitly simplified scenario,
+without falsely attributing them to a real institution.
+
+Do not erase required attribution from copied material. Use independently worded
+factual summaries and newly constructed diagrams with appropriate rights. If a
+source requires a visible credit incompatible with this style, select different
+material instead of removing the credit. This math-only policy does not suppress
+國寫 or reading-passage source notes.
+
+## Records and executable checks
+
+Use metadata.current_event_plan with editorial_lock_at and sources (the existing
+inspiration-source-record structure plus event_date). Each selected question has
+item_spec.current_event with source_id, event_to_model, nonroutine_decision and
+outside_knowledge_required:false, alongside its actual item_spec.scope_codes.
+Do not put event names, stems or diagrams into a permanent question generator.
+
+validate_math_context.py checks count, dates, source links, primary-source records,
+family diversity, scope mapping and source-note leakage. Hosted and local release
+gates invoke it; final PDF checks inspect actual extracted text as well. Outlined
+or image-only notes still need visual inspection. The checker cannot verify web
+facts or meaningful modelling from filled fields: do source and blind reviews.
+Internal URLs are intentionally allowed and preserved, never deleted merely to
+make the printed-note check pass.
 </canonical-source>
 
 <canonical-source path="references/math-difficulty-design.md">
@@ -57456,6 +57571,7 @@ Any later paper request:
       "required": ["title", "exam", "subject", "calibration_level"],
       "properties": {
         "paper_id": {"type": "string", "minLength": 1},
+        "current_event_plan": {"type": "object"},
         "title": {"type": "string"},
         "subtitle": {"type": ["string", "null"]},
         "exam": {"type": "string"},
@@ -58135,6 +58251,7 @@ from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, bottom_voi
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary
 from hosted_blind_review import packet, review_errors
+from validate_math_context import validate as math_context_errors, source_note_samples
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -58184,6 +58301,7 @@ def check(state_path: Path) -> dict:
         return {'status': 'pending', 'errors': errors, 'formal_acceptance': False}
     exam_hash = sha(exam_path)
     exam = json.loads(exam_path.read_text(encoding='utf-8-sig'))
+    errors.extend(math_context_errors(exam))
     items = exam.get('questions', [])
     ids = [item.get('id') for item in items]
     need(bool(ids) and all(isinstance(i, str) and i.strip() for i in ids)
@@ -58260,6 +58378,8 @@ def check(state_path: Path) -> dict:
                 need(not actual_page.rotation and abs(rect.width-595.28) <= 1 and abs(rect.height-841.89) <= 1,
                      f'{role}/page-{number}: actual PDF non-A4-or-rotated')
                 text = actual_page.get_text()
+                if exam.get('metadata', {}).get('subject') in {'數學A','數學B'}:
+                    need(not source_note_samples(text), f'{role}/page-{number}: printed math source note')
                 need('\ufffd' not in text and '\x00' not in text,
                      f'{role}/page-{number}: actual PDF replacement-or-null-glyph')
                 spans = [s for b in actual_page.get_text('dict')['blocks']
@@ -58771,6 +58891,8 @@ def review_errors(exam, review):
         steps = row.get('decisive_steps')
         if not isinstance(steps, list) or not steps or not all(isinstance(s,str) and s.strip() for s in steps):
             errors.append(f'{prefix}: decisive_steps must list actual decisions')
+        if (question.get('item_spec') or {}).get('current_event') and (not isinstance(steps,list) or len(steps) < 3):
+            errors.append(f'{prefix}: topical arithmetic alone is not literacy; independently verify three linked decisions')
         minutes = row.get('expected_minutes')
         if type(minutes) not in (int,float) or not 0 < minutes <= 100:
             errors.append(f'{prefix}: invalid independent time estimate')
@@ -59018,11 +59140,12 @@ from pathlib import Path
 import re
 
 import pymupdf
+from validate_math_context import source_note_samples
 
 
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
-                 "answer-rail-content-collision"}
+                 "answer-rail-content-collision", "printed-math-source-note"}
 
 
 def rail_collision_samples(page) -> list[dict]:
@@ -59120,6 +59243,8 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             if "\ufffd" in all_text or "\x00" in all_text:
                 issues.append("replacement-or-null-glyph")
             leaked = sorted(set(RAW_MATH.findall(all_text))) if math else []
+            if math and source_note_samples(all_text):
+                issues.append('printed-math-source-note')
             if leaked:
                 issues.append("raw-math-markup-review")
             table_collisions = table_collision_samples(page)
@@ -59189,8 +59314,8 @@ import re
 
 
 SUBJECT_REFERENCES = {
-    "數學A": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md"},
-    "數學B": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md"},
+    "數學A": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md", "math-current-events-and-sourcing.md"},
+    "數學B": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md", "math-current-events-and-sourcing.md"},
     "英文": {"current-gsat-english-form.md"},
     "社會": {"current-gsat-social-form.md", "social-required-content-codes.json"},
     "自然": {"current-gsat-chinese-natural-form.md"},
@@ -59286,6 +59411,109 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_math_context.py">
+#!/usr/bin/env python3
+"""Math current-event planning and student-facing source-note checks.
+
+Dates and traceability are mechanically checked; real source verification and
+the necessity of a modelling decision still require editorial review.
+"""
+import argparse
+from datetime import date, datetime, timedelta, timezone
+import json
+from pathlib import Path
+import re
+from urllib.parse import urlparse
+
+SOURCE_NOTE = re.compile(r'資料來源[：:]|參考來源[：:]|資料出處[：:]|參考文獻[：:]|出處[：:]|改寫自|改編自|節錄自|摘自|https?://|www\.|doi[：:]', re.I)
+
+
+def source_note_samples(text):
+    return sorted(set(SOURCE_NOTE.findall(re.sub(r'\s+', '', text))))
+
+
+def printable_text(exam):
+    """Inspect visible fields only. Internal URLs/provenance remain intact."""
+    values = list(exam.get('instructions', []))
+    for section in exam.get('sections', []):
+        values.extend(section.get('instructions', []))
+    for q in exam.get('questions', []):
+        values.extend(q.get(k) or '' for k in ('prompt','group_stimulus'))
+        values.extend(o.get('text','') for o in q.get('options', []))
+        values.append((q.get('visual_asset') or {}).get('caption') or '')
+    for answer in exam.get('answers', []):
+        values.extend(answer.get('reasoning') or [])
+        values.extend(b.get('content','') for b in answer.get('explanation_blocks', []))
+        values.append((answer.get('visual_asset') or {}).get('caption') or '')
+    return '\n'.join(str(value) for value in values)
+
+
+def validate(exam):
+    metadata = exam.get('metadata') or {}
+    if (metadata.get('paper_subject') or metadata.get('subject')) not in {'數學A','數學B'}:
+        return []
+    errors = []
+    if source_note_samples(printable_text(exam)):
+        errors.append('math: remove printed source notes/URLs; preserve internal provenance and rewrite with independently created material')
+    questions = exam.get('questions', [])
+    linked = [q for q in questions if (q.get('item_spec') or {}).get('current_event')]
+    if len(questions) == 20 and not 2 <= len(linked) <= 4:
+        errors.append('math: default full paper requires 2-4 current-event items, not a news-themed whole paper')
+    if not linked:
+        return errors
+    plan = metadata.get('current_event_plan') or {}
+    try:
+        lock = date.fromisoformat(plan.get('editorial_lock_at',''))
+    except (TypeError, ValueError):
+        return errors + ['math: missing editorial lock date for current events']
+    if lock > (datetime.now(timezone.utc) + timedelta(hours=8)).date():
+        errors.append('math: editorial lock cannot be in the future')
+    records = plan.get('sources', [])
+    sources = {s.get('source_id'):s for s in records}
+    if len(sources) != len(records):
+        errors.append('math: duplicate current-event source IDs')
+    families = set()
+    for q in linked:
+        spec = q['item_spec']; context = spec['current_event']; prefix = f'math/{q["id"]}'
+        record = sources.get(context.get('source_id'))
+        if record is None:
+            errors.append(f'{prefix}: missing internal source record'); continue
+        try:
+            event = date.fromisoformat(record.get('event_date',''))
+            published = date.fromisoformat(record.get('published_at',''))
+            accessed = date.fromisoformat(record.get('accessed_at',''))
+            if not 0 <= (lock-event).days <= 365 or not 0 <= (lock-published).days <= 365:
+                errors.append(f'{prefix}: event AND publication must be within 365 days before lock')
+            if not published <= accessed <= lock:
+                errors.append(f'{prefix}: inconsistent source access dates')
+        except (TypeError,ValueError):
+            errors.append(f'{prefix}: event/publication/access dates are required')
+        url = urlparse(str(record.get('canonical_url','')))
+        if url.scheme != 'https' or not url.netloc or record.get('fact_check_status') != 'verified':
+            errors.append(f'{prefix}: missing verified primary-source URL')
+        if record.get('authority_class') != 'primary' or not record.get('verified_facts'):
+            errors.append(f'{prefix}: primary evidence and factual snapshot required')
+        if not all(record.get(field) for field in ('publisher','title','rights_status')):
+            errors.append(f'{prefix}: source publisher/title/rights record required')
+        if record.get('source_family'):families.add(record['source_family'])
+        for field in ('event_to_model','nonroutine_decision'):
+            if not context.get(field):errors.append(f'{prefix}: missing {field}')
+        if not spec.get('scope_codes') or context.get('outside_knowledge_required') is not False:
+            errors.append(f'{prefix}: curriculum mapping and self-contained model required')
+    if len(linked) >= 2 and len(families) < 2:
+        errors.append('math: use at least two unrelated source families')
+    return errors
+
+
+if __name__ == '__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('exam',type=Path)
+    args=parser.parse_args()
+    errors=validate(json.loads(args.exam.read_text(encoding='utf-8-sig')))
+    print(json.dumps({'status':'fail' if errors else 'pass','errors':errors},ensure_ascii=False))
+    raise SystemExit(2 if errors else 0)
 </canonical-source>
 
 <canonical-source path="scripts/validate_math_difficulty_design.py">

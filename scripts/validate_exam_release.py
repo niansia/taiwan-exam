@@ -300,6 +300,8 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
         if (w.get('calibration_by_curriculum', {}).get(meta.get('curriculum'), {}).get('status') or w.get('calibration_status')) != 'ready':
             errors.append('pack calibration incomplete; no formal-calibration claim')
     errors.extend(independent_answer_errors(exam))
+    from validate_math_context import validate as math_context_errors
+    errors.extend(math_context_errors(exam))
     errors.extend(answer_distribution_errors(exam))
     source_path = base / contract.get('source_registry', '')
     registry = load(source_path) if source_path.is_file() else []
@@ -341,6 +343,15 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
                     r = run_check('validate_fixed_page_html.py', [path]); checks.append(r)
                     if r['exit_code']:errors.append(f'{role}: final DOM overflow/containment failed')
             student_path = base / (contract.get('student_pdf') or {}).get('path', '')
+            if subject in {'數學A','數學B'}:
+                import pymupdf
+                from validate_math_context import source_note_samples
+                for pdf_role in ('student_pdf','answer_pdf'):
+                    pdf_path = base / (contract.get(pdf_role) or {}).get('path', '')
+                    if pdf_path.is_file():
+                        with pymupdf.open(pdf_path) as doc:
+                            if any(source_note_samples(page.get_text()) for page in doc):
+                                errors.append(f'{pdf_role}: printed math source note')
             reference = next((root / s['relative_path'] for s in (profile or {}).get('source_files', []) if s.get('role') == 'question'), None)
             if subject in {'國綜', '自然'} and student_path.is_file():
                 r = run_check('validate_current_form_density.py', [student_path, '--subject', subject, '--reference-year', str((profile or {}).get('year', 1911) - 1911)])

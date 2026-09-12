@@ -284,6 +284,10 @@ def render(exam:dict[str,Any], *, include_answers:bool=True, asset_base:Path|Non
     from validate_exam_pack_contract import require_handoff
     require_handoff(exam, asset_base, run_contract)
     errors=validate_exam(exam)
+    from validate_math_context import source_note_samples, printable_text
+    if (exam['metadata'].get('paper_subject') or exam['metadata'].get('subject')) in {'數學A','數學B'}:
+        if source_note_samples(printable_text(exam)):
+            errors.append('Math source notes belong in internal provenance, not the printed booklet')
     if errors: raise ValueError("；".join(errors))
     meta=exam["metadata"]; subject=meta.get("paper_subject") or meta["subject"]
     short=meta.get("paper_label") or DISPLAY_NAMES.get(subject,subject)

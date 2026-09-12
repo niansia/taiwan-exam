@@ -38,6 +38,7 @@ AUTHORING_REFERENCES = {
     "layout-fidelity.md",
     "llm-original-item-generation.md",
     "math-difficulty-design.md",
+    "math-current-events-and-sourcing.md",
     "official-gsat-specifications.md",
     "originality-firewall.md",
     "pack-and-release-verification.md",
@@ -62,6 +63,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "compose_hosted_pdf.py")
     paths.append(root / "scripts" / "inspect_hosted_pdf.py")
     paths.append(root / "scripts" / "check_hosted_run.py")
+    paths.append(root / "scripts" / "validate_math_context.py")
     paths.extend(root / 'scripts' / name for name in ('hosted_item_layout.py', 'hosted_run_timing.py', 'hosted_blind_review.py'))
     paths.append(root / "scripts" / "validate_math_difficulty_design.py")
     paths.append(root / "scripts" / "validate_paper_difficulty_balance.py")

@@ -89,6 +89,10 @@ before final composition, and reserve answer rails below measured content and
 figures. Final delivery requires readable item crops as well as every page;
 follow [references/hosted-quality-gates.md](references/hosted-quality-gates.md).
 The time benchmark never waives QA. Never manufacture missing timing or reviews.
+For Math A/B, follow [references/math-current-events-and-sourcing.md](references/math-current-events-and-sourcing.md):
+use 2–4 genuinely model-dependent recent contexts in a default full paper,
+verify events/results within the previous year, retain internal provenance, and
+keep source-note rows/URLs off the math question and ordinary solution booklets.
 
 For full papers, multi-form tests and Skill quality/acceptance work, first read
 [references/pack-and-release-verification.md](references/pack-and-release-verification.md).
