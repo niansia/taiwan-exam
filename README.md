@@ -329,6 +329,7 @@ exam_packs/<考試>/subjects/<科目>/
 ## 維護者與進階使用者
 
 基本環境為 Python 3.10+。PDF 讀取與排版依賴列在 `requirements.txt`；舊式 Excel 統計匯入才需要 `requirements-statistics.txt`。Chrome／Chromium／Edge、繁體中文字型與其他排版工具只在相關工作需要時準備。
+Linux 的 HTML 轉 PDF 環境需安裝繁體中文字型；Debian／Ubuntu 使用 `fonts-noto-cjk`，排版器已加入 `Noto Serif CJK TC`。驗證時同時檢查畫面與擷取文字，避免字型替代造成漏字。
 
 ```sh
 python -m pip install -r requirements.txt
