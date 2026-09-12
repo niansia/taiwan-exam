@@ -14,6 +14,7 @@ from gsat_115_templates import COVER_CSS as GSAT_115_COVER_CSS
 from gsat_115_templates import SUBJECTS as GSAT_115_SUBJECTS
 from gsat_115_templates import cover_markup as gsat_115_cover_markup
 from render_exam import esc, image_data_uri, text_block, validate_exam
+from render_exam import question_number_display, answer_question_label, answer_heading
 
 
 STYLE = r"""
@@ -228,7 +229,7 @@ def render_question(q: dict[str,Any], base:Path|None, subject:str, *, show_stimu
     # authored prompts may already contain their official inline score wording.
     score=f'<span class="score">（{esc(q.get("score"))}分）</span>' if q.get("score") is not None and q.get("show_score_label", False) else ""
     split_class=" allow-split" if q.get("allow_page_split") else ""
-    article = f'<article class="question{split_class}"><div class="qno">{esc(q["number"])}.</div><div><div class="prompt">{score}{text_block(q["prompt"])}</div>{visual}{options}{response_format}{lines}</div></article>'
+    article = f'<article class="question{split_class}"><div class="qno">{esc(question_number_display(q))}</div><div><div class="prompt">{score}{text_block(q["prompt"])}</div>{visual}{options}{response_format}{lines}</div></article>'
     if social_split:
         lead, tail = social_split
         return (
@@ -267,7 +268,7 @@ def cover(meta:dict[str,Any], instructions:list[str]) -> str:
 def solutions(exam:dict[str,Any]) -> str:
     answers=exam.get("answers") or []
     if not answers:return ""
-    number={q["id"]:q["number"] for q in exam["questions"]}
+    number={q["id"]:answer_question_label(q) for q in exam["questions"]}
     rows="".join(f'<tr><td>{esc(number.get(a["question_id"],a["question_id"]))}</td><td>{text_block(a.get("final_answer"))}</td><td>{esc(a.get("difficulty_label") or "-")}</td></tr>' for a in answers)
     details=[]
     for a in answers:
@@ -275,7 +276,7 @@ def solutions(exam:dict[str,Any]) -> str:
         body='<ol>'+''.join(f'<li>{text_block(x)}</li>' for x in reasoning)+'</ol>' if reasoning else ""
         for block in a.get("explanation_blocks") or []:
             body+=f'<p><b>{esc(block.get("title") or "說明")}：</b>{text_block(block.get("content"))}</p>'
-        details.append(f'<article class="solution"><h2>第 {esc(number.get(a["question_id"]))} 題　答案：{text_block(a.get("final_answer"))}</h2>{body}</article>')
+        details.append(f'<article class="solution"><h2>{answer_heading(number.get(a["question_id"]))}　答案：{text_block(a.get("final_answer"))}</h2>{body}</article>')
     return f'<section class="answer-key"><h1>答案與解析</h1><table class="answer-summary"><thead><tr><th>題號</th><th>答案</th><th>難度</th></tr></thead><tbody>{rows}</tbody></table><div class="details">{"".join(details)}</div></section>'
 
 
@@ -287,7 +288,7 @@ def render(exam:dict[str,Any], *, include_answers:bool=True, asset_base:Path|Non
     meta=exam["metadata"]; subject=meta.get("paper_subject") or meta["subject"]
     short=meta.get("paper_label") or DISPLAY_NAMES.get(subject,subject)
     sections=[]
-    sorted_q=sorted(exam["questions"],key=lambda x:x["number"])
+    sorted_q=exam["questions"]  # authored slot order includes unnumbered tasks
     by_section={s["id"]:[] for s in exam["sections"]}
     for q in sorted_q:by_section[q["section_id"]].append(q)
     for section in exam["sections"]:
@@ -298,7 +299,7 @@ def render(exam:dict[str,Any], *, include_answers:bool=True, asset_base:Path|Non
             q=qs[i]; stimulus=q.get("group_stimulus"); j=i+1
             if stimulus:
                 while j<len(qs) and qs[j].get("group_stimulus")==stimulus:j+=1
-            group_range=f'第 {q["number"]} 至 {qs[j-1]["number"]} 題為題組' if stimulus and j-i>1 else None
+            group_range=f'第 {q["number"]} 至 {qs[j-1]["number"]} 題為題組' if stimulus and j-i>1 and q.get('number') is not None and qs[j-1].get('number') is not None else None
             shown_visuals=set()
             group_parts=[]
             for k in range(i,j):

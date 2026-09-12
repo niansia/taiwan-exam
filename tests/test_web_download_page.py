@@ -8,7 +8,8 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 DOWNLOAD_URL = "https://niansia.github.io/taiwan-exam/download-web-knowledge.html"
-RAW_URL = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=2026.09.12.6"
+VERSION = (ROOT / 'web/taiwan-exam-web-knowledge.md').read_text(encoding='utf-8').splitlines()[0].removeprefix('# Taiwan Exam Web Knowledge v')
+RAW_URL = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=" + VERSION
 
 
 def test_readme_uses_one_click_web_download():
@@ -24,7 +25,7 @@ def test_download_page_preserves_markdown_filename_and_source():
     assert 'link.download = filename' in page
     assert "downloadKnowledge();" in page
     assert "不是 ZIP 或執行檔" in page
-    assert "版本：2026.09.12.6" in page
+    assert "版本：" + VERSION in page
     assert 'link.download = "taiwan-exam-template-resources.pdf"' in page
     assert 'location.hash === "#templates"' in page
     assert DOWNLOAD_URL + "#templates" in (ROOT / "README.md").read_text(encoding="utf-8")

@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "e2551a6501acf6adb13302908c3f21eca1141d14200884ff212a08d05a1006bd",
+  "review_ledger_sha256": "33195f4837892b5b101cd879b54ba7ad0959a4edccf146533356a871672a401b",
+  "record_count": 12,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文科定稿.pdf",
+      "sha256": "09d35c2ed8561e0845dbbe305e12f5342b27f209fb44d801ff7f9f1f9e519ecf",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/02-113學測英文答案.pdf",
+      "sha256": "f6389b547afd21b819452dcfadb2382818e561149c67364586a9e931c1a1dd57",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文試題.pdf",
+      "sha256": "51c8d9f7c2715adf74cae808bde4906cfadee19d0ec379df3b33881c35960a78",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/02-114學測英文答案.pdf",
+      "sha256": "f96658a07c24ef878493e9c40fea26f3497884dd621427ddb7d9cac3c6f0206f",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文試卷.pdf",
+      "sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "page_count": 12
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/02-115學測英文答案.pdf",
+      "sha256": "f8edda8733240b7d26cba9f80f89b4ffb42a58449319121fad9466d008811b11",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/113/03-113學測英文考科非選擇題參考答案與評分原則.pdf",
+      "sha256": "5151accdbf33c4f08b970bef114fda378ff49891434b8cce637375391ddbda2e",
+      "page_count": 3
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/114/03-114學測英文考科非選擇題參考答案與評分原則.pdf",
+      "sha256": "609912dd23603130c628ee6adeee21a58990d4a8e59bbfd0c17faa93fd11727a",
+      "page_count": 3
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/英文/歷屆試題/115/115學測英文考科非選擇題參考答案與評分原則.pdf",
+      "sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+      "page_count": 3
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-2b519e9ac305",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.25,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "篇章結構",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-d355e372b105",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.25,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-6",
+        "domain": "跨單元",
+        "question_type": "constructed_response",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-fdd2c71fd87b",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.25,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-6",
+        "domain": "跨單元",
+        "question_type": "fill_in",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    },
+    {
+      "cluster_id": "addition-07d0d2e824da",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 0.25,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-6",
+        "domain": "跨單元",
+        "question_type": "multiple_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": false,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}

@@ -4,11 +4,11 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 
 目前支援學測國綜、國寫、英文、數學 A、數學 B、社會、自然，以及會考各科的資料夾與工作流程。專案不是題庫，也不會把歷屆題換數字後重新輸出。
 
-> **可執行 Skill ZIP 仍暫停。** 舊草稿與舊 ZIP 已刪除；先前候選的
-> Chrome 下載問題尚未解除。純 PDF／圖片的學測來源資料包另以
-> `source-corpus-2026.09.11` Data Release 提供，不含程式或安裝檔，且由
-> source manifest 驗證；兩者不是同一個發布面。軟體 ZIP 狀態見
-> [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json)。
+> **軟體 ZIP 與來源資料包分開管理。** 軟體安裝版本是否開放，以
+> [發行狀態](https://github.com/niansia/taiwan-exam/blob/main/SOFTWARE_RELEASE_STATUS.json)
+> 為準；只使用有掃描與一般瀏覽器下載驗證紀錄的正式版本。純 PDF／圖片的
+> `source-corpus-2026.09.11` 是校準來源資料包，不含程式或安裝檔。
+> GitHub 原始碼安裝與下方網頁版知識檔另有各自使用方式。
 
 ## 三種使用方式
 
@@ -19,6 +19,14 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 | Codex 或 Claude Code 桌面版 | 在聊天框請代理從本儲存庫安裝，不必自己搬檔案 | 從技能選單選取 Taiwan Exam，或輸入對應的 `$`／`/` 名稱 |
 
 無論用哪一種方式，完整考卷都要分開交付「題目 PDF」與「答案詳解 PDF」，並完成內容、答案及逐頁版面檢查。只想試幾題時請明說「自訂練習」。
+
+本機前置狀態可用 `python scripts/audit_exam_pack.py --readiness` 查詢七份學測試卷。
+此檢查會分別核對原卷結構、版型、來源檔與每個計分單位的彙整校準覆蓋，
+有缺項即列出原因並回傳失敗；僅 `writer-blueprint` 顯示 ready 不代表整卷可交付。
+七份 115 原卷結構與版型已有逐頁核對。另新增 113～115 年共 39 筆來源綁定
+語意標註，補齊先前 53 個計分單位的題型覆蓋；七份試卷均通過本機前置檢查。
+這不等於七份新考卷已通過內容與 PDF 成品驗收。修正與測試範圍見
+[本機整備紀錄](https://github.com/niansia/taiwan-exam/blob/main/docs/production-readiness-2026-09-12.md)。
 
 ## 網頁版：ChatGPT、Claude.ai、Gemini
 

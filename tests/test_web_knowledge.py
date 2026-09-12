@@ -34,6 +34,13 @@ def test_web_knowledge_is_deterministic_and_uses_canonical_skill():
     assert "Never download or deliver `github-pages.zip`" in first
 
 
+def test_checked_in_knowledge_matches_its_canonical_sources():
+    path = ROOT / 'web/taiwan-exam-web-knowledge.md'
+    saved = path.read_text(encoding='utf-8')
+    version = saved.splitlines()[0].removeprefix('# Taiwan Exam Web Knowledge v')
+    assert saved == build_web_knowledge.build(version)
+
+
 def test_web_knowledge_covers_all_current_gsat_subject_blueprints():
     paths = {path.relative_to(ROOT).as_posix() for path in build_web_knowledge.source_paths()}
     for subject in ("國文", "英文", "數學A", "數學B", "社會", "自然"):
@@ -45,7 +52,16 @@ def test_web_knowledge_covers_all_current_gsat_subject_blueprints():
 def test_hosted_web_source_map_is_complete_current_form_evidence():
     path = ROOT / "exam_packs/學測/metadata/official-current-web-sources.json"
     checked_in = json.loads(path.read_text(encoding="utf-8"))
-    assert checked_in == build_hosted_web_source_map.build()
+    sources_present = all((ROOT / d['local_path']).is_file()
+                          for s in checked_in['subjects'] for y in s['years']
+                          for d in y['documents'].values())
+    if sources_present:
+        assert checked_in == build_hosted_web_source_map.build()
+    else:
+        # Public checkouts deliberately omit original PDFs. Projection checks
+        # below still run; the actual source-map builder must fail closed.
+        with pytest.raises(ValueError, match='Local source failed hash verification'):
+            build_hosted_web_source_map.build()
     assert checked_in["question_pdf_count"] == 35
     assert checked_in["document_count"] == 100
     all_urls = []
@@ -260,7 +276,9 @@ def test_hosted_math_a_controlling_structure_is_source_reviewed():
     year = next(s for s in manifest["subjects"] if s["subject"] == "數學A")["years"][0]
     profile = year["paper_profile"]
     assert year["roc_year"] == 115
-    assert pack_verification.paper_errors(profile, ROOT) == []
+    assert pack_verification.paper_errors(profile) == []
+    if all((ROOT / s['relative_path']).is_file() for s in profile['source_files']):
+        assert pack_verification.paper_errors(profile, ROOT) == []
     review = profile["evidence"]["structure_review"]
     for source in profile["source_files"]:
         assert {p["page"] for p in review["pages"] if p["source_sha256"] == source["sha256"]} == set(range(1, source["page_count"] + 1))

@@ -379,9 +379,9 @@ def official_current_structure(
     elif subject == "英文":
         recipes = [
             ("詞彙題", 10, 10, 10, "single_choice"), ("綜合測驗", 10, 10, 10, "single_choice"),
-            ("文意選填", 10, 10, 10, "fill_in"), ("篇章結構", 4, 4, 8, "single_choice"),
+            ("文意選填", 10, 10, 10, "single_choice"), ("篇章結構", 4, 4, 8, "single_choice"),
             ("閱讀測驗", 12, 12, 24, "single_choice"), ("混合題", 4, 4, 10, "mixed_group"),
-            ("中譯英", 0, 1, 8, "constructed_response"), ("英文作文", 0, 1, 20, "constructed_response"),
+            ("中譯英", 0, 2, 8, "constructed_response"), ("英文作文", 0, 1, 20, "constructed_response"),
         ]
     elif subject == "社會":
         totals = {111: 67, 112: 66, 113: 64, 114: 64, 115: 65}
@@ -408,6 +408,18 @@ def official_current_structure(
         if numbered_count:
             start = int(end) + 1
     return start - 1, sum(item[2] for item in recipes), sections, float(sum(item[3] for item in recipes))
+
+
+def preserve_reviewed_profile(profile: dict, root: Path) -> bool:
+    """Missing private PDFs do not erase portable reviewed evidence.
+
+    A present but changed source invalidates preservation. Full generation still
+    requires all originals and verifies their hashes through paper_errors(root).
+    """
+    from pack_verification import paper_errors, source_errors
+    if paper_errors(profile):
+        return False
+    return all(error.startswith('reference unavailable:') for error in source_errors(profile, root))
 
 
 def build(root: Path, timeout_seconds: int, bundle_filter: str | None = None) -> int:
@@ -549,9 +561,8 @@ def build(root: Path, timeout_seconds: int, bundle_filter: str | None = None) ->
         target.parent.mkdir(parents=True, exist_ok=True)
         output_profiles = profiles
         if target.is_file():
-            from pack_verification import paper_errors
             reviewed = {p['paper_id']: p for p in read_jsonl(target)
-                        if p.get('structure_status') == 'verified' and not paper_errors(p, root)}
+                        if preserve_reviewed_profile(p, root)}
             output_profiles = [reviewed.get(p['paper_id'], p) for p in profiles]
         if bundle_filter and target.is_file():
             preserved = [item for item in read_jsonl(target) if item.get("bundle") != bundle_filter]
@@ -562,6 +573,7 @@ def build(root: Path, timeout_seconds: int, bundle_filter: str | None = None) ->
             encoding="utf-8",
             newline="\n",
         )
+        by_subject[subject] = output_profiles
     if bundle_filter:
         all_profiles = []
         for target in (root / "exam_packs" / "學測" / "subjects").glob("*/metadata/papers.jsonl"):
@@ -570,6 +582,7 @@ def build(root: Path, timeout_seconds: int, bundle_filter: str | None = None) ->
         report_by_subject = dict(Counter(profile["subject"] for profile in all_profiles))
     else:
         all_profiles = [profile for profiles in by_subject.values() for profile in profiles]
+        statuses = Counter(profile['structure_status'] for profile in all_profiles)
         report_by_subject = {subject: len(items) for subject, items in sorted(by_subject.items())}
     full_paper_ready = [
         profile for profile in all_profiles

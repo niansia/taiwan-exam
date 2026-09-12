@@ -7,13 +7,14 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 import re
 import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
-from pack_verification import paper_errors, layout_errors, digest
+from pack_verification import paper_errors, layout_errors, digest, positive_score
 from validate_paper_difficulty_balance import content_hash
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,6 +43,8 @@ def independent_answer_errors(exam):
     errors = []; answers = exam.get('answers') or []
     by_id = {a.get('question_id'): a for a in answers}
     ids = {q.get('id') for q in exam.get('questions', [])}
+    if None in ids or '' in ids or len(ids) != len(exam.get('questions', [])):
+        errors.append('question ids missing or duplicated')
     if len(by_id) != len(answers) or set(by_id) != ids:
         errors.append('answer ids missing, duplicated or extraneous')
     subject = (exam.get('metadata') or {}).get('paper_subject') or (exam.get('metadata') or {}).get('subject')
@@ -139,7 +142,8 @@ def generated_scored_units(questions):
 
     Current 國寫 has two printed major questions but three independently scored
     units: the first major question contains 4-point and 21-point responses.
-    Ordinary questions remain one scored unit, so other subjects are unchanged.
+    Other subjects may also have multiple scored subparts. Printed parent
+    numbers and independently scored units are deliberately different counts.
     """
     units = []
     for question in questions:
@@ -151,17 +155,51 @@ def generated_scored_units(questions):
                 'type': question.get('type'),
                 'score': question.get('score'),
                 'option_count': len(question.get('options') or []) if question.get('options') is not None else None,
+                **({'slot_id': question['item_spec']['slot_id']} if (question.get('item_spec') or {}).get('slot_id') else {}),
             })
             continue
-        for unit in declared:
+        for unit in declared if isinstance(declared, list) else []:
+            if not isinstance(unit, dict):
+                continue
             units.append({
                 'number': unit.get('number', question.get('number')),
                 'section_id': unit.get('section_id', question.get('section_id')),
                 'type': unit.get('type', question.get('type')),
                 'score': unit.get('score'),
                 'option_count': unit.get('option_count'),
+                **({'slot_id': unit['slot_id']} if unit.get('slot_id') else {}),
             })
     return units
+
+
+def scored_unit_errors(questions, slots, section_map=None):
+    errors = []
+    section_map = section_map or {}
+    units = generated_scored_units(questions)
+    if len(units) != len(slots):
+        errors.append('generated scored units differ from verified slot inventory')
+    for question in questions:
+        declared = (question.get('item_spec') or {}).get('scored_units')
+        if declared is not None:
+            valid = isinstance(declared, list) and bool(declared) and all(
+                isinstance(u, dict) and isinstance(u.get('score'), (int, float))
+                and not isinstance(u['score'], bool) and math.isfinite(u['score']) and u['score'] > 0
+                for u in declared)
+            if not valid or sum(u['score'] for u in declared) != question.get('score'):
+                errors.append(f'Q{question.get("number")}: parent score differs from declared scored units')
+    for unit, slot in zip(units, slots):
+        if not positive_score(unit.get('score')) or isinstance(unit.get('number'), bool):
+            errors.append(f'Q{unit.get("number")}: invalid scored unit number/score')
+        if (unit.get('number') != slot.get('number')
+                or section_map.get(unit.get('section_id'), unit.get('section_id')) != slot.get('section_id')
+                or unit.get('type') != slot.get('type') or unit.get('score') != slot.get('score')):
+            errors.append(f'Q{unit.get("number")}: number/section/type/score differs from source-reviewed slot')
+        if slot.get('option_count') is not None and unit.get('option_count') != slot['option_count']:
+            errors.append(f'Q{unit.get("number")}: option count differs from source-reviewed slot')
+        # A slot id is necessary for indistinguishable subparts under one number.
+        if sum(s.get('number') == slot.get('number') for s in slots) > 1 and unit.get('slot_id') != slot.get('id'):
+            errors.append(f'Q{unit.get("number")}: scored subpart must bind its reviewed slot_id')
+    return errors
 
 
 def artifact_review_errors(artifact, base, exam_sha, role):
@@ -201,6 +239,8 @@ def artifact_review_errors(artifact, base, exam_sha, role):
 def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True):
     exam = load(exam_path); contract = load(contract_path); base = contract_path.parent
     meta = exam.get('metadata') or {}; errors = []; checks = []
+    if stage not in {'content', 'delivery'}:
+        errors.append('unknown validation stage')
     subject = meta.get('paper_subject') or meta.get('subject')
     if contract.get('requested_mode') != 'full-paper':
         errors.append('formal gate requires an explicit full-paper request contract; software smoke/custom practice cannot claim acceptance')
@@ -234,15 +274,8 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
             errors.append('國綜/國寫 profile mismatch')
         slots = ((profile.get('evidence') or {}).get('structure_review') or {}).get('slots') or []
         questions = exam.get('questions') or []
-        scored_units = generated_scored_units(questions)
         section_map = contract.get('section_map') or {}
-        if len(scored_units) != len(slots):
-            errors.append('generated scored units differ from verified slot inventory')
-        for unit, slot in zip(scored_units, slots):
-            if section_map.get(unit.get('section_id'), unit.get('section_id')) != slot.get('section_id') or unit.get('type') != slot.get('type') or unit.get('score') != slot.get('score'):
-                errors.append(f'Q{unit.get("number")}: section/type/score differs from source-reviewed slot')
-            if slot.get('option_count') is not None and unit.get('option_count') != slot['option_count']:
-                errors.append(f'Q{unit.get("number")}: option count differs from source-reviewed slot')
+        errors.extend(scored_unit_errors(questions, slots, section_map))
         if meta.get('total_score') != profile.get('total_score') or meta.get('duration_minutes') != profile.get('duration_minutes'):
             errors.append('score/duration differs from verified profile')
     layouts = [load(p) for p in (pack / 'blueprints' / 'layout-profiles').glob('*.json')]
@@ -255,7 +288,12 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
     if not writer.is_file():
         errors.append('writer-blueprint missing; do not hardcode a fingerprint')
     else:
-        w = load(writer)
+        from writer_calibration import load_writer
+        try:
+            w = load_writer(pack, root)
+        except (ValueError, KeyError, TypeError, OSError) as exc:
+            errors.append('writer calibration: ' + str(exc))
+            w = {}
         expected = w.get('metadata_fingerprint') or w.get('source_fingerprint') or w.get('blueprint_fingerprint')
         if not expected or meta.get('blueprint_fingerprint') != expected:
             errors.append('writer-blueprint fingerprint missing/mismatched')

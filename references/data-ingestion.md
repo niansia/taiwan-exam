@@ -41,6 +41,25 @@ Use `templates/question-metadata.csv` or write JSON Lines that conform to `schem
 
 Do not infer empirical answer rate or discrimination from prose. Leave unknown fields null or absent.
 
+### Incremental review of distributed blueprints
+
+When the private records behind a distributed blueprint are unavailable, preserve
+that blueprint. Record newly inspected official items in
+`metadata/calibration-additions.json`, including question/rubric hashes, reviewed
+pages, semantic observations, reasoning operations and estimated difficulty
+vectors. This analysis ledger must not be shown to the item-writing pass.
+Each added section/type family needs observations from at least three official
+years. This supplements form coverage; it does not establish empirical item
+statistics, every curriculum unit, or independent human review.
+
+Run `python scripts/writer_calibration.py` in the analysis phase to build
+`blueprints/writer-calibration-additions.json`. The shared loader validates the
+base and ledger fingerprints, reproducible aggregation and (for local full
+papers) original PDF hashes. It returns aggregate clusters only. Rebuilding the
+base invalidates the extension until it is reviewed and rebuilt. Full-paper
+planning, readiness and final release use this same composite fingerprint.
+The hosted knowledge projection includes only the checked aggregate extension.
+
 Keep `requires_diagram` as `null` until the source question page has been checked. False means the item was reviewed and does not require a visual; it must not be used as a default for unreviewed material.
 
 ## Labeling quality

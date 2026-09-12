@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "82828bb20c7837cf31c19aad405bd6f4c08f7c97485a460b421ff1c0626bc445",
+  "review_ledger_sha256": "b4813db88e444b55135e1f23d616423834571b3193044eaff695d842db31317f",
+  "record_count": 9,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會科試題定稿.pdf",
+      "sha256": "74a0026042bb4ad13044dfebb468e909b4293ebffc5b0e7f0d49a2b5ae6aa06c",
+      "page_count": 19
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/113/05-113學測社會答案.pdf",
+      "sha256": "bb63cf9b1ece3980e22d9f136a22769a362d4e0750b6b62963d68f40a4b8a2c0",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會試題.pdf",
+      "sha256": "1d1340c4aa079aa5afd9b37f7ac564d9b13b99c2e629238d6f6c17179d47a505",
+      "page_count": 20
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/114/05-114學測社會答案.pdf",
+      "sha256": "ff04e289ede3b49329406f393427b3d78c57e76cda3dd31445fabf7d215f67f8",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會試卷.pdf",
+      "sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "page_count": 20
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/社會/歷屆試題/115/05-115學測社會答案.pdf",
+      "sha256": "e09b526002c315609663e423429ecf747dc7a83762f09f536c2ae3d9d63fb212",
+      "page_count": 1
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-13d6089136d9",
+      "count": 9,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 1.0,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-2",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 3,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}

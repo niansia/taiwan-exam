@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "subject": "自然",
+  "reviewer": "Codex source-analysis review",
+  "reviewed_at": "2026-09-12",
+  "method": "Selected item text, contextual pages and official answers/rubrics reviewed; necessary figures visually inspected.",
+  "limitations": "Not an independent human review or empirical P/D estimate. Supplements section/type coverage only; existing curriculum, difficulty, originality and finished-PDF gates still apply.",
+  "records": [
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 54,
+      "part": null,
+      "section": "section-2",
+      "type": "multiple_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然試題定稿.pdf",
+        "sha256": "479080cff932826975e9490218281b746e6740156f98b65637d1a43aeb0f8562",
+        "page_count": 19,
+        "pages_reviewed": [
+          19
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然答案.pdf",
+        "sha256": "7beeea0aba1a060736cc5a944f2aa26abdaec0e6c0586dec8d5cc901dc31851a",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "結合電磁波的大氣窗口與觀測平台發展，區別可穿透性與未獲支持的技術原因。",
+      "reasoning_operations": [
+        "機制判斷",
+        "因果限制"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 2,
+        "reasoning_steps": 3,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 55,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然試題定稿.pdf",
+        "sha256": "479080cff932826975e9490218281b746e6740156f98b65637d1a43aeb0f8562",
+        "page_count": 19,
+        "pages_reviewed": [
+          19
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/113/06-113學測自然答案.pdf",
+        "sha256": "7beeea0aba1a060736cc5a944f2aa26abdaec0e6c0586dec8d5cc901dc31851a",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "將望遠鏡口徑連到集光能力及可觀測暗星，排除大氣擾動與宇宙膨脹混淆。",
+      "reasoning_operations": [
+        "物理機制",
+        "量值方向"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 2,
+        "concept_depth": 2,
+        "calculation_depth": 2,
+        "reasoning_steps": 2,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 47,
+      "part": null,
+      "section": "section-2",
+      "type": "multiple_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/114學測自然試題定稿.pdf",
+        "sha256": "62b238bd109907dac0efb5dd4e019de1a59a3b283f031e90ae50fb32aafff136",
+        "page_count": 20,
+        "pages_reviewed": [
+          16,
+          17
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/06-114學測自然答案.pdf",
+        "sha256": "217816174af6528a190fb31e2cde3c11df16380ae02aa4ed09f3284b3e8360c9",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "從平衡電壓關係與電荷量辨識能量量綱，利用無因次對數因子。",
+      "reasoning_operations": [
+        "量綱分析",
+        "公式解讀"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 2,
+        "reasoning_steps": 3,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 48,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/114學測自然試題定稿.pdf",
+        "sha256": "62b238bd109907dac0efb5dd4e019de1a59a3b283f031e90ae50fb32aafff136",
+        "page_count": 20,
+        "pages_reviewed": [
+          16,
+          17
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/114/06-114學測自然答案.pdf",
+        "sha256": "217816174af6528a190fb31e2cde3c11df16380ae02aa4ed09f3284b3e8360c9",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "濃度比固定使電壓正比絕對溫度；排除直接使用攝氏比值。",
+      "reasoning_operations": [
+        "控制變因",
+        "溫標轉換"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 2,
+        "concept_depth": 2,
+        "calculation_depth": 2,
+        "reasoning_steps": 2,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 48,
+      "part": null,
+      "section": "section-2",
+      "type": "multiple_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然試卷.pdf",
+        "sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+        "page_count": 20,
+        "pages_reviewed": [
+          17
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然答案.pdf",
+        "sha256": "ba42c71786f7e34af2671bb5d18367aa80487b93afe668e12035594f571770c2",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "由波長推算光子能量並核對數量級，區別乘除位置與單位轉換。",
+      "reasoning_operations": [
+        "公式選用",
+        "數量級檢查"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 2,
+        "reasoning_steps": 3,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 56,
+      "part": null,
+      "section": "section-2",
+      "type": "single_choice",
+      "score": 2,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然試卷.pdf",
+        "sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+        "page_count": 20,
+        "pages_reviewed": [
+          20
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/自然/歷屆試題/115/06-115學測自然答案.pdf",
+        "sha256": "ba42c71786f7e34af2671bb5d18367aa80487b93afe668e12035594f571770c2",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "以大氣與表面保留條件解釋撞擊坑，挑選表格中相關變項，排除行星質量等干擾。",
+      "reasoning_operations": [
+        "資料篩選",
+        "機制遷移"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 3,
+        "concept_depth": 3,
+        "calculation_depth": 2,
+        "reasoning_steps": 3,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "subject": "數學B",
+  "reviewer": "Codex source-analysis review",
+  "reviewed_at": "2026-09-12",
+  "method": "Selected item text, contextual pages and official answers/rubrics reviewed; necessary figures visually inspected.",
+  "limitations": "Not an independent human review or empirical P/D estimate. Supplements section/type coverage only; existing curriculum, difficulty, originality and finished-PDF gates still apply.",
+  "records": [
+    {
+      "year": 2024,
+      "curriculum": "108",
+      "number": 18,
+      "part": null,
+      "section": "section-4",
+      "type": "single_choice",
+      "score": 3,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b試題定稿.pdf",
+        "sha256": "c378a43ffedb0aefc433152ea394570b6af5c9df97e654d9003a8ae82eb48feb",
+        "page_count": 8,
+        "pages_reviewed": [
+          7
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b答案.pdf",
+        "sha256": "adb3532af49ca9cf6735a54009e0d543efd66b3d1e4c5c1beb50d21f830ab48e",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "觀察截角後保留的原面與新增面，分開計數再合計；圖已目視核對。",
+      "reasoning_operations": [
+        "空間分解",
+        "分類計數"
+      ],
+      "requires_diagram": true,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 2,
+        "concept_depth": 2,
+        "calculation_depth": 2,
+        "reasoning_steps": 2,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2025,
+      "curriculum": "108",
+      "number": 18,
+      "part": null,
+      "section": "section-4",
+      "type": "single_choice",
+      "score": 3,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b試題.pdf",
+        "sha256": "ad6ed7218a4f93cf9474afa14b5fc875ca7a7d3ccf84292aa5ceee3d390fda67",
+        "page_count": 8,
+        "pages_reviewed": [
+          7
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b答案.pdf",
+        "sha256": "3d3d916619a189b9fd0403460b8b30254929f3a8ce49ba58aadf0b7a3e35a3aa",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "先將輻射量換成指數基準，再把固定高度增幅轉成重複成長模型。",
+      "reasoning_operations": [
+        "單位轉換",
+        "指數建模"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 2,
+        "concept_depth": 2,
+        "calculation_depth": 2,
+        "reasoning_steps": 2,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    },
+    {
+      "year": 2026,
+      "curriculum": "108",
+      "number": 18,
+      "part": null,
+      "section": "section-4",
+      "type": "single_choice",
+      "score": 3,
+      "question_source": {
+        "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b試卷.pdf",
+        "sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+        "page_count": 8,
+        "pages_reviewed": [
+          7
+        ]
+      },
+      "answer_source": {
+        "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b答案.pdf",
+        "sha256": "ff1337781df5ee183f8e0a4b49f4690b297bbc547fefcb8f1669d01bdde610b3",
+        "page_count": 1,
+        "pages_reviewed": [
+          1
+        ]
+      },
+      "observations": "由兩個端點座標求中點並建立垂直線；題組後續旋轉資訊不屬本小題必要計算。",
+      "reasoning_operations": [
+        "座標轉換",
+        "幾何性質"
+      ],
+      "requires_diagram": false,
+      "domain": null,
+      "difficulty_basis": "estimated",
+      "difficulty": {
+        "overall": 1,
+        "concept_depth": 1,
+        "calculation_depth": 2,
+        "reasoning_steps": 1,
+        "reading_load": 2,
+        "novelty": 2,
+        "distractor_strength": 3
+      },
+      "option_count": 5
+    }
+  ]
+}

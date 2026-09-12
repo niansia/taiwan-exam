@@ -83,7 +83,9 @@
         "required": ["id", "number", "section_id", "type", "prompt"],
         "properties": {
           "id": {"type": "string"},
-          "number": {"type": "integer", "minimum": 1},
+          "number": {"type": ["integer", "null"], "minimum": 1},
+          "number_display": {"type": "string"},
+          "answer_label": {"type": "string", "minLength": 1},
           "section_id": {"type": "string"},
           "type": {"type": "string"},
           "score": {"type": ["number", "null"]},

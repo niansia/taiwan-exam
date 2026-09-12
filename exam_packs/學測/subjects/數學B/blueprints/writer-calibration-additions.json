@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "source_visibility": "aggregate-only",
+  "individual_source_question_ids_included": false,
+  "base_blueprint_sha256": "fb15a83ca85faef9f2b725f74c6948cbebef2ff77027a522252fff1a8e7c3cb5",
+  "review_ledger_sha256": "4b87b23d651c1f75bf247d14fd8e6ad84df20bf61967f3552189c098b229356a",
+  "record_count": 3,
+  "source_files": [
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b試題定稿.pdf",
+      "sha256": "c378a43ffedb0aefc433152ea394570b6af5c9df97e654d9003a8ae82eb48feb",
+      "page_count": 8
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/113/04-113學測數學b答案.pdf",
+      "sha256": "adb3532af49ca9cf6735a54009e0d543efd66b3d1e4c5c1beb50d21f830ab48e",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b試題.pdf",
+      "sha256": "ad6ed7218a4f93cf9474afa14b5fc875ca7a7d3ccf84292aa5ceee3d390fda67",
+      "page_count": 8
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/114/04-114學測數學b答案.pdf",
+      "sha256": "3d3d916619a189b9fd0403460b8b30254929f3a8ce49ba58aadf0b7a3e35a3aa",
+      "page_count": 1
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b試卷.pdf",
+      "sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "page_count": 8
+    },
+    {
+      "relative_path": "exam_packs/學測/subjects/數學B/歷屆試題/115/04-115學測數學b答案.pdf",
+      "sha256": "ff1337781df5ee183f8e0a4b49f4690b297bbc547fefcb8f1669d01bdde610b3",
+      "page_count": 1
+    }
+  ],
+  "aggregate_pattern_clusters": [
+    {
+      "cluster_id": "addition-2b519e9ac305",
+      "count": 3,
+      "supporting_year_count": 3,
+      "year_range": [
+        2024,
+        2026
+      ],
+      "proportion": 1.0,
+      "pattern": {
+        "curriculum": "108",
+        "regime": "111學年度起",
+        "section": "section-4",
+        "domain": "跨單元",
+        "question_type": "single_choice",
+        "score": null,
+        "unit": "綜合應用",
+        "subunit": "題組資訊整合",
+        "stimulus_type": "mixed",
+        "requires_diagram": true,
+        "difficulty": {
+          "overall": 2,
+          "basis": "multi-item-aggregate"
+        }
+      },
+      "limitations": "Section/type coverage and estimated reasoning only; not empirical item statistics or every curriculum unit. Current verified paper slots control scores/options/subparts."
+    }
+  ]
+}

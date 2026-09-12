@@ -1,0 +1,5 @@
+-r requirements.txt
+pytest>=8,<9
+# Rebuilding the checked-in PDF carrier requires this serializer version.
+# Template attachment hashes remain the portable verification contract.
+PyMuPDF==1.28.2
