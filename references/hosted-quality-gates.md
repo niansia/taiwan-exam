@@ -41,11 +41,20 @@ clipped/outlined objects, and supplied geometry is not independently inferred.
 
 ## Measured density, not a prose waiver
 
-For large-bottom-void-review, issue_dispositions must include reference_pdf
-(path/sha256), reference_page (one-based), page_role (cover/formula/body/solutions),
-and decision/reason. Choose a comparable same-subject page from the embedded
-official 111–115 source map; verify/download once and retain it in the run.
-The checker verifies its hash against that map and remeasures both PDF pages.
+For large-bottom-void-review, the default offline issue disposition contains
+`kind: embedded-page-metric`, `source_sha256`, `reference_page` (one-based),
+`page_role` (cover/formula/body/solutions), and decision/reason. Select a comparable
+page from the subject's preflight `calibration.json.page_metrics`. These numeric
+measurements were built from byte/hash-verified official sources at release time;
+no original question text or source PDF is included. The checker reconstructs the
+capsule from canonical files, validates source identity and measurement algorithm,
+requires the actual candidate role to match, and remeasures the candidate PDF.
+Scoring-rule pages are rubric references, not full worked solutions: their use
+still needs a concrete editorial explanation of compatible density and content.
+Alternatively retain an already available same-subject official 111–115 PDF and
+use `reference_pdf: {path, sha256}`, reference_page, page_role and decision/reason.
+This legacy route verifies its source hash and remeasures both PDFs. Choose the
+route at preflight, never start downloading originals during final QA.
 Candidate bottom void cannot exceed reference by over 10 percentage points.
 This conservative review threshold is project policy, not an official exam rule.
 Editorial review must verify role compatibility: never compare an interior page
@@ -56,11 +65,26 @@ cannot waive failure. Reflow and inspect new bytes when it fails.
 
 For all seven subjects run hosted_blind_review.py exam.json blind-packet.json. It retains visible
 questions in printed order, options, continuations, response tables, visuals and solutions, excluding author labels and item_spec.
-Supply actual referenced visuals and compatible 111–115 anchors to a separate
+Supply actual referenced visuals and compatible 111–115 calibration to a separate
 reviewer context without prior judgments. Request shortest valid routes, necessary
-decisions, shortcut searches, provisional difficulty/time and specific year/item
-comparisons. Reuse verified source PDFs instead of downloading one per item.
-Every item includes `anchor: {reference_pdf: {path, sha256}, page, item}` where
+decisions, shortcut searches, provisional difficulty/time and concrete comparisons
+against the available calibration. Default offline route: give the reviewer the
+subject's preflight `calibration.json` and record each item's
+`anchor: {kind: embedded-calibration, key: ...}`. For objective Math A/B items the
+key is `slot:N` for the actual question number; other objective subjects use
+`objective`. Constructed responses and 國寫 use `constructed-response`, with
+explicit rubric/task-demand comparison to aggregate patterns (and the embedded
+writing rubric for 國寫). Never borrow 國綜 objective P/D for 國寫. Preserve the
+objective profile's `full_paper_status: insufficient-data`: its statistics do
+not cover all constructed responses or establish empirical difficulty of new
+papers. The checker verifies the whole saved capsule against canonical content;
+author-written readiness flags are insufficient. `anchor_comparison` must say
+what historical aggregate/rubric feature supports or challenges the estimate,
+including shortest-route differences and limitations; numbers alone cannot pass
+academic review. Aggregate review is not a claim of viewing individual originals.
+
+If a compatible original PDF is already available, a stronger item-to-item route
+remains supported: `anchor: {reference_pdf: {path, sha256}, page, item}` where
 page is one-based and item identifies the compared official question/task.
 The checker verifies the actual source bytes against the embedded same-subject
 111–115 map and checks the page exists. The reviewer must actually read that

@@ -48,6 +48,15 @@ Do not invent successful review observations or manufacture reviewer identities.
 
 `run-state.json` has schema_version 1, paper_id, current_phase, next_action,
 exam (`path`, `sha256`), timing (`path`, `sha256`), template_asset_dir, checks, and pdfs.
+For the default offline route also register `calibration: {path, sha256}` from
+preflight.json. Keep calibration.json, template assets, editable work and reviews
+in recovery material. The checker reconstructs calibration from canonical files;
+rewriting the capsule and updating its hash cannot validate altered statistics.
+An older run may retain existing content and use the new capsule, but the actual
+reviewer must redo any comparison whose basis changes; never relabel a missing
+original-PDF review as an already completed aggregate review. The preflight helper
+preserves existing exam.json and run-state.json, reporting fields to merge rather
+than overwriting the run or manufacturing completed gates.
 template_asset_dir is a relative directory INSIDE this run containing the selected
 subject's verified `cover-blank.pdf`, `inner-odd-blank.pdf`, `inner-even-blank.pdf`
 and, for Math A/B, `formula-blank.pdf`. Keep these assets in recovery material.
@@ -91,8 +100,9 @@ pdf_sha256 and pages, one for EVERY actual page: page, raster_sha256, status,
 observations, and issue_dispositions. Each unresolved inspector issue blocks
 completion. A legitimate role-specific warning can be adjudicated with
 `{"decision":"justified","reason":"actual page/reference observation"}`.
-Bottom-void findings additionally require the actual verified official reference
-PDF and numeric comparison specified in hosted-quality-gates.md. Prose alone
+Bottom-void findings additionally require a verified embedded page measurement
+or an already available official reference PDF and numeric comparison specified
+in hosted-quality-gates.md. Prose alone
 cannot waive them. Hard collision findings can never be waived by a reason.
 Repairing a warning means regenerating and inspecting new bytes, not writing
 "fixed" against the obsolete raster. Hard mechanical failures always block.

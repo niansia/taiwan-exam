@@ -19,6 +19,7 @@ from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples
+from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -82,6 +83,14 @@ def check(state_path: Path) -> dict:
     need(bool(ids) and all(isinstance(i, str) and i.strip() for i in ids)
          and len(set(ids)) == len(ids), 'exam: missing or duplicate item IDs')
     expected = set(ids)
+    calibration = None
+    if state.get('calibration'):
+        calibration_path = file(state['calibration'], 'calibration')
+        if calibration_path:
+            saved = json.loads(calibration_path.read_text(encoding='utf-8-sig'))
+            canonical = snapshot(exam['metadata']['subject'])
+            if need(saved == canonical, 'calibration: stale, altered or wrong-subject snapshot'):
+                calibration = canonical
     need(exam.get('metadata', {}).get('paper_id') == state.get('paper_id'),
          'exam: paper_id mismatch')
 
@@ -124,6 +133,12 @@ def check(state_path: Path) -> dict:
                         for year in s['years'] for d in year['documents'].values()}
             for row in review.get('items', []):
                 anchor = row.get('anchor') or {}
+                if anchor.get('kind') == 'embedded-calibration':
+                    if need(calibration is not None, f'difficulty/{row.get("id")}: verified offline calibration missing'):
+                        question = next((q for q in items if q['id'] == row.get('id')), {})
+                        errors.extend(f'difficulty/{row.get("id")}: {e}'
+                                      for e in anchor_errors(question, anchor, calibration))
+                    continue
                 reference = file(anchor.get('reference_pdf'), f'difficulty/{row.get("id")}/anchor')
                 if reference:
                     need(sha(reference) in approved,
@@ -237,6 +252,20 @@ def check(state_path: Path) -> dict:
                 need(finding.get('decision') == 'justified' and bool(finding.get('reason')),
                      f'{role}/page-{n}/{issue}: unresolved review flag')
                 if issue == 'large-bottom-void-review':
+                    if finding.get('kind') == 'embedded-page-metric':
+                        if need(calibration is not None, f'{role}/page-{n}: verified offline calibration missing'):
+                            expected_role = ('solutions' if role == 'solution' else 'cover' if n == 1 else
+                                             'formula' if n == actual_count and exam['metadata']['subject'] in {'數學A', '數學B'}
+                                             else 'body')
+                            try:
+                                limit = density_limit(calibration, finding, expected_role)
+                                with pymupdf.open(pdf) as candidate:
+                                    if need(type(n) is int and 1 <= n <= len(candidate), f'{role}/page-{n}: stale candidate page'):
+                                        need(bottom_void(candidate[n-1]) <= limit,
+                                             f'{role}/page-{n}: bottom void exceeds reference by over 10 percentage points')
+                            except ValueError as exc:
+                                need(False, f'{role}/page-{n}: {exc}')
+                        continue
                     reference = file(finding.get('reference_pdf'), f'{role}/page-{n}/density-reference')
                     if reference:
                         source_map = json.loads(SOURCE_MAP.read_text(encoding='utf-8-sig'))

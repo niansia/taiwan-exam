@@ -133,7 +133,12 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
             else:
                 data, transport = fetch_record(record, timeout=timeout, attempts=attempts, local_root=local_root)
             verify(record, data)
-            destination.write_bytes(data)
+            # An overall preflight deadline may terminate this worker process.
+            # Publish complete verified bytes atomically; never leave a truncated
+            # destination that poisons the next cache verification.
+            temporary = destination.with_suffix('.pdf.part')
+            temporary.write_bytes(data)
+            temporary.replace(destination)
         return {
             "component": record["component"],
             "path": str(destination),

@@ -64,6 +64,8 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "verify_fixed_template_pdf.py")
     paths.append(root / "scripts" / "inspect_hosted_pdf.py")
     paths.append(root / "scripts" / "check_hosted_run.py")
+    paths.append(root / "scripts" / "hosted_calibration.py")
+    paths.append(root / "scripts" / "prepare_hosted_run.py")
     paths.append(root / "scripts" / "validate_math_context.py")
     paths.extend(root / 'scripts' / name for name in ('hosted_item_layout.py', 'hosted_run_timing.py', 'hosted_blind_review.py'))
     paths.append(root / "scripts" / "validate_math_difficulty_design.py")
@@ -76,6 +78,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
         if pack == "學測":
             paths.append(pack_root / "source-pack-manifest.json")
             paths.append(pack_root / "metadata" / "official-current-web-sources.json")
+            paths.append(pack_root / "metadata" / "hosted-page-metrics.json")
             paths.append(pack_root / "templates" / "115" / "hosted-web-template-assets.json")
         paths.extend(sorted((pack_root / "shared-data").glob("*.json")))
         paths.extend(sorted((pack_root / "templates").rglob("*.json")))
@@ -181,7 +184,17 @@ student question paper and the answer-with-full-solutions paper. Apply every
 available content and layout gate. If the hosted surface cannot create or inspect
 the PDFs, disclose the limitation and do not claim formal completion.
 
-Before drafting, follow `references/hosted-pdf-production.md`: prove that exact
+Before drafting, run `scripts/prepare_hosted_run.py` as described in
+`references/hosted-pdf-production.md`. It checks the selected subject's embedded
+calibration and verified template components and makes two small composition
+proofs. Use an uploaded resource PDF first; otherwise template acquisition has
+an overall 45-second default deadline, not repeated unbounded socket waits.
+The final difficulty/density checker accepts the hash-bound `calibration.json`
+from this preflight. Original official question PDFs are optional for additional
+item-to-item review, never a new dependency discovered at final delivery.
+Read the subject's capsule and required guidance selectively; extracting files
+does not require pasting every file into the conversation context.
+Follow `references/hosted-pdf-production.md`: prove that exact
 template bytes exist in the file runtime and that the embedded compositor works.
 If runtime networking is blocked, use/request the single data-only
 `taiwan-exam-template-resources.pdf` from the asset map's offline_resource link.

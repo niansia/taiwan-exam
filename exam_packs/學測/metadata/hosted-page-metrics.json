@@ -1,0 +1,1051 @@
+{
+  "schema_version": 1,
+  "algorithm_sha256": "11ef67e153b0cddfbf911e09ae91ce7c0574004ae1a03b4f9e2bb5d9af708ee4",
+  "scope": "Numeric bottom-void measurements, not page images or a visual approval. Scoring-rule pages are rubric references, not full worked solutions.",
+  "pages": [
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.105
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.001
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.097
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.023
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 9,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 10,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 11,
+      "page_role": "body",
+      "bottom_void": 0.023
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "9cee75fa62ccaf13e1eb41804b8da1e35ccb9ef73c57651079f0def73e13e1e7",
+      "document_role": "question",
+      "page": 12,
+      "page_role": "body",
+      "bottom_void": 0.129
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.103
+    },
+    {
+      "subject": "國綜",
+      "roc_year": 115,
+      "source_sha256": "8c2b91ffcef7094bdb298d78365c41f6c91092373b64c2e4c92aeac04f71b8cb",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.23
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.071
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3ea44f1b2c335f5c32e336e4d2e47266ad5b713c79e00e9062f2634a5fba4af9",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.023
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.015
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.118
+    },
+    {
+      "subject": "國寫",
+      "roc_year": 115,
+      "source_sha256": "3223904b16f7fcfe62fede6a5ea44f4569c74c7a00512de84ef2d4cc0c669f41",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.494
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.049
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.083
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.337
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.278
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.054
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.265
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "body",
+      "bottom_void": 0.029
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 9,
+      "page_role": "body",
+      "bottom_void": 0.028
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 10,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 11,
+      "page_role": "body",
+      "bottom_void": 0.192
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "e5a644f0133482a86f0befb3dfd9aaa2161be2685a00620950581db7ad6bc3f2",
+      "document_role": "question",
+      "page": 12,
+      "page_role": "body",
+      "bottom_void": 0.372
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.012
+    },
+    {
+      "subject": "英文",
+      "roc_year": 115,
+      "source_sha256": "3d08656a1889b59ec05e0f9ea487dce9c84c5d9aa4acbebcf9a2886dd86c664f",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.453
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.096
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.029
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.205
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.26
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.08
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.185
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "e867988978a81ecf07e58d9e6bf9164afae7be20590cf023fb618efae275c2e3",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "formula",
+      "bottom_void": 0.09
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.007
+    },
+    {
+      "subject": "數學A",
+      "roc_year": 115,
+      "source_sha256": "872f82af8cbf0d4dd4ddd0d0a80d1c400b136b8cad48665b94d6ff5a5ec1430f",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.526
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.109
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.188
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.039
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.016
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.18
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.052
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "84ac78e7a8b2fc3dcf6bd6838348a42479b7e57f7067ea94a0ca634fcfcdf205",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "formula",
+      "bottom_void": 0.211
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.195
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.078
+    },
+    {
+      "subject": "數學B",
+      "roc_year": 115,
+      "source_sha256": "2c7f9efa16e2350216c789050ba38328b9f1a879ef372c46a6a2c854cfb7dc6e",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.064
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.247
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.084
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.058
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 9,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 10,
+      "page_role": "body",
+      "bottom_void": 0.017
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 11,
+      "page_role": "body",
+      "bottom_void": 0.048
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 12,
+      "page_role": "body",
+      "bottom_void": 0.033
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 13,
+      "page_role": "body",
+      "bottom_void": 0.096
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 14,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 15,
+      "page_role": "body",
+      "bottom_void": 0.116
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 16,
+      "page_role": "body",
+      "bottom_void": 0.036
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 17,
+      "page_role": "body",
+      "bottom_void": 0.068
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 18,
+      "page_role": "body",
+      "bottom_void": 0.004
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 19,
+      "page_role": "body",
+      "bottom_void": 0.019
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "e4af275a5fbea2493a37181f6b885cb9c10af2aa9f4bec3e13c6e9dff1771fe0",
+      "document_role": "question",
+      "page": 20,
+      "page_role": "body",
+      "bottom_void": 0.153
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.012
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 4,
+      "page_role": "solutions",
+      "bottom_void": 0.006
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 5,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 6,
+      "page_role": "solutions",
+      "bottom_void": 0.01
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 7,
+      "page_role": "solutions",
+      "bottom_void": 0.001
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 8,
+      "page_role": "solutions",
+      "bottom_void": 0.026
+    },
+    {
+      "subject": "社會",
+      "roc_year": 115,
+      "source_sha256": "25daac17712bb0c3f2e1bc45a9beff67272d1faf1118745d71197b662ecb2310",
+      "document_role": "scoring_rule",
+      "page": 9,
+      "page_role": "solutions",
+      "bottom_void": 0.09
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 1,
+      "page_role": "cover",
+      "bottom_void": 0.11
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 2,
+      "page_role": "body",
+      "bottom_void": 0.017
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 3,
+      "page_role": "body",
+      "bottom_void": 0.215
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 4,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 5,
+      "page_role": "body",
+      "bottom_void": 0.068
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 6,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 7,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 8,
+      "page_role": "body",
+      "bottom_void": 0.042
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 9,
+      "page_role": "body",
+      "bottom_void": 0.003
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 10,
+      "page_role": "body",
+      "bottom_void": 0.045
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 11,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 12,
+      "page_role": "body",
+      "bottom_void": 0.004
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 13,
+      "page_role": "body",
+      "bottom_void": 0.007
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 14,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 15,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 16,
+      "page_role": "body",
+      "bottom_void": 0.033
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 17,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 18,
+      "page_role": "body",
+      "bottom_void": 0.013
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 19,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "9381c4030a413dc47c2e5072f6955b67e0aef6098e3fee8cf13ca3b81feabd41",
+      "document_role": "question",
+      "page": 20,
+      "page_role": "body",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 1,
+      "page_role": "solutions",
+      "bottom_void": 0.084
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 2,
+      "page_role": "solutions",
+      "bottom_void": 0.031
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 3,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 4,
+      "page_role": "solutions",
+      "bottom_void": 0.029
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 5,
+      "page_role": "solutions",
+      "bottom_void": 0.047
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 6,
+      "page_role": "solutions",
+      "bottom_void": 0.0
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 7,
+      "page_role": "solutions",
+      "bottom_void": 0.071
+    },
+    {
+      "subject": "自然",
+      "roc_year": 115,
+      "source_sha256": "d9244cd0d2d8fa96d3d524e828b5e0213f930d781cdb5ce373144c6609d00b3d",
+      "document_role": "scoring_rule",
+      "page": 8,
+      "page_role": "solutions",
+      "bottom_void": 0.788
+    }
+  ]
+}
