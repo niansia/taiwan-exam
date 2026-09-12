@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the GSAT-specific HTML layout to PDF with local Chromium."""
+"""Compose a GSAT fixed PDF; legacy HTML output is internal proof only."""
 from __future__ import annotations
 import argparse,json,shutil,subprocess,sys,tempfile
 from pathlib import Path
@@ -78,10 +78,42 @@ def _decorate_student_pages(source, destination, exam, layout, student_pages):
     doc.close()
 
 def main(argv=None)->int:
-    p=argparse.ArgumentParser();p.add_argument("input",type=Path);p.add_argument("output",type=Path);p.add_argument("--student-only",action="store_true");p.add_argument("--browser",type=Path);p.add_argument("--no-provenance",action="store_true");p.add_argument('--contract',type=Path);p.add_argument('--proof-only',action='store_true');a=p.parse_args(argv)
+    p=argparse.ArgumentParser();p.add_argument("input",type=Path);p.add_argument("output",type=Path);p.add_argument("--student-only",action="store_true");p.add_argument("--browser",type=Path);p.add_argument("--no-provenance",action="store_true");p.add_argument('--contract',type=Path);p.add_argument('--proof-only',action='store_true')
+    p.add_argument('--body', type=Path, help='Measured transparent A4 body-only PDF; no cover, formula or furniture')
+    p.add_argument('--kind', choices=('questions','answers'), default='questions')
+    p.add_argument('--asset-dir', type=Path)
+    p.add_argument('--font', type=Path)
+    a=p.parse_args(argv)
     try:
         if not a.proof_only:
-            if not a.contract:raise ValueError('Formal PDF requires --contract and a passing content gate; use --proof-only solely for internal layout diagnostics.')
+            if not a.body or not a.font or not a.contract:
+                raise ValueError('Fixed PDF requires --contract, --body and --font. Rebuilt HTML is --proof-only; formal booklets use compose_hosted_pdf with original assets.')
+            if a.output.exists():
+                raise ValueError('Preserve existing output; choose a new filename')
+            from validate_exam_pack_contract import require_handoff
+            from compose_hosted_pdf import compose
+            from verify_fixed_template_pdf import verify_pdf
+            from fetch_hosted_template_assets import DEFAULT_MAP
+            exam=json.loads(a.input.read_text(encoding='utf-8-sig'))
+            require_handoff(exam, a.input.resolve().parent, a.contract)
+            meta=exam['metadata']; subject=meta.get('paper_subject') or meta['subject']
+            records=json.loads(DEFAULT_MAP.read_text(encoding='utf-8-sig'))['subjects']
+            record=next(r for r in records if r['subject']==subject)
+            asset_dir=a.asset_dir or Path(__file__).resolve().parents[1]/Path(record['assets'][0]['repository_path']).parent
+            with tempfile.TemporaryDirectory(prefix='gsat-fixed-') as folder:
+                composed=Path(folder)/'composed.pdf'; final=Path(folder)/'final.pdf'
+                compose(subject, a.body, asset_dir, composed,
+                        year=str(meta.get('academic_year') or '116'),
+                        title=str(meta.get('cover_exam_name') or '學科能力測驗模擬試題'),
+                        running_name=str(meta.get('running_exam_name') or '學測'),
+                        font_path=a.font, kind=a.kind)
+                publish_pdf(composed, final, provenance=not a.no_provenance)
+                report=verify_pdf(final, subject, a.kind, asset_dir)
+                if report['errors']:raise ValueError('; '.join(report['errors']))
+                a.output.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copyfile(final,a.output)
+            print(f'已輸出固定 PDF 待驗收校樣：{a.output}')
+            return 0
         exam=json.loads(a.input.read_text(encoding="utf-8-sig"));html=render(exam,include_answers=not a.student_only,asset_base=a.input.resolve().parent,run_contract=a.contract);browser=find_browser(a.browser);layout=_layout_profile(exam,a.input)
         if a.proof_only:
             html=html.replace('</body>', '<div style="position:fixed;bottom:2mm;left:20mm;font-size:8pt">內部排版校樣：未通過正式試卷交付驗收</div></body>')

@@ -9,7 +9,7 @@ from inspect_hosted_pdf import rail_collision_samples, audit
 from hosted_item_layout import reserve_rail, draw_rail, geometry_errors
 from hosted_run_timing import transition, timing_errors, summary, PHASES
 from hosted_blind_review import packet, review_errors
-from test_hosted_run_evidence import saved_run, evaluate
+from test_hosted_run_evidence import saved_run, fixed_evidence_pdfs, evaluate
 
 
 def test_actual_native_and_outlined_math_collisions_block(tmp_path):
@@ -92,7 +92,7 @@ def test_clean_claim_cannot_hide_colliding_pdf(saved_run):
 def test_prose_only_density_waiver_is_rejected(saved_run):
     state,save=saved_run
     review=json.loads(Path('question-review.json').read_text())
-    review['pages'][0]['issue_dispositions']['large-bottom-void-review'].pop('reference_pdf')
+    review['pages'][1]['issue_dispositions']['large-bottom-void-review'].pop('reference_pdf')
     state['pdfs']['question']['visual_review']=save('question-review.json',review)
     assert any('density-reference' in e for e in evaluate(state,save)['errors'])
 
@@ -104,7 +104,7 @@ def test_self_created_density_reference_is_rejected(saved_run):
         doc.set_metadata({'title':'Unverified substitute'})
         doc.save('unverified-reference.pdf')
     review=json.loads(Path('question-review.json').read_text())
-    review['pages'][0]['issue_dispositions']['large-bottom-void-review']['reference_pdf']={
+    review['pages'][1]['issue_dispositions']['large-bottom-void-review']['reference_pdf']={
         'path':'unverified-reference.pdf','sha256':gate.sha(Path('unverified-reference.pdf'))}
     state['pdfs']['question']['visual_review']=save('question-review.json',review)
     assert any('verified same-subject official source' in e for e in evaluate(state,save)['errors'])

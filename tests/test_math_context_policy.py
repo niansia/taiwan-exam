@@ -8,7 +8,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from validate_math_context import validate, source_note_samples
 from inspect_hosted_pdf import audit
 from hosted_blind_review import review_errors
-from test_hosted_run_evidence import saved_run, evaluate
+from test_hosted_run_evidence import saved_run, fixed_evidence_pdfs, evaluate
 
 
 @pytest.fixture

@@ -16,18 +16,11 @@ import pymupdf
 
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, verify
 from inspect_hosted_pdf import rail_collision_samples
+from verify_fixed_template_pdf import verify_pdf, masked_pixels
 
 
 def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
-
-
-def masked_pixels(page, regions: list, *, alpha: bool = False) -> bytes:
-    pix = page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5), colorspace=pymupdf.csGRAY, alpha=alpha)
-    for region in regions:
-        rect = pymupdf.Rect(region) * pymupdf.Matrix(1.5, 1.5)
-        pix.set_rect(rect.irect, (0, 0) if alpha else (255,))
-    return pix.samples
 
 
 def check_body(page, box) -> None:
@@ -147,7 +140,10 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
             output.parent.mkdir(parents=True, exist_ok=True)
             data = out.tobytes(garbage=4, deflate=True)
             output.write_bytes(data)
-        return {"status": "layout-proof-only", "subject": subject, "kind": kind,
+        saved_check = verify_pdf(output, subject, kind, asset_dir)
+        if saved_check['errors']:
+            raise ValueError('Saved fixed-template verification failed: ' + '; '.join(saved_check['errors']))
+        return {"fixed_template_verification": saved_check, "status": "layout-proof-only", "subject": subject, "kind": kind,
                 "body_sha256": sha(body.read_bytes()), "pdf_sha256": sha(data),
                 "template_hashes": hashes, "pages": proofs,
                 "remaining": ["body typography and all-page visual review", "content and independent answers",

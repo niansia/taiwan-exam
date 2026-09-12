@@ -332,8 +332,13 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
     else:
         errors.append('machine checks not executed (test-only diagnostic)')
     if stage == 'delivery':
+        from verify_fixed_template_pdf import verify_pdf
         for role in ('student_pdf', 'answer_pdf'):
             errors.extend(artifact_review_errors(contract.get(role) or {}, base, file_hash(exam_path), role))
+            pdf_path = base / (contract.get(role) or {}).get('path', '')
+            if pdf_path.is_file():
+                result = verify_pdf(pdf_path, subject, 'questions' if role == 'student_pdf' else 'answers')
+                errors.extend(f'{role}/fixed-template: {e}' for e in result['errors'])
         if execute:
             for role in ('student_html', 'answer_html'):
                 entry = contract.get(role) or {}; path = base / entry.get('path', '')

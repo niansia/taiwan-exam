@@ -54,12 +54,18 @@ cannot waive failure. Reflow and inspect new bytes when it fails.
 
 ## Independent difficulty before final rendering
 
-For math run hosted_blind_review.py exam.json blind-packet.json. It retains visible
-questions, options, visuals and solutions, excluding author labels and item_spec.
+For all seven subjects run hosted_blind_review.py exam.json blind-packet.json. It retains visible
+questions in printed order, options, continuations, response tables, visuals and solutions, excluding author labels and item_spec.
 Supply actual referenced visuals and compatible 111–115 anchors to a separate
 reviewer context without prior judgments. Request shortest valid routes, necessary
 decisions, shortcut searches, provisional difficulty/time and specific year/item
-comparisons. Correctness alone does not fulfil difficulty QA. Seek linear-combination
+comparisons. Reuse verified source PDFs instead of downloading one per item.
+Every item includes `anchor: {reference_pdf: {path, sha256}, page, item}` where
+page is one-based and item identifies the compared official question/task.
+The checker verifies the actual source bytes against the embedded same-subject
+111–115 map and checks the page exists. The reviewer must actually read that
+page: this check cannot judge whether the comparison is truthful or well chosen.
+Correctness alone does not fulfil difficulty QA. Seek linear-combination
 shortcuts, small-n enumeration and unused conditions; long solutions do not prove
 required solving effort.
 
@@ -73,7 +79,34 @@ Revise items or adopt the defensible estimate, then rerun the existing whole-pap
 balance audit using it; never inflate estimates to reach 80–92 minutes. These
 twenty-item papers also need the independent estimates to meet the existing
 80–92 minute target and three-decision coverage of at least 50 points. These
-thresholds are review policy, not student psychometrics. Fields cannot authenticate
+thresholds are review policy, not student psychometrics.
+
+Math item reviews also contain `routine_only` (boolean), `uses_prior_results`
+(list of earlier item IDs, empty when none), and `scaffolding_audit` explaining
+the effect of earlier questions, options and supplied intermediate results.
+Only decisions still necessary on the shortest in-booklet route count: substituting
+three coordinates is one routine operation, not three modelling decisions.
+Routine-only items cannot be hard/very_hard or count toward the 50-point
+three-decision floor; their total is capped at 25 points under project policy.
+Keep legitimate easy opening items and necessary scaffolds; replace enough
+weak mechanisms to restore the intended curve, without inflating estimates or
+adding irrelevant computation. Apply the same reasoning to Math B, preserving
+its own scope and reference difficulty rather than copying Math A difficulty.
+
+The independent five-band estimate maps to the four-band plan as very_easy/easy
+→ 簡單, medium → 中, hard → 中偏難, very_hard → 難. Reconcile every item and its
+answer label, then rebalance the actual plan. The checker reruns the structural
+four-band validator for all subjects and the subject-profile math design validator
+for Math A/B; citing those command names in an observation no longer substitutes
+for execution. Math full papers must really have numbered items 1–20.
+
+For 國綜/英文 review evidence inference and distractor elimination, not passage
+length alone; for 自然/社會 review data interpretation, competing explanations and
+constraint use, not recent-news terminology; for 國寫 review prompt demands,
+source synthesis, reasoning and feasible writing time, not imposed wordiness.
+Do not transfer the mathematics 80–92 minute target to other subjects.
+
+These fields cannot authenticate
 reviewer identity: never invent a second context. If none is available, preserve
 pending work for review in a fresh context.
 
