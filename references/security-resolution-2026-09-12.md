@@ -1,9 +1,10 @@
 # Replacement candidate review, 2026-09-12
 
-Status: local checks and maintainer browser download of the draft URL passed.
-The stable URL introduced by GitHub publication still needs browser acceptance.
-The unchanged asset is staged as a prerelease; the install-release hold remains.
-This document does not assert vendor confirmation.
+Status: resolved through reviewed code fixes, exact-archive scans and maintainer
+confirmation of normal browser downloads at both draft and stable public URLs.
+The install-release hold is cleared for the unchanged v0.7.1 asset below.
+The withdrawn older hashes remain withdrawn. This is not vendor confirmation
+that the older detections were false positives.
 
 The replacement incorporates reviewed source-installation path/collision and
 atomic-write fixes, stricter source/profile evidence checks, scored-slot planning
@@ -14,7 +15,7 @@ encoding, obfuscation or compression change intended to evade detection.
 
 Candidate: `taiwan-exam-generator-v0.7.1.zip`, 308 files.
 SHA-256: `18e9a07760ac544f98e58945b3b44e18153e0f038a7864a83f3816e829ccfec8`.
-Intended stable asset URL:
+Verified stable asset URL:
 `https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip`.
 The exact archive, extracted members, package manifest and Attachment Services
 Save check passed. Full hash-bound scan evidence is retained in
@@ -47,9 +48,11 @@ retained in this record. The tested draft URL was:
 
 The exact asset was retained when GitHub published v0.7.1 as a prerelease; its
 asset ID is 559168049. Publication changed its URL to the stable URL above.
-Automated Chrome at the stable URL again returned ERR_BLOCKED_BY_CLIENT, so a
-maintainer check of that URL is pending before marking the version latest/ready.
-The earlier draft result is not relabeled as a stable-URL browser result.
+Automated Chrome at the stable URL again returned ERR_BLOCKED_BY_CLIENT.
+The maintainer subsequently confirmed on 2026-09-12, in response to the explicit
+stable-URL download check, that all downloads were normal (「下載都正常」).
+This separate user confirmation supplies the stable-URL browser acceptance;
+the earlier draft result is not relabeled as a stable-URL browser result.
 
 After publication, a separate HTTPS download from the stable public URL also
 matched the recorded SHA-256. This verifies published bytes, not browser
