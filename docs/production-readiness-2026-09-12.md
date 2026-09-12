@@ -93,3 +93,8 @@ GitHub 主分支同步程式修正、README 與驗證紀錄；v0.7.1 保留經�
 四組全部通過，見 https://github.com/niansia/taiwan-exam/actions/runs/34691774206 。
 另更新 GitHub Actions 為已核對版本與 SHA 的 Node 24 原生執行版本，
 避免依賴已棄用的 Node 20 自動相容模式。
+
+發布附件驗證：[Distribution security 34692929316](https://github.com/niansia/taiwan-exam/actions/runs/34692929316)
+從正式網址下載 v0.7.1，核對與 Defender 報告相同的雜湊、來源網址及 manifest。
+ClamAV 1.5.3 對 ZIP 與解壓後 309 個檔案（含 manifest）均回報 0 個感染檔案。
+此執行實際檢查了公開附件，並非僅檢查暫停發布狀態。

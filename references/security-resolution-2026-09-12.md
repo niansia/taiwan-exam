@@ -58,3 +58,14 @@ After publication, a separate HTTPS download from the stable public URL also
 matched the recorded SHA-256. This verifies published bytes, not browser
 acceptance. The stable-URL scan report is also published in
 `downloads/security-scan.json` for the independent distribution CI check.
+
+## Independent published-asset check
+
+[Distribution security run 34692929316](https://github.com/niansia/taiwan-exam/actions/runs/34692929316)
+downloaded the stable public URL, verified the manifest and exact hash against
+the URL-bound Defender report, and passed both ClamAV scans. ClamAV 1.5.3 with
+3,628,061 known-virus signatures reported zero infected files in the ZIP and in
+all 309 extracted files (308 package files plus the manifest). Scans completed
+at 2026-09-12 12:10:52 UTC. Logs are retained in that run's distribution-security
+artifact. This checks this release and these signatures, not future definitions
+or every antivirus product.
