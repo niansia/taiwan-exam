@@ -102,6 +102,16 @@ def test_web_builder_is_maintainer_only_not_skill_payload():
     assert not package_skill.should_include(ROOT / "web/taiwan-exam-web-knowledge.md")
 
 
+def test_extracted_hosted_checker_has_all_runtime_dependencies(tmp_path):
+    import read_web_knowledge
+    import subprocess
+    read_web_knowledge.extract(ROOT/'web/taiwan-exam-web-knowledge.md', subject='數學A', output_dir=tmp_path)
+    result = subprocess.run([sys.executable, str(tmp_path/'scripts/check_hosted_run.py'), '--help'],
+                            cwd=tmp_path, capture_output=True, timeout=30)
+    assert result.returncode == 0, result.stderr
+    assert (tmp_path/'exam_packs/學測/metadata/official-current-web-sources.json').is_file()
+
+
 def test_hosted_template_fetcher_is_packaged_and_embedded(tmp_path):
     script = ROOT / "scripts/fetch_hosted_template_assets.py"
     assert package_skill.should_include(script)
