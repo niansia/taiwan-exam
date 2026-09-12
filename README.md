@@ -10,10 +10,11 @@ Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗�
 > `source-corpus-2026.09.11` 是校準來源資料包，不含程式或安裝檔。
 > GitHub 原始碼安裝與下方網頁版知識檔另有各自使用方式。
 
-v0.7.1 的修正已更新；維護者已確認候選 ZIP 能正常下載，下載檔案的
-SHA-256 也與掃描版本相符。[v0.7.1 發行頁](https://github.com/niansia/taiwan-exam/releases/tag/v0.7.1)
-保留同一份 ZIP，目前標為預發布，待 GitHub 發布後的新固定網址完成一般
-瀏覽器下載確認，再開放為最新安裝版。請依檔名選取 `taiwan-exam-generator-v0.7.1.zip`；
+**[下載 v0.7.1 安裝 ZIP](https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip)**（4.34 MB）。
+維護者已確認草稿與正式固定網址皆能正常下載；下載檔案的 SHA-256 與
+Defender 壓縮檔、解壓後內容及附件儲存檢查所驗證的版本一致。
+[發行說明與掃描報告](https://github.com/niansia/taiwan-exam/releases/tag/v0.7.1)。
+請依檔名選取 `taiwan-exam-generator-v0.7.1.zip`；
 GitHub 自動附上的 Source code 壓縮檔不是這份經掃描的安裝包。
 
 ## 三種使用方式

@@ -79,14 +79,15 @@ Windows / Python 3.10.10 的乾淨公開副本完整測試：399 通過、2 跳�
 
 維護者已確認 v0.7.1 草稿 ZIP 可正常下載，下載檔案 4,551,413 bytes 的
 SHA-256 與掃描版本一致。同一附件已放到 v0.7.1 預發布頁；GitHub 改變了
-下載網址，因此最新正式安裝版仍依 `SOFTWARE_RELEASE_STATUS.json` 暫停，
-等待新固定網址的一般瀏覽器下載確認。9 月 12 日的自動化 Chrome 對純文件來源 ZIP 也顯示
+下載網址；維護者隨後再確認新固定網址亦正常下載，因此
+`SOFTWARE_RELEASE_STATUS.json` 已依修正、掃描與下載證據更新為 ready。
+9 月 12 日的自動化 Chrome 對純文件來源 ZIP 也顯示
 ERR_BLOCKED_BY_CLIENT，不能因此判定新候選有惡意程式。工具安全政策
 不允許開啟下載紀錄頁；未變更瀏覽器或系統防護設定。詳細證據見
 [候選修正紀錄](../references/security-resolution-2026-09-12.md)。
 
-GitHub 主分支同步程式修正、README 與驗證紀錄；正式版標示需依最後下載
-驗證結果更新。本次尚未產出最初要求的七份新試卷及七份詳解。
+GitHub 主分支同步程式修正、README 與驗證紀錄；v0.7.1 保留經驗證的
+同一份附件與固定網址。本次尚未產出最初要求的七份新試卷及七份詳解。
 
 遠端驗證：修正 Linux 繁體字型後，Windows／Ubuntu × Python 3.10／3.12
 四組全部通過，見 https://github.com/niansia/taiwan-exam/actions/runs/34691774206 。

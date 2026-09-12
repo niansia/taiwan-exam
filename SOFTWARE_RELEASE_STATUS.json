@@ -1,15 +1,24 @@
 {
   "schema_version": 1,
-  "status": "suspended",
-  "reason": "The maintainer confirmed the v0.7.1 draft ZIP downloads normally; its downloaded SHA-256 matches the scanned archive. GitHub changed the URL on publication, so acceptance of the stable URL remains pending. The unchanged asset is a prerelease, not the latest install release.",
+  "status": "ready",
+  "reason": "Reviewed v0.7.1 fixes, exact-archive Defender and attachment scans, post-publication hash verification, and maintainer confirmation of normal browser downloads from both draft and stable URLs are complete. The verified ZIP is unchanged.",
+  "version": "0.7.1",
+  "download_url": "https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip",
   "incident": "references/security-incident-2026-09-09.md",
-  "resolution": null,
+  "resolution": {
+    "kind": "reviewed-code-fix",
+    "reference": "references/security-resolution-2026-09-12.md",
+    "archive_sha256": "18e9a07760ac544f98e58945b3b44e18153e0f038a7864a83f3816e829ccfec8",
+    "browser_result": "maintainer-confirmed-normal-download-at-stable-url",
+    "confirmed_date": "2026-09-12",
+    "security_scan": "downloads/security-scan.json"
+  },
   "reviewed_fix_candidate": {
     "kind": "reviewed-code-fix",
     "reference": "references/security-resolution-2026-09-12.md",
     "candidate_version": "0.7.1",
     "candidate_archive_sha256": "18e9a07760ac544f98e58945b3b44e18153e0f038a7864a83f3816e829ccfec8",
-    "browser_result": "draft-url-user-confirmed-stable-url-pending",
+    "browser_result": "draft-and-stable-urls-user-confirmed",
     "download_url": "https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip",
     "security_scan": "maintenance/security-scan-2026-09-12.json"
   },
