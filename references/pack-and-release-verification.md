@@ -161,6 +161,16 @@ These are auditable work notes, not proof of human review or measured difficulty
 
 ## Content gate → layout proof → delivery gate
 
+This section's command lines are the canonical implementation for a complete
+local checkout. On a hosted web surface that has the consolidated Skill but no
+repository executable tree, do not refuse merely because these filenames are
+not mounted. Follow `web-platform-use.md`: apply the same observable checks from
+the embedded schemas and profiles, record `validator_mode: hosted_equivalent`,
+and retain concrete per-check evidence. Missing correct answers, unresolved
+profile fields, unavailable exact template bytes or inability to inspect every
+new output page still block delivery; absence of a local script path alone does
+not.
+
 Run contract required fields: user_request, requested_mode=full-paper, exam,
 subject, curriculum. `section_map` maps generated section ids to reviewed profile
 section ids. Include relevant source_registry, source_novelty_report and

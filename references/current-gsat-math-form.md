@@ -7,6 +7,11 @@ Keep a separate **context-texture** audit from the curriculum-unit audit. A pape
 ## Typography and formula contract
 
 - Main Chinese item text: `PMingLiU` / `MingLiU` (新細明體), nominal 11 pt.
+- On a hosted web surface where those proprietary families are unavailable,
+  follow `web-platform-use.md`: keep the original template PDF for locked text
+  and use a metric-compatible Traditional-Chinese serif/Kai substitute for new
+  body text, validated by final-size rasters. Do not fail solely on the internal
+  font name.
 - Latin letters, numerals, and mathematical text: Times New Roman, nominal 11 pt.
 - Instruction rules: `DFKai-SB` / 標楷體, commonly 12 pt. Do not collapse these
   with all section headings: the page-measured 115 Math A controlling profile

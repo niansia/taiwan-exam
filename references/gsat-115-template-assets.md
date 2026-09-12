@@ -19,6 +19,12 @@
 原始 PDF 交給檔案工具或無法合併 PDF 圖層時，不得宣稱正式套版；只能
 回報缺口，或在使用者同意後交付通用版面草稿。
 
+若網頁執行環境可執行程式，使用
+`scripts/fetch_hosted_template_assets.py --subject <科目> --output-dir <目錄>`。
+它只取得當科正式組版元件，先試 raw URL，再以 GitHub Contents API 的
+base64 內容備援，並在寫檔前核對 PDF 標頭、大小與 SHA-256。工具回傳
+base64 時應解碼後驗證，不得把 base64 傳輸本身誤判為沒有 binary handoff。
+
 建立七科挖空版 PDF 資產：
 
 ```text

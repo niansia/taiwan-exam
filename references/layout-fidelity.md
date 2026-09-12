@@ -16,7 +16,7 @@ A verified Layout Profile must record, from an official paper in the same exam, 
 - subject-specific first-page and final-page behavior;
 - reference file hash, page-level measurements, review status, and visual-diff tolerance.
 
-For current GSAT output, measure the layout distribution from ROC 111–115. Older papers may clarify a historical element but cannot set the current font, density, cover, instruction, option, or page-flow target. Publisher mocks from the same period may be used to learn robust variation, but official papers remain authoritative for the final shell.
+For current GSAT output, measure the layout distribution from ROC 111–115. Older papers may clarify a historical element but cannot set the current font, density, cover, instruction, option, or page-flow target. Publisher mocks from the same period may be used to learn robust variation, but official papers remain authoritative for the final shell. On hosted web surfaces, preserve the immutable template PDF for locked text and apply the metric-compatible Traditional-Chinese body-font rule in `web-platform-use.md`; absence of a proprietary font name alone is not a layout failure.
 
 For every selected-response item, store an explicit option layout rather than deriving it at render time. At minimum support one horizontal row, four-per-row, three-plus-two, two-column continuation, and fully stacked options. Mathematical expressions must be measured by rendered width, and the chosen arrangement must match a recent reference pattern for the same item type. Equal-width five-column grids are forbidden when they compress or concatenate options visually.
 

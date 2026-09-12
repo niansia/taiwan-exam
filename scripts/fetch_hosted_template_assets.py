@@ -1,0 +1,141 @@
+#!/usr/bin/env python3
+"""Fetch and verify one subject's fixed GSAT template PDF components.
+
+This is a transport helper, not an exam or question generator. It downloads
+only the production components required for the requested subject.
+"""
+
+from __future__ import annotations
+
+import argparse
+import base64
+import hashlib
+import json
+import time
+from pathlib import Path
+from urllib.error import HTTPError, URLError
+from urllib.parse import quote
+from urllib.request import Request, urlopen
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_MAP = ROOT / "exam_packs" / "學測" / "templates" / "115" / "hosted-web-template-assets.json"
+MAP_URL = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/hosted-web-template-assets.json"
+API_ROOT = "https://api.github.com/repos/niansia/taiwan-exam/contents/"
+PRODUCTION_COMPONENTS = {"cover-blank", "inner-odd-blank", "inner-even-blank", "formula-blank"}
+
+
+def request_bytes(url: str, *, timeout: int, attempts: int) -> bytes:
+    last_error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            request = Request(url, headers={"User-Agent": "taiwan-exam-template-fetcher/1"})
+            with urlopen(request, timeout=timeout) as response:
+                return response.read()
+        except (HTTPError, URLError, TimeoutError) as exc:
+            last_error = exc
+            if attempt + 1 < attempts:
+                time.sleep(0.4 * (attempt + 1))
+    raise RuntimeError(f"Unable to retrieve {url}: {last_error}")
+
+
+def load_map(path: Path | None, *, timeout: int, attempts: int) -> dict:
+    raw = path.read_bytes() if path and path.is_file() else request_bytes(MAP_URL, timeout=timeout, attempts=attempts)
+    return json.loads(raw.decode("utf-8-sig"))
+
+
+def api_url(repository_path: str) -> str:
+    return API_ROOT + quote(repository_path, safe="/") + "?ref=main"
+
+
+def fetch_record(record: dict, *, timeout: int, attempts: int, local_root: Path | None) -> tuple[bytes, str]:
+    if local_root is not None:
+        candidate = (local_root / record["repository_path"]).resolve()
+        if candidate.is_file():
+            return candidate.read_bytes(), "local-mirror"
+
+    try:
+        return request_bytes(record["download_url"], timeout=timeout, attempts=attempts), "raw-url"
+    except RuntimeError:
+        payload = json.loads(request_bytes(api_url(record["repository_path"]), timeout=timeout, attempts=attempts))
+        if payload.get("encoding") != "base64" or not payload.get("content"):
+            raise RuntimeError(f"GitHub contents response has no base64 payload for {record['repository_path']}")
+        encoded = b"".join(payload["content"].encode("ascii").split())
+        return base64.b64decode(encoded, validate=True), "github-contents-base64"
+
+
+def verify(record: dict, data: bytes) -> None:
+    if not data.startswith(b"%PDF-"):
+        raise ValueError(f"Not a PDF: {record['repository_path']}")
+    if len(data) != record["bytes"]:
+        raise ValueError(f"Byte-count mismatch: {record['repository_path']}")
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != record["sha256"]:
+        raise ValueError(f"SHA-256 mismatch: {record['repository_path']}")
+
+
+def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_root: Path | None,
+                timeout: int, attempts: int) -> dict:
+    manifest = load_map(map_path, timeout=timeout, attempts=attempts)
+    subject_record = next((row for row in manifest["subjects"] if row["subject"] == subject), None)
+    if subject_record is None:
+        raise ValueError(f"Unknown subject: {subject}")
+
+    wanted = PRODUCTION_COMPONENTS - ({"formula-blank"} if subject not in {"數學A", "數學B"} else set())
+    records = [row for row in subject_record["assets"] if row["component"] in wanted]
+    if {row["component"] for row in records} != wanted:
+        raise ValueError(f"Incomplete production component map for {subject}")
+
+    target = output_dir.resolve() / subject_record["slug"]
+    target.mkdir(parents=True, exist_ok=True)
+    written = []
+    for record in sorted(records, key=lambda row: row["component"]):
+        destination = target / f"{record['component']}.pdf"
+        if destination.is_file():
+            data = destination.read_bytes()
+            verify(record, data)
+            transport = "verified-existing"
+        else:
+            data, transport = fetch_record(record, timeout=timeout, attempts=attempts, local_root=local_root)
+            verify(record, data)
+            destination.write_bytes(data)
+        written.append({
+            "component": record["component"],
+            "path": str(destination),
+            "bytes": len(data),
+            "sha256": record["sha256"],
+            "transport": transport,
+        })
+
+    return {
+        "status": "verified",
+        "subject": subject,
+        "expected": len(wanted),
+        "verified": len(written),
+        "assets": written,
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--subject", required=True, choices=["國綜", "國寫", "英文", "數學A", "數學B", "社會", "自然"])
+    parser.add_argument("--output-dir", required=True, type=Path)
+    parser.add_argument("--map", dest="map_path", type=Path, default=DEFAULT_MAP if DEFAULT_MAP.is_file() else None)
+    parser.add_argument("--local-root", type=Path)
+    parser.add_argument("--timeout", type=int, default=30)
+    parser.add_argument("--attempts", type=int, default=2)
+    args = parser.parse_args()
+    result = materialize(
+        args.subject,
+        args.output_dir,
+        map_path=args.map_path,
+        local_root=args.local_root,
+        timeout=args.timeout,
+        attempts=args.attempts,
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
