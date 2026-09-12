@@ -30,6 +30,7 @@ AUTHORING_REFERENCES = {
     "generation-protocol.md",
     "gsat-115-template-assets.md",
     "gsat-subject-patterns.md",
+    "hosted-pdf-production.md",
     "gsat-writing-111-115-selection-calibration.md",
     "gsat-writing-source-ecology.md",
     "layout-fidelity.md",
@@ -56,6 +57,8 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.extend(sorted((root / "templates").glob("*.*")))
     paths.append(root / "scripts" / "fetch_hosted_template_assets.py")
     paths.append(root / "scripts" / "read_web_knowledge.py")
+    paths.append(root / "scripts" / "compose_hosted_pdf.py")
+    paths.append(root / "scripts" / "inspect_hosted_pdf.py")
 
     for pack in ("學測", "會考"):
         pack_root = root / "exam_packs" / pack
@@ -124,6 +127,13 @@ or an initial subject route in one call and verify their portable payload hashes
 read additional linked references when applicable. It does not generate questions.
 Keep the full knowledge file and all 30 URL records for later subject requests.
 
+The 111–115 corpus and 115 template labels are reference years, not expiry dates.
+For 116 and later mocks, default to compatible current-regime profiles and fixed
+assets, with the requested year printed separately. Do not require a future-year
+official booklet or a new template solely because the year increased. Follow
+the academic-year/regime/reference-year policy in the official specifications
+reference; reconcile actual official changes, without repeated future-year searches.
+
 Use the embedded release-time records as the hash-bound 111–115 evidence layer,
 preserving their actual review status. Paper Profiles are embedded per year in
 `official-current-web-sources.json`; a needs_review record is NOT verified just
@@ -143,6 +153,17 @@ write genuinely new items and deliver two separately downloadable PDFs: the
 student question paper and the answer-with-full-solutions paper. Apply every
 available content and layout gate. If the hosted surface cannot create or inspect
 the PDFs, disclose the limitation and do not claim formal completion.
+
+Before drafting, follow `references/hosted-pdf-production.md`: prove that exact
+template bytes exist in the file runtime and that the embedded compositor works.
+If runtime networking is blocked, use/request the single data-only
+`taiwan-exam-template-resources.pdf` from the asset map's offline_resource link.
+It preserves all 30 exact PDFs as attachments; extract only this subject's three
+or four components. It is optional at generation time, not required at install.
+Do not generate an unsolicited generic-layout draft: a disclaimer is not consent.
+The compositor and saved-PDF inspector produce review evidence, not content or
+formal acceptance. Inspect actual equations, fill-in rails, table cells, diagrams
+and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 
 ## Source manifest
 

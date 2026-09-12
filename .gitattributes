@@ -2,3 +2,4 @@
 # -text disables newline conversion, not textual diffs.
 * -text
 *.zip binary
+*.pdf binary

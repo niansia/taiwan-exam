@@ -1,6 +1,11 @@
-# Current-form GSAT mathematics profile (111–115)
+# Current-regime GSAT mathematics profile (calibration corpus: 111–115)
 
 Use this profile for Math A and Math B whenever the requested form is a current GSAT or a current commercial mock. It records evidence from the official 111–115 corpus, with 114–115 PDFs used for direct typography inspection. Older papers may contribute content domains and item archetypes, but must not override current surface form.
+
+The corpus years are not an applicability deadline. For 116 and later mocks,
+use the compatible current regime and maintained 115 measured assets under
+`official-gsat-specifications.md#academic-year-regime-and-reference-year`.
+Changing the printed mock year alone does not require a new template.
 
 Keep a separate **context-texture** audit from the curriculum-unit audit. A paper can contain enough pure-math records yet still read like a physics or engineering paper if astronomy, energy, waves, motion, sensing, or similar settings cluster together. Unless requested otherwise, science/engineering external settings should occupy no more than one quarter of the scored items, must not dominate consecutive sections, and must be balanced by pure mathematics, everyday/civic contexts, data, arts/humanities, and neutral diagrams. Spatial geometry is not automatically a physics context; judge the printed wording, not only the syllabus code.
 

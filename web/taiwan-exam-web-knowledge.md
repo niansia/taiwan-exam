@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.12.4
+# Taiwan Exam Web Knowledge v2026.09.12.6
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -22,6 +22,13 @@ or an initial subject route in one call and verify their portable payload hashes
 read additional linked references when applicable. It does not generate questions.
 Keep the full knowledge file and all 30 URL records for later subject requests.
 
+The 111–115 corpus and 115 template labels are reference years, not expiry dates.
+For 116 and later mocks, default to compatible current-regime profiles and fixed
+assets, with the requested year printed separately. Do not require a future-year
+official booklet or a new template solely because the year increased. Follow
+the academic-year/regime/reference-year policy in the official specifications
+reference; reconcile actual official changes, without repeated future-year searches.
+
 Use the embedded release-time records as the hash-bound 111–115 evidence layer,
 preserving their actual review status. Paper Profiles are embedded per year in
 `official-current-web-sources.json`; a needs_review record is NOT verified just
@@ -42,16 +49,27 @@ student question paper and the answer-with-full-solutions paper. Apply every
 available content and layout gate. If the hosted surface cannot create or inspect
 the PDFs, disclose the limitation and do not claim formal completion.
 
+Before drafting, follow `references/hosted-pdf-production.md`: prove that exact
+template bytes exist in the file runtime and that the embedded compositor works.
+If runtime networking is blocked, use/request the single data-only
+`taiwan-exam-template-resources.pdf` from the asset map's offline_resource link.
+It preserves all 30 exact PDFs as attachments; extract only this subject's three
+or four components. It is optional at generation time, not required at install.
+Do not generate an unsolicited generic-layout draft: a disclaimer is not consent.
+The compositor and saved-PDF inspector produce review evidence, not content or
+formal acceptance. Inspect actual equations, fill-in rails, table cells, diagrams
+and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
+
 ## Source manifest
 
 ```json
 [
   {
     "path": "SKILL.md",
-    "bytes": 72317,
-    "sha256": "b641d0d4b8189c9baea8d9338e7b653a36440ed10f51fccd85ea7d50304ba3f8",
-    "embedded_bytes": 72317,
-    "embedded_sha256": "b641d0d4b8189c9baea8d9338e7b653a36440ed10f51fccd85ea7d50304ba3f8"
+    "bytes": 73539,
+    "sha256": "0f26bfe242483aa29bc8d702d16bb0433aa7f0fd0b5a627db0c73e967b5dfc6d",
+    "embedded_bytes": 73539,
+    "embedded_sha256": "0f26bfe242483aa29bc8d702d16bb0433aa7f0fd0b5a627db0c73e967b5dfc6d"
   },
   {
     "path": "core/taxonomy.json",
@@ -314,10 +332,10 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "exam_packs/學測/templates/115/hosted-web-template-assets.json",
-    "bytes": 22812,
-    "sha256": "f230a02ecebb6a0cc95dbbaeac46b68ebc31d3967cde2ce587dbb25a58146d96",
-    "embedded_bytes": 22812,
-    "embedded_sha256": "f230a02ecebb6a0cc95dbbaeac46b68ebc31d3967cde2ce587dbb25a58146d96"
+    "bytes": 34334,
+    "sha256": "1d38d9c70964d667f83332abea760dd4941d68732e0c63cf32d49a314d945b99",
+    "embedded_bytes": 34334,
+    "embedded_sha256": "1d38d9c70964d667f83332abea760dd4941d68732e0c63cf32d49a314d945b99"
   },
   {
     "path": "exam_packs/學測/templates/115/template-pack.json",
@@ -398,10 +416,10 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/current-gsat-math-form.md",
-    "bytes": 18719,
-    "sha256": "d0a2bad9fcdc80880fc81ef949337259ccd53aa49ea484f5967249e1cedee539",
-    "embedded_bytes": 18719,
-    "embedded_sha256": "d0a2bad9fcdc80880fc81ef949337259ccd53aa49ea484f5967249e1cedee539"
+    "bytes": 19039,
+    "sha256": "86df8ef43fb932a9d858d9ca0d67f62c619f018f9b6d53a0436dcb1d8d3f92f6",
+    "embedded_bytes": 19039,
+    "embedded_sha256": "86df8ef43fb932a9d858d9ca0d67f62c619f018f9b6d53a0436dcb1d8d3f92f6"
   },
   {
     "path": "references/current-gsat-math-scope.md",
@@ -482,10 +500,10 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/gsat-115-template-assets.md",
-    "bytes": 2853,
-    "sha256": "3a4fc2fc5d2f924b66a29c8e2d1bb70061e77864750fb5f14521b67641e9b7e4",
-    "embedded_bytes": 2853,
-    "embedded_sha256": "3a4fc2fc5d2f924b66a29c8e2d1bb70061e77864750fb5f14521b67641e9b7e4"
+    "bytes": 3987,
+    "sha256": "45694601d474bfcd39856be861a917151b50f41a42400aa2f58bb0ec5cc088f8",
+    "embedded_bytes": 3987,
+    "embedded_sha256": "45694601d474bfcd39856be861a917151b50f41a42400aa2f58bb0ec5cc088f8"
   },
   {
     "path": "references/gsat-subject-patterns.md",
@@ -507,6 +525,13 @@ the PDFs, disclose the limitation and do not claim formal completion.
     "sha256": "4554618a19dbe375f8ceba2df5047d34003e976d5c3fb300234f1d588c65cb0f",
     "embedded_bytes": 5922,
     "embedded_sha256": "4554618a19dbe375f8ceba2df5047d34003e976d5c3fb300234f1d588c65cb0f"
+  },
+  {
+    "path": "references/hosted-pdf-production.md",
+    "bytes": 10559,
+    "sha256": "928266e20be84c5bba6cbd08ab1b291d2e84fe363d1d1c9ef788498e428e3337",
+    "embedded_bytes": 10559,
+    "embedded_sha256": "928266e20be84c5bba6cbd08ab1b291d2e84fe363d1d1c9ef788498e428e3337"
   },
   {
     "path": "references/layout-fidelity.md",
@@ -531,10 +556,10 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/official-gsat-specifications.md",
-    "bytes": 3947,
-    "sha256": "00d2a5a0c986e660905b26701d658c8ffae0ff503bd59f2059a6fed6cb87215c",
-    "embedded_bytes": 3947,
-    "embedded_sha256": "00d2a5a0c986e660905b26701d658c8ffae0ff503bd59f2059a6fed6cb87215c"
+    "bytes": 6471,
+    "sha256": "195829471a855bf40536e71b0e4759317a2fac6d553be8acbc51d340f9cc0944",
+    "embedded_bytes": 6471,
+    "embedded_sha256": "195829471a855bf40536e71b0e4759317a2fac6d553be8acbc51d340f9cc0944"
   },
   {
     "path": "references/originality-firewall.md",
@@ -587,10 +612,10 @@ the PDFs, disclose the limitation and do not claim formal completion.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 23592,
-    "sha256": "a9a22c544efbc320bc68899ae77f30b2280c885f87aa77f1fd52cef6682fee46",
-    "embedded_bytes": 23592,
-    "embedded_sha256": "a9a22c544efbc320bc68899ae77f30b2280c885f87aa77f1fd52cef6682fee46"
+    "bytes": 24906,
+    "sha256": "cd527da1506c4c20c66f498a852924f84ab675887c5eb7e98f326f7b4c7313b4",
+    "embedded_bytes": 24906,
+    "embedded_sha256": "cd527da1506c4c20c66f498a852924f84ab675887c5eb7e98f326f7b4c7313b4"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -656,11 +681,25 @@ the PDFs, disclose the limitation and do not claim formal completion.
     "embedded_sha256": "62e507ca320cf817168a38ed24f19c48f866af70bbd277ecf01e678d5d74a4f5"
   },
   {
+    "path": "scripts/compose_hosted_pdf.py",
+    "bytes": 8721,
+    "sha256": "f823f45a035a921a6ff93732862e4c7ec7110fbd0212594cce49fc3fc9ad3162",
+    "embedded_bytes": 8721,
+    "embedded_sha256": "f823f45a035a921a6ff93732862e4c7ec7110fbd0212594cce49fc3fc9ad3162"
+  },
+  {
     "path": "scripts/fetch_hosted_template_assets.py",
-    "bytes": 7150,
-    "sha256": "e3e9ca756a766b80a8f5f170e0dc03429c8a5114c4388db7d01a68ba384e308f",
-    "embedded_bytes": 7150,
-    "embedded_sha256": "e3e9ca756a766b80a8f5f170e0dc03429c8a5114c4388db7d01a68ba384e308f"
+    "bytes": 8840,
+    "sha256": "1612c7e9c4cb26e6b99a33d640ad2942f8f21f26518a0484d3dbd71ca10c9eea",
+    "embedded_bytes": 8840,
+    "embedded_sha256": "1612c7e9c4cb26e6b99a33d640ad2942f8f21f26518a0484d3dbd71ca10c9eea"
+  },
+  {
+    "path": "scripts/inspect_hosted_pdf.py",
+    "bytes": 6500,
+    "sha256": "2347eb8e7a86f32f11c8bd4c1bbfa5dad34c966e28bf41af05d5eaf3005262c1",
+    "embedded_bytes": 6500,
+    "embedded_sha256": "2347eb8e7a86f32f11c8bd4c1bbfa5dad34c966e28bf41af05d5eaf3005262c1"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -781,6 +820,14 @@ missing subject calibration is not a reason to reinstall the Skill.
 
 When the Skill is used in ChatGPT, Claude.ai, Gemini or another hosted web
 surface, also read [references/web-platform-use.md](references/web-platform-use.md).
+For PDF production, also read [references/hosted-pdf-production.md](references/hosted-pdf-production.md).
+Before expensive drafting, prove exact-template acquisition and composition in
+the actual file runtime. Use the embedded fetch/composition/inspection helpers;
+an optional uploaded data-only resource PDF handles runtimes without networking.
+If necessary, request that one resource file before writing the paper. A full
+paper request never authorizes a generic-layout draft: obtain explicit consent
+before producing any downgrade; a disclaimer is not consent. Mechanical reports
+and correct scores do not certify difficulty, source literacy or visual quality.
 Use the platform's persistent Skill/Gem mechanism when available, not a claim
 that one ordinary chat attachment installs anything globally. A complete-paper
 delivery must contain two separate downloadable files: a student question PDF
@@ -887,15 +934,15 @@ For a complete mock exam, select one compatible Paper Profile from `metadata/pap
 
 When compatible official and publisher-mock profiles both pass the gate, use `official_past_exam` for full-paper structure. Use mock exams as supplementary evidence for explanation style and item variation; never let a mock override a verified official structure for the same regime and year.
 
-Do not average incompatible paper structures or infer a section recipe from loose per-question frequencies. If the user requests an exact year, use that year's verified profile. If only the official reference architecture exists, stop at analysis or planning and do not claim that a reference-paper count is fixed for every administration.
+Do not average incompatible paper structures or infer a section recipe from loose per-question frequencies. If the user explicitly requests fidelity to a specific historical official administration, use that year's verified profile. A request for a 116 or later mock instead defaults to the existing compatible current-regime profile and 115 measured assets; the corpus endpoint is not an expiry date. Follow the academic-year/regime/reference-year policy in [references/official-gsat-specifications.md](references/official-gsat-specifications.md#academic-year-regime-and-reference-year). Do not require a future-year original or new template just to change the printed mock year, and do not relabel historical evidence as future-year evidence. If only an unverified reference architecture exists, stop at analysis or planning; never claim the observed counts are guaranteed for every future official administration.
 
 ## Formal layout gate
 
 A Paper Profile is not a Layout Profile. A formal paper must also select a subject/regime-compatible Layout Profile whose `fidelity_status` and instruction transcription are both `verified`. It must reproduce the official cover hierarchy, full作答注意事項, score explanations, section labels, page geometry, running headers/footers, typeface roles, apparent type size, line pitch, page-density behavior, answer-sheet references, and subject-specific answer spaces. A generic readable renderer may be called a preview only. The observed page count is reference evidence, not a target that outranks typography or substantive content: never shrink type, narrow margins, compress line spacing, enlarge figures, add blank answer lines, or truncate material merely to force the same number of physical pages.
 
-For a 111–115-regime GSAT booklet, first load [references/gsat-115-template-assets.md](references/gsat-115-template-assets.md) and `exam_packs/學測/templates/115/template-pack.json`. Use its subject-specific deterministic template for the cover, signature banner, full answer instructions, scoring rules, alternating running header/footer, and (for Mathematics A/B) the correct reference-formula variant. The LLM may supply only the named dynamic fields: academic year, test name, actual current page, and actual total inner pages. It must not paraphrase, shorten, expand, or regenerate the locked cover text. Mathematics A and B are separate formula assets; Math B must not inherit Math A's angle-addition block. Render body content first, obtain the real inner-page total, and only then fill page furniture. Never force body text into the reference year's page count, and never treat `blank-template.pdf` as a fixed-page exam skeleton. These assets are layout-only and must not become a reusable question generator, question bank, or batch-content source.
+For a current-regime GSAT booklet using the maintained 115 reference templates, first load [references/gsat-115-template-assets.md](references/gsat-115-template-assets.md) and `exam_packs/學測/templates/115/template-pack.json`. Use its subject-specific deterministic template for the cover, signature banner, full answer instructions, scoring rules, alternating running header/footer, and (for Mathematics A/B) the correct reference-formula variant. The LLM may supply only the named dynamic fields: academic year, test name, actual current page, and actual total inner pages. It must not paraphrase, shorten, expand, or regenerate the locked cover text. Mathematics A and B are separate formula assets; Math B must not inherit Math A's angle-addition block. Render body content first, obtain the real inner-page total, and only then fill page furniture. Never force body text into the reference year's page count, and never treat `blank-template.pdf` as a fixed-page exam skeleton. These assets are layout-only and must not become a reusable question generator, question bank, or batch-content source.
 
-On a hosted web surface, also load `exam_packs/學測/templates/115/hosted-web-template-assets.json`. Every persistent or packaged projection of this Skill must retain that map unchanged, including all 30 distinct per-file `download_url` records for all seven subjects together with each file's SHA-256, byte count and page count. Installation stores the rules and this complete URL map but downloads no template PDF binaries. Only after installation, when generation begins for a requested subject, fetch that subject's production components—cover plus odd/even inner pages, and the matching formula page for Mathematics—verify their bytes and hashes, and use them unchanged as immutable PDF background layers. Use the embedded `scripts/fetch_hosted_template_assets.py`: it supports raw download plus GitHub Contents API/base64 fallback, so an available base64 payload is a valid binary handoff rather than a blocker. Never download or return `github-pages.zip`, a repository archive or an all-template ZIP in place of those per-file assets. In the creation conversation, apply the Skill immediately after the platform's native save/install succeeds, and keep it selectable in later conversations. Persisting verified template bytes is an optional cache, not an installation gate. The hosted agent may overlay only the four named dynamic fields and newly authored body content inside the measured inner-page body box. It must not OCR, copy, retype, reflow, convert to HTML/Word, rasterize, redraw, or visually imitate the locked template text, fractions, grids, rules, headers, or formula sheet. Seeing a link, extracting its text, or recreating a similar-looking page is not template application. If all raw, API/base64 and helper transports fail, or PDF-layer composition is genuinely unavailable at paper time, stop formal rendering and label any substitute a generic-layout draft; do not invoke the source-reconstruction fallback for a formal claim.
+On a hosted web surface, also load `exam_packs/學測/templates/115/hosted-web-template-assets.json`. Every persistent or packaged projection must retain all 30 distinct per-file `download_url` records for all seven subjects together with each file's SHA-256, byte count and page count. Installation stores rules and URLs but downloads no template PDF binaries. At generation time, acquire only the subject's three production components, or four for Mathematics. The embedded `scripts/fetch_hosted_template_assets.py` supports raw download, GitHub Contents API/base64, and an uploaded data-only template resource PDF. Verify bytes inside the composing runtime; a base64 response in another tool alone is not successful handoff. Use `scripts/compose_hosted_pdf.py` with the mapped overlay geometry and transparent body-only pages. Keep fixed cover text, fractions, grids, rules, signature and formula body as original PDF layers. No OCR, retyping, HTML/Word conversion, screenshots or visual imitation of locked material. Never download or return `github-pages.zip`, a repository archive or an all-template ZIP. Persisting PDF bytes is optional, not an installation gate; apply a natively saved Skill immediately in its creation chat and later selectable chats. If bounded network transport fails, use or request the single offline resource PDF according to `references/hosted-pdf-production.md`. If required capability is still absent, report it before drafting. Do not generate or deliver any generic-layout substitute unless the user explicitly accepts that downgrade first; labelling a draft does not authorize it. Run the mechanical inspection helper on both final saved PDFs, then actually review every page and every content gate. None of the helper reports certifies formal acceptance.
 
 ## Regression gates learned from full-paper review
 
@@ -904,7 +951,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
 - **Final answer positions:** this rule applies to every full paper containing single-choice items—國綜、英文、數學 A、數學 B、社會、自然；國寫 has no such population, and multiple-selection items are excluded from this count. Audit the final printed order, not the drafting order. For each population with one stable option-label set and at least twice as many items as labels, build the position plan from a near-even multiset and then shuffle it: when the item count is divisible by the label count the totals must be exactly equal; otherwise the largest and smallest totals may differ by at most one, and every label must appear. Use a fresh per-paper shuffle rather than a fixed A-B-C-D rotation, then reject four identical answers in succession and any period-2 to period-4 cycle repeated three times. “Random” here means balanced and pattern-screened, not unconstrained randomness that can create a visible cluster. For a small section that cannot meet the whole-paper arithmetic exactly, avoid an omitted label or conspicuous concentration, while the whole-paper gate still controls. Multiple-selection answers require a separate inclusion-frequency and set-size audit so one option position is not systematically absent or selected. Never change the truth of an item to fill a quota: author and solve the item first, permute already valid options, then remap and re-solve every dependent record.
 - **Printed-option binding:** after any option move, update the key, independent `derived_answer`, exact option verdicts, explanation labels/surface forms, lexical or distractor records, question and answer hashes, and every displayed answer table. Rerender both the student and explanation PDFs. A balanced count in stale metadata is a failure.
 - **Formal page furniture:** the selected Layout Profile alone controls the alternating running header, actual current/total inner-page count, signature strip, subject/year wording, footer number, section heading, instruction box, question-number hanging column, option indentation, score placement, and answer-space form. Do not invent a house header, hard-code the reference paper's page total, print internal audit/provenance text in the student booklet, or add response lines because space remains.
-- **Template-first rendering:** for the maintained 115 GSAT regime, invoke `scripts/render_gsat_template_assets.py` or the same canonical template module instead of spending an LLM pass rewriting covers and page furniture. `--build-all` may pre-render the seven layout-only blank PDF packs; a production paper still uses its selected measured Layout Profile and fills year/test/page fields after actual pagination. Any change to locked instructions, signature wording, formula membership, field positions, or type roles requires a new template version, regression tests, regenerated assets, and fresh all-page visual review. A previously rendered PDF is stale after such a change.
+- **Template-first rendering:** hosted full papers use the existing verified PDFs and `scripts/compose_hosted_pdf.py`, not template-source reconstruction. In a complete local checkout, the maintained subject renderer uses the canonical template module. `scripts/render_gsat_template_assets.py --build-all` is a maintainer asset-build/preview command, not a hosted substitute for unavailable binaries. A production paper uses its selected measured Layout Profile and fills year/test/page fields after actual pagination. Any change to locked instructions, signature wording, formula membership, field positions, or type roles requires a new template version, regression tests, regenerated assets, and fresh all-page visual review. A previously rendered PDF is stale after such a change.
 - **Mathematics fraction geometry:** every inline fraction, fill-format fraction, fixed denominator, scoring fraction, and reference-sheet fraction must be one nonbreaking semantic/geometry unit. At final PDF size, verify the numerator is centred above exactly one fraction bar, the denominator is centred below it, neither level collides with neighbouring prose, and no numerator, bar, denominator, sign, slot circle, or answer-row label is clipped or split across lines. A fixed denominator must not draw a second underline beneath itself. Text extraction that happens to contain the right digits is not a visual pass.
 - **Response-format integrity:** if the same-role official page uses a bordered inference or completion table, encode its caption, heading, row meanings, slots and dimensions as structured student-facing content and bind it into the content hash. A semantic table may not be replaced by generic horizontal lines, and a table may not be invented solely to occupy white space.
 - **Substantive density:** compare complete printed passages, item blocks, figures, and occupied page roles at the verified typeface role, apparent size, line pitch, and margins. In hosted mode, a metric-compatible Traditional-Chinese fallback permitted by `web-platform-use.md` may satisfy the role even when its internal family name differs. Passing page count or container height does not excuse short materials, oversized gaps, a sparse terminal page, repeated pseudo-tables, or decorative figures. Repair content and page assignment before release; never stretch, shrink, or pad.
@@ -48166,7 +48213,15 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       "total_pages",
       "newly_authored_body_within_the_inner_body_box"
     ],
-    "missing_binary_behavior": "Stop formal rendering, report fixed-template import unavailable, and offer draft-only output or request the exact mapped assets. Do not reconstruct a lookalike template."
+    "missing_binary_behavior": "Before drafting, try bounded download or the uploaded data-only template resource PDF. If exact assets remain unavailable, request that one resource upload. Do not produce any generic-layout draft without explicit user consent; a disclaimer is not consent."
+  },
+  "offline_resource": {
+    "download_page": "https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates",
+    "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-template-resources.pdf",
+    "filename": "taiwan-exam-template-resources.pdf",
+    "attachment_name_pattern": "{slug}--{component}.pdf",
+    "trust_anchor": "Verify extracted attachment bytes against the per-file records below, not carrier metadata.",
+    "usage": "Optional generation-time offline upload, not an installation prerequisite. Extract requested production components only. No code or ZIP attachments."
   },
   "dynamic_fields": [
     "academic_year",
@@ -48227,7 +48282,73 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "sha256": "d2339973c9a5ffbb7f0585968a78d8c8de6eec29573ed9bd11c1c58d14d0577a",
           "pages": 1
         }
-      ]
+      ],
+      "overlay_geometry_pt": {
+        "body": [
+          63.86,
+          85.03937007874016,
+          534.31,
+          793.7007874015749
+        ],
+        "cover_title": [
+          63.86,
+          114.0859375,
+          534.31,
+          150.5
+        ],
+        "odd": {
+          "current_page": [
+            74.85296630859375,
+            41.99419021606445,
+            103.85421752929688,
+            53.9916877746582
+          ],
+          "total_pages": [
+            74.85296630859375,
+            54.74419021606445,
+            103.85421752929688,
+            66.74169158935547
+          ],
+          "footer": [
+            67.38463897705078,
+            795.841064453125,
+            76.98218994140625,
+            806.9125366210938
+          ],
+          "year_name": [
+            435.0974015748031,
+            40,
+            534.31,
+            54
+          ]
+        },
+        "even": {
+          "current_page": [
+            494.13812255859375,
+            41.99419021606445,
+            523.1393432617188,
+            53.9916877746582
+          ],
+          "total_pages": [
+            494.13812255859375,
+            54.74419021606445,
+            523.1393432617188,
+            66.74169158935547
+          ],
+          "footer": [
+            521.0057250976563,
+            795.841064453125,
+            530.6032836914062,
+            806.9125366210938
+          ],
+          "year_name": [
+            63.86,
+            40,
+            151.73401574803148,
+            54
+          ]
+        }
+      }
     },
     {
       "subject": "國寫",
@@ -48272,7 +48393,73 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "sha256": "3eeb94218f3dffa1cb53d5a70d1140b89f693fa45a57ceabf20201577cc451d8",
           "pages": 1
         }
-      ]
+      ],
+      "overlay_geometry_pt": {
+        "body": [
+          63.86,
+          85.03937007874016,
+          538.13,
+          793.7007874015749
+        ],
+        "cover_title": [
+          63.86,
+          114.0859375,
+          538.13,
+          150.125
+        ],
+        "odd": {
+          "current_page": [
+            74.85296630859375,
+            41.99419021606445,
+            103.85421752929688,
+            53.9916877746582
+          ],
+          "total_pages": [
+            74.85296630859375,
+            54.74419021606445,
+            103.85421752929688,
+            66.74169158935547
+          ],
+          "footer": [
+            67.38463897705078,
+            795.841064453125,
+            76.98218994140625,
+            806.9125366210938
+          ],
+          "year_name": [
+            438.91740157480314,
+            40,
+            538.13,
+            54
+          ]
+        },
+        "even": {
+          "current_page": [
+            498.07562255859375,
+            41.99419021606445,
+            527.0768432617188,
+            53.9916877746582
+          ],
+          "total_pages": [
+            498.07562255859375,
+            54.74419021606445,
+            527.0768432617188,
+            66.74169158935547
+          ],
+          "footer": [
+            524.9432250976563,
+            795.841064453125,
+            534.5407836914062,
+            806.9125366210938
+          ],
+          "year_name": [
+            63.86,
+            40,
+            151.73401574803148,
+            54
+          ]
+        }
+      }
     },
     {
       "subject": "英文",
@@ -48317,7 +48504,73 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "sha256": "55fd49d57ceb05b8d562cd97c72c2a714e353e1e574638a17ea1eb9b8511c56c",
           "pages": 1
         }
-      ]
+      ],
+      "overlay_geometry_pt": {
+        "body": [
+          63.82,
+          85.03937007874016,
+          539.63,
+          793.7007874015749
+        ],
+        "cover_title": [
+          63.82,
+          114.0859375,
+          539.63,
+          151.0
+        ],
+        "odd": {
+          "current_page": [
+            74.80609130859375,
+            41.99419021606445,
+            103.80734252929688,
+            53.9916877746582
+          ],
+          "total_pages": [
+            74.80609130859375,
+            54.74419021606445,
+            103.80734252929688,
+            66.74169158935547
+          ],
+          "footer": [
+            67.33776397705078,
+            795.841064453125,
+            76.93531494140625,
+            806.9125366210938
+          ],
+          "year_name": [
+            440.41740157480314,
+            40,
+            539.63,
+            54
+          ]
+        },
+        "even": {
+          "current_page": [
+            499.57562255859375,
+            41.99419021606445,
+            528.5768432617188,
+            53.9916877746582
+          ],
+          "total_pages": [
+            499.57562255859375,
+            54.74419021606445,
+            528.5768432617188,
+            66.74169158935547
+          ],
+          "footer": [
+            526.4432250976563,
+            795.841064453125,
+            536.0407836914062,
+            806.9125366210938
+          ],
+          "year_name": [
+            63.82,
+            40,
+            151.6940157480315,
+            54
+          ]
+        }
+      }
     },
     {
       "subject": "數學A",
@@ -48371,7 +48624,73 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "sha256": "cf51ad2f873cb1a990a8abc41cb766b853e905333a0d228427157a95e9237cf7",
           "pages": 1
         }
-      ]
+      ],
+      "overlay_geometry_pt": {
+        "body": [
+          63.78,
+          87,
+          531.48,
+          770.1496062992127
+        ],
+        "cover_title": [
+          63.78,
+          100.23039245605469,
+          531.48,
+          141.3340606689453
+        ],
+        "odd": {
+          "current_page": [
+            74.77093505859375,
+            41.99419021606445,
+            103.77218627929688,
+            53.9916877746582
+          ],
+          "total_pages": [
+            74.77093505859375,
+            54.74419021606445,
+            103.77218627929688,
+            66.74169158935547
+          ],
+          "footer": [
+            67.30260772705078,
+            795.841064453125,
+            76.90015869140625,
+            806.9125366210938
+          ],
+          "year_name": [
+            432.26740157480316,
+            40,
+            531.48,
+            54
+          ]
+        },
+        "even": {
+          "current_page": [
+            491.52484130859375,
+            41.99419021606445,
+            520.5260620117188,
+            53.9916877746582
+          ],
+          "total_pages": [
+            491.52484130859375,
+            54.74419021606445,
+            520.5260620117188,
+            66.74169158935547
+          ],
+          "footer": [
+            518.3924438476563,
+            795.841064453125,
+            527.9900024414062,
+            806.9125366210938
+          ],
+          "year_name": [
+            63.78,
+            40,
+            151.6540157480315,
+            54
+          ]
+        }
+      }
     },
     {
       "subject": "數學B",
@@ -48425,7 +48744,73 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "sha256": "af7d7fec58172967b2b21b0799c2a79d59a498db69757d41bd945a1a39891170",
           "pages": 1
         }
-      ]
+      ],
+      "overlay_geometry_pt": {
+        "body": [
+          63.78,
+          85.03937007874016,
+          542.15,
+          793.7007874015749
+        ],
+        "cover_title": [
+          63.78,
+          100.23039245605469,
+          542.15,
+          141.36630249023438
+        ],
+        "odd": {
+          "current_page": [
+            74.77093505859375,
+            41.99419021606445,
+            103.77218627929688,
+            53.9916877746582
+          ],
+          "total_pages": [
+            74.77093505859375,
+            54.74419021606445,
+            103.77218627929688,
+            66.74169158935547
+          ],
+          "footer": [
+            67.30260772705078,
+            795.841064453125,
+            76.90015869140625,
+            806.9125366210938
+          ],
+          "year_name": [
+            442.9374015748031,
+            40,
+            542.15,
+            54
+          ]
+        },
+        "even": {
+          "current_page": [
+            502.20062255859375,
+            41.99419021606445,
+            531.2018432617188,
+            53.9916877746582
+          ],
+          "total_pages": [
+            502.20062255859375,
+            54.74419021606445,
+            531.2018432617188,
+            66.74169158935547
+          ],
+          "footer": [
+            529.0682250976563,
+            795.841064453125,
+            538.6657836914062,
+            806.9125366210938
+          ],
+          "year_name": [
+            63.78,
+            40,
+            151.6540157480315,
+            54
+          ]
+        }
+      }
     },
     {
       "subject": "社會",
@@ -48470,7 +48855,73 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "sha256": "46cffc607eff3d4428d68f04e2a1436a677499f959ccb60a4ef57dcdb94178ec",
           "pages": 1
         }
-      ]
+      ],
+      "overlay_geometry_pt": {
+        "body": [
+          62.52,
+          85.03937007874016,
+          536.74,
+          793.7007874015749
+        ],
+        "cover_title": [
+          62.52,
+          114.0859375,
+          536.74,
+          151.1398162841797
+        ],
+        "odd": {
+          "current_page": [
+            73.51702880859375,
+            41.99419021606445,
+            102.51828002929688,
+            53.9916877746582
+          ],
+          "total_pages": [
+            73.51702880859375,
+            54.74419021606445,
+            102.51828002929688,
+            66.74169158935547
+          ],
+          "footer": [
+            66.04870147705078,
+            795.841064453125,
+            75.64625244140625,
+            806.9125366210938
+          ],
+          "year_name": [
+            437.52740157480315,
+            40,
+            536.74,
+            54
+          ]
+        },
+        "even": {
+          "current_page": [
+            496.69281005859375,
+            41.99419021606445,
+            525.6940307617188,
+            53.9916877746582
+          ],
+          "total_pages": [
+            496.69281005859375,
+            54.74419021606445,
+            525.6940307617188,
+            66.74169158935547
+          ],
+          "footer": [
+            523.5604125976563,
+            795.841064453125,
+            533.1579711914062,
+            806.9125366210938
+          ],
+          "year_name": [
+            62.52,
+            40,
+            150.3940157480315,
+            54
+          ]
+        }
+      }
     },
     {
       "subject": "自然",
@@ -48515,7 +48966,73 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "sha256": "8e2e54d9a7a5e4ef98c287627b0394665c7218384da8bb5f7c1d504d12e2e312",
           "pages": 1
         }
-      ]
+      ],
+      "overlay_geometry_pt": {
+        "body": [
+          63.77,
+          85.03937007874016,
+          538.18,
+          793.7007874015749
+        ],
+        "cover_title": [
+          63.77,
+          114.0859375,
+          538.18,
+          150.8333282470703
+        ],
+        "odd": {
+          "current_page": [
+            74.75921630859375,
+            41.99419021606445,
+            103.76046752929688,
+            53.9916877746582
+          ],
+          "total_pages": [
+            74.75921630859375,
+            54.74419021606445,
+            103.76046752929688,
+            66.74169158935547
+          ],
+          "footer": [
+            67.29088897705078,
+            795.841064453125,
+            76.88843994140625,
+            806.9125366210938
+          ],
+          "year_name": [
+            438.9674015748031,
+            40,
+            538.18,
+            54
+          ]
+        },
+        "even": {
+          "current_page": [
+            498.22796630859375,
+            41.99419021606445,
+            527.2291870117188,
+            53.9916877746582
+          ],
+          "total_pages": [
+            498.22796630859375,
+            54.74419021606445,
+            527.2291870117188,
+            66.74169158935547
+          ],
+          "footer": [
+            525.0955688476563,
+            795.841064453125,
+            534.6931274414062,
+            806.9125366210938
+          ],
+          "year_name": [
+            63.77,
+            40,
+            151.6440157480315,
+            54
+          ]
+        }
+      }
     }
   ]
 }
@@ -48945,9 +49462,14 @@ For the verified 115 profile, the following section-level display rules are rele
 </canonical-source>
 
 <canonical-source path="references/current-gsat-math-form.md">
-# Current-form GSAT mathematics profile (111–115)
+# Current-regime GSAT mathematics profile (calibration corpus: 111–115)
 
 Use this profile for Math A and Math B whenever the requested form is a current GSAT or a current commercial mock. It records evidence from the official 111–115 corpus, with 114–115 PDFs used for direct typography inspection. Older papers may contribute content domains and item archetypes, but must not override current surface form.
+
+The corpus years are not an applicability deadline. For 116 and later mocks,
+use the compatible current regime and maintained 115 measured assets under
+`official-gsat-specifications.md#academic-year-regime-and-reference-year`.
+Changing the printed mock year alone does not require a new template.
 
 Keep a separate **context-texture** audit from the curriculum-unit audit. A paper can contain enough pure-math records yet still read like a physics or engineering paper if astronomy, energy, waves, motion, sensing, or similar settings cluster together. Unless requested otherwise, science/engineering external settings should occupy no more than one quarter of the scored items, must not dominate consecutive sections, and must be balanced by pure mathematics, everyday/civic contexts, data, arts/humanities, and neutral diagrams. Spatial geometry is not automatically a physics context; judge the printed wording, not only the syllabus code.
 
@@ -50265,6 +50787,13 @@ Keep answers out of the student paper. Supported profiles may include `official-
 
 這是一套**只處理版面**的確定性模板，不是題目產生器，也不是可重複抽換題幹的題庫。
 
+「115」是版型取樣年份，不是使用期限；111～115 是校準樣本範圍，也不是
+制度截止年份。116 及後續年度模擬卷預設沿用相容的現行制度與本模板，
+更新年份、測驗名稱及實際頁數，內容重新命製。只有官方公布適用於該科的
+實質變更才更新受影響部分；不因年度增加就要求新的模板或重做全部校準。
+年度與制度的判定遵循 `official-gsat-specifications.md`，不保證未公布的
+未來正式卷每題題型及配分都與115相同。
+
 ## 固定與可變欄位
 
 - 固定：各科封面階層、科目名稱、考試時間、作答方式、計分方式、簽名提示、頁首頁尾位置、數學參考公式。
@@ -50288,13 +50817,20 @@ Keep answers out of the student paper. Supported profiles may include `official-
 base64 內容備援，並在寫檔前核對 PDF 標頭、大小與 SHA-256。工具回傳
 base64 時應解碼後驗證，不得把 base64 傳輸本身誤判為沒有 binary handoff。
 
+若檔案執行環境不能連網，可使用 `taiwan-exam-template-resources.pdf` 離線
+備援：它只附帶 30 個原始模板 PDF，不含程式；只解出當科需要的元件，
+仍以知識檔內的 SHA-256 驗證。安裝流程不變，不要求先下載全部模板。
+正式網頁出卷使用 `compose_hosted_pdf.py` 套入透明正文頁，並以
+`inspect_hosted_pdf.py` 產生待人工視覺審查的逐頁影像；詳見
+`hosted-pdf-production.md`。這些工具只處理傳輸、版面與檢查，不產生題目。
+
 建立七科挖空版 PDF 資產：
 
 ```text
 python scripts/render_gsat_template_assets.py --build-all
 ```
 
-填入一個科目的動態欄位，例如：
+維護者以模板原始碼產生預覽，例如（不是網頁正式卷的重新排版途徑）：
 
 ```text
 python scripts/render_gsat_template_assets.py --subject 社會 --component packet --year 116 --exam-name 學科能力測驗模擬試題 --current-page 1 --total-pages 19 --output output/social-template-preview.pdf
@@ -50498,6 +51034,172 @@ At least one finalist must be a recent Chinese-authored literary or reflective w
 - Reject a paper if the two tasks share one narrow source domain or voice.
 - Reject a full-paper source pool with fewer than eight candidates, fewer than four publishers or four domains, an encoded publisher whitelist/preference, or unexplained majority concentration in one publisher.
 - Reject a paper if any attribution is a separate paragraph or if `材料一：` / `材料二：` appears.
+</canonical-source>
+
+<canonical-source path="references/hosted-pdf-production.md">
+# Hosted PDF production: executable transport, composition and honest review
+
+Use with `web-platform-use.md` for every hosted complete paper. This is the same
+Skill's layout implementation, not a generic question generator or weaker gate.
+
+## Prove the rendering route before drafting
+
+1. Extract only the requested subject's references, the template map and the
+   three embedded helpers (`fetch_hosted_template_assets.py`,
+   `compose_hosted_pdf.py`, `inspect_hosted_pdf.py`) into one working directory.
+   Keep imports together. PyMuPDF supplies PDF operations. Do not claim its
+   absence without trying the installed PDF library; if dependency installation
+   is unavailable, name that actual capability gap.
+2. Fetch the subject's three/four production components with the existing bounded
+   helper. Verify bytes in the SAME runtime that will compose the paper, not just
+   in a web-search or connector tool. A URL, preview, text extract or base64
+   response in another tool is not proof the runtime possesses the file.
+3. If runtime networking is unavailable, use an already uploaded
+   `taiwan-exam-template-resources.pdf`. It contains the 30 original PDFs as PDF
+   attachments, no executable content. It is optional data, not a Skill installer.
+   Read attachments with the PDF library; never OCR the visible index. Use the
+   knowledge file's per-asset size and SHA-256 as the trust anchor, not names or
+   claims inside the uploaded carrier. Extract ONLY this subject's production
+   files. A stripped attachment or wrong hash fails explicitly. Do not retry the
+   Internet after an explicitly supplied carrier fails validation.
+4. If no usable carrier was uploaded and both bounded network routes fail, ask
+   once for this one file with the map's `offline_resource.download_page` link.
+   Do this before writing a full exam. Do not ask users to operate GitHub, copy
+   base64, fetch 30 files, install a ZIP, or repeatedly say “continue”. An uploaded
+   resource solves network isolation only when code/file tools can access its
+   attachments; it cannot create missing platform capabilities or persist itself
+   across chats. Native Skill installation still stores URLs, not PDF binaries.
+5. Make a small labelled layout-only smoke proof using the fixed cover and one
+   transparent body page. Check field fitting, real math glyphs, composition,
+   rasterization and viewing. Resume from cached evidence in the same runtime;
+   do not repeat setup for each phase or continuation.
+
+Offline command (agent runs it; no coding required of the user):
+
+```text
+python scripts/fetch_hosted_template_assets.py --subject 數學A --map exam_packs/學測/templates/115/hosted-web-template-assets.json --resource-pdf <uploaded-resource.pdf> --output-dir <versioned-cache>
+```
+
+Neither `github-pages.zip` nor the full repository is part of this route.
+Downloading resources at generation time does not reopen the suspended software
+ZIP distribution. Do not embed scripts or retired code in the resource PDF.
+
+## Compose immutable assets, not editable covers
+
+`overlay_geometry_pt` in the template map supplies measured field gaps and the
+body box. Prepare transparent A4 **body-only** pages at those coordinates, using
+the subject profile's font roles, sizes, spacing, numbering, option layout and
+answer fields. Do not draw cover wording, headers, footers, signature bars,
+background rectangles or reference formulas into those overlays. In particular
+a white full-page background can erase a perfectly valid template.
+
+Use the embedded compositor for the maintained PDF-overlay route:
+
+```text
+python scripts/compose_hosted_pdf.py --subject 數學A --body <body-only.pdf> --asset-dir <versioned-cache/math-a> --year 116 --title 學科能力測驗模擬試題 --running-name 學測 --font <available-TC-serif-or-Kai-font> --output <question-proof.pdf> --report <composition-proof.json>
+```
+
+For the explanation paper use `--kind answers` and explanation body pages; it
+uses the same odd/even furniture but does not prepend student instructions or a
+student formula page. Keep its answer table, item reasoning and rubrics in the
+body, not in dynamic header fields. Font files are supplied by the runtime,
+not redistributed by the carrier. Glyph-complete does not imply an acceptable
+font role; evaluate the actual body and field rasters.
+Test mixed Latin/Chinese dynamic fields too: some fonts are incorrectly treated
+as monospaced half-width by a PDF library. The compositor positions field glyphs
+individually using measured advances; preserve this behavior. Correct glyph
+availability and a hash-matched background alone do not detect overlapping text
+inside an allowed dynamic-field region.
+
+The compositor verifies original hashes, rejects out-of-box/opaque overlays,
+isolates existing PDF transformations before adding fields, and compares locked
+pixels. It uses the formula's unchanged vector body with the proper final-page
+parity. It counts actual inner pages, including the mathematics formula page and
+excluding the cover. It does NOT force the paper to seven inner pages, repaginate
+thin text, repair prose, or certify content. Its result is `layout-proof-only`.
+Use a shorter running title if it does not fit; never shrink or shift fixed text.
+
+## Review actual failures, not declarations
+
+Run `inspect_hosted_pdf.py <pdf> --rasters <dir> --report <json> --math` on BOTH
+saved mathematics PDFs (omit `--math` elsewhere). It binds each raster to final
+PDF bytes and reports raw-math syntax, page overflow, text crossing table grid
+rules, font inventory and large
+bottom voids. It measures visible ink, not white page-size object bounds. It
+returns `mechanical-review-only`, never a formal pass; nonzero exit status marks
+hard mechanical failures. Zero exit status still requires all flagged and
+manual checks. Any later
+PDF change invalidates the page review. The full local release gate remains
+mandatory in a complete checkout; these helpers are not its replacement.
+
+Every page must then be viewed at readable scale, against its role-matched
+reference and the authored source. Record actual observations, failed locations,
+fixes and rechecks. The following require specific checks in BOTH question and
+answer files, not copied `pass` flags:
+
+- **Math semantics:** render powers, indices, bars, vectors, fractions, radicals
+  and matrices as mathematics, not literal `^`, `_`, `[[...]]` or caret-T. Compare
+  intended symbols (especially ≤, ≥, ±, ∓, overbars and subscripts) with the
+  printed equation. A missing symbol can disappear without a replacement glyph;
+  clean extracted text or successful font embedding cannot prove correctness.
+- **Answer table:** use concise keys in a width-constrained, wrapping table.
+  Put multi-part long answers and derivations below it. Check cell boundaries,
+  row numbers and adjacent columns, not merely A4 page boundaries. Increasing
+  table width off-page or shrinking text to hide overflow fails.
+  The inspector flags glyphs crossing vertical rules of multi-row grids; it
+  cannot prove borderless tables, every cell, or all wrapping correct.
+- **Fill-in rails:** reproduce the subject's digit/circle/row-index/fraction
+  answer-field conventions. Ordinary underlines plus a prose “answer format”
+  note are not the measured mathematics fill-in format.
+- **Density:** measure substantial occupied body area and terminal voids, then
+  compare same-role official pages. A mechanical void warning is a review flag,
+  not a universal density threshold: cover, formula and justified final pages
+  differ. Move complete blocks or repair underlength material; do not insert
+  answer lines, decorative tables, oversized figures, giant spacing or extra
+  page breaks to fill or inflate the paper. Page count is not the target.
+- **Diagrams:** compare labels and ticks at print scale; no x/y labels touching
+  tick values, missing arrowheads, vanished signs or inaccessible grayscale
+  encodings. Record what inference actually requires each visual. A matrix or
+  point table already specified completely in prose plus a redundant drawing
+  does not automatically become an answer-bearing visual.
+
+## Content is a separate acceptance, including Mathematics A
+
+For EVERY item, solve the shortest route and apply `math-difficulty-design.md`
+or the corresponding subject gate. In Math A, the first fill-in slots are not
+permission for a run of one-step arc-length substitution, exposed determinant
+area or routine linear-system drills. Do not inflate difficulty by writing a
+long solution to an easy question. Statistics quotas, five curriculum labels,
+answer balance and correct totals alone do not establish depth or scope.
+
+Apply two removal tests: (1) remove the visual but retain all printed prose;
+does the evidence needed to answer change? (2) remove the source name and replace
+its isolated numbers; does any real-world relationship or model choice survive?
+If not, do not count it toward the visual/literacy requirement. For a genuine
+data stimulus, source values must constrain a model, interpretation, comparison,
+assumption or decision; choosing two bike counts as constants in a log equation
+is ornamental sourcing. Multiple items from one dataset count as one source
+family; ensure whole-paper source/mechanism balance without inventing a new quota.
+
+Originality reviews compare solution structure as well as vocabulary. Changing
+an official reward-draw story's objects and probabilities alone is not evidence
+of an independently new mechanism. Keep an item-specific adjudication; do not
+declare plagiarism or global novelty merely from a similarity score.
+
+## Delivery is explicit, never an unsolicited downgrade
+
+The request for two complete formal PDFs is NOT permission to generate a
+`generic-layout draft`. If exact assets or necessary inspection are unavailable,
+request the concrete missing resource/capability once. Only explicit user consent
+authorizes a draft. A footer disclaimer, honest disclosure, or “all other gates
+passed” paragraph does not supply that consent. Do not attach draft PDFs under
+the requested complete-paper filenames while asking for approval afterwards.
+
+Use `pass`, `fail`, `not_checked` and `not_applicable` accurately, with evidence
+paths/hashes and per-page findings. No claim of “only template missing” unless
+each other gate was actually performed with no unresolved result. Passing unit
+tests, a smoke proof, or these three helpers is not end-to-end hosted exam
+acceptance, nor proof that every platform/model will follow the Skill.
 </canonical-source>
 
 <canonical-source path="references/layout-fidelity.md">
@@ -50866,7 +51568,11 @@ Use the CEEC examination-specification page as the canonical entry point for sub
 
 https://www.ceec.edu.tw/xmdoc/cont?xsmsid=0J018585845010094026&sid=0J270516560005218952
 
-The buttons on that page link to the controlling PDFs. Resolve the current file from the page at generation time because CEEC may publish updates. Files verified for this Skill revision are:
+The buttons on that page link to the controlling PDFs. Check for applicable
+official changes once per run, reusing a dated compatibility check in the same
+unchanged session. Do not repeat discovery for each generation phase. Use the
+bounded access policy below and in `web-platform-use.md`. Files verified for
+this Skill revision are:
 
 - General GSAT: https://www.ceec.edu.tw/files/file_pool/1/0N118338559321973589/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%E7%B8%BD%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29.pdf
 - Chinese, including integrated Chinese and writing: https://www.ceec.edu.tw/files/file_pool/1/0J270523673716106563/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E5%9C%8B%E6%96%87%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29.pdf
@@ -50876,6 +51582,44 @@ The buttons on that page link to the controlling PDFs. Resolve the current file 
 - Social studies: https://www.ceec.edu.tw/files/file_pool/1/0J305554304528923536/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E7%A4%BE%E6%9C%83%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29-1101.pdf
 - Social-studies 108 curriculum (NAER; required-content code authority): https://stv.naer.edu.tw/data/course_outline/pta_18535_6408773_60398.pdf
 - Natural sciences: https://www.ceec.edu.tw/files/file_pool/1/0J270523661993479581/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E8%87%AA%E7%84%B6%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29.pdf
+
+## Academic year, regime and reference year
+
+Keep three concepts separate for every subject:
+
+- Requested mock year: the year printed on the new mock, such as ROC 116.
+- Specification regime: the subject's actual effective period, such as
+  Mathematics A/B's `111學年度起適用` or English's `115學年度起適用`.
+- Reference year: the observed booklet/layout used for calibration, currently
+  the maintained 115 measured templates, with 111–115 as the evidence corpus.
+
+The corpus endpoint and the template directory name are NOT expiry dates.
+For a 116 or later current-regime mock, default to the existing compatible
+verified profiles and fixed assets until an official applicable change requires
+an update. Do not require a same-year official PDF, Paper Profile or newly built
+template just because the requested mock year is greater than 115. Record the
+requested and reference years separately; never rewrite historical profile
+years, source hashes or template IDs to make them appear to be 116 evidence.
+Generate new content and fill the allowed year/name/page fields normally.
+
+If the user explicitly requests fidelity to a particular historical official
+administration, select that administration's verified profile instead. A normal
+request for a future-year mock is not that request. Retaining a 115-based mock
+shell does not predict every slot or score of an unpublished official 116 paper.
+
+Inspect the relevant official specification/announcement entry point once, not
+an open-ended search for a document titled with the future year. Reuse the same
+dated result on continuation. A relevant announced change to scope, response
+types, scoring, duration or layout requires reconciliation of the affected
+components; unrelated announcements do not invalidate the whole template pack.
+If the update check is unavailable, retain the verified baseline for the mock
+and disclose the unconfirmed live-update status. Do not claim that no change
+exists, and do not reject solely for the unavailable check or absent future PDF.
+Known contradictory official evidence remains a blocker until resolved.
+
+Describe this as “沿用現行制度，以115實測模板製作116模擬卷”, not “將115舊制
+改成116新制”. Do not promise that future official requirements can never change.
+All existing source-review, originality, answer and layout gates still apply.
 
 ## Required use
 
@@ -51731,6 +52475,16 @@ For every request for a complete paper:
    report that exact limitation and do not call the result a completed formal
    paper. The user may move the same request to a capable surface.
 
+## Requested year and reusable reference version
+
+Follow `official-gsat-specifications.md#academic-year-regime-and-reference-year`.
+For a 116 or later mock, default to compatible current-regime profiles and the
+115 measured templates; 111–115 describes the calibration corpus, not an expiry
+period. Keep the requested mock year distinct from the reference year. Do not
+search repeatedly for a future-year official booklet or demand a new template
+solely to change the printed year. Check relevant official updates once and
+reuse that dated result on continuation; apply actual changes where announced.
+
 ## Release-calibrated official sources and live spot checks
 
 For every complete current-form GSAT paper, load
@@ -51811,7 +52565,12 @@ historical photograph or topic merely to satisfy the visual quota.
 
 ## Fixed-template acquisition and composition
 
-For a 111–115-regime GSAT booklet, load
+Also follow `hosted-pdf-production.md`: prove the route before drafting, use the
+embedded PDF compositor, and inspect actual saved outputs. It defines the
+data-only offline carrier and concrete regression checks for body math, answer
+table overflow, fill-in rails, source literacy and unjustified bottom voids.
+
+For a current-regime GSAT booklet using the maintained 115 reference templates, load
 `exam_packs/學測/templates/115/hosted-web-template-assets.json` before rendering.
 It gives a public download URL, SHA-256, byte count and page count for all 30
 fixed PDF components across the seven subjects. It also records the GitHub
@@ -51830,13 +52589,15 @@ binaries during installation, and do not make installation depend on persisting
 them. Do not report `0/30` as an installation failure, do not build an auxiliary
 ZIP or evidence packet, and do not delay first use while materializing unrelated
 subjects. Hosted products may not expose a binary-asset persistence interface,
-and the public per-file URLs and hashes are deliberately sufficient for
-just-in-time retrieval.
+and public per-file URLs and hashes support just-in-time retrieval when the
+generation runtime can download. They cannot bypass a runtime's network block.
+The optional data-only resource PDF is a generation-time offline upload, not an
+installation prerequisite. Its attachment bytes are verified against this map.
 
 Never download or deliver `github-pages.zip`, a repository source archive, a
 Pages deployment archive, or an all-template ZIP for this workflow. Those are
-not template components and do not solve binary handoff. Use only the requested
-subject's per-file URLs from the verified map.
+not template components and do not solve binary handoff. Materialize only the
+requested subject's mapped components, from its URLs or the optional carrier.
 
 At paper time, retrieve only the requested subject's production components:
 `cover-blank`, `inner-odd-blank`, `inner-even-blank` and, for Mathematics, the
@@ -51884,8 +52645,9 @@ The following are hard failures, not alternative rendering paths:
 Before declaring template transport unavailable, attempt the per-file raw URL,
 and GitHub Contents API/base64 path, preferably through the embedded helper.
 These are two transports, not three separate retry cycles: the helper already
-tries both. Do not repeat equivalent attempts through another wrapper. If verified
-bytes still cannot enter the file runtime, the surface cannot merge PDF layers,
+tries both. Do not repeat equivalent attempts through another wrapper. Use an
+uploaded resource PDF, or ask once for that one resource file if runtime network
+access is blocked. If verified bytes still cannot enter the file runtime, the surface cannot merge PDF layers,
 or the downloaded hash differs, stop formal rendering before item layout and
 report the exact attempted transports. A generic-layout draft may be produced
 only when the user accepts that downgrade, and it must not claim to use the
@@ -52979,6 +53741,172 @@ Any later paper request:
 }
 </canonical-source>
 
+<canonical-source path="scripts/compose_hosted_pdf.py">
+#!/usr/bin/env python3
+"""Compose existing body pages onto verified fixed PDFs; never author questions.
+
+PyMuPDF is the only non-standard dependency. Inputs are transparent A4 body-only
+PDF pages. No template text, figures, formulas or grids are recreated here.
+Output and reports are layout proofs, never educational release approvals.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+import pymupdf
+
+from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, verify
+
+
+def sha(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def masked_pixels(page, regions: list, *, alpha: bool = False) -> bytes:
+    pix = page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5), colorspace=pymupdf.csGRAY, alpha=alpha)
+    for region in regions:
+        rect = pymupdf.Rect(region) * pymupdf.Matrix(1.5, 1.5)
+        pix.set_rect(rect.irect, (0, 0) if alpha else (255,))
+    return pix.samples
+
+
+def check_body(page, box) -> None:
+    if page.rotation or abs(page.rect.width - 595.28) > 1 or abs(page.rect.height - 841.89) > 1:
+        raise ValueError("Body pages must be unrotated A4, not automatically scaled")
+    # Alpha catches opaque white full-page backgrounds as well as visible ink.
+    # Such backgrounds would erase the locked cover/header even if text fits.
+    pixels = masked_pixels(page, [box], alpha=True)
+    if any(pixels[1::2]):
+        raise ValueError("Body overlay paints outside measured body box; remove headers/backgrounds, do not clip them away")
+
+
+def write_field(page, box, text: str, font, size: float, *, align: str = "center") -> None:
+    rect = pymupdf.Rect(box)
+    if any(not font.has_glyph(ord(c)) for c in text):
+        raise ValueError(f"Dynamic-field font lacks a glyph in {text!r}")
+    width = font.text_length(text, fontsize=size)
+    if width > rect.width:
+        raise ValueError(f"Dynamic field too long: {text!r}; supply a shorter test title")
+    x = rect.x0 if align == "left" else rect.x1 - width if align == "right" else rect.x0 + (rect.width - width) / 2
+    y = rect.y0 + (rect.height - size * (font.ascender - font.descender)) / 2 + size * font.ascender
+    # Some DFKai/Ming font versions are misclassified as mono by MuPDF: the
+    # PDF run advances every Chinese glyph by a Latin half-width even though
+    # glyph_advance/text_length correctly return a full em. Place each glyph
+    # explicitly using those actual advances. Only short dynamic fields use
+    # this helper; it is not a general complex-script text shaper.
+    # Browser-produced templates leave a content transformation in their
+    # stream. Isolate it before appending anything in page-point coordinates.
+    page.wrap_contents()
+    buffer = font.buffer
+    font_name = "TEField" + sha(buffer)[:12]
+    if not any(row[4] == font_name for row in page.get_fonts()):
+        page.insert_font(fontname=font_name, fontbuffer=buffer)
+    for character in text:
+        # Explicit per-glyph origins avoid defective mono-font run coalescing;
+        # one reusable font resource avoids embedding a font for every glyph.
+        page.insert_text((x, y), character, fontname=font_name, fontsize=size)
+        x += font.text_length(character, fontsize=size)
+
+
+def page_base(out, asset, source_page=0):
+    out.insert_pdf(asset, from_page=source_page, to_page=source_page)
+    return out[-1]
+
+
+def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: str,
+            title: str, running_name: str, font_path: Path, map_path: Path = DEFAULT_MAP,
+            kind: str = "questions") -> dict:
+    if kind not in {"questions", "answers"}:
+        raise ValueError("Unknown paper kind")
+    if output.exists():
+        raise ValueError("Preserve existing output; use a new proof filename")
+    manifest = json.loads(map_path.read_text(encoding="utf-8-sig"))
+    subject_record = next(s for s in manifest["subjects"] if s["subject"] == subject)
+    geometry = subject_record["overlay_geometry_pt"]
+    assets = {}
+    hashes = {}
+    try:
+        for record in subject_record["assets"]:
+            if record["component"] in PRODUCTION_COMPONENTS:
+                data = (asset_dir / (record["component"] + ".pdf")).read_bytes()
+                verify(record, data)
+                assets[record["component"]] = pymupdf.open(stream=data, filetype="pdf")
+                hashes[record["component"]] = sha(data)
+        font = pymupdf.Font(fontfile=str(font_path))
+        digits = pymupdf.Font("tiro")
+        with pymupdf.open(body) as body_doc, pymupdf.open() as out:
+            if not len(body_doc):
+                raise ValueError("Empty body")
+            for page in body_doc:
+                check_body(page, geometry["body"])
+            has_formula = subject in {"數學A", "數學B"} and kind == "questions"
+            total = len(body_doc) + int(has_formula)
+            proofs = []
+            if kind == "questions":
+                page = page_base(out, assets["cover-blank"])
+                box = geometry["cover_title"]
+                write_field(page, box, f"{year}學年度{title}", font, 19.98 if has_formula else 18)
+                if masked_pixels(page, [box]) != masked_pixels(assets["cover-blank"][0], [box]):
+                    raise ValueError("Cover title changed locked pixels")
+                proofs.append({"page": 1, "component": "cover-blank", "locked_pixels_match": True})
+            for index in range(total):
+                number = index + 1
+                parity = "odd" if number % 2 else "even"
+                component = f"inner-{parity}-blank"
+                page = page_base(out, assets[component])
+                formula = index == len(body_doc)
+                if formula:
+                    # Reuse the formula's unchanged vector body with the correct
+                    # odd/even header; the formula asset itself has an odd header.
+                    box = pymupdf.Rect(geometry["body"])
+                    page.show_pdf_page(box, assets["formula-blank"], 0, clip=box)
+                else:
+                    page.show_pdf_page(page.rect, body_doc, index)
+                fields = geometry[parity]
+                write_field(page, fields["year_name"], f"{year}年{running_name}", font, 10,
+                            align="right" if parity == "odd" else "left")
+                write_field(page, fields["current_page"], str(number), digits, 10)
+                write_field(page, fields["total_pages"], str(total), digits, 10)
+                write_field(page, fields["footer"], str(number), digits, 8)
+                masks = [*fields.values(), geometry["body"]]
+                if masked_pixels(page, masks) != masked_pixels(assets[component][0], masks):
+                    raise ValueError(f"Page {number} changed locked header/footer pixels")
+                proofs.append({"page": len(out), "inner_number": number, "component": component,
+                               "formula_component": "formula-blank" if formula else None,
+                               "locked_pixels_match": True})
+            output.parent.mkdir(parents=True, exist_ok=True)
+            data = out.tobytes(garbage=4, deflate=True)
+            output.write_bytes(data)
+        return {"status": "layout-proof-only", "subject": subject, "kind": kind,
+                "body_sha256": sha(body.read_bytes()), "pdf_sha256": sha(data),
+                "template_hashes": hashes, "pages": proofs,
+                "remaining": ["body typography and all-page visual review", "content and independent answers",
+                              "difficulty, originality and answer-bearing visuals", "final saved-PDF inspection"]}
+    finally:
+        for asset in assets.values():
+            asset.close()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    for name in ("subject", "year", "title", "running-name"):
+        parser.add_argument("--" + name, required=True)
+    for name in ("body", "asset-dir", "output", "font"):
+        parser.add_argument("--" + name, type=Path, required=True)
+    parser.add_argument("--map", type=Path, default=DEFAULT_MAP)
+    parser.add_argument("--kind", choices=("questions", "answers"), default="questions")
+    parser.add_argument("--report", type=Path, required=True)
+    args = parser.parse_args()
+    result = compose(args.subject, args.body, args.asset_dir, args.output, year=args.year,
+                     title=args.title, running_name=args.running_name, font_path=args.font,
+                     map_path=args.map, kind=args.kind)
+    args.report.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(json.dumps(result, ensure_ascii=True, indent=2))
+</canonical-source>
+
 <canonical-source path="scripts/fetch_hosted_template_assets.py">
 #!/usr/bin/env python3
 """Fetch and verify one subject's fixed GSAT template PDF components.
@@ -53034,6 +53962,8 @@ def api_url(repository_path: str) -> str:
 def fetch_record(record: dict, *, timeout: int, attempts: int, local_root: Path | None) -> tuple[bytes, str]:
     if local_root is not None:
         candidate = (local_root / record["repository_path"]).resolve()
+        if not candidate.is_relative_to(local_root.resolve()):
+            raise ValueError("Template path escapes local mirror")
         if candidate.is_file():
             return candidate.read_bytes(), "local-mirror"
 
@@ -53057,10 +53987,30 @@ def verify(record: dict, data: bytes) -> None:
         raise ValueError(f"SHA-256 mismatch: {record['repository_path']}")
 
 
+def read_resource_pdf(path: Path, subject_record: dict, records: list[dict]) -> dict[str, bytes]:
+    """Read requested attachments only. Never execute embedded content or trust it by name."""
+    import pymupdf
+    result = {}
+    with pymupdf.open(path) as doc:
+        names = doc.embfile_names()
+        if len(names) != len(set(names)):
+            raise ValueError("Duplicate resource attachment name")
+        for record in records:
+            name = f"{subject_record['slug']}--{record['component']}.pdf"
+            if name not in names:
+                raise ValueError(f"Missing PDF attachment {name}; the platform may have removed attachments")
+            data = doc.embfile_get(name)
+            verify(record, data)
+            result[record["component"]] = data
+    return result
+
+
 def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_root: Path | None,
-                timeout: int, attempts: int) -> dict:
+                timeout: int, attempts: int, resource_pdf: Path | None = None) -> dict:
     if timeout <= 0 or attempts not in (1, 2):
         raise ValueError("Use a positive timeout and one or two attempts per transport")
+    if resource_pdf and (map_path is None or not map_path.is_file()):
+        raise ValueError("Offline extraction requires the map from the uploaded knowledge file")
     started = time.monotonic()
     manifest = load_map(map_path, timeout=timeout, attempts=attempts)
     subject_record = next((row for row in manifest["subjects"] if row["subject"] == subject), None)
@@ -53071,6 +54021,10 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
     records = [row for row in subject_record["assets"] if row["component"] in wanted]
     if {row["component"] for row in records} != wanted or len(records) != len(wanted):
         raise ValueError(f"Incomplete production component map for {subject}")
+
+    # Validate all requested attachments before writing anything. No network
+    # fallback for an explicitly supplied corrupt carrier; report the mismatch.
+    offline = read_resource_pdf(resource_pdf, subject_record, records) if resource_pdf else {}
 
     target = output_dir.resolve() / subject_record["slug"]
     if target.resolve().parent != output_dir.resolve():
@@ -53084,7 +54038,10 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
             verify(record, data)
             transport = "verified-existing"
         else:
-            data, transport = fetch_record(record, timeout=timeout, attempts=attempts, local_root=local_root)
+            if resource_pdf:
+                data, transport = offline[record["component"]], "uploaded-resource-pdf"
+            else:
+                data, transport = fetch_record(record, timeout=timeout, attempts=attempts, local_root=local_root)
             verify(record, data)
             destination.write_bytes(data)
         return {
@@ -53125,6 +54082,7 @@ def main() -> int:
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--map", dest="map_path", type=Path, default=DEFAULT_MAP if DEFAULT_MAP.is_file() else None)
     parser.add_argument("--local-root", type=Path)
+    parser.add_argument("--resource-pdf", type=Path, help="Uploaded data-only PDF carrier; requires PyMuPDF and a local --map")
     parser.add_argument("--timeout", type=int, default=15, help="Per socket-operation timeout, not an overall deadline")
     parser.add_argument("--attempts", type=int, choices=(1, 2), default=1)
     args = parser.parse_args()
@@ -53135,6 +54093,7 @@ def main() -> int:
         local_root=args.local_root,
         timeout=args.timeout,
         attempts=args.attempts,
+        resource_pdf=args.resource_pdf,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result["status"] == "verified" else 1
@@ -53142,6 +54101,133 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/inspect_hosted_pdf.py">
+#!/usr/bin/env python3
+"""Rasterize a saved PDF and report mechanical layout risks; never self-approve it.
+
+Text extraction cannot prove a missing symbol was intended, nor can this tool
+judge difficulty, novelty, diagrams, or mathematical truth. Every page still
+requires visual review against the authored content and the subject profile.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import re
+
+import pymupdf
+
+
+RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
+HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page"}
+
+
+def table_collision_samples(page) -> list[dict]:
+    """Find glyphs crossing vertical rules in multi-row grids, not just page edges.
+
+    A review heuristic, not proof that all tables fit: borderless tables and
+    overflow beyond a short rule still need source/visual containment checks.
+    """
+    lines = []
+    for drawing in page.get_drawings():
+        if drawing.get("color") is None or min(drawing["color"]) > .9:
+            continue
+        for item in drawing["items"]:
+            if item[0] == "l":
+                lines.append((item[1], item[2]))
+            elif item[0] == "re":
+                r = item[1]
+                lines.extend([(r.tl, r.tr), (r.tr, r.br), (r.br, r.bl), (r.bl, r.tl)])
+    horizontal = [(min(a.x, b.x), max(a.x, b.x), a.y) for a, b in lines
+                  if abs(a.y - b.y) < .05 and abs(a.x - b.x) > 80]
+    vertical = [(a.x, min(a.y, b.y), max(a.y, b.y)) for a, b in lines
+                if abs(a.x - b.x) < .05 and abs(a.y - b.y) > 25]
+    grids = [(x, top, bottom) for x, top, bottom in vertical
+             if len({round(y, 1) for left, right, y in horizontal
+                     if left - .1 <= x <= right + .1 and top - .1 <= y <= bottom + .1}) >= 3]
+    chars = [c for b in page.get_text("rawdict")["blocks"] for l in b.get("lines", [])
+             for s in l["spans"] for c in s["chars"] if not c["c"].isspace()]
+    findings = []
+    for x, top, bottom in grids:
+        for char in chars:
+            left, y0, right, y1 = char["bbox"]
+            if left + .3 < x < right - .3 and top < y0 and y1 < bottom:
+                findings.append({"character": char["c"], "bbox": list(char["bbox"]), "rule_x": x})
+    return findings[:20]
+
+
+def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> dict:
+    data = pdf.read_bytes()
+    digest = hashlib.sha256(data).hexdigest()
+    target = raster_dir / digest[:16]
+    target.mkdir(parents=True, exist_ok=True)
+    pages = []
+    with pymupdf.open(stream=data, filetype="pdf") as doc:
+        for number, page in enumerate(doc, 1):
+            issues = []
+            rect = page.rect
+            if page.rotation or abs(rect.width - 595.28) > 1 or abs(rect.height - 841.89) > 1:
+                issues.append("non-A4-or-rotated")
+            body = pymupdf.Rect(body_box or [64, 87, rect.width - 64, 775])
+            spans = [s for b in page.get_text("dict")["blocks"] for l in b.get("lines", []) for s in l["spans"]]
+            all_text = page.get_text()
+            if "\ufffd" in all_text or "\x00" in all_text:
+                issues.append("replacement-or-null-glyph")
+            leaked = sorted(set(RAW_MATH.findall(all_text))) if math else []
+            if leaked:
+                issues.append("raw-math-markup-review")
+            table_collisions = table_collision_samples(page)
+            if table_collisions:
+                issues.append("table-grid-text-collision-review")
+            for span in spans:
+                if not rect.contains(pymupdf.Rect(span["bbox"])):
+                    issues.append("text-outside-page")
+                    break
+            # Measure visible pixels, not PDF object bounds: fixed templates
+            # include white page-size rectangles that are NOT printed content.
+            # The same applies to white image margins and clipped Form XObjects.
+            body_pix = page.get_pixmap(clip=body, colorspace=pymupdf.csGRAY, alpha=False)
+            samples = body_pix.samples
+            last_ink = next((row for row in range(body_pix.height - 1, -1, -1)
+                             if min(samples[row * body_pix.stride: row * body_pix.stride + body_pix.width]) < 240), -1)
+            void = round((body_pix.height - last_ink - 1) / body_pix.height, 3)
+            if void > .32:
+                issues.append("large-bottom-void-review")
+            raster = target / f"page-{number:03}.png"
+            page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5), alpha=False).save(raster)
+            pages.append({"page": number, "raster_path": str(raster),
+                          "raster_sha256": hashlib.sha256(raster.read_bytes()).hexdigest(),
+                          "issues": sorted(set(issues)), "raw_math_samples": leaked,
+                          "table_collision_samples": table_collisions,
+                          "bottom_void_ratio": void,
+                          "fonts": sorted({s["font"] for s in spans}),
+                          "sizes_pt": sorted({round(s["size"], 2) for s in spans}),
+                          "visual_review": "not-performed-by-this-tool"})
+    return {"status": "mechanical-review-only", "pdf_sha256": digest, "pdf_path": str(pdf),
+            "page_count": len(pages), "pages": pages,
+            "blocking_pages": [p["page"] for p in pages if HARD_FAILURES.intersection(p["issues"])],
+            "review_flag_pages": [p["page"] for p in pages if p["issues"]],
+            "cannot_certify": ["missing intended math symbols", "complete table cell containment",
+                               "formula and diagram semantics", "template provenance",
+                               "editorial difficulty and originality", "formal acceptance"]}
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("pdf", type=Path)
+    parser.add_argument("--rasters", type=Path, required=True)
+    parser.add_argument("--report", type=Path, required=True)
+    parser.add_argument("--math", action="store_true")
+    parser.add_argument("--body-box", type=float, nargs=4)
+    args = parser.parse_args()
+    report = audit(args.pdf, args.rasters, body_box=args.body_box, math=args.math)
+    args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(json.dumps(report, ensure_ascii=True, indent=2))
+    raise SystemExit(2 if report["blocking_pages"] else 0)
 </canonical-source>
 
 <canonical-source path="scripts/read_web_knowledge.py">
