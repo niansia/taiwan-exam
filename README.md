@@ -1,423 +1,73 @@
 # Taiwan Exam｜臺灣大型考試命題 Skill
 
-Taiwan Exam 是一套給 AI 代理使用的學測／會考命題、排版與驗證規格。你可以用一般中文提出需求；AI 依科目規則建立原創題目、詳解、正式卷面與檢查紀錄，不需要你先學會寫程式。
+用一般中文提出需求，讓 AI 依科目規則命題、驗算與排版，分開產出「題目 PDF」和「答案詳解 PDF」。
 
-目前支援學測國綜、國寫、英文、數學 A、數學 B、社會、自然，以及會考各科的資料夾與工作流程。專案不是題庫，也不會把歷屆題換數字後重新輸出。
+支援學測 **國綜、英文、數 A、數 B、自然、社會、國寫**；另提供會考各科的資料夾與工作流程。專案著重原創命題，不是現成題庫。
 
-> **軟體 ZIP 與來源資料包分開管理。** 軟體安裝版本是否開放，以
-> [發行狀態](https://github.com/niansia/taiwan-exam/blob/main/SOFTWARE_RELEASE_STATUS.json)
-> 為準；只使用有掃描與一般瀏覽器下載驗證紀錄的正式版本。純 PDF／圖片的
-> `source-corpus-2026.09.11` 是校準來源資料包，不含程式或安裝檔。
-> GitHub 原始碼安裝與下方網頁版知識檔另有各自使用方式。
-
-**[下載 v0.7.1 安裝 ZIP](https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip)**（4.34 MB）。
-維護者已確認草稿與正式固定網址皆能正常下載；下載檔案的 SHA-256 與
-Defender 壓縮檔、解壓後內容及附件儲存檢查所驗證的版本一致。
-[發行說明與掃描報告](https://github.com/niansia/taiwan-exam/releases/tag/v0.7.1)。
-請依檔名選取 `taiwan-exam-generator-v0.7.1.zip`；
-GitHub 自動附上的 Source code 壓縮檔不是這份經掃描的安裝包。
+**[直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)** · **[查看七科版型](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)** · [安裝指引](INSTALL.md)
 
 ## 三種使用方式
 
-| 你正在使用 | 第一次怎麼做 | 以後怎麼叫出來 |
-| --- | --- | --- |
-| ChatGPT、Claude.ai、Gemini 網頁版 | 點[「直接下載網頁版知識檔」](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，再上傳以建立 Skill、Project 或 Gem | 建立當下即可使用；以後開啟同一 Skill／Project／Gem 繼續使用 |
-| Codex CLI、Claude Code、Gemini CLI | 從 GitHub 原始碼安裝完整 Skill | Codex 用 `$taiwan-exam-generator`、Claude Code 用 `/taiwan-exam-generator`；Gemini CLI 可直接用自然語言要求採用該 Skill |
-| Codex 或 Claude Code 桌面版 | 在聊天框請代理從本儲存庫安裝，不必自己搬檔案 | 從技能選單選取 Taiwan Exam，或輸入對應的 `$`／`/` 名稱 |
-
-無論用哪一種方式，完整考卷都要分開交付「題目 PDF」與「答案詳解 PDF」，並完成內容、答案及逐頁版面檢查。只想試幾題時請明說「自訂練習」。
-
-本機前置狀態可用 `python scripts/audit_exam_pack.py --readiness` 查詢七份學測試卷。
-此檢查會分別核對原卷結構、版型、來源檔與每個計分單位的彙整校準覆蓋，
-有缺項即列出原因並回傳失敗；僅 `writer-blueprint` 顯示 ready 不代表整卷可交付。
-七份 115 原卷結構與版型已有逐頁核對。另新增 113～115 年共 39 筆來源綁定
-語意標註，補齊先前 53 個計分單位的題型覆蓋；七份試卷均通過本機前置檢查。
-這不等於七份新考卷已通過內容與 PDF 成品驗收。修正與測試範圍見
-[本機整備紀錄](https://github.com/niansia/taiwan-exam/blob/main/docs/production-readiness-2026-09-12.md)。
-
-## 網頁版：ChatGPT、Claude.ai、Gemini
-
-### [⬇ 直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)
-
-點上面的連結後，瀏覽器會自動下載 `taiwan-exam-web-knowledge.md`；不需要理解 GitHub、尋找 `Raw` 或按右上角的小圖示。若瀏覽器阻擋自動下載，開啟的頁面會保留一個明顯的「再次下載」按鈕。[查看檔案內容與版本](web/taiwan-exam-web-knowledge.md)。
-
-這份檔案是同一套正式規則自動彙整、方便網頁平台讀取的單一 Markdown，不是另一套命題器，也不是 ZIP 或執行檔。
-
-**網頁版模板備援：** 若 AI 說執行環境不能下載模板，點
-[「下載離線模板資源 PDF」](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)，
-把它附到出卷對話即可。這份約 3.5 MB 的資料 PDF 內含 30 個原始模板附件，
-不含程式；AI 只取出當科的 3～4 個檔案並驗證。可連線時仍自動下載當科，
-安裝時不要求下載這份備援。若平台連 PDF 附件解出、檔案建立或檢視功能
-都沒有，仍須改用具備這些能力的環境；Skill 文字不能繞過平台限制。
-已安裝舊版者請用最新版知識檔更新同一個 Skill／Project／Gem；儲存庫更新
-不會自動改掉帳號裡的舊附件。
-
-網頁知識檔 **2026.09.13.7** 補齊 **七科各一組題本＋詳解版型，共 14 份 PDF**。
-國綜、英文、數 A、數 B、自然、社會、國寫有各自的可執行版型來源，包含
-各科不同的段落、選項、選填、資料表、混合題與評分說明，不是只換科目名稱。
-
-[查看／下載七科版型](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)。
-所有範例僅含占位內容，不能直接當作試題或照抄題號、配分、短材料及留白。
-示範 PDF 保留當科原始固定圖層；正式命題仍須重新設計與驗收。網頁出卷只
-載入當科兩份版型來源，無須另下載全部示範 PDF；安裝包也不重複塞入預覽檔。
-
-前一版 **2026.09.13.6** 新增可執行的正文排版元件：題型說明框、
-選項、整數／分數選填欄、圖文並排及詳解。範例只有占位內容，不能用來
-命題；固定封面、頁首尾與公式仍由原始 PDF 組版。七科共同的固定圖層
-相容性均有測試，各科特殊題型仍依自己的規格，不套用數學的題型配置。
-
-現在可一次產生兩冊的整頁圖、逐題裁圖和待審紀錄。修版時，只有同一份
-考卷、相同頁／題與完全相同像素才能沿用先前實際審閱；改動部分重新審。
-新增檢查會阻擋可辨識的圈外選填編號及缺少作答橫線。建議在最初數題就
-試排，約第 17 分鐘進入最終 QA、預留約 8 分鐘，仍不保證平台單輪時間。
-
-完整數 A／數 B 的預設難度改為：簡單 **低於 10 分**、中偏難加難 **至少
-70 分**、難 **至少 30 分**。作者與複核結果都要符合，不能只改標籤；
-課綱及 80–92 分鐘手算目標維持。這是本專案的加強設定，不是官方統計。
-[正文版型與一鍵整理待審資料的用法](references/hosted-body-workflow.md)。
-
-前一版 **2026.09.13.5** 修正「只有一個模型工作階段就不能出卷」：
-有真正第二個審閱工作階段時優先使用獨立審查；一般網頁版沒有此工具時，
-自動採用同一模型的第二次逐題複核。先從不附答案、作者難度標籤的題目檔
-重新解題，再核對答案、捷徑、評分與難度，不能只重讀原本詳解或修改難度標籤。
-這條路徑完成所有檢查後可以交付，但必須明示「單一工作階段複核，未經第二個
-審閱者獨立審查」，不宣稱兩者具有相同保障。使用者明確要求獨立審查時，仍
-須安排實際第二個審閱者。七科共同適用，固定模板、碰撞、裁圖、難度與答案
-檢查維持必要；不再因普通網頁版沒有分身工具而禁止開始命題。
-
-前一版 **2026.09.13.4** 修正「做到最後才卡在官方原卷下載」：
-前一版允許離線校準，最後的難度／留白檢查卻又要求原卷檔案，形成流程矛盾。
-七科現在會在命題前確認當科模板、內附校準與小型組版測試；有離線模板 PDF
-時直接解出，否則整段模板連線預設最多 45 秒，保留成功部分，不會反覆等待。
-最後檢查可使用經核對的內附校準及官方原卷留白測量值，無須臨時下載原卷。
-逐題獨立審查、難度門檻、固定模板、碰撞與可讀裁圖檢查仍須完成。
-這是彙整校準加專家審閱，不宣稱看過未取得的原卷，也不保證整份考卷能在
-25 分鐘內完成；中斷時保留同一份工作與實際計時。
-[本次卡點與驗證範圍](docs/hosted-offline-preflight-2026-09-13.md)。
-
-前一版 **2026.09.13.3** 修正「封面／公式被重排、難度檢查未實際執行」：
-七科的題本與詳解都會在交付時重新比對原始固定 PDF；數學的公式頁也要
-保留原始圖層。網頁交付檢查會直接執行難度檢查，逐題對照獨立審閱結果，
-並計入前題提示與最短解法，不能用長詳解或自行填寫「高難度」補足。
-[本次原因與修正範圍](docs/fixed-template-web-regression-2026-09-13.md)。
-
-**已經儲存的網頁 Skill／Project／Gem 不會隨 GitHub 自動更新。請用新知識檔
-更新原本的設定，再繼續出卷。** 平台仍須實際執行工具及完成審閱；知識檔
-本身不能保證模型每次都遵守，也不能解除平台的連線時間限制。
-
-前一版已修正「有檢查紀錄，成品卻仍壓字」的缺口：
-直接從最終 PDF 檢查選填標記碰撞，要求逐題可讀裁圖與版面區塊檢查；
-先替劃記欄及完整圖形預留空間，留白須與已驗證的正式卷實際比較。
-數學難度改以獨立審閱者的最短解法、時間及決策數重新檢查；作者自填
-「高難度」或答案驗算通過，都不能代替這一步。六階段實際計時也成為
-完成條件，超過時間目標仍須完成 QA，不能補寫通過紀錄。
-[修正與驗證範圍](docs/hosted-quality-regression-2026-09-13.md)。
-本版另明定：完整數 A／數 B 卷預設安排 **2–4 題**取材自命題日前一年內的
-事件或成果，須轉為課綱內的建模、判斷與推理，不能只換上最新數據算比例。
-查證日期、網址與事實留在內部紀錄；數學題本與一般詳解不列「資料來源」
-行或網址。國寫等科目的必要來源標示維持原規則。
-[近期事件與數學卷面規則](references/math-current-events-and-sourcing.md)。
-這些修正可由最新知識檔或 GitHub 原始碼取得；已發布的 v0.7.1 ZIP
-保持原先通過下載驗證的內容，未包含本次後續修正。
-平台執行時限仍由平台決定；中斷後請接續同一份已保存的考卷。
-
-### ChatGPT 網頁版
-
-先在目前的 ChatGPT「對話」模式輸入 `@skill-creator`。只要選單能選到它（如使用者畫面已出現藍色 `@skill-creator` 標籤），對話模式就可以建立 Skill，不必強制切換「工作」。若帳號在對話模式找不到它，再切到「工作」模式重試。附上知識檔後貼上這一段即可：
-
-```text
-請使用我附上的 taiwan-exam-web-knowledge.md 建立「Taiwan Exam Generator」Skill。
-請永久儲存，使本對話立即可用，之後的新對話也能選取。
-完整保留其中規則與資源索引，不要另寫一套通用出題器；安裝時須保存
-七科共 30 個逐檔 PDF 直連與驗證資料，但不要下載 PDF 本體。
-實際開始出某科時，才取得該科 3 份固定 PDF（數學為 4 份），
-逐份驗證後以原 PDF 當底層，不得 OCR、重打、重排或另做相似版面。
-完成後不要要求我另開新對話，直接在本對話接受出卷需求。
-```
-
-若介面顯示「安裝」或「儲存」按鈕，按一次是 ChatGPT 的原生永久保存確認，檔案內容無法替使用者略過這個安全步驟。確認後可在**同一個對話立刻**貼上：
-
-```text
-請出一份 116 學測社會完整模擬考。
-請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成命題、解題驗證與逐頁版面檢查。
-```
-
-之後開新對話時，在輸入框鍵入 `@` 並選取 `Taiwan Exam Generator`，即可繼續使用，不必重新上傳知識檔。新對話選取只是日後的叫用方式，不是第一次出卷前必須完成的驗證步驟。
-
-完整考卷、兩份 PDF 與逐頁檢查屬於成品工作，建議建立成功後切到「工作」模式執行；但這是能力與穩定性建議，不是建立或叫用 Skill 的硬性條件。若對話模式本身已有檔案建立與檢查能力，也可以直接使用。若帳號沒有 Skills，可建立一個固定 Project，把同一知識檔與第一次設定文字放入 Project；不要把普通聊天的一次附件上傳稱為永久安裝。
-
-網頁知識檔已內建大考中心 111～115 年、國綜／國寫／英文／數學 A／
-數學 B／社會／自然的 35 份試題 PDF 直連，以及相應答案與評分原則。
-完整卷開始前，代理先讀當科內建的跨年度資料，再限時抽查當科 115 年
-及另一年份原卷；不要求每次重新下載、逐頁重讀五年份。使用者不必逐份
-尋找或上傳。知識檔同時包含各年份實際的考卷結構紀錄與審核狀態：
-「待複核」不會因為版面資料已驗證就自動變成通過，須針對缺項完成核對。
-已通過且來源雜湊相符的校準不因個別網址逾時失效；即時連線狀態另記為
-部分可用或不可用，不能宣稱已開啟逾時的 PDF。
-
-七科 115 版型的 30 個固定 PDF 元件也已內建公開直連、大小與
-SHA-256。「115」是模板取樣年份，不是有效期限；116 及後續年度模擬卷
-預設沿用相容的現行制度與模板，只有官方公布相關實質變更才調整。
-校準資料中的來源年份仍保留原值，不會把115原卷冒稱為116官方試卷。
-網頁代理必須自行取得當科封面、奇偶頁首頁尾與數學公式頁，
-並以原始 PDF 作為不可重排的底層。只能覆疊年份、測驗名稱、頁碼與正文；
-不得 OCR、重打、轉成 HTML/Word、截圖或依外觀仿製模板。若平台不能
-匯入原始 PDF 或合併 PDF 圖層，必須說明具體限制；未經使用者同意，
-不得改交通用版面草稿，也不得誤稱套用了固定模板。
-
-這 30 個 PDF 是七科的完整資產目錄，不是預先下載清單。Skill 安裝時必須
-永久保存全部 30 個逐檔直接下載網址，以及各檔 SHA-256、大小與頁數；只放
-GitHub 資料夾網址不算完整。安裝時不下載 PDF 本體，開始出題後才下載當科
-的正式組版元件。非數學科為封面、
-奇數內頁、偶數內頁共 3 份；數學 A／B 再加各自公式頁，共 4 份。
-因此 `0/30` 不代表 Skill 安裝失敗，也不需要先製作額外 ZIP 或安裝報告。
-開始出卷後可使用內建的模板取得工具；它會先試逐檔 raw URL，再試 GitHub
-Contents API／base64，實際在檔案環境解碼後核對大小與 SHA-256。
-只有看到 base64 或下載網址，還不等於已取得可組版的 PDF 檔案。
-`github-pages.zip`、整個儲存庫 ZIP 或全模板 ZIP 都不是考卷成品，也不是模板
-傳輸方式；Skill 不應下載或交付它們。離線備援只解出當科逐檔 PDF，
-不把整個軟體專案封裝進去。
-
-為減少網頁版反覆載入，新流程只讀當科相關規則，最多同時取得 4 份模板，
-沿用已驗證的下載；個別失敗不會讓成功的檔案全部重抓。出卷中保存階段與
-檔案紀錄，若對話被平台中斷，「繼續」應接續同一份考卷，不重新安裝或
-從頭命題。這些措施不會略過解題與逐頁檢查，也不能保證各平台一次對話
-或 20 分鐘內完成；暫存工作區失效時仍可能需要恢復資料。
-
-網頁平台沒有完整本機 checkout 時，不要求執行本機專用的發布指令；改以
-內建 schema 與 profile 執行同等內容、答案、模板及逐頁檢查。固定模板保留
-封面與頁首頁尾字型；新正文若沒有 PMingLiU／DFKai，可使用字形角色與量測
-相近、繁中字形完整的字型，逐頁檢查後交付，不能只因字型內部名稱不同拒絕。
-
-新版另內建固定 PDF 套版與成品檢查工具：命題前先試模板取得與實際套版，
-防止完整出題後才發現不能交付。正文透明覆疊，不能用白底蓋掉原模板；
-封面、奇偶頁首及數學公式保持固定。檢查涵蓋數學符號、選填作答格式、
-答案表格溢出、異常留白與圖文位置，且兩份 PDF 都要逐頁看。
-工具通過不代表命題合格，仍需核對原創性、最短解法難度、圖像必要性與
-來源是否真正參與推理。未經同意，不能改交通用草稿；在草稿加註免責文字
-也不算同意。實作與限制見[網頁 PDF 製作規範](references/hosted-pdf-production.md)。
-
-### Claude.ai 網頁版
-
-建立 `Taiwan Exam` Project，把知識檔加入 `Project Knowledge`，並把這段存入 `Project Instructions`：
-
-```text
-本 Project 一律採用 Knowledge 中的 Taiwan Exam Skill 規則出題。
-不要另寫通用命題器；完整考卷須分開交付題目 PDF 與答案詳解 PDF，
-並完成內容、答案與逐頁版面檢查。能力不足時請明確回報，不得以聊天文字冒充 PDF。
-```
-
-以後進入同一個 Project，只要說：
-
-```text
-請依 Taiwan Exam Skill 出一份 116 學測英文完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
-```
-
-Claude 的原生 Skill ZIP 上傳要等本專案重新開放安全 ZIP；目前不要使用舊包。
-
-### Gemini 網頁版
-
-到 `Gems > New Gem`，名稱填 `Taiwan Exam`，把知識檔加入 `Knowledge`，並把這段放入 Instructions：
-
-```text
-採用 Knowledge 中的 Taiwan Exam Skill 全部規則；不要另寫通用命題器。
-完整考卷須分開交付題目 PDF 與答案詳解 PDF，並完成可用的內容與逐頁檢查。
-```
-
-以後從 `My Gems` 選取 `Taiwan Exam`，再說：
-
-```text
-請出一份 116 學測自然完整模擬考，依 Skill 交付題目 PDF 與答案詳解 PDF。
-```
-
-## CLI 版：Codex、Claude Code、Gemini CLI
-
-Windows、macOS、Linux 使用同一份 Skill。以下第一個區塊是在對應 AI 的互動視窗中輸入；只有 Gemini 的安裝指令是在一般終端機執行。
-
-### Codex CLI
-
-第一次在 Codex 輸入：
-
-```text
-$skill-installer
-請從 https://github.com/niansia/taiwan-exam 安裝 taiwan-exam-generator 為使用者層級 Skill。
-先讀 INSTALL.md，完成完整性檢查；不要使用舊 ZIP，也不要覆寫我的私人考試資料。
-```
-
-安裝後可用 `/skills` 確認；以後輸入：
-
-```text
-$taiwan-exam-generator
-請出一份 116 學測數學 B 完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
-```
-
-### Claude Code CLI
-
-第一次啟動 Claude Code 後貼上：
-
-```text
-請從 https://github.com/niansia/taiwan-exam 取得完整原始碼，先讀 INSTALL.md，
-再把 taiwan-exam-generator 安裝到我的使用者層級 Skills 並驗證。不要使用舊 ZIP，
-若已安裝就沿用，不要覆寫私人 exam_packs 或自訂模板。
-```
-
-以後可輸入 `/taiwan-exam-generator` 或從 `/` 選單選取技能，再接著說：
-
-```text
-請出一份 116 學測社會完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
-```
-
-### Gemini CLI
-
-第一次在一般終端機執行：
-
-```sh
-gemini skills install https://github.com/niansia/taiwan-exam
-```
-
-進入 Gemini CLI 後用 `/skills list` 確認，需要重新掃描時用 `/skills reload`。以後直接說：
-
-```text
-請使用 taiwan-exam-generator，出一份 116 學測英文完整模擬考，
-分開交付題目 PDF 與答案詳解 PDF，並完成逐頁檢查。
-```
-
-## 桌面版：Codex 與 Claude Code Desktop
-
-### Codex 桌面版
-
-不用開終端機。第一次在聊天框貼上：
-
-```text
-請使用 $skill-installer，從 https://github.com/niansia/taiwan-exam
-安裝 taiwan-exam-generator 為我的使用者層級 Skill。先讀 INSTALL.md 並完成驗證；
-不要使用舊 ZIP，也不要覆寫我的私人考試資料。
-```
-
-以後輸入 `$` 選取 `taiwan-exam-generator`，或直接貼上：
-
-```text
-$taiwan-exam-generator
-請出一份 116 學測國綜完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
-```
-
-### Claude Code Desktop
-
-在桌面版開啟一個本機資料夾，第一次貼上與 Claude Code CLI 相同的安裝文字。安裝後輸入 `/`，從技能清單選取 `taiwan-exam-generator`，再描述考卷需求。一般 ChatGPT／Claude 桌面聊天若沒有本機代理或技能安裝能力，請照上面的「網頁版」做法使用 Project／Skill；不要把兩者混為一談。
-
-各平台的安裝範圍、手動備援與驗證方式見 [INSTALL.md](INSTALL.md)。帳號若未開放檔案建立、程式執行或逐頁 PDF 檢查，AI 必須明確說明缺少的能力，不能用聊天文字冒充兩份已驗收 PDF。
-
-## 平台支援
-
-| 平台 | 支援方式 | 能力範圍 |
-| --- | --- | --- |
-| OpenAI Codex 桌面版／CLI／IDE | 請代理使用內建 Skill Installer 從本儲存庫安裝使用者技能 | 完整：可讀參考資料、執行驗證、排版及檢查 PDF，仍取決於本機工具與授權 |
-| Claude Code | 安裝至個人 `skills` 目錄，或在單一專案使用專案技能 | 完整：可執行本機工作流程；安裝位置依 Claude Code 的使用者／專案範圍決定 |
-| Gemini CLI | 從 Git 儲存庫安裝 Agent Skill；也可連結本機副本 | 完整：可執行本機工作流程；首次安裝與啟用會依 Gemini CLI 要求確認 |
-| ChatGPT 網頁版 | 對話模式能選到 `@skill-creator` 就可建立；找不到時改用工作模式，或放入有固定指示的 Project | 可持續在該 Skill／Project 使用；完整 PDF 建議在工作模式執行，最終仍取決於帳號工具 |
-| Claude.ai | 把 Web Knowledge 加入 Project Knowledge 並設定 Project Instructions；安全 ZIP 恢復後才使用原生 Skill 上傳 | 可持續在該 Project 的各聊天使用；PDF 需要 Code execution/file creation |
-| Gemini 網頁版 | 建立 `Taiwan Exam` Gem，加入同版 Web Knowledge Markdown | 可持續在該 Gem 使用；完整 PDF 驗收取決於帳號提供的檔案建立與檢查工具 |
-
-本專案採通用 `SKILL.md` 結構；網頁版單一知識檔由相同規則自動彙整，不是另一套命題規則。三家產品的帳號權限與工具能力仍可能不同。網頁聊天中的一次普通附件上傳，不等於跨對話安裝。
-
-官方平台文件：[ChatGPT Skills](https://learn.chatgpt.com/docs/build-skills)、[Claude.ai Skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude)、[Gemini Gems](https://support.google.com/gemini/answer/15146780)、[Claude Code Skills](https://code.claude.com/docs/en/skills)、[Gemini CLI Agent Skills](https://geminicli.com/docs/cli/using-agent-skills/)。介面可能更新，實際帳號顯示為準。
-
-### 作業系統
-
-| 系統 | 使用者層級技能位置（手動備援） |
+| 使用環境 | 開始方式 |
 | --- | --- |
-| Windows | Codex：`%USERPROFILE%\.codex\skills\taiwan-exam-generator`；Claude Code：`%USERPROFILE%\.claude\skills\taiwan-exam-generator` |
-| macOS／Linux | Codex：`~/.codex/skills/taiwan-exam-generator`；Claude Code：`~/.claude/skills/taiwan-exam-generator` |
-| Gemini CLI | 優先使用 `gemini skills install https://github.com/niansia/taiwan-exam`，由 CLI 管理使用者層級位置 |
+| ChatGPT、Claude.ai、Gemini 網頁版 | 下載知識檔，加入可保存指示的 Skill／Project／Gem。 |
+| Codex、Claude Code、Gemini CLI | 請代理從本儲存庫安裝完整 Skill。 |
+| Codex、Claude Code 桌面版 | 在聊天框提出相同安裝要求，完成後從技能選單叫用。 |
 
-一般使用者不必自行搬資料夾。只有平台的自動安裝不可用時，才參考 [INSTALL.md](INSTALL.md) 的手動備援；遇到權限或防毒警告應停止並回報，不要解除保護。
+[各平台的複製貼上範例](docs/usage-guide.md) · [安裝、更新與手動備援](INSTALL.md)
 
-## 能做什麼
+### 網頁版
 
-- 依現行學測／會考範圍，分科建立完整考卷或指定題型練習。
-- 以 111～115 學測正式卷型為現行學測的主要結構依據，區分國綜／國寫、數 A／數 B，不混用舊制數學。
-- 控制題型、配分、難度、知識分布、單選答案位置、素養材料、圖表與黑白列印可讀性。
-- 要求每題有新的證據與推理架構；換人名、換數字、換圖片或套固定題幹不算創新。
-- 產生學生卷、答案詳解與驗證摘要；完整卷必須通過內容與逐頁版面檢查。
-- 以 115 學測樣貌的空白頁面資產作為排版起點，年份、測驗名稱與頁數可由當次需求填入。
+1. [下載知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，加入平台可保存的 Skill／Project／Gem。
+2. 儲存指示：「採用 Taiwan Exam 全部規則；完整考卷分開交付題目與詳解 PDF，完成解題及逐頁版面檢查。」
+3. 在同一個 Skill／Project／Gem 中提出出卷需求。
 
-各科的硬性規則都在 [SKILL.md](SKILL.md) 與 `references/`。例如自然第 1～36 題的單／多選結構、四科九題連續區塊，社會史地公民平衡，英文 7,000 字詞範圍內提高誘答競爭，及國綜／國寫的選文與字數要求，都不是通用模板自行猜測。
+**目前知識檔版本：2026.09.13.7。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
 
-## 完整考卷的品質門檻
+若 AI 無法下載固定模板，可把[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates) 附到出卷對話；只需取用當科附件，不必每次下載全部模板。
 
-完成一份卷不是只產生 PDF。代理必須依序完成：
+### 本機版
 
-1. 核對該科官方考試說明、題數、題型、配分、作答方式與卷面。
-2. 建立整卷藍圖，檢查課綱核心、章節／學科比例、難度曲線與作答時間。
-3. 為每題設計新的材料關係、解題路徑與有效誘答；禁止由舊題表面改寫。
-4. 獨立解題並核對答案、配分、詳解與多選規則。
-5. 套用科目版型，逐頁檢查字形、公式、圖表、題號、頁首、留白、裁切與黑白輸出。
-6. 執行同一套發布驗證；任何必要項目失敗，就回報缺口而不是把校樣改名成正式版。
-
-「軟體測試通過」只代表工具按預期工作，不代表某份考卷的內容已通過，也不等於學生實測難度證據。
-
-## 歷屆試卷與模考來源如何取得？
-
-一般 Git clone 保持輕量，不把約 3.4 GB 的 PDF 直接寫進 Git 歷史；GitHub
-也會封鎖超過 100 MiB 的一般 Git 檔案。完整來源沒有被當成可有可無：
-它們依科目放在 GitHub 的
-[`source-corpus-2026.09.11` 資料 Release](https://github.com/niansia/taiwan-exam/releases/tag/source-corpus-2026.09.11)，並由
-Skill 自動下載、逐檔驗證後放回 Exam Pack。第一次製作某科完整卷時，
-本機代理應自行執行，例如：
+在代理聊天框貼上：
 
 ```text
-python scripts/bootstrap_exam_sources.py --subject 社會
+請從 https://github.com/niansia/taiwan-exam 安裝 taiwan-exam-generator。
+先讀 INSTALL.md，完成驗證；若已有安裝，請保留私人考試資料與自訂模板。
 ```
 
-一般使用者不必自己操作終端機；直接要求 AI「準備社會來源資料並出卷」
-即可。下載採科目分包，不需要為一科考卷先抓完整 3.4 GB。來源包的
-資產、檔案路徑、大小與 SHA-256 都記錄於
-[`source-pack-manifest.json`](exam_packs/學測/source-pack-manifest.json)。
+也提供 [v0.7.1 安裝 ZIP](https://github.com/niansia/taiwan-exam/releases/download/v0.7.1/taiwan-exam-generator-v0.7.1.zip)（4.34 MB；[發行與掃描紀錄](https://github.com/niansia/taiwan-exam/releases/tag/v0.7.1)）。**此 ZIP 未包含後續修正；最新功能請使用 main 原始碼或新版網頁知識檔。**
 
-官方正式卷也可由 `scripts/download_ceec_gsat.py` 從[大考中心](https://www.ceec.edu.tw/)
-重新取得。使用者另外提供的私人資料不會因此自動進入公開資料包。
-
-各科預留資料夾如下：
+## 出卷範例
 
 ```text
-exam_packs/<考試>/subjects/<科目>/
-├─ 歷屆試題/
-├─ 模擬考/
-├─ format-references/
-├─ answer-profiles/
-└─ 命題範圍/
+請依 Taiwan Exam Skill 出一份 116 學測數 A 完整模擬考。
+請分開交付題目 PDF 與答案詳解 PDF，完成命題、解題驗證與逐頁版面檢查。
 ```
 
-資料匯入不等於完成校準；實際來源必須可讀、雜湊相符並通過 Exam Pack
-稽核，才能使用 `verified` 的正式卷面主張。`放資料到這裡.md` 只是保留
-空目錄的提示檔，不是 PDF 或校準證據的替代品。
+替換年份與科目即可；只想出幾題時，請註明「自訂練習」。完整卷應依該科規格處理題型、配分、難度、原創性及固定版面。
 
-## 交付內容
+## 七科版型與品質
 
-完整卷通過後，通常包含：
+- **各科一組題本＋詳解，共 14 份示範 PDF**，涵蓋段落、選項、選填、圖表、混合題與評分格式。
+- 範例僅含占位內容，供排版參考；不能照抄題目、題號、配分或留白。出卷只載入當科版型。
+- 正式交付須完成解題、難度與最終 PDF 檢查；軟體測試通過不代表考卷驗收通過。
 
-- 學生版試卷 PDF
-- 分開的答案與完整詳解 PDF
-- 結構化考卷資料與驗證摘要
+平台須具備檔案建立與 PDF 檢查能力。流程會保存進度、重用已驗證資源，但不能保證在單輪時限內完成；中斷後請接續同一份工作。
 
-若環境無法完成 PDF 產生或逐頁檢查，代理可以在你同意後提供 HTML／文字校樣，但不得把它宣稱為已驗收正式 PDF。
+[七科版型下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html) · [最新修正與難度設定](docs/web-updates.md)
 
-## 維護者與進階使用者
+## 進一步閱讀
 
-基本環境為 Python 3.10+。PDF 讀取與排版依賴列在 `requirements.txt`；舊式 Excel 統計匯入才需要 `requirements-statistics.txt`。Chrome／Chromium／Edge、繁體中文字型與其他排版工具只在相關工作需要時準備。
-Linux 的 HTML 轉 PDF 環境需安裝繁體中文字型；Debian／Ubuntu 使用 `fonts-noto-cjk`，排版器已加入 `Noto Serif CJK TC`。驗證時同時檢查畫面與擷取文字，避免字型替代造成漏字。
+| 文件 | 內容 |
+| --- | --- |
+| [SKILL.md](SKILL.md) | 命題與交付規則入口 |
+| [各平台使用指引](docs/usage-guide.md) | 網頁、CLI、桌面版的操作範例 |
+| [網頁版更新紀錄](docs/web-updates.md) | 固定模板、排版、複核與效率修正 |
+| [來源資料與維護](docs/sources-and-maintenance.md) | 歷屆資料取得、執行環境、測試與發布 |
+| [正文排版元件](references/hosted-body-workflow.md) | 各科可重用版型與審閱流程 |
 
-```sh
-python -m pip install -r requirements.txt
-python -m pip install pytest
-python -m pytest -q
-python scripts/validate_attribution.py .
-```
+## 授權
 
-正式封裝必須通過 [SOFTWARE_RELEASE_STATUS.json](SOFTWARE_RELEASE_STATUS.json) 與[軟體發布安全流程](references/software-release-security.md)；不得自行改名、換網址或沿用舊掃描紀錄。原始碼發布與預先封裝安裝檔是兩個不同的發布面。
+本專案不是大考中心、心測中心、OpenAI、Anthropic 或 Google 的官方產品。
 
-## 授權與非官方聲明
-
-本專案不是大考中心、心測中心、OpenAI、Anthropic 或 Google 的官方產品，也不代表其背書。
-
-自有程式與文件採 [MIT License](LICENSE)，著作權與來源見 [NOTICE](NOTICE)、[ORIGIN.json](ORIGIN.json) 及[改作說明](references/attribution-and-forks.md)。MIT 不替第三方試卷、文章、圖片、資料或字型授權。
+自有程式與文件採 [MIT License](LICENSE)；著作權、來源與改作要求見 [NOTICE](NOTICE)、[ORIGIN.json](ORIGIN.json) 及[改作說明](references/attribution-and-forks.md)。MIT 不替第三方試卷、文章、圖片、資料或字型授權。

@@ -1,6 +1,6 @@
 # Taiwan Exam 一次安裝指引
 
-這份文件主要給 AI 代理讀。目標是讓使用者只需貼一次儲存庫網址，之後直接用自然語言出題；不要把終端機操作轉嫁給不會寫程式的使用者。給一般使用者複製的「網頁版／CLI 版／桌面版」逐平台文字集中放在 [README](README.md#三種使用方式)，本文件只維護安裝、驗證與安全備援細節。
+這份文件主要給 AI 代理讀。目標是讓使用者只需貼一次儲存庫網址，之後直接用自然語言出題；不要把終端機操作轉嫁給不會寫程式的使用者。給一般使用者複製的「網頁版／CLI 版／桌面版」逐平台文字集中放在 [各平台使用指引](docs/usage-guide.md)，本文件只維護安裝、驗證與安全備援細節。
 
 ## 目前可安裝的內容
 
@@ -19,7 +19,8 @@ https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-k
 
 給一般使用者時優先提供一鍵下載頁；它會把原始文字存成
 `taiwan-exam-web-knowledge.md`，不要求使用者操作 GitHub 的 Raw／Download 按鈕。
-可執行 Skill ZIP 仍暫停；純 PDF／圖片的學測來源資料包是另一個發布面，
+v0.7.1 安裝 ZIP 已發布，但不含後續修正；最新功能使用 main 原始碼或新版知識檔。
+純 PDF／圖片的學測來源資料包是另一個發布面，
 放在 `source-corpus-2026.09.11` GitHub Release，並由
 `exam_packs/學測/source-pack-manifest.json` 驗證。不可把兩者混稱為同一個
 ZIP 安全結論。網頁知識檔是純文字、由本儲存庫的正式 Skill 規則機械
