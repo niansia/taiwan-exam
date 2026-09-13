@@ -1,0 +1,59 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "國寫",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "國寫題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "非選擇題（共二大題，占50分）",
+      "directions": "第一大題於答題卷正面作答；第二大題於背面作答。此檔僅呈現材料及任務版型，不是正式命題。"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-writing-one",
+      "heading": "一、",
+      "paragraphs": [
+        "〔本次經來源選擇與改編的材料甲〕",
+        "〔本次材料乙／必要資料；不提供可照用的議題或論證架構〕"
+      ]
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-writing-one-a",
+      "number": 1,
+      "text": "〔依本次材料設計的閱讀統整要求，80字以內〕",
+      "score": 4,
+      "label": "（一）"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-writing-one-b",
+      "number": 1,
+      "text": "〔依本次材料設計的延伸判斷與表述要求，400字以內〕",
+      "score": 21,
+      "label": "（二）"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-writing-two",
+      "heading": "二、",
+      "paragraphs": [
+        "〔本次重新選取的文學／感受性材料；不可沿用示範作為文章、意象或題目〕"
+      ]
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-writing-two",
+      "number": 2,
+      "text": "〔本次寫作任務、命題方式與作答要求〕。請於指定答題卷作答。",
+      "score": 25,
+      "label": ""
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "國綜",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "國綜詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-chinese-choice",
+      "number": 1,
+      "text": "〔正確選項與文本依據〕",
+      "steps": [
+        "〔語境、用語或篇章證據〕",
+        "〔各錯誤選項的具體誤讀〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-chinese-cross",
+      "number": 2,
+      "text": "〔跨文本答案〕",
+      "steps": [
+        "〔甲、乙的對應證據與推論〕",
+        "〔比較條件及錯誤選項排除〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-chinese-short",
+      "number": 3,
+      "text": "〔40字以內的學生滿分示例位置〕",
+      "steps": [
+        "〔教師詳解，與學生短答分開〕",
+        "〔實際得分要點及部分給分〕"
+      ]
+    },
+    {
+      "kind": "table",
+      "id": "layout-chinese-rubric",
+      "text": "短答評分表位置",
+      "headers": [
+        "要點",
+        "分數",
+        "可接受表述"
+      ],
+      "rows": [
+        [
+          "〔要點一〕",
+          "〔配分〕",
+          "〔等值表述〕"
+        ],
+        [
+          "〔要點二〕",
+          "〔配分〕",
+          "〔等值表述〕"
+        ]
+      ]
+    }
+  ]
+}

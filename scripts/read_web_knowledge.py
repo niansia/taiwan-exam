@@ -24,12 +24,17 @@ SUBJECT_REFERENCES = {
              "gsat-writing-source-ecology.md"},
 }
 SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
+LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',
+                '自然':'science','社會':'social','國寫':'writing'}
 
 
 def relevant(path: str, subject: str) -> bool:
     """Initial read route, not a claim that every transitive dependency is loaded."""
     if subject not in SUBJECT_REFERENCES:
         raise ValueError(f"Unknown GSAT subject: {subject}")
+    if any(path == f'templates/hosted-{slug}-{role}.json'
+           for slug in LAYOUT_SLUGS.values() for role in ('questions','solutions')):
+        return path in {f'templates/hosted-{LAYOUT_SLUGS[subject]}-{role}.json' for role in ('questions','solutions')}
     if path.startswith("references/"):
         return Path(path).name not in SUBJECT_ONLY or Path(path).name in SUBJECT_REFERENCES[subject]
     if path.startswith("exam_packs/"):

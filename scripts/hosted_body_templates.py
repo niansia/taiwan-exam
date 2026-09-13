@@ -17,7 +17,7 @@ from hosted_item_layout import draw_rail
 
 HTML_OPTIONS = {'_scale_word_width':False} if '_scale_word_width' in inspect.signature(pymupdf.Page.insert_htmlbox).parameters else {}
 
-KINDS = ('section', 'choice', 'multiple', 'fill', 'constructed', 'stimulus', 'solution')
+KINDS = ('section', 'choice', 'multiple', 'fill', 'constructed', 'stimulus', 'solution', 'passage', 'table')
 CSS = '''
 @font-face {font-family:Body;src:url(body-font.ttf)}
 * {box-sizing:border-box} body {font-family:Body;font-size:11pt;line-height:1.65;margin:0;color:#000;background:transparent}
@@ -26,6 +26,8 @@ p {margin:0 0 5pt} table {border-collapse:collapse;width:100%;margin:0} td {padd
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
 sup,sub {font-size:70%} .options {margin-top:3pt}
+.passage {font-family:Reading,Body} .english {font-family:Latin,Body}
+.data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 '''
 
 
@@ -94,6 +96,31 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
     if kind not in KINDS: raise ValueError('Unknown body block kind')
     if kind=='section':
         return f'<div class="heading">{text(block["title"])}</div><div class="direction">{text(block["directions"])}</div>'
+    if kind=='passage':
+        paragraphs=block.get('paragraphs',[])
+        if not paragraphs:raise ValueError('Passage needs actual paragraphs')
+        content=''.join('<p>'+text(p)+'</p>' for p in paragraphs)
+        content=re.sub(r'\{\{gap:(\d{1,2})\}\}',r'<u>　\1　</u>',content)
+        if '{{gap:' in content:raise ValueError('Invalid passage gap number')
+        cls='english' if block.get('language')=='en' else 'passage'
+        heading=f'<div class="heading">{text(block["heading"])}</div>' if block.get('heading') else ''
+        bank=block.get('bank',[])
+        if bank:
+            columns=block.get('columns',2)
+            if columns not in (1,2,5):raise ValueError('Unsupported option-bank columns')
+            if columns==1:
+                content+=''.join('<p>'+text(o['label'])+' '+text(o['text'])+'</p>' for o in bank)
+            else:
+                cells=[f'<td style="width:{100/columns}%">{text(o["label"])} {text(o["text"])}</td>' for o in bank]
+                content+='<table>'+''.join('<tr>'+''.join(cells[i:i+columns])+'</tr>' for i in range(0,len(cells),columns))+'</table>'
+        return heading+f'<div class="{cls}">{content}</div>'
+    if kind=='table':
+        headers=block.get('headers',[]);rows=block.get('rows',[])
+        if not headers or not rows or any(len(r)!=len(headers) for r in rows):
+            raise ValueError('Table rows must match nonempty headers')
+        content='<tr>'+''.join('<th>'+text(c)+'</th>' for c in headers)+'</tr>'
+        content+=''.join('<tr>'+''.join('<td>'+text(c)+'</td>' for c in r)+'</tr>' for r in rows)
+        return '<p>'+text(block.get('text',''))+'</p><table class="data">'+content+'</table>'
     if kind!='stimulus' and (type(block.get('number')) is not int or block['number']<1):
         raise ValueError('Supply a positive integer question number')
     stem=text(block.get('text',''))
@@ -123,14 +150,14 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
         if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
         raw=path.read_bytes()
         if hashlib.sha256(raw).hexdigest()!=asset['sha256']:raise ValueError('Changed body asset')
-        width=asset['width_pt']
-        if type(width) not in (int,float) or not 1<=width<=460:raise ValueError('Invalid asset width')
+        asset_width=asset['width_pt']
+        if type(asset_width) not in (int,float) or not 1<=asset_width<=460:raise ValueError('Invalid asset width')
         with pymupdf.open(stream=raw) as image_doc:
             rect=image_doc[0].rect
-        height=width*rect.height/rect.width
+        height=asset_width*rect.height/rect.width
         name=f'asset-{index}-{len(images)}'+path.suffix
         archive.add((raw,name))
-        images[key]=f'<img src="{name}" width="{width}" height="{height}">'
+        images[key]=f'<img src="{name}" width="{asset_width}" height="{height}">'
         image_heights[key]=height
         stem=stem.replace('{{asset:'+key+'}}',images[key])
     if '{{asset:' in stem:raise ValueError('Missing inline asset')
@@ -153,13 +180,13 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
     if kind=='constructed':
         if type(block.get('score')) not in (int,float) or block['score']<=0:raise ValueError('Constructed response must show its actual positive score')
         stem+=f'（{block["score"]}分）'
-    label=(f'第{block["number"]}題' if kind=='solution' else str(block.get('number',''))+'.')
+    label=text(block['label']) if 'label' in block else (f'第{block["number"]}題' if kind=='solution' else str(block.get('number',''))+'.')
     if kind=='solution':return f'<div class="heading">{label}</div>'+stem
     if kind=='fill' or figure:return stem
     return stem if kind=='stimulus' else f'<table><tr><td class="number">{label}</td><td>{stem}</td></tr></table>'
 
 
-def render(spec, output, layout_path, font, *, asset_root, proof=False):
+def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None):
     started=time.monotonic()
     if output.exists() or layout_path.exists():raise ValueError('Use new output names; preserve previous reviewable bytes')
     if spec.get('purpose')=='layout-reference-only' and not proof:raise ValueError('Placeholder gallery cannot become a production exam')
@@ -170,6 +197,11 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False):
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
+    archive.add((pymupdf.Font('tiro').buffer,'latin-font.ttf'))
+    css=CSS+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
+    if reading_font:
+        archive.add((reading_font.read_bytes(),'reading-font.ttf'))
+        css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
     blocks=spec['blocks']
     if not blocks:raise ValueError('No authored blocks')
     parts=[];pages=[]
@@ -180,9 +212,17 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False):
     with pymupdf.open() as measure:
         for index,content in enumerate(contents):
             sample=measure.new_page(width=595.28,height=841.89)
-            spare,scale=sample.insert_htmlbox(body,content,css=CSS,archive=archive,scale_low=1,**HTML_OPTIONS)
+            spare,scale=sample.insert_htmlbox(body,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
             if spare<0 or scale!=1:raise ValueError(f'Block {index} exceeds a page; explicitly split its continuation')
             native=sample.get_text('dict')['blocks']
+            for text_block in sample.get_text('rawdict')['blocks']:
+                for line in text_block.get('lines',[]):
+                    for span in line['spans']:
+                        for left,right in zip(span['chars'],span['chars'][1:]):
+                            if (all(0x4e00<=ord(c['c'])<=0x9fff for c in (left,right)) and
+                                abs(left['origin'][1]-right['origin'][1])<.1 and
+                                right['origin'][0]-left['origin'][0]<span['size']*.75):
+                                raise ValueError('Font collapses adjacent CJK glyph advances; use a verified compatible font')
             ink=[pymupdf.Rect(b['bbox']) for b in native]
             if any(not allowed.contains(rect) for rect in ink):
                 raise ValueError(f'Block {index}: actual painted content exceeds the body')
@@ -197,15 +237,17 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False):
         page=doc.new_page(width=595.28,height=841.89);y=body.y0
         for index,(block,content,used) in enumerate(zip(blocks,contents,heights)):
             required=used
-            if block['kind']=='section':
-                if index+1==len(blocks) or blocks[index+1]['kind']=='section':
-                    raise ValueError('A section must precede a content block')
-                required+=8+heights[index+1]
+            following=index
+            while blocks[following]['kind']=='section' or blocks[following].get('keep_with_next'):
+                gap=8 if blocks[following]['kind']=='section' else 12
+                following+=1
+                if following==len(blocks):raise ValueError('A kept heading or block must precede content')
+                required+=gap+heights[following]
             if required>body.height:raise ValueError('Section and following item exceed page; split the item explicitly')
             if y+required>body.y1:
                 page=doc.new_page(width=595.28,height=841.89);y=body.y0
             rect=pymupdf.Rect(body.x0,y,body.x1,body.y1)
-            spare,scale=page.insert_htmlbox(rect,content,css=CSS,archive=archive,scale_low=1,**HTML_OPTIONS)
+            spare,scale=page.insert_htmlbox(rect,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
             if spare<0 or scale!=1:raise ValueError(f'Block {index} does not fit at full font size')
             box=[allowed.x0,y+tops[index],allowed.x1,y+used]
             if block['kind']!='section':
@@ -230,7 +272,8 @@ if __name__=='__main__':
     p.add_argument('spec',type=Path)
     for name in ('output','layout','font'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--proof',action='store_true')
+    p.add_argument('--reading-font',type=Path)
     args=p.parse_args()
     result=render(json.loads(args.spec.read_text(encoding='utf-8')),args.output,args.layout,args.font,
-                  asset_root=args.spec.resolve().parent,proof=args.proof)
+                  asset_root=args.spec.resolve().parent,proof=args.proof,reading_font=args.reading_font)
     print(json.dumps({'body_pdf':str(args.output),'layout':str(args.layout),'elapsed_seconds':result['elapsed_seconds']}))

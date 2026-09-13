@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.13.6
+# Taiwan Exam Web Knowledge v2026.09.13.7
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -95,10 +95,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 [
   {
     "path": "SKILL.md",
-    "bytes": 78067,
-    "sha256": "ddbcacc88864a433a460cb907141d8d5dd6ab6b361f6bcb840672f0f5fae1b69",
-    "embedded_bytes": 78067,
-    "embedded_sha256": "ddbcacc88864a433a460cb907141d8d5dd6ab6b361f6bcb840672f0f5fae1b69"
+    "bytes": 78428,
+    "sha256": "0b1b9c4615a5dc6187c138a57d9144b1e90e2033e25653630a2872413ca91074",
+    "embedded_bytes": 78428,
+    "embedded_sha256": "0b1b9c4615a5dc6187c138a57d9144b1e90e2033e25653630a2872413ca91074"
   },
   {
     "path": "core/taxonomy.json",
@@ -599,10 +599,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/hosted-body-workflow.md",
-    "bytes": 6773,
-    "sha256": "e1b01616bcdd2c63ffb54d25adc74324956e042c59c5095d3cb3aa613ae3b874",
-    "embedded_bytes": 6773,
-    "embedded_sha256": "e1b01616bcdd2c63ffb54d25adc74324956e042c59c5095d3cb3aa613ae3b874"
+    "bytes": 9802,
+    "sha256": "ebe2162da55e79eaf701f903eb5a66053d8213897a96f98f63fd8cda5c311f54",
+    "embedded_bytes": 9802,
+    "embedded_sha256": "ebe2162da55e79eaf701f903eb5a66053d8213897a96f98f63fd8cda5c311f54"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -809,10 +809,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 14113,
-    "sha256": "8fbec1d4cab0d67acdb5f49b1e9ec935af83debef10ca5cda714a51a12fdf841",
-    "embedded_bytes": 14113,
-    "embedded_sha256": "8fbec1d4cab0d67acdb5f49b1e9ec935af83debef10ca5cda714a51a12fdf841"
+    "bytes": 17232,
+    "sha256": "20ed10d08b011e2e852552d8980e3c9813d85dac83de9d500eb48f1591929e23",
+    "embedded_bytes": 17232,
+    "embedded_sha256": "20ed10d08b011e2e852552d8980e3c9813d85dac83de9d500eb48f1591929e23"
   },
   {
     "path": "scripts/hosted_calibration.py",
@@ -858,10 +858,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 5431,
-    "sha256": "6af9c052b941e12f96dc8c1a715cbf02eb38070141fedf4471152e289e9b45dd",
-    "embedded_bytes": 5431,
-    "embedded_sha256": "6af9c052b941e12f96dc8c1a715cbf02eb38070141fedf4471152e289e9b45dd"
+    "bytes": 5859,
+    "sha256": "a2f79ec26d887e89257402f9fd9617a5bbba3c35f799550bda1c8a293e3ab751",
+    "embedded_bytes": 5859,
+    "embedded_sha256": "a2f79ec26d887e89257402f9fd9617a5bbba3c35f799550bda1c8a293e3ab751"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -911,6 +911,111 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
     "embedded_bytes": 409,
     "embedded_sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143"
+  },
+  {
+    "path": "templates/hosted-chinese-questions.json",
+    "bytes": 3305,
+    "sha256": "6809319d9c4aa231bed9498a42a240e6a2d362b12b7a2e557e84ed1b43ce9bd1",
+    "embedded_bytes": 3192,
+    "embedded_sha256": "7dac090a392bf03b67ffe1c582d21dbcedcdb006bdd4c67c47e81011c3ed4bd1"
+  },
+  {
+    "path": "templates/hosted-chinese-solutions.json",
+    "bytes": 1841,
+    "sha256": "4d9fca1b33a13f9cc548b485a2644961f489ae880443c37831b57ee6ea7e728d",
+    "embedded_bytes": 1776,
+    "embedded_sha256": "2159525472ffd9476b36e862f0855372d219352365c39a6d2386d46804f77241"
+  },
+  {
+    "path": "templates/hosted-english-questions.json",
+    "bytes": 7677,
+    "sha256": "472008a47cc82908885d05450380c75178a1a93c66ffbc03cdc043626de15d28",
+    "embedded_bytes": 7407,
+    "embedded_sha256": "6f3d2f6e267d6b1d69b88358d9a5e2ef63168ab54f98b3da89cf32311c80179a"
+  },
+  {
+    "path": "templates/hosted-english-solutions.json",
+    "bytes": 2019,
+    "sha256": "0d2eace712be8c248b47b14950e80f6f4747b05b10a7c534ba142acfcb5ac1ba",
+    "embedded_bytes": 1957,
+    "embedded_sha256": "097380948ceb024334770e3b5799677ab84d84e8a30bd91a58abddb3eb8ce520"
+  },
+  {
+    "path": "templates/hosted-math-a-questions.json",
+    "bytes": 3734,
+    "sha256": "45d58761dc327e2bd4b0f92ce3521b8609a59e1bfa76c6122ed571a24c7d8b1a",
+    "embedded_bytes": 3605,
+    "embedded_sha256": "c8d952001d49e8304eb15d5a8cf3344e257763af2335923369330367f78ac05f"
+  },
+  {
+    "path": "templates/hosted-math-a-solutions.json",
+    "bytes": 1641,
+    "sha256": "26c68eaeaed957a35c7488bb93d1f2c27e05afb8b9007cea72a5c204029e470e",
+    "embedded_bytes": 1590,
+    "embedded_sha256": "3a816e1a49a35994c51c357499a6d06ee33b09fcf35bf280c7a76913cae90e08"
+  },
+  {
+    "path": "templates/hosted-math-b-questions.json",
+    "bytes": 3775,
+    "sha256": "3cf415e194bafffb85a7a956ca58179b2b07f6a05f03e95c62db5b4f554bace2",
+    "embedded_bytes": 3638,
+    "embedded_sha256": "95922983332f2eba2f8ed5aa22427b866e6302bc6c91ae19b1cb75f8334182fe"
+  },
+  {
+    "path": "templates/hosted-math-b-solutions.json",
+    "bytes": 1641,
+    "sha256": "b71c86dd4f057016bbd763b28c25d5e7bbe4d5d0d32c28d8b7c26ab2740023bf",
+    "embedded_bytes": 1590,
+    "embedded_sha256": "42f8c4d2eaa3bcbbec1678af12c7f93861def10a152eca2c04d11ee01117b9cf"
+  },
+  {
+    "path": "templates/hosted-science-questions.json",
+    "bytes": 3642,
+    "sha256": "7c8e1852193b97442bf06c3e2eea8acb86a946e6795f09f397990745f7914207",
+    "embedded_bytes": 3519,
+    "embedded_sha256": "7edee4cade192cafc796fd07e478cabee7ce593aac1db377822c6c8fce1ff7a1"
+  },
+  {
+    "path": "templates/hosted-science-solutions.json",
+    "bytes": 1326,
+    "sha256": "c9ca50695ce1f35cfc73ba1d398ef990e5c648eafaf173a5af0d3efd614c1442",
+    "embedded_bytes": 1285,
+    "embedded_sha256": "935c46a2de4c957ec825ec0813200f3ceda39df5c4be371419c22f751bb29efc"
+  },
+  {
+    "path": "templates/hosted-social-questions.json",
+    "bytes": 3061,
+    "sha256": "6ffea99c2fac17d3a5272fb061ca9a3f188c8b01832ee97db9cd2474f2f901b3",
+    "embedded_bytes": 2961,
+    "embedded_sha256": "de6497c287ba6ca98d5470db72ef38a15573d262dc58a4d23d4e354c97dd3f3a"
+  },
+  {
+    "path": "templates/hosted-social-solutions.json",
+    "bytes": 1146,
+    "sha256": "c1ac321acdbcb4d435faeb3a1706ad4f67abd056dc0c00960088c4f9e6c31509",
+    "embedded_bytes": 1113,
+    "embedded_sha256": "42d041d96391f02c25384e4a152ac64009c1b508e551814ae5745c0b0a32b7d0"
+  },
+  {
+    "path": "templates/hosted-subject-layouts.json",
+    "bytes": 1441,
+    "sha256": "cba17ae65f57ed457074606a73765c75eaf3c15fa4504f0bc8f6fa6ac944b5e6",
+    "embedded_bytes": 1393,
+    "embedded_sha256": "1cf3298fb06e1818aaee3a947384f613133f0b7c5fc2dad12afea08861747666"
+  },
+  {
+    "path": "templates/hosted-writing-questions.json",
+    "bytes": 2051,
+    "sha256": "e352c0e22d3704b4b1816b49cf36f0955990437dfb31a27137dfb4372aa69685",
+    "embedded_bytes": 1992,
+    "embedded_sha256": "e2596122164420d1d7543d0f8c1e6d9d232fe07c29468cb5cf96b48594487740"
+  },
+  {
+    "path": "templates/hosted-writing-solutions.json",
+    "bytes": 1830,
+    "sha256": "2b1e1abaac759ce974ee1073a6951ce83d0463fd958cbcc98b78ae57743408aa",
+    "embedded_bytes": 1773,
+    "embedded_sha256": "6806151246149dfec2845909a6984870fcea5d00fb37a47db9ef82d6efeeba53"
   },
   {
     "path": "templates/inspiration-source-record.json",
@@ -999,6 +1104,8 @@ Complete-paper tests must use the same content and subject-layout checks as ordi
 When the user requests fast or timed generation, also read [references/fast-full-paper-workflow.md](references/fast-full-paper-workflow.md). Treat an under-20-minute paper as a measured warm-run performance target, not as permission to skip candidate competition, independent solving, source/rights review, subject balance, rendering, or all-page inspection. Report the actual clock boundaries and cache state. If the target is missed, finish the valid paper and report the bottleneck honestly; never relabel a partial or unchecked artifact as a complete paper.
 
 For hosted body layout, use [references/hosted-body-workflow.md](references/hosted-body-workflow.md): reuse measured section/item components, never placeholder questions or diagram topology. Inspect the first authored batch early, reserve time for final QA, and prepare both booklets' page/item review together. Retain a prior actual visual review only for the same exam and exact unchanged rendered pixels; changed parts require new inspection. A body renderer never replaces the original fixed PDF layers.
+
+Use `templates/hosted-subject-layouts.json` to select the requested subject's own question/solution layout pair. Seven subject examples are available; load only that pair, never treat the common math-oriented gallery as every subject's paper. Preview PDFs are optional; their placeholders, partial item coverage and page density cannot be used as a full exam.
 
 In a complete local checkout, use subject renderers for body/internal proofs, compose formal booklets from the original fixed PDFs, and use the single `scripts/validate_exam_release.py` content/delivery gate. `scripts/validate_exam_pack_contract.py` is only its renderer handoff adapter, not a second validation policy. Set `metadata.run_contract` to the external run-contract.json path relative to exam.json; see the execution contract for the maintained evidence format. On a hosted web surface without the repository executable tree, follow the hosted-equivalent gate in `references/web-platform-use.md`; the absence of a local command is not a release blocker, but every observable content, answer, template and all-page inspection check remains required. A generic renderer cannot render a complete paper merely because metadata claims a verified layout. Renderer output is a **review proof**, not an accepted exam; PDF page inspection and final acceptance are separate. No helper script or export/marking test can self-certify educational quality.
 
@@ -56348,6 +56455,28 @@ subject's mapped frame. They do not establish subject structure or difficulty.
 
 ## Reuse layout, never questions
 
+Start with `templates/hosted-subject-layouts.json` and load ONLY the requested
+subject's `questions` and `solutions` JSON files. The default web extractor
+selects that pair and excludes the other six subjects' layout examples.
+
+| Subject | Distinct body examples |
+|---|---|
+| 國綜 | language knowledge, separately styled reading/cross-text stimulus, short-answer table, evidence and partial-credit explanations |
+| 英文 | vocabulary, inline cloze gaps, one ten-option completion bank, four discourse gaps/five options, reading, mixed response, translation and composition; separate explanatory/rubric formats |
+| 數學A | five-option single/multiple choice, integer/fraction rails, figure–text and constructed response, mathematical verification and scoring |
+| 數學B | its own single/multiple choice and rails, data/condition table and constructed response, interpretation and mathematical verification |
+| 自然 | five-option single/multiple choice, required-selection count, experimental/observational table and figure, mixed responses with scientific reasoning/units |
+| 社會 | history/geography/civics sources, four-option choice, map/image and comparison table, cross-source explanation and scoring |
+| 國寫 | common two-task heading, 一／二 materials, first-task 80-character/4-point and 400-character/21-point subparts, second-task 25-point prompt; separate examples and analytic scoring |
+
+The preview files illustrate these structures with placeholders, not full papers
+or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
+math rails to other subjects, reuse the English composition rubric for 國寫,
+or copy the preview's sparse page density and abbreviated passages.
+Downloadable previews are at
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html .
+They are optional visual references, never a new download/preflight requirement.
+
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
 Its text, numbers, option counts, scores and block order are placeholders, not
 an exam specification. The gray SVG is not a reusable question diagram.
@@ -56360,8 +56489,10 @@ for ordinary blocks: section heading plus boxed directions; choice/multiple
 options; integer/fraction fill rails; shared stimulus; constructed response with
 printed score; and solution steps. The subject profile still controls actual
 directions, labels, item/option counts, sequence, scores and response forms.
-English cloze/discourse and 國寫 grids require their specific measured layouts;
-do not substitute a choice block or math rail. A supported common block does
+English cloze/discourse use the subject's inline passage/bank components. 國寫
+and English composition prompts belong in the question booklet; separate
+student answer-sheet grids must not be inserted as a generic ruled workbook.
+A supported common block does
 not mean the gallery itself is a valid full paper for any subject.
 
 ```text
@@ -56372,6 +56503,21 @@ Run separately for authored solutions. The renderer outputs transparent body
 pages, NOT deliverable exam PDFs. Feed both bodies into compose_hosted_pdf.py
 with the actual subject, year and verified fixed assets. For viewing only the
 placeholder gallery, supply `--proof`; never use that flag for a production run.
+
+`passage` blocks contain `paragraphs`, an optional `heading`, `language: en`
+for Latin passage typography, and optional `bank`/`columns` for one shared option
+bank. `{{gap:11}}` produces a visibly underlined inline gap. A `table` block
+contains `headers` and rectangular `rows`, with optional introductory `text`.
+Use `keep_with_next: true` where a stimulus/table must stay with the next task;
+oversized groups need explicit continuation instead of clipping or shrinking.
+Use `label` for real subpart labels such as （一） rather than inventing extra
+Arabic-numbered items. Labels do not determine the scored-item contract.
+
+`--reading-font` can supply a separately verified reading-material font for
+國綜/國寫. Main body and reading roles must retain the selected subject's visual
+hierarchy. Some DFKai versions collapse Chinese advances in the HTML renderer;
+the helper rejects this pattern. Use a compatible tested font, not a smaller
+font or a claim that successful export proves text is readable.
 
 Text is plain Unicode; `{ "rich": "…<sup>…</sup>…" }` permits only simple inline
 typography, not arbitrary CSS. Complex math and new diagrams may be supplied as
@@ -60585,7 +60731,7 @@ from hosted_item_layout import draw_rail
 
 HTML_OPTIONS = {'_scale_word_width':False} if '_scale_word_width' in inspect.signature(pymupdf.Page.insert_htmlbox).parameters else {}
 
-KINDS = ('section', 'choice', 'multiple', 'fill', 'constructed', 'stimulus', 'solution')
+KINDS = ('section', 'choice', 'multiple', 'fill', 'constructed', 'stimulus', 'solution', 'passage', 'table')
 CSS = '''
 @font-face {font-family:Body;src:url(body-font.ttf)}
 * {box-sizing:border-box} body {font-family:Body;font-size:11pt;line-height:1.65;margin:0;color:#000;background:transparent}
@@ -60594,6 +60740,8 @@ p {margin:0 0 5pt} table {border-collapse:collapse;width:100%;margin:0} td {padd
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
 sup,sub {font-size:70%} .options {margin-top:3pt}
+.passage {font-family:Reading,Body} .english {font-family:Latin,Body}
+.data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 '''
 
 
@@ -60662,6 +60810,31 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
     if kind not in KINDS: raise ValueError('Unknown body block kind')
     if kind=='section':
         return f'<div class="heading">{text(block["title"])}</div><div class="direction">{text(block["directions"])}</div>'
+    if kind=='passage':
+        paragraphs=block.get('paragraphs',[])
+        if not paragraphs:raise ValueError('Passage needs actual paragraphs')
+        content=''.join('<p>'+text(p)+'</p>' for p in paragraphs)
+        content=re.sub(r'\{\{gap:(\d{1,2})\}\}',r'<u>　\1　</u>',content)
+        if '{{gap:' in content:raise ValueError('Invalid passage gap number')
+        cls='english' if block.get('language')=='en' else 'passage'
+        heading=f'<div class="heading">{text(block["heading"])}</div>' if block.get('heading') else ''
+        bank=block.get('bank',[])
+        if bank:
+            columns=block.get('columns',2)
+            if columns not in (1,2,5):raise ValueError('Unsupported option-bank columns')
+            if columns==1:
+                content+=''.join('<p>'+text(o['label'])+' '+text(o['text'])+'</p>' for o in bank)
+            else:
+                cells=[f'<td style="width:{100/columns}%">{text(o["label"])} {text(o["text"])}</td>' for o in bank]
+                content+='<table>'+''.join('<tr>'+''.join(cells[i:i+columns])+'</tr>' for i in range(0,len(cells),columns))+'</table>'
+        return heading+f'<div class="{cls}">{content}</div>'
+    if kind=='table':
+        headers=block.get('headers',[]);rows=block.get('rows',[])
+        if not headers or not rows or any(len(r)!=len(headers) for r in rows):
+            raise ValueError('Table rows must match nonempty headers')
+        content='<tr>'+''.join('<th>'+text(c)+'</th>' for c in headers)+'</tr>'
+        content+=''.join('<tr>'+''.join('<td>'+text(c)+'</td>' for c in r)+'</tr>' for r in rows)
+        return '<p>'+text(block.get('text',''))+'</p><table class="data">'+content+'</table>'
     if kind!='stimulus' and (type(block.get('number')) is not int or block['number']<1):
         raise ValueError('Supply a positive integer question number')
     stem=text(block.get('text',''))
@@ -60691,14 +60864,14 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
         if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
         raw=path.read_bytes()
         if hashlib.sha256(raw).hexdigest()!=asset['sha256']:raise ValueError('Changed body asset')
-        width=asset['width_pt']
-        if type(width) not in (int,float) or not 1<=width<=460:raise ValueError('Invalid asset width')
+        asset_width=asset['width_pt']
+        if type(asset_width) not in (int,float) or not 1<=asset_width<=460:raise ValueError('Invalid asset width')
         with pymupdf.open(stream=raw) as image_doc:
             rect=image_doc[0].rect
-        height=width*rect.height/rect.width
+        height=asset_width*rect.height/rect.width
         name=f'asset-{index}-{len(images)}'+path.suffix
         archive.add((raw,name))
-        images[key]=f'<img src="{name}" width="{width}" height="{height}">'
+        images[key]=f'<img src="{name}" width="{asset_width}" height="{height}">'
         image_heights[key]=height
         stem=stem.replace('{{asset:'+key+'}}',images[key])
     if '{{asset:' in stem:raise ValueError('Missing inline asset')
@@ -60721,13 +60894,13 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
     if kind=='constructed':
         if type(block.get('score')) not in (int,float) or block['score']<=0:raise ValueError('Constructed response must show its actual positive score')
         stem+=f'（{block["score"]}分）'
-    label=(f'第{block["number"]}題' if kind=='solution' else str(block.get('number',''))+'.')
+    label=text(block['label']) if 'label' in block else (f'第{block["number"]}題' if kind=='solution' else str(block.get('number',''))+'.')
     if kind=='solution':return f'<div class="heading">{label}</div>'+stem
     if kind=='fill' or figure:return stem
     return stem if kind=='stimulus' else f'<table><tr><td class="number">{label}</td><td>{stem}</td></tr></table>'
 
 
-def render(spec, output, layout_path, font, *, asset_root, proof=False):
+def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None):
     started=time.monotonic()
     if output.exists() or layout_path.exists():raise ValueError('Use new output names; preserve previous reviewable bytes')
     if spec.get('purpose')=='layout-reference-only' and not proof:raise ValueError('Placeholder gallery cannot become a production exam')
@@ -60738,6 +60911,11 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False):
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
+    archive.add((pymupdf.Font('tiro').buffer,'latin-font.ttf'))
+    css=CSS+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
+    if reading_font:
+        archive.add((reading_font.read_bytes(),'reading-font.ttf'))
+        css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
     blocks=spec['blocks']
     if not blocks:raise ValueError('No authored blocks')
     parts=[];pages=[]
@@ -60748,9 +60926,17 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False):
     with pymupdf.open() as measure:
         for index,content in enumerate(contents):
             sample=measure.new_page(width=595.28,height=841.89)
-            spare,scale=sample.insert_htmlbox(body,content,css=CSS,archive=archive,scale_low=1,**HTML_OPTIONS)
+            spare,scale=sample.insert_htmlbox(body,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
             if spare<0 or scale!=1:raise ValueError(f'Block {index} exceeds a page; explicitly split its continuation')
             native=sample.get_text('dict')['blocks']
+            for text_block in sample.get_text('rawdict')['blocks']:
+                for line in text_block.get('lines',[]):
+                    for span in line['spans']:
+                        for left,right in zip(span['chars'],span['chars'][1:]):
+                            if (all(0x4e00<=ord(c['c'])<=0x9fff for c in (left,right)) and
+                                abs(left['origin'][1]-right['origin'][1])<.1 and
+                                right['origin'][0]-left['origin'][0]<span['size']*.75):
+                                raise ValueError('Font collapses adjacent CJK glyph advances; use a verified compatible font')
             ink=[pymupdf.Rect(b['bbox']) for b in native]
             if any(not allowed.contains(rect) for rect in ink):
                 raise ValueError(f'Block {index}: actual painted content exceeds the body')
@@ -60765,15 +60951,17 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False):
         page=doc.new_page(width=595.28,height=841.89);y=body.y0
         for index,(block,content,used) in enumerate(zip(blocks,contents,heights)):
             required=used
-            if block['kind']=='section':
-                if index+1==len(blocks) or blocks[index+1]['kind']=='section':
-                    raise ValueError('A section must precede a content block')
-                required+=8+heights[index+1]
+            following=index
+            while blocks[following]['kind']=='section' or blocks[following].get('keep_with_next'):
+                gap=8 if blocks[following]['kind']=='section' else 12
+                following+=1
+                if following==len(blocks):raise ValueError('A kept heading or block must precede content')
+                required+=gap+heights[following]
             if required>body.height:raise ValueError('Section and following item exceed page; split the item explicitly')
             if y+required>body.y1:
                 page=doc.new_page(width=595.28,height=841.89);y=body.y0
             rect=pymupdf.Rect(body.x0,y,body.x1,body.y1)
-            spare,scale=page.insert_htmlbox(rect,content,css=CSS,archive=archive,scale_low=1,**HTML_OPTIONS)
+            spare,scale=page.insert_htmlbox(rect,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
             if spare<0 or scale!=1:raise ValueError(f'Block {index} does not fit at full font size')
             box=[allowed.x0,y+tops[index],allowed.x1,y+used]
             if block['kind']!='section':
@@ -60798,9 +60986,10 @@ if __name__=='__main__':
     p.add_argument('spec',type=Path)
     for name in ('output','layout','font'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--proof',action='store_true')
+    p.add_argument('--reading-font',type=Path)
     args=p.parse_args()
     result=render(json.loads(args.spec.read_text(encoding='utf-8')),args.output,args.layout,args.font,
-                  asset_root=args.spec.resolve().parent,proof=args.proof)
+                  asset_root=args.spec.resolve().parent,proof=args.proof,reading_font=args.reading_font)
     print(json.dumps({'body_pdf':str(args.output),'layout':str(args.layout),'elapsed_seconds':result['elapsed_seconds']}))
 </canonical-source>
 
@@ -61659,12 +61848,17 @@ SUBJECT_REFERENCES = {
              "gsat-writing-source-ecology.md"},
 }
 SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
+LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',
+                '自然':'science','社會':'social','國寫':'writing'}
 
 
 def relevant(path: str, subject: str) -> bool:
     """Initial read route, not a claim that every transitive dependency is loaded."""
     if subject not in SUBJECT_REFERENCES:
         raise ValueError(f"Unknown GSAT subject: {subject}")
+    if any(path == f'templates/hosted-{slug}-{role}.json'
+           for slug in LAYOUT_SLUGS.values() for role in ('questions','solutions')):
+        return path in {f'templates/hosted-{LAYOUT_SLUGS[subject]}-{role}.json' for role in ('questions','solutions')}
     if path.startswith("references/"):
         return Path(path).name not in SUBJECT_ONLY or Path(path).name in SUBJECT_REFERENCES[subject]
     if path.startswith("exam_packs/"):
@@ -62552,6 +62746,1390 @@ if __name__ == '__main__':
   <text x="120" y="76" text-anchor="middle" font-family="sans-serif" font-size="18">NEW FIGURE</text>
   <text x="120" y="103" text-anchor="middle" font-family="sans-serif" font-size="12">LAYOUT PLACEHOLDER ONLY</text>
 </svg>
+</canonical-source>
+
+<canonical-source path="templates/hosted-chinese-questions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "國綜",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "國綜題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、語文知識與閱讀單選",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-chinese-single",
+      "number": 1,
+      "text": "〔本次語文情境與題幹位置〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、閱讀題組與跨文本",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-chinese-text",
+      "heading": "〔題組範圍與材料標記〕",
+      "paragraphs": [
+        "甲：〔另行選取、查證來源並依規則處理的白話選文〕",
+        "乙：〔另行選取的文言或另一篇對照文本〕",
+        "〔必要的作者、篇名與短註釋位置；不是可直接使用的選文〕"
+      ]
+    },
+    {
+      "kind": "choice",
+      "id": "layout-chinese-reading",
+      "number": 2,
+      "text": "〔跨文本題幹：填入本次實際閱讀任務〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "三、混合題與短答",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "table",
+      "id": "layout-chinese-response",
+      "text": "〔資訊整理／短答表格位置〕",
+      "headers": [
+        "材料",
+        "本次待填內容"
+      ],
+      "rows": [
+        [
+          "甲",
+          "〔短答欄位〕"
+        ],
+        [
+          "乙",
+          "〔短答欄位〕"
+        ]
+      ],
+      "keep_with_next": true
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-chinese-short",
+      "number": 3,
+      "text": "〔獨立短答要求；40字以內，不得把此提示當作題幹〕",
+      "score": 4
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-chinese-solutions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "國綜",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "國綜詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-chinese-choice",
+      "number": 1,
+      "text": "〔正確選項與文本依據〕",
+      "steps": [
+        "〔語境、用語或篇章證據〕",
+        "〔各錯誤選項的具體誤讀〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-chinese-cross",
+      "number": 2,
+      "text": "〔跨文本答案〕",
+      "steps": [
+        "〔甲、乙的對應證據與推論〕",
+        "〔比較條件及錯誤選項排除〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-chinese-short",
+      "number": 3,
+      "text": "〔40字以內的學生滿分示例位置〕",
+      "steps": [
+        "〔教師詳解，與學生短答分開〕",
+        "〔實際得分要點及部分給分〕"
+      ]
+    },
+    {
+      "kind": "table",
+      "id": "layout-chinese-rubric",
+      "text": "短答評分表位置",
+      "headers": [
+        "要點",
+        "分數",
+        "可接受表述"
+      ],
+      "rows": [
+        [
+          "〔要點一〕",
+          "〔配分〕",
+          "〔等值表述〕"
+        ],
+        [
+          "〔要點二〕",
+          "〔配分〕",
+          "〔等值表述〕"
+        ]
+      ]
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-english-questions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "英文",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "英文題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、詞彙題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-english-vocabulary",
+      "number": 1,
+      "text": "〔原創語境句與詞彙空格位置〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、綜合測驗",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-english-cloze",
+      "heading": "〔第11至15題，共用段落〕",
+      "paragraphs": [
+        "[New paragraph before the gap] {{gap:11}} [new paragraph continuation].",
+        "[New paragraph with its own evidence] {{gap:12}} [continuation]."
+      ],
+      "language": "en"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-english-cloze-option",
+      "number": 11,
+      "text": "〔各空格對應選項列；不得重複整段材料〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "三、文意選填",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-english-completion",
+      "heading": "〔十空格共用一次 A–J 選項庫〕",
+      "paragraphs": [
+        "[Original connected passage] {{gap:21}} [continued paragraph].",
+        "[Another paragraph] {{gap:22}} [remaining gaps follow the same inline format]."
+      ],
+      "language": "en",
+      "bank": [
+        {
+          "label": "(A)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(B)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(C)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(D)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(E)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(F)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(G)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(H)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(I)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(J)",
+          "text": "[new word]"
+        }
+      ],
+      "columns": 5
+    },
+    {
+      "kind": "section",
+      "title": "四、篇章結構",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-english-discourse",
+      "heading": "〔一篇文章、四個段落內空格；此處示範排法〕",
+      "paragraphs": [
+        "[New paragraph] {{gap:31}} [continuation].",
+        "[New paragraph] {{gap:32}} [new paragraph] {{gap:33}} [continuation] {{gap:34}}."
+      ],
+      "language": "en",
+      "bank": [
+        {
+          "label": "(A)",
+          "text": "[New sentence option]"
+        },
+        {
+          "label": "(B)",
+          "text": "[New sentence option]"
+        },
+        {
+          "label": "(C)",
+          "text": "[New sentence option]"
+        },
+        {
+          "label": "(D)",
+          "text": "[New sentence option]"
+        },
+        {
+          "label": "(E)",
+          "text": "[New sentence option]"
+        }
+      ],
+      "columns": 1
+    },
+    {
+      "kind": "section",
+      "title": "五、閱讀測驗",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-english-reading",
+      "heading": "〔新閱讀文章標題〕",
+      "paragraphs": [
+        "[New reading passage: actual prose, length and questions must be authored separately.]"
+      ],
+      "language": "en"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-english-reading-item",
+      "number": 35,
+      "text": "〔依本次新文章命製的閱讀題幹〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "六、混合題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-english-mixed",
+      "text": "〔本次新閱讀材料與必要圖表，不能沿用此灰色框〕",
+      "assets": {
+        "figure": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 155
+        }
+      },
+      "figure": "figure",
+      "figure_position": "right"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-response",
+      "number": 47,
+      "text": "〔依新材料進行轉換的填答要求〕",
+      "score": 2
+    },
+    {
+      "kind": "section",
+      "title": "七、非選擇題：中譯英與英文作文",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-translation",
+      "number": 1,
+      "text": "〔本次第一句中譯英題幹〕",
+      "score": 4,
+      "label": "（一）"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-translation2",
+      "number": 2,
+      "text": "〔本次第二句中譯英題幹〕",
+      "score": 4,
+      "label": "（二）"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-composition",
+      "number": 3,
+      "text": "〔本次作文材料、情境與任務，以繁體中文說明〕；文長至少120個英文單詞。於指定答題卷作答。",
+      "score": 20,
+      "label": "作文"
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-english-solutions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "英文",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "英文詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-vocabulary",
+      "number": 1,
+      "text": "〔選項標籤、正確詞形與語境證據〕",
+      "steps": [
+        "〔精確詞形的用法、搭配及語意關係〕",
+        "〔其他三個詞形為何不合〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-passage",
+      "number": 11,
+      "text": "〔段落題／共用選項詳解格式〕",
+      "steps": [
+        "〔正確填答及前後段證據〕",
+        "〔指涉、轉折或篇章銜接；不得只列中文翻譯〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-mixed",
+      "number": 47,
+      "text": "〔混合題答案及可接受變體〕",
+      "steps": [
+        "〔資料轉換與推論過程〕",
+        "〔部分給分與無效作答〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-translation",
+      "number": 1,
+      "text": "〔完整譯句位置〕",
+      "steps": [
+        "〔分段得分點與可接受替代譯法〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-composition",
+      "number": 3,
+      "text": "〔本次新範文位置，不提供可重複套用範文〕",
+      "steps": [
+        "〔內容組織、語言、文法及拼字／標點評分〕",
+        "〔依本次題目解釋範文如何回應材料〕"
+      ]
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-math-a-questions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "數學A",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "數學A題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、單選題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-math-a-single",
+      "number": 1,
+      "text": "〔數A的新條件與數學關係〕",
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(3)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(4)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(5)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、多選題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-math-a-multiple",
+      "number": 9,
+      "text": "〔本次新數學敘述；各選項分開排列〕",
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(3)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(4)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(5)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "三、選填題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "fill",
+      "id": "layout-math-a-integer",
+      "number": 13,
+      "rows": [
+        3
+      ],
+      "text": "〔本次新題幹〕，所求整數為 {{answer}}。"
+    },
+    {
+      "kind": "fill",
+      "id": "layout-math-a-fraction",
+      "number": 14,
+      "rows": [
+        1,
+        2
+      ],
+      "text": "〔本次新題幹〕，所求結果為 {{answer}}（化為最簡分數）。"
+    },
+    {
+      "kind": "section",
+      "title": "四、混合／非選擇題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-math-a-figure",
+      "text": "〔新繪圖與新題幹的並排位置；不限定幾何圖形種類或解題機制〕",
+      "assets": {
+        "figure": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 155
+        }
+      },
+      "figure": "figure",
+      "figure_position": "right"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-math-a-constructed",
+      "number": 18,
+      "text": "〔本次新非選題、作答要求及實際配分位置〕",
+      "score": 3
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-math-a-solutions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "數學A",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "數學A詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-a-single",
+      "number": 1,
+      "text": "〔答案與選項標籤〕",
+      "steps": [
+        "〔最短有效推導與條件檢查〕",
+        "〔錯誤選項的數學原因〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-a-multiple",
+      "number": 9,
+      "text": "〔全部正確選項位置〕",
+      "steps": [
+        "〔逐一驗證所有選項，列出反例或必要條件〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-a-fill",
+      "number": 13,
+      "text": "〔數值答案與實際劃記編碼位置〕",
+      "steps": [
+        "〔計算、範圍與整數／分數／根式格式核對〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-a-constructed",
+      "number": 18,
+      "text": "〔混合／非選題完整解法〕",
+      "steps": [
+        "〔逐步推導與另一條驗算路線〕",
+        "〔各步評分點；前題已給結果對本題難度的影響〕"
+      ]
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-math-b-questions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "數學B",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "數學B題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、單選題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-math-b-single",
+      "number": 1,
+      "text": "〔數B的新情境與數學關係〕",
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(3)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(4)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(5)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、多選題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-math-b-multiple",
+      "number": 9,
+      "text": "〔本次新數學敘述；各選項分開排列〕",
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(3)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(4)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(5)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "三、選填題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "fill",
+      "id": "layout-math-b-integer",
+      "number": 13,
+      "rows": [
+        3
+      ],
+      "text": "〔本次新題幹〕，所求整數為 {{answer}}。"
+    },
+    {
+      "kind": "fill",
+      "id": "layout-math-b-fraction",
+      "number": 14,
+      "rows": [
+        1,
+        2
+      ],
+      "text": "〔本次新題幹〕，所求結果為 {{answer}}（化為最簡分數）。"
+    },
+    {
+      "kind": "section",
+      "title": "四、混合／非選擇題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "table",
+      "id": "layout-math-b-data",
+      "text": "〔本次新資料／條件表；數值不得由此示範衍生〕",
+      "headers": [
+        "〔欄位一〕",
+        "〔欄位二〕",
+        "〔欄位三〕"
+      ],
+      "rows": [
+        [
+          "〔新分類〕",
+          "〔新資料〕",
+          "〔新資料〕"
+        ],
+        [
+          "〔新分類〕",
+          "〔新資料〕",
+          "〔新資料〕"
+        ]
+      ]
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-math-b-constructed",
+      "number": 18,
+      "text": "〔本次新非選題、作答要求及實際配分位置〕",
+      "score": 3
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-math-b-solutions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "數學B",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "數學B詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-b-single",
+      "number": 1,
+      "text": "〔答案與選項標籤〕",
+      "steps": [
+        "〔最短有效推導與條件檢查〕",
+        "〔錯誤選項的數學原因〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-b-multiple",
+      "number": 9,
+      "text": "〔全部正確選項位置〕",
+      "steps": [
+        "〔逐一驗證所有選項，列出反例或必要條件〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-b-fill",
+      "number": 13,
+      "text": "〔數值答案與實際劃記編碼位置〕",
+      "steps": [
+        "〔計算、範圍與整數／分數／根式格式核對〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-b-constructed",
+      "number": 18,
+      "text": "〔混合／非選題完整解法〕",
+      "steps": [
+        "〔逐步推導與另一條驗算路線〕",
+        "〔各步評分點；前題已給結果對本題難度的影響〕"
+      ]
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-science-questions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "自然",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "自然題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "第壹部分、選擇題（占72分）",
+      "directions": "說明：第1題至第36題，含單選題及多選題，每題2分。此檔僅示範區塊，不是完整36題。"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-science-single",
+      "number": 1,
+      "text": "〔物理、化學、生物或地科的新題幹，依完整卷四個九題區塊配置〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(E)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-science-multiple",
+      "number": 2,
+      "text": "〔本次多選題幹；正式稿的應選數須依驗算答案〕（應選2項）",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(E)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "第貳部分、混合題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "table",
+      "id": "layout-science-data",
+      "text": "〔實驗／觀測資料位置〕",
+      "headers": [
+        "〔條件〕",
+        "〔量測值〕",
+        "〔單位或不確定度〕"
+      ],
+      "rows": [
+        [
+          "〔新條件〕",
+          "〔新數值〕",
+          "〔實際單位〕"
+        ],
+        [
+          "〔新條件〕",
+          "〔新數值〕",
+          "〔實際單位〕"
+        ]
+      ]
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-science-figure",
+      "text": "〔本次新照片、圖表或裝置圖；占位框不提供現象、數據或答案線索〕",
+      "assets": {
+        "figure": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 155
+        }
+      },
+      "figure": "figure",
+      "figure_position": "right",
+      "keep_with_next": true
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-science-short",
+      "number": 37,
+      "text": "〔根據本次資料提出解釋／計算／設計的作答要求〕",
+      "score": 2
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-science-solutions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "自然",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "自然詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-science-single",
+      "number": 1,
+      "text": "〔答案、科學概念與證據〕",
+      "steps": [
+        "〔各選項判斷依據及適用條件〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-science-multiple",
+      "number": 2,
+      "text": "〔全部正確選項與應選數核對〕",
+      "steps": [
+        "〔每個選項的理論或觀測依據〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-science-mixed",
+      "number": 37,
+      "text": "〔完整作答與實際配分〕",
+      "steps": [
+        "〔從圖表取證、單位／有效數字及推論〕",
+        "〔控制變因、替代解釋與評分要點〕"
+      ]
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-social-questions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "社會",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "社會題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、選擇題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-social-sources",
+      "heading": "〔歷史史料／地理材料／公民資料的題組位置〕",
+      "paragraphs": [
+        "甲：〔本次新來源材料與必要出處〕",
+        "乙：〔與甲構成實際推論關係的新材料〕"
+      ]
+    },
+    {
+      "kind": "choice",
+      "id": "layout-social-choice",
+      "number": 1,
+      "text": "〔新題幹與四個選項；不是固定考查某一歷史或政策主題〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、圖表與跨領域混合題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-social-figure",
+      "text": "〔本次新地圖、史料圖像或統計圖；須獨立查證，不沿用灰色框〕",
+      "assets": {
+        "figure": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 155
+        }
+      },
+      "figure": "figure",
+      "figure_position": "right"
+    },
+    {
+      "kind": "table",
+      "id": "layout-social-data",
+      "text": "〔跨材料比較表／填答欄〕",
+      "headers": [
+        "材料或條件",
+        "可觀察證據",
+        "待填內容"
+      ],
+      "rows": [
+        [
+          "〔新材料〕",
+          "〔必要資料〕",
+          "〔作答欄〕"
+        ],
+        [
+          "〔新材料〕",
+          "〔必要資料〕",
+          "〔作答欄〕"
+        ]
+      ],
+      "keep_with_next": true
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-social-short",
+      "number": 2,
+      "text": "〔本次資料判讀、比較或論證要求；正式字數與配分依題型〕",
+      "score": 3
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-social-solutions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "社會",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "社會詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-social-choice",
+      "number": 1,
+      "text": "〔答案、材料依據與課綱概念〕",
+      "steps": [
+        "〔歷史脈絡／空間尺度／制度條件〕",
+        "〔其他選項與材料不符之處〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-social-mixed",
+      "number": 2,
+      "text": "〔可得滿分的作答示例位置〕",
+      "steps": [
+        "〔跨材料證據與推論步驟〕",
+        "〔可接受表述、部分給分及過度推論的扣分點〕"
+      ]
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-subject-layouts.json">
+{
+  "purpose": "layout-reference-only",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "subjects": [
+    {
+      "subject": "國綜",
+      "slug": "chinese",
+      "questions": "hosted-chinese-questions.json",
+      "solutions": "hosted-chinese-solutions.json"
+    },
+    {
+      "subject": "英文",
+      "slug": "english",
+      "questions": "hosted-english-questions.json",
+      "solutions": "hosted-english-solutions.json"
+    },
+    {
+      "subject": "數學A",
+      "slug": "math-a",
+      "questions": "hosted-math-a-questions.json",
+      "solutions": "hosted-math-a-solutions.json"
+    },
+    {
+      "subject": "數學B",
+      "slug": "math-b",
+      "questions": "hosted-math-b-questions.json",
+      "solutions": "hosted-math-b-solutions.json"
+    },
+    {
+      "subject": "自然",
+      "slug": "science",
+      "questions": "hosted-science-questions.json",
+      "solutions": "hosted-science-solutions.json"
+    },
+    {
+      "subject": "社會",
+      "slug": "social",
+      "questions": "hosted-social-questions.json",
+      "solutions": "hosted-social-solutions.json"
+    },
+    {
+      "subject": "國寫",
+      "slug": "writing",
+      "questions": "hosted-writing-questions.json",
+      "solutions": "hosted-writing-solutions.json"
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-writing-questions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "國寫",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "國寫題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "非選擇題（共二大題，占50分）",
+      "directions": "第一大題於答題卷正面作答；第二大題於背面作答。此檔僅呈現材料及任務版型，不是正式命題。"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-writing-one",
+      "heading": "一、",
+      "paragraphs": [
+        "〔本次經來源選擇與改編的材料甲〕",
+        "〔本次材料乙／必要資料；不提供可照用的議題或論證架構〕"
+      ]
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-writing-one-a",
+      "number": 1,
+      "text": "〔依本次材料設計的閱讀統整要求，80字以內〕",
+      "score": 4,
+      "label": "（一）"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-writing-one-b",
+      "number": 1,
+      "text": "〔依本次材料設計的延伸判斷與表述要求，400字以內〕",
+      "score": 21,
+      "label": "（二）"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-writing-two",
+      "heading": "二、",
+      "paragraphs": [
+        "〔本次重新選取的文學／感受性材料；不可沿用示範作為文章、意象或題目〕"
+      ]
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-writing-two",
+      "number": 2,
+      "text": "〔本次寫作任務、命題方式與作答要求〕。請於指定答題卷作答。",
+      "score": 25,
+      "label": ""
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-writing-solutions.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "國寫",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "國寫詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-writing-one",
+      "number": 1,
+      "text": "〔第一大題的解析與作答示例〕",
+      "steps": [
+        "〔80字短答範例位置及4分評分要點〕",
+        "〔400字作答範例位置及21分評分要點〕",
+        "〔材料統整、判斷理由、組織與文字表達的檢核〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-writing-two",
+      "number": 2,
+      "text": "〔第二大題的解析與本次新範文〕",
+      "steps": [
+        "〔如何回應材料與寫作要求〕",
+        "〔具體描寫、情意層次、組織與表達的評量〕",
+        "〔範文是多種可能作答之一，不是必須背誦的標準答案〕"
+      ]
+    },
+    {
+      "kind": "table",
+      "id": "layout-writing-rubric",
+      "text": "〔分級評分說明位置〕",
+      "headers": [
+        "層級",
+        "本次評量重點",
+        "常見不足"
+      ],
+      "rows": [
+        [
+          "〔層級〕",
+          "〔內容與表達表現〕",
+          "〔具體缺失〕"
+        ],
+        [
+          "〔層級〕",
+          "〔內容與表達表現〕",
+          "〔具體缺失〕"
+        ]
+      ]
+    }
+  ]
+}
 </canonical-source>
 
 <canonical-source path="templates/inspiration-source-record.json">

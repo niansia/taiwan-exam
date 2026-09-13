@@ -1,0 +1,62 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "英文",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "英文詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-vocabulary",
+      "number": 1,
+      "text": "〔選項標籤、正確詞形與語境證據〕",
+      "steps": [
+        "〔精確詞形的用法、搭配及語意關係〕",
+        "〔其他三個詞形為何不合〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-passage",
+      "number": 11,
+      "text": "〔段落題／共用選項詳解格式〕",
+      "steps": [
+        "〔正確填答及前後段證據〕",
+        "〔指涉、轉折或篇章銜接；不得只列中文翻譯〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-mixed",
+      "number": 47,
+      "text": "〔混合題答案及可接受變體〕",
+      "steps": [
+        "〔資料轉換與推論過程〕",
+        "〔部分給分與無效作答〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-translation",
+      "number": 1,
+      "text": "〔完整譯句位置〕",
+      "steps": [
+        "〔分段得分點與可接受替代譯法〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-english-composition",
+      "number": 3,
+      "text": "〔本次新範文位置，不提供可重複套用範文〕",
+      "steps": [
+        "〔內容組織、語言、文法及拼字／標點評分〕",
+        "〔依本次題目解釋範文如何回應材料〕"
+      ]
+    }
+  ]
+}

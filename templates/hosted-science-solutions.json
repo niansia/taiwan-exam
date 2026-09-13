@@ -1,0 +1,41 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "自然",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "自然詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-science-single",
+      "number": 1,
+      "text": "〔答案、科學概念與證據〕",
+      "steps": [
+        "〔各選項判斷依據及適用條件〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-science-multiple",
+      "number": 2,
+      "text": "〔全部正確選項與應選數核對〕",
+      "steps": [
+        "〔每個選項的理論或觀測依據〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-science-mixed",
+      "number": 37,
+      "text": "〔完整作答與實際配分〕",
+      "steps": [
+        "〔從圖表取證、單位／有效數字及推論〕",
+        "〔控制變因、替代解釋與評分要點〕"
+      ]
+    }
+  ]
+}

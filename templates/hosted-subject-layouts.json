@@ -1,0 +1,48 @@
+{
+  "purpose": "layout-reference-only",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "subjects": [
+    {
+      "subject": "國綜",
+      "slug": "chinese",
+      "questions": "hosted-chinese-questions.json",
+      "solutions": "hosted-chinese-solutions.json"
+    },
+    {
+      "subject": "英文",
+      "slug": "english",
+      "questions": "hosted-english-questions.json",
+      "solutions": "hosted-english-solutions.json"
+    },
+    {
+      "subject": "數學A",
+      "slug": "math-a",
+      "questions": "hosted-math-a-questions.json",
+      "solutions": "hosted-math-a-solutions.json"
+    },
+    {
+      "subject": "數學B",
+      "slug": "math-b",
+      "questions": "hosted-math-b-questions.json",
+      "solutions": "hosted-math-b-solutions.json"
+    },
+    {
+      "subject": "自然",
+      "slug": "science",
+      "questions": "hosted-science-questions.json",
+      "solutions": "hosted-science-solutions.json"
+    },
+    {
+      "subject": "社會",
+      "slug": "social",
+      "questions": "hosted-social-questions.json",
+      "solutions": "hosted-social-solutions.json"
+    },
+    {
+      "subject": "國寫",
+      "slug": "writing",
+      "questions": "hosted-writing-questions.json",
+      "solutions": "hosted-writing-solutions.json"
+    }
+  ]
+}

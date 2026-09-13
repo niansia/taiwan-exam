@@ -1,0 +1,129 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "數學A",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "數學A題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、單選題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-math-a-single",
+      "number": 1,
+      "text": "〔數A的新條件與數學關係〕",
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(3)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(4)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(5)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、多選題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-math-a-multiple",
+      "number": 9,
+      "text": "〔本次新數學敘述；各選項分開排列〕",
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(3)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(4)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(5)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "三、選填題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "fill",
+      "id": "layout-math-a-integer",
+      "number": 13,
+      "rows": [
+        3
+      ],
+      "text": "〔本次新題幹〕，所求整數為 {{answer}}。"
+    },
+    {
+      "kind": "fill",
+      "id": "layout-math-a-fraction",
+      "number": 14,
+      "rows": [
+        1,
+        2
+      ],
+      "text": "〔本次新題幹〕，所求結果為 {{answer}}（化為最簡分數）。"
+    },
+    {
+      "kind": "section",
+      "title": "四、混合／非選擇題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-math-a-figure",
+      "text": "〔新繪圖與新題幹的並排位置；不限定幾何圖形種類或解題機制〕",
+      "assets": {
+        "figure": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 155
+        }
+      },
+      "figure": "figure",
+      "figure_position": "right"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-math-a-constructed",
+      "number": 18,
+      "text": "〔本次新非選題、作答要求及實際配分位置〕",
+      "score": 3
+    }
+  ]
+}
