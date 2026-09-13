@@ -101,6 +101,14 @@ def review_errors(exam, review):
     if type(duration) in (int,float) and type(shared) in (int,float) and independent_total + shared > duration:
         errors.append('difficulty: reviewed solving plus shared reading exceeds paper duration')
     if is_math and len(exam['questions']) == 20:
+        reviewed_points = {b: sum(q.get('score', 0) or 0 for q in exam['questions']
+                                  if rows.get(q['id'], {}).get('difficulty_band') == b) for b in bands}
+        if reviewed_points['easy'] + reviewed_points['very_easy'] >= 10:
+            errors.append('difficulty: reviewed easy score must be below 10 points')
+        if reviewed_points['hard'] + reviewed_points['very_hard'] < 70:
+            errors.append('difficulty: reviewed medium-hard/hard score must reach 70 points')
+        if reviewed_points['very_hard'] < 30:
+            errors.append('difficulty: reviewed hard score must reach 30 points')
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
         if not 80 <= total <= 92:

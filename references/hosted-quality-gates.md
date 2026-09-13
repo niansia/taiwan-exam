@@ -5,13 +5,19 @@ they cannot turn fabricated reviews into real visual or academic acceptance.
 
 ## Layout before claims
 
-Do not overlay fill-in circles after laying out the page. Use
-`hosted_item_layout.reserve_rail(content_boxes, x=..., slots=..., bottom_limit=...)`
-with actual renderer bounds of stem, math, options AND figure. The rail starts
-below their lowest bottom with at least 6 pt clearance. None requires moving or
-reflowing the item. Draw with draw_rail and advance to next_y. Never shrink text
-or clip diagrams to recover space. Special answer patterns need equivalent
-measured flow blocks; draw_rail only provides plain numbered circles.
+Use the measured components and batch-review procedure in
+hosted-body-workflow.md. Do not overlay fill circles onto a completed page.
+A row identifier belongs inside its circle, with the correct integer/fraction
+rules and an answer position connected to the stem. Inline placement or a
+measured line wrap must reserve the full rail height. The low-level
+hosted_item_layout.reserve_rail / draw_rail helpers provide a line-wrap fallback:
+start below the actual union of stem, equations and figures, at the semantic
+blank's left edge, with at least 6 pt clearance; advance to next_y. They are not
+permission to center a detached second blank on the page. Special response
+patterns require equivalent measured components and actual visual inspection.
+The native circle/label format detector rejects recognizable misplaced IDs or
+missing row rules; raster rails, unusual outlines and other response forms
+still require readable crop review. Never shrink text or clip figures to fit.
 
 Keep measured non-overlapping blocks for every item. Inline equations belong
 inside their stem block; figures, display formulas and rails get separate blocks.
@@ -30,7 +36,8 @@ figures. Cover/formula pages get whole-page review, not fictional question IDs.
 python scripts/hosted_item_layout.py --pdf question.pdf --layout layout.json --output item-crops --report question-items.json
 ```
 
-The report starts pending. Open EVERY crop at readable resolution (2 pixels/pt),
+The report starts pending (or retains a qualifying actual unchanged review under
+hosted-body-workflow.md). Open EVERY new or changed crop at readable resolution (2 pixels/pt),
 inspect stem, options, rail, equations and every diagram label, then add status
 pass and concrete observations to each part. Keep crops unchanged. Repeat for
 solutions; register each report as pdfs.ROLE.item_review. The checker rerenders

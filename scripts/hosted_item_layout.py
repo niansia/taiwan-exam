@@ -8,7 +8,7 @@ from pathlib import Path
 import pymupdf
 
 
-def reserve_rail(content_boxes, *, x, slots, bottom_limit, gap=8, diameter=24,
+def reserve_rail(content_boxes, *, x, slots, bottom_limit, gap=8, diameter=25.98,
                  label_height=12, after=12):
     """Reserve AFTER the union of actual laid-out stem, math, options and figure.
 
@@ -18,19 +18,28 @@ def reserve_rail(content_boxes, *, x, slots, bottom_limit, gap=8, diameter=24,
     if not content_boxes or slots < 1 or gap < 6 or after < 6:
         raise ValueError('Measured content and positive rail clearance required')
     top = max(pymupdf.Rect(b).y1 for b in content_boxes) + gap
-    box = [x, top, x + slots * (diameter + 10), top + label_height + 3 + diameter]
+    box = [x, top, x + slots * (diameter + 3), top + diameter + 3]
     return None if box[3] + after > bottom_limit else {'bbox': box, 'next_y': box[3] + after}
 
 
-def draw_rail(page, reservation, number, slots, diameter=24, label_height=12):
+def draw_rail(page, reservation, number, slots, diameter=25.98, label_height=12):
     """Draw into the reserved block; never overlay a rail onto completed stems."""
     box = pymupdf.Rect(reservation['bbox'])
-    if slots * (diameter + 10) > box.width or label_height + 3 + diameter > box.height:
+    if slots * (diameter + 3) > box.width + .01 or diameter + 3 > box.height + .01:
         raise ValueError('Rail exceeds its reservation')
     for index in range(slots):
-        x = box.x0 + index * (diameter + 10)
-        page.insert_text((x, box.y0 + 10), f'({number}-{index+1})', fontsize=9, fontname='tiro')
-        y = box.y0 + label_height + 3
+        x = box.x0 + index * (diameter + 3)
+        label = f'{number}-{index+1}'
+        font = pymupdf.Font('tiro')
+        size = 10.02
+        width = font.text_length(label, fontsize=size)
+        if width > diameter - 2:
+            raise ValueError('Position identifier does not fit the measured circle')
+        y = box.y0
+        # Official row identifiers belong INSIDE their circles, not beside/above
+        # an unrelated answer blank. These are new body rails, not fixed assets.
+        baseline = y + diameter / 2 + size * (font.ascender + font.descender) / 2
+        page.insert_text((x + (diameter - width) / 2, baseline), label, fontsize=size, fontname='tiro')
         page.draw_circle((x + diameter / 2, y + diameter / 2), diameter / 2, width=.7)
     page.draw_line((box.x0, box.y1), (box.x1, box.y1), width=.7)
 

@@ -1,0 +1,114 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "數學A",
+  "notice": "僅供版型參考。不得使用此處占位內容、編號配置或範例次序命題。另建本次原創內容檔；固定封面、頁首尾與公式仍使用原 PDF。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "〔大題名稱與實際配分〕",
+      "directions": "〔當科、當題型正式作答說明；必須填入本次實際題號與配分〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-choice",
+      "number": 1,
+      "text": "〔本次原創題幹。此處只示範長題幹換行與選項間距，不能當作考題。〕",
+      "columns": 1,
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔本次新選項〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔本次新選項〕"
+        },
+        {
+          "label": "(3)",
+          "text": "〔本次新選項〕"
+        },
+        {
+          "label": "(4)",
+          "text": "〔本次新選項〕"
+        },
+        {
+          "label": "(5)",
+          "text": "〔本次新選項〕"
+        }
+      ]
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-multiple",
+      "number": 2,
+      "text": "〔多選題幹；較長的敘述使用直列選項，勿為了塞入同一列縮字。〕",
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔含完整判斷條件的新敘述〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔含完整判斷條件的新敘述〕"
+        }
+      ]
+    },
+    {
+      "kind": "fill",
+      "id": "layout-integer",
+      "number": 13,
+      "rows": [
+        3
+      ],
+      "text": "〔整數選填題的新題幹〕，所求結果為 {{answer}}。"
+    },
+    {
+      "kind": "fill",
+      "id": "layout-fraction",
+      "number": 14,
+      "rows": [
+        1,
+        2
+      ],
+      "text": "〔分數選填題的新題幹〕，所求結果為 {{answer}}（化為最簡分數）。"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-figure",
+      "number": 15,
+      "score": 3,
+      "text": "〔圖文並排的新題幹。圖形必須由本次命題重新設計、繪製並核對標籤；灰色框不能成為正式考題圖。〕",
+      "assets": {
+        "diagram": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 160
+        }
+      },
+      "figure": "diagram",
+      "figure_position": "right"
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-stimulus",
+      "text": "〔新題組的共用材料。此版型不提供既有圖形、情境或數值；本次新繪圖片透過 assets 與 figure 欄位放入。〕"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-constructed",
+      "number": 18,
+      "score": 3,
+      "text": "〔混合／非選題的新題幹、必要限制與作答要求；此處的配分只示範顯示位置，正式配分依本次題槽。〕"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-solution",
+      "number": 18,
+      "text": "〔本次答案與實際配分〕",
+      "steps": [
+        "〔逐步推導，非模板提供的解題路線〕",
+        "〔核對所有條件、替代解法與評分點〕"
+      ]
+    }
+  ]
+}

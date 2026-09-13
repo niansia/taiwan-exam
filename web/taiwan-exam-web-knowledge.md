@@ -1,4 +1,4 @@
-# Taiwan Exam Web Knowledge v2026.09.13.5
+# Taiwan Exam Web Knowledge v2026.09.13.6
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
@@ -95,10 +95,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 [
   {
     "path": "SKILL.md",
-    "bytes": 77558,
-    "sha256": "d4ee60279e29fcca31a7d52cb71498d4e070175473f2505d218c151a581777ba",
-    "embedded_bytes": 77558,
-    "embedded_sha256": "d4ee60279e29fcca31a7d52cb71498d4e070175473f2505d218c151a581777ba"
+    "bytes": 78067,
+    "sha256": "ddbcacc88864a433a460cb907141d8d5dd6ab6b361f6bcb840672f0f5fae1b69",
+    "embedded_bytes": 78067,
+    "embedded_sha256": "ddbcacc88864a433a460cb907141d8d5dd6ab6b361f6bcb840672f0f5fae1b69"
   },
   {
     "path": "core/taxonomy.json",
@@ -550,10 +550,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/fast-full-paper-workflow.md",
-    "bytes": 7833,
-    "sha256": "26e9674ed51fd679942dd9a45779825ededb5605b7145fd885f917189d89796d",
-    "embedded_bytes": 7833,
-    "embedded_sha256": "26e9674ed51fd679942dd9a45779825ededb5605b7145fd885f917189d89796d"
+    "bytes": 8183,
+    "sha256": "85110d38935706da417581a4a94ef8371be3cde266ccd07ea350a0d92e380261",
+    "embedded_bytes": 8183,
+    "embedded_sha256": "85110d38935706da417581a4a94ef8371be3cde266ccd07ea350a0d92e380261"
   },
   {
     "path": "references/first-use.md",
@@ -598,6 +598,13 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "embedded_sha256": "4554618a19dbe375f8ceba2df5047d34003e976d5c3fb300234f1d588c65cb0f"
   },
   {
+    "path": "references/hosted-body-workflow.md",
+    "bytes": 6773,
+    "sha256": "e1b01616bcdd2c63ffb54d25adc74324956e042c59c5095d3cb3aa613ae3b874",
+    "embedded_bytes": 6773,
+    "embedded_sha256": "e1b01616bcdd2c63ffb54d25adc74324956e042c59c5095d3cb3aa613ae3b874"
+  },
+  {
     "path": "references/hosted-pdf-production.md",
     "bytes": 14357,
     "sha256": "5f2c1f6002cce1e2251fe1a3896bd2a72eac825cb65f70fe0e13d4ca3f7edd05",
@@ -606,10 +613,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 13339,
-    "sha256": "6c7182b1746f4ce89ce439e0764e68d8a8d3a0ec03df27ae15ba10cd83843d7a",
-    "embedded_bytes": 13339,
-    "embedded_sha256": "6c7182b1746f4ce89ce439e0764e68d8a8d3a0ec03df27ae15ba10cd83843d7a"
+    "bytes": 13880,
+    "sha256": "6f58657769b554f9558fa9f5268f0e7dc8deee3385613634bdb683726735d9e4",
+    "embedded_bytes": 13880,
+    "embedded_sha256": "6f58657769b554f9558fa9f5268f0e7dc8deee3385613634bdb683726735d9e4"
   },
   {
     "path": "references/hosted-run-evidence.md",
@@ -641,10 +648,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/math-difficulty-design.md",
-    "bytes": 16088,
-    "sha256": "9322908ceb67adbae6b5702863d8b95ec696b9629a4128c1487d15ab7687ea2f",
-    "embedded_bytes": 16088,
-    "embedded_sha256": "9322908ceb67adbae6b5702863d8b95ec696b9629a4128c1487d15ab7687ea2f"
+    "bytes": 17011,
+    "sha256": "c88c819d857aa905008df97c7ab5d00e8e1a7d69db3591b89bf787e5b843b96c",
+    "embedded_bytes": 17011,
+    "embedded_sha256": "c88c819d857aa905008df97c7ab5d00e8e1a7d69db3591b89bf787e5b843b96c"
   },
   {
     "path": "references/official-gsat-specifications.md",
@@ -774,10 +781,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 20089,
-    "sha256": "52bd6034f875c86c7d493aea369f856b8e9dcee8e0cbc7002f1bb857703cd00d",
-    "embedded_bytes": 20089,
-    "embedded_sha256": "52bd6034f875c86c7d493aea369f856b8e9dcee8e0cbc7002f1bb857703cd00d"
+    "bytes": 20385,
+    "sha256": "4b0db096839607dc3f1a11c30a7e5987a21f5b2a6522ae6bcfe2abd55bbbdd3b",
+    "embedded_bytes": 20385,
+    "embedded_sha256": "4b0db096839607dc3f1a11c30a7e5987a21f5b2a6522ae6bcfe2abd55bbbdd3b"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -795,10 +802,17 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 8383,
-    "sha256": "469af2cce65592550968667149521aa021ec237b221cf49fe5535b1e45d994fe",
-    "embedded_bytes": 8383,
-    "embedded_sha256": "469af2cce65592550968667149521aa021ec237b221cf49fe5535b1e45d994fe"
+    "bytes": 9023,
+    "sha256": "7ce04a32e0fef27b241376834852ecf0a578b9071fbb69e972b4aa30c6a8dac7",
+    "embedded_bytes": 9023,
+    "embedded_sha256": "7ce04a32e0fef27b241376834852ecf0a578b9071fbb69e972b4aa30c6a8dac7"
+  },
+  {
+    "path": "scripts/hosted_body_templates.py",
+    "bytes": 14113,
+    "sha256": "8fbec1d4cab0d67acdb5f49b1e9ec935af83debef10ca5cda714a51a12fdf841",
+    "embedded_bytes": 14113,
+    "embedded_sha256": "8fbec1d4cab0d67acdb5f49b1e9ec935af83debef10ca5cda714a51a12fdf841"
   },
   {
     "path": "scripts/hosted_calibration.py",
@@ -809,10 +823,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/hosted_item_layout.py",
-    "bytes": 4950,
-    "sha256": "5caf052a9745f32ed88b4e2bb6105b4b5511cef1a4ad4ae0416311d909bfc15d",
-    "embedded_bytes": 4950,
-    "embedded_sha256": "5caf052a9745f32ed88b4e2bb6105b4b5511cef1a4ad4ae0416311d909bfc15d"
+    "bytes": 5435,
+    "sha256": "1f17b357d09b6b492fb99725a24f245a2c7d9156f1686317c2372e2af39e1af1",
+    "embedded_bytes": 5435,
+    "embedded_sha256": "1f17b357d09b6b492fb99725a24f245a2c7d9156f1686317c2372e2af39e1af1"
   },
   {
     "path": "scripts/hosted_run_timing.py",
@@ -823,10 +837,17 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
-    "bytes": 8743,
-    "sha256": "ae441e352c94bba33b779cdd897b12b89be7da77feffd6e11b747268be0ae8d8",
-    "embedded_bytes": 8743,
-    "embedded_sha256": "ae441e352c94bba33b779cdd897b12b89be7da77feffd6e11b747268be0ae8d8"
+    "bytes": 10574,
+    "sha256": "3cd7201ed79b5568f09d0d6ba792a549bfd978d1f4465d7f7aea588664d33fbb",
+    "embedded_bytes": 10574,
+    "embedded_sha256": "3cd7201ed79b5568f09d0d6ba792a549bfd978d1f4465d7f7aea588664d33fbb"
+  },
+  {
+    "path": "scripts/prepare_hosted_review.py",
+    "bytes": 9975,
+    "sha256": "a7c56b1228111f07918915d21400afdf6efbf601db27ab70710744835cfa91f2",
+    "embedded_bytes": 9975,
+    "embedded_sha256": "a7c56b1228111f07918915d21400afdf6efbf601db27ab70710744835cfa91f2"
   },
   {
     "path": "scripts/prepare_hosted_run.py",
@@ -858,10 +879,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
-    "bytes": 5183,
-    "sha256": "f77e2f67ae89d37c603ec393c2d3ec39809ceb3d6d37cba1bd4356337b5ed5aa",
-    "embedded_bytes": 5183,
-    "embedded_sha256": "f77e2f67ae89d37c603ec393c2d3ec39809ceb3d6d37cba1bd4356337b5ed5aa"
+    "bytes": 5656,
+    "sha256": "708acc58ab5673fd2c3d5d921b5feb6f74aee87c97ae754db1bb290918dfb968",
+    "embedded_bytes": 5656,
+    "embedded_sha256": "708acc58ab5673fd2c3d5d921b5feb6f74aee87c97ae754db1bb290918dfb968"
   },
   {
     "path": "scripts/verify_fixed_template_pdf.py",
@@ -876,6 +897,20 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
     "sha256": "51a319e2613bc661811f9ca29f3e483102007074de9fcc034c90d5f4666d0823",
     "embedded_bytes": 1244,
     "embedded_sha256": "51a319e2613bc661811f9ca29f3e483102007074de9fcc034c90d5f4666d0823"
+  },
+  {
+    "path": "templates/hosted-body-blocks.json",
+    "bytes": 3489,
+    "sha256": "fb92aba60a829fcb3525bbcaf85fe26f0cf29ff86b5b572dc406ed5cd878df8e",
+    "embedded_bytes": 3377,
+    "embedded_sha256": "7f24b62d9816f14f3d2ac552c773919cbe0d65f62f72f01e7f2dffa5c05fe90a"
+  },
+  {
+    "path": "templates/hosted-body-figure-placeholder.svg",
+    "bytes": 409,
+    "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+    "embedded_bytes": 409,
+    "embedded_sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143"
   },
   {
     "path": "templates/inspiration-source-record.json",
@@ -962,6 +997,8 @@ when acquiring, restoring, indexing, moving or publishing source material.
 Complete-paper tests must use the same content and subject-layout checks as ordinary generation. Missing empirical pilot statistics may be disclosed; missing correct answers, curriculum boundaries, sources, official response modes or a usable layout may not be excused by calling the result a preview. Never silently change a full-paper request into generic practice. If a prerequisite is missing, produce a precise gap report and repair the evidence/template first; do not fabricate evidence or output a substitute batch.
 
 When the user requests fast or timed generation, also read [references/fast-full-paper-workflow.md](references/fast-full-paper-workflow.md). Treat an under-20-minute paper as a measured warm-run performance target, not as permission to skip candidate competition, independent solving, source/rights review, subject balance, rendering, or all-page inspection. Report the actual clock boundaries and cache state. If the target is missed, finish the valid paper and report the bottleneck honestly; never relabel a partial or unchecked artifact as a complete paper.
+
+For hosted body layout, use [references/hosted-body-workflow.md](references/hosted-body-workflow.md): reuse measured section/item components, never placeholder questions or diagram topology. Inspect the first authored batch early, reserve time for final QA, and prepare both booklets' page/item review together. Retain a prior actual visual review only for the same exam and exact unchanged rendered pixels; changed parts require new inspection. A body renderer never replaces the original fixed PDF layers.
 
 In a complete local checkout, use subject renderers for body/internal proofs, compose formal booklets from the original fixed PDFs, and use the single `scripts/validate_exam_release.py` content/delivery gate. `scripts/validate_exam_pack_contract.py` is only its renderer handoff adapter, not a second validation policy. Set `metadata.run_contract` to the external run-contract.json path relative to exam.json; see the execution contract for the maintained evidence format. On a hosted web surface without the repository executable tree, follow the hosted-equivalent gate in `references/web-platform-use.md`; the absence of a local command is not a release blocker, but every observable content, answer, template and all-page inspection check remains required. A generic renderer cannot render a complete paper merely because metadata claims a verified layout. Renderer output is a **review proof**, not an accepted exam; PDF page inspection and final acceptance are separate. No helper script or export/marking test can self-certify educational quality.
 
@@ -55789,7 +55826,7 @@ the accepted PDF area. Watermark/fixture tests do not establish exam acceptance.
 
 Hosted runs must also follow hosted-quality-gates.md: start the actual phase
 logger before preflight, preserve it across repairs, and finish item-level review
-and independent difficulty QA even when target_met becomes false. Missing timing
+and capability-appropriate difficulty QA even when target_met becomes false. Missing timing
 blocks evidence-complete; it cannot be reconstructed from a chat's total duration.
 
 Read this reference when a user asks for faster generation, a timed benchmark, or a target such as one complete paper within 20 minutes. Speed is measured under the same complete-paper contract as ordinary generation. This workflow changes scheduling and cache use; it never lowers educational, originality, source, rights, layout, or review gates.
@@ -55830,6 +55867,12 @@ in `web-platform-use.md`; revalidate hashes, then continue from the first unfini
 phase. Do not discard solved items or redownload verified assets on every user
 “continue”. In hosted mode, use that reference's bounded-loading and transport
 workflow rather than reconstructing the whole repository or all subjects.
+
+For hosted conversation runs, also follow hosted-body-workflow.md: reusable
+body components, a first small authored render batch, an approximately eight
+minute final-QA reserve, and batched page/crop preparation. These reduce repeated
+layout programming and evidence bookkeeping; they do not prove a 25-minute
+end-to-end completion time.
 
 ## Fast path, one paper at a time
 
@@ -56295,6 +56338,119 @@ At least one finalist must be a recent Chinese-authored literary or reflective w
 - Reject a paper if any attribution is a separate paragraph or if `材料一：` / `材料二：` appears.
 </canonical-source>
 
+<canonical-source path="references/hosted-body-workflow.md">
+# Reusable body components and early visual QA
+
+Use with hosted-pdf-production.md and hosted-quality-gates.md for all seven
+subjects. Fixed cover/header/footer/formula PDFs remain unchanged original
+layers. The reusable components below create ONLY the new body inside that
+subject's mapped frame. They do not establish subject structure or difficulty.
+
+## Reuse layout, never questions
+
+`templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
+Its text, numbers, option counts, scores and block order are placeholders, not
+an exam specification. The gray SVG is not a reusable question diagram.
+Never turn these into questions by changing constants. Create the new paper's
+content in its own run, with original stems, solutions, distractors and visuals.
+Keep the originality/history audit. A figure's topology is content, not layout.
+
+Use `scripts/hosted_body_templates.py` instead of writing a fresh PDF compositor
+for ordinary blocks: section heading plus boxed directions; choice/multiple
+options; integer/fraction fill rails; shared stimulus; constructed response with
+printed score; and solution steps. The subject profile still controls actual
+directions, labels, item/option counts, sequence, scores and response forms.
+English cloze/discourse and 國寫 grids require their specific measured layouts;
+do not substitute a choice block or math rail. A supported common block does
+not mean the gallery itself is a valid full paper for any subject.
+
+```text
+python scripts/hosted_body_templates.py run/questions-blocks.json --output run/questions-body-v1.pdf --layout run/questions-layout-v1.json --font /path/to/verified-body-font.ttf
+```
+
+Run separately for authored solutions. The renderer outputs transparent body
+pages, NOT deliverable exam PDFs. Feed both bodies into compose_hosted_pdf.py
+with the actual subject, year and verified fixed assets. For viewing only the
+placeholder gallery, supply `--proof`; never use that flag for a production run.
+
+Text is plain Unicode; `{ "rich": "…<sup>…</sup>…" }` permits only simple inline
+typography, not arbitrary CSS. Complex math and new diagrams may be supplied as
+hash-bound assets inside the current run: `assets.NAME` has `path`, `sha256`,
+`width_pt`; `figure: NAME` and `figure_position: right|below` reserve figure space.
+`{{asset:NAME}}` places a checked inline asset in the stem/solution; an inline
+asset that collides with text must be moved into a measured display block.
+The renderer does not author or validate equations. Check notation and graph
+labels at readable resolution. It rejects overflow; never shrink fonts to fit.
+The common base is 11 pt with measured line flow; validate its suitability
+against the selected subject's role-specific typography before production.
+
+A fill block places exactly one `{{answer}}` in the semantic answer location.
+`rows: [3]` means three integer positions; `[1,2]` means one numerator and two
+denominator positions. IDs are centered inside circles, with ruled rows, and
+the complete rail height participates in flow. This is no permission to change
+the independently verified answer encoding. Radicals, signs and other patterns
+need their own checked response asset; do not force them into plain digits.
+
+Each complete block is measured before painting; a section stays with its next
+block. Very long items/solutions require explicit continuation blocks with the
+same item ID; no automatic truncation. Shared stimulus parts use one owner ID
+and must also be considered when reviewing all dependent items. Real image/text
+bounds and the compositor's outside-body check supplement the HTML measurement.
+They are not a general proof of collision-free layout or sufficient page density.
+
+## Reserve review time before the last minutes
+
+For a web conversation observed to stop around 25 minutes, plan to reach final
+layout by about minute 17 and reserve about 8 minutes for page/item inspection,
+repairs and the final checker. This is a scheduling budget, not a platform limit
+claim or guaranteed runtime. Keep the existing inclusive phase clock. Do not
+wait until all items are written to discover a broken equation/rail renderer:
+render and inspect the first 2–4 newly authored items AND their solutions early,
+then solve, review difficulty and check layout in small batches.
+
+Reuse the tested renderer, verified assets and calibration. Do not repeatedly
+load every subject, download originals during final QA, or rewrite the PDF
+engine. If authoring consumes the reserve, persist the SAME paper and continue
+its unfinished reviews next turn. Do not reduce difficulty, omit real checks,
+invent passing observations or restart a new paper to meet the clock.
+
+## One preparation command for both final booklets
+
+Save exam.json and its current hash in run-state.json, then compose both PDFs.
+Keep all artifacts inside that run. With renderer-produced body layouts:
+
+```text
+python scripts/prepare_hosted_review.py --state run/run-state.json --question run/questions-v1.pdf --question-body run/questions-body-v1.pdf --question-layout run/questions-layout-v1.json --solution run/solutions-v1.pdf --solution-body run/solutions-body-v1.pdf --solution-layout run/solutions-layout-v1.json --output run/qa-v1
+```
+
+This batches mechanical inspection, whole-page images, readable item crops and
+pending review records. It checks body hashes and compares projected body crops
+to the actual final PDF before rebinding page numbers. It writes a new
+`run/qa-v1-run-state.json` beside the original state and `run/qa-v1/index.html`.
+Open the actual page AND item images, not just thumbnails. Record observed
+defects and repairs in the generated reports; no helper supplies passing prose.
+
+After actual review, refresh only report digests and run the final checker:
+
+```text
+python scripts/prepare_hosted_review.py --refresh-state run/qa-v1-run-state.json
+python scripts/check_hosted_run.py run/qa-v1-run-state.json --output run/final-check.json
+```
+
+Finish the actual timing intervals and save their digest as required by the
+existing timing workflow before the checker. Refreshing review hashes does
+not close timing, approve content or resolve a failed gate.
+
+For a repaired version, pass the prior reviewed state and NEW output names.
+The helper retains an actual previous passing review only when the exam hash,
+page/item identity and exact newly rendered pixels match. Page issue lists must
+also match. Changed parts start pending. State honestly that unchanged visual
+reviews were retained; do not claim they were freshly inspected. Changing the
+exam invalidates reuse. Every final PDF still receives fresh mechanical checks,
+fixed-layer verification, crops and the final checker. This cache belongs to
+the same paper, never to a newly generated exam.
+</canonical-source>
+
 <canonical-source path="references/hosted-pdf-production.md">
 # Hosted PDF production: executable transport, composition and honest review
 
@@ -56523,13 +56679,19 @@ they cannot turn fabricated reviews into real visual or academic acceptance.
 
 ## Layout before claims
 
-Do not overlay fill-in circles after laying out the page. Use
-`hosted_item_layout.reserve_rail(content_boxes, x=..., slots=..., bottom_limit=...)`
-with actual renderer bounds of stem, math, options AND figure. The rail starts
-below their lowest bottom with at least 6 pt clearance. None requires moving or
-reflowing the item. Draw with draw_rail and advance to next_y. Never shrink text
-or clip diagrams to recover space. Special answer patterns need equivalent
-measured flow blocks; draw_rail only provides plain numbered circles.
+Use the measured components and batch-review procedure in
+hosted-body-workflow.md. Do not overlay fill circles onto a completed page.
+A row identifier belongs inside its circle, with the correct integer/fraction
+rules and an answer position connected to the stem. Inline placement or a
+measured line wrap must reserve the full rail height. The low-level
+hosted_item_layout.reserve_rail / draw_rail helpers provide a line-wrap fallback:
+start below the actual union of stem, equations and figures, at the semantic
+blank's left edge, with at least 6 pt clearance; advance to next_y. They are not
+permission to center a detached second blank on the page. Special response
+patterns require equivalent measured components and actual visual inspection.
+The native circle/label format detector rejects recognizable misplaced IDs or
+missing row rules; raster rails, unusual outlines and other response forms
+still require readable crop review. Never shrink text or clip figures to fit.
 
 Keep measured non-overlapping blocks for every item. Inline equations belong
 inside their stem block; figures, display formulas and rails get separate blocks.
@@ -56548,7 +56710,8 @@ figures. Cover/formula pages get whole-page review, not fictional question IDs.
 python scripts/hosted_item_layout.py --pdf question.pdf --layout layout.json --output item-crops --report question-items.json
 ```
 
-The report starts pending. Open EVERY crop at readable resolution (2 pixels/pt),
+The report starts pending (or retains a qualifying actual unchanged review under
+hosted-body-workflow.md). Open EVERY new or changed crop at readable resolution (2 pixels/pt),
 inspect stem, options, rail, equations and every diagram label, then add status
 pass and concrete observations to each part. Keep crops unchanged. Repeat for
 solutions; register each report as pdfs.ROLE.item_review. The checker rerenders
@@ -57127,6 +57290,19 @@ make the printed-note check pass.
 Use this reference for every current-form Math A or Math B item. It converts official position-level P/D evidence into a pre-pilot construction gate. It does not claim that an unpiloted item has achieved an official P or D.
 
 ## Separate four questions
+
+The current project default for a complete 20-item, 100-point Math A/B mock is
+the maintainer's higher-demand profile: **簡單 below 10 points**, **中偏難 + 難
+at least 70 points**, and **難 at least 30 points**. Ten easy points is already
+too many. A feasible planning example under the current slot scores is
+5 / 22 / 38 / 35 points, respectively; choose genuinely new items, not that
+example's implied sequence. These are project preferences, not observed
+official difficulty percentages, and do not change historical P/D records or
+other subjects' distributions. Both the author's four-band audit and the
+actual review's remapped bands enforce the floor. Retain the 80–92 minute
+hand-solving target and curriculum boundary; increase reasoning demand, not
+arithmetic burden. An easy distance/volume substitution remains easy even in
+a late slot, and a method already supplied by an earlier item reduces demand.
 
 For each item, keep these judgments separate:
 
@@ -59567,7 +59743,7 @@ import hashlib
 import json
 from pathlib import Path
 import pymupdf
-from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, bottom_void
+from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary
 from hosted_blind_review import packet, review_errors, REVIEW_MODES
@@ -59752,6 +59928,7 @@ def check(state_path: Path) -> dict:
                 text = actual_page.get_text()
                 if exam.get('metadata', {}).get('subject') in {'數學A','數學B'}:
                     need(not source_note_samples(text), f'{role}/page-{number}: printed math source note')
+                    need(not rail_format_samples(actual_page), f'{role}/page-{number}: actual PDF answer-rail-format')
                 need('\ufffd' not in text and '\x00' not in text,
                      f'{role}/page-{number}: actual PDF replacement-or-null-glyph')
                 spans = [s for b in actual_page.get_text('dict')['blocks']
@@ -59861,13 +60038,17 @@ def check(state_path: Path) -> dict:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('state', type=Path)
+    parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     try:
         result = check(args.state)
     except (ValueError, TypeError, KeyError, OSError, AttributeError, IndexError, RuntimeError, OverflowError) as exc:
         result = {'status': 'pending', 'errors': [f'Malformed/missing evidence: {type(exc).__name__}'],
                   'formal_acceptance': False}
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    serialized = json.dumps(result, ensure_ascii=False, indent=2)
+    if args.output:
+        args.output.write_text(serialized, encoding='utf-8')
+    print(serialized)
     raise SystemExit(0 if result['status'] == 'evidence-complete' else 2)
 </canonical-source>
 
@@ -60349,6 +60530,14 @@ def review_errors(exam, review):
     if type(duration) in (int,float) and type(shared) in (int,float) and independent_total + shared > duration:
         errors.append('difficulty: reviewed solving plus shared reading exceeds paper duration')
     if is_math and len(exam['questions']) == 20:
+        reviewed_points = {b: sum(q.get('score', 0) or 0 for q in exam['questions']
+                                  if rows.get(q['id'], {}).get('difficulty_band') == b) for b in bands}
+        if reviewed_points['easy'] + reviewed_points['very_easy'] >= 10:
+            errors.append('difficulty: reviewed easy score must be below 10 points')
+        if reviewed_points['hard'] + reviewed_points['very_hard'] < 70:
+            errors.append('difficulty: reviewed medium-hard/hard score must reach 70 points')
+        if reviewed_points['very_hard'] < 30:
+            errors.append('difficulty: reviewed hard score must reach 30 points')
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
         if not 80 <= total <= 92:
@@ -60374,6 +60563,245 @@ if __name__ == '__main__':
     args = parser.parse_args()
     args.output.write_text(json.dumps(packet(json.loads(args.exam.read_text(encoding='utf-8')), args.review_mode),
                                      ensure_ascii=False, indent=2), encoding='utf-8')
+</canonical-source>
+
+<canonical-source path="scripts/hosted_body_templates.py">
+#!/usr/bin/env python3
+"""Flow-layout components only. Never generate, select or reuse exam questions."""
+from __future__ import annotations
+import argparse
+import hashlib
+import html
+from html.parser import HTMLParser
+import json
+import inspect
+from pathlib import Path
+import re
+import time
+
+import pymupdf
+from fetch_hosted_template_assets import DEFAULT_MAP
+from hosted_item_layout import draw_rail
+
+HTML_OPTIONS = {'_scale_word_width':False} if '_scale_word_width' in inspect.signature(pymupdf.Page.insert_htmlbox).parameters else {}
+
+KINDS = ('section', 'choice', 'multiple', 'fill', 'constructed', 'stimulus', 'solution')
+CSS = '''
+@font-face {font-family:Body;src:url(body-font.ttf)}
+* {box-sizing:border-box} body {font-family:Body;font-size:11pt;line-height:1.65;margin:0;color:#000;background:transparent}
+p {margin:0 0 5pt} table {border-collapse:collapse;width:100%;margin:0} td {padding:0 4pt 3pt 0;vertical-align:top}
+.direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3}
+.heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
+.number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
+sup,sub {font-size:70%} .options {margin-top:3pt}
+'''
+
+
+class RichText(HTMLParser):
+    """Only inline typographic tags; layout, images and CSS belong to components."""
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.output = []
+        self.stack = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in {'sup','sub','i','em','b','strong','br'} or attrs:
+            raise ValueError('Use only sup/sub/i/em/b/strong/br without attributes in rich text')
+        self.output.append('<'+tag+'>')
+        if tag != 'br': self.stack.append(tag)
+
+    def handle_endtag(self, tag):
+        if not self.stack or self.stack.pop() != tag:
+            raise ValueError('Unbalanced rich-text tags')
+        self.output.append('</'+tag+'>')
+
+    def handle_data(self, data): self.output.append(html.escape(data))
+
+
+def text(value):
+    if isinstance(value, dict) and set(value) == {'rich'}:
+        parser = RichText(); parser.feed(value['rich']); parser.close()
+        if parser.stack: raise ValueError('Unclosed rich-text tag')
+        return ''.join(parser.output)
+    if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
+    if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
+        raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
+    return html.escape(value).replace('\n','<br>')
+
+
+def rail_image(number, rows):
+    if not isinstance(rows,list) or not 1 <= len(rows) <= 2 or any(type(n) is not int or not 1<=n<=6 for n in rows):
+        raise ValueError('Use one integer row or two fraction rows; specify other response forms as verified assets')
+    width = max(rows)*28.98 + 4
+    height = len(rows)*32.98 + 4
+    with pymupdf.open() as doc:
+        page = doc.new_page(width=width, height=height)
+        ordinal = 1
+        for index, count in enumerate(rows):
+            # draw_rail starts row IDs at 1, so shift subsequent fraction labels
+            # in this local body-only component before rasterizing.
+            x = (width-count*28.98)/2
+            reservation = {'bbox':[x,2+index*32.98,x+count*28.98,30.98+index*32.98]}
+            if ordinal == 1:
+                draw_rail(page,reservation,number,count)
+            else:
+                font=pymupdf.Font('tiro')
+                for j in range(count):
+                    cx=x+j*28.98+12.99;cy=2+index*32.98+12.99
+                    label=f'{number}-{ordinal+j}';size=10.02
+                    page.draw_circle((cx,cy),12.99,width=.7)
+                    page.insert_text((cx-font.text_length(label,fontsize=size)/2,
+                                      cy+size*(font.ascender+font.descender)/2),label,fontname='tiro',fontsize=size)
+                page.draw_line((x,30.98+index*32.98),(x+count*28.98,30.98+index*32.98),width=.7)
+            ordinal += count
+        return page.get_pixmap(matrix=pymupdf.Matrix(4,4),alpha=True).tobytes('png'),width,height
+
+
+def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
+    kind=block.get('kind')
+    if kind not in KINDS: raise ValueError('Unknown body block kind')
+    if kind=='section':
+        return f'<div class="heading">{text(block["title"])}</div><div class="direction">{text(block["directions"])}</div>'
+    if kind!='stimulus' and (type(block.get('number')) is not int or block['number']<1):
+        raise ValueError('Supply a positive integer question number')
+    stem=text(block.get('text',''))
+    if kind=='solution':
+        if not block.get('steps'):raise ValueError('Supply actual authored solution steps')
+        stem=''.join('<p>'+text(p)+'</p>' for p in [block.get('text',''),*block['steps']])
+    if kind=='fill':
+        if stem.count('{{answer}}')!=1: raise ValueError('Place exactly one {{answer}} at the semantic answer position')
+        data,w,h=rail_image(block['number'],block['rows'])
+        name=f'rail-{index}.png';archive.add((data,name))
+        before,after=stem.split('{{answer}}')
+        before=str(block['number'])+'. '+before
+        font_metric=font_metric or pymupdf.Font('cjk')
+        measure=lambda value:font_metric.text_length(html.unescape(re.sub('<[^>]*>','',value)),fontsize=11)+6
+        after_width=min(160,max(18,measure(after)))
+        before_width=min(width-w-16-after_width,measure(before))
+        table_width=before_width+w+16+after_width
+        stem=(f'<table style="width:{table_width}pt"><tr><td style="width:{before_width}pt;vertical-align:middle">{before}</td>'
+              f'<td style="width:{w+8}pt;line-height:{h+4}pt"><img src="{name}" width="{w}" height="{h}"></td>'
+              f'<td style="width:{after_width}pt;vertical-align:middle">{after}</td></tr></table>')
+    elif '{{answer}}' in stem: raise ValueError('Answer position token requires a fill block')
+    # Inline complex math/diagrams are supplied by the author, never by a stored
+    # question or graph menu. Every referenced binary must match its saved hash.
+    images={};image_heights={}
+    for key,asset in block.get('assets',{}).items():
+        path=(asset_root/asset['path']).resolve()
+        if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
+        raw=path.read_bytes()
+        if hashlib.sha256(raw).hexdigest()!=asset['sha256']:raise ValueError('Changed body asset')
+        width=asset['width_pt']
+        if type(width) not in (int,float) or not 1<=width<=460:raise ValueError('Invalid asset width')
+        with pymupdf.open(stream=raw) as image_doc:
+            rect=image_doc[0].rect
+        height=width*rect.height/rect.width
+        name=f'asset-{index}-{len(images)}'+path.suffix
+        archive.add((raw,name))
+        images[key]=f'<img src="{name}" width="{width}" height="{height}">'
+        image_heights[key]=height
+        stem=stem.replace('{{asset:'+key+'}}',images[key])
+    if '{{asset:' in stem:raise ValueError('Missing inline asset')
+    figure=block.get('figure')
+    if figure:
+        if figure not in images:raise ValueError('Figure must name a hash-verified asset')
+        if kind not in {'stimulus','solution'}:stem=str(block.get('number',''))+'. '+stem
+        image_box=f'<div style="line-height:{image_heights[figure]+4}pt">{images[figure]}</div>'
+        if block.get('figure_position','below')=='right':
+            if block['assets'][figure]['width_pt']>180:raise ValueError('Right-hand figure exceeds reserved column')
+            stem=f'<table><tr><td style="width:{width-189}pt">{stem}</td><td style="width:185pt" class="figure">{image_box}</td></tr></table>'
+        else:stem+=f'<div class="figure">{image_box}</div>'
+    if kind in {'choice','multiple'}:
+        options=block.get('options',[])
+        if len(options)<2:raise ValueError('Choice block needs authored options')
+        columns=block.get('columns',1)
+        if columns not in (1,2,5):raise ValueError('Use 1, 2 or 5 option columns; never shrink font to fit')
+        cells=[f'<td style="width:{100/columns}%">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
+        stem+='<table class="options">'+''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table>'
+    if kind=='constructed':
+        if type(block.get('score')) not in (int,float) or block['score']<=0:raise ValueError('Constructed response must show its actual positive score')
+        stem+=f'（{block["score"]}分）'
+    label=(f'第{block["number"]}題' if kind=='solution' else str(block.get('number',''))+'.')
+    if kind=='solution':return f'<div class="heading">{label}</div>'+stem
+    if kind=='fill' or figure:return stem
+    return stem if kind=='stimulus' else f'<table><tr><td class="number">{label}</td><td>{stem}</td></tr></table>'
+
+
+def render(spec, output, layout_path, font, *, asset_root, proof=False):
+    started=time.monotonic()
+    if output.exists() or layout_path.exists():raise ValueError('Use new output names; preserve previous reviewable bytes')
+    if spec.get('purpose')=='layout-reference-only' and not proof:raise ValueError('Placeholder gallery cannot become a production exam')
+    if not proof and any(str(b.get('id','')).startswith('layout-') for b in spec.get('blocks',[])):
+        raise ValueError('Placeholder gallery IDs cannot become production questions')
+    manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
+    subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
+    allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
+    body=allowed+(4,4,-4,-4)
+    archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
+    blocks=spec['blocks']
+    if not blocks:raise ValueError('No authored blocks')
+    parts=[];pages=[]
+    contents=[fragment(block,archive,asset_root,index,body.width,pymupdf.Font(fontfile=str(font))) for index,block in enumerate(blocks)]
+    # Measure each whole block once using the SAME engine, width and font.
+    # Production painting never clips, scales, or estimates height from lines.
+    heights=[];tops=[]
+    with pymupdf.open() as measure:
+        for index,content in enumerate(contents):
+            sample=measure.new_page(width=595.28,height=841.89)
+            spare,scale=sample.insert_htmlbox(body,content,css=CSS,archive=archive,scale_low=1,**HTML_OPTIONS)
+            if spare<0 or scale!=1:raise ValueError(f'Block {index} exceeds a page; explicitly split its continuation')
+            native=sample.get_text('dict')['blocks']
+            ink=[pymupdf.Rect(b['bbox']) for b in native]
+            if any(not allowed.contains(rect) for rect in ink):
+                raise ValueError(f'Block {index}: actual painted content exceeds the body')
+            native=sample.get_text('dict')['blocks']
+            images=[pymupdf.Rect(b['bbox']) for b in native if b['type']==1]
+            spans=[pymupdf.Rect(s['bbox']) for b in native for line in b.get('lines',[]) for s in line['spans']]
+            if any((a & b).width>1 and (a & b).height>1 for a in images for b in spans):
+                raise ValueError(f'Block {index}: image overlaps actual text; use a reserved figure block')
+            tops.append(min(0,min((r.y0-body.y0 for r in ink),default=0))-1)
+            heights.append(max(20,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
+    with pymupdf.open() as doc:
+        page=doc.new_page(width=595.28,height=841.89);y=body.y0
+        for index,(block,content,used) in enumerate(zip(blocks,contents,heights)):
+            required=used
+            if block['kind']=='section':
+                if index+1==len(blocks) or blocks[index+1]['kind']=='section':
+                    raise ValueError('A section must precede a content block')
+                required+=8+heights[index+1]
+            if required>body.height:raise ValueError('Section and following item exceed page; split the item explicitly')
+            if y+required>body.y1:
+                page=doc.new_page(width=595.28,height=841.89);y=body.y0
+            rect=pymupdf.Rect(body.x0,y,body.x1,body.y1)
+            spare,scale=page.insert_htmlbox(rect,content,css=CSS,archive=archive,scale_low=1,**HTML_OPTIONS)
+            if spare<0 or scale!=1:raise ValueError(f'Block {index} does not fit at full font size')
+            box=[allowed.x0,y+tops[index],allowed.x1,y+used]
+            if block['kind']!='section':
+                ids=block.get('ids') or [block['id']]
+                if len(ids)!=1:raise ValueError('Assign a shared block one owner ID; avoid overlapping crop parts')
+                parts.append({'id':ids[0],'page':len(doc),'bbox':box,
+                              'components':[{'role':'flow-content','bbox':box}]})
+            pages.append({'block':index,'kind':block['kind'],'page':len(doc),'bbox':box})
+            y+=used+(8 if block['kind']=='section' else 12)
+        output.parent.mkdir(parents=True,exist_ok=True)
+        raw=doc.tobytes(garbage=4,deflate=True);output.write_bytes(raw)
+    layout={'pdf_sha256':hashlib.sha256(raw).hexdigest(),'parts':parts,'blocks':pages,
+            'scope':'Body layout only; compose onto original fixed PDFs and perform actual QA',
+            'elapsed_seconds':round(time.monotonic()-started,3)}
+    layout_path.parent.mkdir(parents=True,exist_ok=True)
+    layout_path.write_text(json.dumps(layout,ensure_ascii=False,indent=2),encoding='utf-8')
+    return layout
+
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('spec',type=Path)
+    for name in ('output','layout','font'):p.add_argument('--'+name,type=Path,required=True)
+    p.add_argument('--proof',action='store_true')
+    args=p.parse_args()
+    result=render(json.loads(args.spec.read_text(encoding='utf-8')),args.output,args.layout,args.font,
+                  asset_root=args.spec.resolve().parent,proof=args.proof)
+    print(json.dumps({'body_pdf':str(args.output),'layout':str(args.layout),'elapsed_seconds':result['elapsed_seconds']}))
 </canonical-source>
 
 <canonical-source path="scripts/hosted_calibration.py">
@@ -60496,7 +60924,7 @@ from pathlib import Path
 import pymupdf
 
 
-def reserve_rail(content_boxes, *, x, slots, bottom_limit, gap=8, diameter=24,
+def reserve_rail(content_boxes, *, x, slots, bottom_limit, gap=8, diameter=25.98,
                  label_height=12, after=12):
     """Reserve AFTER the union of actual laid-out stem, math, options and figure.
 
@@ -60506,19 +60934,28 @@ def reserve_rail(content_boxes, *, x, slots, bottom_limit, gap=8, diameter=24,
     if not content_boxes or slots < 1 or gap < 6 or after < 6:
         raise ValueError('Measured content and positive rail clearance required')
     top = max(pymupdf.Rect(b).y1 for b in content_boxes) + gap
-    box = [x, top, x + slots * (diameter + 10), top + label_height + 3 + diameter]
+    box = [x, top, x + slots * (diameter + 3), top + diameter + 3]
     return None if box[3] + after > bottom_limit else {'bbox': box, 'next_y': box[3] + after}
 
 
-def draw_rail(page, reservation, number, slots, diameter=24, label_height=12):
+def draw_rail(page, reservation, number, slots, diameter=25.98, label_height=12):
     """Draw into the reserved block; never overlay a rail onto completed stems."""
     box = pymupdf.Rect(reservation['bbox'])
-    if slots * (diameter + 10) > box.width or label_height + 3 + diameter > box.height:
+    if slots * (diameter + 3) > box.width + .01 or diameter + 3 > box.height + .01:
         raise ValueError('Rail exceeds its reservation')
     for index in range(slots):
-        x = box.x0 + index * (diameter + 10)
-        page.insert_text((x, box.y0 + 10), f'({number}-{index+1})', fontsize=9, fontname='tiro')
-        y = box.y0 + label_height + 3
+        x = box.x0 + index * (diameter + 3)
+        label = f'{number}-{index+1}'
+        font = pymupdf.Font('tiro')
+        size = 10.02
+        width = font.text_length(label, fontsize=size)
+        if width > diameter - 2:
+            raise ValueError('Position identifier does not fit the measured circle')
+        y = box.y0
+        # Official row identifiers belong INSIDE their circles, not beside/above
+        # an unrelated answer blank. These are new body rails, not fixed assets.
+        baseline = y + diameter / 2 + size * (font.ascender + font.descender) / 2
+        page.insert_text((x + (diameter - width) / 2, baseline), label, fontsize=size, fontname='tiro')
         page.draw_circle((x + diameter / 2, y + diameter / 2), diameter / 2, width=.7)
     page.draw_line((box.x0, box.y1), (box.x1, box.y1), width=.7)
 
@@ -60701,7 +61138,37 @@ from validate_math_context import source_note_samples
 
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
-                 "answer-rail-content-collision", "printed-math-source-note"}
+                 "answer-rail-content-collision", "printed-math-source-note", "answer-rail-format"}
+
+
+def rail_format_samples(page):
+    """Catch native numbered circle IDs printed outside circles or without rules.
+
+    Only check recognizable circles near plain or parenthesized position labels. Unknown
+    outlines/special response formats still need actual item visual review.
+    """
+    labels = [w for w in page.get_text('words') if re.fullmatch(r'(?:\(\d{1,2}[-–]\d{1,2}\)|\d{1,2}[-–]\d{1,2})', w[4])]
+    drawings = page.get_drawings()
+    circles = [d['rect'] for d in drawings if 12 <= d['rect'].width <= 35
+               and abs(d['rect'].width - d['rect'].height) < 1
+               and sum(item[0] == 'c' for item in d['items']) >= 4]
+    lines = [(min(a.x,b.x), max(a.x,b.x), a.y) for d in drawings for item in d['items']
+             if item[0] == 'l' for a,b in [item[1:3]] if abs(a.y-b.y)<.2 and abs(a.x-b.x)>12]
+    findings = []
+    for word in labels:
+        label = pymupdf.Rect(word[:4])
+        near = [r for r in circles if abs((r.y0+r.y1-label.y0-label.y1)/2)<35
+                and abs((r.x0+r.x1-label.x0-label.x1)/2)<80]
+        if not near:
+            continue
+        inside = [r for r in near if (r + (-1,-1,1,1)).contains(label)]
+        if not inside:
+            findings.append({'label':word[4], 'issue':'position-id-outside-circle'})
+            continue
+        circle = min(inside, key=lambda r:r.width)
+        if not any(left<=circle.x0+1 and right>=circle.x1-1 and 0<=y-circle.y1<=8 for left,right,y in lines):
+            findings.append({'label':word[4], 'issue':'position-row-missing-answer-rule'})
+    return findings
 
 
 def rail_collision_samples(page) -> list[dict]:
@@ -60712,7 +61179,7 @@ def rail_collision_samples(page) -> list[dict]:
     collision-free layout. Outline-only labels still require component review.
     """
     labels = [w for w in page.get_text('words')
-              if re.fullmatch(r'\(\d{1,2}[-–]\d{1,2}\)', w[4])]
+              if re.fullmatch(r'(?:\(\d{1,2}[-–]\d{1,2}\)|\d{1,2}[-–]\d{1,2})', w[4])]
     chars = [c for b in page.get_text('rawdict')['blocks'] for l in b.get('lines', [])
              for s in l['spans'] for c in s['chars'] if not c['c'].isspace()]
     outlines = [d for d in page.get_drawings()
@@ -60807,6 +61274,9 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             rail_collisions = rail_collision_samples(page)
             if rail_collisions:
                 issues.append('answer-rail-content-collision')
+            rail_formats = rail_format_samples(page) if math else []
+            if rail_formats:
+                issues.append('answer-rail-format')
             if table_collisions:
                 issues.append("table-grid-text-collision-review")
             for span in spans:
@@ -60826,6 +61296,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
                           "rail_collision_samples": rail_collisions,
+                          "rail_format_samples": rail_formats,
                           "bottom_void_ratio": void,
                           "fonts": sorted({s["font"] for s in spans}),
                           "sizes_pt": sorted({round(s["size"], 2) for s in spans}),
@@ -60851,6 +61322,175 @@ if __name__ == "__main__":
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(report, ensure_ascii=True, indent=2))
     raise SystemExit(2 if report["blocking_pages"] else 0)
+</canonical-source>
+
+<canonical-source path="scripts/prepare_hosted_review.py">
+#!/usr/bin/env python3
+"""Prepare actual final-PDF page/item review in one batch; never approve content."""
+from __future__ import annotations
+import argparse
+import copy
+import hashlib
+import html
+import json
+from pathlib import Path
+import time
+
+import pymupdf
+from hosted_item_layout import crop_items, crop_bytes, geometry_errors
+from inspect_hosted_pdf import audit
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def refresh_review_hashes(state_path):
+    """After real review, refresh only review-file digests; never change results."""
+    state=json.loads(state_path.read_text(encoding='utf-8'))
+    root=state_path.resolve().parent
+    for bundle in state.get('pdfs',{}).values():
+        for key in ('inspection','item_review','visual_review'):
+            record=bundle[key];path=(root/record['path']).resolve()
+            if not path.is_relative_to(root):raise ValueError('External review file')
+            report=json.loads(path.read_text(encoding='utf-8'))
+            if report.get('pdf_sha256')!=bundle['file']['sha256']:raise ValueError('Review belongs to a different PDF')
+            record['sha256']=sha(path)
+    state_path.write_text(json.dumps(state,ensure_ascii=False,indent=2),encoding='utf-8')
+    return {'status':'review-hashes-refreshed','state':str(state_path),'reviews_approved_by_tool':False}
+
+
+def bind_layout(body, final, layout, offset):
+    """Bind measured body parts only after comparing their actual final pixels."""
+    if layout.get('pdf_sha256') != sha(body):
+        raise ValueError('Measured layout has stale body PDF hash')
+    result=copy.deepcopy(layout)
+    with pymupdf.open(body) as source, pymupdf.open(final) as target, pymupdf.open() as projected:
+        errors=geometry_errors(source, result['parts'])
+        if errors:raise ValueError('; '.join(errors))
+        for source_page in source:
+            destination=target[source_page.number+offset].rect
+            page=projected.new_page(width=destination.width,height=destination.height)
+            page.show_pdf_page(page.rect,source,source_page.number)
+        for part in result['parts']:
+            page=part['page']
+            if not 1 <= page+offset <= len(target):raise ValueError('Final PDF has missing body pages')
+            # Reproduce the compositor's exact A4 rounding transform, rather
+            # than comparing slightly different 595.28 / 595.276 page widths.
+            if crop_bytes(projected[page-1],part['bbox']) != crop_bytes(target[page+offset-1],part['bbox']):
+                raise ValueError('Final item pixels differ from measured body; repair or measure final layout explicitly')
+            part['page']+=offset
+    result['pdf_sha256']=sha(final)
+    return result
+
+
+def prepare(state_path, pairs, output):
+    """pairs: role -> (final_pdf, body_pdf, body_layout); all files inside run."""
+    started=time.monotonic()
+    root=state_path.resolve().parent
+    output=output.resolve()
+    candidate=root/(output.name+'-run-state.json')
+    if not output.is_relative_to(root) or output.exists():
+        raise ValueError('Use a new review directory inside this run; preserve earlier evidence')
+    if candidate.exists():raise ValueError('Candidate run state already exists')
+    state=json.loads(state_path.read_text(encoding='utf-8'))
+    def record(path):
+        path=path.resolve()
+        if not path.is_relative_to(root):raise ValueError('Artifact outside this run')
+        return {'path':path.relative_to(root).as_posix(),'sha256':sha(path)}
+    exam_path=root/state['exam']['path']
+    if record(exam_path)!=state['exam']:raise ValueError('Save the current exam hash before preparing review')
+    exam=json.loads(exam_path.read_text(encoding='utf-8'))
+    if set(pairs)!={'question','solution'}:raise ValueError('Supply both booklets')
+    for paths in pairs.values():
+        for path in paths:record(path)
+    output.mkdir(parents=True)
+    def save(name,value):
+        path=output/name
+        path.write_text(json.dumps(value,ensure_ascii=False,indent=2),encoding='utf-8')
+        return record(path)
+    def relative_rasters(rows):
+        for row in rows:row['raster_path']=record(Path(row['raster_path']))['path']
+    index=['<!doctype html><meta charset="utf-8"><title>待審版面</title>',
+           '<style>body{font:18px sans-serif;max-width:1200px;margin:24px auto}img{max-width:100%;border:1px solid #ddd}section{margin:30px 0}</style>',
+           '<h1>待審版面 — 尚未通過</h1><p>逐頁與逐題開啟原尺寸圖片，核對實際內容，填寫觀察及修正。此頁不會自動核准。</p>']
+    state.setdefault('pdfs',{})
+    reused={'pages':0,'parts':0}
+    for role,(pdf,body,layout_path) in pairs.items():
+        layout=bind_layout(body,pdf,json.loads(layout_path.read_text(encoding='utf-8')),1 if role=='question' else 0)
+        items=crop_items(pdf,layout,output/role/'items')
+        scan=audit(pdf,output/role/'pages',math=exam['metadata']['subject'] in {'數學A','數學B'})
+        relative_rasters(items['parts']);relative_rasters(scan['pages'])
+        visual={'pdf_sha256':sha(pdf),'pages':[
+            {'page':p['page'],'raster_sha256':p['raster_sha256'],'status':'pending',
+             'observations':'','issue_dispositions':{}} for p in scan['pages']]}
+        prior=state['pdfs'].get(role,{})
+        if prior.get('exam_sha256')==state['exam']['sha256']:
+            if record(root/prior['file']['path'])!=prior['file']:
+                raise ValueError('Prior PDF changed; retain its original reviewed bytes')
+            def prior_report(key):
+                saved=prior.get(key)
+                if not saved:return None
+                path=root/saved['path']
+                if record(path)!=saved:raise ValueError('Prior review hash is stale; refresh after actual review')
+                report=json.loads(path.read_text(encoding='utf-8'))
+                if report.get('pdf_sha256')!=prior.get('file',{}).get('sha256'):
+                    raise ValueError('Prior review belongs to another PDF')
+                return report
+            old_scan=prior_report('inspection');old_visual=prior_report('visual_review');old_items=prior_report('item_review')
+            if old_scan and old_visual:
+                old_pages={p['page']:p for p in old_scan['pages']}
+                old_rows={p['page']:p for p in old_visual['pages']}
+                for fresh,mechanical in zip(visual['pages'],scan['pages']):
+                    old=old_rows.get(fresh['page'],{});seen=old_pages.get(fresh['page'],{})
+                    if (old.get('status')=='pass' and old.get('observations') and
+                        old.get('raster_sha256')==seen.get('raster_sha256')==fresh['raster_sha256'] and
+                        seen.get('issues')==mechanical['issues']):
+                        fresh.update(copy.deepcopy(old));fresh['review_basis']='unchanged pixels and exam; retained actual prior review'
+                        reused['pages']+=1
+            if old_items:
+                def signature(p):return (p['id'],p['page'],tuple(p['bbox']),p['raster_sha256'])
+                old_parts={signature(p):p for p in old_items['parts']}
+                for fresh in items['parts']:
+                    old=old_parts.get(signature(fresh),{})
+                    if old.get('status')=='pass' and old.get('observations'):
+                        fresh.update(status='pass',observations=old['observations'],
+                                     review_basis='unchanged pixels and exam; retained actual prior review')
+                        reused['parts']+=1
+        state['pdfs'][role]={'file':record(pdf),'exam_sha256':state['exam']['sha256'],
+                            'inspection':save(role+'-inspection.json',scan),
+                            'item_review':save(role+'-items.json',items),
+                            'visual_review':save(role+'-review.json',visual)}
+        index.append('<h2>'+role+'</h2>')
+        for label,rows in [('頁',scan['pages']),('題目區塊',items['parts'])]:
+            for row in rows:
+                src=(root/row['raster_path']).relative_to(output).as_posix()
+                name=html.escape(str(row.get('id',row['page'])))
+                index.append(f'<section><h3>{label} {name}</h3><a href="{src}"><img src="{src}" loading="lazy"></a></section>')
+    # Save a new state rather than overwriting active reviewer records.
+    # Relative paths in run-state are rooted at the RUN, not review directory.
+    # Put the candidate state beside its original so the checker resolves them.
+    candidate.write_text(json.dumps(state,ensure_ascii=False,indent=2),encoding='utf-8')
+    index_path=output/'index.html';index_path.write_text('\n'.join(index),encoding='utf-8')
+    return {'status':'review-pending','state':str(candidate),'index':str(index_path),
+            'retained_actual_reviews':reused,
+            'elapsed_seconds':round(time.monotonic()-started,3),
+            'next':'Actually review images, update observations and saved report hashes, then run check_hosted_run.py'}
+
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--refresh-state',type=Path)
+    p.add_argument('--state',type=Path);p.add_argument('--output',type=Path)
+    for role in ('question','solution'):
+        for suffix in ('','-body','-layout'):p.add_argument('--'+role+suffix,type=Path)
+    a=p.parse_args()
+    if a.refresh_state:
+        if any(v for k,v in vars(a).items() if k!='refresh_state'):p.error('Use --refresh-state alone')
+        print(json.dumps(refresh_review_hashes(a.refresh_state),ensure_ascii=False));raise SystemExit(0)
+    if not all(v for k,v in vars(a).items() if k!='refresh_state'):p.error('Supply state, output, both PDFs, bodies and layouts')
+    pairs={role:tuple(getattr(a,role+suffix) for suffix in ('','_body','_layout')) for role in ('question','solution')}
+    print(json.dumps(prepare(a.state,pairs,a.output),ensure_ascii=False,indent=2))
 </canonical-source>
 
 <canonical-source path="scripts/prepare_hosted_run.py">
@@ -61581,6 +62221,10 @@ def validate(d,asset_root=None):
     minutes=sum(r['minutes'] for r in rows if isinstance(r['minutes'],(int,float)))+shared
     if isinstance(duration,(int,float)) and minutes>duration:errors.append('estimated solving time exceeds paper duration')
     total=sum(points.values())
+    if d.get('metadata',{}).get('subject') in {'數學A','數學B'} and len(d.get('questions',[])) == 20 and total == 100:
+        if points['簡單'] >= 10:errors.append('math challenge profile: easy score must be below 10 points')
+        if points['中偏難'] + points['難'] < 70:errors.append('math challenge profile: medium-hard/hard score must reach 70 points')
+        if points['難'] < 30:errors.append('math challenge profile: hard score must reach 30 points')
     return dict(status='pass-structural-only' if not errors else 'fail',errors=errors,count=dict(counts),points=dict(points),
         count_percent={b:round(100*counts[b]/count,1)for b in BANDS} if count else {},
         score_percent={b:round(100*points[b]/total,1)for b in BANDS} if total else {},items=rows,
@@ -61783,6 +62427,131 @@ if __name__ == '__main__':
     "general logarithm laws"
   ]
 }
+</canonical-source>
+
+<canonical-source path="templates/hosted-body-blocks.json">
+{
+  "purpose": "layout-reference-only",
+  "subject": "數學A",
+  "notice": "僅供版型參考。不得使用此處占位內容、編號配置或範例次序命題。另建本次原創內容檔；固定封面、頁首尾與公式仍使用原 PDF。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "〔大題名稱與實際配分〕",
+      "directions": "〔當科、當題型正式作答說明；必須填入本次實際題號與配分〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-choice",
+      "number": 1,
+      "text": "〔本次原創題幹。此處只示範長題幹換行與選項間距，不能當作考題。〕",
+      "columns": 1,
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔本次新選項〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔本次新選項〕"
+        },
+        {
+          "label": "(3)",
+          "text": "〔本次新選項〕"
+        },
+        {
+          "label": "(4)",
+          "text": "〔本次新選項〕"
+        },
+        {
+          "label": "(5)",
+          "text": "〔本次新選項〕"
+        }
+      ]
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-multiple",
+      "number": 2,
+      "text": "〔多選題幹；較長的敘述使用直列選項，勿為了塞入同一列縮字。〕",
+      "options": [
+        {
+          "label": "(1)",
+          "text": "〔含完整判斷條件的新敘述〕"
+        },
+        {
+          "label": "(2)",
+          "text": "〔含完整判斷條件的新敘述〕"
+        }
+      ]
+    },
+    {
+      "kind": "fill",
+      "id": "layout-integer",
+      "number": 13,
+      "rows": [
+        3
+      ],
+      "text": "〔整數選填題的新題幹〕，所求結果為 {{answer}}。"
+    },
+    {
+      "kind": "fill",
+      "id": "layout-fraction",
+      "number": 14,
+      "rows": [
+        1,
+        2
+      ],
+      "text": "〔分數選填題的新題幹〕，所求結果為 {{answer}}（化為最簡分數）。"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-figure",
+      "number": 15,
+      "score": 3,
+      "text": "〔圖文並排的新題幹。圖形必須由本次命題重新設計、繪製並核對標籤；灰色框不能成為正式考題圖。〕",
+      "assets": {
+        "diagram": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 160
+        }
+      },
+      "figure": "diagram",
+      "figure_position": "right"
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-stimulus",
+      "text": "〔新題組的共用材料。此版型不提供既有圖形、情境或數值；本次新繪圖片透過 assets 與 figure 欄位放入。〕"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-constructed",
+      "number": 18,
+      "score": 3,
+      "text": "〔混合／非選題的新題幹、必要限制與作答要求；此處的配分只示範顯示位置，正式配分依本次題槽。〕"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-solution",
+      "number": 18,
+      "text": "〔本次答案與實際配分〕",
+      "steps": [
+        "〔逐步推導，非模板提供的解題路線〕",
+        "〔核對所有條件、替代解法與評分點〕"
+      ]
+    }
+  ]
+}
+</canonical-source>
+
+<canonical-source path="templates/hosted-body-figure-placeholder.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="160" viewBox="0 0 240 160">
+  <rect x="2" y="2" width="236" height="156" fill="#eee" stroke="#666" stroke-dasharray="6 4"/>
+  <text x="120" y="76" text-anchor="middle" font-family="sans-serif" font-size="18">NEW FIGURE</text>
+  <text x="120" y="103" text-anchor="middle" font-family="sans-serif" font-size="12">LAYOUT PLACEHOLDER ONLY</text>
+</svg>
 </canonical-source>
 
 <canonical-source path="templates/inspiration-source-record.json">

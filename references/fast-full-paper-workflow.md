@@ -2,7 +2,7 @@
 
 Hosted runs must also follow hosted-quality-gates.md: start the actual phase
 logger before preflight, preserve it across repairs, and finish item-level review
-and independent difficulty QA even when target_met becomes false. Missing timing
+and capability-appropriate difficulty QA even when target_met becomes false. Missing timing
 blocks evidence-complete; it cannot be reconstructed from a chat's total duration.
 
 Read this reference when a user asks for faster generation, a timed benchmark, or a target such as one complete paper within 20 minutes. Speed is measured under the same complete-paper contract as ordinary generation. This workflow changes scheduling and cache use; it never lowers educational, originality, source, rights, layout, or review gates.
@@ -43,6 +43,12 @@ in `web-platform-use.md`; revalidate hashes, then continue from the first unfini
 phase. Do not discard solved items or redownload verified assets on every user
 “continue”. In hosted mode, use that reference's bounded-loading and transport
 workflow rather than reconstructing the whole repository or all subjects.
+
+For hosted conversation runs, also follow hosted-body-workflow.md: reusable
+body components, a first small authored render batch, an approximately eight
+minute final-QA reserve, and batched page/crop preparation. These reduce repeated
+layout programming and evidence bookkeeping; they do not prove a 25-minute
+end-to-end completion time.
 
 ## Fast path, one paper at a time
 

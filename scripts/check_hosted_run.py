@@ -11,7 +11,7 @@ import hashlib
 import json
 from pathlib import Path
 import pymupdf
-from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, bottom_void
+from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary
 from hosted_blind_review import packet, review_errors, REVIEW_MODES
@@ -196,6 +196,7 @@ def check(state_path: Path) -> dict:
                 text = actual_page.get_text()
                 if exam.get('metadata', {}).get('subject') in {'數學A','數學B'}:
                     need(not source_note_samples(text), f'{role}/page-{number}: printed math source note')
+                    need(not rail_format_samples(actual_page), f'{role}/page-{number}: actual PDF answer-rail-format')
                 need('\ufffd' not in text and '\x00' not in text,
                      f'{role}/page-{number}: actual PDF replacement-or-null-glyph')
                 spans = [s for b in actual_page.get_text('dict')['blocks']
@@ -305,11 +306,15 @@ def check(state_path: Path) -> dict:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('state', type=Path)
+    parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     try:
         result = check(args.state)
     except (ValueError, TypeError, KeyError, OSError, AttributeError, IndexError, RuntimeError, OverflowError) as exc:
         result = {'status': 'pending', 'errors': [f'Malformed/missing evidence: {type(exc).__name__}'],
                   'formal_acceptance': False}
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    serialized = json.dumps(result, ensure_ascii=False, indent=2)
+    if args.output:
+        args.output.write_text(serialized, encoding='utf-8')
+    print(serialized)
     raise SystemExit(0 if result['status'] == 'evidence-complete' else 2)
