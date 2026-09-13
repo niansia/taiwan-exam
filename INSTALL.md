@@ -172,11 +172,17 @@ schema/profile 檢查；缺少 PMingLiU／DFKai 名稱本身也不是拒絕理�
 
 官方說明：<https://learn.chatgpt.com/docs/skills-and-plugins>、<https://learn.chatgpt.com/docs/build-skills>
 
-### Claude.ai
+### Claude Chat／Skills／Cowork
 
-在 Claude 建立 `Taiwan Exam` Project，把 `taiwan-exam-web-knowledge.md` 加入 Project Knowledge，並把下面的一次性文字存成 Project Instructions。該知識會在 Project 內的各聊天沿用。待通過安全驗收的新 ZIP 發布後，才可改走 `Customize > Skills > Upload a skill`；不要使用已撤回的 ZIP。PDF 產生需要 `Code execution and file creation`，若功能關閉必須回報限制。
+聊天專案：在 **Chat 的 Projects** 建立 `Taiwan Exam`，把知識檔加入 Project Knowledge，並把設定文字存成 Project Instructions，之後在同一專案開聊天。
 
-官方說明：<https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects>、<https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude>
+原生 Skill：到 **Customize → Skills → ＋ → Create skill → Upload a skill**。若上傳框接受 `.md`，可用 2026.09.13.9 起的新版知識檔，已包含 YAML 名稱與描述；按 Save 並啟用。舊知識檔缺少此外層格式。若只接受 ZIP，先用聊天專案，不要改副檔名或上傳已撤回的 ZIP。上傳／安全掃描仍由 Claude 判定，不能以本機格式檢查冒稱成功。
+
+**Cowork** 是輸入框可選的任務模式：使用已啟用的 Skill，附上當科版型後提出出卷需求；不是把 Claude Code 的本機安裝指令貼到一般聊天。**Claude for Word** 是 Word 外掛，本專案尚未驗證該外掛的固定模板 PDF 流程。初次設定、出卷文字與各入口比較見 [README 的 Claude 說明](README.md#claude聊天專案skills-與-cowork)。
+
+Skills 與 PDF 產生需要 `Code execution and file creation`；個人帳號到 `Settings → Capabilities`，組織帳號可能由管理員控制。若功能關閉必須回報限制。
+
+官方說明：[Projects](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)、[Skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude)、[Skill 格式](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)、[Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)。
 
 ### Gemini 網頁版
 

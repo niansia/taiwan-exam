@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import re
 import sys
 
 
@@ -37,8 +38,26 @@ def test_web_knowledge_is_deterministic_and_uses_canonical_skill():
 def test_checked_in_knowledge_matches_its_canonical_sources():
     path = ROOT / 'web/taiwan-exam-web-knowledge.md'
     saved = path.read_text(encoding='utf-8')
-    version = saved.splitlines()[0].removeprefix('# Taiwan Exam Web Knowledge v')
+    version = re.search(r'^# Taiwan Exam Web Knowledge v(.+)$', saved, re.MULTILINE).group(1)
     assert saved == build_web_knowledge.build(version)
+
+
+def test_native_skill_metadata_and_renamed_upload_preserve_canonical_sources(tmp_path):
+    import yaml
+
+    content = build_web_knowledge.build('test')
+    assert content.startswith('---\n')  # No BOM or heading before frontmatter.
+    metadata = yaml.safe_load(content.split('---\n', 2)[1])
+    assert metadata['name'] == 'taiwan-exam-generator'
+    assert len(metadata['name']) <= 64
+    assert 0 < len(metadata['description']) <= 200
+    assert 'PDF' in metadata['description']
+    installed = tmp_path / 'SKILL.md'
+    installed.write_bytes(content.encode('utf-8'))
+    result = read_web_knowledge.extract(installed, subject='數學A', output_dir=tmp_path / 'refs')
+    assert result
+    # Native upload may rename the file; the embedded root remains unchanged.
+    assert (tmp_path / 'refs/SKILL.md').read_text(encoding='utf-8') == (ROOT / 'SKILL.md').read_text(encoding='utf-8').rstrip() + '\n'
 
 
 def test_web_knowledge_covers_all_current_gsat_subject_blueprints():
