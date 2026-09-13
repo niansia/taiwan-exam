@@ -30,9 +30,9 @@
 
 完整考卷、兩份 PDF 與逐頁檢查屬於成品工作，建議建立成功後切到「工作」模式執行；但這是能力與穩定性建議，不是建立或叫用 Skill 的硬性條件。若對話模式本身已有檔案建立與檢查能力，也可以直接使用。若帳號沒有 Skills，可建立一個固定 Project，把同一知識檔與第一次設定文字放入 Project；不要把普通聊天的一次附件上傳稱為永久安裝。
 
-### Claude.ai 網頁版
+### Claude：聊天專案／Skills／Cowork
 
-建立 `Taiwan Exam` Project，把知識檔加入 `Project Knowledge`，並把這段存入 `Project Instructions`：
+**聊天專案方式：** 在 Claude 的 Chat 介面進入 `Projects`，建立 `Taiwan Exam`，把[新版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)加入 `Project Knowledge`，並把這段存入 `Project Instructions`：
 
 ```text
 本 Project 一律採用 Knowledge 中的 Taiwan Exam Skill 規則出題。
@@ -46,7 +46,11 @@
 請依 Taiwan Exam Skill 出一份 116 學測英文完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
-v0.7.1 安裝 ZIP 不含後續網頁版修正；要使用最新規則，請更新知識檔。
+**原生 Skill 方式：** 到 `Customize → Skills → ＋ → Create skill → Upload a skill`，若介面接受 `.md`，上傳同一份新版知識檔（2026.09.13.9 起包含必要 YAML 名稱與描述），儲存並啟用。之後開 Chat 或選取輸入框的 **Cowork**，附上當科版型並貼上出卷需求。不必另外建立聊天專案。若出現 YAML frontmatter 錯誤，重新下載並選取新版；若介面只接受 ZIP，先用聊天專案，不能把 Markdown 改名成 ZIP。
+
+`Settings → Capabilities` 需開啟 `Code execution and file creation`；組織帳號可能由管理員控制。**Cowork 是任務模式、Claude for Word 是 Word 外掛、Claude Code 是另一種開發工具**。本專案尚未驗證 Word 外掛的固定模板 PDF 流程。Cowork 的本機檔案存取需 Claude Desktop 開啟並連線。詳見 [README 入口比較與完整出卷文字](../README.md#claude聊天專案skills-與-cowork)與 [Claude 官方 Cowork 說明](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)。
+
+v0.7.1 安裝 ZIP 不含後續網頁版修正；要使用最新規則，請更新知識檔。格式檢查不代表帳號實際上傳、安全掃描或完整出卷已通過。
 
 ### Gemini 網頁版
 

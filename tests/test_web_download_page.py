@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import re
 import shutil
 import subprocess
 
@@ -8,7 +9,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 DOWNLOAD_URL = "https://niansia.github.io/taiwan-exam/download-web-knowledge.html"
-VERSION = (ROOT / 'web/taiwan-exam-web-knowledge.md').read_text(encoding='utf-8').splitlines()[0].removeprefix('# Taiwan Exam Web Knowledge v')
+VERSION = re.search(r'^# Taiwan Exam Web Knowledge v(.+)$', (ROOT / 'web/taiwan-exam-web-knowledge.md').read_text(encoding='utf-8'), re.MULTILINE).group(1)
 RAW_URL = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=" + VERSION
 
 

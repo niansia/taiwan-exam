@@ -20,7 +20,7 @@
 
 | 你正在使用 | 看這一段 |
 | --- | --- |
-| ChatGPT、Claude.ai、Gemini 網頁版 | 下方「網頁版」：下載知識檔，再貼入設定文字。 |
+| ChatGPT、Claude 聊天／Cowork、Gemini | 下方對應平台：下載知識檔，再照入口設定。 |
 | Codex、Claude Code 桌面版 | 下方對應平台：直接在聊天框貼上安裝要求。 |
 | Codex、Claude Code、Gemini CLI | 下方「本機版」：安裝一次，之後叫用技能出卷。 |
 
@@ -29,7 +29,7 @@
 先[下載知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，再依平台完成以下設定。只需要看自己使用的平台。
 
 **完成設定、準備出卷時：** 開啟[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)，下載當科「題本版型」和「詳解版型」兩份 PDF，附到出卷對話，再貼上下方對應平台的出卷文字。只需下載當科，無須全部下載。
-**目前版本：2026.09.13.8。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
+**目前版本：2026.09.13.9。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
 
 ### ChatGPT 網頁版
 
@@ -57,22 +57,39 @@
 依 Taiwan Exam Skill 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
-### Claude.ai 網頁版
+### Claude：聊天專案、Skills 與 Cowork
 
-**第一次：** 開啟 [Claude](https://claude.ai/)，建立「專案／Project」，命名為 `Taiwan Exam`。在專案的「知識／Project Knowledge」上傳知識檔，在「專案指示／Project Instructions」貼上：
+先選擇你要用的入口；**建立聊天專案**與**上傳 Skill**是兩種設定方式，不必都做。
+
+| 你看到的入口 | 本專案怎麼用？ |
+| --- | --- |
+| **聊天／Chat → Projects（專案）** | 在專案知識加入知識檔，之後在同一專案開聊天出卷。新手可從這裡開始。 |
+| **Customize → Skills → Upload a skill** | 這是安裝技能。上傳下方新版 `.md`，儲存後啟用；不必另建聊天專案。 |
+| **輸入框選 Cowork** | 這是執行任務的模式。先啟用 Skill，再附上當科版型並提出出卷需求。它與 Chat 是不同模式，帳號須有 Cowork。 |
+| **Claude for Word** | 這是 Microsoft Word 內的外掛；本專案尚未驗證在該外掛中完成固定模板的兩份 PDF。請先用 Chat 或 Cowork。 |
+
+**方式一，聊天專案：** 開啟 [Claude](https://claude.ai/)，在聊天介面的 `Projects` 建立 `Taiwan Exam` 專案。在「知識／Project Knowledge」上傳[知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，在「專案指示／Project Instructions」貼上：
 
 ```text
 本 Project 一律依 Knowledge 中的 Taiwan Exam Skill 規則出題。
 完整考卷須分開交付題目 PDF 與答案詳解 PDF，完成解題與逐頁版面檢查。
 ```
 
-**之後出卷：** 進入同一個 Project，貼上：
+**方式二，Skills 上傳：** [重新下載新版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，到 `Customize → Skills → ＋ → Create skill → Upload a skill`，選取 `taiwan-exam-web-knowledge.md`，按 `Save` 並啟用。新版已包含必要的名稱與描述，不用自行改檔名或修改內容。若仍出現 `must start with YAML frontmatter`，請移除上傳框中的舊檔，重新選取剛下載的版本。若介面只接受 ZIP，請先用方式一；不要把副檔名改成 `.zip`。
+
+到 `Settings → Capabilities` 確認 `Code execution and file creation` 已開啟；組織帳號可能由管理員控制。儲存時 Claude 仍會執行自己的檢查，這裡的格式驗證不代表已通過你帳號的上傳與安全掃描。
+
+**之後出卷：** 使用方式一就進入同一聊天專案；使用方式二就開 Chat，或在輸入框選 `Cowork` 執行任務。附上當科兩份版型 PDF，再貼上：
 
 ```text
 請依 Taiwan Exam Skill 出一份 116 學測英文完整模擬考。
 我已附上當科題本與詳解版型，請參考排版；題目、圖形與解答仍須重新設計。
 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
+
+Cowork 是否可用以帳號介面為準；需要讀取電腦上的資料夾時，須保持 Claude Desktop 開啟並連線。不要只因進入 Cowork 就省略品質檢查，也不保證完整卷能在固定分鐘數內完成。
+
+以上依 [Claude Skills 說明](https://support.claude.com/en/articles/12512180-use-skills-in-claude)、[Skill 格式](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)與 [Cowork 入門](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)核對；`.md` 直接上傳另依使用者實際介面確認。**Claude Code** 的桌面／CLI 安裝請看下方本機版。
 
 ### Gemini 網頁版
 
