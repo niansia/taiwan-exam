@@ -1,8 +1,18 @@
-# Taiwan Exam Web Knowledge v2026.09.13.7
+# Taiwan Exam Web Knowledge v2026.09.13.8
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
-source sections only when relevant. For a COMPLETE GSAT paper, the minimum
+source sections only when relevant. First retrieve the embedded
+`scripts/read_web_knowledge.py` helper once, then run it on this knowledge file
+with `--subject <科目> --output-dir <versioned-refs> --reading-plan`.
+Read its first packet `reading/preflight.md`, not every extracted file.
+Use authoring/layout/review packets at those phases. Executable dependencies
+are already materialized; do not rewrite or print their source to use them.
+An attached subject question/solution preview pair supplies visual examples;
+the offline resource PDF supplies original component attachments. Use it with
+`prepare_hosted_run.py --resource-pdf <actual-upload-path>` before drafting.
+These reading views retain canonical requirements; follow applicable links.
+For a COMPLETE GSAT paper, the minimum
 execution route is: extract this subject's helpers → verify original template
 bytes and a small question/answer composition → author and review using the available mode
 content/difficulty → compose TWO fixed-PDF booklets → inspect actual pages/items
@@ -95,10 +105,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 [
   {
     "path": "SKILL.md",
-    "bytes": 78428,
-    "sha256": "0b1b9c4615a5dc6187c138a57d9144b1e90e2033e25653630a2872413ca91074",
-    "embedded_bytes": 78428,
-    "embedded_sha256": "0b1b9c4615a5dc6187c138a57d9144b1e90e2033e25653630a2872413ca91074"
+    "bytes": 79143,
+    "sha256": "0a4d6d29099570596d131a0077501813b4e5d7e2c757f2f3de74fe3e3186c78b",
+    "embedded_bytes": 79143,
+    "embedded_sha256": "0a4d6d29099570596d131a0077501813b4e5d7e2c757f2f3de74fe3e3186c78b"
   },
   {
     "path": "core/taxonomy.json",
@@ -711,10 +721,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 25464,
-    "sha256": "e61c05eaefa371c418821e9f018efedf845696b138eae0b217e6e800c06cab82",
-    "embedded_bytes": 25464,
-    "embedded_sha256": "e61c05eaefa371c418821e9f018efedf845696b138eae0b217e6e800c06cab82"
+    "bytes": 26963,
+    "sha256": "75524001ac67f7ce3c56c71f0e208d66961b2641a2eb92c55415029decb5b901",
+    "embedded_bytes": 26963,
+    "embedded_sha256": "75524001ac67f7ce3c56c71f0e208d66961b2641a2eb92c55415029decb5b901"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -858,10 +868,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 5859,
-    "sha256": "a2f79ec26d887e89257402f9fd9617a5bbba3c35f799550bda1c8a293e3ab751",
-    "embedded_bytes": 5859,
-    "embedded_sha256": "a2f79ec26d887e89257402f9fd9617a5bbba3c35f799550bda1c8a293e3ab751"
+    "bytes": 11678,
+    "sha256": "00dea8ebcb05740e2d33ef0d736eab04392cddb51020b227c0f9439bf05d60f1",
+    "embedded_bytes": 11678,
+    "embedded_sha256": "00dea8ebcb05740e2d33ef0d736eab04392cddb51020b227c0f9439bf05d60f1"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -1078,6 +1088,16 @@ description: Create original Taiwan GSAT/CAP (學測／會考) exams for 國綜�
 ---
 
 # Taiwan Exam Generator
+
+Hosted loading: extract the embedded runtime once with `read_web_knowledge.py
+<knowledge.md> --subject <科目> --output-dir <versioned-refs> --reading-plan`.
+Read `reading/preflight.md` first, then the authoring, layout and review packets
+at their actual phases. These retain canonical text and exact subject records;
+they schedule reading, not waive rules or linked requirements. Do not print all
+extracted code, schemas or the seven-subject source map into model context.
+Use supplied layout PDFs as visual examples once; extract original template
+attachments from the resource PDF through `prepare_hosted_run.py --resource-pdf`.
+Do not rebuild examples or reverse-engineer their blank content into a renderer.
 
 Use the repository as the source of truth. The model writes new questions; the Exam Pack, metadata, learned blueprint, and validators decide what is in scope and how the paper is composed.
 
@@ -58836,12 +58856,31 @@ recorded difficulty, originality and all-page review. It does not judge content.
   manifest, restore every section, or load other subjects' blueprints into model
   context. Read the embedded `scripts/read_web_knowledge.py` section once and
   materialize that helper if needed. Run it with `--subject 數學A --output-dir
-  <versioned-reference-directory>` for the initial route, or repeated `--path`
+  <versioned-reference-directory> --reading-plan` for the initial route, or repeated `--path`
   arguments for precise retrieval. The knowledge-file path is its positional
   argument. The helper lists paths and byte counts, not the whole content.
   Follow additional applicable reference links; this is selective loading,
   not a replacement or summary of the canonical rules. For cross-subject JSON,
   inspect only the requested subject/year records in the model context.
+- The initial command materializes executable dependencies on disk once, and
+  writes `reading/preflight.md`, `authoring.md`, `layout.md` and `review.md`.
+  Read them at their respective phases, not all before drafting. The first view
+  keeps root/preflight rules and exact subject records from large cross-subject
+  maps; canonical files remain unchanged for validators. Authoring includes
+  subject rules and exam/question/answer schemas, so discover their fields before
+  writing twenty items. Layout includes the maintained body API and examples.
+  Additional applicable reference links still apply. Already-read requirements
+  remain active at later phases; the view is not a new acceptance policy.
+- A user may attach both subject preview PDFs and the offline resource PDF.
+  This is a valid input set. Inspect the previews once for visual roles, then use
+  the supplied structured body renderer; do not OCR/recreate their placeholder
+  questions or build a new compositor from them. Pass the resource's actual path
+  to preflight even when a browser appended `(1)` or `(8)` to its filename.
+  No template network lookup is needed after its embedded assets verify.
+- Distinguish historical calibration spot checks from searches for fresh
+  stimulus facts. Recent-context grounding still requires actual source checks;
+  previously verified templates do not require further web searches. Record why
+  each lookup is needed instead of repeatedly searching for schema/helper code.
 - Portable `embedded_sha256` / `embedded_bytes` verify normalized embedded
   sections. The original `sha256` / `bytes` describe upstream source bytes,
   which may have different line endings. Do not repeatedly attempt to make
@@ -61851,6 +61890,23 @@ SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
 LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',
                 '自然':'science','社會':'social','國寫':'writing'}
 
+# Reading order for model context; executable files remain intact on disk.
+READING_PHASES = {
+    'preflight': ('SKILL.md', 'references/web-platform-use.md',
+                  'references/exam-pack-execution-contract.md',
+                  'references/hosted-pdf-production.md'),
+    'authoring': ('references/generation-protocol.md', 'references/originality-firewall.md',
+                  'references/llm-original-item-generation.md', 'references/current-source-transformation.md',
+                  'references/stimulus-generation.md', 'references/visual-generation.md',
+                  'references/hosted-run-evidence.md', 'references/hosted-quality-gates.md',
+                  'schemas/exam.schema.json', 'schemas/question.schema.json',
+                  'schemas/answer.schema.json', 'schemas/visual-spec.schema.json'),
+    'layout': ('references/hosted-body-workflow.md', 'references/layout-fidelity.md',
+               'references/rendering.md', 'references/pdf-provenance.md'),
+    'review': ('references/difficulty-calibration.md', 'references/evidence-backed-editorial-audit.md',
+               'references/pack-and-release-verification.md'),
+}
+
 
 def relevant(path: str, subject: str) -> bool:
     """Initial read route, not a claim that every transitive dependency is loaded."""
@@ -61925,6 +61981,76 @@ def extract(knowledge_path: Path, *, subject: str | None = None,
             "files": [{"path": p, "bytes": len(data)} for p, data in verified]}
 
 
+def reading_plan(knowledge_path: Path, subject: str, output_dir: Path) -> dict:
+    """Create phase reading views without changing any canonical helper inputs.
+
+    Views are navigation aids, not a replacement for linked quality rules. JSON
+    projections retain exact selected records with their source hash and pointer.
+    """
+    result = extract(knowledge_path, subject=subject, output_dir=output_dir)
+    entries = sections(knowledge_path.read_text(encoding='utf-8-sig'))
+    selected = {row['path'] for row in result['files']}
+    planned = set()
+    views = {}
+    source_path = 'exam_packs/學測/metadata/official-current-web-sources.json'
+    map_path = 'exam_packs/學測/templates/115/hosted-web-template-assets.json'
+    projected_bytes = 0
+    for phase, paths in READING_PHASES.items():
+        route = list(paths)
+        if phase == 'authoring':
+            route += ['references/' + name for name in sorted(SUBJECT_REFERENCES[subject])]
+            route += sorted(p for p in selected if '/subjects/' in p and p.endswith('.json'))
+        if phase == 'layout':
+            route += [f'templates/hosted-{LAYOUT_SLUGS[subject]}-{role}.json'
+                      for role in ('questions', 'solutions')]
+        parts = [f'# {subject}: {phase}\n',
+                 'Navigation view only. Canonical files remain unchanged in the parent directory. '
+                 'Read once at this phase, follow applicable links, and reuse observations within this run. '
+                 'Do not read all phase packets before preflight or print executable source merely to run it.\n']
+        for path in route:
+            if path not in selected:
+                raise ValueError('Reading route requires missing canonical source: ' + path)
+            if path in planned:
+                continue
+            planned.add(path)
+            parts.append(f'\n## {path}\n\n' + entries[path][1].decode('utf-8'))
+        if phase == 'preflight':
+            for path in (source_path, map_path):
+                record, payload = entries[path]
+                document = json.loads(payload)
+                matches = [(i, row) for i, row in enumerate(document['subjects']) if row['subject'] == subject]
+                if len(matches) != 1:
+                    raise ValueError('Expected one exact subject record in ' + path)
+                index, row = matches[0]
+                projection = {'canonical_source': path, 'embedded_sha256': record['embedded_sha256'],
+                              'json_pointer': f'/subjects/{index}', 'record': row}
+                encoded = json.dumps(projection, ensure_ascii=False, indent=2)
+                projected_bytes += len(encoded.encode('utf-8'))
+                parts.append(f'\n## Selected record from {path}\n\n```json\n{encoded}\n```\n')
+        if phase == 'review':
+            parts.append('\n## Additional applicable references (read on demand)\n\n' +
+                         '\n'.join('- ' + p for p in sorted(selected - planned)
+                                   if p.startswith('references/')) + '\n')
+        views[f'reading/{phase}.md'] = '\n'.join(parts).encode('utf-8')
+    root = output_dir.resolve()
+    for path, data in views.items():
+        destination = root / path
+        if not destination.resolve().is_relative_to(root):
+            raise ValueError('Reading view outside reference directory')
+        if destination.exists() and destination.read_bytes() != data:
+            raise ValueError('Preserve existing reading view; use a versioned reference directory: ' + path)
+    for path, data in views.items():
+        destination = root / path
+        if not destination.exists():
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(data)
+    return {'subject': subject, 'canonical_files': result['section_count'],
+            'canonical_bytes': result['selected_bytes'], 'first_read': 'reading/preflight.md',
+            'views': [{'path': p, 'bytes': len(data)} for p, data in views.items()],
+            'selected_record_bytes': projected_bytes,
+            'note': 'Disk extraction size is not model reading time. Views schedule, not waive, required rules.'}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("knowledge", type=Path)
@@ -61932,7 +62058,14 @@ def main() -> int:
     group.add_argument("--subject", choices=sorted(SUBJECT_REFERENCES))
     group.add_argument("--path", action="append", dest="paths")
     parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--reading-plan", action="store_true",
+                        help="Extract canonical runtime once and write staged, subject-specific reading views")
     args = parser.parse_args()
+    if args.reading_plan:
+        if not args.subject or args.output_dir is None:
+            parser.error('--reading-plan requires --subject and --output-dir')
+        print(json.dumps(reading_plan(args.knowledge, args.subject, args.output_dir), ensure_ascii=False, indent=2))
+        return 0
     print(json.dumps(extract(args.knowledge, subject=args.subject, paths=args.paths,
                              output_dir=args.output_dir), ensure_ascii=False, indent=2))
     return 0

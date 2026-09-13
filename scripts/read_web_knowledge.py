@@ -27,6 +27,23 @@ SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
 LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',
                 '自然':'science','社會':'social','國寫':'writing'}
 
+# Reading order for model context; executable files remain intact on disk.
+READING_PHASES = {
+    'preflight': ('SKILL.md', 'references/web-platform-use.md',
+                  'references/exam-pack-execution-contract.md',
+                  'references/hosted-pdf-production.md'),
+    'authoring': ('references/generation-protocol.md', 'references/originality-firewall.md',
+                  'references/llm-original-item-generation.md', 'references/current-source-transformation.md',
+                  'references/stimulus-generation.md', 'references/visual-generation.md',
+                  'references/hosted-run-evidence.md', 'references/hosted-quality-gates.md',
+                  'schemas/exam.schema.json', 'schemas/question.schema.json',
+                  'schemas/answer.schema.json', 'schemas/visual-spec.schema.json'),
+    'layout': ('references/hosted-body-workflow.md', 'references/layout-fidelity.md',
+               'references/rendering.md', 'references/pdf-provenance.md'),
+    'review': ('references/difficulty-calibration.md', 'references/evidence-backed-editorial-audit.md',
+               'references/pack-and-release-verification.md'),
+}
+
 
 def relevant(path: str, subject: str) -> bool:
     """Initial read route, not a claim that every transitive dependency is loaded."""
@@ -101,6 +118,76 @@ def extract(knowledge_path: Path, *, subject: str | None = None,
             "files": [{"path": p, "bytes": len(data)} for p, data in verified]}
 
 
+def reading_plan(knowledge_path: Path, subject: str, output_dir: Path) -> dict:
+    """Create phase reading views without changing any canonical helper inputs.
+
+    Views are navigation aids, not a replacement for linked quality rules. JSON
+    projections retain exact selected records with their source hash and pointer.
+    """
+    result = extract(knowledge_path, subject=subject, output_dir=output_dir)
+    entries = sections(knowledge_path.read_text(encoding='utf-8-sig'))
+    selected = {row['path'] for row in result['files']}
+    planned = set()
+    views = {}
+    source_path = 'exam_packs/學測/metadata/official-current-web-sources.json'
+    map_path = 'exam_packs/學測/templates/115/hosted-web-template-assets.json'
+    projected_bytes = 0
+    for phase, paths in READING_PHASES.items():
+        route = list(paths)
+        if phase == 'authoring':
+            route += ['references/' + name for name in sorted(SUBJECT_REFERENCES[subject])]
+            route += sorted(p for p in selected if '/subjects/' in p and p.endswith('.json'))
+        if phase == 'layout':
+            route += [f'templates/hosted-{LAYOUT_SLUGS[subject]}-{role}.json'
+                      for role in ('questions', 'solutions')]
+        parts = [f'# {subject}: {phase}\n',
+                 'Navigation view only. Canonical files remain unchanged in the parent directory. '
+                 'Read once at this phase, follow applicable links, and reuse observations within this run. '
+                 'Do not read all phase packets before preflight or print executable source merely to run it.\n']
+        for path in route:
+            if path not in selected:
+                raise ValueError('Reading route requires missing canonical source: ' + path)
+            if path in planned:
+                continue
+            planned.add(path)
+            parts.append(f'\n## {path}\n\n' + entries[path][1].decode('utf-8'))
+        if phase == 'preflight':
+            for path in (source_path, map_path):
+                record, payload = entries[path]
+                document = json.loads(payload)
+                matches = [(i, row) for i, row in enumerate(document['subjects']) if row['subject'] == subject]
+                if len(matches) != 1:
+                    raise ValueError('Expected one exact subject record in ' + path)
+                index, row = matches[0]
+                projection = {'canonical_source': path, 'embedded_sha256': record['embedded_sha256'],
+                              'json_pointer': f'/subjects/{index}', 'record': row}
+                encoded = json.dumps(projection, ensure_ascii=False, indent=2)
+                projected_bytes += len(encoded.encode('utf-8'))
+                parts.append(f'\n## Selected record from {path}\n\n```json\n{encoded}\n```\n')
+        if phase == 'review':
+            parts.append('\n## Additional applicable references (read on demand)\n\n' +
+                         '\n'.join('- ' + p for p in sorted(selected - planned)
+                                   if p.startswith('references/')) + '\n')
+        views[f'reading/{phase}.md'] = '\n'.join(parts).encode('utf-8')
+    root = output_dir.resolve()
+    for path, data in views.items():
+        destination = root / path
+        if not destination.resolve().is_relative_to(root):
+            raise ValueError('Reading view outside reference directory')
+        if destination.exists() and destination.read_bytes() != data:
+            raise ValueError('Preserve existing reading view; use a versioned reference directory: ' + path)
+    for path, data in views.items():
+        destination = root / path
+        if not destination.exists():
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(data)
+    return {'subject': subject, 'canonical_files': result['section_count'],
+            'canonical_bytes': result['selected_bytes'], 'first_read': 'reading/preflight.md',
+            'views': [{'path': p, 'bytes': len(data)} for p, data in views.items()],
+            'selected_record_bytes': projected_bytes,
+            'note': 'Disk extraction size is not model reading time. Views schedule, not waive, required rules.'}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("knowledge", type=Path)
@@ -108,7 +195,14 @@ def main() -> int:
     group.add_argument("--subject", choices=sorted(SUBJECT_REFERENCES))
     group.add_argument("--path", action="append", dest="paths")
     parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--reading-plan", action="store_true",
+                        help="Extract canonical runtime once and write staged, subject-specific reading views")
     args = parser.parse_args()
+    if args.reading_plan:
+        if not args.subject or args.output_dir is None:
+            parser.error('--reading-plan requires --subject and --output-dir')
+        print(json.dumps(reading_plan(args.knowledge, args.subject, args.output_dir), ensure_ascii=False, indent=2))
+        return 0
     print(json.dumps(extract(args.knowledge, subject=args.subject, paths=args.paths,
                              output_dir=args.output_dir), ensure_ascii=False, indent=2))
     return 0

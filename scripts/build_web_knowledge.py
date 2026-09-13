@@ -126,7 +126,17 @@ def build(version: str, root: Path = ROOT) -> str:
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
-source sections only when relevant. For a COMPLETE GSAT paper, the minimum
+source sections only when relevant. First retrieve the embedded
+`scripts/read_web_knowledge.py` helper once, then run it on this knowledge file
+with `--subject <科目> --output-dir <versioned-refs> --reading-plan`.
+Read its first packet `reading/preflight.md`, not every extracted file.
+Use authoring/layout/review packets at those phases. Executable dependencies
+are already materialized; do not rewrite or print their source to use them.
+An attached subject question/solution preview pair supplies visual examples;
+the offline resource PDF supplies original component attachments. Use it with
+`prepare_hosted_run.py --resource-pdf <actual-upload-path>` before drafting.
+These reading views retain canonical requirements; follow applicable links.
+For a COMPLETE GSAT paper, the minimum
 execution route is: extract this subject's helpers → verify original template
 bytes and a small question/answer composition → author and review using the available mode
 content/difficulty → compose TWO fixed-PDF booklets → inspect actual pages/items
