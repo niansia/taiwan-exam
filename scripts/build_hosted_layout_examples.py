@@ -15,6 +15,29 @@ from hosted_item_layout import crop_items
 from prepare_hosted_review import bind_layout
 
 
+def render_index(records):
+    page=['<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
+          '<title>下載七科題本與詳解版型</title><style>body{font:18px/1.7 system-ui,sans-serif;max-width:880px;margin:40px auto;padding:0 20px;color:#172126}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:12px;border-bottom:1px solid #ccd3d7}a{color:#07579b}small{font-size:15px}.download{display:inline-block;padding:9px 14px;background:#07579b;color:white;border-radius:6px;text-decoration:none;font-weight:600}.download:focus-visible{outline:3px solid #d57a00;outline-offset:3px}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:18px;background:#f3f5f7;font:inherit}li{margin:8px 0}@media(max-width:560px){th,td{padding:8px 4px}.download{padding:8px;font-size:16px}}</style>',
+          '<h1>下載七科題本與詳解版型</h1><p>出卷前，先下載當科的兩份 PDF，再一起附到 AI 對話，讓 AI 參考各大題的排版。</p>',
+          '<ol><li>在下方找到科目，分別按「下載題本版型」和「下載詳解版型」。</li><li>回到已設定 Taiwan Exam 的 AI 對話，按「＋」或迴紋針，上傳剛下載的兩份 PDF。</li><li>貼上<a href="#prompt">本頁出卷文字</a>，將年份和科目改成需要的內容。</li></ol>',
+          '<p>尚未設定 Taiwan Exam？先<a href="../../download-web-knowledge.html">下載知識檔</a>並加入 AI。若無法取得固定模板，再附上<a href="../../download-web-knowledge.html#templates">離線模板資源 PDF</a>。</p>',
+          '<p>版型只供排版參考，內含占位材料、選項與圖框。題目、圖形和解答必須重新設計；示範題數、配分與留白不代表完整考卷。</p>',
+          '<table><thead><tr><th scope="col">科目</th><th scope="col">題本版型</th><th scope="col">詳解版型</th></tr></thead><tbody>']
+    for row in records:
+        subject=html.escape(row['subject'])
+        cells=[]
+        for role,label in (('questions','題本'),('solutions','詳解')):
+            record=row['booklets'][role];filename=html.escape(record['file'],quote=True)
+            cells.append('<td><a class="download" href="'+filename+'" download="'+filename+'" aria-label="下載'+subject+label+'版型 PDF">下載'+label+'版型</a><br><small>'+str(record['pages'])+' 頁 · <a href="'+filename+'" target="_blank" rel="noopener">預覽 PDF</a></small></td>')
+        page.append('<tr id="'+html.escape(row['slug'],quote=True)+'"><th scope="row">'+subject+'</th>'+''.join(cells)+'</tr>')
+    page.extend(['</tbody></table>',
+          '<h2 id="prompt">附上兩份 PDF 後，複製這段給 AI</h2>',
+          '<pre>請依 Taiwan Exam Skill 出一份 116 學測數 A 完整模擬考。\n我已附上當科的題本版型與詳解版型 PDF，請先閱讀並參考各大題排版。\n範例只供排版參考，不可使用占位文字命題，也不要照抄示範題號、配分或留白。\n請依 Skill 取得並核對當科原始固定模板，重新命題、製圖、驗算與檢查難度。\n完成後逐頁檢查最終 PDF，分開交付題目 PDF 與答案詳解 PDF。</pre>',
+          '<p>檔案通常存於電腦的「下載」資料夾。若按鈕仍開啟 PDF，請按閱讀器的下載圖示再上傳；不用下載其他科目。</p>',
+          '<p><a href="https://github.com/niansia/taiwan-exam#readme">查看完整新手使用說明</a></p></html>'])
+    return '\n'.join(page)+'\n'
+
+
 def build(output, work, font, reading_font=None):
     if output.exists() or work.exists():raise ValueError('Use fresh preview and work directories')
     manifest=json.loads((ROOT/'templates/hosted-subject-layouts.json').read_text(encoding='utf-8'))
@@ -51,15 +74,7 @@ def build(output, work, font, reading_font=None):
             'scope':'Placeholder layout previews; no authored questions, difficulty or full-paper acceptance',
             'build_seconds':round(time.monotonic()-started,3)}
     (output/'manifest.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
-    page=['<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
-          '<title>七科題本與詳解版型</title><style>body{font:18px/1.7 system-ui,sans-serif;max-width:880px;margin:40px auto;padding:0 20px;color:#172126}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:12px;border-bottom:1px solid #ccd3d7}a{color:#07579b}small{font-size:15px}</style>',
-          '<h1>七科題本與詳解版型</h1><p>每科各有題本、詳解兩份 PDF。只供排版參考，包含占位材料、選項與圖框，不能直接當作試題。篇幅與題數也不代表完整考卷。</p>',
-          '<p>封面、頁首尾與數學公式保留當科原始固定 PDF 圖層；正文則展示各科不同題型。正式出卷時，必須重新命題、製圖、驗算及檢查。</p><table><tr><th>科目</th><th>題本版型</th><th>詳解版型</th></tr>']
-    for row in records:
-        page.append('<tr><td>'+html.escape(row['subject'])+'</td>'+''.join(
-            '<td><a href="'+row['booklets'][role]['file']+'">開啟 PDF</a><br><small>'+str(row['booklets'][role]['pages'])+' 頁</small></td>' for role in ('questions','solutions'))+'</tr>')
-    page.append('</table><p><a href="../../download-web-knowledge.html">更新網頁版知識檔</a></p><p><small>這些 PDF 是視覺參考；可執行版型已隨新版知識檔提供，不必在每次出卷時下載全部示範。</small></p></html>')
-    (output/'index.html').write_text('\n'.join(page),encoding='utf-8')
+    (output/'index.html').write_bytes(render_index(records).encode('utf-8'))
     return result
 
 

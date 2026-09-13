@@ -12,7 +12,7 @@
 | --- | --- | --- |
 | **[直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)** | 第一次使用或更新時。 | 把 `taiwan-exam-web-knowledge.md` 上傳給 AI，照下方平台說明儲存。不用自己開啟或修改內容。 |
 | **[下載離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)** | AI 說「無法下載模板」「缺少固定模板」，或產出的封面、頁首沒有套用模板時。 | 把 `taiwan-exam-template-resources.pdf` 上傳到出卷對話，再貼上本頁「無法套用模板」的文字。 |
-| **[開啟七科版型 PDF 下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)** | 想看版面，或請 AI 修正題幹、選項、圖表等排版時。 | 下載當科題本與詳解示範；每科直接連結也列在本頁下方。內容是占位範例，僅供排版參考。 |
+| **[開啟七科版型 PDF 下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)** | 建議每次開始出卷前，先準備當科兩份版型。 | 找到科目，分別按「下載題本版型」與「下載詳解版型」，出卷時一起上傳給 AI。占位內容僅供排版參考。 |
 
 前兩個連結點開後會開始下載；若沒有反應，按頁面上的下載按鈕。檔案通常會存到電腦的「下載」資料夾。上傳時，在 AI 的對話框或資料區按「＋」、迴紋針或「新增檔案」，選取剛下載的檔案；按鈕名稱以你的介面為準。
 
@@ -27,6 +27,8 @@
 ## 網頁版
 
 先[下載知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，再依平台完成以下設定。只需要看自己使用的平台。
+
+**完成設定、準備出卷時：** 開啟[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)，下載當科「題本版型」和「詳解版型」兩份 PDF，附到出卷對話，再貼上下方對應平台的出卷文字。只需下載當科，無須全部下載。
 **目前版本：2026.09.13.7。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
 
 ### ChatGPT 網頁版
@@ -51,6 +53,7 @@
 
 ```text
 請出一份 116 學測數 A 完整模擬考。
+我已附上當科題本與詳解版型，請參考排版；題目、圖形與解答仍須重新設計。
 依 Taiwan Exam Skill 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
@@ -67,6 +70,7 @@
 
 ```text
 請依 Taiwan Exam Skill 出一份 116 學測英文完整模擬考。
+我已附上當科題本與詳解版型，請參考排版；題目、圖形與解答仍須重新設計。
 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
@@ -83,6 +87,7 @@
 
 ```text
 請依 Taiwan Exam Skill 出一份 116 學測自然完整模擬考。
+我已附上當科題本與詳解版型，請參考排版；題目、圖形與解答仍須重新設計。
 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
@@ -133,6 +138,7 @@ $skill-installer
 ```text
 $taiwan-exam-generator
 請出一份 116 學測國綜完整模擬考。
+我已附上當科題本與詳解版型，請參考排版；題目、圖形與解答仍須重新設計。
 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
@@ -150,6 +156,7 @@ $taiwan-exam-generator
 
 ```text
 請出一份 116 學測社會完整模擬考。
+我已附上當科題本與詳解版型，請參考排版；題目、圖形與解答仍須重新設計。
 依 Taiwan Exam Skill 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
@@ -165,6 +172,7 @@ gemini skills install https://github.com/niansia/taiwan-exam
 
 ```text
 請使用 taiwan-exam-generator，出一份 116 學測數 B 完整模擬考。
+我已附上當科題本與詳解版型，請參考排版；題目、圖形與解答仍須重新設計。
 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
@@ -174,7 +182,7 @@ gemini skills install https://github.com/niansia/taiwan-exam
 
 ## 七科版型與品質
 
-每科都有「題本版型」和「詳解版型」。點選會開啟 PDF；要留在電腦或上傳給 AI，請按 PDF 閱讀器的下載圖示。平常出卷不用把七科全部下載。
+每科都有「題本版型」和「詳解版型」。建議先到[下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)按當科兩個下載按鈕，出卷時一起附給 AI。下表也保留直接預覽連結；在閱讀器中可按下載圖示儲存。
 
 | 科目 | 題本版型 PDF | 詳解版型 PDF |
 | --- | --- | --- |
