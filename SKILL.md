@@ -87,22 +87,32 @@ four-band/math design validators. A narrative equivalent or an author-written
 pass JSON is not execution. If the helper cannot run, preserve a pending checkpoint;
 do not use the missing executable as permission to skip its checks. Zero mechanically blocking pages
 does not clear unresolved layout review flags or missing editorial checks.
-Measure phases from preflight, review shortest routes in a separate blind context
+Measure phases from preflight, review shortest routes using the available review mode
 before final composition, and reserve answer rails below measured content and
 figures. Final delivery requires readable item crops as well as every page;
 follow [references/hosted-quality-gates.md](references/hosted-quality-gates.md).
 The time benchmark never waives QA. Never manufacture missing timing or reviews.
-For ALL seven GSAT subjects, use a separate difficulty reviewer supplied with the
-actual ordered questions, continuations, visuals, solutions and a verified
-calibration basis, without author difficulty labels. Before drafting, run
+For ALL seven GSAT subjects, prefer a real separate difficulty reviewer when the
+platform provides one. Without that capability, automatically use the documented
+single-context second-pass review; do not stop ordinary full-paper generation,
+ask users to open a second chat, or invent a reviewer identity. Same-context review
+is not independent or blind, even when its input artifact omits answers/labels.
+Elsewhere, independently solving/checking an answer means a distinct reasoning
+or calculation pass; it does not by itself require another model context.
+Preserve an explicit user requirement for independent review; that requirement
+does need a real separate reviewer. Supply actual ordered questions, continuations,
+visuals and verified calibration. In single-context mode solve from the answer-free
+packet before comparing saved answers, then audit shortcuts and difficulty.
+Disclose the actual review mode at delivery; all substantive quality gates still
+apply and unresolved errors still block. Before drafting, run
 `prepare_hosted_run.py` to check embedded subject calibration, template bytes and
 small question/answer layout proofs. The default offline basis is the canonical
-aggregate profile plus independent expert review; original official PDFs remain
+aggregate profile plus expert review under the selected mode; original official PDFs remain
 an optional, stronger item-to-item comparison when actually available. Never
 claim an unseen official page was read or promote aggregate targets to achieved
 difficulty. Neither difficulty nor density QA may start a new original-PDF
 download dependency at final delivery. See hosted-quality-gates.md for the two
-explicit evidence formats. Adopt the independent bands and
+explicit evidence formats. Adopt the reviewed bands and
 rebalance before PDF production. In Math A/B, assess shortcuts using options and
 earlier subquestions: routine arithmetic steps and supplied intermediate results
 are not new decisions. Never make a hard label fit by lengthening the solution.

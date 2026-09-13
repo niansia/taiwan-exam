@@ -41,6 +41,8 @@ def test_all_subjects_prepare_offline_from_extracted_knowledge(subject, tmp_path
     report = preflight.prepare(subject, run, 'test', font,
                                resource_pdf=ROOT / 'web/taiwan-exam-template-resources.pdf')
     assert report['status'] == 'ready-for-authoring', report
+    assert report['review_mode'] == 'single-context'
+    assert report['require_independent_review'] is False
     assert report['original_pdf_required'] is False
     assert all((run / row['path']).is_file() for row in report['proofs'].values())
     assert not (run / 'exam.json').exists()

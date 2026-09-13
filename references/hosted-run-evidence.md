@@ -4,7 +4,7 @@ Use for every hosted full paper, including a single paper with no requested time
 target. This is the recorded implementation of web-platform-use's hosted gate,
 not a substitute for local validate_exam_release or a new academic standard.
 Apply [hosted-quality-gates.md](hosted-quality-gates.md) alongside this format:
-actual PDF collisions, item crops, blind difficulty and timing are mandatory.
+actual PDF collisions, item crops, mode-appropriate difficulty review and timing are mandatory.
 
 ## Work that survives interruption
 
@@ -48,6 +48,13 @@ Do not invent successful review observations or manufacture reviewer identities.
 
 `run-state.json` has schema_version 1, paper_id, current_phase, next_action,
 exam (`path`, `sha256`), timing (`path`, `sha256`), template_asset_dir, checks, and pdfs.
+Copy preflight's `review_mode` and `require_independent_review` into this run plan.
+Use a real separate context when available; otherwise ordinary hosted generation
+uses `single-context` with the answer-free second pass in hosted-quality-gates.md.
+An explicit user demand for independent review cannot use that substitution.
+The checker reports difficulty_review_mode and a delivery_note so same-context
+completion is not presented as independent review. A mode name is not evidence
+that any review was actually done.
 For the default offline route also register `calibration: {path, sha256}` from
 preflight.json. Keep calibration.json, template assets, editable work and reviews
 in recovery material. The checker reconstructs calibration from canonical files;

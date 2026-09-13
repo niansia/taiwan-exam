@@ -16,6 +16,7 @@ from compose_hosted_pdf import compose
 from fetch_hosted_template_assets import DEFAULT_MAP, materialize
 from hosted_calibration import SUBJECTS, snapshot
 from hosted_run_timing import transition
+from hosted_blind_review import REVIEW_MODES
 
 
 def save(path, data):
@@ -50,7 +51,8 @@ def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
     return json.loads(result.stdout)
 
 
-def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=45):
+def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=45,
+            review_mode='single-context', require_independent_review=False):
     started = time.monotonic()
     run_dir = run_dir.resolve()
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -61,10 +63,17 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
             previous = json.loads((run_dir / name).read_text(encoding='utf-8-sig'))
             if previous.get('paper_id') != paper_id or previous.get('subject', subject) != subject:
                 raise ValueError('Refusing to reuse another paper or subject run directory')
+            if previous.get('require_independent_review') is True:
+                require_independent_review = True  # Never drop an explicit requirement on resume.
     transition(timing, paper_id, 'reference_preflight')
     report = {'paper_id': paper_id, 'subject': subject, 'status': 'pending', 'errors': [],
+              'review_mode': review_mode, 'require_independent_review': require_independent_review,
               'scope': 'Resource readiness and small layout proofs only; no exam or quality approval.'}
     try:
+        if review_mode not in REVIEW_MODES:
+            raise ValueError('Unknown difficulty review mode')
+        if require_independent_review and review_mode != 'independent-context':
+            raise ValueError('Explicit independent review requirement needs an actual separate reviewer; resolve before authoring')
         calibration = snapshot(subject)
         digest = save(run_dir / 'calibration.json', calibration)
         report['calibration'] = {'path': 'calibration.json', 'sha256': digest}
@@ -93,7 +102,9 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                     page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5)).save(proof_dir / f'{kind}-{index}.png')
         report.update(status='ready-for-authoring', proofs=proofs,
                       next_action='Open the small proof rasters and check field/font fit; read the selected subject '
-                      'calibration and curriculum guidance. Draft, solve and independently review small batches. '
+                      'calibration and curriculum guidance. Use the recorded review_mode for small batches: '
+                      'single-context means a fresh answer-free solving pass followed by answer comparison, '
+                      'not independent blind review. Never invent a reviewer context. '
                       'Use aggregate anchors honestly; final QA needs no original-PDF download. '
                       'Test actual body math typography separately before full composition.')
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
@@ -113,8 +124,13 @@ if __name__ == '__main__':
     parser.add_argument('--resource-pdf', type=Path)
     parser.add_argument('--local-root', type=Path)
     parser.add_argument('--deadline', type=float, default=45)
+    parser.add_argument('--review-mode', choices=REVIEW_MODES, default='single-context',
+                        help='Select independent-context only when a real separate reviewer is available')
+    parser.add_argument('--require-independent-review', action='store_true',
+                        help='Preserve an explicit user requirement; do not enable merely because it is preferred')
     args = parser.parse_args()
     result = prepare(args.subject, args.run_dir, args.paper_id, args.font,
-                     resource_pdf=args.resource_pdf, local_root=args.local_root, deadline=args.deadline)
+                     resource_pdf=args.resource_pdf, local_root=args.local_root, deadline=args.deadline,
+                     review_mode=args.review_mode, require_independent_review=args.require_independent_review)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     raise SystemExit(0 if result['status'] == 'ready-for-authoring' else 2)
