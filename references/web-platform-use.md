@@ -282,12 +282,31 @@ recorded difficulty, originality and all-page review. It does not judge content.
   manifest, restore every section, or load other subjects' blueprints into model
   context. Read the embedded `scripts/read_web_knowledge.py` section once and
   materialize that helper if needed. Run it with `--subject 數學A --output-dir
-  <versioned-reference-directory>` for the initial route, or repeated `--path`
+  <versioned-reference-directory> --reading-plan` for the initial route, or repeated `--path`
   arguments for precise retrieval. The knowledge-file path is its positional
   argument. The helper lists paths and byte counts, not the whole content.
   Follow additional applicable reference links; this is selective loading,
   not a replacement or summary of the canonical rules. For cross-subject JSON,
   inspect only the requested subject/year records in the model context.
+- The initial command materializes executable dependencies on disk once, and
+  writes `reading/preflight.md`, `authoring.md`, `layout.md` and `review.md`.
+  Read them at their respective phases, not all before drafting. The first view
+  keeps root/preflight rules and exact subject records from large cross-subject
+  maps; canonical files remain unchanged for validators. Authoring includes
+  subject rules and exam/question/answer schemas, so discover their fields before
+  writing twenty items. Layout includes the maintained body API and examples.
+  Additional applicable reference links still apply. Already-read requirements
+  remain active at later phases; the view is not a new acceptance policy.
+- A user may attach both subject preview PDFs and the offline resource PDF.
+  This is a valid input set. Inspect the previews once for visual roles, then use
+  the supplied structured body renderer; do not OCR/recreate their placeholder
+  questions or build a new compositor from them. Pass the resource's actual path
+  to preflight even when a browser appended `(1)` or `(8)` to its filename.
+  No template network lookup is needed after its embedded assets verify.
+- Distinguish historical calibration spot checks from searches for fresh
+  stimulus facts. Recent-context grounding still requires actual source checks;
+  previously verified templates do not require further web searches. Record why
+  each lookup is needed instead of repeatedly searching for schema/helper code.
 - Portable `embedded_sha256` / `embedded_bytes` verify normalized embedded
   sections. The original `sha256` / `bytes` describe upstream source bytes,
   which may have different line endings. Do not repeatedly attempt to make

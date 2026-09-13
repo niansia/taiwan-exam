@@ -29,7 +29,7 @@
 先[下載知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，再依平台完成以下設定。只需要看自己使用的平台。
 
 **完成設定、準備出卷時：** 開啟[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)，下載當科「題本版型」和「詳解版型」兩份 PDF，附到出卷對話，再貼上下方對應平台的出卷文字。只需下載當科，無須全部下載。
-**目前版本：2026.09.13.7。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
+**目前版本：2026.09.13.8。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
 
 ### ChatGPT 網頁版
 
