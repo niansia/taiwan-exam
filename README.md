@@ -2,9 +2,19 @@
 
 用一般中文提出需求，讓 AI 依科目規則命題、驗算與排版，分開產出「題目 PDF」和「答案詳解 PDF」。
 
+**不需要會寫程式，也不用註冊或操作 GitHub。** 如果你平常在瀏覽器和 AI 聊天，先下載下面第一個檔案，再照自己使用的平台操作即可。本頁的文字框都可以直接複製，貼到指定位置。
+
 支援學測 **國綜、英文、數 A、數 B、自然、社會、國寫**；另提供會考各科的資料夾與工作流程。專案著重原創命題，不是現成題庫。
 
-**[直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)** · **[查看七科版型](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)** · [安裝指引](INSTALL.md)
+## 先下載哪個檔案？
+
+| 檔案與下載連結 | 什麼時候用？ | 下載後怎麼做？ |
+| --- | --- | --- |
+| **[直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)** | 第一次使用或更新時。 | 把 `taiwan-exam-web-knowledge.md` 上傳給 AI，照下方平台說明儲存。不用自己開啟或修改內容。 |
+| **[下載離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)** | AI 說「無法下載模板」「缺少固定模板」，或產出的封面、頁首沒有套用模板時。 | 把 `taiwan-exam-template-resources.pdf` 上傳到出卷對話，再貼上本頁「無法套用模板」的文字。 |
+| **[開啟七科版型 PDF 下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html)** | 想看版面，或請 AI 修正題幹、選項、圖表等排版時。 | 下載當科題本與詳解示範；每科直接連結也列在本頁下方。內容是占位範例，僅供排版參考。 |
+
+前兩個連結點開後會開始下載；若沒有反應，按頁面上的下載按鈕。檔案通常會存到電腦的「下載」資料夾。上傳時，在 AI 的對話框或資料區按「＋」、迴紋針或「新增檔案」，選取剛下載的檔案；按鈕名稱以你的介面為準。
 
 ## 三種使用方式
 
@@ -16,12 +26,12 @@
 
 ## 網頁版
 
-先[下載知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，再依平台完成以下設定。
+先[下載知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，再依平台完成以下設定。只需要看自己使用的平台。
 **目前版本：2026.09.13.7。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
 
 ### ChatGPT 網頁版
 
-**第一次：** 若技能選單能選到 `@skill-creator`，選取它、附上知識檔，再貼上：
+**第一次：** 開啟 [ChatGPT](https://chatgpt.com/)，在對話輸入框輸入 `@skill-creator`。若選單有出現就點選它，上傳剛下載的知識檔，再貼上：
 
 ```text
 請使用我附上的 taiwan-exam-web-knowledge.md 建立「Taiwan Exam Generator」Skill。
@@ -30,7 +40,12 @@
 完成後直接在本對話接受出卷需求。
 ```
 
-依介面完成儲存。若帳號沒有 Skills，可建立固定 Project，加入知識檔並設定「所有出卷需求都依 Taiwan Exam 規則執行」。
+依介面按「儲存」或「安裝」。若找不到 `@skill-creator`，可改在側邊欄建立「專案／Project」，命名為 `Taiwan Exam`，加入知識檔，並在專案指示貼上：
+
+```text
+這個專案的所有出卷需求，都依我上傳的 Taiwan Exam 知識檔規則執行。
+完整考卷要完成解題與逐頁版面檢查，分開提供題目 PDF 和答案詳解 PDF。
+```
 
 **之後出卷：** 選取 `Taiwan Exam Generator`，或進入同一個 Project，貼上：
 
@@ -41,7 +56,7 @@
 
 ### Claude.ai 網頁版
 
-**第一次：** 建立 `Taiwan Exam` Project，把知識檔加入 `Project Knowledge`，在 `Project Instructions` 貼上：
+**第一次：** 開啟 [Claude](https://claude.ai/)，建立「專案／Project」，命名為 `Taiwan Exam`。在專案的「知識／Project Knowledge」上傳知識檔，在「專案指示／Project Instructions」貼上：
 
 ```text
 本 Project 一律依 Knowledge 中的 Taiwan Exam Skill 規則出題。
@@ -57,7 +72,7 @@
 
 ### Gemini 網頁版
 
-**第一次：** 建立 `Taiwan Exam` Gem，將知識檔加入 `Knowledge`，在 Instructions 貼上：
+**第一次：** 開啟 [Gemini](https://gemini.google.com/)，找到 `Gems`，建立新的 Gem，命名為 `Taiwan Exam`。在「知識／Knowledge」上傳知識檔，在「指示／Instructions」貼上以下文字後儲存：
 
 ```text
 採用 Knowledge 中的 Taiwan Exam Skill 全部規則出題。
@@ -71,9 +86,37 @@
 完成解題與逐頁版面檢查，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
-若 AI 無法下載固定模板，可把[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates) 附到出卷對話；只需取用當科附件。各平台選單與可用工具以帳號實際介面為準。
+各平台選單與可用工具以帳號實際介面為準。若找不到上述儲存功能，也可以先在普通對話上傳知識檔並貼上出卷需求；之後換新對話時需重新上傳。
+
+## AI 說無法套用模板，怎麼辦？
+
+1. 點[下載離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)。
+2. 回到**原本出卷的對話**，上傳下載好的 `taiwan-exam-template-resources.pdf`。
+3. 複製下面這段貼給 AI；科目可自行替換：
+
+```text
+這是離線模板資源 PDF，請用它處理這份數 A 考卷的固定模板。
+請讀取 PDF 內附的原始模板附件，不要只讀可見首頁；只取用本次科目的檔案。
+依 Taiwan Exam 規則核對後，使用原始 PDF 套版，保留固定封面、頁首尾及公式頁。
+請接續目前這份考卷，修正排版並重新檢查，分開提供題目 PDF 與答案詳解 PDF。
+如果仍無法處理附件或套版，請明確說明缺少哪個功能及已保存的進度。
+```
+
+這份約 3.5 MB 的 PDF 裡已附上原始模板，你不需要自行解出附件；打開時只看到說明首頁也正常。如果 AI 的環境沒有讀取附件或合併 PDF 的功能，還是需要換到有這些功能的模式或平台，補傳檔案無法新增平台功能。
+
+**如果固定模板已有套用，但題目仍壓字、選項跑位：** 從下方表格下載當科版型，附上有問題的考卷與版型 PDF，再貼上：
+
+```text
+請參考我附上的當科版型，修正目前考卷的題幹、選項、作答欄與圖表排版。
+版型中的占位文字只供排版參考，不可作為題目，也不要照抄示範的題號、配分或留白。
+請保留原始固定模板，重新檢查修正後兩份 PDF 的每一頁，再提供下載。
+```
+
+**如果出卷途中逾時：** 回到同一對話，貼上「請接續已保存的這份考卷，先確認尚未完成的檢查，再完成排版與驗收，不要重新命題。」如果 AI 回報原檔已遺失，再把先前下載的檔案重新附上。
 
 ## 本機版：桌面與 CLI
+
+只有你已經在使用 Codex、Claude Code 或 Gemini CLI 時，才需要看這一區。`CLI` 是終端機裡的 AI 工具；不熟悉終端機可直接使用上面的網頁版。下面的安裝文字是**貼給 AI 執行**，不用自己到 GitHub 找程式或搬檔案；Gemini CLI 的單行安裝指令另有標示。
 
 ### Codex 桌面版／CLI
 
@@ -130,6 +173,18 @@ gemini skills install https://github.com/niansia/taiwan-exam
 以上範例都可替換年份與科目；只想出幾題時，請註明「自訂練習」。
 
 ## 七科版型與品質
+
+每科都有「題本版型」和「詳解版型」。點選會開啟 PDF；要留在電腦或上傳給 AI，請按 PDF 閱讀器的下載圖示。平常出卷不用把七科全部下載。
+
+| 科目 | 題本版型 PDF | 詳解版型 PDF |
+| --- | --- | --- |
+| 國綜 | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/chinese-questions.pdf) | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/chinese-solutions.pdf) |
+| 英文 | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/english-questions.pdf) | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/english-solutions.pdf) |
+| 數 A | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/math-a-questions.pdf) | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/math-a-solutions.pdf) |
+| 數 B | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/math-b-questions.pdf) | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/math-b-solutions.pdf) |
+| 自然 | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/science-questions.pdf) | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/science-solutions.pdf) |
+| 社會 | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/social-questions.pdf) | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/social-solutions.pdf) |
+| 國寫 | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/writing-questions.pdf) | [開啟／下載](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/writing-solutions.pdf) |
 
 - **各科一組題本＋詳解，共 14 份示範 PDF**，涵蓋段落、選項、選填、圖表、混合題與評分格式。
 - 範例僅含占位內容，供排版參考；不能照抄題目、題號、配分或留白。出卷只載入當科版型。
