@@ -14,7 +14,7 @@ import pymupdf
 from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, bottom_void
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary
-from hosted_blind_review import packet, review_errors
+from hosted_blind_review import packet, review_errors, REVIEW_MODES
 from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
@@ -84,6 +84,7 @@ def check(state_path: Path) -> dict:
          and len(set(ids)) == len(ids), 'exam: missing or duplicate item IDs')
     expected = set(ids)
     calibration = None
+    review_mode = None
     if state.get('calibration'):
         calibration_path = file(state['calibration'], 'calibration')
         if calibration_path:
@@ -118,9 +119,14 @@ def check(state_path: Path) -> dict:
             if review.get('comparison_scope') == 'available-history':
                 need(bool(review.get('history')), 'originality: history evidence missing')
         if name == 'difficulty':
+            review_mode = review.get('review_mode', 'independent-context')
+            need(not state.get('require_independent_review') or review_mode == 'independent-context',
+                 'difficulty: explicitly required independent review cannot use single-context mode')
+            if state.get('review_mode'):
+                need(state['review_mode'] == review_mode, 'difficulty: review mode differs from the run plan')
             blind_path = file(review.get('blind_packet'), 'difficulty/blind_packet')
-            if blind_path:
-                need(json.loads(blind_path.read_text(encoding='utf-8-sig')) == packet(exam),
+            if blind_path and review_mode in REVIEW_MODES:
+                need(json.loads(blind_path.read_text(encoding='utf-8-sig')) == packet(exam, review_mode),
                      'difficulty: packet changed or includes author labels')
             for question in items:
                 if question.get('visual_asset'):
@@ -287,6 +293,11 @@ def check(state_path: Path) -> dict:
     return {'status': 'evidence-complete' if not errors else 'pending',
             'paper_id': state.get('paper_id'), 'errors': errors,
             'formal_acceptance': False,
+            'difficulty_review_mode': review_mode,
+            'delivery_note': ('Recorded review uses the same model context; it is not independent blind review.'
+                              if review_mode == 'single-context' else
+                              'Separate-context review is recorded; this checker cannot authenticate reviewer identity.'
+                              if review_mode == 'independent-context' else 'Difficulty review mode is missing or invalid.'),
             'timing': timing_summary(timing) if timing and not timing_errors(timing, state.get('paper_id')) else None,
             'scope': 'Evidence completeness and freshness only; recorded judgments need real review.'}
 

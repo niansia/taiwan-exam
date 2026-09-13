@@ -61,12 +61,35 @@ Editorial review must verify role compatibility: never compare an interior page
 to a sparse cover/formula page. A self-created reference or scratch-space reason
 cannot waive failure. Reflow and inspect new bytes when it fails.
 
-## Independent difficulty before final rendering
+## Capability-aware difficulty review before final rendering
 
-For all seven subjects run hosted_blind_review.py exam.json blind-packet.json. It retains visible
-questions in printed order, options, continuations, response tables, visuals and solutions, excluding author labels and item_spec.
-Supply actual referenced visuals and compatible 111–115 calibration to a separate
-reviewer context without prior judgments. Request shortest valid routes, necessary
+Choose the mode before authoring. Prefer `independent-context` when a real
+separate reviewer is available. With only one context, automatically choose
+`single-context`; this is an accepted ordinary delivery route, not a reason to
+halt or require the user to open another chat. If the user explicitly requires
+independent review, preserve `require_independent_review: true` in the run plan
+and arrange a real separate reviewer instead of silently substituting self-review.
+The Python helper cannot discover a model's available tools or create a reviewer.
+
+For all seven subjects run:
+
+```text
+python scripts/hosted_blind_review.py exam.json review-packet.json --review-mode single-context
+```
+
+Use `--review-mode independent-context` for an actual separate reviewer. Both
+packets retain visible ordered questions, continuations, options, response tables
+and visuals, excluding author difficulty labels and item_spec. The independent
+packet also retains solutions. The single-context packet excludes all answers:
+first derive answers/interpretations and shortest routes from those questions,
+then compare with the saved answer paper and adjudicate discrepancies. Check all
+options, domain restrictions, alternate readings and constructed-response rubrics.
+Use numerical/symbolic checks or a different derivation for high-risk items where
+practical. Removing answers from a file does not erase conversation memory or
+make the same model blind. Record actual findings, not a second fictional identity.
+
+Supply actual referenced visuals and compatible 111–115 calibration. In a real
+separate context, withhold prior author judgments. Request shortest valid routes, necessary
 decisions, shortcut searches, provisional difficulty/time and concrete comparisons
 against the available calibration. Default offline route: give the reviewer the
 subject's preflight `calibration.json` and record each item's
@@ -93,15 +116,25 @@ Correctness alone does not fulfil difficulty QA. Seek linear-combination
 shortcuts, small-n enumeration and unused conditions; long solutions do not prove
 required solving effort.
 
-The difficulty report adds blind_packet (path/sha256), real author_context and
-reviewer_context identifiers. Each item adds shortest_route, decisive_steps,
+The difficulty report adds `review_mode` and the legacy-named `blind_packet`
+(path/sha256; also used for the answer-free single-context packet), plus real
+author_context and reviewer_context identifiers. For `single-context` they must
+be the SAME actual context; add `independent_review: false` and `review_reason`
+describing the available capability. Every item additionally has `answer_recheck`:
+the actual new solving/evidence route, comparison with its saved answer and any
+resolved correction. Do not copy the original explanation as a supposed recheck.
+For `independent-context` the actual contexts must differ. Legacy reports without
+review_mode retain that stronger meaning, so changing only IDs cannot bypass it.
+Each item adds shortest_route, decisive_steps,
 shortcut_search, anchor_comparison, expected_minutes, difficulty_band
 (very_easy/easy/medium/hard/very_hard), unresolved (empty after resolution).
-The checker reconstructs the packet, rejects same-context reviews, and blocks
-author time over 1.5 times the independent estimate or two-band overestimation.
+The checker reconstructs the mode-specific packet and blocks false independence,
+missing per-item rechecks, author time over 1.5 times the reviewed estimate or
+two-band overestimation in BOTH modes. It checks evidence, not whether a model
+actually performed the claimed reasoning.
 Revise items or adopt the defensible estimate, then rerun the existing whole-paper
 balance audit using it; never inflate estimates to reach 80–92 minutes. These
-twenty-item papers also need the independent estimates to meet the existing
+twenty-item papers also need the reviewed estimates to meet the existing
 80–92 minute target and three-decision coverage of at least 50 points. These
 thresholds are review policy, not student psychometrics.
 
@@ -117,7 +150,7 @@ weak mechanisms to restore the intended curve, without inflating estimates or
 adding irrelevant computation. Apply the same reasoning to Math B, preserving
 its own scope and reference difficulty rather than copying Math A difficulty.
 
-The independent five-band estimate maps to the four-band plan as very_easy/easy
+The reviewed five-band estimate maps to the four-band plan as very_easy/easy
 → 簡單, medium → 中, hard → 中偏難, very_hard → 難. Reconcile every item and its
 answer label, then rebalance the actual plan. The checker reruns the structural
 four-band validator for all subjects and the subject-profile math design validator
@@ -130,9 +163,14 @@ constraint use, not recent-news terminology; for 國寫 review prompt demands,
 source synthesis, reasoning and feasible writing time, not imposed wordiness.
 Do not transfer the mathematics 80–92 minute target to other subjects.
 
-These fields cannot authenticate
-reviewer identity: never invent a second context. If none is available, preserve
-pending work for review in a fresh context.
+These fields cannot authenticate reviewer identity: never invent a second context.
+At delivery say which mode actually ran. For single-context use a concise note
+such as「已完成單一工作階段的逐題解題與難度複核；未經第二個審閱者獨立審查。」
+It may complete the ordinary Skill workflow after ALL checks pass, but must not
+be described as independently reviewed, blind-reviewed or equivalent assurance.
+If a review changes mode, redo the affected packet/review; never relabel unfinished
+independent review as completed self-review. Missing content/visual evidence or
+unresolved defects still remain pending in either mode.
 
 Four required math visuals is a coverage floor, NOT four fixed picture types.
 Apply math-current-events-and-sourcing.md for recent-event model design and

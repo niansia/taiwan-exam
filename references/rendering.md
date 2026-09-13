@@ -60,7 +60,8 @@ It runs the content handoff, composes canonical layers, applies non-visible
 provenance and verifies FINAL saved bytes. Its legacy full HTML route requires
 `--proof-only`; a contract alone cannot authorize recreated furniture. The local
 delivery gate independently repeats fixed-template verification for both PDFs.
-Continue all readable page/item, body typography and independent content review.
+Continue all readable page/item and body typography checks, with content review
+under the capability-aware hosted review mode; single-context review is not blind review.
 
 For measured Math A/B v4 internal body/component proofs, use `render_gsat_internal_review.py` and its PDF
 wrapper, not the generic official-named component. Both student and teacher

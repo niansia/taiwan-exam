@@ -1,10 +1,10 @@
-# Taiwan Exam Web Knowledge v2026.09.13.4
+# Taiwan Exam Web Knowledge v2026.09.13.5
 
 This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
 source sections only when relevant. For a COMPLETE GSAT paper, the minimum
 execution route is: extract this subject's helpers → verify original template
-bytes and a small question/answer composition → author and independently review
+bytes and a small question/answer composition → author and review using the available mode
 content/difficulty → compose TWO fixed-PDF booklets → inspect actual pages/items
 → execute check_hosted_run.py on saved state. The final checker reopens BOTH PDFs
 against canonical templates and executes difficulty validators. Missing execution
@@ -64,8 +64,13 @@ available content and layout gate. If the hosted surface cannot create or inspec
 the PDFs, disclose the limitation and do not claim formal completion.
 
 Before drafting, run `scripts/prepare_hosted_run.py` as described in
-`references/hosted-pdf-production.md`. It checks the selected subject's embedded
-calibration and verified template components and makes two small composition
+`references/hosted-pdf-production.md`. It declares the review mode. Prefer a real independent reviewer if
+available; otherwise use the documented single-context answer-free second pass,
+disclosing that it is not independent blind review. Do not halt ordinary exam
+generation just because the platform has no sub-agent tool. Only an explicit
+user requirement for independent review makes that capability mandatory.
+The helper checks the subject's embedded calibration and verified template
+components and makes two small composition
 proofs. Use an uploaded resource PDF first; otherwise template acquisition has
 an overall 45-second default deadline, not repeated unbounded socket waits.
 The final difficulty/density checker accepts the hash-bound `calibration.json`
@@ -90,10 +95,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
 [
   {
     "path": "SKILL.md",
-    "bytes": 76752,
-    "sha256": "da31bdb1c9912da40ebecd9a8ad88e14ec8b028380df78dc46955a54f245e3d8",
-    "embedded_bytes": 76752,
-    "embedded_sha256": "da31bdb1c9912da40ebecd9a8ad88e14ec8b028380df78dc46955a54f245e3d8"
+    "bytes": 77558,
+    "sha256": "d4ee60279e29fcca31a7d52cb71498d4e070175473f2505d218c151a581777ba",
+    "embedded_bytes": 77558,
+    "embedded_sha256": "d4ee60279e29fcca31a7d52cb71498d4e070175473f2505d218c151a581777ba"
   },
   {
     "path": "core/taxonomy.json",
@@ -594,24 +599,24 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/hosted-pdf-production.md",
-    "bytes": 13960,
-    "sha256": "a0ac161936528201b1c2bfc6911e53304383ccc1f68b6fff318bbd3fd23916a2",
-    "embedded_bytes": 13960,
-    "embedded_sha256": "a0ac161936528201b1c2bfc6911e53304383ccc1f68b6fff318bbd3fd23916a2"
+    "bytes": 14357,
+    "sha256": "5f2c1f6002cce1e2251fe1a3896bd2a72eac825cb65f70fe0e13d4ca3f7edd05",
+    "embedded_bytes": 14357,
+    "embedded_sha256": "5f2c1f6002cce1e2251fe1a3896bd2a72eac825cb65f70fe0e13d4ca3f7edd05"
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 10824,
-    "sha256": "fddfe46e201caab4760c894c756d65ca2d14d924af3611901087c9f20c8af2ea",
-    "embedded_bytes": 10824,
-    "embedded_sha256": "fddfe46e201caab4760c894c756d65ca2d14d924af3611901087c9f20c8af2ea"
+    "bytes": 13339,
+    "sha256": "6c7182b1746f4ce89ce439e0764e68d8a8d3a0ec03df27ae15ba10cd83843d7a",
+    "embedded_bytes": 13339,
+    "embedded_sha256": "6c7182b1746f4ce89ce439e0764e68d8a8d3a0ec03df27ae15ba10cd83843d7a"
   },
   {
     "path": "references/hosted-run-evidence.md",
-    "bytes": 8471,
-    "sha256": "f875c322dfb48577cc24a7f169fab9c01eedec227d8c6d9a1829b6dfa9ee5760",
-    "embedded_bytes": 8471,
-    "embedded_sha256": "f875c322dfb48577cc24a7f169fab9c01eedec227d8c6d9a1829b6dfa9ee5760"
+    "bytes": 9007,
+    "sha256": "04435a56970a7277b188a5029bd3091bf18de38d57393d2642a7b1acc4b24cca",
+    "embedded_bytes": 9007,
+    "embedded_sha256": "04435a56970a7277b188a5029bd3091bf18de38d57393d2642a7b1acc4b24cca"
   },
   {
     "path": "references/layout-fidelity.md",
@@ -671,10 +676,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "references/rendering.md",
-    "bytes": 8227,
-    "sha256": "0b1d9182fde5dc323ed0f81c0109a8541ce0d5cb918bc54bc2c22b2d23c63dad",
-    "embedded_bytes": 8227,
-    "embedded_sha256": "0b1d9182fde5dc323ed0f81c0109a8541ce0d5cb918bc54bc2c22b2d23c63dad"
+    "bytes": 8316,
+    "sha256": "0f460a2cca62e91b2b866d7a4fa64fc41b566fdcb78317774d5c969857df6751",
+    "embedded_bytes": 8316,
+    "embedded_sha256": "0f460a2cca62e91b2b866d7a4fa64fc41b566fdcb78317774d5c969857df6751"
   },
   {
     "path": "references/social-required-content-codes.json",
@@ -769,10 +774,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 19096,
-    "sha256": "d505d23c29b74d7f539a3ef66e180f48042025786fea4b679684bf3c584082b6",
-    "embedded_bytes": 19096,
-    "embedded_sha256": "d505d23c29b74d7f539a3ef66e180f48042025786fea4b679684bf3c584082b6"
+    "bytes": 20089,
+    "sha256": "52bd6034f875c86c7d493aea369f856b8e9dcee8e0cbc7002f1bb857703cd00d",
+    "embedded_bytes": 20089,
+    "embedded_sha256": "52bd6034f875c86c7d493aea369f856b8e9dcee8e0cbc7002f1bb857703cd00d"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -790,10 +795,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 6773,
-    "sha256": "d084a1c5e3ec69466c28a248d18fd5bbb676bfcbc0100c3d8f87e1e0fd115f7d",
-    "embedded_bytes": 6773,
-    "embedded_sha256": "d084a1c5e3ec69466c28a248d18fd5bbb676bfcbc0100c3d8f87e1e0fd115f7d"
+    "bytes": 8383,
+    "sha256": "469af2cce65592550968667149521aa021ec237b221cf49fe5535b1e45d994fe",
+    "embedded_bytes": 8383,
+    "embedded_sha256": "469af2cce65592550968667149521aa021ec237b221cf49fe5535b1e45d994fe"
   },
   {
     "path": "scripts/hosted_calibration.py",
@@ -825,10 +830,10 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 6499,
-    "sha256": "966ff0675bec7ea9798449f2c206363326d6f02bb483972b87c9adbd645ec5a3",
-    "embedded_bytes": 6499,
-    "embedded_sha256": "966ff0675bec7ea9798449f2c206363326d6f02bb483972b87c9adbd645ec5a3"
+    "bytes": 7898,
+    "sha256": "5b2dcab84c21e079f8fa466552c578ca1fb16e32ddab2174198d86ab770c701c",
+    "embedded_bytes": 7898,
+    "embedded_sha256": "5b2dcab84c21e079f8fa466552c578ca1fb16e32ddab2174198d86ab770c701c"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1016,22 +1021,32 @@ four-band/math design validators. A narrative equivalent or an author-written
 pass JSON is not execution. If the helper cannot run, preserve a pending checkpoint;
 do not use the missing executable as permission to skip its checks. Zero mechanically blocking pages
 does not clear unresolved layout review flags or missing editorial checks.
-Measure phases from preflight, review shortest routes in a separate blind context
+Measure phases from preflight, review shortest routes using the available review mode
 before final composition, and reserve answer rails below measured content and
 figures. Final delivery requires readable item crops as well as every page;
 follow [references/hosted-quality-gates.md](references/hosted-quality-gates.md).
 The time benchmark never waives QA. Never manufacture missing timing or reviews.
-For ALL seven GSAT subjects, use a separate difficulty reviewer supplied with the
-actual ordered questions, continuations, visuals, solutions and a verified
-calibration basis, without author difficulty labels. Before drafting, run
+For ALL seven GSAT subjects, prefer a real separate difficulty reviewer when the
+platform provides one. Without that capability, automatically use the documented
+single-context second-pass review; do not stop ordinary full-paper generation,
+ask users to open a second chat, or invent a reviewer identity. Same-context review
+is not independent or blind, even when its input artifact omits answers/labels.
+Elsewhere, independently solving/checking an answer means a distinct reasoning
+or calculation pass; it does not by itself require another model context.
+Preserve an explicit user requirement for independent review; that requirement
+does need a real separate reviewer. Supply actual ordered questions, continuations,
+visuals and verified calibration. In single-context mode solve from the answer-free
+packet before comparing saved answers, then audit shortcuts and difficulty.
+Disclose the actual review mode at delivery; all substantive quality gates still
+apply and unresolved errors still block. Before drafting, run
 `prepare_hosted_run.py` to check embedded subject calibration, template bytes and
 small question/answer layout proofs. The default offline basis is the canonical
-aggregate profile plus independent expert review; original official PDFs remain
+aggregate profile plus expert review under the selected mode; original official PDFs remain
 an optional, stronger item-to-item comparison when actually available. Never
 claim an unseen official page was read or promote aggregate targets to achieved
 difficulty. Neither difficulty nor density QA may start a new original-PDF
 download dependency at final delivery. See hosted-quality-gates.md for the two
-explicit evidence formats. Adopt the independent bands and
+explicit evidence formats. Adopt the reviewed bands and
 rebalance before PDF production. In Math A/B, assess shortcuts using options and
 earlier subquestions: routine arithmetic steps and supplied intermediate results
 are not new decisions. Never make a hard label fit by lengthening the solution.
@@ -56302,7 +56317,12 @@ non-waivable collisions before any final quality claim.
    absence without trying the installed PDF library; if dependency installation
    is unavailable, name that actual capability gap.
 2. Run prepare_hosted_run.py with the selected subject, run directory, paper ID
-   and an available Chinese font. It first verifies embedded calibration, then
+   and an available Chinese font. It defaults to `--review-mode single-context`
+   for a platform without reviewer tools; select `independent-context` when an
+   actual separate reviewer is available. This declares the route, not a claim
+   that the helper can detect tools or conduct review. Set
+   `--require-independent-review` only for an explicit user requirement; it blocks
+   the single-context route before expensive work. It first verifies embedded calibration, then
    acquires the subject's three/four production components and composes both
    small layout proofs. Supply an uploaded carrier first. Without one, the whole
    network fetch subprocess is bounded to 45 seconds by default (maximum 60),
@@ -56559,12 +56579,35 @@ Editorial review must verify role compatibility: never compare an interior page
 to a sparse cover/formula page. A self-created reference or scratch-space reason
 cannot waive failure. Reflow and inspect new bytes when it fails.
 
-## Independent difficulty before final rendering
+## Capability-aware difficulty review before final rendering
 
-For all seven subjects run hosted_blind_review.py exam.json blind-packet.json. It retains visible
-questions in printed order, options, continuations, response tables, visuals and solutions, excluding author labels and item_spec.
-Supply actual referenced visuals and compatible 111–115 calibration to a separate
-reviewer context without prior judgments. Request shortest valid routes, necessary
+Choose the mode before authoring. Prefer `independent-context` when a real
+separate reviewer is available. With only one context, automatically choose
+`single-context`; this is an accepted ordinary delivery route, not a reason to
+halt or require the user to open another chat. If the user explicitly requires
+independent review, preserve `require_independent_review: true` in the run plan
+and arrange a real separate reviewer instead of silently substituting self-review.
+The Python helper cannot discover a model's available tools or create a reviewer.
+
+For all seven subjects run:
+
+```text
+python scripts/hosted_blind_review.py exam.json review-packet.json --review-mode single-context
+```
+
+Use `--review-mode independent-context` for an actual separate reviewer. Both
+packets retain visible ordered questions, continuations, options, response tables
+and visuals, excluding author difficulty labels and item_spec. The independent
+packet also retains solutions. The single-context packet excludes all answers:
+first derive answers/interpretations and shortest routes from those questions,
+then compare with the saved answer paper and adjudicate discrepancies. Check all
+options, domain restrictions, alternate readings and constructed-response rubrics.
+Use numerical/symbolic checks or a different derivation for high-risk items where
+practical. Removing answers from a file does not erase conversation memory or
+make the same model blind. Record actual findings, not a second fictional identity.
+
+Supply actual referenced visuals and compatible 111–115 calibration. In a real
+separate context, withhold prior author judgments. Request shortest valid routes, necessary
 decisions, shortcut searches, provisional difficulty/time and concrete comparisons
 against the available calibration. Default offline route: give the reviewer the
 subject's preflight `calibration.json` and record each item's
@@ -56591,15 +56634,25 @@ Correctness alone does not fulfil difficulty QA. Seek linear-combination
 shortcuts, small-n enumeration and unused conditions; long solutions do not prove
 required solving effort.
 
-The difficulty report adds blind_packet (path/sha256), real author_context and
-reviewer_context identifiers. Each item adds shortest_route, decisive_steps,
+The difficulty report adds `review_mode` and the legacy-named `blind_packet`
+(path/sha256; also used for the answer-free single-context packet), plus real
+author_context and reviewer_context identifiers. For `single-context` they must
+be the SAME actual context; add `independent_review: false` and `review_reason`
+describing the available capability. Every item additionally has `answer_recheck`:
+the actual new solving/evidence route, comparison with its saved answer and any
+resolved correction. Do not copy the original explanation as a supposed recheck.
+For `independent-context` the actual contexts must differ. Legacy reports without
+review_mode retain that stronger meaning, so changing only IDs cannot bypass it.
+Each item adds shortest_route, decisive_steps,
 shortcut_search, anchor_comparison, expected_minutes, difficulty_band
 (very_easy/easy/medium/hard/very_hard), unresolved (empty after resolution).
-The checker reconstructs the packet, rejects same-context reviews, and blocks
-author time over 1.5 times the independent estimate or two-band overestimation.
+The checker reconstructs the mode-specific packet and blocks false independence,
+missing per-item rechecks, author time over 1.5 times the reviewed estimate or
+two-band overestimation in BOTH modes. It checks evidence, not whether a model
+actually performed the claimed reasoning.
 Revise items or adopt the defensible estimate, then rerun the existing whole-paper
 balance audit using it; never inflate estimates to reach 80–92 minutes. These
-twenty-item papers also need the independent estimates to meet the existing
+twenty-item papers also need the reviewed estimates to meet the existing
 80–92 minute target and three-decision coverage of at least 50 points. These
 thresholds are review policy, not student psychometrics.
 
@@ -56615,7 +56668,7 @@ weak mechanisms to restore the intended curve, without inflating estimates or
 adding irrelevant computation. Apply the same reasoning to Math B, preserving
 its own scope and reference difficulty rather than copying Math A difficulty.
 
-The independent five-band estimate maps to the four-band plan as very_easy/easy
+The reviewed five-band estimate maps to the four-band plan as very_easy/easy
 → 簡單, medium → 中, hard → 中偏難, very_hard → 難. Reconcile every item and its
 answer label, then rebalance the actual plan. The checker reruns the structural
 four-band validator for all subjects and the subject-profile math design validator
@@ -56628,9 +56681,14 @@ constraint use, not recent-news terminology; for 國寫 review prompt demands,
 source synthesis, reasoning and feasible writing time, not imposed wordiness.
 Do not transfer the mathematics 80–92 minute target to other subjects.
 
-These fields cannot authenticate
-reviewer identity: never invent a second context. If none is available, preserve
-pending work for review in a fresh context.
+These fields cannot authenticate reviewer identity: never invent a second context.
+At delivery say which mode actually ran. For single-context use a concise note
+such as「已完成單一工作階段的逐題解題與難度複核；未經第二個審閱者獨立審查。」
+It may complete the ordinary Skill workflow after ALL checks pass, but must not
+be described as independently reviewed, blind-reviewed or equivalent assurance.
+If a review changes mode, redo the affected packet/review; never relabel unfinished
+independent review as completed self-review. Missing content/visual evidence or
+unresolved defects still remain pending in either mode.
 
 Four required math visuals is a coverage floor, NOT four fixed picture types.
 Apply math-current-events-and-sourcing.md for recent-event model design and
@@ -56668,7 +56726,7 @@ Use for every hosted full paper, including a single paper with no requested time
 target. This is the recorded implementation of web-platform-use's hosted gate,
 not a substitute for local validate_exam_release or a new academic standard.
 Apply [hosted-quality-gates.md](hosted-quality-gates.md) alongside this format:
-actual PDF collisions, item crops, blind difficulty and timing are mandatory.
+actual PDF collisions, item crops, mode-appropriate difficulty review and timing are mandatory.
 
 ## Work that survives interruption
 
@@ -56712,6 +56770,13 @@ Do not invent successful review observations or manufacture reviewer identities.
 
 `run-state.json` has schema_version 1, paper_id, current_phase, next_action,
 exam (`path`, `sha256`), timing (`path`, `sha256`), template_asset_dir, checks, and pdfs.
+Copy preflight's `review_mode` and `require_independent_review` into this run plan.
+Use a real separate context when available; otherwise ordinary hosted generation
+uses `single-context` with the answer-free second pass in hosted-quality-gates.md.
+An explicit user demand for independent review cannot use that substitution.
+The checker reports difficulty_review_mode and a delivery_note so same-context
+completion is not presented as independent review. A mode name is not evidence
+that any review was actually done.
 For the default offline route also register `calibration: {path, sha256}` from
 preflight.json. Keep calibration.json, template assets, editable work and reviews
 in recovery material. The checker reconstructs calibration from canonical files;
@@ -57848,7 +57913,8 @@ It runs the content handoff, composes canonical layers, applies non-visible
 provenance and verifies FINAL saved bytes. Its legacy full HTML route requires
 `--proof-only`; a contract alone cannot authorize recreated furniture. The local
 delivery gate independently repeats fixed-template verification for both PDFs.
-Continue all readable page/item, body typography and independent content review.
+Continue all readable page/item and body typography checks, with content review
+under the capability-aware hosted review mode; single-context review is not blind review.
 
 For measured Math A/B v4 internal body/component proofs, use `render_gsat_internal_review.py` and its PDF
 wrapper, not the generic official-named component. Both student and teacher
@@ -59504,7 +59570,7 @@ import pymupdf
 from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, bottom_void
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary
-from hosted_blind_review import packet, review_errors
+from hosted_blind_review import packet, review_errors, REVIEW_MODES
 from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
@@ -59574,6 +59640,7 @@ def check(state_path: Path) -> dict:
          and len(set(ids)) == len(ids), 'exam: missing or duplicate item IDs')
     expected = set(ids)
     calibration = None
+    review_mode = None
     if state.get('calibration'):
         calibration_path = file(state['calibration'], 'calibration')
         if calibration_path:
@@ -59608,9 +59675,14 @@ def check(state_path: Path) -> dict:
             if review.get('comparison_scope') == 'available-history':
                 need(bool(review.get('history')), 'originality: history evidence missing')
         if name == 'difficulty':
+            review_mode = review.get('review_mode', 'independent-context')
+            need(not state.get('require_independent_review') or review_mode == 'independent-context',
+                 'difficulty: explicitly required independent review cannot use single-context mode')
+            if state.get('review_mode'):
+                need(state['review_mode'] == review_mode, 'difficulty: review mode differs from the run plan')
             blind_path = file(review.get('blind_packet'), 'difficulty/blind_packet')
-            if blind_path:
-                need(json.loads(blind_path.read_text(encoding='utf-8-sig')) == packet(exam),
+            if blind_path and review_mode in REVIEW_MODES:
+                need(json.loads(blind_path.read_text(encoding='utf-8-sig')) == packet(exam, review_mode),
                      'difficulty: packet changed or includes author labels')
             for question in items:
                 if question.get('visual_asset'):
@@ -59777,6 +59849,11 @@ def check(state_path: Path) -> dict:
     return {'status': 'evidence-complete' if not errors else 'pending',
             'paper_id': state.get('paper_id'), 'errors': errors,
             'formal_acceptance': False,
+            'difficulty_review_mode': review_mode,
+            'delivery_note': ('Recorded review uses the same model context; it is not independent blind review.'
+                              if review_mode == 'single-context' else
+                              'Separate-context review is recorded; this checker cannot authenticate reviewer identity.'
+                              if review_mode == 'independent-context' else 'Difficulty review mode is missing or invalid.'),
             'timing': timing_summary(timing) if timing and not timing_errors(timing, state.get('paper_id')) else None,
             'scope': 'Evidence completeness and freshness only; recorded judgments need real review.'}
 
@@ -60176,8 +60253,12 @@ import json
 import math
 from pathlib import Path
 
+REVIEW_MODES = ('independent-context', 'single-context')
 
-def packet(exam):
+
+def packet(exam, review_mode='independent-context'):
+    if review_mode not in REVIEW_MODES:
+        raise ValueError('Unknown difficulty review mode')
     questions = []
     for q in exam['questions']:
         row = {k: q[k] for k in ('id','number','section_id','type','prompt','group_stimulus',
@@ -60191,7 +60272,12 @@ def packet(exam):
     # Author's difficulty labels/reviews and item_spec never enter the packet.
     answers = [{k: a[k] for k in ('question_id','final_answer','reasoning','explanation_blocks') if k in a}
                for a in exam.get('answers', [])]
-    return {'subject': exam['metadata']['subject'], 'questions': questions, 'answers': answers}
+    result = {'subject': exam['metadata']['subject'], 'questions': questions}
+    # Removing answers from the artifact reduces direct answer copying. It does
+    # NOT erase the same model's history or make its second pass independent.
+    if review_mode == 'independent-context':
+        result['answers'] = answers
+    return result
 
 
 def review_errors(exam, review):
@@ -60200,11 +60286,25 @@ def review_errors(exam, review):
     rows = {r.get('id'):r for r in review.get('items', [])}
     is_math = exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}
     preceding = set()
-    if not review.get('reviewer_context') or review.get('author_context') == review.get('reviewer_context'):
-        errors.append('difficulty: a separate blind reviewer context is required')
+    mode = review.get('review_mode', 'independent-context')  # Preserve legacy evidence semantics.
+    if mode not in REVIEW_MODES:
+        errors.append('difficulty: unknown review mode')
+    elif mode == 'independent-context':
+        if not review.get('reviewer_context') or review.get('author_context') == review.get('reviewer_context'):
+            errors.append('difficulty: a separate blind reviewer context is required for independent-context mode')
+        if review.get('independent_review') is False:
+            errors.append('difficulty: contradictory independent review claim')
+    else:
+        if (not review.get('author_context') or
+                review.get('reviewer_context') != review.get('author_context')):
+            errors.append('difficulty: single-context review must retain the actual author context')
+        if review.get('independent_review') is not False or not review.get('review_reason'):
+            errors.append('difficulty: single-context review must disclose non-independence and capability reason')
     for question in exam['questions']:
         row = rows.get(question['id'], {})
         prefix = f'difficulty/{question["id"]}'
+        if mode == 'single-context' and not (isinstance(row.get('answer_recheck'), str) and row['answer_recheck'].strip()):
+            errors.append(f'{prefix}: record the fresh solving route and comparison with the saved answer')
         for field in ('shortest_route','decisive_steps','shortcut_search','anchor_comparison'):
             if not row.get(field):
                 errors.append(f'{prefix}: missing {field}')
@@ -60223,42 +60323,42 @@ def review_errors(exam, review):
                 errors.append(f'{prefix}: routine substitution cannot receive a hard label')
         preceding.add(question['id'])
         if (question.get('item_spec') or {}).get('current_event') and (not isinstance(steps,list) or len(steps) < 3):
-            errors.append(f'{prefix}: topical arithmetic alone is not literacy; independently verify three linked decisions')
+            errors.append(f'{prefix}: topical arithmetic alone is not literacy; verify three linked decisions')
         minutes = row.get('expected_minutes')
         if type(minutes) not in (int,float) or not math.isfinite(minutes) or not 0 < minutes <= 100:
-            errors.append(f'{prefix}: invalid independent time estimate')
+            errors.append(f'{prefix}: invalid reviewed time estimate')
             continue
         if row.get('difficulty_band') not in bands or row.get('unresolved') != []:
-            errors.append(f'{prefix}: unresolved or missing independent judgment')
+            errors.append(f'{prefix}: unresolved or missing reviewed judgment')
         declared = question.get('expected_minutes')
         if type(declared) in (int,float) and declared > minutes * 1.5:
-            errors.append(f'{prefix}: author time exceeds blind estimate by over 50%; revise and rebalance')
+            errors.append(f'{prefix}: author time exceeds reviewed estimate by over 50%; revise and rebalance')
         design = (question.get('item_spec') or {}).get('difficulty_design') or {}
         independent_band = {'very_easy':'簡單', 'easy':'簡單', 'medium':'中',
                             'hard':'中偏難', 'very_hard':'難'}.get(row.get('difficulty_band'))
         if design.get('band') and independent_band and design['band'] != independent_band:
-            errors.append(f'{prefix}: adopt the independent band and rebalance the paper before rendering')
+            errors.append(f'{prefix}: adopt the reviewed band and rebalance the paper before rendering')
         estimated = design.get('expert_estimate', {}).get('difficulty_band')
         if estimated in bands and row.get('difficulty_band') in bands:
             if bands.index(estimated) - bands.index(row['difficulty_band']) >= 2:
-                errors.append(f'{prefix}: author difficulty exceeds blind estimate by two bands')
+                errors.append(f'{prefix}: author difficulty exceeds reviewed estimate by two bands')
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
                             if type(r.get('expected_minutes')) in (int,float))
     shared = (exam.get('metadata', {}).get('difficulty_balance_plan') or {}).get('shared_reading_minutes', 0)
     if type(duration) in (int,float) and type(shared) in (int,float) and independent_total + shared > duration:
-        errors.append('difficulty: independent solving plus shared reading exceeds paper duration')
+        errors.append('difficulty: reviewed solving plus shared reading exceeds paper duration')
     if is_math and len(exam['questions']) == 20:
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
         if not 80 <= total <= 92:
-            errors.append(f'difficulty: blind hand-solving total {total:g} minutes is outside existing 80-92 target')
+            errors.append(f'difficulty: reviewed hand-solving total {total:g} minutes is outside existing 80-92 target')
         decision_score = sum(q.get('score', 0) or 0 for q in exam['questions']
                              if isinstance(rows.get(q['id'], {}).get('decisive_steps'), list)
                              and len(rows[q['id']]['decisive_steps']) >= 3
                              and rows[q['id']].get('routine_only') is False)
         if decision_score < 50:
-            errors.append('difficulty: blind three-decision coverage below existing 50-point floor')
+            errors.append('difficulty: reviewed three-decision coverage below existing 50-point floor')
         routine_points = sum(q.get('score', 0) or 0 for q in exam['questions']
                              if rows.get(q['id'], {}).get('routine_only') is True)
         if routine_points > 25:
@@ -60270,8 +60370,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('exam', type=Path)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--review-mode', choices=REVIEW_MODES, default='independent-context')
     args = parser.parse_args()
-    args.output.write_text(json.dumps(packet(json.loads(args.exam.read_text(encoding='utf-8'))),
+    args.output.write_text(json.dumps(packet(json.loads(args.exam.read_text(encoding='utf-8')), args.review_mode),
                                      ensure_ascii=False, indent=2), encoding='utf-8')
 </canonical-source>
 
@@ -60771,6 +60872,7 @@ from compose_hosted_pdf import compose
 from fetch_hosted_template_assets import DEFAULT_MAP, materialize
 from hosted_calibration import SUBJECTS, snapshot
 from hosted_run_timing import transition
+from hosted_blind_review import REVIEW_MODES
 
 
 def save(path, data):
@@ -60805,7 +60907,8 @@ def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
     return json.loads(result.stdout)
 
 
-def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=45):
+def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=45,
+            review_mode='single-context', require_independent_review=False):
     started = time.monotonic()
     run_dir = run_dir.resolve()
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -60816,10 +60919,17 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
             previous = json.loads((run_dir / name).read_text(encoding='utf-8-sig'))
             if previous.get('paper_id') != paper_id or previous.get('subject', subject) != subject:
                 raise ValueError('Refusing to reuse another paper or subject run directory')
+            if previous.get('require_independent_review') is True:
+                require_independent_review = True  # Never drop an explicit requirement on resume.
     transition(timing, paper_id, 'reference_preflight')
     report = {'paper_id': paper_id, 'subject': subject, 'status': 'pending', 'errors': [],
+              'review_mode': review_mode, 'require_independent_review': require_independent_review,
               'scope': 'Resource readiness and small layout proofs only; no exam or quality approval.'}
     try:
+        if review_mode not in REVIEW_MODES:
+            raise ValueError('Unknown difficulty review mode')
+        if require_independent_review and review_mode != 'independent-context':
+            raise ValueError('Explicit independent review requirement needs an actual separate reviewer; resolve before authoring')
         calibration = snapshot(subject)
         digest = save(run_dir / 'calibration.json', calibration)
         report['calibration'] = {'path': 'calibration.json', 'sha256': digest}
@@ -60848,7 +60958,9 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                     page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5)).save(proof_dir / f'{kind}-{index}.png')
         report.update(status='ready-for-authoring', proofs=proofs,
                       next_action='Open the small proof rasters and check field/font fit; read the selected subject '
-                      'calibration and curriculum guidance. Draft, solve and independently review small batches. '
+                      'calibration and curriculum guidance. Use the recorded review_mode for small batches: '
+                      'single-context means a fresh answer-free solving pass followed by answer comparison, '
+                      'not independent blind review. Never invent a reviewer context. '
                       'Use aggregate anchors honestly; final QA needs no original-PDF download. '
                       'Test actual body math typography separately before full composition.')
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
@@ -60868,9 +60980,14 @@ if __name__ == '__main__':
     parser.add_argument('--resource-pdf', type=Path)
     parser.add_argument('--local-root', type=Path)
     parser.add_argument('--deadline', type=float, default=45)
+    parser.add_argument('--review-mode', choices=REVIEW_MODES, default='single-context',
+                        help='Select independent-context only when a real separate reviewer is available')
+    parser.add_argument('--require-independent-review', action='store_true',
+                        help='Preserve an explicit user requirement; do not enable merely because it is preferred')
     args = parser.parse_args()
     result = prepare(args.subject, args.run_dir, args.paper_id, args.font,
-                     resource_pdf=args.resource_pdf, local_root=args.local_root, deadline=args.deadline)
+                     resource_pdf=args.resource_pdf, local_root=args.local_root, deadline=args.deadline,
+                     review_mode=args.review_mode, require_independent_review=args.require_independent_review)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     raise SystemExit(0 if result['status'] == 'ready-for-authoring' else 2)
 </canonical-source>

@@ -19,7 +19,12 @@ non-waivable collisions before any final quality claim.
    absence without trying the installed PDF library; if dependency installation
    is unavailable, name that actual capability gap.
 2. Run prepare_hosted_run.py with the selected subject, run directory, paper ID
-   and an available Chinese font. It first verifies embedded calibration, then
+   and an available Chinese font. It defaults to `--review-mode single-context`
+   for a platform without reviewer tools; select `independent-context` when an
+   actual separate reviewer is available. This declares the route, not a claim
+   that the helper can detect tools or conduct review. Set
+   `--require-independent-review` only for an explicit user requirement; it blocks
+   the single-context route before expensive work. It first verifies embedded calibration, then
    acquires the subject's three/four production components and composes both
    small layout proofs. Supply an uploaded carrier first. Without one, the whole
    network fetch subprocess is bounded to 45 seconds by default (maximum 60),

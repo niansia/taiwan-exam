@@ -125,7 +125,7 @@ This file is a deterministic hosted-web projection of the public Taiwan Exam
 Skill. Apply `SKILL.md` as the root instruction and load the embedded canonical
 source sections only when relevant. For a COMPLETE GSAT paper, the minimum
 execution route is: extract this subject's helpers → verify original template
-bytes and a small question/answer composition → author and independently review
+bytes and a small question/answer composition → author and review using the available mode
 content/difficulty → compose TWO fixed-PDF booklets → inspect actual pages/items
 → execute check_hosted_run.py on saved state. The final checker reopens BOTH PDFs
 against canonical templates and executes difficulty validators. Missing execution
@@ -185,8 +185,13 @@ available content and layout gate. If the hosted surface cannot create or inspec
 the PDFs, disclose the limitation and do not claim formal completion.
 
 Before drafting, run `scripts/prepare_hosted_run.py` as described in
-`references/hosted-pdf-production.md`. It checks the selected subject's embedded
-calibration and verified template components and makes two small composition
+`references/hosted-pdf-production.md`. It declares the review mode. Prefer a real independent reviewer if
+available; otherwise use the documented single-context answer-free second pass,
+disclosing that it is not independent blind review. Do not halt ordinary exam
+generation just because the platform has no sub-agent tool. Only an explicit
+user requirement for independent review makes that capability mandatory.
+The helper checks the subject's embedded calibration and verified template
+components and makes two small composition
 proofs. Use an uploaded resource PDF first; otherwise template acquisition has
 an overall 45-second default deadline, not repeated unbounded socket waits.
 The final difficulty/density checker accepts the hash-bound `calibration.json`
