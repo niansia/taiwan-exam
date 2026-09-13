@@ -1,0 +1,270 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "英文",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "英文題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、詞彙題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-english-vocabulary",
+      "number": 1,
+      "text": "〔原創語境句與詞彙空格位置〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、綜合測驗",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-english-cloze",
+      "heading": "〔第11至15題，共用段落〕",
+      "paragraphs": [
+        "[New paragraph before the gap] {{gap:11}} [new paragraph continuation].",
+        "[New paragraph with its own evidence] {{gap:12}} [continuation]."
+      ],
+      "language": "en"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-english-cloze-option",
+      "number": 11,
+      "text": "〔各空格對應選項列；不得重複整段材料〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "三、文意選填",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-english-completion",
+      "heading": "〔十空格共用一次 A–J 選項庫〕",
+      "paragraphs": [
+        "[Original connected passage] {{gap:21}} [continued paragraph].",
+        "[Another paragraph] {{gap:22}} [remaining gaps follow the same inline format]."
+      ],
+      "language": "en",
+      "bank": [
+        {
+          "label": "(A)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(B)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(C)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(D)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(E)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(F)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(G)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(H)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(I)",
+          "text": "[new word]"
+        },
+        {
+          "label": "(J)",
+          "text": "[new word]"
+        }
+      ],
+      "columns": 5
+    },
+    {
+      "kind": "section",
+      "title": "四、篇章結構",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-english-discourse",
+      "heading": "〔一篇文章、四個段落內空格；此處示範排法〕",
+      "paragraphs": [
+        "[New paragraph] {{gap:31}} [continuation].",
+        "[New paragraph] {{gap:32}} [new paragraph] {{gap:33}} [continuation] {{gap:34}}."
+      ],
+      "language": "en",
+      "bank": [
+        {
+          "label": "(A)",
+          "text": "[New sentence option]"
+        },
+        {
+          "label": "(B)",
+          "text": "[New sentence option]"
+        },
+        {
+          "label": "(C)",
+          "text": "[New sentence option]"
+        },
+        {
+          "label": "(D)",
+          "text": "[New sentence option]"
+        },
+        {
+          "label": "(E)",
+          "text": "[New sentence option]"
+        }
+      ],
+      "columns": 1
+    },
+    {
+      "kind": "section",
+      "title": "五、閱讀測驗",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-english-reading",
+      "heading": "〔新閱讀文章標題〕",
+      "paragraphs": [
+        "[New reading passage: actual prose, length and questions must be authored separately.]"
+      ],
+      "language": "en"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-english-reading-item",
+      "number": 35,
+      "text": "〔依本次新文章命製的閱讀題幹〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "六、混合題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-english-mixed",
+      "text": "〔本次新閱讀材料與必要圖表，不能沿用此灰色框〕",
+      "assets": {
+        "figure": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 155
+        }
+      },
+      "figure": "figure",
+      "figure_position": "right"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-response",
+      "number": 47,
+      "text": "〔依新材料進行轉換的填答要求〕",
+      "score": 2
+    },
+    {
+      "kind": "section",
+      "title": "七、非選擇題：中譯英與英文作文",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-translation",
+      "number": 1,
+      "text": "〔本次第一句中譯英題幹〕",
+      "score": 4,
+      "label": "（一）"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-translation2",
+      "number": 2,
+      "text": "〔本次第二句中譯英題幹〕",
+      "score": 4,
+      "label": "（二）"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-composition",
+      "number": 3,
+      "text": "〔本次作文材料、情境與任務，以繁體中文說明〕；文長至少120個英文單詞。於指定答題卷作答。",
+      "score": 20,
+      "label": "作文"
+    }
+  ]
+}

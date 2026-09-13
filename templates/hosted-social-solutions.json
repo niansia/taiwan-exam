@@ -1,0 +1,33 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "社會",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "社會詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-social-choice",
+      "number": 1,
+      "text": "〔答案、材料依據與課綱概念〕",
+      "steps": [
+        "〔歷史脈絡／空間尺度／制度條件〕",
+        "〔其他選項與材料不符之處〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-social-mixed",
+      "number": 2,
+      "text": "〔可得滿分的作答示例位置〕",
+      "steps": [
+        "〔跨材料證據與推論步驟〕",
+        "〔可接受表述、部分給分及過度推論的扣分點〕"
+      ]
+    }
+  ]
+}

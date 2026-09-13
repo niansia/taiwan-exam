@@ -128,6 +128,10 @@ def should_include(path: Path) -> bool:
         return False
     if rel.parts[0] == "docs" and rel.name in PRIVATE_REPORTS:
         return False
+    if rel.parts[:2] == ('docs','layout-examples'):
+        # Optional visual previews are separately downloadable. Keep the Skill
+        # small: portable, subject-specific source layouts live in templates/.
+        return False
     if len(rel.parts) == 2 and rel.parts[0] == "scripts" and rel.name in REJECTED_GENERATOR_SCRIPTS:
         return False
     if rel.parts[0] == 'scripts' and (len(rel.parts) != 2 or rel.name not in DISTRIBUTABLE_SCRIPTS):

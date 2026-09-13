@@ -1,0 +1,113 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "國綜",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "國綜題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、語文知識與閱讀單選",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-chinese-single",
+      "number": 1,
+      "text": "〔本次語文情境與題幹位置〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、閱讀題組與跨文本",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-chinese-text",
+      "heading": "〔題組範圍與材料標記〕",
+      "paragraphs": [
+        "甲：〔另行選取、查證來源並依規則處理的白話選文〕",
+        "乙：〔另行選取的文言或另一篇對照文本〕",
+        "〔必要的作者、篇名與短註釋位置；不是可直接使用的選文〕"
+      ]
+    },
+    {
+      "kind": "choice",
+      "id": "layout-chinese-reading",
+      "number": 2,
+      "text": "〔跨文本題幹：填入本次實際閱讀任務〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "三、混合題與短答",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "table",
+      "id": "layout-chinese-response",
+      "text": "〔資訊整理／短答表格位置〕",
+      "headers": [
+        "材料",
+        "本次待填內容"
+      ],
+      "rows": [
+        [
+          "甲",
+          "〔短答欄位〕"
+        ],
+        [
+          "乙",
+          "〔短答欄位〕"
+        ]
+      ],
+      "keep_with_next": true
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-chinese-short",
+      "number": 3,
+      "text": "〔獨立短答要求；40字以內，不得把此提示當作題幹〕",
+      "score": 4
+    }
+  ]
+}

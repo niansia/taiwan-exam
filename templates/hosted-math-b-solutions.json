@@ -1,0 +1,51 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "數學B",
+  "booklet_role": "solutions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "數學B詳解版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-b-single",
+      "number": 1,
+      "text": "〔答案與選項標籤〕",
+      "steps": [
+        "〔最短有效推導與條件檢查〕",
+        "〔錯誤選項的數學原因〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-b-multiple",
+      "number": 9,
+      "text": "〔全部正確選項位置〕",
+      "steps": [
+        "〔逐一驗證所有選項，列出反例或必要條件〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-b-fill",
+      "number": 13,
+      "text": "〔數值答案與實際劃記編碼位置〕",
+      "steps": [
+        "〔計算、範圍與整數／分數／根式格式核對〕"
+      ]
+    },
+    {
+      "kind": "solution",
+      "id": "layout-math-b-constructed",
+      "number": 18,
+      "text": "〔混合／非選題完整解法〕",
+      "steps": [
+        "〔逐步推導與另一條驗算路線〕",
+        "〔各步評分點；前題已給結果對本題難度的影響〕"
+      ]
+    }
+  ]
+}

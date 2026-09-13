@@ -1,0 +1,100 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "社會",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "社會題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、選擇題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "passage",
+      "id": "layout-social-sources",
+      "heading": "〔歷史史料／地理材料／公民資料的題組位置〕",
+      "paragraphs": [
+        "甲：〔本次新來源材料與必要出處〕",
+        "乙：〔與甲構成實際推論關係的新材料〕"
+      ]
+    },
+    {
+      "kind": "choice",
+      "id": "layout-social-choice",
+      "number": 1,
+      "text": "〔新題幹與四個選項；不是固定考查某一歷史或政策主題〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "二、圖表與跨領域混合題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-social-figure",
+      "text": "〔本次新地圖、史料圖像或統計圖；須獨立查證，不沿用灰色框〕",
+      "assets": {
+        "figure": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 155
+        }
+      },
+      "figure": "figure",
+      "figure_position": "right"
+    },
+    {
+      "kind": "table",
+      "id": "layout-social-data",
+      "text": "〔跨材料比較表／填答欄〕",
+      "headers": [
+        "材料或條件",
+        "可觀察證據",
+        "待填內容"
+      ],
+      "rows": [
+        [
+          "〔新材料〕",
+          "〔必要資料〕",
+          "〔作答欄〕"
+        ],
+        [
+          "〔新材料〕",
+          "〔必要資料〕",
+          "〔作答欄〕"
+        ]
+      ],
+      "keep_with_next": true
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-social-short",
+      "number": 2,
+      "text": "〔本次資料判讀、比較或論證要求；正式字數與配分依題型〕",
+      "score": 3
+    }
+  ]
+}

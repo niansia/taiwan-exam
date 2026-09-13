@@ -1,0 +1,123 @@
+{
+  "purpose": "layout-reference-only",
+  "subject": "自然",
+  "booklet_role": "questions",
+  "notice": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。",
+  "blocks": [
+    {
+      "kind": "section",
+      "title": "自然題本版型示範",
+      "directions": "版型參考，不是考卷。所有括號內容均為占位欄位；不得把範例題號、短材料、數值或順序直接當作完整命題。"
+    },
+    {
+      "kind": "section",
+      "title": "第壹部分、選擇題（占72分）",
+      "directions": "說明：第1題至第36題，含單選題及多選題，每題2分。此檔僅示範區塊，不是完整36題。"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-science-single",
+      "number": 1,
+      "text": "〔物理、化學、生物或地科的新題幹，依完整卷四個九題區塊配置〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(E)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-science-multiple",
+      "number": 2,
+      "text": "〔本次多選題幹；正式稿的應選數須依驗算答案〕（應選2項）",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(E)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "title": "第貳部分、混合題",
+      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+    },
+    {
+      "kind": "table",
+      "id": "layout-science-data",
+      "text": "〔實驗／觀測資料位置〕",
+      "headers": [
+        "〔條件〕",
+        "〔量測值〕",
+        "〔單位或不確定度〕"
+      ],
+      "rows": [
+        [
+          "〔新條件〕",
+          "〔新數值〕",
+          "〔實際單位〕"
+        ],
+        [
+          "〔新條件〕",
+          "〔新數值〕",
+          "〔實際單位〕"
+        ]
+      ]
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-science-figure",
+      "text": "〔本次新照片、圖表或裝置圖；占位框不提供現象、數據或答案線索〕",
+      "assets": {
+        "figure": {
+          "path": "hosted-body-figure-placeholder.svg",
+          "sha256": "97763a393ad85241ca4e4893389921493bc234f95403ff49a05fccf590e4a143",
+          "width_pt": 155
+        }
+      },
+      "figure": "figure",
+      "figure_position": "right",
+      "keep_with_next": true
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-science-short",
+      "number": 37,
+      "text": "〔根據本次資料提出解釋／計算／設計的作答要求〕",
+      "score": 2
+    }
+  ]
+}
