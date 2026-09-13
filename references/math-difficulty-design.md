@@ -4,6 +4,19 @@ Use this reference for every current-form Math A or Math B item. It converts off
 
 ## Separate four questions
 
+The current project default for a complete 20-item, 100-point Math A/B mock is
+the maintainer's higher-demand profile: **簡單 below 10 points**, **中偏難 + 難
+at least 70 points**, and **難 at least 30 points**. Ten easy points is already
+too many. A feasible planning example under the current slot scores is
+5 / 22 / 38 / 35 points, respectively; choose genuinely new items, not that
+example's implied sequence. These are project preferences, not observed
+official difficulty percentages, and do not change historical P/D records or
+other subjects' distributions. Both the author's four-band audit and the
+actual review's remapped bands enforce the floor. Retain the 80–92 minute
+hand-solving target and curriculum boundary; increase reasoning demand, not
+arithmetic burden. An easy distance/volume substitution remains easy even in
+a late slot, and a method already supplied by an earlier item reduces demand.
+
 For each item, keep these judgments separate:
 
 1. **Target severity** — the official position/section P target and observed range.

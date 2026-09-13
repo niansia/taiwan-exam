@@ -50,6 +50,10 @@ def validate(d,asset_root=None):
     minutes=sum(r['minutes'] for r in rows if isinstance(r['minutes'],(int,float)))+shared
     if isinstance(duration,(int,float)) and minutes>duration:errors.append('estimated solving time exceeds paper duration')
     total=sum(points.values())
+    if d.get('metadata',{}).get('subject') in {'數學A','數學B'} and len(d.get('questions',[])) == 20 and total == 100:
+        if points['簡單'] >= 10:errors.append('math challenge profile: easy score must be below 10 points')
+        if points['中偏難'] + points['難'] < 70:errors.append('math challenge profile: medium-hard/hard score must reach 70 points')
+        if points['難'] < 30:errors.append('math challenge profile: hard score must reach 30 points')
     return dict(status='pass-structural-only' if not errors else 'fail',errors=errors,count=dict(counts),points=dict(points),
         count_percent={b:round(100*counts[b]/count,1)for b in BANDS} if count else {},
         score_percent={b:round(100*points[b]/total,1)for b in BANDS} if total else {},items=rows,

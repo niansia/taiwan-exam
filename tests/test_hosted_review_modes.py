@@ -55,6 +55,8 @@ def test_fallback_requires_actual_rechecks_and_honest_claims(change):
 def test_fallback_cannot_pass_easy_routine_paper_by_relabeling(subject):
     exam = {'metadata': {'subject': subject}, 'questions': [{'id': str(i), 'score': 5} for i in range(1, 21)]}
     r = review([row(i) for i in range(1, 21)])
+    for item, band in zip(r['items'], ['easy'] + ['medium']*4 + ['hard']*8 + ['very_hard']*7):
+        item['difficulty_band'] = band
     assert not review_errors(exam, r)
     for item in r['items']:
         item.update(routine_only=True, difficulty_band='very_hard', expected_minutes=2)

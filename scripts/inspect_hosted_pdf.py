@@ -19,7 +19,37 @@ from validate_math_context import source_note_samples
 
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
-                 "answer-rail-content-collision", "printed-math-source-note"}
+                 "answer-rail-content-collision", "printed-math-source-note", "answer-rail-format"}
+
+
+def rail_format_samples(page):
+    """Catch native numbered circle IDs printed outside circles or without rules.
+
+    Only check recognizable circles near plain or parenthesized position labels. Unknown
+    outlines/special response formats still need actual item visual review.
+    """
+    labels = [w for w in page.get_text('words') if re.fullmatch(r'(?:\(\d{1,2}[-–]\d{1,2}\)|\d{1,2}[-–]\d{1,2})', w[4])]
+    drawings = page.get_drawings()
+    circles = [d['rect'] for d in drawings if 12 <= d['rect'].width <= 35
+               and abs(d['rect'].width - d['rect'].height) < 1
+               and sum(item[0] == 'c' for item in d['items']) >= 4]
+    lines = [(min(a.x,b.x), max(a.x,b.x), a.y) for d in drawings for item in d['items']
+             if item[0] == 'l' for a,b in [item[1:3]] if abs(a.y-b.y)<.2 and abs(a.x-b.x)>12]
+    findings = []
+    for word in labels:
+        label = pymupdf.Rect(word[:4])
+        near = [r for r in circles if abs((r.y0+r.y1-label.y0-label.y1)/2)<35
+                and abs((r.x0+r.x1-label.x0-label.x1)/2)<80]
+        if not near:
+            continue
+        inside = [r for r in near if (r + (-1,-1,1,1)).contains(label)]
+        if not inside:
+            findings.append({'label':word[4], 'issue':'position-id-outside-circle'})
+            continue
+        circle = min(inside, key=lambda r:r.width)
+        if not any(left<=circle.x0+1 and right>=circle.x1-1 and 0<=y-circle.y1<=8 for left,right,y in lines):
+            findings.append({'label':word[4], 'issue':'position-row-missing-answer-rule'})
+    return findings
 
 
 def rail_collision_samples(page) -> list[dict]:
@@ -30,7 +60,7 @@ def rail_collision_samples(page) -> list[dict]:
     collision-free layout. Outline-only labels still require component review.
     """
     labels = [w for w in page.get_text('words')
-              if re.fullmatch(r'\(\d{1,2}[-–]\d{1,2}\)', w[4])]
+              if re.fullmatch(r'(?:\(\d{1,2}[-–]\d{1,2}\)|\d{1,2}[-–]\d{1,2})', w[4])]
     chars = [c for b in page.get_text('rawdict')['blocks'] for l in b.get('lines', [])
              for s in l['spans'] for c in s['chars'] if not c['c'].isspace()]
     outlines = [d for d in page.get_drawings()
@@ -125,6 +155,9 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             rail_collisions = rail_collision_samples(page)
             if rail_collisions:
                 issues.append('answer-rail-content-collision')
+            rail_formats = rail_format_samples(page) if math else []
+            if rail_formats:
+                issues.append('answer-rail-format')
             if table_collisions:
                 issues.append("table-grid-text-collision-review")
             for span in spans:
@@ -144,6 +177,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
                           "rail_collision_samples": rail_collisions,
+                          "rail_format_samples": rail_formats,
                           "bottom_void_ratio": void,
                           "fonts": sorted({s["font"] for s in spans}),
                           "sizes_pt": sorted({round(s["size"], 2) for s in spans}),
