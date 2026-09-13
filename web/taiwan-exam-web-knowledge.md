@@ -914,106 +914,106 @@ and bottom voids in BOTH PDFs; correct item totals do not prove those passed.
   },
   {
     "path": "templates/hosted-chinese-questions.json",
-    "bytes": 3305,
-    "sha256": "6809319d9c4aa231bed9498a42a240e6a2d362b12b7a2e557e84ed1b43ce9bd1",
+    "bytes": 3192,
+    "sha256": "7dac090a392bf03b67ffe1c582d21dbcedcdb006bdd4c67c47e81011c3ed4bd1",
     "embedded_bytes": 3192,
     "embedded_sha256": "7dac090a392bf03b67ffe1c582d21dbcedcdb006bdd4c67c47e81011c3ed4bd1"
   },
   {
     "path": "templates/hosted-chinese-solutions.json",
-    "bytes": 1841,
-    "sha256": "4d9fca1b33a13f9cc548b485a2644961f489ae880443c37831b57ee6ea7e728d",
+    "bytes": 1776,
+    "sha256": "2159525472ffd9476b36e862f0855372d219352365c39a6d2386d46804f77241",
     "embedded_bytes": 1776,
     "embedded_sha256": "2159525472ffd9476b36e862f0855372d219352365c39a6d2386d46804f77241"
   },
   {
     "path": "templates/hosted-english-questions.json",
-    "bytes": 7677,
-    "sha256": "472008a47cc82908885d05450380c75178a1a93c66ffbc03cdc043626de15d28",
+    "bytes": 7407,
+    "sha256": "6f3d2f6e267d6b1d69b88358d9a5e2ef63168ab54f98b3da89cf32311c80179a",
     "embedded_bytes": 7407,
     "embedded_sha256": "6f3d2f6e267d6b1d69b88358d9a5e2ef63168ab54f98b3da89cf32311c80179a"
   },
   {
     "path": "templates/hosted-english-solutions.json",
-    "bytes": 2019,
-    "sha256": "0d2eace712be8c248b47b14950e80f6f4747b05b10a7c534ba142acfcb5ac1ba",
+    "bytes": 1957,
+    "sha256": "097380948ceb024334770e3b5799677ab84d84e8a30bd91a58abddb3eb8ce520",
     "embedded_bytes": 1957,
     "embedded_sha256": "097380948ceb024334770e3b5799677ab84d84e8a30bd91a58abddb3eb8ce520"
   },
   {
     "path": "templates/hosted-math-a-questions.json",
-    "bytes": 3734,
-    "sha256": "45d58761dc327e2bd4b0f92ce3521b8609a59e1bfa76c6122ed571a24c7d8b1a",
+    "bytes": 3605,
+    "sha256": "c8d952001d49e8304eb15d5a8cf3344e257763af2335923369330367f78ac05f",
     "embedded_bytes": 3605,
     "embedded_sha256": "c8d952001d49e8304eb15d5a8cf3344e257763af2335923369330367f78ac05f"
   },
   {
     "path": "templates/hosted-math-a-solutions.json",
-    "bytes": 1641,
-    "sha256": "26c68eaeaed957a35c7488bb93d1f2c27e05afb8b9007cea72a5c204029e470e",
+    "bytes": 1590,
+    "sha256": "3a816e1a49a35994c51c357499a6d06ee33b09fcf35bf280c7a76913cae90e08",
     "embedded_bytes": 1590,
     "embedded_sha256": "3a816e1a49a35994c51c357499a6d06ee33b09fcf35bf280c7a76913cae90e08"
   },
   {
     "path": "templates/hosted-math-b-questions.json",
-    "bytes": 3775,
-    "sha256": "3cf415e194bafffb85a7a956ca58179b2b07f6a05f03e95c62db5b4f554bace2",
+    "bytes": 3638,
+    "sha256": "95922983332f2eba2f8ed5aa22427b866e6302bc6c91ae19b1cb75f8334182fe",
     "embedded_bytes": 3638,
     "embedded_sha256": "95922983332f2eba2f8ed5aa22427b866e6302bc6c91ae19b1cb75f8334182fe"
   },
   {
     "path": "templates/hosted-math-b-solutions.json",
-    "bytes": 1641,
-    "sha256": "b71c86dd4f057016bbd763b28c25d5e7bbe4d5d0d32c28d8b7c26ab2740023bf",
+    "bytes": 1590,
+    "sha256": "42f8c4d2eaa3bcbbec1678af12c7f93861def10a152eca2c04d11ee01117b9cf",
     "embedded_bytes": 1590,
     "embedded_sha256": "42f8c4d2eaa3bcbbec1678af12c7f93861def10a152eca2c04d11ee01117b9cf"
   },
   {
     "path": "templates/hosted-science-questions.json",
-    "bytes": 3642,
-    "sha256": "7c8e1852193b97442bf06c3e2eea8acb86a946e6795f09f397990745f7914207",
+    "bytes": 3519,
+    "sha256": "7edee4cade192cafc796fd07e478cabee7ce593aac1db377822c6c8fce1ff7a1",
     "embedded_bytes": 3519,
     "embedded_sha256": "7edee4cade192cafc796fd07e478cabee7ce593aac1db377822c6c8fce1ff7a1"
   },
   {
     "path": "templates/hosted-science-solutions.json",
-    "bytes": 1326,
-    "sha256": "c9ca50695ce1f35cfc73ba1d398ef990e5c648eafaf173a5af0d3efd614c1442",
+    "bytes": 1285,
+    "sha256": "935c46a2de4c957ec825ec0813200f3ceda39df5c4be371419c22f751bb29efc",
     "embedded_bytes": 1285,
     "embedded_sha256": "935c46a2de4c957ec825ec0813200f3ceda39df5c4be371419c22f751bb29efc"
   },
   {
     "path": "templates/hosted-social-questions.json",
-    "bytes": 3061,
-    "sha256": "6ffea99c2fac17d3a5272fb061ca9a3f188c8b01832ee97db9cd2474f2f901b3",
+    "bytes": 2961,
+    "sha256": "de6497c287ba6ca98d5470db72ef38a15573d262dc58a4d23d4e354c97dd3f3a",
     "embedded_bytes": 2961,
     "embedded_sha256": "de6497c287ba6ca98d5470db72ef38a15573d262dc58a4d23d4e354c97dd3f3a"
   },
   {
     "path": "templates/hosted-social-solutions.json",
-    "bytes": 1146,
-    "sha256": "c1ac321acdbcb4d435faeb3a1706ad4f67abd056dc0c00960088c4f9e6c31509",
+    "bytes": 1113,
+    "sha256": "42d041d96391f02c25384e4a152ac64009c1b508e551814ae5745c0b0a32b7d0",
     "embedded_bytes": 1113,
     "embedded_sha256": "42d041d96391f02c25384e4a152ac64009c1b508e551814ae5745c0b0a32b7d0"
   },
   {
     "path": "templates/hosted-subject-layouts.json",
-    "bytes": 1441,
-    "sha256": "cba17ae65f57ed457074606a73765c75eaf3c15fa4504f0bc8f6fa6ac944b5e6",
+    "bytes": 1393,
+    "sha256": "1cf3298fb06e1818aaee3a947384f613133f0b7c5fc2dad12afea08861747666",
     "embedded_bytes": 1393,
     "embedded_sha256": "1cf3298fb06e1818aaee3a947384f613133f0b7c5fc2dad12afea08861747666"
   },
   {
     "path": "templates/hosted-writing-questions.json",
-    "bytes": 2051,
-    "sha256": "e352c0e22d3704b4b1816b49cf36f0955990437dfb31a27137dfb4372aa69685",
+    "bytes": 1992,
+    "sha256": "e2596122164420d1d7543d0f8c1e6d9d232fe07c29468cb5cf96b48594487740",
     "embedded_bytes": 1992,
     "embedded_sha256": "e2596122164420d1d7543d0f8c1e6d9d232fe07c29468cb5cf96b48594487740"
   },
   {
     "path": "templates/hosted-writing-solutions.json",
-    "bytes": 1830,
-    "sha256": "2b1e1abaac759ce974ee1073a6951ce83d0463fd958cbcc98b78ae57743408aa",
+    "bytes": 1773,
+    "sha256": "6806151246149dfec2845909a6984870fcea5d00fb37a47db9ef82d6efeeba53",
     "embedded_bytes": 1773,
     "embedded_sha256": "6806151246149dfec2845909a6984870fcea5d00fb37a47db9ef82d6efeeba53"
   },
