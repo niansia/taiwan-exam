@@ -1,6 +1,6 @@
 # Reusable body components and early visual QA
 
-Use with hosted-pdf-production.md and hosted-quality-gates.md for all seven
+Use the single hosted-execution.md route for all seven
 subjects. Fixed cover/header/footer/formula PDFs remain unchanged original
 layers. The reusable components below create ONLY the new body inside that
 subject's mapped frame. They do not establish subject structure or difficulty.
@@ -26,7 +26,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.13.7/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.14.1/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -51,9 +51,11 @@ not mean the gallery itself is a valid full paper for any subject.
 python scripts/hosted_body_templates.py run/questions-blocks.json --output run/questions-body-v1.pdf --layout run/questions-layout-v1.json --font /path/to/verified-body-font.ttf
 ```
 
-Run separately for authored solutions. The renderer outputs transparent body
-pages, NOT deliverable exam PDFs. Feed both bodies into compose_hosted_pdf.py
-with the actual subject, year and verified fixed assets. For viewing only the
+That low-level command is for an early body proof or focused repair. For the two
+candidate booklets use `run_hosted_workflow.py build` from hosted-execution.md:
+it runs both body layouts, fixed composition and pending review preparation in
+one call. Do not also repeat all low-level commands on the same inputs. The
+body renderer alone outputs transparent pages, NOT deliverable exam PDFs. For viewing only the
 placeholder gallery, supply `--proof`; never use that flag for a production run.
 
 `passage` blocks contain `paragraphs`, an optional `heading`, `language: en`
@@ -75,7 +77,10 @@ Text is plain Unicode; `{ "rich": "…<sup>…</sup>…" }` permits only simple 
 typography, not arbitrary CSS. Complex math and new diagrams may be supplied as
 hash-bound assets inside the current run: `assets.NAME` has `path`, `sha256`,
 `width_pt`; `figure: NAME` and `figure_position: right|below` reserve figure space.
-`{{asset:NAME}}` places a checked inline asset in the stem/solution; an inline
+`{{asset:NAME}}` places a checked inline asset in stems, options, solution steps,
+passages, headings and table cells. A single-page newly authored PDF asset is
+converted to an image for HTML display; this never rasterizes fixed templates.
+Multi-page body assets must be split explicitly. An inline
 asset that collides with text must be moved into a measured display block.
 The renderer does not author or validate equations. Check notation and graph
 labels at readable resolution. It rejects overflow; never shrink fonts to fit.
@@ -85,7 +90,12 @@ against the selected subject's role-specific typography before production.
 A fill block places exactly one `{{answer}}` in the semantic answer location.
 `rows: [3]` means three integer positions; `[1,2]` means one numerator and two
 denominator positions. IDs are centered inside circles, with ruled rows, and
-the complete rail height participates in flow. This is no permission to change
+the complete rail height participates in paragraph flow. Do not split the stem,
+rail and suffix into three table columns. Keep the rail at `{{answer}}`, with
+the adjoining equation/unit/condition on the same readable line or at the end
+of the stem; short prefixes such as `λ =` stay with it on wrapping. A fill item
+with a figure uses below placement so a top-aligned side table cannot displace
+its rail. Check actual baseline alignment, not only non-intersection. This is no permission to change
 the independently verified answer encoding. Radicals, signs and other patterns
 need their own checked response asset; do not force them into plain digits.
 

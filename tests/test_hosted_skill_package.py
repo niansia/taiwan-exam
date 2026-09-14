@@ -1,0 +1,95 @@
+"""Native installs use a small entry, exact separate sources and closed imports."""
+import ast
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+from zipfile import ZipFile
+
+import pytest
+import yaml
+
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'scripts'))
+from build_hosted_skill import build
+from build_web_knowledge import source_paths
+from package_skill import should_include
+
+
+@pytest.fixture(scope='module')
+def native(tmp_path_factory):
+    directory=tmp_path_factory.mktemp('hosted-package')
+    archive=directory/'candidate.zip'
+    result=build('package-test',archive)
+    with ZipFile(archive) as zipped:
+        zipped.extractall(directory/'installed')
+    return directory,archive,result,directory/'installed/taiwan-exam-generator'
+
+
+def test_short_entry_is_separate_from_exact_canonical_sources(native):
+    _,archive,result,installed=native
+    entry=(installed/'SKILL.md').read_bytes()
+    assert entry.startswith(b'---\n') and len(entry)<5000
+    metadata=yaml.safe_load(entry.decode('utf-8').split('---\n',2)[1])
+    assert metadata['name']=='taiwan-exam-generator'
+    assert 0<len(metadata['description'])<=200
+    assert b'references/hosted-execution.md' in entry
+    assert b'not an\ninitial reading requirement' in entry
+    assert (installed/'references/full-skill.md').read_bytes()==(ROOT/'SKILL.md').read_bytes()
+    for source in source_paths():
+        relative=source.relative_to(ROOT)
+        destination='references/full-skill.md' if relative.as_posix()=='SKILL.md' else relative
+        assert (installed/destination).read_bytes()==source.read_bytes()
+    with ZipFile(archive) as zipped:
+        names=zipped.namelist()
+        assert len(names)==len(set(names))
+        assert all(name.startswith('taiwan-exam-generator/') for name in names)
+        assert not any(name.endswith(('.pdf','.zip')) or '/web/' in name or '/docs/' in name for name in names)
+        assert not any('build_hosted_skill.py' in name or 'build_web_knowledge.py' in name for name in names)
+    assert result['entry_bytes']==len(entry)
+    assert result['security_acceptance']=='not-performed-by-builder'
+    manifest=json.loads((installed/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
+    assert manifest['file_count']==len(manifest['files'])
+    assert manifest['contains_original_exam_files'] is False
+    for row in manifest['files']:
+        data=(installed/row['path']).read_bytes()
+        assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256']
+
+
+def test_native_archive_is_deterministic_and_does_not_overwrite(native):
+    directory,archive,_,_=native
+    second=directory/'same-inputs.zip'
+    build('package-test',second)
+    assert archive.read_bytes()==second.read_bytes()
+    original=archive.read_bytes()
+    with pytest.raises(ValueError,match='never overwrite'):
+        build('package-test',archive)
+    assert archive.read_bytes()==original
+
+
+def test_hosted_and_local_distribution_contain_runtime_import_closure(native):
+    *_,installed=native
+    sources={p.stem:p for p in source_paths() if p.parent==ROOT/'scripts'}
+    assert 'run_hosted_workflow' in sources
+    assert should_include(ROOT/'references/hosted-execution.md')
+    for module,path in sources.items():
+        assert should_include(path), module
+        for node in ast.walk(ast.parse(path.read_text(encoding='utf-8-sig'))):
+            names=([node.module.split('.')[0]] if isinstance(node,ast.ImportFrom) and node.module
+                   else [item.name.split('.')[0] for item in node.names] if isinstance(node,ast.Import) else [])
+            for name in names:
+                if (ROOT/'scripts'/(name+'.py')).is_file():
+                    assert name in sources, f'{module} imports missing local helper {name}'
+                    assert (installed/'scripts'/(name+'.py')).is_file()
+    for name in ('build_hosted_skill.py','build_web_knowledge.py','build_hosted_layout_examples.py'):
+        assert not should_include(ROOT/'scripts'/name)
+
+
+@pytest.mark.parametrize('helper',['run_hosted_workflow.py','prepare_hosted_run.py',
+                                    'check_hosted_run.py','hosted_body_templates.py'])
+def test_native_helpers_start_outside_repository(native,tmp_path,helper):
+    *_,installed=native
+    result=subprocess.run([sys.executable,str(installed/'scripts'/helper),'--help'],
+                          cwd=tmp_path,capture_output=True,timeout=30)
+    assert result.returncode==0,result.stderr

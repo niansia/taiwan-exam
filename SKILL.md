@@ -5,15 +5,17 @@ description: Create original Taiwan GSAT/CAP (學測／會考) exams for 國綜�
 
 # Taiwan Exam Generator
 
-Hosted loading: extract the embedded runtime once with `read_web_knowledge.py
-<knowledge.md> --subject <科目> --output-dir <versioned-refs> --reading-plan`.
-Read `reading/preflight.md` first, then the authoring, layout and review packets
-at their actual phases. These retain canonical text and exact subject records;
-they schedule reading, not waive rules or linked requirements. Do not print all
-extracted code, schemas or the seven-subject source map into model context.
-Use supplied layout PDFs as visual examples once; extract original template
-attachments from the resource PDF through `prepare_hosted_run.py --resource-pdf`.
-Do not rebuild examples or reverse-engineer their blank content into a renderer.
+**Hosted web generation:** start with
+[references/hosted-execution.md](references/hosted-execution.md), the single
+hosted execution route. Extract once with `read_web_knowledge.py <knowledge.md>
+--subject <科目> --output-dir <versioned-refs> --reading-plan` and read
+`reading/preflight.md`. Read the subject authoring, review and layout packets
+when needed. Canonical inputs remain intact for validators. The long local
+execution/maintenance procedure below is not an additional hosted prerequisite;
+the hosted route retains all applicable subject and quality requirements.
+Do not print this entire multi-subject manual, executable sources or full data
+maps merely to begin one hosted paper. Use the original template attachments,
+the maintained body renderer and the single hosted render/review pipeline.
 
 Use the repository as the source of truth. The model writes new questions; the Exam Pack, metadata, learned blueprint, and validators decide what is in scope and how the paper is composed.
 

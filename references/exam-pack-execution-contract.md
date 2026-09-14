@@ -1,9 +1,12 @@
 # Full-paper execution contract
 
-The single authoritative evidence format and content/delivery workflow is
+For a complete local checkout, the authoritative evidence format and workflow is
 [pack-and-release-verification.md](pack-and-release-verification.md). Read it in
-full before writing, rendering or testing a complete paper. Do not introduce a
-second contract schema or substitute a generic batch generator.
+full before a local complete-paper run. Hosted web runs instead follow
+[hosted-execution.md](hosted-execution.md), the subject rules and the existing
+hosted evidence checker. Do not also execute the local preparation/delivery
+sequence or create duplicate review records merely to satisfy both formats.
+No route permits a generic batch content generator or weaker subject quality.
 
 Use the actual exam_packs manifest, subject, paper records, writer/difficulty
 profiles, curriculum specification, reference PDFs and separate Layout Profile.

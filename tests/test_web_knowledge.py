@@ -24,14 +24,19 @@ def test_web_knowledge_is_deterministic_and_uses_canonical_skill():
     assert first == second
     assert '<canonical-source path="SKILL.md">' in first
     assert '<canonical-source path="references/web-platform-use.md">' in first
-    assert "student question paper" in first
+    assert "student question paper" in ' '.join(first.split())
     assert "answer-with-full-solutions paper" in first
-    assert "apply it immediately in the same conversation" in first
-    assert "do not download any template PDF binaries during setup" in first
+    header = first.split('## Source manifest', 1)[0]
+    assert "references/hosted-execution.md" in header
+    assert "Do not download any template PDF binaries\nduring setup" in header
+    assert "not an initial reading assignment" in header
+    assert "run_hosted_workflow.py build" in header
+    assert "run_hosted_workflow.py finalize" in header
+    assert "do not install this large aggregate as" in header
+    assert len(header.encode('utf-8')) < 6000
     assert "Do not report `0/30` as an installation failure" in first
     assert "source_calibration: embedded_release_verified" in first
     assert "validator_mode: hosted_equivalent" in first
-    assert "GitHub Contents API base64 is a valid" in first
     assert "Never download or deliver `github-pages.zip`" in first
 
 
@@ -118,6 +123,7 @@ def test_hosted_web_source_map_is_complete_current_form_evidence():
 
 def test_web_builder_is_maintainer_only_not_skill_payload():
     assert not package_skill.should_include(ROOT / "scripts/build_web_knowledge.py")
+    assert not package_skill.should_include(ROOT / "scripts/build_hosted_skill.py")
     assert not package_skill.should_include(ROOT / "web/taiwan-exam-web-knowledge.md")
 
 
@@ -137,10 +143,12 @@ def test_hosted_template_fetcher_is_packaged_and_embedded(tmp_path):
     paths = {path.relative_to(ROOT).as_posix() for path in build_web_knowledge.source_paths()}
     assert "scripts/fetch_hosted_template_assets.py" in paths
     for helper in ("compose_hosted_pdf.py", "inspect_hosted_pdf.py", "check_hosted_run.py",
-                   "hosted_item_layout.py", "hosted_run_timing.py", "hosted_blind_review.py", "validate_math_context.py", "verify_fixed_template_pdf.py"):
+                   "hosted_item_layout.py", "hosted_run_timing.py", "hosted_blind_review.py", "validate_math_context.py", "verify_fixed_template_pdf.py",
+                   "run_hosted_workflow.py"):
         assert "scripts/" + helper in paths
         assert package_skill.should_include(ROOT / "scripts" / helper)
     assert "references/hosted-pdf-production.md" in paths
+    assert "references/hosted-execution.md" in paths
     assert not package_skill.should_include(ROOT / "scripts/build_template_resource_pdf.py")
     assert not package_skill.should_include(ROOT / "web/taiwan-exam-template-resources.pdf")
     result = fetch_hosted_template_assets.materialize(

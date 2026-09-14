@@ -13,10 +13,85 @@ import time
 
 import pymupdf
 from compose_hosted_pdf import compose
-from fetch_hosted_template_assets import DEFAULT_MAP, materialize
+from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, materialize, verify
 from hosted_calibration import SUBJECTS, snapshot
 from hosted_run_timing import transition
 from hosted_blind_review import REVIEW_MODES
+from verify_fixed_template_pdf import verify_pdf
+
+
+PREFLIGHT_DEPENDENCIES = (
+    'prepare_hosted_run.py', 'compose_hosted_pdf.py', 'fetch_hosted_template_assets.py',
+    'verify_fixed_template_pdf.py', 'inspect_hosted_pdf.py', 'validate_math_context.py',
+    'hosted_calibration.py', 'hosted_run_timing.py', 'hosted_blind_review.py',
+)
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def cache_inputs(font):
+    """Local runtime identity, not an installation or educational approval."""
+    scripts = Path(__file__).resolve().parent
+    return {'version': 1, 'font': {'path': str(font.resolve()), 'sha256': digest(font)},
+            'pymupdf': pymupdf.VersionBind, 'template_map_sha256': digest(DEFAULT_MAP),
+            'helpers': {name: digest(scripts / name) for name in PREFLIGHT_DEPENDENCIES}}
+
+
+def cached_ready(previous, report, run_dir, font, calibration):
+    """Reuse only intact readiness proofs; never touch a resumed paper's clock."""
+    if not previous or previous.get('status') != 'ready-for-authoring' or previous.get('errors'):
+        return False
+    for key in ('paper_id', 'subject', 'review_mode', 'require_independent_review', 'scope'):
+        if previous.get(key) != report.get(key):
+            return False
+    try:
+        if previous.get('cache_inputs') != cache_inputs(font):
+            return False
+        # Detect a changed preflight record before trusting its artifact table.
+        bound = {k: v for k, v in previous.items() if k != 'record_sha256'}
+        if previous.get('record_sha256') != hashlib.sha256(
+                json.dumps(bound, ensure_ascii=False, sort_keys=True).encode()).hexdigest():
+            return False
+        def intact(record, expected):
+            path = run_dir / expected
+            return (record.get('path') == expected and path.resolve().is_relative_to(run_dir)
+                    and path.is_file() and record.get('sha256') == digest(path))
+        if not intact(previous.get('calibration', {}), 'calibration.json'):
+            return False
+        if json.loads((run_dir / 'calibration.json').read_text(encoding='utf-8-sig')) != calibration:
+            return False
+        manifest = json.loads(DEFAULT_MAP.read_text(encoding='utf-8-sig'))
+        subject = next(r for r in manifest['subjects'] if r['subject'] == report['subject'])
+        relative = 'templates/' + subject['slug']
+        asset_dir = (run_dir / relative).resolve()
+        if previous.get('template_asset_dir') != relative or not asset_dir.is_relative_to(run_dir):
+            return False
+        for asset in subject['assets']:
+            if asset['component'] in PRODUCTION_COMPONENTS:
+                path = asset_dir / (asset['component'] + '.pdf')
+                if not path.resolve().is_relative_to(run_dir):
+                    return False
+                verify(asset, path.read_bytes())
+        if set(previous.get('proofs', {})) != {'questions', 'answers'}:
+            return False
+        for kind, proof in previous['proofs'].items():
+            expected = f'preflight-proofs/{kind}.pdf'
+            if not intact(proof, expected):
+                return False
+            verified = verify_pdf(run_dir / expected, report['subject'], kind, asset_dir)
+            if verified['status'] != 'pass-fixed-template':
+                return False
+            rasters = proof.get('rasters', [])
+            if len(rasters) != len(verified['pages']):
+                return False
+            if not all(intact(row, f'preflight-proofs/{kind}-{index}.png')
+                       for index, row in enumerate(rasters, 1)):
+                return False
+        return True
+    except (OSError, ValueError, KeyError, TypeError, RuntimeError):
+        return False
 
 
 def save(path, data):
@@ -57,6 +132,7 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
     run_dir = run_dir.resolve()
     run_dir.mkdir(parents=True, exist_ok=True)
     timing = run_dir / 'generation-timing.json'
+    previous_preflight = None
     # Never replace authored content, reviews or run-state on resume.
     for name in ('preflight.json', 'run-state.json'):
         if (run_dir / name).exists():
@@ -65,7 +141,8 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                 raise ValueError('Refusing to reuse another paper or subject run directory')
             if previous.get('require_independent_review') is True:
                 require_independent_review = True  # Never drop an explicit requirement on resume.
-    transition(timing, paper_id, 'reference_preflight')
+            if name == 'preflight.json':
+                previous_preflight = previous
     report = {'paper_id': paper_id, 'subject': subject, 'status': 'pending', 'errors': [],
               'review_mode': review_mode, 'require_independent_review': require_independent_review,
               'scope': 'Resource readiness and small layout proofs only; no exam or quality approval.'}
@@ -75,8 +152,21 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
         if require_independent_review and review_mode != 'independent-context':
             raise ValueError('Explicit independent review requirement needs an actual separate reviewer; resolve before authoring')
         calibration = snapshot(subject)
-        digest = save(run_dir / 'calibration.json', calibration)
-        report['calibration'] = {'path': 'calibration.json', 'sha256': digest}
+        if timing.is_file() and cached_ready(previous_preflight, report, run_dir, font, calibration):
+            clock = json.loads(timing.read_text(encoding='utf-8-sig'))
+            if clock.get('paper_id') != paper_id:
+                raise ValueError('Refusing to mix paper clocks')
+            resumed = dict(previous_preflight)
+            resumed.update(reused_preflight=True, elapsed_seconds=round(time.monotonic() - started, 3),
+                           next_action='Resume the saved paper and its next_action; readiness artifacts were verified '
+                           'without rebuilding proofs, repeating their visual review, or changing the active phase clock.')
+            resumed['record_sha256'] = hashlib.sha256(json.dumps(
+                {k: v for k, v in resumed.items() if k != 'record_sha256'},
+                ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+            return resumed
+        transition(timing, paper_id, 'reference_preflight')
+        calibration_digest = save(run_dir / 'calibration.json', calibration)
+        report['calibration'] = {'path': 'calibration.json', 'sha256': calibration_digest}
         report['calibration_basis'] = calibration['basis']
         report['original_pdf_required'] = False
         assets = acquire(subject, run_dir / 'templates', resource_pdf, local_root, deadline)
@@ -96,10 +186,15 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
             output = proof_dir / f'{kind}.pdf'
             result = compose(subject, body, asset_dir, output, year='116', title='學科能力測驗模擬試題',
                              running_name='學測', font_path=font, kind=kind)
-            proofs[kind] = {'path': output.relative_to(run_dir).as_posix(), 'sha256': result['pdf_sha256']}
+            proofs[kind] = {'path': output.relative_to(run_dir).as_posix(), 'sha256': result['pdf_sha256'],
+                            'rasters': []}
             with pymupdf.open(output) as doc:
                 for index, page in enumerate(doc, 1):
-                    page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5)).save(proof_dir / f'{kind}-{index}.png')
+                    raster = proof_dir / f'{kind}-{index}.png'
+                    page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5)).save(raster)
+                    proofs[kind]['rasters'].append({'path': raster.relative_to(run_dir).as_posix(),
+                                                   'sha256': digest(raster)})
+        report['cache_inputs'] = cache_inputs(font)
         report.update(status='ready-for-authoring', proofs=proofs,
                       next_action='Open the small proof rasters and check field/font fit; read the selected subject '
                       'calibration and curriculum guidance. Use the recorded review_mode for small batches: '
@@ -108,9 +203,13 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                       'Use aggregate anchors honestly; final QA needs no original-PDF download. '
                       'Test actual body math typography separately before full composition.')
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
+        if not timing.exists():
+            transition(timing, paper_id, 'reference_preflight')
         report['errors'].append(str(exc))
         report['next_action'] = 'Resolve the named resource/rendering gap before drafting; retain existing work.'
     report['elapsed_seconds'] = round(time.monotonic() - started, 3)
+    report['record_sha256'] = hashlib.sha256(
+        json.dumps(report, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     save(run_dir / 'preflight.json', report)
     return report
 

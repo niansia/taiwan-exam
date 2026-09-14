@@ -12,10 +12,16 @@ import re
 from urllib.parse import urlparse
 
 SOURCE_NOTE = re.compile(r'資料來源[：:]|參考來源[：:]|資料出處[：:]|參考文獻[：:]|出處[：:]|改寫自|改編自|節錄自|摘自|https?://|www\.|doi[：:]', re.I)
+PRODUCTION_CAPTION = re.compile(r'(?:第\s*[\d一二三四五六七八九十百]+\s*題\s*(?:附圖|示意圖|圖)\s*[:：]|\b(?:Question|Q)\s*\d+\s*(?:figure|diagram)\s*[:：])', re.I)
 
 
 def source_note_samples(text):
     return sorted(set(SOURCE_NOTE.findall(re.sub(r'\s+', '', text))))
+
+
+def production_caption_samples(text):
+    """Internal item/figure labels are not student-facing mathematics captions."""
+    return sorted(set(PRODUCTION_CAPTION.findall(text)))
 
 
 def printable_text(exam):
@@ -41,6 +47,8 @@ def validate(exam):
     errors = []
     if source_note_samples(printable_text(exam)):
         errors.append('math: remove printed source notes/URLs; preserve internal provenance and rewrite with independently created material')
+    if production_caption_samples(printable_text(exam)):
+        errors.append('math: remove production captions such as 第15題圖; retain only task-relevant labels and captions')
     questions = exam.get('questions', [])
     linked = [q for q in questions if (q.get('item_spec') or {}).get('current_event')]
     if len(questions) == 20 and not 2 <= len(linked) <= 4:

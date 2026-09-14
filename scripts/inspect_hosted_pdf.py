@@ -14,12 +14,13 @@ from pathlib import Path
 import re
 
 import pymupdf
-from validate_math_context import source_note_samples
+from validate_math_context import source_note_samples, production_caption_samples
 
 
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
-                 "answer-rail-content-collision", "printed-math-source-note", "answer-rail-format"}
+                 "answer-rail-content-collision", "printed-math-source-note", "answer-rail-format",
+                 "printed-math-production-caption"}
 
 
 def rail_format_samples(page):
@@ -149,6 +150,8 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             leaked = sorted(set(RAW_MATH.findall(all_text))) if math else []
             if math and source_note_samples(all_text):
                 issues.append('printed-math-source-note')
+            if math and production_caption_samples(all_text):
+                issues.append('printed-math-production-caption')
             if leaked:
                 issues.append("raw-math-markup-review")
             table_collisions = table_collision_samples(page)
@@ -170,8 +173,20 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             void = bottom_void(page, body)
             if void > .32:
                 issues.append("large-bottom-void-review")
+            risk_reasons=list(issues)
+            if page.get_image_info():risk_reasons.append('embedded-image-or-answer-rail')
+            if any(body.contains(d['rect']) and d['rect'].width>5 and d['rect'].height>5
+                   and (d.get('color') is not None or d.get('fill') not in (None,(1,1,1)))
+                   for d in page.get_drawings()):
+                risk_reasons.append('body-vector-artwork-or-table')
+            if any(s['size']<9 and body.intersects(pymupdf.Rect(s['bbox'])) for s in spans):
+                risk_reasons.append('small-body-type-or-script')
+            if math and re.search(r'[∑∫√⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉]',all_text):
+                risk_reasons.append('math-script-or-complex-symbol')
+            needs_full_resolution=bool(risk_reasons)
+            raster_scale=2.5 if needs_full_resolution else 1.5
             raster = target / f"page-{number:03}.png"
-            page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5), alpha=False).save(raster)
+            page.get_pixmap(matrix=pymupdf.Matrix(raster_scale, raster_scale), alpha=False).save(raster)
             pages.append({"page": number, "raster_path": str(raster),
                           "raster_sha256": hashlib.sha256(raster.read_bytes()).hexdigest(),
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
@@ -179,13 +194,18 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "rail_collision_samples": rail_collisions,
                           "rail_format_samples": rail_formats,
                           "bottom_void_ratio": void,
+                          "needs_full_resolution_review":needs_full_resolution,
+                          "full_resolution_reasons":sorted(set(risk_reasons)),
+                          "raster_scale":raster_scale,
                           "fonts": sorted({s["font"] for s in spans}),
                           "sizes_pt": sorted({round(s["size"], 2) for s in spans}),
                           "visual_review": "not-performed-by-this-tool"})
-    return {"inspector_version": 2, "status": "mechanical-review-only", "pdf_sha256": digest, "pdf_path": str(pdf),
+    return {"inspector_version": 3, "status": "mechanical-review-only", "pdf_sha256": digest, "pdf_path": str(pdf),
             "page_count": len(pages), "pages": pages,
             "blocking_pages": [p["page"] for p in pages if HARD_FAILURES.intersection(p["issues"])],
             "review_flag_pages": [p["page"] for p in pages if p["issues"]],
+            "full_resolution_review_pages":[p['page'] for p in pages if p['needs_full_resolution_review']],
+            "review_policy":"Inspect every final page and required item crop. Risk flags prioritize magnification; false never means reviewed or safe.",
             "cannot_certify": ["missing intended math symbols", "complete table cell containment",
                                "formula and diagram semantics", "template provenance",
                                "editorial difficulty and originality", "formal acceptance"]}

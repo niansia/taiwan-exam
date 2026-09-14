@@ -1,0 +1,74 @@
+"""Native packaging must be progressive, complete, deterministic and unapproved."""
+import ast
+import json
+from pathlib import Path
+import subprocess
+import sys
+from zipfile import ZipFile
+
+import pymupdf
+import pytest
+import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+import build_hosted_skill as builder
+from scan_skill_release import inspect_archive
+from validate_attribution import validate
+
+
+def test_native_candidate_is_small_entry_with_real_separate_dependencies(tmp_path):
+    report = builder.build('test-native', tmp_path / 'native.zip')
+    assert report['entry_bytes'] < 5000
+    assert report['distribution_status'] == 'internal-review-not-published'
+    assert report['security_acceptance'] == 'not-performed-by-builder'
+    extracted = tmp_path / 'skill'
+    inspect_archive(Path(report['archive']), extracted)  # Existing security manifest/path validator.
+    assert validate(extracted)['status'] == 'pass'
+    entry = (extracted / 'SKILL.md').read_text(encoding='utf-8')
+    metadata = yaml.safe_load(entry.split('---', 2)[1])
+    assert metadata['name'] == 'taiwan-exam-generator' and metadata['description']
+    assert len(entry.splitlines()) < 100 and '<canonical-source' not in entry
+    assert (extracted / 'references/full-skill.md').read_bytes() == (builder.ROOT / 'SKILL.md').read_bytes()
+    assert (extracted / 'references/hosted-execution.md').is_file()
+    assert not list(extracted.rglob('*.pdf'))
+    assert not list(extracted.rglob('taiwan-exam-web-knowledge.md'))
+    scripts = {p.stem for p in (extracted / 'scripts').glob('*.py')}
+    for path in (extracted / 'scripts').glob('*.py'):
+        for node in ast.walk(ast.parse(path.read_text(encoding='utf-8'))):
+            if isinstance(node, ast.ImportFrom) and node.module:
+                stem = node.module.split('.')[0]
+                if (builder.ROOT / 'scripts' / (stem + '.py')).is_file():
+                    assert stem in scripts, (path.name, stem)
+    for name in ('LICENSE', 'NOTICE', 'ORIGIN.json'):
+        assert (extracted / name).read_bytes() == (builder.ROOT / name).read_bytes()
+
+
+def test_native_candidate_build_is_deterministic_and_cannot_overwrite(tmp_path):
+    one = builder.build('test-stable', tmp_path / 'one.zip')
+    two = builder.build('test-stable', tmp_path / 'two.zip')
+    assert one['sha256'] == two['sha256']
+    with pytest.raises(ValueError, match='never overwrite'):
+        builder.build('test-stable', tmp_path / 'one.zip')
+    with pytest.raises(ValueError, match='version identifier'):
+        builder.build('../bad\nname: altered', tmp_path / 'bad.zip')
+    with ZipFile(one['archive']) as zipped:
+        manifest = json.loads(zipped.read('taiwan-exam-generator/PACKAGE_MANIFEST.json'))
+        assert manifest['contains_original_exam_files'] is False
+        assert manifest['browser_acceptance'] == 'not-performed-by-builder'
+
+
+def test_native_helpers_execute_without_aggregate_bootstrap(tmp_path):
+    archive = tmp_path / 'runtime.zip'
+    builder.build('test-runtime', archive)
+    skill = tmp_path / 'skill'
+    inspect_archive(archive, skill)
+    font = tmp_path / 'body.ttf'
+    font.write_bytes(pymupdf.Font('cjk').buffer)
+    command = [sys.executable, str(skill / 'scripts/prepare_hosted_run.py'),
+               '--subject', '數學A', '--run-dir', str(tmp_path / 'run'), '--paper-id', 'native',
+               '--font', str(font), '--resource-pdf', str(builder.ROOT / 'web/taiwan-exam-template-resources.pdf')]
+    result = subprocess.run(command, cwd=tmp_path, capture_output=True, timeout=45)
+    assert result.returncode == 0, result.stderr.decode('utf-8', errors='replace')
+    prepared = json.loads(result.stdout)
+    assert prepared['status'] == 'ready-for-authoring'
+    assert prepared['original_pdf_required'] is False
