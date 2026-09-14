@@ -2,10 +2,12 @@
 
 Read this reference for individual questions, practice sets, or full mock exams.
 
-For every full paper (including internal/stress tests), first follow
-[exam-pack-execution-contract.md](exam-pack-execution-contract.md). The actual
-exam_packs references and shared handoff gate control execution. No custom
-batch content generator or generic renderer may replace this workflow.
+For local full papers (including internal/stress tests), first follow
+[exam-pack-execution-contract.md](exam-pack-execution-contract.md). Hosted web
+runs use [hosted-execution.md](hosted-execution.md); do not restart local pack
+audits or duplicate the hosted review solely because this shared protocol links
+to the local contract. Subject requirements below apply to both routes. No
+custom batch content generator or generic renderer may replace them.
 
 ## 1. Establish the contract
 

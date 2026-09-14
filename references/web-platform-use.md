@@ -5,6 +5,10 @@ Gemini Apps, or another hosted chat surface. The canonical editorial rules are
 still `SKILL.md`, the linked references, Exam Pack records and subject
 validators. This file changes only installation, invocation and delivery on a
 hosted surface; it is not a second question generator or a weaker exam policy.
+For actual generation begin with [hosted-execution.md](hosted-execution.md).
+This file is the platform/setup and troubleshooting reference, not a mandatory
+full preflight reading assignment on every request. The single hosted execution
+route retains the subject rules while avoiding local maintenance procedures.
 
 ## Common contract
 
@@ -268,8 +272,9 @@ different internal font name alone is not.
 
 ## Bounded loading and continuation
 
-Read this section for every hosted full-paper run, not only timed requests.
-Also apply [hosted-run-evidence.md](hosted-run-evidence.md). Its portable checker
+Apply this procedure through [hosted-execution.md](hosted-execution.md); already
+read setup guidance need not be reread. Use [hosted-run-evidence.md](hosted-run-evidence.md)
+when preparing recorded reviews. Its portable checker
 is embedded with the PDF helpers; it closes the gap between saved proofs and
 recorded difficulty, originality and all-page review. It does not judge content.
 
@@ -277,26 +282,28 @@ recorded difficulty, originality and all-page review. It does not judge content.
   and network/file handoff once, before expensive drafting. Use existing
   capability evidence in the same unchanged runtime. A real missing capability
   needs one concrete blocker report, not repeated “continue” prompts.
-- Keep the entire uploaded knowledge file available, but read `SKILL.md`, this
-  reference and applicable subject references only. Do not print the complete
-  manifest, restore every section, or load other subjects' blueprints into model
-  context. Read the embedded `scripts/read_web_knowledge.py` section once and
-  materialize that helper if needed. Run it with `--subject 數學A --output-dir
-  <versioned-reference-directory> --reading-plan` for the initial route, or repeated `--path`
-  arguments for precise retrieval. The knowledge-file path is its positional
-  argument. The helper lists paths and byte counts, not the whole content.
-  Follow additional applicable reference links; this is selective loading,
-  not a replacement or summary of the canonical rules. For cross-subject JSON,
-  inspect only the requested subject/year records in the model context.
+- Prefer the published multi-file runtime when a native Skill or uploaded ZIP
+  makes its helpers available. Use `read_web_knowledge.py --source-dir SKILL_DIR
+  --subject 數學A --output-dir VERSIONED_REFS --reading-plan`; the package manifest
+  is checked and the selected runtime is copied without loading an aggregate MD.
+  A code-capable ordinary web conversation may extract the same ZIP into its run
+  workspace; that alone is not persistent installation. Do not rebuild the tools.
+- With only the aggregate MD, keep it available on disk and materialize its
+  embedded `scripts/read_web_knowledge.py` section once. Pass the knowledge file
+  as its positional argument, with `--subject 數學A --output-dir VERSIONED_REFS
+  --reading-plan`. The helper lists paths/sizes and creates phase views, rather
+  than dumping the entire file into context. Use repeated `--path` for a specific
+  unresolved reference. Do not print the full root manual or other subjects.
 - The initial command materializes executable dependencies on disk once, and
   writes `reading/preflight.md`, `authoring.md`, `layout.md` and `review.md`.
   Read them at their respective phases, not all before drafting. The first view
-  keeps root/preflight rules and exact subject records from large cross-subject
-  maps; canonical files remain unchanged for validators. Authoring includes
-  subject rules and exam/question/answer schemas, so discover their fields before
-  writing twenty items. Layout includes the maintained body API and examples.
-  Additional applicable reference links still apply. Already-read requirements
-  remain active at later phases; the view is not a new acceptance policy.
+  uses the short hosted execution route. Exact current-regime subject selections
+  carry canonical hashes and JSON pointers; complete originals remain on disk
+  for validators. Authoring includes subject rules and the generated exam/answer
+  schemas; the historical question schema is not a second generated-item model.
+  Read remaining references only for applicable subject rules or unresolved
+  facts, not as a recursive checklist. One actual review may support several
+  checks without making the model solve unchanged questions repeatedly.
 - A user may attach both subject preview PDFs and the offline resource PDF.
   This is a valid input set. Inspect the previews once for visual roles, then use
   the supplied structured body renderer; do not OCR/recreate their placeholder
@@ -387,15 +394,16 @@ Keep storage/installation separate from the execution surface. As checked on
   as Project Instructions. Later chats must be inside that Project. This is
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
-  The user's current uploader accepts `.md` with YAML name/description, or
-  `.zip`/`.skill` containing SKILL.md. Official help still describes the ZIP
-  route. The consolidated Markdown from version 2026.09.13.9 starts with YAML
-  metadata (name <= 64 characters; description <= 200). Upload that new `.md`
-  where offered, Save, and enable it. Do not simply rename Markdown to ZIP.
-  If only ZIP is accepted, use the Chat Project route until a compatible ZIP
-  is published. Do not restore a withdrawn ZIP or claim the old v0.7.1 package
-  includes current web fixes. A local format check is not an actual successful
-  account upload or platform security scan.
+  Recommend the versioned multi-file archive:
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip>.
+  Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
+  Its short SKILL.md routes to existing helpers and phase-specific references;
+  do not recommend the approximately 2.5 MB consolidated Markdown as native
+  Skill正文 merely because YAML makes that upload syntactically valid.
+  Replace/disable the old aggregate-MD Skill when updating to avoid duplicate
+  instructions. Keep MD for Project Knowledge. Do not rename MD to ZIP or claim
+  the old v0.7.1 local archive contains current hosted fixes. Format/package
+  checks do not establish account upload, platform scan or full-paper acceptance.
 - Cowork: choose Cowork in the message box on an available surface; use the
   enabled Skill and attach the subject's layout PDFs to the task. Cowork is a
   task mode, not another name for Chat, Claude Code, or Microsoft Word. Current
@@ -411,9 +419,11 @@ Native Skills and PDF generation require code execution/file creation. For
 individual accounts check `Settings > Capabilities`; organization controls may
 restrict these features. Do not claim success when a capability is unavailable.
 Once installed, use the existing Skill rather than creating it again. The
-runtime may rename the uploaded file to SKILL.md: use its actual path with the
-canonical reader and phased reading packets; do not load the entire aggregate
-into context. Chat and Cowork retain the same content, template, and QA gates.
+native archive already exposes scripts/references: use the reader's --source-dir
+route and do not require a second aggregate file or source reconstruction. The
+Project Knowledge route still accepts the consolidated MD and may use an
+uploaded tools ZIP when file execution is available. Chat and Cowork retain
+the same content, fixed templates, difficulty and real page/item QA gates.
 
 Official references:
 

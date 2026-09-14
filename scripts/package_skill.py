@@ -81,7 +81,8 @@ build_question_candidates.py build_visual_queue.py download_ceec_gsat_statistics
 download_ceec_gsat.py exam_data.py import_ceec_gsat_difficulty.py ingest_gsat_bundle.py
 fetch_hosted_template_assets.py read_web_knowledge.py pack_verification.py pdf_provenance.py
 hosted_calibration.py prepare_hosted_run.py
-hosted_body_templates.py prepare_hosted_review.py
+hosted_body_templates.py prepare_hosted_review.py run_hosted_workflow.py
+append_items.py emit_item_skeleton.py check_paper_plan.py
 compose_hosted_pdf.py inspect_hosted_pdf.py check_hosted_run.py verify_fixed_template_pdf.py
 hosted_item_layout.py hosted_run_timing.py hosted_blind_review.py
 validate_math_context.py

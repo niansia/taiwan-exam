@@ -124,6 +124,7 @@ Apply the full record and release thresholds in [math-difficulty-design.md](math
 
 ## Visual and placement contract
 
+- Do not print production labels such as `第15題圖：`, `第14題附圖：`, asset IDs or filenames above a mathematics diagram. Attach the actual diagram to its owning item; refer to it naturally as 如圖／下圖／右圖 in the stem. Keep labels such as 圖一／圖二 only when comparing multiple figures requires them. Retain necessary axes, units, legends and concise factual captions; do not apply this mathematics rule to remove necessary scientific or social-source captions.
 - Current-form visual questions must occur outside the final mixed section as well as inside it. For an internal pre-calibration gate, require at least four required visuals across at least three sections of a paper.
 - Include more than one visual role across a paper: for example, geometry/partition, statistical chart, process/timeline, coordinate model, or tabular record.
 - Each required visual needs a legibility check at final print size and a stimulus-removal check. If removing the visual leaves the same solution path, the item fails.
@@ -142,6 +143,7 @@ Apply the full record and release thresholds in [math-difficulty-design.md](math
 Selection/fill items are printed for optical-card response, not as open blank-answer exercises.
 
 - Position the answer rail at the semantic blank inside the sentence. Do not center every rail as a separate block. It may remain at line end, wrap with the sentence, or sit in the left text column beside a right-hand figure.
+- Keep the final expression (for example `λ＝`) adjacent to its numbered circles. The stem, rail and following punctuation are one reading flow, not three table columns. Do not put the rail in an isolated right-hand answer column or split `（化為最簡分數）` into a narrow column after it. Prefer stating that instruction in the prose before the final expression; a tall fraction rail may occupy a continuous answer expression at the end of the item, with its complete height reserved. Inspect the actual line break and spacing at print scale.
 - Integer: print the exact number of circled positions over a continuous answer line.
 - Fraction: print numerator positions above a fraction bar and denominator positions below it, with a second answer line below the denominator row when the selected profile shows it.
 - Sign, decimal, or special-symbol positions, when allowed, must be separately specified and printed.

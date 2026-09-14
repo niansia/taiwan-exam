@@ -1,8 +1,13 @@
 # Exam Pack verification and end-to-end acceptance
 
-Read before full papers, multi-form tests, quality complaints or Skill acceptance.
+Read before local full papers, multi-form tests, quality complaints or Skill acceptance.
 Subject references remain controlling. Checks verify evidence consistency, not
 whether an LLM truly read a document or a reviewer was genuinely independent.
+Hosted web generation uses [hosted-execution.md](hosted-execution.md) and the
+hosted evidence format. The local commands, source rebuilding and delivery JSON
+below are not a second hosted prerequisite. The same actual answer-free review
+can supply answer and difficulty findings; a second serialization is not a
+requirement to repeat an unchanged item's reasoning.
 
 ## Preserve the requested product
 

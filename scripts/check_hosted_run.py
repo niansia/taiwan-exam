@@ -18,7 +18,7 @@ from hosted_blind_review import packet, review_errors, REVIEW_MODES
 from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
-from validate_math_context import validate as math_context_errors, source_note_samples
+from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
 from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
@@ -196,6 +196,7 @@ def check(state_path: Path) -> dict:
                 text = actual_page.get_text()
                 if exam.get('metadata', {}).get('subject') in {'數學A','數學B'}:
                     need(not source_note_samples(text), f'{role}/page-{number}: printed math source note')
+                    need(not production_caption_samples(text), f'{role}/page-{number}: printed math production caption')
                     need(not rail_format_samples(actual_page), f'{role}/page-{number}: actual PDF answer-rail-format')
                 need('\ufffd' not in text and '\x00' not in text,
                      f'{role}/page-{number}: actual PDF replacement-or-null-glyph')

@@ -17,7 +17,7 @@ from package_skill import should_include
 from verify_fixed_template_pdf import verify_pdf
 
 CATALOG=json.loads((ROOT/'templates/hosted-subject-layouts.json').read_text(encoding='utf-8'))
-PREVIEWS=ROOT/'docs/layout-examples/2026.09.13.7'
+PREVIEWS=ROOT/'docs/layout-examples/2026.09.14.1'
 
 
 @pytest.mark.parametrize('entry',CATALOG['subjects'],ids=lambda e:e['slug'])

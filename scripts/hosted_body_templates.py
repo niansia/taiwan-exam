@@ -92,6 +92,44 @@ def rail_image(number, rows):
 
 
 def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
+    """Resolve verified inline assets after ALL authored fields are escaped.
+
+    Choices, table cells, passages and solution steps use the same substitution
+    as stems. Resolving only stems silently printed formula tokens in options
+    and skipped early-return blocks, forcing callers to rebuild valid layouts.
+    """
+    images={};image_heights={}
+    for key,asset in block.get('assets',{}).items():
+        path=(asset_root/asset['path']).resolve()
+        if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
+        raw=path.read_bytes()
+        if hashlib.sha256(raw).hexdigest()!=asset['sha256']:raise ValueError('Changed body asset')
+        asset_width=asset['width_pt']
+        if type(asset_width) not in (int,float) or not 1<=asset_width<=460:raise ValueError('Invalid asset width')
+        extension=path.suffix
+        with pymupdf.open(stream=raw) as image_doc:
+            rect=image_doc[0].rect
+            if image_doc.is_pdf:
+                if len(image_doc)!=1:raise ValueError('Inline body PDF asset must have exactly one page')
+                # MuPDF's HTML img does not render PDF sources: without this it
+                # silently prints [image]. Convert only newly authored body
+                # artwork, never the immutable fixed-template PDF layers.
+                scale=3*asset_width/rect.width
+                raw=image_doc[0].get_pixmap(matrix=pymupdf.Matrix(scale,scale),alpha=True).tobytes('png')
+                extension='.png'
+        height=asset_width*rect.height/rect.width
+        name=f'asset-{index}-{len(images)}'+extension
+        archive.add((raw,name))
+        images[key]=f'<img src="{html.escape(name,quote=True)}" width="{asset_width}" height="{height}">'
+        image_heights[key]=height
+    content=_fragment_html(block,archive,index,width,font_metric,images,image_heights)
+    for key,image in images.items():
+        content=content.replace(html.escape('{{asset:'+key+'}}'),image)
+    if '{{asset:' in content:raise ValueError('Missing inline asset')
+    return content
+
+
+def _fragment_html(block, archive, index, width, font_metric, images, image_heights):
     kind=block.get('kind')
     if kind not in KINDS: raise ValueError('Unknown body block kind')
     if kind=='section':
@@ -132,41 +170,21 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
         data,w,h=rail_image(block['number'],block['rows'])
         name=f'rail-{index}.png';archive.add((data,name))
         before,after=stem.split('{{answer}}')
-        before=str(block['number'])+'. '+before
-        font_metric=font_metric or pymupdf.Font('cjk')
-        measure=lambda value:font_metric.text_length(html.unescape(re.sub('<[^>]*>','',value)),fontsize=11)+6
-        after_width=min(160,max(18,measure(after)))
-        before_width=min(width-w-16-after_width,measure(before))
-        table_width=before_width+w+16+after_width
-        stem=(f'<table style="width:{table_width}pt"><tr><td style="width:{before_width}pt;vertical-align:middle">{before}</td>'
-              f'<td style="width:{w+8}pt;line-height:{h+4}pt"><img src="{name}" width="{w}" height="{h}"></td>'
-              f'<td style="width:{after_width}pt;vertical-align:middle">{after}</td></tr></table>')
+        # Use paragraph flow: MuPDF top-aligned table cells paint their inline
+        # image below the text despite a valid non-colliding bounding box.
+        rail=f'<img src="{name}" width="{w}" height="{h}" style="vertical-align:middle">'
+        prefix=re.search(r'([A-Za-zα-ωΑ-Ω][A-Za-z0-9_]*\s*[=＝]\s*)$',before)
+        if prefix:
+            stem=before[:prefix.start()]+f'<span style="white-space:nowrap">{prefix.group(0)}{rail}</span>'+after
+        else:stem=before+rail+after
     elif '{{answer}}' in stem: raise ValueError('Answer position token requires a fill block')
-    # Inline complex math/diagrams are supplied by the author, never by a stored
-    # question or graph menu. Every referenced binary must match its saved hash.
-    images={};image_heights={}
-    for key,asset in block.get('assets',{}).items():
-        path=(asset_root/asset['path']).resolve()
-        if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
-        raw=path.read_bytes()
-        if hashlib.sha256(raw).hexdigest()!=asset['sha256']:raise ValueError('Changed body asset')
-        asset_width=asset['width_pt']
-        if type(asset_width) not in (int,float) or not 1<=asset_width<=460:raise ValueError('Invalid asset width')
-        with pymupdf.open(stream=raw) as image_doc:
-            rect=image_doc[0].rect
-        height=asset_width*rect.height/rect.width
-        name=f'asset-{index}-{len(images)}'+path.suffix
-        archive.add((raw,name))
-        images[key]=f'<img src="{name}" width="{asset_width}" height="{height}">'
-        image_heights[key]=height
-        stem=stem.replace('{{asset:'+key+'}}',images[key])
-    if '{{asset:' in stem:raise ValueError('Missing inline asset')
     figure=block.get('figure')
     if figure:
         if figure not in images:raise ValueError('Figure must name a hash-verified asset')
         if kind not in {'stimulus','solution'}:stem=str(block.get('number',''))+'. '+stem
         image_box=f'<div style="line-height:{image_heights[figure]+4}pt">{images[figure]}</div>'
         if block.get('figure_position','below')=='right':
+            if kind=='fill':raise ValueError('Fill figures use below placement; keep answer rails in paragraph flow')
             if block['assets'][figure]['width_pt']>180:raise ValueError('Right-hand figure exceeds reserved column')
             stem=f'<table><tr><td style="width:{width-189}pt">{stem}</td><td style="width:185pt" class="figure">{image_box}</td></tr></table>'
         else:stem+=f'<div class="figure">{image_box}</div>'
@@ -182,7 +200,8 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
         stem+=f'（{block["score"]}分）'
     label=text(block['label']) if 'label' in block else (f'第{block["number"]}題' if kind=='solution' else str(block.get('number',''))+'.')
     if kind=='solution':return f'<div class="heading">{label}</div>'+stem
-    if kind=='fill' or figure:return stem
+    if figure:return stem
+    if kind=='fill':return f'<p style="margin-left:28pt;text-indent:-28pt">{label}　{stem}</p>'
     return stem if kind=='stimulus' else f'<table><tr><td class="number">{label}</td><td>{stem}</td></tr></table>'
 
 

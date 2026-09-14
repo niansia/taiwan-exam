@@ -33,6 +33,11 @@ The skill must not contain a unit-to-domain lookup table, reusable item skeleton
 
 For each slot, generate at least three candidates before writing final prose. The candidates must use mutually dissimilar mechanisms, not three cosmetic contexts for the same equation. Include a context-free mathematical object when that is editorially appropriate.
 
+Candidates are concise mechanism sketches, not three fully worded and rendered
+question/solution pairs. Record the fields below in compact work notes and fully
+develop only the selected candidate. Reuse this actual decision record in the
+originality audit rather than inventing or rewriting alternatives at final QA.
+
 For every candidate, record:
 
 - `mechanism_family` and `domain_family`;

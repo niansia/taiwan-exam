@@ -29,6 +29,9 @@
         ,"run_contract": {"type": "string", "minLength": 1}
         ,"layout_profile": {"type": ["string", "null"]}
         ,"difficulty_balance_plan": {"type": "object"}
+        ,"paper_difficulty_plan": {"type": "object"}
+        ,"content_distribution_plan": {"type": "object"}
+        ,"math_b_difficulty_floor": {"type": "object"}
         ,"llm_original_generation_contract": {"type": "object"}
         ,"paper_originality_matrix": {"type": "object"}
         ,"group_originality_records": {"type": "array"}

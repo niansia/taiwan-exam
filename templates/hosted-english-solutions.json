@@ -43,6 +43,7 @@
       "kind": "solution",
       "id": "layout-english-translation",
       "number": 1,
+      "label": "中譯英（一）",
       "text": "〔完整譯句位置〕",
       "steps": [
         "〔分段得分點與可接受替代譯法〕"
@@ -52,6 +53,7 @@
       "kind": "solution",
       "id": "layout-english-composition",
       "number": 3,
+      "label": "英文作文",
       "text": "〔本次新範文位置，不提供可重複套用範文〕",
       "steps": [
         "〔內容組織、語言、文法及拼字／標點評分〕",

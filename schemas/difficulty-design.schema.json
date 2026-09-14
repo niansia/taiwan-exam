@@ -1,0 +1,865 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://niansia.github.io/taiwan-exam/schemas/difficulty-design.schema.json",
+  "title": "Draft or completed item difficulty design",
+  "description": "Root accepts pending authoring fields. completedMathDesign rejects unset review fields; executable validators still check exact profile values and substantive evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "band",
+    "content_sha256",
+    "basis",
+    "confidence",
+    "short_route",
+    "misconception",
+    "linked_decisions",
+    "bottleneck",
+    "expected_minutes",
+    "shortcut_status"
+  ],
+  "properties": {
+    "band": {
+      "enum": [
+        null,
+        "簡單",
+        "中",
+        "中偏難",
+        "難"
+      ]
+    },
+    "content_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "basis": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "confidence": {
+      "type": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "short_route": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "misconception": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "linked_decisions": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "kind",
+          "trigger_evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "kind": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "trigger_evidence": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "bottleneck": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "expected_minutes": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "exclusiveMinimum": 0
+    },
+    "shortcut_status": {
+      "enum": [
+        null,
+        "pending",
+        "reviewed-no-direct-collapse"
+      ]
+    },
+    "metric_type": {
+      "enum": [
+        null,
+        "answer_rate",
+        "score_rate",
+        "constructed_response"
+      ]
+    },
+    "target_basis": {
+      "enum": [
+        null,
+        "official-profile",
+        "constructed-response-expert",
+        "official-rubric-expert"
+      ]
+    },
+    "target_p_center": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "target_p_range": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "target_d_floor": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": -1,
+      "maximum": 1
+    },
+    "minimum_linked_decisions": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "representation_changes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "constraint_checks": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "misconception_paths": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "error",
+          "predicted_outcome"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "error": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "predicted_outcome": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "discrimination_design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "lower_group_move",
+        "proficient_move"
+      ],
+      "properties": {
+        "level": {
+          "enum": [
+            null,
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "lower_group_move": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "proficient_move": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      }
+    },
+    "shortcut_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attempted_shortcuts",
+        "collapse_found",
+        "reviewer_decision",
+        "direct_formula_substitution_only"
+      ],
+      "properties": {
+        "attempted_shortcuts": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "collapse_found": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "reviewer_decision": {
+          "enum": [
+            null,
+            "pending",
+            "pass-no-collapse"
+          ]
+        },
+        "direct_formula_substitution_only": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "innovation_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "formula_or_definition_recall_only",
+        "skin_swap_changes_solution_graph",
+        "nearest_neighbor_difference",
+        "reviewer_decision"
+      ],
+      "properties": {
+        "formula_or_definition_recall_only": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "skin_swap_changes_solution_graph": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "nearest_neighbor_difference": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "reviewer_decision": {
+          "enum": [
+            null,
+            "pending",
+            "pass-nonroutine"
+          ]
+        }
+      }
+    },
+    "burden_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "arithmetic_volume_primary",
+        "prose_length_primary",
+        "outside_knowledge_primary"
+      ],
+      "properties": {
+        "arithmetic_volume_primary": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "prose_length_primary": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "outside_knowledge_primary": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "time_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expected_minutes",
+        "intended_short_route",
+        "calculator_required",
+        "exhaustive_enumeration_required",
+        "hand_calculation_feasible"
+      ],
+      "properties": {
+        "expected_minutes": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "maximum": 10
+        },
+        "intended_short_route": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "calculator_required": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "exhaustive_enumeration_required": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hand_calculation_feasible": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "expert_estimate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "difficulty_band",
+        "discrimination_level",
+        "confidence",
+        "status"
+      ],
+      "properties": {
+        "difficulty_band": {
+          "enum": [
+            null,
+            "very_easy",
+            "easy",
+            "medium",
+            "hard",
+            "very_hard"
+          ]
+        },
+        "discrimination_level": {
+          "enum": [
+            null,
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "status": {
+          "enum": [
+            null,
+            "pending",
+            "provisional-until-representative-pilot"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "completedMathDesign": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "band",
+        "content_sha256",
+        "basis",
+        "confidence",
+        "short_route",
+        "misconception",
+        "linked_decisions",
+        "bottleneck",
+        "expected_minutes",
+        "shortcut_status",
+        "metric_type",
+        "target_basis",
+        "target_p_center",
+        "target_p_range",
+        "target_d_floor",
+        "minimum_linked_decisions",
+        "representation_changes",
+        "constraint_checks",
+        "misconception_paths",
+        "discrimination_design",
+        "shortcut_audit",
+        "innovation_audit",
+        "burden_audit",
+        "time_audit",
+        "expert_estimate"
+      ],
+      "properties": {
+        "band": {
+          "enum": [
+            "簡單",
+            "中",
+            "中偏難",
+            "難"
+          ]
+        },
+        "content_sha256": {
+          "type": [
+            "string"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "basis": {
+          "type": [
+            "string"
+          ],
+          "minLength": 1
+        },
+        "confidence": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "short_route": {
+          "type": [
+            "string"
+          ],
+          "minLength": 1
+        },
+        "misconception": {
+          "type": [
+            "string"
+          ],
+          "minLength": 1
+        },
+        "linked_decisions": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "description",
+              "kind",
+              "trigger_evidence"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": [
+                  "string"
+                ],
+                "minLength": 1
+              },
+              "kind": {
+                "type": [
+                  "string"
+                ],
+                "minLength": 1
+              },
+              "trigger_evidence": {
+                "type": [
+                  "string"
+                ],
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "bottleneck": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "expected_minutes": {
+          "type": [
+            "number"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "shortcut_status": {
+          "enum": [
+            "reviewed-no-direct-collapse"
+          ]
+        },
+        "metric_type": {
+          "enum": [
+            "answer_rate",
+            "score_rate",
+            "constructed_response"
+          ]
+        },
+        "target_basis": {
+          "enum": [
+            "official-profile",
+            "constructed-response-expert",
+            "official-rubric-expert"
+          ]
+        },
+        "target_p_center": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "target_p_range": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "target_d_floor": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": -1,
+          "maximum": 1
+        },
+        "minimum_linked_decisions": {
+          "type": [
+            "integer"
+          ],
+          "minimum": 1
+        },
+        "representation_changes": {
+          "type": [
+            "integer"
+          ],
+          "minimum": 0
+        },
+        "constraint_checks": {
+          "type": [
+            "integer"
+          ],
+          "minimum": 0
+        },
+        "misconception_paths": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "error",
+              "predicted_outcome"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "error": {
+                "type": [
+                  "string"
+                ],
+                "minLength": 1
+              },
+              "predicted_outcome": {
+                "type": [
+                  "string"
+                ],
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "discrimination_design": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "level",
+            "lower_group_move",
+            "proficient_move"
+          ],
+          "properties": {
+            "level": {
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            },
+            "lower_group_move": {
+              "type": [
+                "string"
+              ],
+              "minLength": 1
+            },
+            "proficient_move": {
+              "type": [
+                "string"
+              ],
+              "minLength": 1
+            }
+          }
+        },
+        "shortcut_audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "attempted_shortcuts",
+            "collapse_found",
+            "reviewer_decision",
+            "direct_formula_substitution_only"
+          ],
+          "properties": {
+            "attempted_shortcuts": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "collapse_found": {
+              "const": false
+            },
+            "reviewer_decision": {
+              "enum": [
+                "pass-no-collapse"
+              ]
+            },
+            "direct_formula_substitution_only": {
+              "const": false
+            }
+          }
+        },
+        "innovation_audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "formula_or_definition_recall_only",
+            "skin_swap_changes_solution_graph",
+            "nearest_neighbor_difference",
+            "reviewer_decision"
+          ],
+          "properties": {
+            "formula_or_definition_recall_only": {
+              "const": false
+            },
+            "skin_swap_changes_solution_graph": {
+              "const": true
+            },
+            "nearest_neighbor_difference": {
+              "type": [
+                "string"
+              ],
+              "minLength": 1
+            },
+            "reviewer_decision": {
+              "enum": [
+                "pass-nonroutine"
+              ]
+            }
+          }
+        },
+        "burden_audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "arithmetic_volume_primary",
+            "prose_length_primary",
+            "outside_knowledge_primary"
+          ],
+          "properties": {
+            "arithmetic_volume_primary": {
+              "const": false
+            },
+            "prose_length_primary": {
+              "const": false
+            },
+            "outside_knowledge_primary": {
+              "const": false
+            }
+          }
+        },
+        "time_audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "expected_minutes",
+            "intended_short_route",
+            "calculator_required",
+            "exhaustive_enumeration_required",
+            "hand_calculation_feasible"
+          ],
+          "properties": {
+            "expected_minutes": {
+              "type": [
+                "number"
+              ],
+              "exclusiveMinimum": 0,
+              "maximum": 10
+            },
+            "intended_short_route": {
+              "type": [
+                "string"
+              ],
+              "minLength": 1
+            },
+            "calculator_required": {
+              "const": false
+            },
+            "exhaustive_enumeration_required": {
+              "const": false
+            },
+            "hand_calculation_feasible": {
+              "const": true
+            }
+          }
+        },
+        "expert_estimate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "difficulty_band",
+            "discrimination_level",
+            "confidence",
+            "status"
+          ],
+          "properties": {
+            "difficulty_band": {
+              "enum": [
+                "very_easy",
+                "easy",
+                "medium",
+                "hard",
+                "very_hard"
+              ]
+            },
+            "discrimination_level": {
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            },
+            "confidence": {
+              "type": [
+                "number"
+              ],
+              "minimum": 0,
+              "maximum": 1
+            },
+            "status": {
+              "enum": [
+                "provisional-until-representative-pilot"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

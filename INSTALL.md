@@ -4,22 +4,31 @@
 
 ## 目前可安裝的內容
 
-目前使用 GitHub 公開原始碼與網頁版知識檔：
+目前使用 GitHub 公開原始碼、原生網頁 Skill ZIP 與專案知識檔：
 
 ```text
 本機 Skill 原始碼：
 https://github.com/niansia/taiwan-exam
 
-ChatGPT／Claude／Gemini 網頁知識檔（一鍵下載頁）：
+Claude Customize → Skills 原生套件／有執行能力的網頁對話工具：
+https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip
+
+ChatGPT Project／Claude Project／Gemini Gem 知識檔（一鍵下載頁）：
 https://niansia.github.io/taiwan-exam/download-web-knowledge.html
 
 知識檔原始文字（檢視／代理取得）：
 https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md
 ```
 
-給一般使用者時優先提供一鍵下載頁；它會把原始文字存成
-`taiwan-exam-web-knowledge.md`，不要求使用者操作 GitHub 的 Raw／Download 按鈕。
-v0.7.1 安裝 ZIP 已發布，但不含後續修正；最新功能使用 main 原始碼或新版知識檔。
+Claude 原生 Skills 優先使用 2026.09.14.1 ZIP，不解壓直接上傳並啟用。
+短版 SKILL 入口會按需讀取已分開的 references 與 scripts；不要把大型聚合 MD
+當成原生 Skill 的完整正文。已安裝套件可直接使用工具，不需再抽取聚合 MD。
+一般網頁出卷對話如有程式／檔案能力，也可附上同一 ZIP，由模型解壓既有工具。
+其安裝範圍僅是本次工作目錄，不能宣稱在平台永久安裝。
+
+專案／Gem 知識區仍使用一鍵下載頁的 `taiwan-exam-web-knowledge.md`，
+不要求使用者操作 GitHub 的 Raw／Download 按鈕。v0.7.1 是較舊的本機安装包，
+不含後續修正；本機完整功能使用 main 原始碼，勿將網頁工具套件當作完整本機倉庫。
 純 PDF／圖片的學測來源資料包是另一個發布面，
 放在 `source-corpus-2026.09.11` GitHub Release，並由
 `exam_packs/學測/source-pack-manifest.json` 驗證。不可把兩者混稱為同一個
@@ -176,7 +185,7 @@ schema/profile 檢查；缺少 PMingLiU／DFKai 名稱本身也不是拒絕理�
 
 聊天專案：在 **Chat 的 Projects** 建立 `Taiwan Exam`，把知識檔加入 Project Knowledge，並把設定文字存成 Project Instructions，之後在同一專案開聊天。
 
-原生 Skill：到 **Customize → Skills → ＋ → Create skill → Upload a skill**。若上傳框接受 `.md`，可用 2026.09.13.9 起的新版知識檔，已包含 YAML 名稱與描述；按 Save 並啟用。舊知識檔缺少此外層格式。若只接受 ZIP，先用聊天專案，不要改副檔名或上傳已撤回的 ZIP。上傳／安全掃描仍由 Claude 判定，不能以本機格式檢查冒稱成功。
+原生 Skill：到 **Customize → Skills → ＋ → Create skill → Upload a skill**，上傳 [2026.09.14.1 工具／Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip)，不要解壓，按 Save 並啟用。這個版本使用短入口與分開的規則／工具；舊 MD 雖可符合 YAML 格式，整份讀入仍會浪費上下文，請停用舊 Skill 後改用 ZIP。MD 留給聊天專案知識。Claude 的實際上傳與平台掃描結果仍以帳號介面為準。
 
 **Cowork** 是輸入框可選的任務模式：使用已啟用的 Skill，附上當科版型後提出出卷需求；不是把 Claude Code 的本機安裝指令貼到一般聊天。**Claude for Word** 是 Word 外掛，本專案尚未驗證該外掛的固定模板 PDF 流程。初次設定、出卷文字與各入口比較見 [README 的 Claude 說明](README.md#claude聊天專案skills-與-cowork)。
 
