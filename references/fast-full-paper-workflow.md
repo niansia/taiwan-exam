@@ -45,10 +45,12 @@ phase. Do not discard solved items or redownload verified assets on every user
 workflow rather than reconstructing the whole repository or all subjects.
 
 For hosted conversation runs, also follow hosted-body-workflow.md: reusable
-body components, a first small authored render batch, an approximately eight
-minute final-QA reserve, and batched page/crop preparation. These reduce repeated
-layout programming and evidence bookkeeping; they do not prove a 25-minute
-end-to-end completion time.
+body components, specs projected from the saved exam, item-crop proofs reviewed
+with each authored batch, an approximately eight minute final-QA reserve,
+batched page/crop preparation with a pending review queue, and reuse of actual
+reviews for unchanged items after a repair. These reduce repeated layout
+programming, retyping, re-inspection and evidence bookkeeping; they do not prove
+a 25-minute end-to-end completion time.
 
 ## Fast path, one paper at a time
 

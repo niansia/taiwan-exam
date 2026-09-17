@@ -51,10 +51,14 @@ not mean the gallery itself is a valid full paper for any subject.
 python scripts/hosted_body_templates.py run/questions-blocks.json --output run/questions-body-v1.pdf --layout run/questions-layout-v1.json --font /path/to/verified-body-font.ttf
 ```
 
-That low-level command is for an early body proof or focused repair. For the two
-candidate booklets use `run_hosted_workflow.py build` from hosted-execution.md:
-it runs both body layouts, fixed composition and pending review preparation in
-one call. Do not also repeat all low-level commands on the same inputs. The
+That low-level command is for a focused renderer repair. For batch item proofs
+use `run_hosted_workflow.py proof`, whose crops use the fixed-page transform and
+can carry an actual review forward. `run_hosted_workflow.py specs` writes both
+specifications from the saved exam plus optional layout hints, so item text is
+not typed a second time. For the two candidate booklets use
+`run_hosted_workflow.py build` from hosted-execution.md: it runs both body
+layouts, fixed composition and pending review preparation in one call. Do not
+also repeat all low-level commands on the same inputs. The
 body renderer alone outputs transparent pages, NOT deliverable exam PDFs. For viewing only the
 placeholder gallery, supply `--proof`; never use that flag for a production run.
 
@@ -65,7 +69,21 @@ contains `headers` and rectangular `rows`, with optional introductory `text`.
 Use `keep_with_next: true` where a stimulus/table must stay with the next task;
 oversized groups need explicit continuation instead of clipping or shrinking.
 Use `label` for real subpart labels such as （一） rather than inventing extra
-Arabic-numbered items. Labels do not determine the scored-item contract.
+Arabic-numbered items; an unnumbered task (中譯英, 作文) may use a label without
+`number`. Labels do not determine the scored-item contract. `passage` and
+`stimulus` blocks may print one `group_label` (`group_label_style: underline`
+for English, bold otherwise); a prose passage may set `indent: true` for justified
+first-line indentation. `language: en` on an item block prints its English text
+in the English face. `score_in_text: true` (with `printed_score` for a whole
+question's total) declares score wording the authored text already prints; the
+renderer verifies the wording instead of appending a second score. `covers` lists
+other item IDs printed inside a block, such as suppressed cloze/completion gaps
+or a subpart without its own printed text; the final item-crop coverage counts
+them, so no filler rows are needed. `split: paragraphs` lets a long stimulus,
+passage, constructed prompt or solution continue on the next page at paragraph
+or step boundaries: the label, heading and group label stay on the first piece;
+options, bank, score and figure stay on the last. `run_hosted_workflow.py specs`
+sets these fields from the saved exam.
 
 `--reading-font` can supply a separately verified reading-material font for
 國綜/國寫. Main body and reading roles must retain the selected subject's visual
@@ -100,9 +118,13 @@ the independently verified answer encoding. Radicals, signs and other patterns
 need their own checked response asset; do not force them into plain digits.
 
 Each complete block is measured before painting; a section stays with its next
-block. Very long items/solutions require explicit continuation blocks with the
-same item ID; no automatic truncation. Shared stimulus parts use one owner ID
-and must also be considered when reviewing all dependent items. Real image/text
+block. A block that does not fit fills the rest of the page with its leading
+paragraphs when it allows `split: paragraphs`; otherwise it moves whole, and a
+block taller than a page needs explicit continuation blocks with the same item
+ID. Nothing is truncated. Consecutive blocks of one owner on the same page form
+one crop, so shared material and its item, or continued paragraphs, are reviewed
+together. Shared stimulus parts use one owner ID and must also be considered
+when reviewing all dependent items. Real image/text
 bounds and the compositor's outside-body check supplement the HTML measurement.
 They are not a general proof of collision-free layout or sufficient page density.
 
@@ -112,9 +134,14 @@ For a web conversation observed to stop around 25 minutes, plan to reach final
 layout by about minute 17 and reserve about 8 minutes for page/item inspection,
 repairs and the final checker. This is a scheduling budget, not a platform limit
 claim or guaranteed runtime. Keep the existing inclusive phase clock. Do not
-wait until all items are written to discover a broken equation/rail renderer:
-render and inspect the first 2–4 newly authored items AND their solutions early,
-then solve, review difficulty and check layout in small batches.
+wait until all items are written to discover a broken equation/rail renderer or
+a figure that crowds its stem: after every saved batch run `run_hosted_workflow.py
+specs` and `proof` for that batch, review its item and solution crops at once,
+then solve and review difficulty in the same small batch. Crop review done here
+is not repeated for unchanged items in the final booklets; page review is.
+A complete paper that cannot finish within one provider turn is best split at
+these checkpoints: reviewed authoring batches first, then one final build, page
+review and finalize.
 
 Reuse the tested renderer, verified assets and calibration. Do not repeatedly
 load every subject, download originals during final QA, or rewrite the PDF
@@ -135,10 +162,12 @@ This batches mechanical inspection, whole-page images, readable item crops and
 pending review records. It checks body hashes and compares projected body crops
 to the actual final PDF before rebinding page numbers. It writes a new
 `run/qa-v1-run-state.json` beside the original state and `run/qa-v1/index.html`.
-Open the actual page AND item images, not just thumbnails. Record observed
-defects and repairs in the generated reports; no helper supplies passing prose.
-
-After actual review, refresh only report digests and run the final checker:
+The returned `review_queue` names every pending page and crop image; the index
+lists pending images first and retained ones last. Open the actual page AND item
+images, not just thumbnails. Record observed defects and repairs with
+`run_hosted_workflow.py record-review`, which writes the reviewer's findings and
+refreshes report digests; no helper supplies passing prose. After hand-editing a
+report instead, refresh only report digests and run the final checker:
 
 ```text
 python scripts/prepare_hosted_review.py --refresh-state run/qa-v1-run-state.json
@@ -150,10 +179,17 @@ existing timing workflow before the checker. Refreshing review hashes does
 not close timing, approve content or resolve a failed gate.
 
 For a repaired version, pass the prior reviewed state and NEW output names.
-The helper retains an actual previous passing review only when the exam hash,
-page/item identity and exact newly rendered pixels match. Page issue lists must
-also match. Changed parts start pending. State honestly that unchanged visual
-reviews were retained; do not claim they were freshly inspected. Changing the
-exam invalidates reuse. Every final PDF still receives fresh mechanical checks,
-fixed-layer verification, crops and the final checker. This cache belongs to
-the same paper, never to a newly generated exam.
+The helper retains an actual previous passing crop review, from an item proof or
+an earlier build of this paper, only when the item's authored record is
+unchanged (review metadata excluded; a shared stimulus binds its group), the font
+and painting helpers are unchanged, and the new crop is pixel-identical or prints
+the same glyphs, rules and images within 0.02 pt. Composition scales the body to
+the 594.96 pt fixed pages, so a reflowed but unchanged block rarely keeps exact
+pixels; the primitive comparison separates that placement noise from any printed
+change. A recorded non-pass finding on an equivalent rendering blocks reuse. A
+page review is retained only for identical page pixels, issue lists and item
+content; a page without item content needs identical pixels and printed section
+text. Changed parts start pending. State honestly that unchanged visual reviews
+were retained; do not claim they were freshly inspected. Every final PDF still
+receives fresh mechanical checks, fixed-layer verification, crops and the final
+checker. This cache belongs to the same paper, never to a newly generated exam.

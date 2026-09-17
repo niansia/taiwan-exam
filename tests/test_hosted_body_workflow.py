@@ -78,7 +78,17 @@ def test_blocks_preserve_all_subject_fixed_templates_and_review_starts_pending(s
         changed['exam']['sha256']=hashlib.sha256(exam.read_bytes()).hexdigest()
         Path(retained['state']).write_text(json.dumps(changed),encoding='utf-8')
         invalidated=prepare(Path(retained['state']),pairs,tmp_path/'qa3')
-        assert invalidated['retained_actual_reviews']=={'pages':0,'parts':0}
+        # Placeholder ids are not saved exam items, so their crops and every page
+        # showing them fall back to whole-exam binding. Cover/formula pages hold
+        # no item content and keep reviews of identical pixels.
+        assert invalidated['retained_actual_reviews']['parts']==0
+        saved=json.loads(Path(invalidated['state']).read_text(encoding='utf-8'))
+        for bundle in saved['pdfs'].values():
+            parts=json.loads((tmp_path/bundle['item_review']['path']).read_text(encoding='utf-8'))['parts']
+            with_items={part['page'] for part in parts}
+            pages=json.loads((tmp_path/bundle['visual_review']['path']).read_text(encoding='utf-8'))['pages']
+            assert all(row['status']=='pending' for row in pages if row['page'] in with_items)
+            assert all(row['status']=='pass' for row in pages if row['page'] not in with_items)
 
 
 def test_placeholder_gallery_cannot_be_used_as_production(gallery,tmp_path):

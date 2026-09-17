@@ -144,3 +144,29 @@ def test_answer_rail_remains_next_to_equation_at_actual_text_height(rows,prefix,
         suffix=next(pymupdf.Rect(s['bbox']) for s in spans if '化為' in s['text'])
         assert suffix.x0>=rail.x1-.1
         assert abs(suffix.y0-text_box.y0)<.1
+
+
+RICH_SCRIPTS=[
+    {'kind':'choice','text':{'rich':'Stem T<sup>2</sup> x<sub>1</sub>'},'options':[{'label':'(1)','text':{'rich':'r<sup>3</sup>'}},{'label':'(2)','text':'One'}]},
+    {'kind':'constructed','text':{'rich':'Stem T<sup>2</sup> x<sub>1</sub>'},'score':3},
+    {'kind':'solution','text':'Answer','steps':[{'rich':'Stem T<sup>2</sup> x<sub>1</sub>'}]},
+    {'kind':'table','headers':['Value'],'rows':[[{'rich':'T<sup>2</sup> x<sub>1</sub>'}]]},
+]
+
+
+@pytest.mark.parametrize('case',RICH_SCRIPTS,ids=lambda case:case['kind'])
+def test_superscripts_and_subscripts_keep_their_offset_inside_layout_tables(case,tmp_path):
+    """Regression: top-aligned MuPDF cells printed T<sup>2</sup> on the baseline."""
+    font=tmp_path/'font.ttf';font.write_bytes(pymupdf.Font('cjk').buffer)
+    pdf=tmp_path/'body.pdf'
+    render({'subject':'數學A','blocks':[{'id':'fixture','number':1,**copy.deepcopy(case)}]},
+           pdf,tmp_path/'layout.json',font,asset_root=tmp_path)
+    with pymupdf.open(pdf) as doc:
+        spans=[s for b in doc[0].get_text('dict')['blocks'] for line in b.get('lines',[]) for s in line['spans']]
+    base={round(s['origin'][1],1) for s in spans if s['size']>10}
+    # Superscripts rise about 0.33 em and subscripts drop about 0.2 em.
+    for digit,direction,offset in (('2',-1,3.0),('1',1,1.5)):
+        script=[s for s in spans if s['text'].strip()==digit and s['size']<10]
+        assert script, 'missing script span '+digit
+        nearest=min(base,key=lambda y:abs(y-script[0]['origin'][1]))
+        assert direction*(script[0]['origin'][1]-nearest)>=offset

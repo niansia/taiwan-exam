@@ -212,7 +212,16 @@ def check(state_path: Path) -> dict:
                 item_review = json.loads(item_path.read_text(encoding='utf-8-sig'))
                 need(item_review.get('pdf_sha256') == pdf_hash, f'{role}: stale item crops')
                 parts = item_review.get('parts', [])
-                need({part.get('id') for part in parts} == expected, f'{role}: item crop coverage incomplete')
+                # A suppressed cloze gap or a subpart printed inside another
+                # item's block is covered by that block's reviewed crop.
+                covered = {part.get('id') for part in parts}
+                for part in parts:
+                    covers = part.get('covers', [])
+                    need(isinstance(covers, list) and part.get('id') not in covers,
+                         f'{role}/{part.get("id")}: invalid covers record')
+                    covered.update(covers if isinstance(covers, list) else [])
+                need({part.get('id') for part in parts} <= expected and covered == expected,
+                     f'{role}: item crop coverage incomplete')
                 layout_errors = geometry_errors(actual, parts)
                 errors.extend(f'{role}: {error}' for error in layout_errors)
                 if not layout_errors:
