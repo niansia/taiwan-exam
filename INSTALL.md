@@ -11,7 +11,7 @@
 https://github.com/niansia/taiwan-exam
 
 Claude Customize → Skills 原生套件／有執行能力的網頁對話工具：
-https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip
+https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip
 
 ChatGPT Project／Claude Project／Gemini Gem 知識檔（一鍵下載頁）：
 https://niansia.github.io/taiwan-exam/download-web-knowledge.html
@@ -20,7 +20,7 @@ https://niansia.github.io/taiwan-exam/download-web-knowledge.html
 https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md
 ```
 
-Claude 原生 Skills 優先使用 2026.09.14.1 ZIP，不解壓直接上傳並啟用。
+Claude 原生 Skills 優先使用 2026.09.17.1 ZIP，不解壓直接上傳並啟用。
 短版 SKILL 入口會按需讀取已分開的 references 與 scripts；不要把大型聚合 MD
 當成原生 Skill 的完整正文。已安裝套件可直接使用工具，不需再抽取聚合 MD。
 一般網頁出卷對話如有程式／檔案能力，也可附上同一 ZIP，由模型解壓既有工具。
@@ -185,7 +185,7 @@ schema/profile 檢查；缺少 PMingLiU／DFKai 名稱本身也不是拒絕理�
 
 聊天專案：在 **Chat 的 Projects** 建立 `Taiwan Exam`，把知識檔加入 Project Knowledge，並把設定文字存成 Project Instructions，之後在同一專案開聊天。
 
-原生 Skill：到 **Customize → Skills → ＋ → Create skill → Upload a skill**，上傳 [2026.09.14.1 工具／Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip)，不要解壓，按 Save 並啟用。這個版本使用短入口與分開的規則／工具；舊 MD 雖可符合 YAML 格式，整份讀入仍會浪費上下文，請停用舊 Skill 後改用 ZIP。MD 留給聊天專案知識。Claude 的實際上傳與平台掃描結果仍以帳號介面為準。
+原生 Skill：到 **Customize → Skills → ＋ → Create skill → Upload a skill**，上傳 [2026.09.17.1 工具／Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)，不要解壓，按 Save 並啟用。這個版本使用短入口與分開的規則／工具；舊 MD 雖可符合 YAML 格式，整份讀入仍會浪費上下文，請停用舊 Skill 後改用 ZIP。MD 留給聊天專案知識。Claude 的實際上傳與平台掃描結果仍以帳號介面為準。
 
 **Cowork** 是輸入框可選的任務模式：使用已啟用的 Skill，附上當科版型後提出出卷需求；不是把 Claude Code 的本機安裝指令貼到一般聊天。**Claude for Word** 是 Word 外掛，本專案尚未驗證該外掛的固定模板 PDF 流程。初次設定、出卷文字與各入口比較見 [README 的 Claude 說明](README.md#claude聊天專案skills-與-cowork)。
 
