@@ -2,14 +2,23 @@
 
 [返回首頁](../README.md) · [下載最新知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)
 
-**2026.09.17.1：** Claude 原生 Skills 建議下載[網頁工具 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)，不解壓直接上傳。ChatGPT Project、Claude Project、Gemini Gem 的知識區仍可使用 MD。可執行 Python／讀寫檔案的網頁對話，也能附上同一 ZIP，請模型解壓後使用既有工具。
+**2026.09.17.1：** Claude Skills 與有 Skills 的 ChatGPT 帳號，建議下載[網頁工具 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)，不解壓直接上傳。ChatGPT Project、Claude Project、Gemini Gem 的知識區仍可使用 MD。可執行 Python／讀寫檔案的網頁對話，也能附上同一 ZIP，請模型解壓後使用既有工具。
 
 以下保留各平台的安裝與叫用範例；選單與可用工具以帳號實際介面為準。
 網頁版更新須替換已儲存的知識檔，GitHub 更新不會自動同步舊附件。
 
 ### ChatGPT 網頁版
 
-先在目前的 ChatGPT「對話」模式輸入 `@skill-creator`。只要選單能選到它（如使用者畫面已出現藍色 `@skill-creator` 標籤），對話模式就可以建立 Skill，不必強制切換「工作」。若帳號在對話模式找不到它，再切到「工作」模式重試。附上知識檔後貼上這一段即可：
+**有 Skills 的帳號，建議直接上傳 ZIP：** 依 [OpenAI 官方說明](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)，Skills 目前開放給 Business、Enterprise、Healthcare、Edu 帳號，並受工作區設定限制。在左側欄點 `Plugins`，選 `Skills` 分頁，再點 `Create → Upload from your computer`，選取未解壓的[網頁工具 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)。ChatGPT 會先掃描：通過後即可使用；顯示 `Needs Review` 時請自行檢視後再決定；顯示 `Blocked` 則無法使用。直接上傳保留原始 SKILL.md、scripts 與 references，不經模型改寫，因此不必再用 `@skill-creator` 建立。
+
+安裝後開新對話即可提出需求，也可以在輸入框鍵入 `@` 選取 `taiwan-exam-generator`：
+
+```text
+請出一份 116 學測社會完整模擬考。
+請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成命題、解題驗證與逐頁版面檢查。
+```
+
+**上傳被管理員關閉，但仍有 `@skill-creator`：** 在「對話」模式輸入 `@skill-creator`。只要選單能選到它（如使用者畫面已出現藍色 `@skill-creator` 標籤），對話模式就可以建立 Skill，不必強制切換「工作」；找不到時再切到「工作」模式重試。附上知識檔後貼上：
 
 ```text
 請使用我附上的 taiwan-exam-web-knowledge.md 建立「Taiwan Exam Generator」Skill。
@@ -21,16 +30,9 @@
 完成後不要要求我另開新對話，直接在本對話接受出卷需求。
 ```
 
-若介面顯示「安裝」或「儲存」按鈕，按一次是 ChatGPT 的原生永久保存確認，檔案內容無法替使用者略過這個安全步驟。確認後可在**同一個對話立刻**貼上：
+若介面顯示「安裝」或「儲存」按鈕，按一次是 ChatGPT 的原生永久保存確認，檔案內容無法替使用者略過這個安全步驟。確認後可在**同一個對話立刻**出卷；之後開新對話時，鍵入 `@` 並選取 `Taiwan Exam Generator` 即可，不必重新上傳知識檔。
 
-```text
-請出一份 116 學測社會完整模擬考。
-請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成命題、解題驗證與逐頁版面檢查。
-```
-
-之後開新對話時，在輸入框鍵入 `@` 並選取 `Taiwan Exam Generator`，即可繼續使用，不必重新上傳知識檔。新對話選取只是日後的叫用方式，不是第一次出卷前必須完成的驗證步驟。
-
-完整考卷、兩份 PDF 與逐頁檢查屬於成品工作，建議建立成功後切到「工作」模式執行；但這是能力與穩定性建議，不是建立或叫用 Skill 的硬性條件。若對話模式本身已有檔案建立與檢查能力，也可以直接使用。若帳號沒有 Skills，可建立一個固定 Project，把同一知識檔與第一次設定文字放入 Project；不要把普通聊天的一次附件上傳稱為永久安裝。
+完整考卷、兩份 PDF 與逐頁檢查屬於成品工作，建議在「工作」模式執行；但這是能力與穩定性建議，不是建立或叫用 Skill 的硬性條件。若對話模式本身已有檔案建立與檢查能力，也可以直接使用。若帳號沒有 Skills，可建立一個固定 Project，把知識檔與第一次設定文字放入 Project；不要把普通聊天的一次附件上傳稱為永久安裝。
 
 ### Claude：聊天專案／Skills／Cowork
 
@@ -50,7 +52,7 @@
 
 **原生 Skill 方式（建議）：** 到 `Customize → Skills → ＋ → Create skill → Upload a skill`，直接上傳[新版 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)，**不要解壓**，儲存並啟用。此套件的短版入口會按需使用分開的規則與工具，不再把約 2.5 MB 的聚合 MD 當作原生 Skill 正文。曾安裝舊 MD 的使用者請停用舊版並改用 ZIP。之後開 Chat 或選取輸入框的 **Cowork**，附上當科版型並貼上出卷需求。不必另建聊天專案，也不必每次再附 ZIP。不能把 Markdown 改名成 ZIP。
 
-`Settings → Capabilities` 需開啟 `Code execution and file creation`；組織帳號可能由管理員控制。**Cowork 是任務模式、Claude for Word 是 Word 外掛、Claude Code 是另一種開發工具**。本專案尚未驗證 Word 外掛的固定模板 PDF 流程。Cowork 的本機檔案存取需 Claude Desktop 開啟並連線。詳見 [README 入口比較與完整出卷文字](../README.md#claude聊天專案skills-與-cowork)與 [Claude 官方 Cowork 說明](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)。
+`Settings → Capabilities` 需開啟 `Code execution and file creation`；組織帳號可能由管理員控制。**Cowork 是任務模式、Claude for Word 是 Word 外掛、Claude Code 是另一種開發工具**。本專案尚未驗證 Word 外掛的固定模板 PDF 流程。Cowork 的本機檔案存取需 Claude Desktop 開啟並連線。詳見 [README 的 Claude 安裝](../README.md#claude)、[出卷步驟](../README.md#第-3-步出卷)與 [Claude 官方 Cowork 說明](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)。
 
 v0.7.1 是較舊的本機安裝包，不含後續網頁修正。網頁原生 Skill 請使用 `taiwan-exam-hosted-2026.09.17.1.zip`；聊天專案則替換新版知識檔。套件驗證不代表帳號實際上傳、安全掃描或完整出卷已通過。
 
