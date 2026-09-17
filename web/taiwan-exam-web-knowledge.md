@@ -716,9 +716,9 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/web-platform-use.md",
     "bytes": 30342,
-    "sha256": "b5074d14a9146ea1f7d4cd6495e71c5546ec977f59769bd229765643eca2882a",
+    "sha256": "dddd5b5120240ae1dfbe5863f45bd325a6c40e0dafcb1340fca023244449f7da",
     "embedded_bytes": 30342,
-    "embedded_sha256": "b5074d14a9146ea1f7d4cd6495e71c5546ec977f59769bd229765643eca2882a"
+    "embedded_sha256": "dddd5b5120240ae1dfbe5863f45bd325a6c40e0dafcb1340fca023244449f7da"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -59437,7 +59437,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.15.1/taiwan-exam-hosted-2026.09.15.1.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
