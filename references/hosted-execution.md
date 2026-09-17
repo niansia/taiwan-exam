@@ -124,8 +124,40 @@ require `--plan`; deliberate replacements require `--replace`. Preserve existing
 review reports: changed content invalidates their old hashes and returns to
 pending. Numbered subparts require distinct `subpart_id`; unnumbered tasks retain
 their actual display/answer label. Check scope, answerability, shortest routes, distractors and
-score sums early. Inspect the first authored items and their solutions with the
-maintained body renderer before producing twenty items with broken typography.
+score sums early. After each saved batch, project both body specs and render
+only that batch's items and solutions:
+
+```text
+python scripts/run_hosted_workflow.py specs --state run/run-state.json --question-output run/questions-blocks.json --solution-output run/solutions-blocks.json --hints run/layout-hints.json
+python scripts/run_hosted_workflow.py proof --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --items q1,q2,q3 --font FONT --output run/proof-01
+```
+
+`specs` copies printed text only from exam.json and applies the same saved-item
+conventions as the maintained official-form renderers, for every subject:
+section titles/instructions; prompts; options printed as `(A)`/`(1)`;
+`option_layout` columns; a fill rail at `{{answer}}` or the first `______`, sized
+by `answer_format`; `visual_asset` printed once per shared file, `visual_layout:
+side-right`, `inline_assets`; one `第 X 至 Y 題為題組` label per group of different
+numbers; `group_stimulus` and `group_stimulus_page_splits`; English `[[n]]` gaps,
+`*italic*`, `stimulus_layout`, a lettered option bank printed once and cloze
+option rows aligned after their passage; Natural Science `（應選n項）` generated
+from `required_selection_count` (never typed in the prompt); Social Studies
+`response_format_table`; `continuation_pages`; answer reasoning/explanations.
+An item with `suppress_question_display` is `covers`ed by the block that prints
+it (its group's material or the same-number item), so shared text is never faked
+as extra rows. Score wording already in a prompt (including a whole question's
+total across subparts) is not printed twice. Unicode sub/superscripts such as
+H₂O, SO₄²⁻ or x⁴ become real sub/superscripts, because most CJK fonts lack those
+glyphs. Delimited LaTeX is refused at `specs` with the item named: use a verified
+formula asset. Long material, prompts and solutions continue on the next page at
+paragraph or step boundaries instead of leaving a large blank bottom. `--hints`
+is optional; it holds layout choices and explicit blocks for structures the item
+fields cannot express. Never edit a generated spec: stale or hand-edited
+generated specs are refused. Open every proof crop at readable scale while the
+item is fresh and record findings with `record-review --proof run/proof-01`. Fix
+superscripts, fractions, radicals and figure/text arrangement before authoring
+more items. A final crop may later reuse such an actual review only under the
+unchanged-item rule below; final pages always need their own review.
 Complex formulas need actual readable verification; plain HTML success does not
 prove superscripts, fractions or radicals are correct. Use deterministic assets
 for exact diagrams and data. Do not shrink text or pad content to meet a page
@@ -173,8 +205,9 @@ actual hash contract; never copy stale approvals onto changed content.
 ## One layout and review preparation pipeline
 
 Read `reading/layout.md`. Use `hosted_body_templates.py` components and the
-selected subject's question/solution layout pair. Put authored content in the
-current run's body specifications; never rewrite a PDF engine for ordinary
+selected subject's question/solution layout pair. Generate the current run's
+body specifications from the saved exam with `specs` (layout hints for special
+structures); never retype item text or rewrite a PDF engine for ordinary
 blocks. Preserve original fixed PDF layers as immutable backgrounds, including
 the subject-specific formula page for Math A/B. Body flow must reserve complete
 answer rails, equations, figures and shared stimuli before painting later items.
@@ -187,20 +220,52 @@ page/item review together:
 python scripts/run_hosted_workflow.py build --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --font FONT --year 116 --output run/build-v1
 ```
 
-Use the returned review state and image index. Open every actual new or changed
-page at readable scale and every new or changed item crop; thumbnails/contact
-sheets only navigate these images. Record defects and concrete observations in
-the generated pending reports. Inspect formula geometry, labels, response rails,
+The result's `review_queue` lists exactly the page and crop images still pending
+in the returned review state. Open each at readable scale; thumbnails/contact
+sheets only navigate. `review_batches` groups a pending page with its pending
+crops (a proof groups each item's question and solution crops). When the runtime
+shows several separate images at native resolution in one call, open one batch
+per call rather than one image per call; never stitch or downscale images to
+save calls. Inspect formula geometry, labels, response rails,
 collisions, whole-page density, missing material, answer separation and grayscale
-readability. A machine report cannot replace this visual work.
-`needs_full_resolution_review` and its reasons identify pages needing priority
-magnification; those rasters are prepared at higher resolution. Every page and
-required crop still needs review. A false flag does not prove visual quality;
-zoom any uncertain page regardless of the heuristic. Density findings
-require compatible measured evidence; prose cannot waive a collision or a large
-terminal void. Repair affected specifications and use a new build output path.
-The helper may retain only qualifying actual reviews of unchanged same-paper
-pixels; changed content still requires its dependent editorial review.
+readability, then record the actual findings in one call:
+
+```text
+python scripts/run_hosted_workflow.py record-review --state run/build-v1-review-run-state.json --observations run/review-notes-v1.json
+```
+
+The notes map `question`/`solution` to `pages` (page number) and `items` (item
+id, or `id#n` for a continuation part), each with `status` (pass, fail or
+pending) and concrete `observations`. The helper checks that the reviewed images
+are unchanged, writes the findings, refreshes registered hashes and lists what
+remains. It never supplies a status or an observation. A machine report cannot
+replace this visual work. `needs_full_resolution_review` and its reasons identify
+pages needing priority magnification; those rasters are prepared at higher
+resolution. Every page and required crop still needs review. A false flag does
+not prove visual quality; zoom any uncertain page regardless of the heuristic.
+
+For each `large-bottom-void-review` the build attaches `density_evidence`: the
+page role and the comparable same-role embedded official measurements.
+`reflow_before_review` lists pages that no comparable measurement can justify;
+reflow those before spending review time on them. For a genuinely comparable
+page, record `{"decision": "justified", "reason": "...", "embedded_reference": N}`
+under that page's `issue_dispositions`; the helper copies the measurement's
+identity and the final checker remeasures both. Prose cannot waive a collision
+or an unjustified terminal void.
+
+Repair the saved item (`append_items.py --replace --state LATEST_REVIEW_STATE`)
+or the layout hints, rerun `specs` with that state, and build to a new output
+path from it. Reflow pages that `reflow_before_review` names in the same repair,
+so one rebuild resolves every known defect. A crop keeps
+an actual earlier review, from a proof or an earlier build of this paper, only when
+the item's authored record is unchanged (review metadata excluded; a shared
+stimulus binds its whole group), fonts and painting helpers are unchanged, and the
+new crop is pixel-identical or prints the same glyphs, rules and images within
+0.02 pt, the float placement noise left by reflow. A recorded non-pass finding
+on an equivalent rendering blocks reuse. A page keeps its review only with
+identical pixels, mechanical issues and item content. Everything else starts
+pending. Say that retained reviews were retained, not freshly inspected; changed
+content still requires its dependent editorial review.
 
 Use `run_hosted_workflow.py checkpoint --run-dir run --phase authoring` after
 preflight to create/register the run state. `append_items.py` already checkpoints

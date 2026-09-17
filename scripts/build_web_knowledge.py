@@ -185,10 +185,13 @@ answer-free second solving pass and disclose its actual review mode. Do not
 invent another reviewer or stop ordinary generation solely because no subagent
 exists. An explicit independent-review request still requires that capability.
 
+After each batch, `run_hosted_workflow.py specs` projects saved items into body
+specs (never retype them) and `proof` renders that batch for early crop review.
 After content review, use `run_hosted_workflow.py build` for both body renders,
 fixed-template compositions, and final page/item review preparation in one call.
-Reuse unchanged verified build output on continuation. Review actual final
-images and record findings; `run_hosted_workflow.py finalize` registers those
+Reuse unchanged verified build output on continuation. Review the actual images
+in its review queue and write findings with `record-review`; unchanged items keep
+actual earlier crop reviews. `run_hosted_workflow.py finalize` registers those
 real reports and executes `check_hosted_run.py`. Do not separately repeat each
 validator, inspector or fixed-layer check already performed by that pipeline.
 The checker verifies both final PDFs and the saved evidence. It cannot author

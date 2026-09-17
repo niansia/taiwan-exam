@@ -50,6 +50,8 @@ never invent an independent reviewer or passing observation.
 Create one paper ID and run directory. On continuation, verify and resume saved
 work and its first unfinished action. Reuse unchanged verified inputs and actual
 reviews; do not restart authoring or repeat completed setup merely for a new turn.
+Project body specs from saved items with `run_hosted_workflow.py specs`, review
+each batch's item crops with `proof`, and record findings with `record-review`.
 Deliver separate question and full-solution PDFs only after the final checks.
 If incomplete, save actual recoverable work and name what remains.
 

@@ -176,6 +176,29 @@ def test_external_evidence_is_rejected(saved_run, tmp_path):
     assert any('external' in e for e in evaluate(state, save)['errors'])
 
 
+def test_item_crop_coverage_counts_items_printed_inside_a_reviewed_crop(saved_run):
+    """Suppressed cloze gaps and shared-text subparts are covered by the block that prints them."""
+    state, save = saved_run
+
+    def rewrite(change):
+        for bundle in state['pdfs'].values():
+            path = Path(bundle['item_review']['path'])
+            report = json.loads(path.read_text())
+            change(report)
+            bundle['item_review'] = save(path, report)
+
+    def cover_last_item(report):
+        report['parts'] = [part for part in report['parts'] if part['id'] != '3']
+        report['parts'][-1]['covers'] = ['3']
+    rewrite(cover_last_item)
+    assert evaluate(state, save)['status'] == 'evidence-complete'
+    rewrite(lambda report: report['parts'][-1].update(covers=[]))
+    result = evaluate(state, save)
+    assert result['status'] == 'pending' and any('coverage incomplete' in e for e in result['errors'])
+    rewrite(lambda report: report['parts'][-1].update(covers=[report['parts'][-1]['id'], '3']))
+    assert any('invalid covers' in e for e in evaluate(state, save)['errors'])
+
+
 def test_math_visual_floor_counts_required_distinct_visuals_across_sections(saved_run):
     state, save = saved_run
     exam = json.loads(Path('exam.json').read_text())

@@ -36,12 +36,16 @@ figures. Cover/formula pages get whole-page review, not fictional question IDs.
 python scripts/hosted_item_layout.py --pdf question.pdf --layout layout.json --output item-crops --report question-items.json
 ```
 
-The report starts pending (or retains a qualifying actual unchanged review under
-hosted-body-workflow.md). Open EVERY new or changed crop at readable resolution (2 pixels/pt),
-inspect stem, options, rail, equations and every diagram label, then add status
-pass and concrete observations to each part. Keep crops unchanged. Repeat for
+The report starts pending (or retains a qualifying actual review of an unchanged
+item under hosted-body-workflow.md). Open EVERY new or changed crop at readable
+resolution (2 pixels/pt), inspect stem, options, rail, equations and every diagram
+label, then record status and concrete observations for each part
+(`run_hosted_workflow.py record-review` writes them). Keep crops unchanged. Repeat for
 solutions; register each report as pdfs.ROLE.item_review. The checker rerenders
-crops from final bytes and verifies geometry, coverage and freshness. A contact
+crops from final bytes and verifies geometry, coverage and freshness. Every item
+must own a reviewed part or be listed in the `covers` of the part that prints it
+(a suppressed gap in its passage, a subpart inside its question); reviewing that
+crop means checking every covered item's printed content too. A contact
 sheet is not item review. Renderer boxes can omit content: compare crops to the
 authored content AND whole pages. The narrow rail detector cannot discover all
 clipped/outlined objects, and supplied geometry is not independently inferred.
@@ -64,6 +68,11 @@ This legacy route verifies its source hash and remeasures both PDFs. Choose the
 route at preflight, never start downloading originals during final QA.
 Candidate bottom void cannot exceed reference by over 10 percentage points.
 This conservative review threshold is project policy, not an official exam rule.
+The build precomputes each flagged page's `density_evidence`: its role and up to
+three same-role embedded measurements within that limit, or
+`exceeds-all-embedded-references` when none qualifies (reflow first). Selecting
+one with `embedded_reference` in record-review copies its identity; the reviewer
+still confirms the page is genuinely comparable and writes the reason.
 Editorial review must verify role compatibility: never compare an interior page
 to a sparse cover/formula page. A self-created reference or scratch-space reason
 cannot waive failure. Reflow and inspect new bytes when it fails.
