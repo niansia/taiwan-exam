@@ -2,6 +2,7 @@
 import ast
 import hashlib
 import json
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -12,7 +13,7 @@ import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
-from build_hosted_skill import build
+from build_hosted_skill import build, archive_path, validate_member_path
 from build_web_knowledge import source_paths
 from package_skill import should_include
 
@@ -40,10 +41,14 @@ def test_short_entry_is_separate_from_exact_canonical_sources(native):
     for source in source_paths():
         relative=source.relative_to(ROOT)
         destination='references/full-skill.md' if relative.as_posix()=='SKILL.md' else relative
-        assert (installed/destination).read_bytes()==source.read_bytes()
+        assert (installed/archive_path(str(destination).replace('\\', '/'))).read_bytes()==source.read_bytes()
     with ZipFile(archive) as zipped:
         names=zipped.namelist()
         assert len(names)==len(set(names))
+        # Regresses Claude's "Zip file contains path with invalid characters":
+        # every member, including non-selected/legacy subjects, must be portable.
+        assert all(re.fullmatch(r'[A-Za-z0-9_./-]+', name) for name in names)
+        assert not any('/./' in name or '/../' in name or '//' in name for name in names)
         assert all(name.startswith('taiwan-exam-generator/') for name in names)
         assert not any(name.endswith(('.pdf','.zip')) or '/web/' in name or '/docs/' in name for name in names)
         assert not any('build_hosted_skill.py' in name or 'build_web_knowledge.py' in name for name in names)
@@ -55,6 +60,15 @@ def test_short_entry_is_separate_from_exact_canonical_sources(native):
     for row in manifest['files']:
         data=(installed/row['path']).read_bytes()
         assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256']
+
+
+@pytest.mark.parametrize('path', ['exam_packs/學測/manifest.json',
+                                 'exam_packs/學測/subjects/數學（舊制）/subject.json',
+                                 '../outside.py', '/absolute.py', 'a//b.py',
+                                 'a/./b.py', 'a\\b.py', 'drive:c.py', 'a\x00b.py'])
+def test_archive_writer_rejects_nonportable_members(path):
+    with pytest.raises(ValueError, match='Non-portable'):
+        validate_member_path(path)
 
 
 def test_native_archive_is_deterministic_and_does_not_overwrite(native):

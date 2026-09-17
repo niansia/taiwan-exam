@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.14.1
+# Taiwan Exam Web Knowledge v2026.09.15.1
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -600,10 +600,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 14893,
-    "sha256": "6595f6458d4bb572fd701a96378764d60139b28f01c3aeefd04117f934a04b02",
-    "embedded_bytes": 14893,
-    "embedded_sha256": "6595f6458d4bb572fd701a96378764d60139b28f01c3aeefd04117f934a04b02"
+    "bytes": 15225,
+    "sha256": "d0c5a0c46ed503aff67a7e0c8adc0ae0c59744550e42b05ebbf23c7141952996",
+    "embedded_bytes": 15225,
+    "embedded_sha256": "d0c5a0c46ed503aff67a7e0c8adc0ae0c59744550e42b05ebbf23c7141952996"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -712,10 +712,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 29804,
-    "sha256": "d3a1dad41660109151936ff5f898f284ca5f54ebfd4b43691c760a99402335ef",
-    "embedded_bytes": 29804,
-    "embedded_sha256": "d3a1dad41660109151936ff5f898f284ca5f54ebfd4b43691c760a99402335ef"
+    "bytes": 30342,
+    "sha256": "b5074d14a9146ea1f7d4cd6495e71c5546ec977f59769bd229765643eca2882a",
+    "embedded_bytes": 30342,
+    "embedded_sha256": "b5074d14a9146ea1f7d4cd6495e71c5546ec977f59769bd229765643eca2882a"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -887,10 +887,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 23639,
-    "sha256": "6ca51f15b7e19959d889117a1be48c189142406a1f5452186cd6d1d6285d73eb",
-    "embedded_bytes": 23639,
-    "embedded_sha256": "6ca51f15b7e19959d889117a1be48c189142406a1f5452186cd6d1d6285d73eb"
+    "bytes": 23967,
+    "sha256": "ee1a7631e5a3c3f9507b29b571eb48add32235812338e86d6a88d5c0f0ad9b29",
+    "embedded_bytes": 23967,
+    "embedded_sha256": "ee1a7631e5a3c3f9507b29b571eb48add32235812338e86d6a88d5c0f0ad9b29"
   },
   {
     "path": "scripts/run_hosted_workflow.py",
@@ -56735,8 +56735,12 @@ binding. This route does not promise completion inside a provider's turn limit.
 When a native Skill already exposes its scripts and references, use
 `python scripts/read_web_knowledge.py --source-dir NATIVE_SKILL_DIR --subject
 SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Its package manifest is
-checked before the selected runtime files are copied. No aggregate Markdown,
-reinstallation or repository download is needed.
+checked before the selected runtime files are copied. ZIP filenames are portable
+ASCII names; `runtime_path` in the manifest restores original canonical paths in
+VERSIONED_REFS with unchanged file bytes. Run subsequent helpers from
+VERSIONED_REFS, not the installed ZIP directory. This one local copy is scoped to
+the selected subject; it requires no aggregate Markdown, reinstallation or
+repository download. Reuse that reference directory on continuation.
 
 Otherwise extract the uploaded knowledge file once with `read_web_knowledge.py KNOWLEDGE
 --subject SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Read this
@@ -59318,7 +59322,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.15.1/taiwan-exam-hosted-2026.09.15.1.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
@@ -59327,6 +59331,13 @@ Keep storage/installation separate from the execution surface. As checked on
   instructions. Keep MD for Project Knowledge. Do not rename MD to ZIP or claim
   the old v0.7.1 local archive contains current hosted fixes. Format/package
   checks do not establish account upload, platform scan or full-paper acceptance.
+  Version 2026.09.14.1 was rejected by the user's Claude uploader with
+  "Zip file contains path with invalid characters". It had non-ASCII member
+  paths, including full-width parentheses. The replacement uses ASCII-only ZIP
+  paths and a transparent manifest mapping; the reader verifies bytes and
+  restores canonical paths into the selected run's writable reference folder.
+  Do not ask users to rename folders or edit the archive. A successful browser
+  download or local package test is not evidence that Claude accepted an upload.
 - Cowork: choose Cowork in the message box on an available surface; use the
   enabled Skill and attach the subject's layout PDFs to the task. Cowork is a
   task mode, not another name for Chat, Claude Code, or Microsoft Word. Current
@@ -63964,17 +63975,20 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
         raise ValueError(f'Unknown GSAT subject: {subject}')
     source_root = source_dir.resolve()
     manifest = json.loads((source_root / 'PACKAGE_MANIFEST.json').read_text(encoding='utf-8-sig'))
-    entries, verified, seen = {}, [], set()
+    entries, verified, seen, runtime_seen = {}, [], set(), set()
     for row in manifest['files']:
-        path = row['path']
-        parts = PurePosixPath(path).parts
-        if (not parts or path.startswith('/') or '..' in parts or '\\' in path or ':' in path
-                or path in seen):
-            raise ValueError('Unsafe or duplicate package path: ' + path)
-        seen.add(path)
+        stored_path = row['path']
+        path = row.get('runtime_path', stored_path)
+        for candidate, names in ((stored_path, seen), (path, runtime_seen)):
+            if (not isinstance(candidate, str) or not candidate
+                    or any(part in {'', '.', '..'} for part in candidate.split('/'))
+                    or '\\' in candidate or ':' in candidate or '\x00' in candidate
+                    or candidate.casefold() in names):
+                raise ValueError('Unsafe or duplicate package path: ' + str(candidate))
+            names.add(candidate.casefold())
         if not relevant(path, subject):
             continue
-        source = (source_root / path).resolve()
+        source = (source_root / stored_path).resolve()
         if not source.is_relative_to(source_root) or not source.is_file():
             raise ValueError('Missing or external package file: ' + path)
         raw = source.read_bytes()
@@ -63984,7 +63998,7 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
         # the web builder does; copied runtime files keep the package's bytes.
         if source.suffix in {'.md', '.json', '.py', '.txt', '.yaml', '.yml', ''}:
             payload = (raw.decode('utf-8-sig').replace('\r\n', '\n').replace('\r', '\n').rstrip() + '\n').encode('utf-8')
-            record = dict(row, embedded_bytes=len(payload),
+            record = dict(row, path=path, embedded_bytes=len(payload),
                           embedded_sha256=hashlib.sha256(payload).hexdigest())
             entries[path] = (record, payload)
         verified.append((path, raw))

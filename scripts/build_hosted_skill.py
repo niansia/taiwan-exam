@@ -29,7 +29,11 @@ Native hosted Skill, version {version}.
 
 Start with [references/hosted-execution.md](references/hosted-execution.md).
 This multi-file Skill already contains its executable `scripts/`, subject
-references, schemas, and template maps. Use those files directly. Do not extract
+references, schemas, and template maps. First use the reader's `--source-dir`
+route in hosted-execution.md to materialize the selected subject into a writable
+reference directory; run all subsequent helpers from that directory. ZIP member
+names use ASCII; PACKAGE_MANIFEST.json maps them to original runtime paths without
+changing file contents. Do not manually rename folders. Do not extract
 or reconstruct the large web-knowledge Markdown, download the repository, or
 reinstall this Skill for an ordinary paper request. Run helpers without printing
 their source. Read the requested subject's guidance at the phase that uses it.
@@ -63,11 +67,31 @@ def sha(data):
 
 
 def write_member(zipped, path, data):
+    validate_member_path(path)
     info = ZipInfo('taiwan-exam-generator/' + path, date_time=(1980, 1, 1, 0, 0, 0))
     info.compress_type = ZIP_DEFLATED
     info.create_system = 3
     info.external_attr = 0o100644 << 16
     zipped.writestr(info, data, compresslevel=9)
+
+
+def validate_member_path(path):
+    """Our conservative upload-compatible path policy, not vendor certification."""
+    if (not re.fullmatch(r'[A-Za-z0-9_./-]+', path)
+            or any(part in {'', '.', '..'} for part in path.split('/'))):
+        raise ValueError('Non-portable hosted archive path: ' + path)
+
+
+def archive_path(runtime_path):
+    # Preserve the original bytes and internal references. Only the transport
+    # filename changes; the reader restores the original path in the run folder.
+    if re.fullmatch(r'[A-Za-z0-9_./-]+', runtime_path):
+        validate_member_path(runtime_path)
+        return runtime_path
+    suffix = Path(runtime_path).suffix
+    target = 'resources/canonical/' + sha(runtime_path.encode('utf-8')) + suffix
+    validate_member_path(target)
+    return target
 
 
 def build(version, output, *, root=ROOT):
@@ -95,18 +119,22 @@ def build(version, output, *, root=ROOT):
         if path.name == 'writer-calibration-additions.json':
             from writer_calibration import load_writer
             load_writer(path.parent.parent)
-        target = 'references/full-skill.md' if relative == 'SKILL.md' else relative
+        runtime_path = 'references/full-skill.md' if relative == 'SKILL.md' else relative
+        target = archive_path(runtime_path)
         if target in members:
             raise ValueError('Duplicate hosted archive target: ' + target)
         data = path.read_bytes()
         members[target] = data
-        records.append({'path': target, 'bytes': len(data), 'sha256': sha(data),
+        records.append({'path': target, 'runtime_path': runtime_path,
+                        'bytes': len(data), 'sha256': sha(data),
                         'source': relative, 'source_sha256': sha(data)})
     if len({p.casefold() for p in members}) != len(members):
         raise ValueError('Case-colliding hosted archive paths')
-    manifest = {'schema_version': 1, 'name': 'taiwan-exam-generator', 'version': version,
+    manifest = {'schema_version': 2, 'name': 'taiwan-exam-generator', 'version': version,
                 'distribution_status': 'internal-review-not-published',
                 'format': 'native-multi-file-hosted-skill', 'origin': attribution['origin'],
+                'archive_path_policy': 'ascii-letters-digits-dot-underscore-hyphen-slash',
+                'claude_upload_acceptance': 'not-performed-by-builder',
                 'attribution_check': {k: attribution[k] for k in ('status', 'scope', 'notice_sha256', 'warnings')},
                 'security_acceptance': 'not-performed-by-builder',
                 'browser_acceptance': 'not-performed-by-builder',

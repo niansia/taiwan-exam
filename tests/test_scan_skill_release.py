@@ -11,13 +11,16 @@ import scan_skill_release as security
 SOURCE_URL = 'https://example.org/releases/skill-v1.zip'
 
 
-def archive(tmp_path, name='SKILL.md', tamper=False):
+def archive(tmp_path, name='SKILL.md', tamper=False, native=False):
     path = tmp_path / 'test.zip'
     body = b'fixture'
     record = {'path': name, 'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest()}
     with ZipFile(path, 'w') as zipped:
         zipped.writestr('taiwan-exam-generator/' + name, b'changed' if tamper else body)
-        zipped.writestr('taiwan-exam-generator/PACKAGE_MANIFEST.json', json.dumps({'files': [record]}))
+        manifest={'files': [record]}
+        if native:
+            manifest['format']='native-multi-file-hosted-skill'
+        zipped.writestr('taiwan-exam-generator/PACKAGE_MANIFEST.json', json.dumps(manifest))
     return path
 
 
@@ -49,6 +52,18 @@ def test_retired_helpers_block(tmp_path):
 def test_path_traversal_blocks(tmp_path):
     assert scan(archive(tmp_path, '../escape.txt'))['status'] == 'fail'
     assert not (tmp_path / 'escape.txt').exists()
+
+
+@pytest.mark.parametrize('name', ['exam_packs/學測/manifest.json',
+                                 'resources/legacy（old）.json', 'resources/a b.json'])
+def test_native_upload_path_failure_is_separate_from_clean_antivirus(tmp_path, name):
+    candidate=archive(tmp_path, name, native=True)
+    report=scan(candidate)
+    assert report['status']=='fail'
+    assert len(report['scans'])==1 and report['scans'][0]['returncode']==0
+    with pytest.raises(ValueError, match='Non-portable native Skill archive path'):
+        security.inspect_archive(candidate, tmp_path/'extracted')
+    assert not (tmp_path/'extracted').exists()
 
 
 def test_scanner_error_blocks(tmp_path):

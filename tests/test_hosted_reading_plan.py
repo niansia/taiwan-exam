@@ -119,10 +119,54 @@ def test_native_skill_reads_without_aggregate_and_preserves_runtime(subject, tmp
     result = reading_plan_from_directory(native_skill, subject, tmp_path)
     read_chunks(tmp_path,result)
     assert not (native_skill / 'taiwan-exam-web-knowledge.md').exists()
-    for path in ('scripts/check_hosted_run.py',
-                 'exam_packs/學測/metadata/official-current-web-sources.json'):
-        assert (tmp_path / path).read_bytes() == (native_skill / path).read_bytes()
+    manifest=json.loads((native_skill/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
+    for row in manifest['files']:
+        path=row.get('runtime_path', row['path'])
+        if (tmp_path/path).is_file():
+            assert (tmp_path/path).read_bytes() == (native_skill/row['path']).read_bytes()
+    assert (tmp_path/'exam_packs/學測/metadata/official-current-web-sources.json').is_file()
+    assert not (native_skill/'exam_packs/學測').exists()
     assert reading_plan_from_directory(native_skill, subject, tmp_path) == result
+
+
+@pytest.mark.parametrize('runtime_path', ['../outside.json', '/absolute.json',
+                                        'C:/outside.json', 'a\\b.json', 'a//b.json'])
+def test_native_reader_rejects_unsafe_runtime_alias_before_writing(tmp_path, runtime_path):
+    source=tmp_path/'source'
+    source.mkdir()
+    (source/'PACKAGE_MANIFEST.json').write_text(json.dumps({'files': [
+        {'path': 'resources/canonical/record.json', 'runtime_path': runtime_path}
+    ]}), encoding='utf-8')
+    output=tmp_path/'runtime'
+    with pytest.raises(ValueError, match='Unsafe or duplicate package path'):
+        reading_plan_from_directory(source, '數學A', output)
+    assert not output.exists()
+
+
+def test_native_reader_rejects_changed_mapped_data_before_writing(tmp_path, native_skill):
+    manifest=json.loads((native_skill/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
+    row=next(row for row in manifest['files']
+             if row.get('runtime_path')=='exam_packs/學測/metadata/official-current-web-sources.json')
+    source=tmp_path/'tampered'
+    file=source/row['path']
+    file.parent.mkdir(parents=True)
+    file.write_bytes(b'{"changed": true}')
+    (source/'PACKAGE_MANIFEST.json').write_text(json.dumps({'files': [row]}), encoding='utf-8')
+    with pytest.raises(ValueError, match='Package checksum mismatch'):
+        reading_plan_from_directory(source, '數學A', tmp_path/'runtime')
+    assert not (tmp_path/'runtime').exists()
+
+
+def test_native_reader_rejects_colliding_aliases_even_for_unselected_subject(tmp_path):
+    source=tmp_path/'source'
+    source.mkdir()
+    (source/'PACKAGE_MANIFEST.json').write_text(json.dumps({'files': [
+        {'path': 'resources/a.json', 'runtime_path': 'exam_packs/會考/test.json'},
+        {'path': 'resources/b.json', 'runtime_path': 'exam_packs/會考/TEST.json'}
+    ]}), encoding='utf-8')
+    with pytest.raises(ValueError, match='Unsafe or duplicate package path'):
+        reading_plan_from_directory(source, '數學A', tmp_path/'runtime')
+    assert not (tmp_path/'runtime').exists()
 
 
 def test_native_reader_rejects_changed_manifest_bound_helper(tmp_path, native_skill):

@@ -1,6 +1,7 @@
 """Native packaging must be progressive, complete, deterministic and unapproved."""
 import ast
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -14,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_hosted_skill as builder
 from scan_skill_release import inspect_archive
 from validate_attribution import validate
+from read_web_knowledge import reading_plan_from_directory
 
 
 def test_native_candidate_is_small_entry_with_real_separate_dependencies(tmp_path):
@@ -57,17 +59,21 @@ def test_native_candidate_build_is_deterministic_and_cannot_overwrite(tmp_path):
         assert manifest['browser_acceptance'] == 'not-performed-by-builder'
 
 
-def test_native_helpers_execute_without_aggregate_bootstrap(tmp_path):
+@pytest.mark.parametrize('subject', ['國綜', '英文', '數學A', '數學B', '自然', '社會', '國寫'])
+def test_native_helpers_execute_without_aggregate_bootstrap(tmp_path, subject):
     archive = tmp_path / 'runtime.zip'
     builder.build('test-runtime', archive)
     skill = tmp_path / 'skill'
     inspect_archive(archive, skill)
+    runtime = tmp_path / 'references'
+    reading_plan_from_directory(skill, subject, runtime)
     font = tmp_path / 'body.ttf'
     font.write_bytes(pymupdf.Font('cjk').buffer)
-    command = [sys.executable, str(skill / 'scripts/prepare_hosted_run.py'),
-               '--subject', '數學A', '--run-dir', str(tmp_path / 'run'), '--paper-id', 'native',
+    command = [sys.executable, str(runtime / 'scripts/prepare_hosted_run.py'),
+               '--subject', subject, '--run-dir', str(tmp_path / 'run'), '--paper-id', 'native',
                '--font', str(font), '--resource-pdf', str(builder.ROOT / 'web/taiwan-exam-template-resources.pdf')]
-    result = subprocess.run(command, cwd=tmp_path, capture_output=True, timeout=45)
+    result = subprocess.run(command, cwd=tmp_path, capture_output=True, timeout=45,
+                            env=dict(os.environ, PYTHONIOENCODING='utf-8'))
     assert result.returncode == 0, result.stderr.decode('utf-8', errors='replace')
     prepared = json.loads(result.stdout)
     assert prepared['status'] == 'ready-for-authoring'
