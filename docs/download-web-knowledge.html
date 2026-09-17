@@ -29,16 +29,16 @@
     <p id="status" role="status" aria-live="polite">正在準備下載……</p>
     <p><button id="download" type="button">再次下載知識檔</button></p>
     <p>知識檔 MD 適合 ChatGPT Project、Gemini Gem 或 Claude 聊天專案。已儲存的舊附件不會自動更新，請替換成新版。</p>
-    <p><strong>Claude Skill ZIP 修正版尚待上傳驗證，暫未開放下載。</strong>可先使用上方知識檔 MD，依 README 的 Claude 聊天專案方式設定。</p>
-    <p><strong>ZIP 正式開放後，Claude Customize → Skills 使用方式：</strong>直接上傳，<strong>不要解壓</strong>，儲存並啟用。這份套件使用短版技能入口與分開的工具／規則檔；不要再把大型聚合 MD 當作原生 Skill 正文。曾安裝舊 MD 的使用者，請停用舊版本後改用 ZIP。</p>
-    <p>舊版 2026.09.14.1 ZIP 在 Claude 有「path with invalid characters」上傳問題，2026.09.15.1 修正版已準備，實際上傳驗證後才開放。下載完成與 Claude 安裝成功是兩件事：請確認 Save 成功、技能出現在清單中；不需自行修改壓縮檔。</p>
+    <p><a class="button" href="https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip">下載網頁工具／Claude Skill ZIP</a></p>
+    <p><strong>Claude Customize → Skills 建議使用 ZIP：</strong>直接上傳，<strong>不要解壓</strong>，儲存並啟用。這份套件使用短版技能入口與分開的工具／規則檔；不要再把大型聚合 MD 當作原生 Skill 正文。曾安裝舊 MD 的使用者，請停用舊版本後改用 ZIP。</p>
+    <p>舊版 2026.09.14.1 ZIP 在 Claude 有「path with invalid characters」上傳問題，請改用本頁 2026.09.17.1 ZIP。下載完成與 Claude 安裝成功是兩件事：請確認 Save 成功、技能出現在清單中；不需自行修改壓縮檔。</p>
     <p>一般出卷對話若能執行 Python、讀寫檔案，也可附上 ZIP，請 AI 解壓並直接使用內附工具，避免重寫排版與檢查程式。只在對話解壓不等於永久安裝。ZIP 不含原始模板 PDF，模板下載在下方。</p>
     <p>啟用 Skill 後可在 Chat 或 Cowork 提出需求；Cowork 是任務模式，Word 是另一個外掛。<a href="https://github.com/niansia/taiwan-exam#claude聊天專案skills-與-cowork">查看 Claude 各入口與可複製的出卷文字</a></p>
     <p>若 AI 無法連網下載模板，可把離線資源 PDF 附到出卷對話。它內含 30 個原始 PDF 附件，約 3.5 MB，不含程式；AI 只取用當科。安裝時不必下載。</p>
     <p><button id="templates" type="button">下載離線模板資源 PDF</button></p>
     <p><a href="layout-examples/2026.09.14.1/index.html">查看七科題本與詳解版型（14 份 PDF）</a></p>
-    <small>知識檔版本：2026.09.17.1；工具 ZIP 版本：2026.09.15.1（尚未含 2026.09.17.1 的新工具）；版型 PDF 維持 2026.09.14.1<br>知識檔：taiwan-exam-web-knowledge.md<br>工具套件：taiwan-exam-hosted-2026.09.15.1.zip<br>模板備援：taiwan-exam-template-resources.pdf<br>知識檔不是 ZIP 或執行檔；工具 ZIP 另含 Python 程式。平台仍需能建立、解出及檢查 PDF。Claude 上傳與安全掃描結果仍以帳號實測為準。</small>
-    <noscript><p>瀏覽器已停用 JavaScript。ZIP 修正版仍待驗證；知識檔請改用<a class="button" href="https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=2026.09.17.1">開啟原始文字</a>或<a href="https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-template-resources.pdf">開啟模板資源 PDF</a>，再使用瀏覽器的另存功能。</p></noscript>
+    <small>版本：2026.09.17.1（知識檔與工具 ZIP）；版型 PDF 維持 2026.09.14.1<br>知識檔：taiwan-exam-web-knowledge.md<br>工具套件：taiwan-exam-hosted-2026.09.17.1.zip<br>模板備援：taiwan-exam-template-resources.pdf<br>知識檔不是 ZIP 或執行檔；工具 ZIP 另含 Python 程式。平台仍需能建立、解出及檢查 PDF。Claude 上傳與安全掃描結果仍以帳號實測為準。</small>
+    <noscript><p>瀏覽器已停用 JavaScript。上方 ZIP 連結仍可使用；知識檔請改用<a class="button" href="https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=2026.09.17.1">開啟原始文字</a>或<a href="https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-template-resources.pdf">開啟模板資源 PDF</a>，再使用瀏覽器的另存功能。</p></noscript>
   </main>
   <script>
     const sourceUrl = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=2026.09.17.1";

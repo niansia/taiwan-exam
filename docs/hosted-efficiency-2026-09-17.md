@@ -72,4 +72,7 @@ Unicode 上下標：DFKai-SB、MingLiU、Microsoft JhengHei、Noto Sans/Serif TC
 
 - 內容審閱（answers、difficulty、originality、visuals 等）仍綁定整份 exam 雜湊，內容修正後仍需依現有規則重新綁定與複核。改成逐題綁定會變更最終檢查契約，宜另行評估。
 - 未把多個裁切拼成一張圖。部分平台會縮小大圖，無法確保每題仍是可讀解析度；改為同一次呼叫開啟多張原尺寸圖片。
-- 原生 Skill 工具 ZIP 尚未重新封裝與上傳驗證；知識檔已更新為 2026.09.17.1。
+
+## 發布
+
+知識檔與原生 Skill ZIP 皆為 2026.09.17.1。ZIP（SHA-256 `cd3466786edc48f26d7971a650cb36bf300234549c3c344ba9c77c808baf02ca`）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者以 Chrome 下載草稿附件，大小與雜湊一致，並在 Claude Customize → Skills 上傳儲存成功。紀錄見 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.17.1) 的 security.json 與 browser.json。這不代表其他帳號的平台掃描結果，也不是網頁實際出卷計時。
