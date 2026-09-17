@@ -10,8 +10,8 @@
 
 | 檔案與下載連結 | 什麼時候用？ | 下載後怎麼做？ |
 | --- | --- | --- |
-| **[下載網頁工具／Claude Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip)** | Claude 安裝 Skill；或網頁 AI 有程式執行功能時使用。 | Claude 的 Skills 頁直接上傳 ZIP，**不要解壓**。一般出卷對話可把 ZIP 附給 AI，請它解壓並使用內附工具；不用自己操作程式。 |
-| **[直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)** | ChatGPT Project、Gemini Gem，或 Claude 聊天專案的知識區。 | 把 `taiwan-exam-web-knowledge.md` 加入知識區。**Claude 原生 Skills 請改用上面的 ZIP**，避免把整份大型知識檔當作每次必讀的技能正文。 |
+| **Claude Skill ZIP：修正版待驗證** | 舊版 ZIP 已知會被 Claude 拒收；新版正在確認實際上傳結果。 | 暫用下方 Claude「聊天專案」方式，下載知識檔 MD。正式開放後會在此提供 ZIP；請勿繼續使用 2026.09.14.1 ZIP 安裝。 |
+| **[直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)** | ChatGPT Project、Gemini Gem，或 Claude 聊天專案的知識區。 | 把 `taiwan-exam-web-knowledge.md` 加入知識區。**Claude 目前請先用聊天專案**；原生 Skills 的新版 ZIP 尚待上傳驗證。 |
 | **[下載離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)** | AI 說「無法下載模板」「缺少固定模板」，或產出的封面、頁首沒有套用模板時。 | 把 `taiwan-exam-template-resources.pdf` 上傳到出卷對話，再貼上本頁「無法套用模板」的文字。 |
 | **[開啟七科版型 PDF 下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.14.1/index.html)** | 建議每次開始出卷前，先準備當科兩份版型。 | 找到科目，分別按「下載題本版型」與「下載詳解版型」，出卷時一起上傳給 AI。占位內容僅供排版參考。 |
 
@@ -27,12 +27,12 @@
 
 ## 網頁版
 
-先依下方平台選擇 ZIP 或[知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，只需要看自己使用的平台。
+先依下方平台選擇已開放的 ZIP 或[知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)，只需要看自己使用的平台。
 
 **完成設定、準備出卷時：** 開啟[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.14.1/index.html)，下載當科「題本版型」和「詳解版型」兩份 PDF，附到出卷對話，再貼上下方對應平台的出卷文字。只需下載當科，無須全部下載。
-**目前版本：2026.09.14.1。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
+**工具／知識檔版本：2026.09.15.1；七科版型維持 2026.09.14.1。** 已儲存的舊附件不會隨 GitHub 自動更新，請替換成最新版。
 
-**讓 AI 直接使用現成工具：** 如果出卷對話能執行 Python、讀寫檔案，可再附上上方 ZIP，並加上這句：
+**讓 AI 直接使用現成工具：** 如果出卷對話能執行 Python、讀寫檔案，待新版 ZIP 正式開放後，可附上 ZIP 並加上這句：
 
 ```text
 我已附上 Taiwan Exam 網頁工具 ZIP，請解壓到本次工作目錄，依內附 hosted-execution 流程執行。
@@ -88,7 +88,9 @@ ZIP 已包含可直接使用的工具與分開存放的規則，能減少反覆�
 | **輸入框選 Cowork** | 這是執行任務的模式。先啟用 Skill，再附上當科版型並提出出卷需求。它與 Chat 是不同模式，帳號須有 Cowork。 |
 | **Claude for Word** | 這是 Microsoft Word 內的外掛；本專案尚未驗證在該外掛中完成固定模板的兩份 PDF。請先用 Chat 或 Cowork。 |
 
-**建議方式，Skills 上傳：** [下載原生 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip)，到 `Customize → Skills → ＋ → Create skill → Upload a skill`，直接選取下載的 ZIP，按 `Save` 並啟用。**不要解壓，也不要將 MD 改名為 ZIP。** 這個版本使用短版技能入口與分開的工具／規則檔，不再把約 2.5 MB 的聚合知識檔當作原生 Skill 正文。曾安裝舊 MD 的使用者，請停用舊版本，改用此 ZIP。
+**Skills 上傳（修正版尚待驗證，暫用下方聊天專案）：** 正式開放 ZIP 後，到 `Customize → Skills → ＋ → Create skill → Upload a skill`，直接選取下載的 ZIP，按 `Save` 並啟用。**不要解壓，也不要將 MD 改名為 ZIP。** 這個版本使用短版技能入口與分開的工具／規則檔，不再把約 2.5 MB 的聚合知識檔當作原生 Skill 正文。曾安裝舊 MD 的使用者，請停用舊版本，改用此 ZIP。
+
+**若出現「Zip file contains path with invalid characters」：** 舊版 `2026.09.14.1.zip` 已有此上傳問題，修正版 `2026.09.15.1.zip` 已準備，待實際上傳確認後開放；不需自行修改壓縮檔。能下載不代表已安裝；請確認 Claude 儲存成功、技能出現在清單中再開始出卷。若新版仍被拒收，請保留錯誤文字回報。
 
 到 `Settings → Capabilities` 確認 `Code execution and file creation` 已開啟；組織帳號可能由管理員控制。儲存時 Claude 仍會執行自己的檢查，下載檔驗證不代表你的帳號已完成實際上傳或出卷。
 

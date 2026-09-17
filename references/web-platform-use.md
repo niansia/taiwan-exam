@@ -395,7 +395,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.14.1/taiwan-exam-hosted-2026.09.14.1.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.15.1/taiwan-exam-hosted-2026.09.15.1.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
@@ -404,6 +404,13 @@ Keep storage/installation separate from the execution surface. As checked on
   instructions. Keep MD for Project Knowledge. Do not rename MD to ZIP or claim
   the old v0.7.1 local archive contains current hosted fixes. Format/package
   checks do not establish account upload, platform scan or full-paper acceptance.
+  Version 2026.09.14.1 was rejected by the user's Claude uploader with
+  "Zip file contains path with invalid characters". It had non-ASCII member
+  paths, including full-width parentheses. The replacement uses ASCII-only ZIP
+  paths and a transparent manifest mapping; the reader verifies bytes and
+  restores canonical paths into the selected run's writable reference folder.
+  Do not ask users to rename folders or edit the archive. A successful browser
+  download or local package test is not evidence that Claude accepted an upload.
 - Cowork: choose Cowork in the message box on an available surface; use the
   enabled Skill and attach the subject's layout PDFs to the task. Cowork is a
   task mode, not another name for Chat, Claude Code, or Microsoft Word. Current

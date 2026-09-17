@@ -206,17 +206,20 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
         raise ValueError(f'Unknown GSAT subject: {subject}')
     source_root = source_dir.resolve()
     manifest = json.loads((source_root / 'PACKAGE_MANIFEST.json').read_text(encoding='utf-8-sig'))
-    entries, verified, seen = {}, [], set()
+    entries, verified, seen, runtime_seen = {}, [], set(), set()
     for row in manifest['files']:
-        path = row['path']
-        parts = PurePosixPath(path).parts
-        if (not parts or path.startswith('/') or '..' in parts or '\\' in path or ':' in path
-                or path in seen):
-            raise ValueError('Unsafe or duplicate package path: ' + path)
-        seen.add(path)
+        stored_path = row['path']
+        path = row.get('runtime_path', stored_path)
+        for candidate, names in ((stored_path, seen), (path, runtime_seen)):
+            if (not isinstance(candidate, str) or not candidate
+                    or any(part in {'', '.', '..'} for part in candidate.split('/'))
+                    or '\\' in candidate or ':' in candidate or '\x00' in candidate
+                    or candidate.casefold() in names):
+                raise ValueError('Unsafe or duplicate package path: ' + str(candidate))
+            names.add(candidate.casefold())
         if not relevant(path, subject):
             continue
-        source = (source_root / path).resolve()
+        source = (source_root / stored_path).resolve()
         if not source.is_relative_to(source_root) or not source.is_file():
             raise ValueError('Missing or external package file: ' + path)
         raw = source.read_bytes()
@@ -226,7 +229,7 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
         # the web builder does; copied runtime files keep the package's bytes.
         if source.suffix in {'.md', '.json', '.py', '.txt', '.yaml', '.yml', ''}:
             payload = (raw.decode('utf-8-sig').replace('\r\n', '\n').replace('\r', '\n').rstrip() + '\n').encode('utf-8')
-            record = dict(row, embedded_bytes=len(payload),
+            record = dict(row, path=path, embedded_bytes=len(payload),
                           embedded_sha256=hashlib.sha256(payload).hexdigest())
             entries[path] = (record, payload)
         verified.append((path, raw))

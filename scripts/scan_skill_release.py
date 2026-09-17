@@ -49,6 +49,13 @@ def inspect_archive(archive, destination):
                 raise ValueError('Retired proof tool must not be distributed')
             files[rel] = zipped.read(member)
         manifest = json.loads(files.pop('PACKAGE_MANIFEST.json'))
+        if manifest.get('format') == 'native-multi-file-hosted-skill':
+            # This tests our portable ZIP naming policy separately from malware
+            # scanning; neither result proves acceptance by Claude's uploader.
+            if any(not re.fullmatch(r'[A-Za-z0-9_./-]+', name)
+                   or any(part in {'', '.', '..'} for part in name.split('/'))
+                   for name in names):
+                raise ValueError('Non-portable native Skill archive path')
         records = manifest['files']
         if len(records) != len(files) or {row['path'] for row in records} != set(files):
             raise ValueError('Manifest coverage mismatch')

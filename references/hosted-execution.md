@@ -12,8 +12,12 @@ binding. This route does not promise completion inside a provider's turn limit.
 When a native Skill already exposes its scripts and references, use
 `python scripts/read_web_knowledge.py --source-dir NATIVE_SKILL_DIR --subject
 SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Its package manifest is
-checked before the selected runtime files are copied. No aggregate Markdown,
-reinstallation or repository download is needed.
+checked before the selected runtime files are copied. ZIP filenames are portable
+ASCII names; `runtime_path` in the manifest restores original canonical paths in
+VERSIONED_REFS with unchanged file bytes. Run subsequent helpers from
+VERSIONED_REFS, not the installed ZIP directory. This one local copy is scoped to
+the selected subject; it requires no aggregate Markdown, reinstallation or
+repository download. Reuse that reference directory on continuation.
 
 Otherwise extract the uploaded knowledge file once with `read_web_knowledge.py KNOWLEDGE
 --subject SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Read this
