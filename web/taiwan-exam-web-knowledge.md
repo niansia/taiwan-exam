@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.17.1
+# Taiwan Exam Web Knowledge v2026.09.18.1
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -568,10 +568,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/gsat-115-template-assets.md",
-    "bytes": 3987,
-    "sha256": "45694601d474bfcd39856be861a917151b50f41a42400aa2f58bb0ec5cc088f8",
-    "embedded_bytes": 3987,
-    "embedded_sha256": "45694601d474bfcd39856be861a917151b50f41a42400aa2f58bb0ec5cc088f8"
+    "bytes": 4151,
+    "sha256": "decccdf6cc6ae989c58be0195841376677f035f793018bcfe23e170db5b18ca2",
+    "embedded_bytes": 4151,
+    "embedded_sha256": "decccdf6cc6ae989c58be0195841376677f035f793018bcfe23e170db5b18ca2"
   },
   {
     "path": "references/gsat-subject-patterns.md",
@@ -603,17 +603,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 19754,
-    "sha256": "289205bb872ff82d30bf43ba7556743011e3f8d3ee91d52b23c9d3cd5ac94087",
-    "embedded_bytes": 19754,
-    "embedded_sha256": "289205bb872ff82d30bf43ba7556743011e3f8d3ee91d52b23c9d3cd5ac94087"
+    "bytes": 20583,
+    "sha256": "beb2e9b39e92768eaf59811c04212df1af157aae1bcfc0b649d6ead23c355d94",
+    "embedded_bytes": 20583,
+    "embedded_sha256": "beb2e9b39e92768eaf59811c04212df1af157aae1bcfc0b649d6ead23c355d94"
   },
   {
     "path": "references/hosted-pdf-production.md",
-    "bytes": 14357,
-    "sha256": "5f2c1f6002cce1e2251fe1a3896bd2a72eac825cb65f70fe0e13d4ca3f7edd05",
-    "embedded_bytes": 14357,
-    "embedded_sha256": "5f2c1f6002cce1e2251fe1a3896bd2a72eac825cb65f70fe0e13d4ca3f7edd05"
+    "bytes": 14497,
+    "sha256": "e62fb26787b1a78c02737716ca980464f31f8fd4b506cd1e2123c467de127ba0",
+    "embedded_bytes": 14497,
+    "embedded_sha256": "e62fb26787b1a78c02737716ca980464f31f8fd4b506cd1e2123c467de127ba0"
   },
   {
     "path": "references/hosted-quality-gates.md",
@@ -715,10 +715,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 30342,
-    "sha256": "dddd5b5120240ae1dfbe5863f45bd325a6c40e0dafcb1340fca023244449f7da",
-    "embedded_bytes": 30342,
-    "embedded_sha256": "dddd5b5120240ae1dfbe5863f45bd325a6c40e0dafcb1340fca023244449f7da"
+    "bytes": 30679,
+    "sha256": "1cd7f6da2aedcdd51bf8e940c4564289473ae88351de98cb884192e414230b74",
+    "embedded_bytes": 30679,
+    "embedded_sha256": "1cd7f6da2aedcdd51bf8e940c4564289473ae88351de98cb884192e414230b74"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -827,10 +827,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/fetch_hosted_template_assets.py",
-    "bytes": 9171,
-    "sha256": "a6defa591ebc36f5f06c9480631871e088dbfeaacd6536391ab8795b23bd85af",
-    "embedded_bytes": 9171,
-    "embedded_sha256": "a6defa591ebc36f5f06c9480631871e088dbfeaacd6536391ab8795b23bd85af"
+    "bytes": 9421,
+    "sha256": "2204aa8f2534f6ccb6a5a9b0bbb5f885d40f7f18b87ab688b5e66b6d04d41e77",
+    "embedded_bytes": 9421,
+    "embedded_sha256": "2204aa8f2534f6ccb6a5a9b0bbb5f885d40f7f18b87ab688b5e66b6d04d41e77"
   },
   {
     "path": "scripts/hosted_blind_review.py",
@@ -883,17 +883,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 13286,
-    "sha256": "71bb3503d20915c0548caab8b2cef3d0e0ff0e0bad7d016ae776b527695e5c22",
-    "embedded_bytes": 13286,
-    "embedded_sha256": "71bb3503d20915c0548caab8b2cef3d0e0ff0e0bad7d016ae776b527695e5c22"
+    "bytes": 15247,
+    "sha256": "da21f1a0316373d5df3d48b6b9da9720f092fffd6ed7dd892ec0403063a6c2c1",
+    "embedded_bytes": 15247,
+    "embedded_sha256": "da21f1a0316373d5df3d48b6b9da9720f092fffd6ed7dd892ec0403063a6c2c1"
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 23967,
-    "sha256": "ee1a7631e5a3c3f9507b29b571eb48add32235812338e86d6a88d5c0f0ad9b29",
-    "embedded_bytes": 23967,
-    "embedded_sha256": "ee1a7631e5a3c3f9507b29b571eb48add32235812338e86d6a88d5c0f0ad9b29"
+    "bytes": 24425,
+    "sha256": "e1bc3c3fe19c8b06bf37f711808ad0d4a5bdc6e64e678f8b1629a70ea769dd87",
+    "embedded_bytes": 24425,
+    "embedded_sha256": "e1bc3c3fe19c8b06bf37f711808ad0d4a5bdc6e64e678f8b1629a70ea769dd87"
   },
   {
     "path": "scripts/run_hosted_workflow.py",
@@ -56344,6 +56344,8 @@ Keep answers out of the student paper. Supported profiles may include `official-
 base64 內容備援，並在寫檔前核對 PDF 標頭、大小與 SHA-256。工具回傳
 base64 時應解碼後驗證，不得把 base64 傳輸本身誤判為沒有 binary handoff。
 
+原生 Skill ZIP 已內附七科正式組版元件（23 份），`prepare_hosted_run.py`
+直接離線使用並核對 SHA-256，不需連網。只用知識檔時，
 若檔案執行環境不能連網，可使用 `taiwan-exam-template-resources.pdf` 離線
 備援：它只附帶 30 個原始模板 PDF，不含程式；只解出當科需要的元件，
 仍以知識檔內的 SHA-256 驗證。安裝流程不變，不要求先下載全部模板。
@@ -56771,6 +56773,14 @@ are separate operations; do not run them during ordinary hosted generation.
 The subject's curriculum, structure, originality and quality requirements remain
 binding. This route does not promise completion inside a provider's turn limit.
 
+Formal question and solution PDFs come only from these helpers composing onto
+the original fixed template bytes, and only after `check_hosted_run.py` passes.
+Never let LaTeX, HTML, Word or drawing tools recreate a cover, running
+header/footer, answer-marking example or formula page; a "mock" disclaimer does
+not make an imitation acceptable. When a helper or template is unavailable,
+stop before drafting or delivery, keep saved work and name the missing part to
+the user. State the final check result when delivering the two PDFs.
+
 ## Load once and begin the paper
 
 When a native Skill already exposes its scripts and references, use
@@ -56812,8 +56822,12 @@ transitions rather than reconstructing times later. Then run:
 python scripts/prepare_hosted_run.py --subject SUBJECT --run-dir run --paper-id PAPER_ID --font FONT --resource-pdf UPLOADED_RESOURCE_PDF
 ```
 
-If no resource PDF was supplied, omit that option and use the helper's bounded
-acquisition. The resource PDF's embedded original attachments are the templates;
+The native Skill bundles every subject's verified template components, and the
+helper uses them without network access; omit `--resource-pdf` there. From the
+knowledge file, pass the uploaded resource PDF; without it the helper attempts
+bounded retrieval. If acquisition fails, follow its `next_action`: stop and ask
+for `taiwan-exam-template-resources.pdf`, never a redrawn substitute.
+The resource PDF's embedded original attachments are the templates;
 its visible information page and the subject preview PDFs are not templates.
 Open the small preflight proof images once to verify actual glyphs/field fit.
 After `ready-for-authoring`, use the saved original subject components and
@@ -57104,7 +57118,9 @@ non-waivable collisions before any final quality claim.
    Verify bytes in the SAME runtime that will compose the paper, not just
    in a web-search or connector tool. A URL, preview, text extract or base64
    response in another tool is not proof the runtime possesses the file.
-3. If runtime networking is unavailable, use an already uploaded
+3. The native Skill ZIP already bundles the verified production components and
+   the preflight uses them offline. From the knowledge file, if runtime
+   networking is unavailable, use an already uploaded
    `taiwan-exam-template-resources.pdf`. It contains the 30 original PDFs as PDF
    attachments, no executable content. It is optional data, not a Skill installer.
    Read attachments with the PDF library; never OCR the visible index. Use the
@@ -59255,9 +59271,14 @@ The following are hard failures, not alternative rendering paths:
 - allowing the fixed text, fraction, comma, grid or scoring rule to reflow with
   the newly authored body; or
 - recreating a visually similar page from source code or textual layout
-  instructions and then claiming it is the fixed asset.
+  instructions and then claiming it is the fixed asset; or
+- typesetting the whole paper, including its cover and running headers, in
+  LaTeX/XeTeX or HTML and adding a "mock" disclaimer instead of composing on
+  the fixed template.
 
-Before declaring template transport unavailable, attempt the per-file raw URL,
+The native Skill ZIP bundles every subject's verified production components;
+`prepare_hosted_run.py` uses them without network access. From the knowledge
+file, before declaring template transport unavailable, attempt the per-file raw URL,
 and GitHub Contents API/base64 path, preferably through the embedded helper.
 These are two transports, not three separate retry cycles: the helper already
 tries both. Do not repeat equivalent attempts through another wrapper. Use an
@@ -59437,7 +59458,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
@@ -62372,6 +62393,15 @@ def fetch_record(record: dict, *, timeout: int, attempts: int, local_root: Path 
         return base64.b64decode(encoded, validate=True), "github-contents-base64"
 
 
+def production_records(subject_record: dict) -> list[dict]:
+    """The components formal composition needs for one subject, and only those."""
+    wanted = PRODUCTION_COMPONENTS - ({"formula-blank"} if subject_record["subject"] not in {"數學A", "數學B"} else set())
+    records = [row for row in subject_record["assets"] if row["component"] in wanted]
+    if {row["component"] for row in records} != wanted or len(records) != len(wanted):
+        raise ValueError(f"Incomplete production component map for {subject_record['subject']}")
+    return records
+
+
 def verify(record: dict, data: bytes) -> None:
     if not data.startswith(b"%PDF-"):
         raise ValueError(f"Not a PDF: {record['repository_path']}")
@@ -62412,10 +62442,7 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
     if subject_record is None:
         raise ValueError(f"Unknown subject: {subject}")
 
-    wanted = PRODUCTION_COMPONENTS - ({"formula-blank"} if subject not in {"數學A", "數學B"} else set())
-    records = [row for row in subject_record["assets"] if row["component"] in wanted]
-    if {row["component"] for row in records} != wanted or len(records) != len(wanted):
-        raise ValueError(f"Incomplete production component map for {subject}")
+    records = production_records(subject_record)
 
     # Validate all requested attachments before writing anything. No network
     # fallback for an explicitly supplied corrupt carrier; report the mismatch.
@@ -62468,7 +62495,7 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
     return {
         "status": "partial" if errors else "verified",
         "subject": subject,
-        "expected": len(wanted),
+        "expected": len(records),
         "verified": len(written),
         "assets": written,
         "errors": errors,
@@ -64307,7 +64334,7 @@ import time
 
 import pymupdf
 from compose_hosted_pdf import compose
-from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, materialize, verify
+from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, materialize, production_records, verify
 from hosted_calibration import SUBJECTS, snapshot
 from hosted_run_timing import transition
 from hosted_blind_review import REVIEW_MODES
@@ -64319,6 +64346,18 @@ PREFLIGHT_DEPENDENCIES = (
     'verify_fixed_template_pdf.py', 'inspect_hosted_pdf.py', 'validate_math_context.py',
     'hosted_calibration.py', 'hosted_run_timing.py', 'hosted_blind_review.py',
 )
+
+
+TEMPLATE_GAP_ACTION = (
+    'Stop before drafting. Formal PDFs require the original fixed template components; never typeset or '
+    'redraw a cover, running header/footer, answer-marking example or formula page with LaTeX, HTML, Word '
+    'or drawing tools, and never deliver such a substitute. Tell the user which component failed and ask '
+    'them to attach taiwan-exam-template-resources.pdf from '
+    'https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates, then rerun with --resource-pdf.')
+
+
+class TemplateUnavailable(ValueError):
+    """The fixed template components needed for formal PDFs could not be verified."""
 
 
 def digest(path):
@@ -64396,12 +64435,28 @@ def save(path, data):
     return hashlib.sha256(raw).hexdigest()
 
 
+def bundled_root(subject):
+    """This Skill's own root when it carries every component the subject needs."""
+    root = Path(__file__).resolve().parents[1]
+    manifest = json.loads(DEFAULT_MAP.read_text(encoding='utf-8-sig'))
+    row = next((r for r in manifest['subjects'] if r['subject'] == subject), None)
+    if row is None or not all((root / r['repository_path']).is_file() for r in production_records(row)):
+        return None
+    return root
+
+
 def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
     if not 0 < deadline <= 60:
         raise ValueError('Resource deadline must be positive and at most 60 seconds')
     if resource_pdf:
-        return materialize(subject, output, map_path=DEFAULT_MAP, local_root=None,
-                           timeout=10, attempts=1, resource_pdf=resource_pdf)
+        return dict(materialize(subject, output, map_path=DEFAULT_MAP, local_root=None,
+                                timeout=10, attempts=1, resource_pdf=resource_pdf), source='uploaded-resource-pdf')
+    bundled = None if local_root else bundled_root(subject)
+    if bundled:
+        # Bundled bytes are checked against the map; a damaged copy fails closed
+        # instead of falling back to a download.
+        return dict(materialize(subject, output, map_path=DEFAULT_MAP, local_root=bundled,
+                                timeout=10, attempts=1), source='bundled-with-skill')
     # A socket timeout does not bound repeated reads. Isolate the existing
     # parallel fetcher in a killable child so slow streams cannot consume a turn.
     command = [sys.executable, str(Path(__file__).with_name('fetch_hosted_template_assets.py')),
@@ -64417,7 +64472,7 @@ def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
                 'retain verified cached components and use the offline resource PDF.'}]}
     if result.returncode and not result.stdout.strip():
         raise ValueError('Template helper failed: ' + result.stderr[-500:])
-    return json.loads(result.stdout)
+    return dict(json.loads(result.stdout), source='local-root' if local_root else 'download')
 
 
 def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=45,
@@ -64463,9 +64518,14 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
         report['calibration'] = {'path': 'calibration.json', 'sha256': calibration_digest}
         report['calibration_basis'] = calibration['basis']
         report['original_pdf_required'] = False
-        assets = acquire(subject, run_dir / 'templates', resource_pdf, local_root, deadline)
+        try:
+            assets = acquire(subject, run_dir / 'templates', resource_pdf, local_root, deadline)
+        except (OSError, ValueError, RuntimeError) as exc:
+            raise TemplateUnavailable(str(exc)) from exc
         if assets['status'] != 'verified':
-            raise ValueError('Required template components unavailable: ' + json.dumps(assets['errors'], ensure_ascii=False))
+            raise TemplateUnavailable('Required template components unavailable: '
+                                      + json.dumps(assets['errors'], ensure_ascii=False))
+        report['template_source'] = assets.get('source', 'unspecified')
         asset_dir = Path(assets['assets'][0]['path']).parent
         report['template_asset_dir'] = asset_dir.relative_to(run_dir).as_posix()
         proof_dir = run_dir / 'preflight-proofs'
@@ -64500,7 +64560,8 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
         if not timing.exists():
             transition(timing, paper_id, 'reference_preflight')
         report['errors'].append(str(exc))
-        report['next_action'] = 'Resolve the named resource/rendering gap before drafting; retain existing work.'
+        report['next_action'] = (TEMPLATE_GAP_ACTION if isinstance(exc, TemplateUnavailable) else
+                                 'Resolve the named resource/rendering gap before drafting; retain existing work.')
     report['elapsed_seconds'] = round(time.monotonic() - started, 3)
     report['record_sha256'] = hashlib.sha256(
         json.dumps(report, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
@@ -64558,6 +64619,10 @@ SUBJECT_REFERENCES = {
 SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
 LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',
                 '自然':'science','社會':'social','國寫':'writing'}
+# Fixed template PDFs bundled with the native Skill; copy only the chosen subject's.
+TEMPLATE_ASSETS = 'exam_packs/學測/templates/115/assets/'
+TEMPLATE_SLUGS = {'國綜':'chinese-comprehensive','國寫':'chinese-writing','英文':'english',
+                  '數學A':'math-a','數學B':'math-b','社會':'social','自然':'science'}
 
 # Reading order for model context; executable files remain intact on disk.
 READING_PHASES = {
@@ -64664,6 +64729,8 @@ def relevant(path: str, subject: str) -> bool:
         return path in {f'templates/hosted-{LAYOUT_SLUGS[subject]}-{role}.json' for role in ('questions','solutions')}
     if path.startswith("references/"):
         return Path(path).name not in SUBJECT_ONLY or Path(path).name in SUBJECT_REFERENCES[subject]
+    if path.startswith(TEMPLATE_ASSETS):
+        return path.startswith(TEMPLATE_ASSETS + TEMPLATE_SLUGS[subject] + '/')
     if path.startswith("exam_packs/"):
         if not path.startswith("exam_packs/學測/") or path.endswith("source-pack-manifest.json"):
             return False

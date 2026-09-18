@@ -13,7 +13,7 @@ import time
 
 import pymupdf
 from compose_hosted_pdf import compose
-from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, materialize, verify
+from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, materialize, production_records, verify
 from hosted_calibration import SUBJECTS, snapshot
 from hosted_run_timing import transition
 from hosted_blind_review import REVIEW_MODES
@@ -25,6 +25,18 @@ PREFLIGHT_DEPENDENCIES = (
     'verify_fixed_template_pdf.py', 'inspect_hosted_pdf.py', 'validate_math_context.py',
     'hosted_calibration.py', 'hosted_run_timing.py', 'hosted_blind_review.py',
 )
+
+
+TEMPLATE_GAP_ACTION = (
+    'Stop before drafting. Formal PDFs require the original fixed template components; never typeset or '
+    'redraw a cover, running header/footer, answer-marking example or formula page with LaTeX, HTML, Word '
+    'or drawing tools, and never deliver such a substitute. Tell the user which component failed and ask '
+    'them to attach taiwan-exam-template-resources.pdf from '
+    'https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates, then rerun with --resource-pdf.')
+
+
+class TemplateUnavailable(ValueError):
+    """The fixed template components needed for formal PDFs could not be verified."""
 
 
 def digest(path):
@@ -102,12 +114,28 @@ def save(path, data):
     return hashlib.sha256(raw).hexdigest()
 
 
+def bundled_root(subject):
+    """This Skill's own root when it carries every component the subject needs."""
+    root = Path(__file__).resolve().parents[1]
+    manifest = json.loads(DEFAULT_MAP.read_text(encoding='utf-8-sig'))
+    row = next((r for r in manifest['subjects'] if r['subject'] == subject), None)
+    if row is None or not all((root / r['repository_path']).is_file() for r in production_records(row)):
+        return None
+    return root
+
+
 def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
     if not 0 < deadline <= 60:
         raise ValueError('Resource deadline must be positive and at most 60 seconds')
     if resource_pdf:
-        return materialize(subject, output, map_path=DEFAULT_MAP, local_root=None,
-                           timeout=10, attempts=1, resource_pdf=resource_pdf)
+        return dict(materialize(subject, output, map_path=DEFAULT_MAP, local_root=None,
+                                timeout=10, attempts=1, resource_pdf=resource_pdf), source='uploaded-resource-pdf')
+    bundled = None if local_root else bundled_root(subject)
+    if bundled:
+        # Bundled bytes are checked against the map; a damaged copy fails closed
+        # instead of falling back to a download.
+        return dict(materialize(subject, output, map_path=DEFAULT_MAP, local_root=bundled,
+                                timeout=10, attempts=1), source='bundled-with-skill')
     # A socket timeout does not bound repeated reads. Isolate the existing
     # parallel fetcher in a killable child so slow streams cannot consume a turn.
     command = [sys.executable, str(Path(__file__).with_name('fetch_hosted_template_assets.py')),
@@ -123,7 +151,7 @@ def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
                 'retain verified cached components and use the offline resource PDF.'}]}
     if result.returncode and not result.stdout.strip():
         raise ValueError('Template helper failed: ' + result.stderr[-500:])
-    return json.loads(result.stdout)
+    return dict(json.loads(result.stdout), source='local-root' if local_root else 'download')
 
 
 def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=45,
@@ -169,9 +197,14 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
         report['calibration'] = {'path': 'calibration.json', 'sha256': calibration_digest}
         report['calibration_basis'] = calibration['basis']
         report['original_pdf_required'] = False
-        assets = acquire(subject, run_dir / 'templates', resource_pdf, local_root, deadline)
+        try:
+            assets = acquire(subject, run_dir / 'templates', resource_pdf, local_root, deadline)
+        except (OSError, ValueError, RuntimeError) as exc:
+            raise TemplateUnavailable(str(exc)) from exc
         if assets['status'] != 'verified':
-            raise ValueError('Required template components unavailable: ' + json.dumps(assets['errors'], ensure_ascii=False))
+            raise TemplateUnavailable('Required template components unavailable: '
+                                      + json.dumps(assets['errors'], ensure_ascii=False))
+        report['template_source'] = assets.get('source', 'unspecified')
         asset_dir = Path(assets['assets'][0]['path']).parent
         report['template_asset_dir'] = asset_dir.relative_to(run_dir).as_posix()
         proof_dir = run_dir / 'preflight-proofs'
@@ -206,7 +239,8 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
         if not timing.exists():
             transition(timing, paper_id, 'reference_preflight')
         report['errors'].append(str(exc))
-        report['next_action'] = 'Resolve the named resource/rendering gap before drafting; retain existing work.'
+        report['next_action'] = (TEMPLATE_GAP_ACTION if isinstance(exc, TemplateUnavailable) else
+                                 'Resolve the named resource/rendering gap before drafting; retain existing work.')
     report['elapsed_seconds'] = round(time.monotonic() - started, 3)
     report['record_sha256'] = hashlib.sha256(
         json.dumps(report, ensure_ascii=False, sort_keys=True).encode()).hexdigest()

@@ -15,6 +15,7 @@ import re
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 from build_web_knowledge import ROOT, source_paths
+from fetch_hosted_template_assets import DEFAULT_MAP, ROOT as TEMPLATE_ROOT, production_records
 from validate_attribution import validate as validate_attribution
 
 
@@ -26,6 +27,16 @@ description: Create original Taiwan GSAT/CAP exams with separate question and so
 # Taiwan Exam Generator
 
 Native hosted Skill, version {version}.
+
+Formal PDFs have one route: this Skill's helpers compose new body pages onto
+the bundled original fixed template PDFs (`prepare_hosted_run.py`, then
+`run_hosted_workflow.py`), and a paper is deliverable only after
+`check_hosted_run.py` passes. Never typeset, trace or redraw a cover, running
+header/footer, answer-marking example or formula page with LaTeX, HTML, Word,
+drawing libraries or any other tool, even with a "mock" disclaimer. If a helper,
+template or check fails and cannot be fixed, stop, keep saved work and tell the
+user exactly what is missing; do not deliver a substitute. Report the final
+check result together with the two PDFs.
 
 Start with [references/hosted-execution.md](references/hosted-execution.md).
 This multi-file Skill already contains its executable `scripts/`, subject
@@ -40,12 +51,13 @@ their source. Read the requested subject's guidance at the phase that uses it.
 
 Write new questions and solutions for this run. Subject layout examples contain
 placeholders only; reuse their layout conventions, never their question content
-or diagram mechanisms. Use the user's uploaded resource PDF for original fixed
-template attachments. Without it, the provided preflight has bounded retrieval.
-Keep original fixed PDF layers, curriculum and score structure, difficulty and
-originality requirements, answer verification, and real page/item visual review.
-An unavailable second model uses the documented honest same-context second pass;
-never invent an independent reviewer or passing observation.
+or diagram mechanisms. Every subject's verified fixed template components are
+bundled; the preflight uses them without network access. An uploaded resource
+PDF is an equivalent carrier. Keep original fixed PDF layers, curriculum and
+score structure, difficulty and originality requirements, answer verification,
+and real page/item visual review. An unavailable second model uses the
+documented honest same-context second pass; never invent an independent
+reviewer or passing observation.
 
 Create one paper ID and run directory. On continuation, verify and resume saved
 work and its first unfinished action. Reuse unchanged verified inputs and actual
@@ -96,6 +108,20 @@ def archive_path(runtime_path):
     return target
 
 
+def template_sources(root):
+    """Fixed template PDFs, checked against their map, so composition needs no network."""
+    mapping = json.loads((root / DEFAULT_MAP.relative_to(TEMPLATE_ROOT)).read_text(encoding='utf-8-sig'))
+    selected = {}
+    for subject in mapping['subjects']:
+        for record in production_records(subject):
+            path = root / record['repository_path']
+            data = path.read_bytes()
+            if not data.startswith(b'%PDF-') or len(data) != record['bytes'] or sha(data) != record['sha256']:
+                raise ValueError('Template component differs from its map: ' + record['repository_path'])
+            selected[record['repository_path']] = path
+    return selected
+
+
 def build(version, output, *, root=ROOT):
     if not isinstance(version, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,79}', version):
         raise ValueError('Use a short version identifier without whitespace or path separators')
@@ -110,13 +136,16 @@ def build(version, output, *, root=ROOT):
     for relative in ('LICENSE', 'NOTICE', 'ORIGIN.json', 'AGENTS.md',
                      'references/attribution-and-forks.md', 'references/hosted-execution.md'):
         selected[relative] = root / relative
+    templates = template_sources(root)
+    selected.update(templates)
     members = {'SKILL.md': ENTRY.format(version=version).encode('utf-8')}
     records = [{'path': 'SKILL.md', 'bytes': len(members['SKILL.md']),
                 'sha256': sha(members['SKILL.md']), 'source': 'generated-native-entry'}]
     for relative, path in sorted(selected.items()):
         if not path.is_file() or not path.resolve().is_relative_to(root):
             raise ValueError('Missing or external canonical file: ' + relative)
-        if path.suffix and path.suffix not in {'.md', '.py', '.json', '.svg', '.csv'}:
+        allowed = {'.md', '.py', '.json', '.svg', '.csv'} | ({'.pdf'} if relative in templates else set())
+        if path.suffix and path.suffix not in allowed:
             raise ValueError('Unreviewed hosted archive file type: ' + relative)
         if path.name == 'writer-calibration-additions.json':
             from writer_calibration import load_writer
@@ -141,6 +170,8 @@ def build(version, output, *, root=ROOT):
                 'security_acceptance': 'not-performed-by-builder',
                 'browser_acceptance': 'not-performed-by-builder',
                 'exam_acceptance': 'not-established-by-packager', 'contains_original_exam_files': False,
+                'bundled_templates': {'map': DEFAULT_MAP.relative_to(TEMPLATE_ROOT).as_posix(), 'count': len(templates),
+                                      'bytes': sum(path.stat().st_size for path in templates.values())},
                 'file_count': len(records), 'files': sorted(records, key=lambda row: row['path'])}
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix('.zip.partial')

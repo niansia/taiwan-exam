@@ -213,9 +213,14 @@ The following are hard failures, not alternative rendering paths:
 - allowing the fixed text, fraction, comma, grid or scoring rule to reflow with
   the newly authored body; or
 - recreating a visually similar page from source code or textual layout
-  instructions and then claiming it is the fixed asset.
+  instructions and then claiming it is the fixed asset; or
+- typesetting the whole paper, including its cover and running headers, in
+  LaTeX/XeTeX or HTML and adding a "mock" disclaimer instead of composing on
+  the fixed template.
 
-Before declaring template transport unavailable, attempt the per-file raw URL,
+The native Skill ZIP bundles every subject's verified production components;
+`prepare_hosted_run.py` uses them without network access. From the knowledge
+file, before declaring template transport unavailable, attempt the per-file raw URL,
 and GitHub Contents API/base64 path, preferably through the embedded helper.
 These are two transports, not three separate retry cycles: the helper already
 tries both. Do not repeat equivalent attempts through another wrapper. Use an
@@ -395,7 +400,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native

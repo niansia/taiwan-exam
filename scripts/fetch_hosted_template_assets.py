@@ -67,6 +67,15 @@ def fetch_record(record: dict, *, timeout: int, attempts: int, local_root: Path 
         return base64.b64decode(encoded, validate=True), "github-contents-base64"
 
 
+def production_records(subject_record: dict) -> list[dict]:
+    """The components formal composition needs for one subject, and only those."""
+    wanted = PRODUCTION_COMPONENTS - ({"formula-blank"} if subject_record["subject"] not in {"數學A", "數學B"} else set())
+    records = [row for row in subject_record["assets"] if row["component"] in wanted]
+    if {row["component"] for row in records} != wanted or len(records) != len(wanted):
+        raise ValueError(f"Incomplete production component map for {subject_record['subject']}")
+    return records
+
+
 def verify(record: dict, data: bytes) -> None:
     if not data.startswith(b"%PDF-"):
         raise ValueError(f"Not a PDF: {record['repository_path']}")
@@ -107,10 +116,7 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
     if subject_record is None:
         raise ValueError(f"Unknown subject: {subject}")
 
-    wanted = PRODUCTION_COMPONENTS - ({"formula-blank"} if subject not in {"數學A", "數學B"} else set())
-    records = [row for row in subject_record["assets"] if row["component"] in wanted]
-    if {row["component"] for row in records} != wanted or len(records) != len(wanted):
-        raise ValueError(f"Incomplete production component map for {subject}")
+    records = production_records(subject_record)
 
     # Validate all requested attachments before writing anything. No network
     # fallback for an explicitly supplied corrupt carrier; report the mismatch.
@@ -163,7 +169,7 @@ def materialize(subject: str, output_dir: Path, *, map_path: Path | None, local_
     return {
         "status": "partial" if errors else "verified",
         "subject": subject,
-        "expected": len(wanted),
+        "expected": len(records),
         "verified": len(written),
         "assets": written,
         "errors": errors,

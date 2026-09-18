@@ -16,6 +16,7 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from build_hosted_skill import build, archive_path, validate_member_path
 from build_web_knowledge import source_paths
 from package_skill import should_include
+from fetch_hosted_template_assets import production_records
 
 
 @pytest.fixture(scope='module')
@@ -50,13 +51,18 @@ def test_short_entry_is_separate_from_exact_canonical_sources(native):
         assert all(re.fullmatch(r'[A-Za-z0-9_./-]+', name) for name in names)
         assert not any('/./' in name or '/../' in name or '//' in name for name in names)
         assert all(name.startswith('taiwan-exam-generator/') for name in names)
-        assert not any(name.endswith(('.pdf','.zip')) or '/web/' in name or '/docs/' in name for name in names)
+        assert not any(name.endswith('.zip') or '/web/' in name or '/docs/' in name for name in names)
         assert not any('build_hosted_skill.py' in name or 'build_web_knowledge.py' in name for name in names)
     assert result['entry_bytes']==len(entry)
     assert result['security_acceptance']=='not-performed-by-builder'
     manifest=json.loads((installed/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
     assert manifest['file_count']==len(manifest['files'])
     assert manifest['contains_original_exam_files'] is False
+    # The only binaries are the fixed templates, byte-identical to their map.
+    mapping=json.loads((ROOT/manifest['bundled_templates']['map']).read_text(encoding='utf-8-sig'))
+    expected={a['repository_path']:a['sha256'] for s in mapping['subjects'] for a in production_records(s)}
+    pdfs={row['runtime_path']:row['sha256'] for row in manifest['files'] if row['path'].endswith('.pdf')}
+    assert pdfs==expected and manifest['bundled_templates']['count']==len(expected)==23
     for row in manifest['files']:
         data=(installed/row['path']).read_bytes()
         assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256']
