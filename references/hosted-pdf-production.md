@@ -35,7 +35,9 @@ non-waivable collisions before any final quality claim.
    Verify bytes in the SAME runtime that will compose the paper, not just
    in a web-search or connector tool. A URL, preview, text extract or base64
    response in another tool is not proof the runtime possesses the file.
-3. If runtime networking is unavailable, use an already uploaded
+3. The native Skill ZIP already bundles the verified production components and
+   the preflight uses them offline. From the knowledge file, if runtime
+   networking is unavailable, use an already uploaded
    `taiwan-exam-template-resources.pdf`. It contains the 30 original PDFs as PDF
    attachments, no executable content. It is optional data, not a Skill installer.
    Read attachments with the PDF library; never OCR the visible index. Use the

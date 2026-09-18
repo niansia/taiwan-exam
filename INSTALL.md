@@ -155,6 +155,8 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 
 網頁版使用平台自己的持續自訂功能。建立一次後，在後續對話選取同一 Skill／Gem 即可；普通聊天中的一次附件上傳仍不算安裝。
 
+正式 PDF 一律由 Skill 內附工具疊在原始固定模板上產生，並須通過 `check_hosted_run.py`。原生 Skill ZIP 已內建七科模板，不需連網；只用知識檔且執行環境不能連網時，請使用者附上離線模板資源 PDF。不得以 LaTeX、HTML、Word 或繪圖工具重畫封面、頁首頁尾、劃記範例或公式頁；取不到模板時停下並說明缺少什麼。
+
 ### ChatGPT 網頁版
 
 有 Skills 的帳號（OpenAI 官方目前列出 Business、Enterprise、Healthcare、Edu，並受工作區設定限制）優先直接上傳原生 Skill ZIP：側邊欄 `Plugins → Skills → Create → Upload from your computer`，選取未解壓的 [2026.09.17.1 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)。ChatGPT 會先掃描；`Needs Review` 須由使用者自行檢視，`Blocked` 不可使用，不得指導使用者繞過。直接上傳保留原始 SKILL.md、scripts 與 references，不經模型改寫。只有上傳被管理員關閉、但原生選單仍能選到 `@skill-creator` 時，才附上 `taiwan-exam-web-knowledge.md` 建立或更新 `Taiwan Exam Generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。平台若顯示「安裝」或「儲存」按鈕，使用者仍須完成一次原生確認；Markdown 不能略過平台的永久保存確認。確認後，Skill 應在建立它的同一對話立即套用，不得要求先開新對話；之後的新對話可輸入 `@` 選取同一 Skill，無須重新上傳。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。

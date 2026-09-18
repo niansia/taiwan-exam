@@ -32,6 +32,8 @@
 base64 內容備援，並在寫檔前核對 PDF 標頭、大小與 SHA-256。工具回傳
 base64 時應解碼後驗證，不得把 base64 傳輸本身誤判為沒有 binary handoff。
 
+原生 Skill ZIP 已內附七科正式組版元件（23 份），`prepare_hosted_run.py`
+直接離線使用並核對 SHA-256，不需連網。只用知識檔時，
 若檔案執行環境不能連網，可使用 `taiwan-exam-template-resources.pdf` 離線
 備援：它只附帶 30 個原始模板 PDF，不含程式；只解出當科需要的元件，
 仍以知識檔內的 SHA-256 驗證。安裝流程不變，不要求先下載全部模板。

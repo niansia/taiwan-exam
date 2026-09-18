@@ -7,6 +7,14 @@ are separate operations; do not run them during ordinary hosted generation.
 The subject's curriculum, structure, originality and quality requirements remain
 binding. This route does not promise completion inside a provider's turn limit.
 
+Formal question and solution PDFs come only from these helpers composing onto
+the original fixed template bytes, and only after `check_hosted_run.py` passes.
+Never let LaTeX, HTML, Word or drawing tools recreate a cover, running
+header/footer, answer-marking example or formula page; a "mock" disclaimer does
+not make an imitation acceptable. When a helper or template is unavailable,
+stop before drafting or delivery, keep saved work and name the missing part to
+the user. State the final check result when delivering the two PDFs.
+
 ## Load once and begin the paper
 
 When a native Skill already exposes its scripts and references, use
@@ -48,8 +56,12 @@ transitions rather than reconstructing times later. Then run:
 python scripts/prepare_hosted_run.py --subject SUBJECT --run-dir run --paper-id PAPER_ID --font FONT --resource-pdf UPLOADED_RESOURCE_PDF
 ```
 
-If no resource PDF was supplied, omit that option and use the helper's bounded
-acquisition. The resource PDF's embedded original attachments are the templates;
+The native Skill bundles every subject's verified template components, and the
+helper uses them without network access; omit `--resource-pdf` there. From the
+knowledge file, pass the uploaded resource PDF; without it the helper attempts
+bounded retrieval. If acquisition fails, follow its `next_action`: stop and ask
+for `taiwan-exam-template-resources.pdf`, never a redrawn substitute.
+The resource PDF's embedded original attachments are the templates;
 its visible information page and the subject preview PDFs are not templates.
 Open the small preflight proof images once to verify actual glyphs/field fit.
 After `ready-for-authoring`, use the saved original subject components and

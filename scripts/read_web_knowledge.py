@@ -26,6 +26,10 @@ SUBJECT_REFERENCES = {
 SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
 LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',
                 '自然':'science','社會':'social','國寫':'writing'}
+# Fixed template PDFs bundled with the native Skill; copy only the chosen subject's.
+TEMPLATE_ASSETS = 'exam_packs/學測/templates/115/assets/'
+TEMPLATE_SLUGS = {'國綜':'chinese-comprehensive','國寫':'chinese-writing','英文':'english',
+                  '數學A':'math-a','數學B':'math-b','社會':'social','自然':'science'}
 
 # Reading order for model context; executable files remain intact on disk.
 READING_PHASES = {
@@ -132,6 +136,8 @@ def relevant(path: str, subject: str) -> bool:
         return path in {f'templates/hosted-{LAYOUT_SLUGS[subject]}-{role}.json' for role in ('questions','solutions')}
     if path.startswith("references/"):
         return Path(path).name not in SUBJECT_ONLY or Path(path).name in SUBJECT_REFERENCES[subject]
+    if path.startswith(TEMPLATE_ASSETS):
+        return path.startswith(TEMPLATE_ASSETS + TEMPLATE_SLUGS[subject] + '/')
     if path.startswith("exam_packs/"):
         if not path.startswith("exam_packs/學測/") or path.endswith("source-pack-manifest.json"):
             return False
