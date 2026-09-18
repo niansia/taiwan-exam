@@ -11,7 +11,7 @@
 https://github.com/niansia/taiwan-exam
 
 Claude Customize → Skills 原生套件／有執行能力的網頁對話工具：
-https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip
+https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip
 
 ChatGPT Project／Claude Project／Gemini Gem 知識檔（一鍵下載頁）：
 https://niansia.github.io/taiwan-exam/download-web-knowledge.html
@@ -20,7 +20,7 @@ https://niansia.github.io/taiwan-exam/download-web-knowledge.html
 https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md
 ```
 
-Claude 原生 Skills 優先使用 2026.09.17.1 ZIP，不解壓直接上傳並啟用。
+Claude 原生 Skills 優先使用 2026.09.18.1 ZIP，不解壓直接上傳並啟用。
 短版 SKILL 入口會按需讀取已分開的 references 與 scripts；不要把大型聚合 MD
 當成原生 Skill 的完整正文。已安裝套件可直接使用工具，不需再抽取聚合 MD。
 一般網頁出卷對話如有程式／檔案能力，也可附上同一 ZIP，由模型解壓既有工具。
@@ -159,7 +159,7 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 
 ### ChatGPT 網頁版
 
-有 Skills 的帳號（OpenAI 官方目前列出 Business、Enterprise、Healthcare、Edu，並受工作區設定限制）優先直接上傳原生 Skill ZIP：側邊欄 `Plugins → Skills → Create → Upload from your computer`，選取未解壓的 [2026.09.17.1 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)。ChatGPT 會先掃描；`Needs Review` 須由使用者自行檢視，`Blocked` 不可使用，不得指導使用者繞過。直接上傳保留原始 SKILL.md、scripts 與 references，不經模型改寫。只有上傳被管理員關閉、但原生選單仍能選到 `@skill-creator` 時，才附上 `taiwan-exam-web-knowledge.md` 建立或更新 `Taiwan Exam Generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。平台若顯示「安裝」或「儲存」按鈕，使用者仍須完成一次原生確認；Markdown 不能略過平台的永久保存確認。確認後，Skill 應在建立它的同一對話立即套用，不得要求先開新對話；之後的新對話可輸入 `@` 選取同一 Skill，無須重新上傳。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
+有 Skills 的帳號（OpenAI 官方目前列出 Business、Enterprise、Healthcare、Edu，並受工作區設定限制）優先直接上傳原生 Skill ZIP：側邊欄 `Plugins → Skills → Create → Upload from your computer`，選取未解壓的 [2026.09.18.1 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip)。ChatGPT 會先掃描；`Needs Review` 須由使用者自行檢視，`Blocked` 不可使用，不得指導使用者繞過。直接上傳保留原始 SKILL.md、scripts 與 references，不經模型改寫。只有上傳被管理員關閉、但原生選單仍能選到 `@skill-creator` 時，才附上 `taiwan-exam-web-knowledge.md` 建立或更新 `Taiwan Exam Generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。平台若顯示「安裝」或「儲存」按鈕，使用者仍須完成一次原生確認；Markdown 不能略過平台的永久保存確認。確認後，Skill 應在建立它的同一對話立即套用，不得要求先開新對話；之後的新對話可輸入 `@` 選取同一 Skill，無須重新上傳。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
 
 知識檔內含 111～115 各科正式試題、答案與評分原則的已驗證大考中心
 直連。完整卷命題前，網頁代理應自行開啟當科五年份試題，不要要求
@@ -187,7 +187,7 @@ schema/profile 檢查；缺少 PMingLiU／DFKai 名稱本身也不是拒絕理�
 
 聊天專案：在 **Chat 的 Projects** 建立 `Taiwan Exam`，把知識檔加入 Project Knowledge，並把設定文字存成 Project Instructions，之後在同一專案開聊天。
 
-原生 Skill：到 **Customize → Skills → ＋ → Create skill → Upload a skill**，上傳 [2026.09.17.1 工具／Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)，不要解壓，按 Save 並啟用。這個版本使用短入口與分開的規則／工具；舊 MD 雖可符合 YAML 格式，整份讀入仍會浪費上下文，請停用舊 Skill 後改用 ZIP。MD 留給聊天專案知識。Claude 的實際上傳與平台掃描結果仍以帳號介面為準。
+原生 Skill：到 **Customize → Skills → ＋ → Create skill → Upload a skill**，上傳 [2026.09.18.1 工具／Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip)，不要解壓，按 Save 並啟用。這個版本使用短入口與分開的規則／工具；舊 MD 雖可符合 YAML 格式，整份讀入仍會浪費上下文，請停用舊 Skill 後改用 ZIP。MD 留給聊天專案知識。Claude 的實際上傳與平台掃描結果仍以帳號介面為準。
 
 **Cowork** 是輸入框可選的任務模式：使用已啟用的 Skill，附上當科版型後提出出卷需求；不是把 Claude Code 的本機安裝指令貼到一般聊天。**Claude for Word** 是 Word 外掛，本專案尚未驗證該外掛的固定模板 PDF 流程。初次設定見 [README 的 Claude 安裝](README.md#claude)，出卷文字見 [README 第 3 步](README.md#第-3-步出卷)。
 
