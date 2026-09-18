@@ -22,8 +22,8 @@
 
 | 你用的 AI | 下載這個檔案 | 接著看 |
 | --- | --- | --- |
-| **Claude**（claude.ai） | [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip) | [Claude](#claude) |
-| **ChatGPT**，左側欄有 **Plugins**，裡面有 **Skills** 分頁 | [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip) | [ChatGPT](#chatgpt) |
+| **Claude**（claude.ai） | [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip) | [Claude](#claude) |
+| **ChatGPT**，左側欄有 **Plugins**，裡面有 **Skills** 分頁 | [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip) | [ChatGPT](#chatgpt) |
 | **ChatGPT**，找不到 Skills | [直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html) | [ChatGPT](#chatgpt) 的「沒有 Skills」 |
 | **Gemini** | [直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html) | [Gemini](#gemini) |
 | Codex、Claude Code、Gemini CLI | 不用下載 | [進階：本機版](#進階本機版) |
@@ -34,9 +34,9 @@
 
 ### Claude
 
-1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)，不要解壓縮。
+1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip)，不要解壓縮。
 2. 開啟 [Claude](https://claude.ai/)，依序點 **Customize → Skills → ＋ → Create skill → Upload a skill**。
-3. 選剛下載的 `taiwan-exam-hosted-2026.09.17.1.zip`，按 **Save**。
+3. 選剛下載的 `taiwan-exam-hosted-2026.09.18.1.zip`，按 **Save**。
 4. 確認技能清單出現 `taiwan-exam-generator`，而且已開啟。
 5. 到 **Settings → Capabilities**，確認 **Code execution and file creation** 已開啟。學校或公司帳號可能由管理員控制。
 
@@ -66,7 +66,7 @@
 
 依 [OpenAI 官方說明](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)，Skills 目前開放給 Business、Enterprise、Healthcare、Edu 帳號，工作區管理員也可能關閉上傳。一般 Free、Plus、Pro 帳號請看下面的「沒有 Skills」。
 
-1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)，不要解壓縮。
+1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip)，不要解壓縮。
 2. 開啟 [ChatGPT](https://chatgpt.com/)，在左側欄點 **Plugins**，再點上方的 **Skills** 分頁。
 3. 點 **Create → Upload from your computer**，選剛下載的 ZIP。
 4. 等 ChatGPT 掃描完成，技能清單出現 `taiwan-exam-generator` 就完成了。
@@ -113,7 +113,7 @@
 
 只需下載要出的科目。版型裡的文字都是占位內容，AI 只參考排版，不會照抄。
 
-**用專案或 Gem 的人**：另外下載一次[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)，出卷時也一起附上。AI 靠它套用原始模板，不必連網。
+**用專案或 Gem 的人**：另外下載一次[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)，出卷時也一起附上。AI 靠它套用原始模板，不必連網。用 Skill ZIP 的人不需要，模板已內建在 ZIP 裡。
 
 ## 第 3 步：出卷
 
@@ -178,6 +178,8 @@
 <details>
 <summary>AI 說無法下載或套用模板</summary>
 
+用 2026.09.18.1 以後的 Skill ZIP，模板已內建；若仍出現這個訊息，先確認技能已換成新版。用專案或 Gem 的人請照下面做：
+
 1. 點[下載離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)。
 2. 回到**原本出卷的對話**，上傳 `taiwan-exam-template-resources.pdf`。
 3. 貼上下面這段（科目自行替換）：
@@ -210,7 +212,7 @@
 <details>
 <summary>上傳 ZIP 時出現「Zip file contains path with invalid characters」</summary>
 
-這是舊版 `2026.09.14.1` ZIP 的問題。請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip) 再上傳，不需要自己解壓或修改。看到技能出現在清單中才算安裝完成；若新版仍被拒收，請保留錯誤文字並[回報問題](https://github.com/niansia/taiwan-exam/issues)。
+這是舊版 `2026.09.14.1` ZIP 的問題。請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip) 再上傳，不需要自己解壓或修改。看到技能出現在清單中才算安裝完成；若新版仍被拒收，請保留錯誤文字並[回報問題](https://github.com/niansia/taiwan-exam/issues)。
 
 </details>
 
@@ -239,7 +241,7 @@
 <details>
 <summary>進階：讓專案或 Gem 的對話直接使用 ZIP 裡的工具</summary>
 
-如果出卷對話能執行 Python、讀寫檔案，可以額外附上 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.17.1/taiwan-exam-hosted-2026.09.17.1.zip)，並加上這段：
+如果出卷對話能執行 Python、讀寫檔案，可以額外附上 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip)，並加上這段：
 
 ```text
 我已附上 Taiwan Exam 網頁工具 ZIP，請解壓到本次工作目錄，依內附 hosted-execution 流程執行。
@@ -253,7 +255,7 @@
 
 ## 更新到新版
 
-**目前版本：知識檔 2026.09.18.1；Skill ZIP 2026.09.17.1（2026.09.18.1 驗證後發布）；七科版型 2026.09.14.1。** [看更新紀錄](docs/web-updates.md)
+**目前版本：知識檔與 Skill ZIP 皆為 2026.09.18.1（ZIP 內建七科模板）；七科版型 2026.09.14.1。** [看更新紀錄](docs/web-updates.md)
 
 GitHub 有新版時，你帳號裡已經放好的檔案**不會自動更新**，要自己換：
 

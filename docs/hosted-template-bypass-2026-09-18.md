@@ -32,6 +32,10 @@
 - 七科各自從 ZIP 載入：只複製當科模板；前置工具在網路不可用時仍完成準備，來源標示為內建模板。
 - 內建模板被改動一個位元組時，前置工具停止，錯誤訊息要求停下並索取離線模板資源 PDF，不會下載或改用其他排版。
 
+## 發布
+
+知識檔與原生 Skill ZIP 都是 2026.09.18.1。ZIP 的 SHA-256 為 `eaee1c9016bf2642fc792687a44c7d9b0cfabd32e6f01d7f320f1662b0479352`，大小 2,830,534 位元組。ZIP 與解壓內容都通過 Windows Defender 與 Windows 附件檢查。維護者已確認 Chrome 下載正常，並在 Claude（Customize → Skills）與 ChatGPT（Plugins → Skills）上傳成功。下載的檔案沒有留在維護者電腦上，因此改以 GitHub 附件摘要與發布後的公開下載核對，雜湊一致。紀錄見 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.18.1) 的 security.json 與 browser.json。
+
 ## 限制
 
 Skill 無法強迫模型呼叫工具。這次修正移除「取不到模板」這個最常見的藉口，並把禁止事項放在模型最先讀到的位置。使用者仍可用封面對照與最終檢查結果，自行判斷是否為正式套版的成品。本修正尚未以新的 ChatGPT 實際出卷驗證。

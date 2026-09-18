@@ -13,7 +13,7 @@
 - Skill 入口、執行指南開頭與工具錯誤訊息都寫明：正式 PDF 只能由內附工具疊在原始模板上產生，並須通過最終檢查；不得用 LaTeX、HTML、Word 或繪圖工具重畫封面、頁首頁尾、劃記範例或公式頁，加註「模擬」也不行。取不到模板時要停下，並請使用者附上離線模板資源 PDF。
 - README 的出卷文字明確要求套用原始模板，並回報最終檢查結果。新增「封面跟版型不一樣」的判斷方法與重做文字；用專案或 Gem 的人出卷時，一併附上離線模板資源 PDF。
 
-原生 Skill ZIP 2026.09.18.1 會在掃描與上傳驗證後發布。在那之前，使用舊版 ZIP 的人出卷時請一併附上[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)。Skill 無法強迫模型呼叫工具；這次修正移除了「取不到模板」這個缺口，並把禁止事項放在最先讀到的位置。[調查紀錄](hosted-template-bypass-2026-09-18.md)
+原生 Skill ZIP 同步發布 2026.09.18.1（約 2.8 MB）。ZIP 與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 實際上傳成功。已安裝的舊 Skill 請重新下載替換。Skill 無法強迫模型呼叫工具；這次修正移除了「取不到模板」這個缺口，並把禁止事項放在最先讀到的位置。[下載 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip) · [調查紀錄](hosted-template-bypass-2026-09-18.md)
 
 ## 2026.09.17.1：縮短排版修正循環，不減少審閱
 
