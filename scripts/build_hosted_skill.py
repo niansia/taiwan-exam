@@ -15,8 +15,13 @@ import re
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 from build_web_knowledge import ROOT, source_paths
+from compose_hosted_pdf import merge_duplicate_fonts
 from fetch_hosted_template_assets import DEFAULT_MAP, ROOT as TEMPLATE_ROOT, production_records
+from read_web_knowledge import LAYOUT_PREVIEWS, LAYOUT_SLUGS
 from validate_attribution import validate as validate_attribution
+
+# Published placeholder previews of each subject's question and solution layout.
+PREVIEW_VERSION = '2026.09.14.1'
 
 
 ENTRY = """---
@@ -44,20 +49,22 @@ references, schemas, and template maps. First use the reader's `--source-dir`
 route in hosted-execution.md to materialize the selected subject into a writable
 reference directory; run all subsequent helpers from that directory. ZIP member
 names use ASCII; PACKAGE_MANIFEST.json maps them to original runtime paths without
-changing file contents. Do not manually rename folders. Do not extract
-or reconstruct the large web-knowledge Markdown, download the repository, or
-reinstall this Skill for an ordinary paper request. Run helpers without printing
-their source. Read the requested subject's guidance at the phase that uses it.
+changing file contents (layout previews only merge duplicate fonts). Do not
+manually rename folders. Do not extract or reconstruct the large web-knowledge
+Markdown, download the repository, or reinstall this Skill for an ordinary paper
+request. Run helpers without printing their source. Read the requested subject's
+guidance at the phase that uses it.
 
-Write new questions and solutions for this run. Subject layout examples contain
-placeholders only; reuse their layout conventions, never their question content
-or diagram mechanisms. Every subject's verified fixed template components are
-bundled; the preflight uses them without network access. An uploaded resource
-PDF is an equivalent carrier. Keep original fixed PDF layers, curriculum and
-score structure, difficulty and originality requirements, answer verification,
-and real page/item visual review. An unavailable second model uses the
-documented honest same-context second pass; never invent an independent
-reviewer or passing observation.
+Write new questions and solutions for this run. The selected subject's question
+and solution layout previews are bundled under `layout-previews/`; users need not
+attach them. They contain placeholders only; reuse their layout conventions,
+never their question content or diagram mechanisms. Every subject's verified
+fixed template components are bundled; the preflight uses them without network
+access. An uploaded resource PDF is an equivalent carrier. Keep original fixed
+PDF layers, curriculum and score structure, difficulty and originality
+requirements, answer verification, and real page/item visual review. An
+unavailable second model uses the documented honest same-context second pass;
+never invent an independent reviewer or passing observation.
 
 Create one paper ID and run directory. On continuation, verify and resume saved
 work and its first unfinished action. Reuse unchanged verified inputs and actual
@@ -122,6 +129,24 @@ def template_sources(root):
     return selected
 
 
+def layout_previews(root):
+    """{runtime path: (repository path, bytes)} for each subject's placeholder layout previews.
+
+    Bundled so users need not attach them to every chat, where attached PDFs
+    occupy context on every turn. Duplicate font copies are merged, which is
+    reproducible and leaves every page's pixels and text unchanged.
+    """
+    folder = root / 'docs' / 'layout-examples' / PREVIEW_VERSION
+    previews = {}
+    for slug in sorted(set(LAYOUT_SLUGS.values())):
+        for role in ('questions', 'solutions'):
+            path = folder / f'{slug}-{role}.pdf'
+            original = path.read_bytes()
+            previews[f'{LAYOUT_PREVIEWS}{slug}-{role}.pdf'] = (path.relative_to(root).as_posix(), original,
+                                                               merge_duplicate_fonts(original))
+    return previews
+
+
 def build(version, output, *, root=ROOT):
     if not isinstance(version, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,79}', version):
         raise ValueError('Use a short version identifier without whitespace or path separators')
@@ -159,6 +184,15 @@ def build(version, output, *, root=ROOT):
         records.append({'path': target, 'runtime_path': runtime_path,
                         'bytes': len(data), 'sha256': sha(data),
                         'source': relative, 'source_sha256': sha(data)})
+    previews = layout_previews(root)
+    for runtime_path, (relative, original, data) in sorted(previews.items()):
+        target = archive_path(runtime_path)
+        if target in members:
+            raise ValueError('Duplicate hosted archive target: ' + target)
+        members[target] = data
+        records.append({'path': target, 'runtime_path': runtime_path, 'bytes': len(data), 'sha256': sha(data),
+                        'source': relative, 'source_sha256': sha(original),
+                        'transform': 'duplicate font copies merged; pages render identically'})
     if len({p.casefold() for p in members}) != len(members):
         raise ValueError('Case-colliding hosted archive paths')
     manifest = {'schema_version': 2, 'name': 'taiwan-exam-generator', 'version': version,
@@ -172,6 +206,8 @@ def build(version, output, *, root=ROOT):
                 'exam_acceptance': 'not-established-by-packager', 'contains_original_exam_files': False,
                 'bundled_templates': {'map': DEFAULT_MAP.relative_to(TEMPLATE_ROOT).as_posix(), 'count': len(templates),
                                       'bytes': sum(path.stat().st_size for path in templates.values())},
+                'layout_previews': {'version': PREVIEW_VERSION, 'count': len(previews),
+                                    'bytes': sum(len(data) for _, _, data in previews.values())},
                 'file_count': len(records), 'files': sorted(records, key=lambda row: row['path'])}
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix('.zip.partial')

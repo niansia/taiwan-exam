@@ -400,7 +400,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.1/taiwan-exam-hosted-2026.09.19.1.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.2/taiwan-exam-hosted-2026.09.19.2.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native

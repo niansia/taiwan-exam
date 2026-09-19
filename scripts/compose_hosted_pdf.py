@@ -52,7 +52,9 @@ def font_programs(doc):
 def merge_duplicate_fonts(data: bytes) -> bytes:
     """One copy of a font embedded twice (body and header fields): same pages, half the bytes."""
     with pymupdf.open(stream=data, filetype='pdf') as doc:
-        return doc.tobytes(garbage=4, deflate=True)  # identical copies collapse once both are compressed
+        # Identical copies collapse once both are compressed. Keeping the file
+        # ID makes the result reproducible for the same input bytes.
+        return doc.tobytes(garbage=4, deflate=True, no_new_id=True)
 
 
 def compact_fonts(data: bytes) -> tuple[bytes, dict]:
@@ -112,7 +114,7 @@ def compact_fonts(data: bytes) -> tuple[bytes, dict]:
             font.save(buffer)
             doc.update_stream(xref, buffer.getvalue())
             doc.xref_set_key(xref, 'Length1', str(len(buffer.getvalue())))
-        compact = doc.tobytes(garbage=4, deflate=True)
+        compact = doc.tobytes(garbage=4, deflate=True, no_new_id=True)
     with pymupdf.open(stream=compact, filetype='pdf') as check:
         same = [(page.get_pixmap(matrix=pymupdf.Matrix(2, 2), alpha=False).samples, page.get_text())
                 for page in check] == before
