@@ -32,4 +32,8 @@
 | 印刷文字檢查 | LaTeX 指令、`$x$`、未配對上標、未宣告公式圖、圖檔雜湊不符皆在存題時列出；`US$30,000`、`NT$ 500`、`A \ B`、H₂O 不誤判 |
 | 圖寬、末頁 | 460 pt 的圖在有題號欄的選擇題以欄寬印出；只溢出一個題塊的版面以 0.75 倍題間距收回同一頁 |
 
+## 發布
+
+知識檔與原生 Skill ZIP 都是 2026.09.19.1。ZIP 的 SHA-256 為 `02f8f4e22a31a714c1df80563c1f95678d54a0811f949b67a0ea47ab0ef09142`，大小 2,836,183 位元組，ZIP 與解壓內容都通過 Windows Defender 與 Windows 附件檢查。維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。下載的檔案不在維護者的下載資料夾，因此改以 GitHub 附件摘要與發布後的公開下載核對，雜湊一致。紀錄見 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.19.1) 的 security.json 與 browser.json。
+
 以上是程式與合成資料測試，不是新的網頁實跑計時，也不代表題目品質。平台單輪時限仍不由 Skill 控制。
