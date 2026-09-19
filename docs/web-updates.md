@@ -15,7 +15,7 @@
 - 審閱清單改用絕對路徑，每張圖附紀錄鍵值與待填範本，一次寫入審閱結果。
 - 組版時字型只嵌入一份；最終檢查通過後，交付版再去掉沒用到的字形，逐頁比對畫面與文字完全相同才採用。以使用者交付的兩份 PDF 實測，從 40.8 MB 縮到約 0.9 MB。
 
-逐頁與逐題審閱、難度與最終檢查全部保留。原生 Skill ZIP 2026.09.19.1 會在掃描與上傳驗證後發布。[分析與測試範圍](hosted-claude-run-2026-09-19.md)
+逐頁與逐題審閱、難度與最終檢查全部保留。原生 Skill ZIP 同步發布 2026.09.19.1，ZIP 與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 實際上傳成功。已安裝的舊 Skill 請重新下載替換。[下載 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.1/taiwan-exam-hosted-2026.09.19.1.zip) · [分析與測試範圍](hosted-claude-run-2026-09-19.md)
 
 ## 2026.09.18.1：Skill ZIP 內建模板，禁止重畫封面
 
