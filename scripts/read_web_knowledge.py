@@ -30,6 +30,8 @@ LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學
 TEMPLATE_ASSETS = 'exam_packs/學測/templates/115/assets/'
 TEMPLATE_SLUGS = {'國綜':'chinese-comprehensive','國寫':'chinese-writing','英文':'english',
                   '數學A':'math-a','數學B':'math-b','社會':'social','自然':'science'}
+# Placeholder layout previews bundled with the native Skill, likewise per subject.
+LAYOUT_PREVIEWS = 'layout-previews/'
 
 # Reading order for model context; executable files remain intact on disk.
 READING_PHASES = {
@@ -138,6 +140,8 @@ def relevant(path: str, subject: str) -> bool:
         return Path(path).name not in SUBJECT_ONLY or Path(path).name in SUBJECT_REFERENCES[subject]
     if path.startswith(TEMPLATE_ASSETS):
         return path.startswith(TEMPLATE_ASSETS + TEMPLATE_SLUGS[subject] + '/')
+    if path.startswith(LAYOUT_PREVIEWS):
+        return path in {f'{LAYOUT_PREVIEWS}{LAYOUT_SLUGS[subject]}-{role}.pdf' for role in ('questions', 'solutions')}
     if path.startswith("exam_packs/"):
         if not path.startswith("exam_packs/學測/") or path.endswith("source-pack-manifest.json"):
             return False
@@ -257,7 +261,13 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
             destination.write_bytes(raw)
     result = {'section_count': len(verified), 'selected_bytes': sum(len(raw) for _, raw in verified),
               'files': [{'path': path, 'bytes': len(raw)} for path, raw in verified]}
-    return _write_reading_plan(entries, result, subject, output_dir)
+    plan = _write_reading_plan(entries, result, subject, output_dir)
+    previews = sorted(str(root / path) for path, _ in verified if path.startswith(LAYOUT_PREVIEWS))
+    if previews:
+        plan['layout_previews'] = previews
+        plan['layout_preview_note'] = ('Placeholder layout only; the renderer already applies it and users need '
+                                       'not attach previews. Open one only for a specific layout question.')
+    return plan
 
 
 def reading_plan(knowledge_path: Path, subject: str, output_dir: Path) -> dict:

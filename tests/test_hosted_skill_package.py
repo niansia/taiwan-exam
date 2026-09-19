@@ -61,8 +61,14 @@ def test_short_entry_is_separate_from_exact_canonical_sources(native):
     # The only binaries are the fixed templates, byte-identical to their map.
     mapping=json.loads((ROOT/manifest['bundled_templates']['map']).read_text(encoding='utf-8-sig'))
     expected={a['repository_path']:a['sha256'] for s in mapping['subjects'] for a in production_records(s)}
-    pdfs={row['runtime_path']:row['sha256'] for row in manifest['files'] if row['path'].endswith('.pdf')}
-    assert pdfs==expected and manifest['bundled_templates']['count']==len(expected)==23
+    pdfs={row['runtime_path']:row for row in manifest['files'] if row['path'].endswith('.pdf')}
+    templates={path:row['sha256'] for path,row in pdfs.items() if not path.startswith('layout-previews/')}
+    assert templates==expected and manifest['bundled_templates']['count']==len(expected)==23
+    # Layout previews: each subject's pair, traceable to the published preview bytes.
+    previews=[row for path,row in pdfs.items() if path.startswith('layout-previews/')]
+    assert len(previews)==manifest['layout_previews']['count']==14
+    for row in previews:
+        assert hashlib.sha256((ROOT/row['source']).read_bytes()).hexdigest()==row['source_sha256']
     for row in manifest['files']:
         data=(installed/row['path']).read_bytes()
         assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256']

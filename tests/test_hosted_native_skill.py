@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_hosted_skill as builder
 from scan_skill_release import inspect_archive
 from validate_attribution import validate
-from read_web_knowledge import TEMPLATE_SLUGS, reading_plan_from_directory
+from read_web_knowledge import LAYOUT_SLUGS, TEMPLATE_SLUGS, reading_plan_from_directory
 
 
 def test_native_candidate_is_small_entry_with_real_separate_dependencies(tmp_path):
@@ -32,7 +32,7 @@ def test_native_candidate_is_small_entry_with_real_separate_dependencies(tmp_pat
     assert len(entry.splitlines()) < 100 and '<canonical-source' not in entry
     assert (extracted / 'references/full-skill.md').read_bytes() == (builder.ROOT / 'SKILL.md').read_bytes()
     assert (extracted / 'references/hosted-execution.md').is_file()
-    assert len(list(extracted.rglob('*.pdf'))) == 23  # Bundled fixed templates only.
+    assert len(list(extracted.rglob('*.pdf'))) == 23 + 14  # Fixed templates and layout previews only.
     assert not list(extracted.rglob('taiwan-exam-web-knowledge.md'))
     scripts = {p.stem for p in (extracted / 'scripts').glob('*.py')}
     for path in (extracted / 'scripts').glob('*.py'):
@@ -69,10 +69,12 @@ def test_native_helpers_execute_without_aggregate_bootstrap(tmp_path, subject):
     reading_plan_from_directory(skill, subject, runtime)
     font = tmp_path / 'body.ttf'
     font.write_bytes(pymupdf.Font('cjk').buffer)
-    # Only the chosen subject's templates are copied, and they need no network.
+    # Only the chosen subject's templates and previews are copied; templates need no network.
     slug = TEMPLATE_SLUGS[subject]
+    previews = {f'layout-previews/{LAYOUT_SLUGS[subject]}-{role}.pdf' for role in ('questions', 'solutions')}
     copied = {p.relative_to(runtime).as_posix() for p in runtime.rglob('*.pdf')}
-    assert copied and all(p.startswith(f'exam_packs/學測/templates/115/assets/{slug}/') for p in copied)
+    assert previews < copied and all(p in previews or p.startswith(f'exam_packs/學測/templates/115/assets/{slug}/')
+                                     for p in copied)
     command = [sys.executable, str(runtime / 'scripts/prepare_hosted_run.py'),
                '--subject', subject, '--run-dir', str(tmp_path / 'run'), '--paper-id', 'native',
                '--font', str(font)]

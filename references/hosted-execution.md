@@ -25,7 +25,10 @@ ASCII names; `runtime_path` in the manifest restores original canonical paths in
 VERSIONED_REFS with unchanged file bytes. Run subsequent helpers from
 VERSIONED_REFS, not the installed ZIP directory. This one local copy is scoped to
 the selected subject; it requires no aggregate Markdown, reinstallation or
-repository download. Reuse that reference directory on continuation.
+repository download. Reuse that reference directory on continuation. Its result
+lists this subject's two `layout_previews` (placeholder layout only). Do not ask
+native-Skill users to attach previews; the renderer already applies their
+conventions, so open one only for a specific layout question.
 
 Otherwise extract the uploaded knowledge file once with `read_web_knowledge.py KNOWLEDGE
 --subject SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Read this

@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.19.1
+# Taiwan Exam Web Knowledge v2026.09.19.2
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -603,10 +603,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 22005,
-    "sha256": "4b68c8b31ddf000a55c44076a7cc8186ed4ee9a58e392257f383bd9730db0a27",
-    "embedded_bytes": 22005,
-    "embedded_sha256": "4b68c8b31ddf000a55c44076a7cc8186ed4ee9a58e392257f383bd9730db0a27"
+    "bytes": 22233,
+    "sha256": "3861dfb8b71546a0473a0b40ae3584ead05e6e2dda20165f76e42561472601c4",
+    "embedded_bytes": 22233,
+    "embedded_sha256": "3861dfb8b71546a0473a0b40ae3584ead05e6e2dda20165f76e42561472601c4"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -716,9 +716,9 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/web-platform-use.md",
     "bytes": 30679,
-    "sha256": "896c97bef0885b8c82f42b2c5e0fd7512db33309bc24c7dd27bbdea13a12bfe9",
+    "sha256": "f380a47f948ababa5e76929edd06f4e9e64f5f649a6a21d7cb2d2257a8cb1978",
     "embedded_bytes": 30679,
-    "embedded_sha256": "896c97bef0885b8c82f42b2c5e0fd7512db33309bc24c7dd27bbdea13a12bfe9"
+    "embedded_sha256": "f380a47f948ababa5e76929edd06f4e9e64f5f649a6a21d7cb2d2257a8cb1978"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -813,10 +813,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
-    "bytes": 14446,
-    "sha256": "68d3a0da7c6d063bd3f272c337ead0ba04c129259b68cb57a571ca70d64d0ab1",
-    "embedded_bytes": 14446,
-    "embedded_sha256": "68d3a0da7c6d063bd3f272c337ead0ba04c129259b68cb57a571ca70d64d0ab1"
+    "bytes": 14572,
+    "sha256": "2fa53a104f22f4eb1e887c1bcc4c748e91b0b35d33408e99ee598a25101fa3ea",
+    "embedded_bytes": 14572,
+    "embedded_sha256": "2fa53a104f22f4eb1e887c1bcc4c748e91b0b35d33408e99ee598a25101fa3ea"
   },
   {
     "path": "scripts/emit_item_skeleton.py",
@@ -890,10 +890,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 24425,
-    "sha256": "e1bc3c3fe19c8b06bf37f711808ad0d4a5bdc6e64e678f8b1629a70ea769dd87",
-    "embedded_bytes": 24425,
-    "embedded_sha256": "e1bc3c3fe19c8b06bf37f711808ad0d4a5bdc6e64e678f8b1629a70ea769dd87"
+    "bytes": 25104,
+    "sha256": "27301099d3cd037e1550a90de80f96267039be9e6eec1e1423a8de699e74d1d0",
+    "embedded_bytes": 25104,
+    "embedded_sha256": "27301099d3cd037e1550a90de80f96267039be9e6eec1e1423a8de699e74d1d0"
   },
   {
     "path": "scripts/run_hosted_workflow.py",
@@ -56791,7 +56791,10 @@ ASCII names; `runtime_path` in the manifest restores original canonical paths in
 VERSIONED_REFS with unchanged file bytes. Run subsequent helpers from
 VERSIONED_REFS, not the installed ZIP directory. This one local copy is scoped to
 the selected subject; it requires no aggregate Markdown, reinstallation or
-repository download. Reuse that reference directory on continuation.
+repository download. Reuse that reference directory on continuation. Its result
+lists this subject's two `layout_previews` (placeholder layout only). Do not ask
+native-Skill users to attach previews; the renderer already applies their
+conventions, so open one only for a specific layout question.
 
 Otherwise extract the uploaded knowledge file once with `read_web_knowledge.py KNOWLEDGE
 --subject SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Read this
@@ -59476,7 +59479,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.1/taiwan-exam-hosted-2026.09.19.1.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.2/taiwan-exam-hosted-2026.09.19.2.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
@@ -62108,7 +62111,9 @@ def font_programs(doc):
 def merge_duplicate_fonts(data: bytes) -> bytes:
     """One copy of a font embedded twice (body and header fields): same pages, half the bytes."""
     with pymupdf.open(stream=data, filetype='pdf') as doc:
-        return doc.tobytes(garbage=4, deflate=True)  # identical copies collapse once both are compressed
+        # Identical copies collapse once both are compressed. Keeping the file
+        # ID makes the result reproducible for the same input bytes.
+        return doc.tobytes(garbage=4, deflate=True, no_new_id=True)
 
 
 def compact_fonts(data: bytes) -> tuple[bytes, dict]:
@@ -62168,7 +62173,7 @@ def compact_fonts(data: bytes) -> tuple[bytes, dict]:
             font.save(buffer)
             doc.update_stream(xref, buffer.getvalue())
             doc.xref_set_key(xref, 'Length1', str(len(buffer.getvalue())))
-        compact = doc.tobytes(garbage=4, deflate=True)
+        compact = doc.tobytes(garbage=4, deflate=True, no_new_id=True)
     with pymupdf.open(stream=compact, filetype='pdf') as check:
         same = [(page.get_pixmap(matrix=pymupdf.Matrix(2, 2), alpha=False).samples, page.get_text())
                 for page in check] == before
@@ -64804,6 +64809,8 @@ LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學
 TEMPLATE_ASSETS = 'exam_packs/學測/templates/115/assets/'
 TEMPLATE_SLUGS = {'國綜':'chinese-comprehensive','國寫':'chinese-writing','英文':'english',
                   '數學A':'math-a','數學B':'math-b','社會':'social','自然':'science'}
+# Placeholder layout previews bundled with the native Skill, likewise per subject.
+LAYOUT_PREVIEWS = 'layout-previews/'
 
 # Reading order for model context; executable files remain intact on disk.
 READING_PHASES = {
@@ -64912,6 +64919,8 @@ def relevant(path: str, subject: str) -> bool:
         return Path(path).name not in SUBJECT_ONLY or Path(path).name in SUBJECT_REFERENCES[subject]
     if path.startswith(TEMPLATE_ASSETS):
         return path.startswith(TEMPLATE_ASSETS + TEMPLATE_SLUGS[subject] + '/')
+    if path.startswith(LAYOUT_PREVIEWS):
+        return path in {f'{LAYOUT_PREVIEWS}{LAYOUT_SLUGS[subject]}-{role}.pdf' for role in ('questions', 'solutions')}
     if path.startswith("exam_packs/"):
         if not path.startswith("exam_packs/學測/") or path.endswith("source-pack-manifest.json"):
             return False
@@ -65031,7 +65040,13 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
             destination.write_bytes(raw)
     result = {'section_count': len(verified), 'selected_bytes': sum(len(raw) for _, raw in verified),
               'files': [{'path': path, 'bytes': len(raw)} for path, raw in verified]}
-    return _write_reading_plan(entries, result, subject, output_dir)
+    plan = _write_reading_plan(entries, result, subject, output_dir)
+    previews = sorted(str(root / path) for path, _ in verified if path.startswith(LAYOUT_PREVIEWS))
+    if previews:
+        plan['layout_previews'] = previews
+        plan['layout_preview_note'] = ('Placeholder layout only; the renderer already applies it and users need '
+                                       'not attach previews. Open one only for a specific layout question.')
+    return plan
 
 
 def reading_plan(knowledge_path: Path, subject: str, output_dir: Path) -> dict:
