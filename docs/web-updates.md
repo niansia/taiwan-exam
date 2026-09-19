@@ -17,7 +17,7 @@
 - 審閱紀錄的觀察可以寫成多行清單，不會再被拒收。
 - README 的出卷文字加上「過程中不要停下來回報進度，一路做到交付兩份 PDF」；專案與 Gem 的設定文字也加上「其他情況不要中途停下來回報進度」。
 
-原生 Skill ZIP 2026.09.19.4 會在掃描與上傳驗證後發布。
+原生 Skill ZIP 同步發布 2026.09.19.4（約 9.3 MB）。ZIP 與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 實際上傳成功。已安裝的舊 Skill 請重新下載替換。[下載 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.4/taiwan-exam-hosted-2026.09.19.4.zip)
 
 ## 2026.09.19.3：沒有中文字型也能繼續出卷
 
