@@ -2,6 +2,7 @@
 """Prepare actual final-PDF page/item review in one batch; never approve content."""
 from __future__ import annotations
 import argparse
+from collections import Counter
 import copy
 import hashlib
 import html
@@ -67,6 +68,20 @@ def projected(body, sizes):
             copy_page = target.new_page(width=width, height=height)
             copy_page.show_pdf_page(copy_page.rect, source, page.number)
     return target
+
+
+def crop_keys(parts):
+    """record-review keys: the item id, or id#n when one item prints several crops."""
+    totals, seen, keys = Counter(part['id'] for part in parts), Counter(), []
+    for part in parts:
+        seen[part['id']] += 1
+        keys.append(part['id'] if totals[part['id']] == 1 else f"{part['id']}#{seen[part['id']]}")
+    return keys
+
+
+def pending_note():
+    """Blank reviewer entry: pending until the reviewer writes status and observations."""
+    return {'status': 'pending', 'observations': ''}
 
 
 def annotate_parts(parts, hashes):
@@ -288,7 +303,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     state.setdefault('pdfs',{})
     reused={'pages':0,'parts':0}
     basis={'pixel-identical':0,'vector-equivalent':0}
-    queue={};density_flags=[];batches=[]
+    queue={};density_flags=[];batches=[];template={}
     renderings=Renderings(root)
     try:
         for role,(pdf,body,layout_path) in pairs.items():
@@ -365,13 +380,23 @@ def prepare(state_path, pairs, output, *, render_identity=None):
                                 'inspection':save(role+'-inspection.json',scan),
                                 'item_review':save(role+'-items.json',items),
                                 'visual_review':save(role+'-review.json',visual)}
-            queue[role]={'pages':[p['raster_path'] for p,row in zip(scan['pages'],visual['pages']) if row['status']!='pass'],
-                         'items':[p['raster_path'] for p in items['parts'] if p['status']!='pass']}
+            # Absolute image paths: the helper's working directory is not the run.
+            absolute=lambda relative:str((root/relative).resolve())
+            keys={id(part):key for part,key in zip(items['parts'],crop_keys(items['parts']))}
+            queue[role]={'pages':[absolute(p['raster_path']) for p,row in zip(scan['pages'],visual['pages']) if row['status']!='pass'],
+                         'items':[absolute(p['raster_path']) for p in items['parts'] if p['status']!='pass']}
+            notes=template.setdefault(role,{'pages':{},'items':{}})
             for p,row in zip(scan['pages'],visual['pages']):
-                images=([p['raster_path']] if row['status']!='pass' else [])+[
-                    part['raster_path'] for part in by_page.get(p['page'],[]) if part['status']!='pass']
+                images=([(absolute(p['raster_path']),{'pages':str(p['page'])})] if row['status']!='pass' else [])+[
+                    (absolute(part['raster_path']),{'items':keys[id(part)]})
+                    for part in by_page.get(p['page'],[]) if part['status']!='pass']
+                for _,target in images:
+                    (kind,key),=target.items()
+                    notes[kind][key]=pending_note()
                 for start in range(0,len(images),REVIEW_BATCH_IMAGES):
-                    batches.append({'role':role,'page':p['page'],'images':images[start:start+REVIEW_BATCH_IMAGES]})
+                    chunk=images[start:start+REVIEW_BATCH_IMAGES]
+                    batches.append({'role':role,'page':p['page'],'images':[path for path,_ in chunk],
+                                    'record_as':[target for _,target in chunk]})
             index.append('<h2>'+role+'</h2>')
             retained_html=[]
             for label,rows,reviews in [('頁',scan['pages'],visual['pages']),('題目區塊',items['parts'],items['parts'])]:
@@ -389,16 +414,20 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     # Put the candidate state beside its original so the checker resolves them.
     candidate.write_text(json.dumps(state,ensure_ascii=False,indent=2),encoding='utf-8')
     index_path=output/'index.html';index_path.write_text('\n'.join(index),encoding='utf-8')
+    template_path=output/'observations-template.json'
+    template_path.write_text(json.dumps(template,ensure_ascii=False,indent=2),encoding='utf-8')
     blocked=[flag for flag in density_flags if flag['status']=='exceeds-all-embedded-references']
     return {'status':'review-pending','state':str(candidate),'index':str(index_path),
             'retained_actual_reviews':reused,'retention_basis':basis,
-            'review_queue':queue,'review_batches':batches,'density_flags':density_flags,
+            'review_queue':queue,'review_batches':batches,'observations_template':str(template_path),
+            'density_flags':density_flags,
             'reflow_before_review':blocked,
             'elapsed_seconds':round(time.monotonic()-started,3),
             'next':('Reflow pages listed in reflow_before_review first: no comparable embedded official page can justify them. '
                     if blocked else '')+
-                   'Open every image in review_queue at readable scale, record observations with '
-                   'run_hosted_workflow.py record-review, then finalize.'}
+                   'Open every image in review_batches at readable scale. Fill status and observations in a copy of '
+                   'observations_template (keys match record_as), record them with one run_hosted_workflow.py '
+                   'record-review call, then finalize.'}
 
 
 if __name__=='__main__':
