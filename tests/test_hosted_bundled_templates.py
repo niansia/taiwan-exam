@@ -75,6 +75,33 @@ def test_subject_previews_ship_in_the_skill_and_render_like_the_published_ones(t
                         theirs.get_pixmap(matrix=pymupdf.Matrix(2, 2)).samples)
 
 
+def test_without_a_chinese_font_the_preflight_uses_the_builtin_one(tmp_path, monkeypatch):
+    monkeypatch.setattr(socket.socket, 'connect', forbid_network)
+    report = preflight.prepare('數學A', tmp_path / 'run', 'no-font', None)
+    assert report['status'] == 'ready-for-authoring', report
+    assert report['body_font']['source'] == preflight.BUILTIN_FONT
+    assert (tmp_path / 'run' / report['body_font']['path']).read_bytes() == pymupdf.Font('cjk').buffer
+
+
+def test_a_font_missing_field_glyphs_is_replaced_and_the_reason_recorded(tmp_path):
+    latin = tmp_path / 'latin.ttf'
+    latin.write_bytes(pymupdf.Font('tiro').buffer)  # no CJK glyphs, like a default system font
+    report = preflight.prepare('國綜', tmp_path / 'run', 'latin', latin)
+    assert report['status'] == 'ready-for-authoring', report
+    assert report['body_font']['source'] == preflight.BUILTIN_FONT
+    assert 'latin.ttf lacks' in report['body_font']['replaced']
+
+
+def test_later_commands_default_to_the_recorded_body_font(tmp_path, font):
+    import run_hosted_workflow as workflow
+    run = tmp_path / 'run'
+    assert preflight.prepare('英文', run, 'recorded', None)['status'] == 'ready-for-authoring'
+    assert workflow.recorded_font(run / 'run-state.json') == (run / 'fonts' / 'builtin-cjk.ttf').resolve()
+    supplied = tmp_path / 'other-run'
+    assert preflight.prepare('英文', supplied, 'supplied', font)['body_font']['source'] == 'supplied'
+    assert workflow.recorded_font(supplied / 'run-state.json') == font.resolve()
+
+
 def test_entry_forbids_redrawn_templates_and_requires_the_final_check():
     entry = builder.ENTRY.format(version='test')
     for phrase in ('Never typeset, trace or redraw', 'check_hosted_run.py', 'bundled original fixed template'):

@@ -64,7 +64,7 @@ non-waivable collisions before any final quality claim.
 Offline command (agent runs it; no coding required of the user):
 
 ```text
-python scripts/prepare_hosted_run.py --subject 數學A --run-dir <run> --paper-id <paper-id> --font <available-TC-font> --resource-pdf <uploaded-resource.pdf>
+python scripts/prepare_hosted_run.py --subject 數學A --run-dir <run> --paper-id <paper-id> [--font <available-TC-font>] --resource-pdf <uploaded-resource.pdf>
 ```
 
 The compact preflight.json records readiness, measured elapsed time, calibration

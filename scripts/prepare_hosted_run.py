@@ -39,6 +39,40 @@ class TemplateUnavailable(ValueError):
     """The fixed template components needed for formal PDFs could not be verified."""
 
 
+BUILTIN_FONT = 'pymupdf-builtin-droid-sans-fallback'
+# Every booklet prints these in its cover title and running headers.
+FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
+
+
+def body_font(run_dir, requested=None):
+    """(path, record) of the run's body font.
+
+    Hosted runtimes may have no Traditional Chinese font and no permission to
+    install one. PyMuPDF, already required here, ships Droid Sans Fallback with
+    full CJK coverage, so a missing or incomplete font never stops a paper.
+    """
+    note = None
+    if requested:
+        path = Path(requested)
+        try:
+            font = pymupdf.Font(fontfile=str(path))
+            missing = ''.join(sorted({c for c in FIELD_TEXT if not font.has_glyph(ord(c))}))
+        except Exception as exc:  # MuPDF raises its own error types for absent or unreadable fonts
+            missing, note = None, f'cannot load {path.name}: {exc}'
+        if missing == '':
+            return path, {'path': str(path.resolve()), 'source': 'supplied', 'sha256': digest(path)}
+        note = note or f'{path.name} lacks {missing}'
+    target = run_dir / 'fonts' / 'builtin-cjk.ttf'
+    if not target.is_file():
+        target.parent.mkdir(exist_ok=True)
+        target.write_bytes(pymupdf.Font('cjk').buffer)
+    record = {'path': target.relative_to(run_dir).as_posix(), 'source': BUILTIN_FONT, 'sha256': digest(target),
+              'style': 'sans-serif CJK; tell the user, and use a Traditional Chinese serif font file if they supply one'}
+    if note:
+        record['replaced'] = note
+    return target, record
+
+
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -180,6 +214,7 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
         if require_independent_review and review_mode != 'independent-context':
             raise ValueError('Explicit independent review requirement needs an actual separate reviewer; resolve before authoring')
         calibration = snapshot(subject)
+        font, report['body_font'] = body_font(run_dir, font)
         if timing.is_file() and cached_ready(previous_preflight, report, run_dir, font, calibration):
             clock = json.loads(timing.read_text(encoding='utf-8-sig'))
             if clock.get('paper_id') != paper_id:
@@ -229,7 +264,8 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                                                    'sha256': digest(raster)})
         report['cache_inputs'] = cache_inputs(font)
         report.update(status='ready-for-authoring', proofs=proofs,
-                      next_action='Open the small proof rasters and check field/font fit; read the selected subject '
+                      next_action='proof and build default to body_font; if it is the built-in font, tell the user '
+                      'the body is sans-serif. Open the small proof rasters and check field/font fit; read the selected subject '
                       'calibration and curriculum guidance. Use the recorded review_mode for small batches: '
                       'single-context means a fresh answer-free solving pass followed by answer comparison, '
                       'not independent blind review. Never invent a reviewer context. '
@@ -253,7 +289,9 @@ if __name__ == '__main__':
     parser.add_argument('--subject', required=True, choices=SUBJECTS)
     parser.add_argument('--run-dir', required=True, type=Path)
     parser.add_argument('--paper-id', required=True)
-    parser.add_argument('--font', required=True, type=Path)
+    parser.add_argument('--font', type=Path,
+                        help='Traditional Chinese body font; without one, or if it lacks a needed glyph, '
+                             "PyMuPDF's built-in CJK font is used")
     parser.add_argument('--resource-pdf', type=Path)
     parser.add_argument('--local-root', type=Path)
     parser.add_argument('--deadline', type=float, default=45)
