@@ -139,14 +139,14 @@ a figure that crowds its stem: after every saved batch run `run_hosted_workflow.
 specs` and `proof` for that batch, review its item and solution crops at once,
 then solve and review difficulty in the same small batch. Crop review done here
 is not repeated for unchanged items in the final booklets; page review is.
-A complete paper that cannot finish within one provider turn is best split at
-these checkpoints: reviewed authoring batches first, then one final build, page
-review and finalize.
+If the provider does end a response before delivery, these checkpoints are
+where the next turn resumes: reviewed authoring batches first, then one final
+build, page review and finalize. Never end the response at a checkpoint yourself.
 
 Reuse the tested renderer, verified assets and calibration. Do not repeatedly
 load every subject, download originals during final QA, or rewrite the PDF
-engine. If authoring consumes the reserve, persist the SAME paper and continue
-its unfinished reviews next turn. Do not reduce difficulty, omit real checks,
+engine. If the provider ends the response during authoring, the next turn
+continues the SAME paper's unfinished reviews. Do not reduce difficulty, omit real checks,
 invent passing observations or restart a new paper to meet the clock.
 
 ## One preparation command for both final booklets

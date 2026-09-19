@@ -262,6 +262,9 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
     result = {'section_count': len(verified), 'selected_bytes': sum(len(raw) for _, raw in verified),
               'files': [{'path': path, 'bytes': len(raw)} for path, raw in verified]}
     plan = _write_reading_plan(entries, result, subject, output_dir)
+    # The native entry already routes the model through hosted-execution.md.
+    plan['first_read_note'] = ('reading/preflight.md holds references/hosted-execution.md in full; if you already '
+                               'read that file from this Skill, skip these chunks and run the preflight.')
     previews = sorted(str(root / path) for path, _ in verified if path.startswith(LAYOUT_PREVIEWS))
     if previews:
         plan['layout_previews'] = previews

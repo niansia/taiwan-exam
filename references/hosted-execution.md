@@ -5,7 +5,11 @@ tools. It governs hosted scheduling and evidence serialization. Local repository
 maintenance, source-corpus rebuilding, installation and release-package audits
 are separate operations; do not run them during ordinary hosted generation.
 The subject's curriculum, structure, originality and quality requirements remain
-binding. This route does not promise completion inside a provider's turn limit.
+binding. Run the route as one continuous job: keep working in the same response
+from preflight to the delivered PDFs, and do not end it to report the preflight,
+the body font, a checkpoint, a finished batch or what remains. A provider limit
+can still end a response early; the saved run then resumes when the user replies
+繼續.
 
 Formal question and solution PDFs come only from these helpers composing onto
 the original fixed template bytes, and only after `check_hosted_run.py` passes.
@@ -28,7 +32,9 @@ the selected subject; it requires no aggregate Markdown, reinstallation or
 repository download. Reuse that reference directory on continuation. Its result
 lists this subject's two `layout_previews` (placeholder layout only). Do not ask
 native-Skill users to attach previews; the renderer already applies their
-conventions, so open one only for a specific layout question.
+conventions, so open one only for a specific layout question. Its
+`reading/preflight.md` view embeds this same document: having read it here,
+skip those chunks and run the preflight.
 
 Otherwise extract the uploaded knowledge file once with `read_web_knowledge.py KNOWLEDGE
 --subject SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Read this
@@ -51,9 +57,10 @@ repeating already recorded work on unchanged inputs. If files have expired,
 recover the actual saved artifacts or report the missing files precisely.
 
 Before drafting, confirm file creation, Python/PDF operations and readable image
-inspection in the actual runtime. Start the inclusive `hosted_run_timing.py`
-logger with `reference_preflight`; record actual transitions rather than
-reconstructing times later. Then run:
+inspection in the actual runtime. The preflight starts the run clock
+(`generation-timing.json` in the run directory, phase `reference_preflight`);
+later phases are recorded as described under the checkpoint command below. Do
+not start a separate logger or reconstruct times later. Run:
 
 ```text
 python scripts/prepare_hosted_run.py --subject SUBJECT --run-dir run --paper-id PAPER_ID [--font FONT] [--resource-pdf UPLOADED_RESOURCE_PDF]
@@ -63,8 +70,9 @@ Pass `--font` for an installed or user-supplied Traditional Chinese serif font
 (for example Noto Serif CJK TC). Without one, or when it lacks a glyph of the
 cover and header fields, the helper uses PyMuPDF's built-in CJK font (Droid Sans
 Fallback, sans-serif) and records `body_font`; `proof` and `build` default to it.
-Do not stop to ask for a font or try to install system packages; tell the user
-the body text is sans-serif and that a serif font file can be supplied.
+Do not stop to ask for a font or try to install system packages. Keep going, and
+say in the delivery message that the body is sans-serif and that a serif font
+file can be supplied next time.
 
 The native Skill bundles every subject's verified template components, and the
 helper uses them without network access; omit `--resource-pdf` there. From the
@@ -151,7 +159,10 @@ fields would print wrongly and lists every such issue at once: LaTeX commands
 allowed), unbalanced `<sup>`/`<sub>`/`<i>`/`<b>`, `{{asset:NAME}}` tokens missing
 from `inline_assets`, and asset files that are absent or differ from their
 sha256. Fix them in the batch and save again; otherwise they surface only after
-rendering and page review. Check scope, answerability, shortest routes, distractors and
+rendering and page review. A saved result also lists `design_fields_pending`:
+the final check's difficulty-design messages for the items just saved. Complete
+them with `--replace` while solving and reviewing that batch, before writing the
+gate reviews; they are not printed, so page and crop reviews stay valid. Check scope, answerability, shortest routes, distractors and
 score sums early. After each saved batch, project both body specs and render
 only that batch's items and solutions:
 
@@ -159,6 +170,9 @@ only that batch's items and solutions:
 python scripts/run_hosted_workflow.py specs --state run/run-state.json --question-output run/questions-blocks.json --solution-output run/solutions-blocks.json --hints run/layout-hints.json
 python scripts/run_hosted_workflow.py proof --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --items q1,q2,q3 --output run/proof-01
 ```
+
+Where the runtime allows, chain `append_items.py`, `specs` and `proof` with `&&`
+in one tool call, so each batch costs one command before its crops are opened.
 
 `specs` copies printed text only from exam.json and applies the same saved-item
 conventions as the maintained official-form renderers, for every subject:
@@ -310,7 +324,11 @@ each batch; do not duplicate that call just to register the same hash. For a rep
 supply `--state RETURNED_REVIEW_STATE`
 so the latest surviving reviews are retained. `--review-bundle FILE` can fan out
 one JSON object of actual named gate reports without generating observations.
-Measure solving and difficulty review when those activities actually happen.
+Measure solving and difficulty review when those activities actually happen:
+switch with `checkpoint --phase solving` and `checkpoint --phase difficulty_qa`
+(add `--state` after a build). `build` records `render_repair` and `visual_qa`,
+`proof` records `visual_qa`, and `finalize` closes the clock; the final check
+needs all six phases.
 
 After real reviews are complete, finalize once; this closes the active clock:
 
@@ -332,8 +350,11 @@ and current, not official certification or empirical psychometric validation.
 Time phases by primary activity: `reference_preflight`, `authoring`, `solving`,
 `difficulty_qa`, `render_repair`, `visual_qa`. Batch independent calculations and
 file operations inside one tool invocation where supported; changing phase must
-not require a user reply. Use a short progress update instead of displaying every
-manifest or internal record. Save before long work and after each reviewed batch.
+not require a user reply. Never end the response to give a progress update; where
+the platform shows interim notes without ending the response, keep each to a line
+and never display a whole manifest or internal record. The only messages that end
+the response before delivery name a blocker the user must resolve. Save before
+long work and after each reviewed batch.
 Reserve final review time early. If a provider interrupts, continue the same
 paper from saved work and unresolved checks; do not regenerate successful phases.
 The 20-minute benchmark is measured, not an acceptance deadline. Finish required

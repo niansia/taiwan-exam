@@ -174,3 +174,20 @@ def test_first_batch_does_not_invent_a_paper_plan(run):
     with pytest.raises(ValueError, match='requires --plan'):
         appender.append(run, run/'batch.json')
     assert not (run/'exam.json').exists()
+
+
+def test_saving_lists_the_final_check_design_fields_still_missing(run, tmp_path_factory):
+    first = append(run)  # 英文: the paper-balance fields apply to every subject
+    assert first['design_fields_pending']['missing four-band estimate'] == ['q1', 'q2']
+    assert 'page reviews stay valid' in first['design_note']
+    math = tmp_path_factory.mktemp('math')
+    for name in ('preflight.json', 'plan.json', 'generation-timing.json'):
+        (math/name).write_bytes((run/name).read_bytes())
+    preflight = workflow.read(math/'preflight.json')
+    workflow.save(math/'preflight.json', {**preflight, 'subject': '數學A'})
+    workflow.save(math/'batch.json', batch([1]))
+    append(math)
+    workflow.save(math/'batch.json', batch([2]))
+    gaps = append(math)['design_fields_pending']
+    assert all(ids == ['q2'] for ids in gaps.values())  # only the batch just saved
+    assert gaps['missing difficulty_design'] == ['q2']  # the Math A/B design gate

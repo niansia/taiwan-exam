@@ -332,8 +332,10 @@ recorded difficulty, originality and all-page review. It does not judge content.
   identify the specific missing fact instead of retrying every historical PDF.
 - Continue planning, original writing, solving, rendering and inspection within
   the active turn when possible. Do not ask the user to approve each completed
-  phase or reply “continue” merely to start the next routine phase. Long work
-  still needs short progress updates, not voluminous manifests in chat.
+  phase or reply “continue” merely to start the next routine phase. Never end a
+  response to give a progress update; on most hosted surfaces a message to the
+  user ends the turn. Interim notes the platform shows without ending the
+  response stay to a line, never whole manifests.
 - Save one small `run-state.json` beside the current paper after each meaningful
   phase: paper ID, request/subject/year, knowledge/profile/template hashes,
   current phase, artifact paths and hashes, solved item IDs, inspected page IDs
@@ -360,17 +362,25 @@ guaranteed. Missing answer validation or all-page review still blocks delivery.
 ## ChatGPT on the web
 
 ChatGPT and Codex can invoke a saved Skill explicitly or by matching its
-description. In ChatGPT, typing `@` selects an available Skill. When
-`@skill-creator` appears in the native selector in Chat mode, use it there to
-create or update a Skill from the consolidated
-`taiwan-exam-web-knowledge.md`; switching to Work is not a prerequisite. If the
-selector is absent in Chat mode, try Work because availability can depend on
-the account or workspace. Preserve the whole knowledge file rather than copying
-only its first Markdown page. If Skills are unavailable in both modes, use a
-persistent Project with the same knowledge and setup instruction instead of
-claiming an ordinary chat attachment is installed.
+description. In ChatGPT, typing `@` selects an available Skill. Accounts with
+Skills upload the versioned native ZIP unchanged at `Plugins > Skills > Create >
+Upload from your computer`, the same archive Claude uses; the maintainer's upload
+of each release was accepted. It keeps the bundled helpers and templates, so the
+user attaches nothing when requesting a paper. Use `@skill-creator` with the
+consolidated `taiwan-exam-web-knowledge.md` only when that upload is unavailable.
+If the selector is absent in Chat mode, try Work because availability can depend
+on the account or workspace. Preserve the whole knowledge file rather than
+copying only its first Markdown page. If Skills are unavailable in both modes,
+use a persistent Project with the same knowledge and setup instruction instead
+of claiming an ordinary chat attachment is installed.
 
-The creator must preserve the asset maps—including all 30 direct PDF URLs—and
+After an upload ChatGPT may offer to try the Skill with text asking the model to
+make up a realistic prompt and run the Skill end to end. When the user adds a real
+paper request, that request replaces the made-up one. Either way the paper uses
+the hosted route and its final check; never produce a demonstration typeset by
+LaTeX or another route.
+
+A `@skill-creator` build must preserve the asset maps—including all 30 direct PDF URLs—and
 the just-in-time policy, save/install
 the native Skill, and then accept a paper request in that same conversation. It
 must not require a 30-file download, a packaging report, a source-rebuild report,
@@ -400,7 +410,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.3/taiwan-exam-hosted-2026.09.19.3.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.4/taiwan-exam-hosted-2026.09.19.4.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
@@ -479,4 +489,5 @@ Any later paper request:
 ```text
 請使用 Taiwan Exam，出一份 116 學測數學 B 完整模擬考。
 請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成內容、答案與逐頁版面檢查。
+中途不要停下來回報進度，一路做到交付兩份 PDF。
 ```

@@ -17,11 +17,13 @@ failed items and reasons separately; only selected items enter the paper.
 
 Record turn_started_at, measured elapsed time, known runtime limits if exposed,
 and next_action. A user's reported approximately 25-minute interruption is an
-observation, not a universal provider guarantee. When a limit is known, reserve
-at least five minutes for saving and remaining review; begin checkpoint handoff
-before that reserve is consumed. Without a visible limit, save periodically and
-before every long operation rather than assuming unlimited time. These are
-scheduling margins, not claims that five minutes is enough to inspect any paper.
+observation, not a universal provider guarantee. Save periodically and before
+every long operation so an interruption loses little, and keep working: do not
+end the response early to leave time for a handoff. Only a limit the platform
+actually shows (a stated remaining time or tool budget) justifies ending with a
+continuation record, and only once the remaining work cannot fit in it; then
+reserve at least five minutes for saving. These are scheduling margins, not
+claims that five minutes is enough to inspect any paper.
 
 Do not spend the remaining budget drafting more content while difficulty and
 layout checks accumulate. Finish missing content review before rendering. If
@@ -37,7 +39,8 @@ When interruption risk is known, keep an accessible recovery copy of exam.json,
 run-state.json and review/visual files; an optional data-only recovery bundle may
 contain those run files, never the Skill executable tree. It is a work checkpoint,
 not a third completed exam or a request to install again. A JSON index alone
-cannot recover missing referenced files. Show a short progress/next-action note.
+cannot recover missing referenced files. A progress note, where the platform
+shows one without ending the response, stays to a line and never ends it.
 
 ## Evidence format and checker
 

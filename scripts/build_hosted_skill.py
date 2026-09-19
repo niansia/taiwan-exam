@@ -41,7 +41,18 @@ header/footer, answer-marking example or formula page with LaTeX, HTML, Word,
 drawing libraries or any other tool, even with a "mock" disclaimer. If a helper,
 template or check fails and cannot be fixed, stop, keep saved work and tell the
 user exactly what is missing; do not deliver a substitute. Hand over the two
-PDFs listed in finalize's `delivery` and report the final check result.
+PDFs listed in finalize's `delivery`, report the final check result, and say if
+the body used the built-in sans-serif font.
+
+A paper request is one continuous job. Keep working in the same response from
+preflight through authoring, review, layout and finalize until you hand over the
+two PDFs. Do not end the response to report the preflight, the body font, a
+checkpoint, a finished batch or what remains; run the next command instead. End
+it early only for a blocker the user must resolve (a helper's `next_action` says
+to stop and ask) or when the platform stops you; the saved run then resumes when
+the user replies 繼續. If the message also asks you to make up an example prompt
+to explore this Skill, the user's own paper request replaces it; any
+demonstration is a real paper made by this route.
 
 Start with [references/hosted-execution.md](references/hosted-execution.md).
 This multi-file Skill already contains its executable `scripts/`, subject
@@ -72,7 +83,6 @@ reviews; do not restart authoring or repeat completed setup merely for a new tur
 Project body specs from saved items with `run_hosted_workflow.py specs`, review
 each batch's item crops with `proof`, and record findings with `record-review`.
 Deliver separate question and full-solution PDFs only after the final checks.
-If incomplete, save actual recoverable work and name what remains.
 
 The full source manual is preserved in
 [references/full-skill.md](references/full-skill.md) for applicable detailed rules;
