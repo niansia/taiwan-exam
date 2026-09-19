@@ -2,6 +2,8 @@
 pytest>=8,<9
 PyYAML>=6,<7
 jsonschema>=4.25,<5
+# Exercises glyph trimming of delivered PDFs; runtimes without it only merge duplicate fonts.
+fonttools>=4.40,<5
 # Rebuilding the checked-in PDF carrier requires this serializer version.
 # Template attachment hashes remain the portable verification contract.
 PyMuPDF==1.28.2
