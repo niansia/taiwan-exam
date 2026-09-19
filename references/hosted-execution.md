@@ -135,7 +135,13 @@ reconciles an interrupted write without duplicating items. Later batches do not
 require `--plan`; deliberate replacements require `--replace`. Preserve existing
 review reports: changed content invalidates their old hashes and returns to
 pending. Numbered subparts require distinct `subpart_id`; unnumbered tasks retain
-their actual display/answer label. Check scope, answerability, shortest routes, distractors and
+their actual display/answer label. The helper refuses a batch whose printed
+fields would print wrongly and lists every such issue at once: LaTeX commands
+(`\frac`, `\cdot`, ...), `$` math delimiters (a currency `$` before a digit is
+allowed), unbalanced `<sup>`/`<sub>`/`<i>`/`<b>`, `{{asset:NAME}}` tokens missing
+from `inline_assets`, and asset files that are absent or differ from their
+sha256. Fix them in the batch and save again; otherwise they surface only after
+rendering and page review. Check scope, answerability, shortest routes, distractors and
 score sums early. After each saved batch, project both body specs and render
 only that batch's items and solutions:
 
@@ -160,13 +166,15 @@ it (its group's material or the same-number item), so shared text is never faked
 as extra rows. Score wording already in a prompt (including a whole question's
 total across subparts) is not printed twice. Unicode sub/superscripts such as
 H₂O, SO₄²⁻ or x⁴ become real sub/superscripts, because most CJK fonts lack those
-glyphs. Delimited LaTeX is refused at `specs` with the item named: use a verified
-formula asset. Long material, prompts and solutions continue on the next page at
+glyphs. `specs` applies the same printed-text checks with the item named: use
+real symbols or a verified formula asset. Long material, prompts and solutions continue on the next page at
 paragraph or step boundaries instead of leaving a large blank bottom. `--hints`
 is optional; it holds layout choices and explicit blocks for structures the item
 fields cannot express. Never edit a generated spec: stale or hand-edited
 generated specs are refused. Open every proof crop at readable scale while the
-item is fresh and record findings with `record-review --proof run/proof-01`. Fix
+item is fresh. The result gives absolute image paths, each batch's `record_as`
+keys and an `observations_template`; fill a copy with what you actually saw and
+record it in one `record-review --proof PROOF_DIR` call. Fix
 superscripts, fractions, radicals and figure/text arrangement before authoring
 more items. A final crop may later reuse such an actual review only under the
 unchanged-item rule below; final pages always need their own review.
@@ -223,6 +231,11 @@ structures); never retype item text or rewrite a PDF engine for ordinary
 blocks. Preserve original fixed PDF layers as immutable backgrounds, including
 the subject-specific formula page for Math A/B. Body flow must reserve complete
 answer rails, equations, figures and shared stimuli before painting later items.
+A figure wider than its text column prints at the column width and is listed in
+the layout's `scaled_assets`. When a last page would hold only a line or two,
+the renderer first retries with closer block spacing (`gap_scale`); font size
+and line height never change. Composition embeds one copy of the body font;
+`finalize` then drops the glyphs no page draws from the delivered copies.
 
 After content review and both body specifications exist, the maintained pipeline
 renders both bodies, composes both fixed-template PDFs and prepares their actual
@@ -233,9 +246,11 @@ python scripts/run_hosted_workflow.py build --state run/run-state.json --questio
 ```
 
 The result's `review_queue` lists exactly the page and crop images still pending
-in the returned review state. Open each at readable scale; thumbnails/contact
-sheets only navigate. `review_batches` groups a pending page with its pending
-crops (a proof groups each item's question and solution crops). When the runtime
+in the returned review state, as absolute paths. Open each at readable scale;
+thumbnails/contact sheets only navigate. `review_batches` groups a pending page
+with its pending crops (a proof groups each item's question and solution crops)
+and gives each image's `record_as` key. `observations_template` is a skeleton of
+exactly those keys, all `pending`: fill a copy with your actual findings. When the runtime
 shows several separate images at native resolution in one call, open one batch
 per call rather than one image per call; never stitch or downscale images to
 save calls. Inspect formula geometry, labels, response rails,
@@ -295,7 +310,10 @@ python scripts/run_hosted_workflow.py finalize --state RETURNED_REVIEW_STATE --o
 
 This refreshes artifact digests and runs `check_hosted_run.py`; it does not author
 passing reviews. Fix the reported failure, not unrelated phases. Delivery needs
-both separate downloadable final PDFs and current complete evidence. Disclose
+both separate downloadable final PDFs and current complete evidence. On
+`evidence-complete` the report's `delivery` lists the files to hand over: copies
+of the checked booklets without unused font data, kept only when every page
+renders the same pixels and text (typically about 1 MB instead of 20–40 MB). Disclose
 the actual review mode. `evidence-complete` means recorded evidence is complete
 and current, not official certification or empirical psychometric validation.
 

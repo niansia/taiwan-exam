@@ -25,6 +25,9 @@ KINDS = ('section', 'choice', 'multiple', 'fill', 'constructed', 'stimulus', 'so
 # device-pixel boundaries, where float32 noise otherwise flips image gridfitting.
 BLOCK_GRID_PT = 0.5
 FIGURE_LEADING_PT = 4.05
+# A last page filled below this fraction triggers a retry with closer blocks.
+TRAILING_PAGE_FILL = 0.2
+TIGHTER_GAPS = (0.75, 0.5)
 OPTION_COLUMNS = (1, 2, 3, 4, 5)
 
 
@@ -116,7 +119,7 @@ def rail_image(number, rows):
         return page.get_pixmap(matrix=pymupdf.Matrix(4,4),alpha=True).tobytes('png'),width,height
 
 
-def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
+def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, scaled=None):
     """Resolve verified inline assets after ALL authored fields are escaped.
 
     Choices, table cells, passages and solution steps use the same substitution
@@ -124,6 +127,8 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
     and skipped early-return blocks, forcing callers to rebuild valid layouts.
     """
     images={};image_heights={}
+    # Numbered blocks print beside a 28pt number column plus cell padding.
+    column_width=width-32 if block.get('kind') in {'choice','multiple','constructed','solution'} else width
     for key,asset in block.get('assets',{}).items():
         path=(asset_root/asset['path']).resolve()
         if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
@@ -131,6 +136,12 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
         if hashlib.sha256(raw).hexdigest()!=asset['sha256']:raise ValueError('Changed body asset')
         asset_width=asset['width_pt']
         if type(asset_width) not in (int,float) or not 1<=asset_width<=460:raise ValueError('Invalid asset width')
+        if asset_width>column_width:
+            # A figure wider than its text column would overflow the body; print
+            # it at the column width instead of failing after a full render.
+            if scaled is not None:
+                scaled[(index,key)]={'block':index,'asset':key,'requested_pt':asset_width,'printed_pt':round(column_width,2)}
+            asset_width=column_width
         extension=path.suffix
         with pymupdf.open(stream=raw) as image_doc:
             rect=image_doc[0].rect
@@ -318,7 +329,7 @@ def _chunk(block,key,units,head,tail):
     return chunk
 
 
-def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None):
+def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None, balance_last_page=True):
     started=time.monotonic()
     if output.exists() or layout_path.exists():raise ValueError('Use new output names; preserve previous reviewable bytes')
     if spec.get('purpose')=='layout-reference-only' and not proof:raise ValueError('Placeholder gallery cannot become a production exam')
@@ -336,7 +347,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
     if not spec['blocks']:raise ValueError('No authored blocks')
     font_metric=pymupdf.Font(fontfile=str(font))
-    work=[]
+    blocks=[]
     for index,block in enumerate(spec['blocks']):
         if block['kind']!='section':
             ids=block.get('ids') or [block['id']]
@@ -345,8 +356,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
             if (not isinstance(covers,list) or len(set(covers))!=len(covers) or ids[0] in covers or
                     any(not isinstance(item,str) or not item.strip() for item in covers)):
                 raise ValueError(f'Block {index}: covers must list other distinct item IDs printed in this block')
-        work.append({**block,'_source':index})
-    prepared={}
+        blocks.append({**block,'_source':index})
+    prepared={};scaled={}
     measure=pymupdf.open()
 
     def prepare(block):
@@ -359,7 +370,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         key=json.dumps(block,sort_keys=True,ensure_ascii=False)
         if key in prepared:return prepared[key]
         index=block['_source']
-        content=fragment(block,archive,asset_root,index,body.width,font_metric)
+        content=fragment(block,archive,asset_root,index,body.width,font_metric,scaled)
         sample=measure.new_page(width=595.28,height=841.89)
         spare,scale=sample.insert_htmlbox(body,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
         if spare<0 or scale!=1:
@@ -397,11 +408,13 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 return [first,_chunk(block,key,units[count:],False,True)]
         return None
 
-    def gap_after(block):
-        return 8 if block['kind']=='section' else 12
+    def paginate(tightness):
+        """One pagination pass. Only the gaps between blocks scale with tightness."""
+        def gap_after(block):
+            return (8 if block['kind']=='section' else 12)*tightness
 
-    parts=[];pages=[]
-    try:
+        work=list(blocks)
+        parts=[];pages=[]
         with pymupdf.open() as doc:
             top=snap_block_top(body.y0)
             page=doc.new_page(width=595.28,height=841.89);y=top
@@ -467,11 +480,26 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 y+=used+gap_after(block)
                 fresh_page=False
                 i+=1
-            output.parent.mkdir(parents=True,exist_ok=True)
-            raw=doc.tobytes(garbage=4,deflate=True);output.write_bytes(raw)
+            last=max(row['bbox'][3] for row in pages if row['page']==len(doc))
+            return doc.tobytes(garbage=4,deflate=True),parts,pages,len(doc),(last-top)/body.height
+
+    try:
+        raw,parts,pages,count,fill=paginate(1)
+        tightness=1
+        if balance_last_page and count>1 and fill<TRAILING_PAGE_FILL:
+            # A last page holding a line or two fails the density check and costs
+            # a rewrite; closer block spacing may pull it back onto earlier pages.
+            for trial in TIGHTER_GAPS:
+                attempt=paginate(trial)
+                if attempt[3]<count:
+                    raw,parts,pages,count,fill=attempt;tightness=trial
+                    break
+        output.parent.mkdir(parents=True,exist_ok=True)
+        output.write_bytes(raw)
     finally:
         measure.close()
     layout={'pdf_sha256':hashlib.sha256(raw).hexdigest(),'parts':parts,'blocks':pages,
+            'gap_scale':tightness,'scaled_assets':[scaled[key] for key in sorted(scaled)],
             'scope':'Body layout only; compose onto original fixed PDFs and perform actual QA',
             'elapsed_seconds':round(time.monotonic()-started,3)}
     layout_path.parent.mkdir(parents=True,exist_ok=True)

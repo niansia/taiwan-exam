@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.18.1
+# Taiwan Exam Web Knowledge v2026.09.19.1
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -603,10 +603,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 20583,
-    "sha256": "beb2e9b39e92768eaf59811c04212df1af157aae1bcfc0b649d6ead23c355d94",
-    "embedded_bytes": 20583,
-    "embedded_sha256": "beb2e9b39e92768eaf59811c04212df1af157aae1bcfc0b649d6ead23c355d94"
+    "bytes": 22005,
+    "sha256": "4b68c8b31ddf000a55c44076a7cc8186ed4ee9a58e392257f383bd9730db0a27",
+    "embedded_bytes": 22005,
+    "embedded_sha256": "4b68c8b31ddf000a55c44076a7cc8186ed4ee9a58e392257f383bd9730db0a27"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -716,9 +716,9 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/web-platform-use.md",
     "bytes": 30679,
-    "sha256": "1cd7f6da2aedcdd51bf8e940c4564289473ae88351de98cb884192e414230b74",
+    "sha256": "896c97bef0885b8c82f42b2c5e0fd7512db33309bc24c7dd27bbdea13a12bfe9",
     "embedded_bytes": 30679,
-    "embedded_sha256": "1cd7f6da2aedcdd51bf8e940c4564289473ae88351de98cb884192e414230b74"
+    "embedded_sha256": "896c97bef0885b8c82f42b2c5e0fd7512db33309bc24c7dd27bbdea13a12bfe9"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -792,10 +792,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/append_items.py",
-    "bytes": 10555,
-    "sha256": "7fda7b6878bdc1a6c645b7b40e82be0acc5624835b8926ba81b0f9f61ac97107",
-    "embedded_bytes": 10555,
-    "embedded_sha256": "7fda7b6878bdc1a6c645b7b40e82be0acc5624835b8926ba81b0f9f61ac97107"
+    "bytes": 11203,
+    "sha256": "9c149c5308a823964acdfd93074ffb8536cd856800bdcdb62f96ceee67d30805",
+    "embedded_bytes": 11203,
+    "embedded_sha256": "9c149c5308a823964acdfd93074ffb8536cd856800bdcdb62f96ceee67d30805"
   },
   {
     "path": "scripts/check_hosted_run.py",
@@ -813,10 +813,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
-    "bytes": 9378,
-    "sha256": "6ca6c2deb3fa1e77a58d396930ecdc570f2e8195283b00e3325af47a1818045b",
-    "embedded_bytes": 9378,
-    "embedded_sha256": "6ca6c2deb3fa1e77a58d396930ecdc570f2e8195283b00e3325af47a1818045b"
+    "bytes": 14446,
+    "sha256": "68d3a0da7c6d063bd3f272c337ead0ba04c129259b68cb57a571ca70d64d0ab1",
+    "embedded_bytes": 14446,
+    "embedded_sha256": "68d3a0da7c6d063bd3f272c337ead0ba04c129259b68cb57a571ca70d64d0ab1"
   },
   {
     "path": "scripts/emit_item_skeleton.py",
@@ -841,10 +841,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 28411,
-    "sha256": "e455dbaeef19b4c745935d51aee8b8f09172bdde053092d6db905f7c9f0cf48a",
-    "embedded_bytes": 28411,
-    "embedded_sha256": "e455dbaeef19b4c745935d51aee8b8f09172bdde053092d6db905f7c9f0cf48a"
+    "bytes": 30077,
+    "sha256": "e0d489406d202af0705be53d29e51e7b416db2f4aa64b228b4c9c074d8a53de6",
+    "embedded_bytes": 30077,
+    "embedded_sha256": "e0d489406d202af0705be53d29e51e7b416db2f4aa64b228b4c9c074d8a53de6"
   },
   {
     "path": "scripts/hosted_calibration.py",
@@ -876,10 +876,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_review.py",
-    "bytes": 24032,
-    "sha256": "03f8293731d0d11722e578f69aaf125a65456cad332c3de58cb8145ae60703ef",
-    "embedded_bytes": 24032,
-    "embedded_sha256": "03f8293731d0d11722e578f69aaf125a65456cad332c3de58cb8145ae60703ef"
+    "bytes": 25617,
+    "sha256": "89929da8288994d4089aaf683ae953ea4fb26253df39e106435950430fbac261",
+    "embedded_bytes": 25617,
+    "embedded_sha256": "89929da8288994d4089aaf683ae953ea4fb26253df39e106435950430fbac261"
   },
   {
     "path": "scripts/prepare_hosted_run.py",
@@ -897,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 54920,
-    "sha256": "9d5f0277f89f28a6a54db3a2240d90aee685cb81379079014ed35fb4e26387d2",
-    "embedded_bytes": 54920,
-    "embedded_sha256": "9d5f0277f89f28a6a54db3a2240d90aee685cb81379079014ed35fb4e26387d2"
+    "bytes": 61064,
+    "sha256": "9b5889ed56680bccb7b854f328b7f08ce499fb121ed91b558ea5057cee222dfe",
+    "embedded_bytes": 61064,
+    "embedded_sha256": "9b5889ed56680bccb7b854f328b7f08ce499fb121ed91b558ea5057cee222dfe"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -56901,7 +56901,13 @@ reconciles an interrupted write without duplicating items. Later batches do not
 require `--plan`; deliberate replacements require `--replace`. Preserve existing
 review reports: changed content invalidates their old hashes and returns to
 pending. Numbered subparts require distinct `subpart_id`; unnumbered tasks retain
-their actual display/answer label. Check scope, answerability, shortest routes, distractors and
+their actual display/answer label. The helper refuses a batch whose printed
+fields would print wrongly and lists every such issue at once: LaTeX commands
+(`\frac`, `\cdot`, ...), `$` math delimiters (a currency `$` before a digit is
+allowed), unbalanced `<sup>`/`<sub>`/`<i>`/`<b>`, `{{asset:NAME}}` tokens missing
+from `inline_assets`, and asset files that are absent or differ from their
+sha256. Fix them in the batch and save again; otherwise they surface only after
+rendering and page review. Check scope, answerability, shortest routes, distractors and
 score sums early. After each saved batch, project both body specs and render
 only that batch's items and solutions:
 
@@ -56926,13 +56932,15 @@ it (its group's material or the same-number item), so shared text is never faked
 as extra rows. Score wording already in a prompt (including a whole question's
 total across subparts) is not printed twice. Unicode sub/superscripts such as
 H₂O, SO₄²⁻ or x⁴ become real sub/superscripts, because most CJK fonts lack those
-glyphs. Delimited LaTeX is refused at `specs` with the item named: use a verified
-formula asset. Long material, prompts and solutions continue on the next page at
+glyphs. `specs` applies the same printed-text checks with the item named: use
+real symbols or a verified formula asset. Long material, prompts and solutions continue on the next page at
 paragraph or step boundaries instead of leaving a large blank bottom. `--hints`
 is optional; it holds layout choices and explicit blocks for structures the item
 fields cannot express. Never edit a generated spec: stale or hand-edited
 generated specs are refused. Open every proof crop at readable scale while the
-item is fresh and record findings with `record-review --proof run/proof-01`. Fix
+item is fresh. The result gives absolute image paths, each batch's `record_as`
+keys and an `observations_template`; fill a copy with what you actually saw and
+record it in one `record-review --proof PROOF_DIR` call. Fix
 superscripts, fractions, radicals and figure/text arrangement before authoring
 more items. A final crop may later reuse such an actual review only under the
 unchanged-item rule below; final pages always need their own review.
@@ -56989,6 +56997,11 @@ structures); never retype item text or rewrite a PDF engine for ordinary
 blocks. Preserve original fixed PDF layers as immutable backgrounds, including
 the subject-specific formula page for Math A/B. Body flow must reserve complete
 answer rails, equations, figures and shared stimuli before painting later items.
+A figure wider than its text column prints at the column width and is listed in
+the layout's `scaled_assets`. When a last page would hold only a line or two,
+the renderer first retries with closer block spacing (`gap_scale`); font size
+and line height never change. Composition embeds one copy of the body font;
+`finalize` then drops the glyphs no page draws from the delivered copies.
 
 After content review and both body specifications exist, the maintained pipeline
 renders both bodies, composes both fixed-template PDFs and prepares their actual
@@ -56999,9 +57012,11 @@ python scripts/run_hosted_workflow.py build --state run/run-state.json --questio
 ```
 
 The result's `review_queue` lists exactly the page and crop images still pending
-in the returned review state. Open each at readable scale; thumbnails/contact
-sheets only navigate. `review_batches` groups a pending page with its pending
-crops (a proof groups each item's question and solution crops). When the runtime
+in the returned review state, as absolute paths. Open each at readable scale;
+thumbnails/contact sheets only navigate. `review_batches` groups a pending page
+with its pending crops (a proof groups each item's question and solution crops)
+and gives each image's `record_as` key. `observations_template` is a skeleton of
+exactly those keys, all `pending`: fill a copy with your actual findings. When the runtime
 shows several separate images at native resolution in one call, open one batch
 per call rather than one image per call; never stitch or downscale images to
 save calls. Inspect formula geometry, labels, response rails,
@@ -57061,7 +57076,10 @@ python scripts/run_hosted_workflow.py finalize --state RETURNED_REVIEW_STATE --o
 
 This refreshes artifact digests and runs `check_hosted_run.py`; it does not author
 passing reviews. Fix the reported failure, not unrelated phases. Delivery needs
-both separate downloadable final PDFs and current complete evidence. Disclose
+both separate downloadable final PDFs and current complete evidence. On
+`evidence-complete` the report's `delivery` lists the files to hand over: copies
+of the checked booklets without unused font data, kept only when every page
+renders the same pixels and text (typically about 1 MB instead of 20–40 MB). Disclose
 the actual review mode. `evidence-complete` means recorded evidence is complete
 and current, not official certification or empirical psychometric validation.
 
@@ -59458,7 +59476,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.18.1/taiwan-exam-hosted-2026.09.18.1.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.1/taiwan-exam-hosted-2026.09.19.1.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
@@ -61333,7 +61351,7 @@ import json
 import re
 from pathlib import Path
 
-from run_hosted_workflow import checkpoint, inside, read, record, save
+from run_hosted_workflow import authoring_issues, checkpoint, inside, read, record, save, text_issues
 
 def check_numbering(questions):
     """Numbered subparts share a printed number; unnumbered tasks use IDs."""
@@ -61442,6 +61460,14 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
     section_ids = {s.get('id') for s in exam.get('sections', []) if isinstance(s, dict)}
     if not section_ids or any(q['section_id'] not in section_ids for q in questions):
         raise ValueError('Question section_id must name a section in the saved paper plan')
+    # Literal LaTeX, dollar signs, broken markup and unregistered formula images
+    # otherwise surface only after rendering and page review; fix them now.
+    issues = [f'section {s.get("id")} {key}: {issue}' for s in exam['sections'] if isinstance(s, dict)
+              for key, value in [('title', s.get('title')), *[('instructions', v) for v in s.get('instructions') or []]]
+              for issue in text_issues(value)]
+    issues += authoring_issues(questions, answers, root=root)
+    if issues:
+        raise ValueError(f'Fix {len(issues)} print issue(s), then save the batch again: ' + ' | '.join(issues))
     current_questions, current_answers = exam.get('questions', []), exam.get('answers', [])
     if not isinstance(current_questions, list) or not isinstance(current_answers, list):
         raise ValueError('Existing exam requires question and answer lists')
@@ -62031,16 +62057,19 @@ if __name__=='__main__':raise SystemExit(main())
 #!/usr/bin/env python3
 """Compose existing body pages onto verified fixed PDFs; never author questions.
 
-PyMuPDF is the only non-standard dependency. Inputs are transparent A4 body-only
-PDF pages. No template text, figures, formulas or grids are recreated here.
+PyMuPDF is the only required non-standard dependency; fontTools, when present,
+only trims unused glyphs. Inputs are transparent A4 body-only PDF pages. No
+template text, figures, formulas or grids are recreated here.
 Output and reports are layout proofs, never educational release approvals.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 from pathlib import Path
+import re
 
 import pymupdf
 
@@ -62048,9 +62077,104 @@ from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, ver
 from inspect_hosted_pdf import rail_collision_samples
 from verify_fixed_template_pdf import verify_pdf, masked_pixels
 
+# Only whole CJK body fonts are this large; fixed-template fonts are small subsets.
+LARGE_FONT_PROGRAM = 1_000_000
+REFERENCE = re.compile(r'(\d+) 0 R')
+
 
 def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def font_programs(doc):
+    """{program xref: base font names} for embedded fonts larger than LARGE_FONT_PROGRAM."""
+    found = {}
+    for page in doc:
+        for xref, _, _, basefont, *_ in page.get_fonts(full=True):
+            if not xref:
+                continue
+            descendant = REFERENCE.search(doc.xref_get_key(xref, 'DescendantFonts')[1] or '')
+            owner = int(descendant.group(1)) if descendant else xref
+            descriptor = REFERENCE.search(doc.xref_get_key(owner, 'FontDescriptor')[1] or '')
+            if not descriptor:
+                continue
+            for key in ('FontFile3', 'FontFile2', 'FontFile'):
+                program = REFERENCE.search(doc.xref_get_key(int(descriptor.group(1)), key)[1] or '')
+                if program and len(doc.xref_stream_raw(int(program.group(1)))) > LARGE_FONT_PROGRAM:
+                    found.setdefault(int(program.group(1)), set()).add(re.sub(r'^[A-Z]{6}\+', '', basefont))
+    return found
+
+
+def merge_duplicate_fonts(data: bytes) -> bytes:
+    """One copy of a font embedded twice (body and header fields): same pages, half the bytes."""
+    with pymupdf.open(stream=data, filetype='pdf') as doc:
+        return doc.tobytes(garbage=4, deflate=True)  # identical copies collapse once both are compressed
+
+
+def compact_fonts(data: bytes) -> tuple[bytes, dict]:
+    """Merge duplicate font copies and drop glyphs no page draws; never change a pixel.
+
+    A whole CJK font is ~20 MB and was embedded twice (body and header fields),
+    making an 8-page paper 40 MB. Page content streams are never rewritten: a
+    CID-keyed CFF font keeps each glyph's CID, other fonts keep glyph ids. Any
+    rendering or text difference keeps the unsubsetted fonts. This takes seconds
+    per booklet, so it runs once on the checked booklets, not on every build.
+    """
+    merged = merge_duplicate_fonts(data)
+    report = {'bytes_before': len(data), 'bytes_after': len(merged), 'status': 'duplicates-merged'}
+    try:
+        from fontTools import subset
+        from fontTools.ttLib import TTFont
+    except ImportError:
+        return merged, {**report, 'note': 'fontTools unavailable; unused glyphs kept'}
+    with pymupdf.open(stream=merged, filetype='pdf') as doc:
+        programs = font_programs(doc)
+        if not programs:
+            return merged, report
+        used = {}
+        for page in doc:
+            for span in page.get_texttrace():
+                used.setdefault(span['font'], set()).update(char[1] for char in span['chars'])
+        before = [(page.get_pixmap(matrix=pymupdf.Matrix(2, 2), alpha=False).samples, page.get_text())
+                  for page in doc]
+        for xref, names in programs.items():
+            font = TTFont(io.BytesIO(doc.xref_stream(xref)), lazy=True)
+            # Text tracing reports the program's own PostScript name, which can
+            # differ from the PDF BaseFont (e.g. "Noto Serif CJK TC Regular").
+            names = set(names)
+            if 'name' in font:
+                names |= {font['name'].getDebugName(number) for number in (4, 6)} - {None}
+            cid_keyed = False
+            if 'CFF ' in font:
+                cff = font['CFF '].cff
+                names |= set(cff.fontNames)
+                cid_keyed = hasattr(cff[cff.fontNames[0]], 'ROS')
+            glyphs = set().union(*(used.get(name, set()) for name in names))
+            if not glyphs:
+                continue  # No drawn glyph matched this program: keep it whole.
+            glyphs.add(0)
+            options = subset.Options()
+            # CID-keyed glyphs are found by CID, so renumbering them is safe and
+            # far faster than writing 65,000 empty glyph slots.
+            options.retain_gids = not cid_keyed
+            options.notdef_outline = True
+            options.name_IDs = ['*']
+            options.layout_features = []  # the PDF already holds positioned glyphs
+            options.drop_tables = [*options.drop_tables, 'GSUB', 'GPOS', 'GDEF', 'BASE', 'JSTF', 'MATH']
+            subsetter = subset.Subsetter(options)
+            subsetter.populate(gids=sorted(glyphs))
+            subsetter.subset(font)
+            buffer = io.BytesIO()
+            font.save(buffer)
+            doc.update_stream(xref, buffer.getvalue())
+            doc.xref_set_key(xref, 'Length1', str(len(buffer.getvalue())))
+        compact = doc.tobytes(garbage=4, deflate=True)
+    with pymupdf.open(stream=compact, filetype='pdf') as check:
+        same = [(page.get_pixmap(matrix=pymupdf.Matrix(2, 2), alpha=False).samples, page.get_text())
+                for page in check] == before
+    if not same:
+        return merged, {**report, 'note': 'subset changed rendering or text; full fonts kept'}
+    return compact, {**report, 'bytes_after': len(compact), 'status': 'unused-glyphs-dropped'}
 
 
 def check_body(page, box) -> None:
@@ -62168,7 +62292,7 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                                "formula_component": "formula-blank" if formula else None,
                                "locked_pixels_match": True})
             output.parent.mkdir(parents=True, exist_ok=True)
-            data = out.tobytes(garbage=4, deflate=True)
+            data = merge_duplicate_fonts(out.tobytes(garbage=4, deflate=True))
             output.write_bytes(data)
         saved_check = verify_pdf(output, subject, kind, asset_dir)
         if saved_check['errors']:
@@ -62697,6 +62821,9 @@ KINDS = ('section', 'choice', 'multiple', 'fill', 'constructed', 'stimulus', 'so
 # device-pixel boundaries, where float32 noise otherwise flips image gridfitting.
 BLOCK_GRID_PT = 0.5
 FIGURE_LEADING_PT = 4.05
+# A last page filled below this fraction triggers a retry with closer blocks.
+TRAILING_PAGE_FILL = 0.2
+TIGHTER_GAPS = (0.75, 0.5)
 OPTION_COLUMNS = (1, 2, 3, 4, 5)
 
 
@@ -62788,7 +62915,7 @@ def rail_image(number, rows):
         return page.get_pixmap(matrix=pymupdf.Matrix(4,4),alpha=True).tobytes('png'),width,height
 
 
-def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
+def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, scaled=None):
     """Resolve verified inline assets after ALL authored fields are escaped.
 
     Choices, table cells, passages and solution steps use the same substitution
@@ -62796,6 +62923,8 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
     and skipped early-return blocks, forcing callers to rebuild valid layouts.
     """
     images={};image_heights={}
+    # Numbered blocks print beside a 28pt number column plus cell padding.
+    column_width=width-32 if block.get('kind') in {'choice','multiple','constructed','solution'} else width
     for key,asset in block.get('assets',{}).items():
         path=(asset_root/asset['path']).resolve()
         if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
@@ -62803,6 +62932,12 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None):
         if hashlib.sha256(raw).hexdigest()!=asset['sha256']:raise ValueError('Changed body asset')
         asset_width=asset['width_pt']
         if type(asset_width) not in (int,float) or not 1<=asset_width<=460:raise ValueError('Invalid asset width')
+        if asset_width>column_width:
+            # A figure wider than its text column would overflow the body; print
+            # it at the column width instead of failing after a full render.
+            if scaled is not None:
+                scaled[(index,key)]={'block':index,'asset':key,'requested_pt':asset_width,'printed_pt':round(column_width,2)}
+            asset_width=column_width
         extension=path.suffix
         with pymupdf.open(stream=raw) as image_doc:
             rect=image_doc[0].rect
@@ -62990,7 +63125,7 @@ def _chunk(block,key,units,head,tail):
     return chunk
 
 
-def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None):
+def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None, balance_last_page=True):
     started=time.monotonic()
     if output.exists() or layout_path.exists():raise ValueError('Use new output names; preserve previous reviewable bytes')
     if spec.get('purpose')=='layout-reference-only' and not proof:raise ValueError('Placeholder gallery cannot become a production exam')
@@ -63008,7 +63143,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
     if not spec['blocks']:raise ValueError('No authored blocks')
     font_metric=pymupdf.Font(fontfile=str(font))
-    work=[]
+    blocks=[]
     for index,block in enumerate(spec['blocks']):
         if block['kind']!='section':
             ids=block.get('ids') or [block['id']]
@@ -63017,8 +63152,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
             if (not isinstance(covers,list) or len(set(covers))!=len(covers) or ids[0] in covers or
                     any(not isinstance(item,str) or not item.strip() for item in covers)):
                 raise ValueError(f'Block {index}: covers must list other distinct item IDs printed in this block')
-        work.append({**block,'_source':index})
-    prepared={}
+        blocks.append({**block,'_source':index})
+    prepared={};scaled={}
     measure=pymupdf.open()
 
     def prepare(block):
@@ -63031,7 +63166,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         key=json.dumps(block,sort_keys=True,ensure_ascii=False)
         if key in prepared:return prepared[key]
         index=block['_source']
-        content=fragment(block,archive,asset_root,index,body.width,font_metric)
+        content=fragment(block,archive,asset_root,index,body.width,font_metric,scaled)
         sample=measure.new_page(width=595.28,height=841.89)
         spare,scale=sample.insert_htmlbox(body,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
         if spare<0 or scale!=1:
@@ -63069,11 +63204,13 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 return [first,_chunk(block,key,units[count:],False,True)]
         return None
 
-    def gap_after(block):
-        return 8 if block['kind']=='section' else 12
+    def paginate(tightness):
+        """One pagination pass. Only the gaps between blocks scale with tightness."""
+        def gap_after(block):
+            return (8 if block['kind']=='section' else 12)*tightness
 
-    parts=[];pages=[]
-    try:
+        work=list(blocks)
+        parts=[];pages=[]
         with pymupdf.open() as doc:
             top=snap_block_top(body.y0)
             page=doc.new_page(width=595.28,height=841.89);y=top
@@ -63139,11 +63276,26 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 y+=used+gap_after(block)
                 fresh_page=False
                 i+=1
-            output.parent.mkdir(parents=True,exist_ok=True)
-            raw=doc.tobytes(garbage=4,deflate=True);output.write_bytes(raw)
+            last=max(row['bbox'][3] for row in pages if row['page']==len(doc))
+            return doc.tobytes(garbage=4,deflate=True),parts,pages,len(doc),(last-top)/body.height
+
+    try:
+        raw,parts,pages,count,fill=paginate(1)
+        tightness=1
+        if balance_last_page and count>1 and fill<TRAILING_PAGE_FILL:
+            # A last page holding a line or two fails the density check and costs
+            # a rewrite; closer block spacing may pull it back onto earlier pages.
+            for trial in TIGHTER_GAPS:
+                attempt=paginate(trial)
+                if attempt[3]<count:
+                    raw,parts,pages,count,fill=attempt;tightness=trial
+                    break
+        output.parent.mkdir(parents=True,exist_ok=True)
+        output.write_bytes(raw)
     finally:
         measure.close()
     layout={'pdf_sha256':hashlib.sha256(raw).hexdigest(),'parts':parts,'blocks':pages,
+            'gap_scale':tightness,'scaled_assets':[scaled[key] for key in sorted(scaled)],
             'scope':'Body layout only; compose onto original fixed PDFs and perform actual QA',
             'elapsed_seconds':round(time.monotonic()-started,3)}
     layout_path.parent.mkdir(parents=True,exist_ok=True)
@@ -63904,6 +64056,7 @@ if __name__ == "__main__":
 """Prepare actual final-PDF page/item review in one batch; never approve content."""
 from __future__ import annotations
 import argparse
+from collections import Counter
 import copy
 import hashlib
 import html
@@ -63969,6 +64122,20 @@ def projected(body, sizes):
             copy_page = target.new_page(width=width, height=height)
             copy_page.show_pdf_page(copy_page.rect, source, page.number)
     return target
+
+
+def crop_keys(parts):
+    """record-review keys: the item id, or id#n when one item prints several crops."""
+    totals, seen, keys = Counter(part['id'] for part in parts), Counter(), []
+    for part in parts:
+        seen[part['id']] += 1
+        keys.append(part['id'] if totals[part['id']] == 1 else f"{part['id']}#{seen[part['id']]}")
+    return keys
+
+
+def pending_note():
+    """Blank reviewer entry: pending until the reviewer writes status and observations."""
+    return {'status': 'pending', 'observations': ''}
 
 
 def annotate_parts(parts, hashes):
@@ -64190,7 +64357,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     state.setdefault('pdfs',{})
     reused={'pages':0,'parts':0}
     basis={'pixel-identical':0,'vector-equivalent':0}
-    queue={};density_flags=[];batches=[]
+    queue={};density_flags=[];batches=[];template={}
     renderings=Renderings(root)
     try:
         for role,(pdf,body,layout_path) in pairs.items():
@@ -64267,13 +64434,23 @@ def prepare(state_path, pairs, output, *, render_identity=None):
                                 'inspection':save(role+'-inspection.json',scan),
                                 'item_review':save(role+'-items.json',items),
                                 'visual_review':save(role+'-review.json',visual)}
-            queue[role]={'pages':[p['raster_path'] for p,row in zip(scan['pages'],visual['pages']) if row['status']!='pass'],
-                         'items':[p['raster_path'] for p in items['parts'] if p['status']!='pass']}
+            # Absolute image paths: the helper's working directory is not the run.
+            absolute=lambda relative:str((root/relative).resolve())
+            keys={id(part):key for part,key in zip(items['parts'],crop_keys(items['parts']))}
+            queue[role]={'pages':[absolute(p['raster_path']) for p,row in zip(scan['pages'],visual['pages']) if row['status']!='pass'],
+                         'items':[absolute(p['raster_path']) for p in items['parts'] if p['status']!='pass']}
+            notes=template.setdefault(role,{'pages':{},'items':{}})
             for p,row in zip(scan['pages'],visual['pages']):
-                images=([p['raster_path']] if row['status']!='pass' else [])+[
-                    part['raster_path'] for part in by_page.get(p['page'],[]) if part['status']!='pass']
+                images=([(absolute(p['raster_path']),{'pages':str(p['page'])})] if row['status']!='pass' else [])+[
+                    (absolute(part['raster_path']),{'items':keys[id(part)]})
+                    for part in by_page.get(p['page'],[]) if part['status']!='pass']
+                for _,target in images:
+                    (kind,key),=target.items()
+                    notes[kind][key]=pending_note()
                 for start in range(0,len(images),REVIEW_BATCH_IMAGES):
-                    batches.append({'role':role,'page':p['page'],'images':images[start:start+REVIEW_BATCH_IMAGES]})
+                    chunk=images[start:start+REVIEW_BATCH_IMAGES]
+                    batches.append({'role':role,'page':p['page'],'images':[path for path,_ in chunk],
+                                    'record_as':[target for _,target in chunk]})
             index.append('<h2>'+role+'</h2>')
             retained_html=[]
             for label,rows,reviews in [('頁',scan['pages'],visual['pages']),('題目區塊',items['parts'],items['parts'])]:
@@ -64291,16 +64468,20 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     # Put the candidate state beside its original so the checker resolves them.
     candidate.write_text(json.dumps(state,ensure_ascii=False,indent=2),encoding='utf-8')
     index_path=output/'index.html';index_path.write_text('\n'.join(index),encoding='utf-8')
+    template_path=output/'observations-template.json'
+    template_path.write_text(json.dumps(template,ensure_ascii=False,indent=2),encoding='utf-8')
     blocked=[flag for flag in density_flags if flag['status']=='exceeds-all-embedded-references']
     return {'status':'review-pending','state':str(candidate),'index':str(index_path),
             'retained_actual_reviews':reused,'retention_basis':basis,
-            'review_queue':queue,'review_batches':batches,'density_flags':density_flags,
+            'review_queue':queue,'review_batches':batches,'observations_template':str(template_path),
+            'density_flags':density_flags,
             'reflow_before_review':blocked,
             'elapsed_seconds':round(time.monotonic()-started,3),
             'next':('Reflow pages listed in reflow_before_review first: no comparable embedded official page can justify them. '
                     if blocked else '')+
-                   'Open every image in review_queue at readable scale, record observations with '
-                   'run_hosted_workflow.py record-review, then finalize.'}
+                   'Open every image in review_batches at readable scale. Fill status and observations in a copy of '
+                   'observations_template (keys match record_as), record them with one run_hosted_workflow.py '
+                   'record-review call, then finalize.'}
 
 
 if __name__=='__main__':
@@ -65039,9 +65220,9 @@ import pymupdf
 from hosted_run_timing import PHASES, transition
 from hosted_body_templates import render
 from hosted_item_layout import crop_bytes, geometry_errors
-from compose_hosted_pdf import compose
+from compose_hosted_pdf import compact_fonts, compose
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected,
-                                   refresh_review_hashes, canonical_sha)
+                                   refresh_review_hashes, canonical_sha, crop_keys, pending_note)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from fetch_hosted_template_assets import DEFAULT_MAP
 
@@ -65293,6 +65474,97 @@ SCRIPT_TEXT = (str.maketrans(SUBSCRIPT, '0123456789+−=()'), str.maketrans(SUPE
 # Long text may continue on the next page at paragraph boundaries; short
 # evidence packets stay whole, as in the maintained official-form renderers.
 SPLIT_MIN_CHARACTERS = 260
+LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
+# A currency amount is the only printed dollar sign: $ directly before a digit.
+TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
+MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
+ASSET_TOKEN = re.compile(r'\{\{asset:([^{}]+)\}\}')
+
+
+def text_issues(value):
+    """What the body renderer would print literally; checked when items are saved."""
+    raw = value['rich'] if isinstance(value, dict) and set(value) == {'rich'} else value
+    if not isinstance(raw, str):
+        return []
+    issues = []
+    command = LATEX_COMMAND.search(raw)
+    if command:
+        issues.append(f'LaTeX {command.group()} prints literally: write the symbol, <sup>/<sub>, '
+                      'or a declared {{asset:NAME}} formula image')
+    if TEX_DOLLAR.search(raw):
+        issues.append('"$" prints literally: TeX math delimiters are not rendered')
+    depth = Counter()
+    for closing, tag in MARKUP_TAG.findall(raw):
+        depth[tag] += -1 if closing else 1
+        if depth[tag] < 0:
+            break
+    if any(depth.values()):
+        issues.append('unbalanced <sup>/<sub>/<i>/<b> markup')
+    return issues
+
+
+def printed_fields(question, answer):
+    """(where, text) for every saved field the specs projection prints."""
+    for key in ('prompt', 'number_display', 'answer_label', 'group_stimulus'):
+        if isinstance(question.get(key), str):
+            yield key, question[key]
+    for option in question.get('options') or []:
+        if isinstance(option, dict):
+            yield f'option {option.get("label")}', option.get('text')
+    for key in ('continuation_pages', 'group_stimulus_page_splits'):
+        for page, value in sorted((question.get(key) or {}).items()):
+            yield f'{key} {page}', value
+    table = question.get('response_format_table')
+    if isinstance(table, dict):
+        for key in ('caption', 'heading'):
+            if isinstance(table.get(key), str):
+                yield 'response table ' + key, table[key]
+        for index, row in enumerate(table.get('rows') or [], 1):
+            if isinstance(row, dict):
+                for key in ('label', 'instruction'):
+                    if isinstance(row.get(key), str):
+                        yield f'response row {index} {key}', row[key]
+    final = answer.get('final_answer')
+    for value in final if isinstance(final, list) else [final]:
+        if isinstance(value, str):
+            yield 'final_answer', value
+    for index, step in enumerate(answer.get('reasoning') or [], 1):
+        yield f'reasoning {index}', step
+    for index, block in enumerate(answer.get('explanation_blocks') or [], 1):
+        if isinstance(block, dict):
+            for key in ('title', 'content'):
+                if isinstance(block.get(key), str):
+                    yield f'explanation {index} {key}', block[key]
+
+
+def authoring_issues(questions, answers, *, root):
+    """Print defects in saved items, found before any rendering or visual review."""
+    by_answer = {a.get('question_id'): a for a in answers}
+    found = []
+    for question in questions:
+        qid = question.get('id')
+        answer = by_answer.get(qid, {})
+        tokens = {'question': set(), 'answer': set()}
+        for where, value in printed_fields(question, answer):
+            owner = 'answer' if where.startswith(('final_answer', 'reasoning', 'explanation')) else 'question'
+            raw = value['rich'] if isinstance(value, dict) and set(value) == {'rich'} else value
+            if isinstance(raw, str):
+                tokens[owner].update(ASSET_TOKEN.findall(raw))
+            found += [f'item {qid} {where}: {issue}' for issue in text_issues(value)]
+        for owner, record_ in (('question', question), ('answer', answer)):
+            declared = record_.get('inline_assets') or {}
+            for name in sorted(tokens[owner] - set(declared)):
+                found.append(f'item {qid} {owner}: {{{{asset:{name}}}}} is not declared in its inline_assets')
+            files = [(f'inline asset {name}', asset) for name, asset in declared.items()]
+            if isinstance(record_.get('visual_asset'), dict):
+                files.append(('visual_asset', record_['visual_asset']))
+            for where, asset in files:
+                path = (root / str((asset or {}).get('path') or '')).resolve() if isinstance(asset, dict) else root
+                if not isinstance(asset, dict) or not asset.get('path') or not path.is_relative_to(root) or not path.is_file():
+                    found.append(f'item {qid} {owner} {where}: file not found in this run')
+                elif asset.get('sha256') != digest(path):
+                    found.append(f'item {qid} {owner} {where}: sha256 missing or different from the file')
+    return found
 
 
 def printed(value, where, *, english=False, gaps=False):
@@ -65306,9 +65578,9 @@ def printed(value, where, *, english=False, gaps=False):
     raw = value['rich'] if rich else value
     if not isinstance(raw, str) or not raw.strip():
         raise ValueError(where + ': printed text must be a nonempty string')
-    if re.search(r'\\[(\[]|\\(?:frac|sqrt|begin)|\$\$', raw):
-        raise ValueError(where + ': delimited LaTeX needs a verified formula asset: write {{asset:NAME}} '
-                                 'and declare it in inline_assets')
+    issues = text_issues(raw)
+    if issues:
+        raise ValueError(where + ': ' + '; '.join(issues))
     converted = raw
     if not rich and not RICH_TAG.search(raw):
         converted = html.escape(raw, quote=False)
@@ -65776,12 +66048,13 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             raise ValueError(f'{role} spec has no blocks for: ' + ', '.join(sorted(absent)))
         loaded.append((role, spec_path, {**spec, 'blocks': blocks}))
     output.mkdir()
-    queue = []
+    queue, template = [], {}
     by_item = {qid: [] for qid in wanted}
     for role, spec_path, spec in loaded:
         body = output / (role + '-body.pdf')
+        # Item proofs review crops, not page count: skip the last-page spacing retry.
         layout = render(spec, body, output / (role + '-layout.json'), Path(font), asset_root=spec_path.parent,
-                        reading_font=Path(reading_font) if reading_font else None)
+                        reading_font=Path(reading_font) if reading_font else None, balance_last_page=False)
         crops = output / role / 'items'
         crops.mkdir(parents=True)
         parts = []
@@ -65804,17 +66077,26 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             'source': {**record(root, body), 'projected': True, 'page_size': page_size},
             'parts': parts,
             'scope': 'Early crop review only; final booklets still need every page reviewed and fresh final crops.'})
-        queue += [part['raster_path'] for part in parts]
-        for part in parts:
-            by_item.setdefault(part['id'], []).append(part['raster_path'])
+        # Absolute paths: the helper's working directory is not the run.
+        notes = template.setdefault(role, {'items': {}})
+        for part, key in zip(parts, crop_keys(parts)):
+            image = str((root / part['raster_path']).resolve())
+            queue.append(image)
+            by_item.setdefault(part['id'], []).append((image, {'role': role, 'items': key}))
+            notes['items'][key] = pending_note()
     save(output / 'proof-manifest.json', {'kind': 'hosted-item-proof', 'paper_id': state['paper_id'], 'items': wanted})
+    save(output / 'observations-template.json', template)
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
     event(root, 'proof', started, items=wanted)
     # An item's question and solution crops side by side: separate native images.
-    return {'status': 'proof-review-pending', 'proof': output.name, 'review_queue': queue,
-            'review_batches': [{'item': qid, 'images': images} for qid, images in by_item.items()],
+    return {'status': 'proof-review-pending', 'proof': output.name, 'proof_dir': str(output),
+            'review_queue': queue,
+            'review_batches': [{'item': qid, 'images': [image for image, _ in rows],
+                                'record_as': [target for _, target in rows]} for qid, rows in by_item.items()],
+            'observations_template': str(output / 'observations-template.json'),
             'reviews_approved_by_tool': False,
-            'next': 'Open each crop at readable scale and record observations with record-review --proof ' + output.name}
+            'next': ('Open each crop at readable scale, fill status and observations in a copy of observations_template, '
+                     'and record them with one record-review --proof ' + str(output) + ' call')}
 
 
 REVIEW_STATUSES = {'pass', 'fail', 'pending'}
@@ -65895,11 +66177,7 @@ def record_review(observations, *, state=None, proof=None):
             save(targets[role]['pages'], report)
         if sections.get('items'):
             report = read(targets[role]['items'])
-            totals = Counter(part['id'] for part in report['parts'])
-            ordinals, keyed = Counter(), {}
-            for part in report['parts']:
-                ordinals[part['id']] += 1
-                keyed[part['id'] if totals[part['id']] == 1 else f"{part['id']}#{ordinals[part['id']]}"] = part
+            keyed = dict(zip(crop_keys(report['parts']), report['parts']))
             for key, note in sections['items'].items():
                 part = keyed.get(key)
                 if part is None:
@@ -65960,9 +66238,28 @@ def finalize(state_path, output):
     state['timing'] = record(root, timing)
     save(state_path, state)
     result = check(state_path)
+    if result.get('status') == 'evidence-complete':
+        result['delivery'] = deliver(root, state)
     save(output, result)
     event(root, 'finalize', started, status=result['status'])
     return result
+
+
+def deliver(root, state):
+    """Copies of the checked booklets to hand over: same pixels and text, no unused font data."""
+    folder = root / 'delivery'
+    folder.mkdir(exist_ok=True)
+    copies = {}
+    for role, bundle in sorted(state.get('pdfs', {}).items()):
+        source = inside(root, root / bundle['file']['path'])
+        if digest(source) != bundle['file']['sha256']:
+            raise ValueError('Checked booklet changed before delivery: ' + bundle['file']['path'])
+        compact, report = compact_fonts(source.read_bytes())
+        target = folder / (role + '.pdf')
+        target.write_bytes(compact)
+        copies[role] = {'path': str(target), 'bytes': len(compact), 'sha256': hashlib.sha256(compact).hexdigest(),
+                        'checked_pdf': bundle['file'], 'font_compaction': report}
+    return copies
 
 
 def main():

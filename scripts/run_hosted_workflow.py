@@ -22,9 +22,9 @@ import pymupdf
 from hosted_run_timing import PHASES, transition
 from hosted_body_templates import render
 from hosted_item_layout import crop_bytes, geometry_errors
-from compose_hosted_pdf import compose
+from compose_hosted_pdf import compact_fonts, compose
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected,
-                                   refresh_review_hashes, canonical_sha)
+                                   refresh_review_hashes, canonical_sha, crop_keys, pending_note)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from fetch_hosted_template_assets import DEFAULT_MAP
 
@@ -276,6 +276,97 @@ SCRIPT_TEXT = (str.maketrans(SUBSCRIPT, '0123456789+−=()'), str.maketrans(SUPE
 # Long text may continue on the next page at paragraph boundaries; short
 # evidence packets stay whole, as in the maintained official-form renderers.
 SPLIT_MIN_CHARACTERS = 260
+LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
+# A currency amount is the only printed dollar sign: $ directly before a digit.
+TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
+MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
+ASSET_TOKEN = re.compile(r'\{\{asset:([^{}]+)\}\}')
+
+
+def text_issues(value):
+    """What the body renderer would print literally; checked when items are saved."""
+    raw = value['rich'] if isinstance(value, dict) and set(value) == {'rich'} else value
+    if not isinstance(raw, str):
+        return []
+    issues = []
+    command = LATEX_COMMAND.search(raw)
+    if command:
+        issues.append(f'LaTeX {command.group()} prints literally: write the symbol, <sup>/<sub>, '
+                      'or a declared {{asset:NAME}} formula image')
+    if TEX_DOLLAR.search(raw):
+        issues.append('"$" prints literally: TeX math delimiters are not rendered')
+    depth = Counter()
+    for closing, tag in MARKUP_TAG.findall(raw):
+        depth[tag] += -1 if closing else 1
+        if depth[tag] < 0:
+            break
+    if any(depth.values()):
+        issues.append('unbalanced <sup>/<sub>/<i>/<b> markup')
+    return issues
+
+
+def printed_fields(question, answer):
+    """(where, text) for every saved field the specs projection prints."""
+    for key in ('prompt', 'number_display', 'answer_label', 'group_stimulus'):
+        if isinstance(question.get(key), str):
+            yield key, question[key]
+    for option in question.get('options') or []:
+        if isinstance(option, dict):
+            yield f'option {option.get("label")}', option.get('text')
+    for key in ('continuation_pages', 'group_stimulus_page_splits'):
+        for page, value in sorted((question.get(key) or {}).items()):
+            yield f'{key} {page}', value
+    table = question.get('response_format_table')
+    if isinstance(table, dict):
+        for key in ('caption', 'heading'):
+            if isinstance(table.get(key), str):
+                yield 'response table ' + key, table[key]
+        for index, row in enumerate(table.get('rows') or [], 1):
+            if isinstance(row, dict):
+                for key in ('label', 'instruction'):
+                    if isinstance(row.get(key), str):
+                        yield f'response row {index} {key}', row[key]
+    final = answer.get('final_answer')
+    for value in final if isinstance(final, list) else [final]:
+        if isinstance(value, str):
+            yield 'final_answer', value
+    for index, step in enumerate(answer.get('reasoning') or [], 1):
+        yield f'reasoning {index}', step
+    for index, block in enumerate(answer.get('explanation_blocks') or [], 1):
+        if isinstance(block, dict):
+            for key in ('title', 'content'):
+                if isinstance(block.get(key), str):
+                    yield f'explanation {index} {key}', block[key]
+
+
+def authoring_issues(questions, answers, *, root):
+    """Print defects in saved items, found before any rendering or visual review."""
+    by_answer = {a.get('question_id'): a for a in answers}
+    found = []
+    for question in questions:
+        qid = question.get('id')
+        answer = by_answer.get(qid, {})
+        tokens = {'question': set(), 'answer': set()}
+        for where, value in printed_fields(question, answer):
+            owner = 'answer' if where.startswith(('final_answer', 'reasoning', 'explanation')) else 'question'
+            raw = value['rich'] if isinstance(value, dict) and set(value) == {'rich'} else value
+            if isinstance(raw, str):
+                tokens[owner].update(ASSET_TOKEN.findall(raw))
+            found += [f'item {qid} {where}: {issue}' for issue in text_issues(value)]
+        for owner, record_ in (('question', question), ('answer', answer)):
+            declared = record_.get('inline_assets') or {}
+            for name in sorted(tokens[owner] - set(declared)):
+                found.append(f'item {qid} {owner}: {{{{asset:{name}}}}} is not declared in its inline_assets')
+            files = [(f'inline asset {name}', asset) for name, asset in declared.items()]
+            if isinstance(record_.get('visual_asset'), dict):
+                files.append(('visual_asset', record_['visual_asset']))
+            for where, asset in files:
+                path = (root / str((asset or {}).get('path') or '')).resolve() if isinstance(asset, dict) else root
+                if not isinstance(asset, dict) or not asset.get('path') or not path.is_relative_to(root) or not path.is_file():
+                    found.append(f'item {qid} {owner} {where}: file not found in this run')
+                elif asset.get('sha256') != digest(path):
+                    found.append(f'item {qid} {owner} {where}: sha256 missing or different from the file')
+    return found
 
 
 def printed(value, where, *, english=False, gaps=False):
@@ -289,9 +380,9 @@ def printed(value, where, *, english=False, gaps=False):
     raw = value['rich'] if rich else value
     if not isinstance(raw, str) or not raw.strip():
         raise ValueError(where + ': printed text must be a nonempty string')
-    if re.search(r'\\[(\[]|\\(?:frac|sqrt|begin)|\$\$', raw):
-        raise ValueError(where + ': delimited LaTeX needs a verified formula asset: write {{asset:NAME}} '
-                                 'and declare it in inline_assets')
+    issues = text_issues(raw)
+    if issues:
+        raise ValueError(where + ': ' + '; '.join(issues))
     converted = raw
     if not rich and not RICH_TAG.search(raw):
         converted = html.escape(raw, quote=False)
@@ -759,12 +850,13 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             raise ValueError(f'{role} spec has no blocks for: ' + ', '.join(sorted(absent)))
         loaded.append((role, spec_path, {**spec, 'blocks': blocks}))
     output.mkdir()
-    queue = []
+    queue, template = [], {}
     by_item = {qid: [] for qid in wanted}
     for role, spec_path, spec in loaded:
         body = output / (role + '-body.pdf')
+        # Item proofs review crops, not page count: skip the last-page spacing retry.
         layout = render(spec, body, output / (role + '-layout.json'), Path(font), asset_root=spec_path.parent,
-                        reading_font=Path(reading_font) if reading_font else None)
+                        reading_font=Path(reading_font) if reading_font else None, balance_last_page=False)
         crops = output / role / 'items'
         crops.mkdir(parents=True)
         parts = []
@@ -787,17 +879,26 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             'source': {**record(root, body), 'projected': True, 'page_size': page_size},
             'parts': parts,
             'scope': 'Early crop review only; final booklets still need every page reviewed and fresh final crops.'})
-        queue += [part['raster_path'] for part in parts]
-        for part in parts:
-            by_item.setdefault(part['id'], []).append(part['raster_path'])
+        # Absolute paths: the helper's working directory is not the run.
+        notes = template.setdefault(role, {'items': {}})
+        for part, key in zip(parts, crop_keys(parts)):
+            image = str((root / part['raster_path']).resolve())
+            queue.append(image)
+            by_item.setdefault(part['id'], []).append((image, {'role': role, 'items': key}))
+            notes['items'][key] = pending_note()
     save(output / 'proof-manifest.json', {'kind': 'hosted-item-proof', 'paper_id': state['paper_id'], 'items': wanted})
+    save(output / 'observations-template.json', template)
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
     event(root, 'proof', started, items=wanted)
     # An item's question and solution crops side by side: separate native images.
-    return {'status': 'proof-review-pending', 'proof': output.name, 'review_queue': queue,
-            'review_batches': [{'item': qid, 'images': images} for qid, images in by_item.items()],
+    return {'status': 'proof-review-pending', 'proof': output.name, 'proof_dir': str(output),
+            'review_queue': queue,
+            'review_batches': [{'item': qid, 'images': [image for image, _ in rows],
+                                'record_as': [target for _, target in rows]} for qid, rows in by_item.items()],
+            'observations_template': str(output / 'observations-template.json'),
             'reviews_approved_by_tool': False,
-            'next': 'Open each crop at readable scale and record observations with record-review --proof ' + output.name}
+            'next': ('Open each crop at readable scale, fill status and observations in a copy of observations_template, '
+                     'and record them with one record-review --proof ' + str(output) + ' call')}
 
 
 REVIEW_STATUSES = {'pass', 'fail', 'pending'}
@@ -878,11 +979,7 @@ def record_review(observations, *, state=None, proof=None):
             save(targets[role]['pages'], report)
         if sections.get('items'):
             report = read(targets[role]['items'])
-            totals = Counter(part['id'] for part in report['parts'])
-            ordinals, keyed = Counter(), {}
-            for part in report['parts']:
-                ordinals[part['id']] += 1
-                keyed[part['id'] if totals[part['id']] == 1 else f"{part['id']}#{ordinals[part['id']]}"] = part
+            keyed = dict(zip(crop_keys(report['parts']), report['parts']))
             for key, note in sections['items'].items():
                 part = keyed.get(key)
                 if part is None:
@@ -943,9 +1040,28 @@ def finalize(state_path, output):
     state['timing'] = record(root, timing)
     save(state_path, state)
     result = check(state_path)
+    if result.get('status') == 'evidence-complete':
+        result['delivery'] = deliver(root, state)
     save(output, result)
     event(root, 'finalize', started, status=result['status'])
     return result
+
+
+def deliver(root, state):
+    """Copies of the checked booklets to hand over: same pixels and text, no unused font data."""
+    folder = root / 'delivery'
+    folder.mkdir(exist_ok=True)
+    copies = {}
+    for role, bundle in sorted(state.get('pdfs', {}).items()):
+        source = inside(root, root / bundle['file']['path'])
+        if digest(source) != bundle['file']['sha256']:
+            raise ValueError('Checked booklet changed before delivery: ' + bundle['file']['path'])
+        compact, report = compact_fonts(source.read_bytes())
+        target = folder / (role + '.pdf')
+        target.write_bytes(compact)
+        copies[role] = {'path': str(target), 'bytes': len(compact), 'sha256': hashlib.sha256(compact).hexdigest(),
+                        'checked_pdf': bundle['file'], 'font_compaction': report}
+    return copies
 
 
 def main():

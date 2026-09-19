@@ -14,7 +14,7 @@ import json
 import re
 from pathlib import Path
 
-from run_hosted_workflow import checkpoint, inside, read, record, save
+from run_hosted_workflow import authoring_issues, checkpoint, inside, read, record, save, text_issues
 
 def check_numbering(questions):
     """Numbered subparts share a printed number; unnumbered tasks use IDs."""
@@ -123,6 +123,14 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
     section_ids = {s.get('id') for s in exam.get('sections', []) if isinstance(s, dict)}
     if not section_ids or any(q['section_id'] not in section_ids for q in questions):
         raise ValueError('Question section_id must name a section in the saved paper plan')
+    # Literal LaTeX, dollar signs, broken markup and unregistered formula images
+    # otherwise surface only after rendering and page review; fix them now.
+    issues = [f'section {s.get("id")} {key}: {issue}' for s in exam['sections'] if isinstance(s, dict)
+              for key, value in [('title', s.get('title')), *[('instructions', v) for v in s.get('instructions') or []]]
+              for issue in text_issues(value)]
+    issues += authoring_issues(questions, answers, root=root)
+    if issues:
+        raise ValueError(f'Fix {len(issues)} print issue(s), then save the batch again: ' + ' | '.join(issues))
     current_questions, current_answers = exam.get('questions', []), exam.get('answers', [])
     if not isinstance(current_questions, list) or not isinstance(current_answers, list):
         raise ValueError('Existing exam requires question and answer lists')

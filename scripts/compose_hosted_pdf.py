@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """Compose existing body pages onto verified fixed PDFs; never author questions.
 
-PyMuPDF is the only non-standard dependency. Inputs are transparent A4 body-only
-PDF pages. No template text, figures, formulas or grids are recreated here.
+PyMuPDF is the only required non-standard dependency; fontTools, when present,
+only trims unused glyphs. Inputs are transparent A4 body-only PDF pages. No
+template text, figures, formulas or grids are recreated here.
 Output and reports are layout proofs, never educational release approvals.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 from pathlib import Path
+import re
 
 import pymupdf
 
@@ -18,9 +21,104 @@ from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, ver
 from inspect_hosted_pdf import rail_collision_samples
 from verify_fixed_template_pdf import verify_pdf, masked_pixels
 
+# Only whole CJK body fonts are this large; fixed-template fonts are small subsets.
+LARGE_FONT_PROGRAM = 1_000_000
+REFERENCE = re.compile(r'(\d+) 0 R')
+
 
 def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def font_programs(doc):
+    """{program xref: base font names} for embedded fonts larger than LARGE_FONT_PROGRAM."""
+    found = {}
+    for page in doc:
+        for xref, _, _, basefont, *_ in page.get_fonts(full=True):
+            if not xref:
+                continue
+            descendant = REFERENCE.search(doc.xref_get_key(xref, 'DescendantFonts')[1] or '')
+            owner = int(descendant.group(1)) if descendant else xref
+            descriptor = REFERENCE.search(doc.xref_get_key(owner, 'FontDescriptor')[1] or '')
+            if not descriptor:
+                continue
+            for key in ('FontFile3', 'FontFile2', 'FontFile'):
+                program = REFERENCE.search(doc.xref_get_key(int(descriptor.group(1)), key)[1] or '')
+                if program and len(doc.xref_stream_raw(int(program.group(1)))) > LARGE_FONT_PROGRAM:
+                    found.setdefault(int(program.group(1)), set()).add(re.sub(r'^[A-Z]{6}\+', '', basefont))
+    return found
+
+
+def merge_duplicate_fonts(data: bytes) -> bytes:
+    """One copy of a font embedded twice (body and header fields): same pages, half the bytes."""
+    with pymupdf.open(stream=data, filetype='pdf') as doc:
+        return doc.tobytes(garbage=4, deflate=True)  # identical copies collapse once both are compressed
+
+
+def compact_fonts(data: bytes) -> tuple[bytes, dict]:
+    """Merge duplicate font copies and drop glyphs no page draws; never change a pixel.
+
+    A whole CJK font is ~20 MB and was embedded twice (body and header fields),
+    making an 8-page paper 40 MB. Page content streams are never rewritten: a
+    CID-keyed CFF font keeps each glyph's CID, other fonts keep glyph ids. Any
+    rendering or text difference keeps the unsubsetted fonts. This takes seconds
+    per booklet, so it runs once on the checked booklets, not on every build.
+    """
+    merged = merge_duplicate_fonts(data)
+    report = {'bytes_before': len(data), 'bytes_after': len(merged), 'status': 'duplicates-merged'}
+    try:
+        from fontTools import subset
+        from fontTools.ttLib import TTFont
+    except ImportError:
+        return merged, {**report, 'note': 'fontTools unavailable; unused glyphs kept'}
+    with pymupdf.open(stream=merged, filetype='pdf') as doc:
+        programs = font_programs(doc)
+        if not programs:
+            return merged, report
+        used = {}
+        for page in doc:
+            for span in page.get_texttrace():
+                used.setdefault(span['font'], set()).update(char[1] for char in span['chars'])
+        before = [(page.get_pixmap(matrix=pymupdf.Matrix(2, 2), alpha=False).samples, page.get_text())
+                  for page in doc]
+        for xref, names in programs.items():
+            font = TTFont(io.BytesIO(doc.xref_stream(xref)), lazy=True)
+            # Text tracing reports the program's own PostScript name, which can
+            # differ from the PDF BaseFont (e.g. "Noto Serif CJK TC Regular").
+            names = set(names)
+            if 'name' in font:
+                names |= {font['name'].getDebugName(number) for number in (4, 6)} - {None}
+            cid_keyed = False
+            if 'CFF ' in font:
+                cff = font['CFF '].cff
+                names |= set(cff.fontNames)
+                cid_keyed = hasattr(cff[cff.fontNames[0]], 'ROS')
+            glyphs = set().union(*(used.get(name, set()) for name in names))
+            if not glyphs:
+                continue  # No drawn glyph matched this program: keep it whole.
+            glyphs.add(0)
+            options = subset.Options()
+            # CID-keyed glyphs are found by CID, so renumbering them is safe and
+            # far faster than writing 65,000 empty glyph slots.
+            options.retain_gids = not cid_keyed
+            options.notdef_outline = True
+            options.name_IDs = ['*']
+            options.layout_features = []  # the PDF already holds positioned glyphs
+            options.drop_tables = [*options.drop_tables, 'GSUB', 'GPOS', 'GDEF', 'BASE', 'JSTF', 'MATH']
+            subsetter = subset.Subsetter(options)
+            subsetter.populate(gids=sorted(glyphs))
+            subsetter.subset(font)
+            buffer = io.BytesIO()
+            font.save(buffer)
+            doc.update_stream(xref, buffer.getvalue())
+            doc.xref_set_key(xref, 'Length1', str(len(buffer.getvalue())))
+        compact = doc.tobytes(garbage=4, deflate=True)
+    with pymupdf.open(stream=compact, filetype='pdf') as check:
+        same = [(page.get_pixmap(matrix=pymupdf.Matrix(2, 2), alpha=False).samples, page.get_text())
+                for page in check] == before
+    if not same:
+        return merged, {**report, 'note': 'subset changed rendering or text; full fonts kept'}
+    return compact, {**report, 'bytes_after': len(compact), 'status': 'unused-glyphs-dropped'}
 
 
 def check_body(page, box) -> None:
@@ -138,7 +236,7 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                                "formula_component": "formula-blank" if formula else None,
                                "locked_pixels_match": True})
             output.parent.mkdir(parents=True, exist_ok=True)
-            data = out.tobytes(garbage=4, deflate=True)
+            data = merge_duplicate_fonts(out.tobytes(garbage=4, deflate=True))
             output.write_bytes(data)
         saved_check = verify_pdf(output, subject, kind, asset_dir)
         if saved_check['errors']:

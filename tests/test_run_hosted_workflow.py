@@ -82,6 +82,19 @@ def test_finalize_keeps_actual_pending_and_stale_reviews_blocking(saved_run, tmp
     assert workflow.finalize(tmp_path/'run-state.json', tmp_path/'final.json')['status'] == 'pending'
 
 
+def test_finalize_delivers_copies_rendering_the_checked_pages(saved_run, tmp_path):
+    state, save = saved_run
+    save('run-state.json', state)
+    result = workflow.finalize(tmp_path/'run-state.json', tmp_path/'final.json')
+    assert result['status'] == 'evidence-complete' and set(result['delivery']) == set(state['pdfs'])
+    for copy_ in result['delivery'].values():
+        with pymupdf.open(tmp_path/copy_['checked_pdf']['path']) as checked, pymupdf.open(copy_['path']) as delivered:
+            assert [page.get_text() for page in checked] == [page.get_text() for page in delivered]
+            assert ([page.get_pixmap(matrix=pymupdf.Matrix(2, 2)).samples for page in checked] ==
+                    [page.get_pixmap(matrix=pymupdf.Matrix(2, 2)).samples for page in delivered])
+    assert workflow.read(tmp_path/'final.json')['delivery'] == result['delivery']
+
+
 @pytest.mark.parametrize('name', ['run-state.json','exam.json','generation-timing.json','answers.json','question.pdf'])
 def test_final_report_cannot_overwrite_any_input(saved_run, tmp_path, name):
     state, save = saved_run

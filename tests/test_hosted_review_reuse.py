@@ -241,6 +241,29 @@ def test_record_review_needs_actual_findings_and_refreshes_bindings(run):
             assert workflow.digest(root / bundle[key]['path']) == bundle[key]['sha256']
 
 
+def test_review_list_opens_from_anywhere_and_its_template_records_in_one_call(run, monkeypatch, tmp_path_factory):
+    root, font, specs, _, _ = run
+    built = workflow.build(root / 'run-state.json', *specs, font, root / 'build-v1', year=116)
+    monkeypatch.chdir(tmp_path_factory.mktemp('elsewhere'))  # the helper's cwd is not the run
+    listed = set()
+    for batch in built['review_batches']:
+        assert len(batch['record_as']) == len(batch['images'])
+        assert all(Path(image).is_absolute() and Path(image).is_file() for image in batch['images'])
+        listed |= {(batch['role'], kind, key) for target in batch['record_as'] for kind, key in target.items()}
+    template = workflow.read(Path(built['observations_template']))
+    assert listed == {(role, kind, key) for role, sections in template.items()
+                      for kind, keys in sections.items() for key in keys}
+    assert {entry['status'] for sections in template.values() for keys in sections.values()
+            for entry in keys.values()} == {'pending'}  # the tool never pre-fills a pass
+    for sections in template.values():
+        for keys in sections.values():
+            for key, entry in keys.items():
+                entry.update(status='pass', observations=f'Synthetic reviewer opened {key} at full size')
+    workflow.save(root / 'filled.json', template)
+    result = workflow.record_review(root / 'filled.json', state=built['state'])
+    assert all(not rows['items_pending'] and not rows['pages_pending'] for rows in result['remaining'].values())
+
+
 def test_density_evidence_lists_only_same_role_embedded_measurements():
     inside = density_evidence('數學A', 'question', 3, 8, 0.33)
     assert inside['status'] == 'within-embedded-reference-limit' and inside['page_role'] == 'body'

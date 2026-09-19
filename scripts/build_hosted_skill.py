@@ -35,8 +35,8 @@ the bundled original fixed template PDFs (`prepare_hosted_run.py`, then
 header/footer, answer-marking example or formula page with LaTeX, HTML, Word,
 drawing libraries or any other tool, even with a "mock" disclaimer. If a helper,
 template or check fails and cannot be fixed, stop, keep saved work and tell the
-user exactly what is missing; do not deliver a substitute. Report the final
-check result together with the two PDFs.
+user exactly what is missing; do not deliver a substitute. Hand over the two
+PDFs listed in finalize's `delivery` and report the final check result.
 
 Start with [references/hosted-execution.md](references/hosted-execution.md).
 This multi-file Skill already contains its executable `scripts/`, subject
