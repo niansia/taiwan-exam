@@ -67,7 +67,8 @@ def body_font(run_dir, requested=None):
         target.parent.mkdir(exist_ok=True)
         target.write_bytes(pymupdf.Font('cjk').buffer)
     record = {'path': target.relative_to(run_dir).as_posix(), 'source': BUILTIN_FONT, 'sha256': digest(target),
-              'style': 'sans-serif CJK; tell the user, and use a Traditional Chinese serif font file if they supply one'}
+              'style': 'sans-serif CJK; keep going and mention it in the delivery message; '
+                       'use a Traditional Chinese serif font file if the user supplies one'}
     if note:
         record['replaced'] = note
     return target, record
@@ -264,9 +265,11 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                                                    'sha256': digest(raster)})
         report['cache_inputs'] = cache_inputs(font)
         report.update(status='ready-for-authoring', proofs=proofs,
-                      next_action='proof and build default to body_font; if it is the built-in font, tell the user '
-                      'the body is sans-serif. Open the small proof rasters and check field/font fit; read the selected subject '
-                      'calibration and curriculum guidance. Use the recorded review_mode for small batches: '
+                      next_action='Continue in this same response; do not end it to report the preflight. '
+                      'Open the small proof rasters and check field/font fit, then run checkpoint --phase authoring '
+                      'and read the authoring view (subject calibration and curriculum guidance). proof and build '
+                      'default to body_font; if it is the built-in font, say in the delivery message that the body '
+                      'is sans-serif. Use the recorded review_mode for small batches: '
                       'single-context means a fresh answer-free solving pass followed by answer comparison, '
                       'not independent blind review. Never invent a reviewer context. '
                       'Use aggregate anchors honestly; final QA needs no original-PDF download. '

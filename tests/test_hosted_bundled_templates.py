@@ -65,6 +65,8 @@ def test_subject_previews_ship_in_the_skill_and_render_like_the_published_ones(t
     inspect_archive(Path(archive), tmp_path / 'skill')
     plan = reading_plan_from_directory(tmp_path / 'skill', '英文', tmp_path / 'refs')
     assert [Path(path).name for path in plan['layout_previews']] == ['english-questions.pdf', 'english-solutions.pdf']
+    # The entry already sent the model through hosted-execution.md; no second reading.
+    assert 'skip these chunks' in plan['first_read_note']
     for path in plan['layout_previews']:
         published = ROOT / 'docs/layout-examples' / builder.PREVIEW_VERSION / Path(path).name
         with pymupdf.open(path) as bundled, pymupdf.open(published) as original:
@@ -81,6 +83,11 @@ def test_without_a_chinese_font_the_preflight_uses_the_builtin_one(tmp_path, mon
     assert report['status'] == 'ready-for-authoring', report
     assert report['body_font']['source'] == preflight.BUILTIN_FONT
     assert (tmp_path / 'run' / report['body_font']['path']).read_bytes() == pymupdf.Font('cjk').buffer
+    # A ChatGPT run ended its response right after preflight to "tell the user"
+    # about the font; on hosted surfaces a message to the user ends the turn.
+    assert report['next_action'].startswith('Continue in this same response')
+    for text in (report['next_action'], report['body_font']['style']):
+        assert 'tell the user' not in text and 'delivery message' in text
 
 
 def test_a_font_missing_field_glyphs_is_replaced_and_the_reason_recorded(tmp_path):
@@ -106,3 +113,14 @@ def test_entry_forbids_redrawn_templates_and_requires_the_final_check():
     entry = builder.ENTRY.format(version='test')
     for phrase in ('Never typeset, trace or redraw', 'check_hosted_run.py', 'bundled original fixed template'):
         assert phrase in entry
+
+
+def test_entry_and_route_keep_working_until_delivery():
+    entry = ' '.join(builder.ENTRY.format(version='test').split())
+    route = ' '.join((builder.ROOT / 'references/hosted-execution.md').read_text(encoding='utf-8').split())
+    for text in (entry, route):
+        assert 'one continuous job' in text and 'replies 繼續' in text
+    assert 'Do not end the response to report the preflight' in entry
+    assert 'make up an example prompt' in entry
+    for stale in ('name what remains', 'turn limit', 'short progress update', 'tell the user the body'):
+        assert stale not in entry and stale not in route

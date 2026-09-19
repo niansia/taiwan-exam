@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.19.3
+# Taiwan Exam Web Knowledge v2026.09.19.4
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -547,10 +547,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/fast-full-paper-workflow.md",
-    "bytes": 8348,
-    "sha256": "dd2f1a01f946d679e7921fbcf43cbd42bb2231880dae2e04218c9a78389eef0d",
-    "embedded_bytes": 8348,
-    "embedded_sha256": "dd2f1a01f946d679e7921fbcf43cbd42bb2231880dae2e04218c9a78389eef0d"
+    "bytes": 8343,
+    "sha256": "233ef544a810aa9efa1872eeb9628b311a2284a92dcb1cf8a47e0e49ce083130",
+    "embedded_bytes": 8343,
+    "embedded_sha256": "233ef544a810aa9efa1872eeb9628b311a2284a92dcb1cf8a47e0e49ce083130"
   },
   {
     "path": "references/first-use.md",
@@ -596,17 +596,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-body-workflow.md",
-    "bytes": 13416,
-    "sha256": "435ddeb2c05ca5afaced457297f5c77496fcf98bbd65c88cfbc43c3d76f4a0e2",
-    "embedded_bytes": 13416,
-    "embedded_sha256": "435ddeb2c05ca5afaced457297f5c77496fcf98bbd65c88cfbc43c3d76f4a0e2"
+    "bytes": 13480,
+    "sha256": "ffe04d1fdb8cf06733e3f5911e2b25b8ccd248d0f37f7ff098957a218db87dbc",
+    "embedded_bytes": 13480,
+    "embedded_sha256": "ffe04d1fdb8cf06733e3f5911e2b25b8ccd248d0f37f7ff098957a218db87dbc"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 22652,
-    "sha256": "c084fd0004a109ec594fa7b00e3d924f0ef9e6fe69f67dd3689e3a57ff93181e",
-    "embedded_bytes": 22652,
-    "embedded_sha256": "c084fd0004a109ec594fa7b00e3d924f0ef9e6fe69f67dd3689e3a57ff93181e"
+    "bytes": 24069,
+    "sha256": "906c13cd5bd56600119374b7da5d538561f003e8219727bd863fce34d6f7e528",
+    "embedded_bytes": 24069,
+    "embedded_sha256": "906c13cd5bd56600119374b7da5d538561f003e8219727bd863fce34d6f7e528"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -617,17 +617,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 14551,
-    "sha256": "a7a2a32ced63a7374f2952535b233ed79609c764a7c96a8589b2761ff6264e13",
-    "embedded_bytes": 14551,
-    "embedded_sha256": "a7a2a32ced63a7374f2952535b233ed79609c764a7c96a8589b2761ff6264e13"
+    "bytes": 14687,
+    "sha256": "89dffabab7cf7fe531f4f660293ba83719e359bc0b3fac159d636802fd5a50e6",
+    "embedded_bytes": 14687,
+    "embedded_sha256": "89dffabab7cf7fe531f4f660293ba83719e359bc0b3fac159d636802fd5a50e6"
   },
   {
     "path": "references/hosted-run-evidence.md",
-    "bytes": 9007,
-    "sha256": "04435a56970a7277b188a5029bd3091bf18de38d57393d2642a7b1acc4b24cca",
-    "embedded_bytes": 9007,
-    "embedded_sha256": "04435a56970a7277b188a5029bd3091bf18de38d57393d2642a7b1acc4b24cca"
+    "bytes": 9206,
+    "sha256": "06ce8859effb2b2b00ccfdc50a22d5427a600920f4690694df298de8baa88d82",
+    "embedded_bytes": 9206,
+    "embedded_sha256": "06ce8859effb2b2b00ccfdc50a22d5427a600920f4690694df298de8baa88d82"
   },
   {
     "path": "references/layout-fidelity.md",
@@ -715,10 +715,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/web-platform-use.md",
-    "bytes": 30679,
-    "sha256": "79b2998e06562efa1fddbc06275c2d6f1810625be5adfcc8b16c9697b982379c",
-    "embedded_bytes": 30679,
-    "embedded_sha256": "79b2998e06562efa1fddbc06275c2d6f1810625be5adfcc8b16c9697b982379c"
+    "bytes": 31455,
+    "sha256": "27c4f334a6a0fbc73cc1ffb5cae4d1fb0dd60de82cdd12886c1dfaac5e2c6ad7",
+    "embedded_bytes": 31455,
+    "embedded_sha256": "27c4f334a6a0fbc73cc1ffb5cae4d1fb0dd60de82cdd12886c1dfaac5e2c6ad7"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -792,10 +792,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/append_items.py",
-    "bytes": 11203,
-    "sha256": "9c149c5308a823964acdfd93074ffb8536cd856800bdcdb62f96ceee67d30805",
-    "embedded_bytes": 11203,
-    "embedded_sha256": "9c149c5308a823964acdfd93074ffb8536cd856800bdcdb62f96ceee67d30805"
+    "bytes": 12578,
+    "sha256": "1c1b484714dc9dcb2730254d84ba3c6de77f348d214f7d3a5c94f010c4d3356b",
+    "embedded_bytes": 12578,
+    "embedded_sha256": "1c1b484714dc9dcb2730254d84ba3c6de77f348d214f7d3a5c94f010c4d3356b"
   },
   {
     "path": "scripts/check_hosted_run.py",
@@ -883,24 +883,24 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 17180,
-    "sha256": "853f1a8467b240e221e29686c7c8f4647c2805419e21aa4aea1a67a2c1c71d97",
-    "embedded_bytes": 17180,
-    "embedded_sha256": "853f1a8467b240e221e29686c7c8f4647c2805419e21aa4aea1a67a2c1c71d97"
+    "bytes": 17434,
+    "sha256": "5e564b8831105aaa7ad27ae2ff2a16b2aaaf67753cf46ea01098816130e23c12",
+    "embedded_bytes": 17434,
+    "embedded_sha256": "5e564b8831105aaa7ad27ae2ff2a16b2aaaf67753cf46ea01098816130e23c12"
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 25104,
-    "sha256": "27301099d3cd037e1550a90de80f96267039be9e6eec1e1423a8de699e74d1d0",
-    "embedded_bytes": 25104,
-    "embedded_sha256": "27301099d3cd037e1550a90de80f96267039be9e6eec1e1423a8de699e74d1d0"
+    "bytes": 25404,
+    "sha256": "7a83827c3b1f5ba0e2520fddbd3285d6e9ec420ea28416a2583d5b72f5e1e1c7",
+    "embedded_bytes": 25404,
+    "embedded_sha256": "7a83827c3b1f5ba0e2520fddbd3285d6e9ec420ea28416a2583d5b72f5e1e1c7"
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 61853,
-    "sha256": "e9559be6e358b10a5c6099919d2c0dfec6ad36a42c836158d1471e0f475c6c0a",
-    "embedded_bytes": 61853,
-    "embedded_sha256": "e9559be6e358b10a5c6099919d2c0dfec6ad36a42c836158d1471e0f475c6c0a"
+    "bytes": 62130,
+    "sha256": "e8882f0ea1ef429e02d5c5c0258b9e0b6db1d88355532d571ef01af53c41b4c4",
+    "embedded_bytes": 62130,
+    "embedded_sha256": "e8882f0ea1ef429e02d5c5c0258b9e0b6db1d88355532d571ef01af53c41b4c4"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -56045,8 +56045,8 @@ the accepted PDF area. Watermark/fixture tests do not establish exam acceptance.
 <canonical-source path="references/fast-full-paper-workflow.md">
 # Timed full-paper workflow
 
-Hosted runs must also follow hosted-quality-gates.md: start the actual phase
-logger before preflight, preserve it across repairs, and finish item-level review
+Hosted runs must also follow hosted-quality-gates.md: keep the phase clock the
+preflight starts, preserve it across repairs, and finish item-level review
 and capability-appropriate difficulty QA even when target_met becomes false. Missing timing
 blocks evidence-complete; it cannot be reconstructed from a chat's total duration.
 
@@ -56707,14 +56707,14 @@ a figure that crowds its stem: after every saved batch run `run_hosted_workflow.
 specs` and `proof` for that batch, review its item and solution crops at once,
 then solve and review difficulty in the same small batch. Crop review done here
 is not repeated for unchanged items in the final booklets; page review is.
-A complete paper that cannot finish within one provider turn is best split at
-these checkpoints: reviewed authoring batches first, then one final build, page
-review and finalize.
+If the provider does end a response before delivery, these checkpoints are
+where the next turn resumes: reviewed authoring batches first, then one final
+build, page review and finalize. Never end the response at a checkpoint yourself.
 
 Reuse the tested renderer, verified assets and calibration. Do not repeatedly
 load every subject, download originals during final QA, or rewrite the PDF
-engine. If authoring consumes the reserve, persist the SAME paper and continue
-its unfinished reviews next turn. Do not reduce difficulty, omit real checks,
+engine. If the provider ends the response during authoring, the next turn
+continues the SAME paper's unfinished reviews. Do not reduce difficulty, omit real checks,
 invent passing observations or restart a new paper to meet the clock.
 
 ## One preparation command for both final booklets
@@ -56771,7 +56771,11 @@ tools. It governs hosted scheduling and evidence serialization. Local repository
 maintenance, source-corpus rebuilding, installation and release-package audits
 are separate operations; do not run them during ordinary hosted generation.
 The subject's curriculum, structure, originality and quality requirements remain
-binding. This route does not promise completion inside a provider's turn limit.
+binding. Run the route as one continuous job: keep working in the same response
+from preflight to the delivered PDFs, and do not end it to report the preflight,
+the body font, a checkpoint, a finished batch or what remains. A provider limit
+can still end a response early; the saved run then resumes when the user replies
+繼續.
 
 Formal question and solution PDFs come only from these helpers composing onto
 the original fixed template bytes, and only after `check_hosted_run.py` passes.
@@ -56794,7 +56798,9 @@ the selected subject; it requires no aggregate Markdown, reinstallation or
 repository download. Reuse that reference directory on continuation. Its result
 lists this subject's two `layout_previews` (placeholder layout only). Do not ask
 native-Skill users to attach previews; the renderer already applies their
-conventions, so open one only for a specific layout question.
+conventions, so open one only for a specific layout question. Its
+`reading/preflight.md` view embeds this same document: having read it here,
+skip those chunks and run the preflight.
 
 Otherwise extract the uploaded knowledge file once with `read_web_knowledge.py KNOWLEDGE
 --subject SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Read this
@@ -56817,9 +56823,10 @@ repeating already recorded work on unchanged inputs. If files have expired,
 recover the actual saved artifacts or report the missing files precisely.
 
 Before drafting, confirm file creation, Python/PDF operations and readable image
-inspection in the actual runtime. Start the inclusive `hosted_run_timing.py`
-logger with `reference_preflight`; record actual transitions rather than
-reconstructing times later. Then run:
+inspection in the actual runtime. The preflight starts the run clock
+(`generation-timing.json` in the run directory, phase `reference_preflight`);
+later phases are recorded as described under the checkpoint command below. Do
+not start a separate logger or reconstruct times later. Run:
 
 ```text
 python scripts/prepare_hosted_run.py --subject SUBJECT --run-dir run --paper-id PAPER_ID [--font FONT] [--resource-pdf UPLOADED_RESOURCE_PDF]
@@ -56829,8 +56836,9 @@ Pass `--font` for an installed or user-supplied Traditional Chinese serif font
 (for example Noto Serif CJK TC). Without one, or when it lacks a glyph of the
 cover and header fields, the helper uses PyMuPDF's built-in CJK font (Droid Sans
 Fallback, sans-serif) and records `body_font`; `proof` and `build` default to it.
-Do not stop to ask for a font or try to install system packages; tell the user
-the body text is sans-serif and that a serif font file can be supplied.
+Do not stop to ask for a font or try to install system packages. Keep going, and
+say in the delivery message that the body is sans-serif and that a serif font
+file can be supplied next time.
 
 The native Skill bundles every subject's verified template components, and the
 helper uses them without network access; omit `--resource-pdf` there. From the
@@ -56917,7 +56925,10 @@ fields would print wrongly and lists every such issue at once: LaTeX commands
 allowed), unbalanced `<sup>`/`<sub>`/`<i>`/`<b>`, `{{asset:NAME}}` tokens missing
 from `inline_assets`, and asset files that are absent or differ from their
 sha256. Fix them in the batch and save again; otherwise they surface only after
-rendering and page review. Check scope, answerability, shortest routes, distractors and
+rendering and page review. A saved result also lists `design_fields_pending`:
+the final check's difficulty-design messages for the items just saved. Complete
+them with `--replace` while solving and reviewing that batch, before writing the
+gate reviews; they are not printed, so page and crop reviews stay valid. Check scope, answerability, shortest routes, distractors and
 score sums early. After each saved batch, project both body specs and render
 only that batch's items and solutions:
 
@@ -56925,6 +56936,9 @@ only that batch's items and solutions:
 python scripts/run_hosted_workflow.py specs --state run/run-state.json --question-output run/questions-blocks.json --solution-output run/solutions-blocks.json --hints run/layout-hints.json
 python scripts/run_hosted_workflow.py proof --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --items q1,q2,q3 --output run/proof-01
 ```
+
+Where the runtime allows, chain `append_items.py`, `specs` and `proof` with `&&`
+in one tool call, so each batch costs one command before its crops are opened.
 
 `specs` copies printed text only from exam.json and applies the same saved-item
 conventions as the maintained official-form renderers, for every subject:
@@ -57076,7 +57090,11 @@ each batch; do not duplicate that call just to register the same hash. For a rep
 supply `--state RETURNED_REVIEW_STATE`
 so the latest surviving reviews are retained. `--review-bundle FILE` can fan out
 one JSON object of actual named gate reports without generating observations.
-Measure solving and difficulty review when those activities actually happen.
+Measure solving and difficulty review when those activities actually happen:
+switch with `checkpoint --phase solving` and `checkpoint --phase difficulty_qa`
+(add `--state` after a build). `build` records `render_repair` and `visual_qa`,
+`proof` records `visual_qa`, and `finalize` closes the clock; the final check
+needs all six phases.
 
 After real reviews are complete, finalize once; this closes the active clock:
 
@@ -57098,8 +57116,11 @@ and current, not official certification or empirical psychometric validation.
 Time phases by primary activity: `reference_preflight`, `authoring`, `solving`,
 `difficulty_qa`, `render_repair`, `visual_qa`. Batch independent calculations and
 file operations inside one tool invocation where supported; changing phase must
-not require a user reply. Use a short progress update instead of displaying every
-manifest or internal record. Save before long work and after each reviewed batch.
+not require a user reply. Never end the response to give a progress update; where
+the platform shows interim notes without ending the response, keep each to a line
+and never display a whole manifest or internal record. The only messages that end
+the response before delivery name a blocker the user must resolve. Save before
+long work and after each reviewed batch.
 Reserve final review time early. If a provider interrupts, continue the same
 paper from saved work and unresolved checks; do not regenerate successful phases.
 The 20-minute benchmark is measured, not an acceptance deadline. Finish required
@@ -57530,9 +57551,11 @@ accessible prior papers' mechanisms, shortcuts and visual topology.
 
 ## Required timing and earlier rejection
 
-Start hosted_run_timing.py generation-timing.json PAPER_ID phase reference_preflight
-before loading references. At transitions use phase with authoring, solving,
-difficulty_qa, render_repair or visual_qa; finish closes the final interval.
+prepare_hosted_run.py starts the run's generation-timing.json at
+reference_preflight (hosted_run_timing.py generation-timing.json PAPER_ID phase
+reference_preflight does the same by hand). Record authoring, solving and
+difficulty_qa with `run_hosted_workflow.py checkpoint --phase`; build and proof
+record render_repair and visual_qa, and finalize closes the final interval.
 Use all six actual phases, repeat names for repairs, preserve the log in recovery
 material, and register it as run-state.timing. Never reconstruct missing intervals
 from memory. The checker requires positive, ordered, closed intervals for all
@@ -57570,11 +57593,13 @@ failed items and reasons separately; only selected items enter the paper.
 
 Record turn_started_at, measured elapsed time, known runtime limits if exposed,
 and next_action. A user's reported approximately 25-minute interruption is an
-observation, not a universal provider guarantee. When a limit is known, reserve
-at least five minutes for saving and remaining review; begin checkpoint handoff
-before that reserve is consumed. Without a visible limit, save periodically and
-before every long operation rather than assuming unlimited time. These are
-scheduling margins, not claims that five minutes is enough to inspect any paper.
+observation, not a universal provider guarantee. Save periodically and before
+every long operation so an interruption loses little, and keep working: do not
+end the response early to leave time for a handoff. Only a limit the platform
+actually shows (a stated remaining time or tool budget) justifies ending with a
+continuation record, and only once the remaining work cannot fit in it; then
+reserve at least five minutes for saving. These are scheduling margins, not
+claims that five minutes is enough to inspect any paper.
 
 Do not spend the remaining budget drafting more content while difficulty and
 layout checks accumulate. Finish missing content review before rendering. If
@@ -57590,7 +57615,8 @@ When interruption risk is known, keep an accessible recovery copy of exam.json,
 run-state.json and review/visual files; an optional data-only recovery bundle may
 contain those run files, never the Skill executable tree. It is a work checkpoint,
 not a third completed exam or a request to install again. A JSON index alone
-cannot recover missing referenced files. Show a short progress/next-action note.
+cannot recover missing referenced files. A progress note, where the platform
+shows one without ending the response, stays to a line and never ends it.
 
 ## Evidence format and checker
 
@@ -59418,8 +59444,10 @@ recorded difficulty, originality and all-page review. It does not judge content.
   identify the specific missing fact instead of retrying every historical PDF.
 - Continue planning, original writing, solving, rendering and inspection within
   the active turn when possible. Do not ask the user to approve each completed
-  phase or reply “continue” merely to start the next routine phase. Long work
-  still needs short progress updates, not voluminous manifests in chat.
+  phase or reply “continue” merely to start the next routine phase. Never end a
+  response to give a progress update; on most hosted surfaces a message to the
+  user ends the turn. Interim notes the platform shows without ending the
+  response stay to a line, never whole manifests.
 - Save one small `run-state.json` beside the current paper after each meaningful
   phase: paper ID, request/subject/year, knowledge/profile/template hashes,
   current phase, artifact paths and hashes, solved item IDs, inspected page IDs
@@ -59446,17 +59474,25 @@ guaranteed. Missing answer validation or all-page review still blocks delivery.
 ## ChatGPT on the web
 
 ChatGPT and Codex can invoke a saved Skill explicitly or by matching its
-description. In ChatGPT, typing `@` selects an available Skill. When
-`@skill-creator` appears in the native selector in Chat mode, use it there to
-create or update a Skill from the consolidated
-`taiwan-exam-web-knowledge.md`; switching to Work is not a prerequisite. If the
-selector is absent in Chat mode, try Work because availability can depend on
-the account or workspace. Preserve the whole knowledge file rather than copying
-only its first Markdown page. If Skills are unavailable in both modes, use a
-persistent Project with the same knowledge and setup instruction instead of
-claiming an ordinary chat attachment is installed.
+description. In ChatGPT, typing `@` selects an available Skill. Accounts with
+Skills upload the versioned native ZIP unchanged at `Plugins > Skills > Create >
+Upload from your computer`, the same archive Claude uses; the maintainer's upload
+of each release was accepted. It keeps the bundled helpers and templates, so the
+user attaches nothing when requesting a paper. Use `@skill-creator` with the
+consolidated `taiwan-exam-web-knowledge.md` only when that upload is unavailable.
+If the selector is absent in Chat mode, try Work because availability can depend
+on the account or workspace. Preserve the whole knowledge file rather than
+copying only its first Markdown page. If Skills are unavailable in both modes,
+use a persistent Project with the same knowledge and setup instruction instead
+of claiming an ordinary chat attachment is installed.
 
-The creator must preserve the asset maps—including all 30 direct PDF URLs—and
+After an upload ChatGPT may offer to try the Skill with text asking the model to
+make up a realistic prompt and run the Skill end to end. When the user adds a real
+paper request, that request replaces the made-up one. Either way the paper uses
+the hosted route and its final check; never produce a demonstration typeset by
+LaTeX or another route.
+
+A `@skill-creator` build must preserve the asset maps—including all 30 direct PDF URLs—and
 the just-in-time policy, save/install
 the native Skill, and then accept a paper request in that same conversation. It
 must not require a 30-file download, a packaging report, a source-rebuild report,
@@ -59486,7 +59522,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.3/taiwan-exam-hosted-2026.09.19.3.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.4/taiwan-exam-hosted-2026.09.19.4.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
@@ -59565,6 +59601,7 @@ Any later paper request:
 ```text
 請使用 Taiwan Exam，出一份 116 學測數學 B 完整模擬考。
 請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成內容、答案與逐頁版面檢查。
+中途不要停下來回報進度，一路做到交付兩份 PDF。
 ```
 </canonical-source>
 
@@ -61362,6 +61399,27 @@ import re
 from pathlib import Path
 
 from run_hosted_workflow import authoring_issues, checkpoint, inside, read, record, save, text_issues
+from validate_math_difficulty_design import validate as math_design
+from validate_paper_difficulty_balance import validate as difficulty_balance
+
+
+def design_gaps(exam, root, questions):
+    """{final-check message: [item ids]} for the saved items, while they are fresh.
+
+    The final check reads the same validators. Their fields (item_spec,
+    expected_minutes) are not printed, so completing them after a review or a
+    build keeps the page and crop reviews; waiting until finalize costs a repair.
+    """
+    messages = list(difficulty_balance(exam, root)['errors'])
+    if exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
+        messages += math_design(exam)['errors']
+    gaps = {}
+    for question in questions:
+        prefixes = (question['id'] + ':', f"Q{question.get('number')}:")
+        for message in messages:
+            if message.startswith(prefixes):
+                gaps.setdefault(message.split(':', 1)[1].strip(), []).append(question['id'])
+    return gaps
 
 def check_numbering(questions):
     """Numbered subparts share a printed number; unnumbered tasks use IDs."""
@@ -61519,10 +61577,16 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         saved['next_action'] = 'Continue this paper from saved items; review new or changed content before final delivery.'
         saved['content_status'] = 'pending-review'
         save(state_path, saved)
-    return {**result, 'status': 'items-saved', 'question_count': len(exam['questions']),
-            'saved_item_ids': [q['id'] for q in questions], 'changed_item_ids': changed,
-            'idempotent_replay': not changed, 'content_status': 'pending-review' if content_changed else saved.get('content_status', 'pending-review'),
-            'reviews_approved_by_tool': False}
+    report = {**result, 'status': 'items-saved', 'question_count': len(exam['questions']),
+              'saved_item_ids': [q['id'] for q in questions], 'changed_item_ids': changed,
+              'idempotent_replay': not changed, 'content_status': 'pending-review' if content_changed else saved.get('content_status', 'pending-review'),
+              'reviews_approved_by_tool': False}
+    gaps = design_gaps(exam, root, questions)
+    if gaps:
+        report['design_fields_pending'] = gaps
+        report['design_note'] = ('The final check requires these difficulty-design fields. They are not printed: '
+                                 'complete them with --replace as the batch is solved and reviewed; page reviews stay valid.')
+    return report
 
 
 def main():
@@ -64581,7 +64645,8 @@ def body_font(run_dir, requested=None):
         target.parent.mkdir(exist_ok=True)
         target.write_bytes(pymupdf.Font('cjk').buffer)
     record = {'path': target.relative_to(run_dir).as_posix(), 'source': BUILTIN_FONT, 'sha256': digest(target),
-              'style': 'sans-serif CJK; tell the user, and use a Traditional Chinese serif font file if they supply one'}
+              'style': 'sans-serif CJK; keep going and mention it in the delivery message; '
+                       'use a Traditional Chinese serif font file if the user supplies one'}
     if note:
         record['replaced'] = note
     return target, record
@@ -64778,9 +64843,11 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                                                    'sha256': digest(raster)})
         report['cache_inputs'] = cache_inputs(font)
         report.update(status='ready-for-authoring', proofs=proofs,
-                      next_action='proof and build default to body_font; if it is the built-in font, tell the user '
-                      'the body is sans-serif. Open the small proof rasters and check field/font fit; read the selected subject '
-                      'calibration and curriculum guidance. Use the recorded review_mode for small batches: '
+                      next_action='Continue in this same response; do not end it to report the preflight. '
+                      'Open the small proof rasters and check field/font fit, then run checkpoint --phase authoring '
+                      'and read the authoring view (subject calibration and curriculum guidance). proof and build '
+                      'default to body_font; if it is the built-in font, say in the delivery message that the body '
+                      'is sans-serif. Use the recorded review_mode for small batches: '
                       'single-context means a fresh answer-free solving pass followed by answer comparison, '
                       'not independent blind review. Never invent a reviewer context. '
                       'Use aggregate anchors honestly; final QA needs no original-PDF download. '
@@ -65086,6 +65153,9 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
     result = {'section_count': len(verified), 'selected_bytes': sum(len(raw) for _, raw in verified),
               'files': [{'path': path, 'bytes': len(raw)} for path, raw in verified]}
     plan = _write_reading_plan(entries, result, subject, output_dir)
+    # The native entry already routes the model through hosted-execution.md.
+    plan['first_read_note'] = ('reading/preflight.md holds references/hosted-execution.md in full; if you already '
+                               'read that file from this Skill, skip these chunks and run the preflight.')
     previews = sorted(str(root / path) for path, _ in verified if path.startswith(LAYOUT_PREVIEWS))
     if previews:
         plan['layout_previews'] = previews
@@ -66168,8 +66238,11 @@ def apply_review(row, note, where, issues=None):
     status, observations = note.get('status'), note.get('observations', '')
     if status not in REVIEW_STATUSES:
         raise ValueError(where + ': status must be pass, fail or pending; the tool never assumes pass')
+    if isinstance(observations, list) and all(isinstance(line, str) for line in observations):
+        # Reviewers naturally list what they saw; joining the lines keeps every word.
+        observations = '; '.join(line.strip() for line in observations if line.strip())
     if not isinstance(observations, str) or (status != 'pending' and not observations.strip()):
-        raise ValueError(where + ': record the actual observation behind this status')
+        raise ValueError(where + ': record the actual observation behind this status as text')
     row.update(status=status, observations=observations.strip())
     row.pop('review_basis', None)
     for issue, finding in (note.get('issue_dispositions') or {}).items():

@@ -241,6 +241,15 @@ def test_record_review_needs_actual_findings_and_refreshes_bindings(run):
             assert workflow.digest(root / bundle[key]['path']) == bundle[key]['sha256']
 
 
+def test_review_observations_may_be_a_list_of_lines():
+    row = {'status': 'pending', 'observations': ''}
+    workflow.apply_review(row, {'status': 'pass', 'observations': ['fractions align', ' labels readable ']}, 'q1')
+    assert row['observations'] == 'fractions align; labels readable'
+    for empty in ([], [' '], ['ok', 3]):
+        with pytest.raises(ValueError, match='as text'):
+            workflow.apply_review({'status': 'pending'}, {'status': 'pass', 'observations': empty}, 'q1')
+
+
 def test_review_list_opens_from_anywhere_and_its_template_records_in_one_call(run, monkeypatch, tmp_path_factory):
     root, font, specs, _, _ = run
     built = workflow.build(root / 'run-state.json', *specs, font, root / 'build-v1', year=116)

@@ -197,9 +197,11 @@ accessible prior papers' mechanisms, shortcuts and visual topology.
 
 ## Required timing and earlier rejection
 
-Start hosted_run_timing.py generation-timing.json PAPER_ID phase reference_preflight
-before loading references. At transitions use phase with authoring, solving,
-difficulty_qa, render_repair or visual_qa; finish closes the final interval.
+prepare_hosted_run.py starts the run's generation-timing.json at
+reference_preflight (hosted_run_timing.py generation-timing.json PAPER_ID phase
+reference_preflight does the same by hand). Record authoring, solving and
+difficulty_qa with `run_hosted_workflow.py checkpoint --phase`; build and proof
+record render_repair and visual_qa, and finalize closes the final interval.
 Use all six actual phases, repeat names for repairs, preserve the log in recovery
 material, and register it as run-state.timing. Never reconstruct missing intervals
 from memory. The checker requires positive, ordered, closed intervals for all

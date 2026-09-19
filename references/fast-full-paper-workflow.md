@@ -1,7 +1,7 @@
 # Timed full-paper workflow
 
-Hosted runs must also follow hosted-quality-gates.md: start the actual phase
-logger before preflight, preserve it across repairs, and finish item-level review
+Hosted runs must also follow hosted-quality-gates.md: keep the phase clock the
+preflight starts, preserve it across repairs, and finish item-level review
 and capability-appropriate difficulty QA even when target_met becomes false. Missing timing
 blocks evidence-complete; it cannot be reconstructed from a chat's total duration.
 

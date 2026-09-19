@@ -910,8 +910,11 @@ def apply_review(row, note, where, issues=None):
     status, observations = note.get('status'), note.get('observations', '')
     if status not in REVIEW_STATUSES:
         raise ValueError(where + ': status must be pass, fail or pending; the tool never assumes pass')
+    if isinstance(observations, list) and all(isinstance(line, str) for line in observations):
+        # Reviewers naturally list what they saw; joining the lines keeps every word.
+        observations = '; '.join(line.strip() for line in observations if line.strip())
     if not isinstance(observations, str) or (status != 'pending' and not observations.strip()):
-        raise ValueError(where + ': record the actual observation behind this status')
+        raise ValueError(where + ': record the actual observation behind this status as text')
     row.update(status=status, observations=observations.strip())
     row.pop('review_basis', None)
     for issue, finding in (note.get('issue_dispositions') or {}).items():

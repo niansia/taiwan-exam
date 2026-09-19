@@ -15,6 +15,27 @@ import re
 from pathlib import Path
 
 from run_hosted_workflow import authoring_issues, checkpoint, inside, read, record, save, text_issues
+from validate_math_difficulty_design import validate as math_design
+from validate_paper_difficulty_balance import validate as difficulty_balance
+
+
+def design_gaps(exam, root, questions):
+    """{final-check message: [item ids]} for the saved items, while they are fresh.
+
+    The final check reads the same validators. Their fields (item_spec,
+    expected_minutes) are not printed, so completing them after a review or a
+    build keeps the page and crop reviews; waiting until finalize costs a repair.
+    """
+    messages = list(difficulty_balance(exam, root)['errors'])
+    if exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
+        messages += math_design(exam)['errors']
+    gaps = {}
+    for question in questions:
+        prefixes = (question['id'] + ':', f"Q{question.get('number')}:")
+        for message in messages:
+            if message.startswith(prefixes):
+                gaps.setdefault(message.split(':', 1)[1].strip(), []).append(question['id'])
+    return gaps
 
 def check_numbering(questions):
     """Numbered subparts share a printed number; unnumbered tasks use IDs."""
@@ -172,10 +193,16 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         saved['next_action'] = 'Continue this paper from saved items; review new or changed content before final delivery.'
         saved['content_status'] = 'pending-review'
         save(state_path, saved)
-    return {**result, 'status': 'items-saved', 'question_count': len(exam['questions']),
-            'saved_item_ids': [q['id'] for q in questions], 'changed_item_ids': changed,
-            'idempotent_replay': not changed, 'content_status': 'pending-review' if content_changed else saved.get('content_status', 'pending-review'),
-            'reviews_approved_by_tool': False}
+    report = {**result, 'status': 'items-saved', 'question_count': len(exam['questions']),
+              'saved_item_ids': [q['id'] for q in questions], 'changed_item_ids': changed,
+              'idempotent_replay': not changed, 'content_status': 'pending-review' if content_changed else saved.get('content_status', 'pending-review'),
+              'reviews_approved_by_tool': False}
+    gaps = design_gaps(exam, root, questions)
+    if gaps:
+        report['design_fields_pending'] = gaps
+        report['design_note'] = ('The final check requires these difficulty-design fields. They are not printed: '
+                                 'complete them with --replace as the batch is solved and reviewed; page reviews stay valid.')
+    return report
 
 
 def main():
