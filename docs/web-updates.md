@@ -11,9 +11,9 @@
 
 - 每次附上的 PDF 會整份進入對話，之後每一輪都要重新處理。Skill 內附的檔案在打開前不占對話空間（[Claude 官方說明](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)），可以減少每輪的負擔。
 - ZIP 內的版型只合併重複字型，14 份的每一頁都和下載頁公開的版型畫面、文字完全相同。ZIP 約 9.3 MB，解壓後約 11.7 MB，低於 Claude 官方列出的 30 MB 上限。
-- 用專案或 Gem（知識檔 MD）的人照舊：出卷時附上當科 2 份版型和離線模板資源 PDF。
+- 用專案或 Gem（知識檔 MD）的人照舊：出卷時附上當科 2 份版型和離線模板資源 PDF。README 的第 2 步改為只給這些人看。
 
-原生 Skill ZIP 2026.09.19.2 會在掃描與上傳驗證後發布。
+原生 Skill ZIP 同步發布 2026.09.19.2（約 9.3 MB）。ZIP 與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 實際上傳成功。已安裝的舊 Skill 請重新下載替換。[下載 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.2/taiwan-exam-hosted-2026.09.19.2.zip)
 
 ## 2026.09.19.1：提早抓出排版問題，PDF 從 40 MB 縮到約 1 MB
 
