@@ -117,13 +117,15 @@ def test_last_page_holding_one_block_is_pulled_back_by_closer_spacing(tmp_path, 
 
 
 def two_copies_of_a_whole_font():
-    doc = pymupdf.open()
+    """Pages from separate sources carry separate font copies, as body and header fields did."""
+    out = pymupdf.open()
     for text in ('測試字型精簡', '重複嵌入的同一字型'):
-        page = doc.new_page()
-        name = f'F{doc.page_count}'
-        page.insert_font(fontname=name, fontbuffer=FONT)
-        page.insert_text((72, 100), text, fontname=name, fontsize=14)
-    return doc.tobytes(deflate=True)
+        with pymupdf.open() as source:
+            page = source.new_page()
+            page.insert_font(fontname='F', fontbuffer=FONT)
+            page.insert_text((72, 100), text, fontname='F', fontsize=14)
+            out.insert_pdf(source)
+    return out.tobytes(deflate=True)
 
 
 def rasters(data):
@@ -133,14 +135,23 @@ def rasters(data):
 
 
 def test_duplicate_whole_fonts_shrink_without_any_pixel_or_text_change():
+    pytest.importorskip('fontTools')
     data = two_copies_of_a_whole_font()
     compact, report = composer.compact_fonts(data)
     assert report['status'] == 'unused-glyphs-dropped' and len(compact) < len(data) / 4
     assert rasters(compact) == rasters(data)
 
 
+def test_without_fonttools_duplicate_fonts_are_still_merged(monkeypatch):
+    monkeypatch.setitem(sys.modules, 'fontTools', None)  # any fontTools import now fails
+    data = two_copies_of_a_whole_font()
+    merged, report = composer.compact_fonts(data)
+    assert report['status'] == 'duplicates-merged' and 'fontTools unavailable' in report['note']
+    assert len(merged) < len(data) * 0.7 and rasters(merged) == rasters(data)
+
+
 def test_subset_that_would_change_rendering_keeps_the_whole_fonts(monkeypatch):
-    from fontTools import subset
+    subset = pytest.importorskip('fontTools.subset')
     populate = subset.Subsetter.populate
     monkeypatch.setattr(subset.Subsetter, 'populate', lambda self, **kwargs: populate(self, gids=[0]))
     data = two_copies_of_a_whole_font()
