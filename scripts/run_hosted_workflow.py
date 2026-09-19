@@ -1047,6 +1047,15 @@ def finalize(state_path, output):
     return result
 
 
+def recorded_font(state_path):
+    """The body font prepare_hosted_run.py chose for this run."""
+    root = Path(state_path).resolve().parent
+    recorded = (read(root / 'preflight.json').get('body_font') or {}).get('path')
+    if not recorded:
+        raise ValueError('The preflight recorded no body font; rerun prepare_hosted_run.py or pass --font')
+    return Path(recorded) if Path(recorded).is_absolute() else inside(root, root / recorded)
+
+
 def deliver(root, state):
     """Copies of the checked booklets to hand over: same pixels and text, no unused font data."""
     folder = root / 'delivery'
@@ -1073,8 +1082,9 @@ def main():
     start.add_argument('--review-bundle', type=Path)
     start.add_argument('--state', type=Path, help='On repair, continue the latest review state')
     build_parser = commands.add_parser('build')
-    for name in ('state', 'question-spec', 'solution-spec', 'font', 'output'):
+    for name in ('state', 'question-spec', 'solution-spec', 'output'):
         build_parser.add_argument('--' + name, type=Path, required=True)
+    build_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
     build_parser.add_argument('--year', required=True)
     build_parser.add_argument('--title', default='學科能力測驗模擬試題')
     build_parser.add_argument('--running-name', default='學測')
@@ -1085,8 +1095,9 @@ def main():
     spec_parser.add_argument('--solution-output', type=Path, required=True)
     spec_parser.add_argument('--hints', type=Path, help='Layout-only choices and special-structure blocks')
     proof_parser = commands.add_parser('proof', help='Render selected saved items for early crop review')
-    for name in ('state', 'question-spec', 'solution-spec', 'font', 'output'):
+    for name in ('state', 'question-spec', 'solution-spec', 'output'):
         proof_parser.add_argument('--' + name, type=Path, required=True)
+    proof_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
     proof_parser.add_argument('--items', required=True, help='Comma-separated saved question ids')
     proof_parser.add_argument('--reading-font', type=Path)
     notes = commands.add_parser('record-review', help="Write the reviewer's actual page/crop findings")
@@ -1106,6 +1117,8 @@ def main():
             result = record_review(args.pop('observations'), **args)
         else:
             args['state_path'] = args.pop('state')
+            if action in {'build', 'proof'} and args['font'] is None:
+                args['font'] = recorded_font(args['state_path'])
             result = {'build': build, 'specs': specs, 'proof': proof, 'finalize': finalize}[action](**args)
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print(json.dumps({'status': 'pending', 'errors': [str(exc)]}, ensure_ascii=False))

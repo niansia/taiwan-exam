@@ -51,13 +51,20 @@ repeating already recorded work on unchanged inputs. If files have expired,
 recover the actual saved artifacts or report the missing files precisely.
 
 Before drafting, confirm file creation, Python/PDF operations and readable image
-inspection in the actual runtime. Use an already tested body font. Start the
-inclusive `hosted_run_timing.py` logger with `reference_preflight`; record actual
-transitions rather than reconstructing times later. Then run:
+inspection in the actual runtime. Start the inclusive `hosted_run_timing.py`
+logger with `reference_preflight`; record actual transitions rather than
+reconstructing times later. Then run:
 
 ```text
-python scripts/prepare_hosted_run.py --subject SUBJECT --run-dir run --paper-id PAPER_ID --font FONT --resource-pdf UPLOADED_RESOURCE_PDF
+python scripts/prepare_hosted_run.py --subject SUBJECT --run-dir run --paper-id PAPER_ID [--font FONT] [--resource-pdf UPLOADED_RESOURCE_PDF]
 ```
+
+Pass `--font` for an installed or user-supplied Traditional Chinese serif font
+(for example Noto Serif CJK TC). Without one, or when it lacks a glyph of the
+cover and header fields, the helper uses PyMuPDF's built-in CJK font (Droid Sans
+Fallback, sans-serif) and records `body_font`; `proof` and `build` default to it.
+Do not stop to ask for a font or try to install system packages; tell the user
+the body text is sans-serif and that a serif font file can be supplied.
 
 The native Skill bundles every subject's verified template components, and the
 helper uses them without network access; omit `--resource-pdf` there. From the
@@ -150,7 +157,7 @@ only that batch's items and solutions:
 
 ```text
 python scripts/run_hosted_workflow.py specs --state run/run-state.json --question-output run/questions-blocks.json --solution-output run/solutions-blocks.json --hints run/layout-hints.json
-python scripts/run_hosted_workflow.py proof --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --items q1,q2,q3 --font FONT --output run/proof-01
+python scripts/run_hosted_workflow.py proof --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --items q1,q2,q3 --output run/proof-01
 ```
 
 `specs` copies printed text only from exam.json and applies the same saved-item
@@ -245,7 +252,7 @@ renders both bodies, composes both fixed-template PDFs and prepares their actual
 page/item review together:
 
 ```text
-python scripts/run_hosted_workflow.py build --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --font FONT --year 116 --output run/build-v1
+python scripts/run_hosted_workflow.py build --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --year 116 --output run/build-v1
 ```
 
 The result's `review_queue` lists exactly the page and crop images still pending

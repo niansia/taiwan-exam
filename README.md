@@ -196,6 +196,23 @@
 </details>
 
 <details>
+<summary>AI 說缺少繁體中文字型</summary>
+
+有些環境（例如 ChatGPT）沒有繁體中文字型，也不能自己安裝。2026.09.19.3 以後的 Skill 會自動改用內建的中文字型繼續，不會停下來；這個字型是黑體，正文看起來和明體略有不同，封面、頁首頁尾與公式頁照樣是原始模板。
+
+如果 AI 還是停下來要字型，在同一個對話貼上：
+
+```text
+不用等我提供字型：請改用 PyMuPDF 內建的中文字型繼續。
+用 python 把 pymupdf.Font('cjk').buffer 存成字型檔，再用 --font 指向它重新執行預檢；之後的 proof、build 都用同一個字型檔。
+其餘規則不變：封面、頁首頁尾與公式頁一律套用原始模板，完成最終檢查後再交付。
+```
+
+想要明體效果：下載 [Noto Serif CJK TC 字型檔](https://github.com/notofonts/noto-cjk/raw/main/Serif/OTF/TraditionalChinese/NotoSerifCJKtc-Regular.otf)（約 25 MB），出卷時附上，並請 AI 用它當正文字型。
+
+</details>
+
+<details>
 <summary>模板有套用，但題目壓字、選項跑位</summary>
 
 在同一個對話貼上下面這段（用專案或 Gem 的人再附上當科版型 PDF）：
@@ -254,7 +271,7 @@
 
 ## 更新到新版
 
-**目前版本：知識檔與 Skill ZIP 皆為 2026.09.19.2（ZIP 內建七科模板與版型）；七科版型 2026.09.14.1。** [看更新紀錄](docs/web-updates.md)
+**目前版本：知識檔 2026.09.19.3；Skill ZIP 2026.09.19.2（2026.09.19.3 驗證後發布）；七科版型 2026.09.14.1。** [看更新紀錄](docs/web-updates.md)
 
 GitHub 有新版時，你帳號裡已經放好的檔案**不會自動更新**，要自己換：
 
