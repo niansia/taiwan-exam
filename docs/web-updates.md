@@ -10,10 +10,10 @@
 使用者以 ChatGPT 出數 A 時，AI 找到了內建模板，也依規則沒有重畫，但停在預檢：執行環境沒有繁體中文字型，封面欄位「116學年度學科能力測驗模擬試題」缺字，也沒有權限安裝系統字型套件。
 
 - Skill 本來就需要的 PyMuPDF 內建一套中文字型（Droid Sans Fallback，約 5 萬個字形，涵蓋繁體中文）。預檢沒有指定字型，或指定的字型缺少封面、頁首用字時，會自動改用它，並記錄在 `body_font`；之後的 proof、build 預設沿用同一個字型。
-- 內建字型是黑體（無襯線），正文看起來和明體略有不同；封面、頁首頁尾與公式頁仍是原始模板。想要明體效果，可以附上繁體中文明體字型檔（例如 Noto Serif CJK TC）。
+- 內建字型是黑體（無襯線）：正文，以及封面標題、頁首填入的文字都會是黑體，和明體略有不同；封面、頁首頁尾與公式頁的版面仍是原始模板。想要明體效果，可以附上繁體中文明體字型檔（例如 Noto Serif CJK TC）。
 - README 新增「AI 說缺少繁體中文字型」的處理方式，舊版 Skill 也能照著貼上文字繼續。
 
-原生 Skill ZIP 2026.09.19.3 會在掃描與上傳驗證後發布。
+原生 Skill ZIP 同步發布 2026.09.19.3（約 9.3 MB）。ZIP 與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 實際上傳成功。已安裝的舊 Skill 請重新下載替換。[下載 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.3/taiwan-exam-hosted-2026.09.19.3.zip)
 
 ## 2026.09.19.2：Skill ZIP 內建七科版型，出卷不必再附檔案
 
