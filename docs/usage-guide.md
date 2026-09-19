@@ -42,9 +42,10 @@
 本 Project 一律採用 Knowledge 中的 Taiwan Exam Skill 規則出題。
 不要另寫通用命題器；完整考卷須分開交付題目 PDF 與答案詳解 PDF，
 並完成內容、答案與逐頁版面檢查。能力不足時請明確回報，不得以聊天文字冒充 PDF。
+封面、頁首頁尾與公式頁一律套用原始模板，不可自行重畫；無法套用時先停下來告訴我。
 ```
 
-以後進入同一個 Project，只要說：
+以後進入同一個 Project，附上當科兩份版型與[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)（知識檔不含模板），只要說：
 
 ```text
 請依 Taiwan Exam Skill 出一份 116 學測英文完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
@@ -73,9 +74,10 @@ v0.7.1 是較舊的本機安裝包，不含後續網頁修正。網頁原生 Ski
 ```text
 採用 Knowledge 中的 Taiwan Exam Skill 全部規則；不要另寫通用命題器。
 完整考卷須分開交付題目 PDF 與答案詳解 PDF，並完成可用的內容與逐頁檢查。
+封面、頁首頁尾與公式頁一律套用原始模板，不可自行重畫；無法套用時先停下來告訴我。
 ```
 
-以後從 `My Gems` 選取 `Taiwan Exam`，再說：
+以後從 `My Gems` 選取 `Taiwan Exam`，附上當科兩份版型與[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)，再說：
 
 ```text
 請出一份 116 學測自然完整模擬考，依 Skill 交付題目 PDF 與答案詳解 PDF。
