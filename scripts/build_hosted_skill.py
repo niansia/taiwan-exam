@@ -43,6 +43,11 @@ template or check fails and cannot be fixed, stop, keep saved work and tell the
 user exactly what is missing; do not deliver a substitute. Hand over the two
 PDFs listed in finalize's `delivery`, report the final check result, and say if
 the body used the built-in sans-serif font.
+All subjects use `{{考試}}_{{科目}}_{{paper_id}}_題本.pdf` and
+`{{考試}}_{{科目}}_{{paper_id}}_詳解.pdf` for actual downloads. Keep one short,
+unique paper ID across the pair and resumed work; use canonical subject names.
+Attach finalize's delivery copies, not internal `question.pdf`/`solution.pdf`.
+Explicit user filenames override this default; see hosted-execution.md.
 
 A paper request is one continuous job. Keep working in the same response from
 preflight through authoring, review, layout and finalize until you hand over the

@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.20.2
+# Taiwan Exam Web Knowledge v2026.09.20.3
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 80186,
-    "sha256": "ad8a4f2d802bb8a1d7a9e6ac8a44627b98876631178d32f6c23736f43eb367ce",
-    "embedded_bytes": 80186,
-    "embedded_sha256": "ad8a4f2d802bb8a1d7a9e6ac8a44627b98876631178d32f6c23736f43eb367ce"
+    "bytes": 81135,
+    "sha256": "ce8c802a2ed2d5e8342d0cfa13406136247de5520074baad9b110323e84220a0",
+    "embedded_bytes": 81135,
+    "embedded_sha256": "ce8c802a2ed2d5e8342d0cfa13406136247de5520074baad9b110323e84220a0"
   },
   {
     "path": "core/taxonomy.json",
@@ -603,10 +603,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 26530,
-    "sha256": "d49a7538fe79743aaf32568bf2038b4629cbb681b3b60d51c431eedab33a0ae0",
-    "embedded_bytes": 26530,
-    "embedded_sha256": "d49a7538fe79743aaf32568bf2038b4629cbb681b3b60d51c431eedab33a0ae0"
+    "bytes": 26984,
+    "sha256": "34afb478d5850f07c4799816002f505707e6a098870a24a955db6334aca5f2ed",
+    "embedded_bytes": 26984,
+    "embedded_sha256": "34afb478d5850f07c4799816002f505707e6a098870a24a955db6334aca5f2ed"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -897,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 68919,
-    "sha256": "e32f7cdd585b2be655b0d22d001ea12a4f61527185908d77fdd879d854c1baea",
-    "embedded_bytes": 68919,
-    "embedded_sha256": "e32f7cdd585b2be655b0d22d001ea12a4f61527185908d77fdd879d854c1baea"
+    "bytes": 70355,
+    "sha256": "b32a71cae34f1699d8764bc2894d2a6d8dfbe353cf2e5649aaa6f628ee6951b2",
+    "embedded_bytes": 70355,
+    "embedded_sha256": "b32a71cae34f1699d8764bc2894d2a6d8dfbe353cf2e5649aaa6f628ee6951b2"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -1202,6 +1202,18 @@ and an answer-with-full-solutions PDF. Generate and visually inspect both with
 the surface's file/code tools. If that surface cannot create files, execute the
 required checks, or inspect every PDF page, state the exact limitation and do
 not label text-only output or an unchecked PDF as the completed formal paper.
+Use the same download naming convention for **all subjects and both exam types**:
+`{考試}_{科目}_{paper_id}_題本.pdf` and `{考試}_{科目}_{paper_id}_詳解.pdf`.
+Use the actual exam (`學測` or `會考`) and canonical subject name (學測:
+`國綜／國寫／英文／數學A／數學B／社會／自然`; 會考: its subject record).
+Choose one short, unique `paper_id` at run creation, such as `20260920-01`,
+and preserve it across both booklets and resumed work. A new paper gets a new
+ID. For example: `學測_數學A_20260920-01_題本.pdf` and
+`學測_數學A_20260920-01_詳解.pdf`. Deliver the actual files using these names,
+not just renamed link labels. Hosted `finalize` supplies these paths in
+`delivery`; hand over those copies, not internal `question.pdf`/`solution.pdf`
+proofs. Browser-added duplicate suffixes such as `(1)` are outside the Skill's
+control. Honour an explicitly requested filename instead of this default.
 For a current-form full paper on a hosted surface, the release-calibration and
 live-spot-check procedure in that reference is mandatory. Use the embedded
 verified Paper/Layout/difficulty profiles and subject references as the
@@ -57168,6 +57180,13 @@ This refreshes artifact digests and runs `check_hosted_run.py`; it does not auth
 passing reviews. Fix the reported failure, not unrelated phases. Delivery needs
 both separate downloadable final PDFs and current complete evidence. On
 `evidence-complete` the report's `delivery` lists the files to hand over: copies
+named `{考試}_{科目}_{paper_id}_題本.pdf` and
+`{考試}_{科目}_{paper_id}_詳解.pdf` under `delivery/`. Use the returned paths
+as the actual downloadable attachments, preserving the same paper ID on resume.
+All subjects follow the naming rule in `SKILL.md`; build-folder English filenames
+remain internal evidence paths. If the user explicitly requests other names,
+copy the finalized bytes to those names and link those files.
+These are copies
 of the checked booklets without unused font data, kept only when every page
 renders the same pixels and text (typically about 1 MB instead of 20–40 MB). Disclose
 the actual review mode. `evidence-complete` means recorded evidence is complete
@@ -65724,6 +65743,7 @@ import json
 from pathlib import Path
 import re
 import time
+import unicodedata
 
 import pymupdf
 from hosted_run_timing import PHASES, transition
@@ -66879,17 +66899,43 @@ def recorded_font(state_path):
     return Path(recorded) if Path(recorded).is_absolute() else inside(root, root / recorded)
 
 
+def delivery_filename(metadata, paper_id, role):
+    """Stable cross-subject download names; internal evidence paths stay unchanged."""
+    labels = {'question': '題本', 'solution': '詳解'}
+    subject = metadata['subject']
+    subject = {'數A': '數學A', '數B': '數學B', '國語文綜合能力測驗': '國綜',
+               '國語文寫作能力測驗': '國寫'}.get(subject, subject)
+
+    def component(value):
+        original = str(value).strip()
+        if not original:
+            raise ValueError('Delivery filename requires a nonempty exam, subject and paper_id')
+        normalized = unicodedata.normalize('NFKC', original)
+        safe = re.sub(r'[^\w\-]+', '-', normalized, flags=re.UNICODE).strip('-_')
+        # Hash transformed/truncated IDs so different papers do not collapse to
+        # one filename after removing path separators or Windows-invalid chars.
+        if safe != original or len(safe) > 64:
+            safe = safe[:48] + '-' + hashlib.sha256(original.encode('utf-8')).hexdigest()[:10]
+        return safe
+
+    # The hosted template workflow supports GSAT; older saved runs omit exam.
+    return '_'.join(component(v) for v in
+                    (metadata.get('exam', '學測'), subject, paper_id)) + '_' + labels[role] + '.pdf'
+
+
 def deliver(root, state):
     """Copies of the checked booklets to hand over: same pixels and text, no unused font data."""
     folder = root / 'delivery'
     folder.mkdir(exist_ok=True)
+    exam_path = inside(root, root / state['exam']['path'])
+    metadata = read(exam_path)['metadata']
     copies = {}
     for role, bundle in sorted(state.get('pdfs', {}).items()):
         source = inside(root, root / bundle['file']['path'])
         if digest(source) != bundle['file']['sha256']:
             raise ValueError('Checked booklet changed before delivery: ' + bundle['file']['path'])
         compact, report = compact_fonts(source.read_bytes())
-        target = folder / (role + '.pdf')
+        target = folder / delivery_filename(metadata, state['paper_id'], role)
         target.write_bytes(compact)
         copies[role] = {'path': str(target), 'bytes': len(compact), 'sha256': hashlib.sha256(compact).hexdigest(),
                         'checked_pdf': bundle['file'], 'font_compaction': report}

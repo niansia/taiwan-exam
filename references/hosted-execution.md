@@ -363,6 +363,13 @@ This refreshes artifact digests and runs `check_hosted_run.py`; it does not auth
 passing reviews. Fix the reported failure, not unrelated phases. Delivery needs
 both separate downloadable final PDFs and current complete evidence. On
 `evidence-complete` the report's `delivery` lists the files to hand over: copies
+named `{考試}_{科目}_{paper_id}_題本.pdf` and
+`{考試}_{科目}_{paper_id}_詳解.pdf` under `delivery/`. Use the returned paths
+as the actual downloadable attachments, preserving the same paper ID on resume.
+All subjects follow the naming rule in `SKILL.md`; build-folder English filenames
+remain internal evidence paths. If the user explicitly requests other names,
+copy the finalized bytes to those names and link those files.
+These are copies
 of the checked booklets without unused font data, kept only when every page
 renders the same pixels and text (typically about 1 MB instead of 20–40 MB). Disclose
 the actual review mode. `evidence-complete` means recorded evidence is complete

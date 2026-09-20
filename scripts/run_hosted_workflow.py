@@ -17,6 +17,7 @@ import json
 from pathlib import Path
 import re
 import time
+import unicodedata
 
 import pymupdf
 from hosted_run_timing import PHASES, transition
@@ -1172,17 +1173,43 @@ def recorded_font(state_path):
     return Path(recorded) if Path(recorded).is_absolute() else inside(root, root / recorded)
 
 
+def delivery_filename(metadata, paper_id, role):
+    """Stable cross-subject download names; internal evidence paths stay unchanged."""
+    labels = {'question': '題本', 'solution': '詳解'}
+    subject = metadata['subject']
+    subject = {'數A': '數學A', '數B': '數學B', '國語文綜合能力測驗': '國綜',
+               '國語文寫作能力測驗': '國寫'}.get(subject, subject)
+
+    def component(value):
+        original = str(value).strip()
+        if not original:
+            raise ValueError('Delivery filename requires a nonempty exam, subject and paper_id')
+        normalized = unicodedata.normalize('NFKC', original)
+        safe = re.sub(r'[^\w\-]+', '-', normalized, flags=re.UNICODE).strip('-_')
+        # Hash transformed/truncated IDs so different papers do not collapse to
+        # one filename after removing path separators or Windows-invalid chars.
+        if safe != original or len(safe) > 64:
+            safe = safe[:48] + '-' + hashlib.sha256(original.encode('utf-8')).hexdigest()[:10]
+        return safe
+
+    # The hosted template workflow supports GSAT; older saved runs omit exam.
+    return '_'.join(component(v) for v in
+                    (metadata.get('exam', '學測'), subject, paper_id)) + '_' + labels[role] + '.pdf'
+
+
 def deliver(root, state):
     """Copies of the checked booklets to hand over: same pixels and text, no unused font data."""
     folder = root / 'delivery'
     folder.mkdir(exist_ok=True)
+    exam_path = inside(root, root / state['exam']['path'])
+    metadata = read(exam_path)['metadata']
     copies = {}
     for role, bundle in sorted(state.get('pdfs', {}).items()):
         source = inside(root, root / bundle['file']['path'])
         if digest(source) != bundle['file']['sha256']:
             raise ValueError('Checked booklet changed before delivery: ' + bundle['file']['path'])
         compact, report = compact_fonts(source.read_bytes())
-        target = folder / (role + '.pdf')
+        target = folder / delivery_filename(metadata, state['paper_id'], role)
         target.write_bytes(compact)
         copies[role] = {'path': str(target), 'bytes': len(compact), 'sha256': hashlib.sha256(compact).hexdigest(),
                         'checked_pdf': bundle['file'], 'font_compaction': report}
