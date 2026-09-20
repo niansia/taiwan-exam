@@ -10,6 +10,9 @@ import inspect
 import math
 from pathlib import Path
 import re
+import subprocess
+import sys
+import tempfile
 import time
 
 import pymupdf
@@ -331,7 +334,8 @@ def _chunk(block,key,units,head,tail):
     return chunk
 
 
-def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None, balance_last_page=True):
+def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None,
+           balance_last_page=True, progress_path=None):
     started=time.monotonic()
     if output.exists() or layout_path.exists():raise ValueError('Use new output names; preserve previous reviewable bytes')
     if spec.get('purpose')=='layout-reference-only' and not proof:raise ValueError('Placeholder gallery cannot become a production exam')
@@ -360,7 +364,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 raise ValueError(f'Block {index}: covers must list other distinct item IDs printed in this block')
         blocks.append({**block,'_source':index})
     prepared={};scaled={}
-    measure=pymupdf.open()
+    measurements=[]
 
     def prepare(block):
         """Measure a whole block or piece once with the SAME engine, width and font.
@@ -372,8 +376,15 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         key=json.dumps(block,sort_keys=True,ensure_ascii=False)
         if key in prepared:return prepared[key]
         index=block['_source']
+        if progress_path:
+            progress_path.write_text(json.dumps({'block':index,'question_id':block.get('id'),
+                'operation':'measure full-page block','available_height_pt':body.height,
+                'assets':block.get('assets',{})}),encoding='utf-8')
         content=fragment(block,archive,asset_root,index,body.width,font_metric,scaled)
-        sample=measure.new_page(width=595.28,height=841.89)
+        # A grafted source PDF must stay immutable: MuPDF caches its xref map.
+        measured=pymupdf.open()
+        measurements.append(measured)
+        sample=measured.new_page(width=595.28,height=841.89)
         spare,scale=sample.insert_htmlbox(body,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
         if spare<0 or scale!=1:
             prepared[key]=(content,0,math.inf)
@@ -395,7 +406,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         if any((a & b).width>1 and (a & b).height>1 for a in images for b in spans):
             raise ValueError(f'Block {index}: image overlaps actual text; use a reserved figure block')
         top=min(0,min((r.y0-body.y0 for r in ink),default=0))-1
-        prepared[key]=(content,top,max(20,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
+        # Retain the actual measured page. Painting reuses these glyphs and images
+        # at 1:1 scale instead of asking HTML exact-fit to lay them out again.
+        prepared[key]=(measured,top,max(20,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
         return prepared[key]
 
     def split_to_fit(block,available):
@@ -452,10 +465,14 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                         raise ValueError(f'Block {chain[heights.index(math.inf)]["_source"]} exceeds a page; explicitly split its continuation')
                     raise ValueError('Section and following item exceed page; split the item explicitly')
                 block=work[i]
-                content,block_top,used=prepare(block)
-                rect=pymupdf.Rect(body.x0,y,body.x1,body.y1)
-                spare,scale=page.insert_htmlbox(rect,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
-                if spare<0 or scale!=1:raise ValueError(f'Block {block["_source"]} does not fit at full font size')
+                measured,block_top,used=prepare(block)
+                if progress_path:
+                    progress_path.write_text(json.dumps({'block':block['_source'],'question_id':block.get('id'),
+                        'operation':'place measured block','remaining_height_pt':body.y1-y,
+                        'block_height_pt':used}),encoding='utf-8')
+                shift=y-body.y0
+                page.show_pdf_page(pymupdf.Rect(0,shift,595.28,841.89+shift),
+                                   measured,0,keep_proportion=False)
                 # Crop edges on the same grid avoid partial-pixel clip noise.
                 box=[math.floor(allowed.x0/BLOCK_GRID_PT)*BLOCK_GRID_PT,
                      math.floor((y+block_top)/BLOCK_GRID_PT+1e-9)*BLOCK_GRID_PT,
@@ -478,7 +495,10 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                         part={'id':owner,'page':len(doc),'bbox':box,'components':[{'role':'flow-content','bbox':box}]}
                         if covers:part['covers']=covers
                         parts.append(part)
-                pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':len(doc),'bbox':box})
+                pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':len(doc),'bbox':box,
+                              'id':block.get('id'), 'measured_height_pt':used,
+                              'keep_with_next':bool(block.get('keep_with_next') or block['kind']=='section'),
+                              'remaining_height_pt':body.y1-(y+used)})
                 y+=used+gap_after(block)
                 fresh_page=False
                 i+=1
@@ -499,8 +519,14 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         output.parent.mkdir(parents=True,exist_ok=True)
         output.write_bytes(raw)
     finally:
-        measure.close()
+        for measured in measurements:measured.close()
     layout={'pdf_sha256':hashlib.sha256(raw).hexdigest(),'parts':parts,'blocks':pages,
+            'measurement_count':len(prepared), 'paint_basis':'reuse measured PDF blocks at full scale',
+            'page_plan':{'body_bbox':list(body),'page_count':count,
+                         'pages':[{'page':n,'question_ids':list(dict.fromkeys(
+                             p['id'] for p in parts if p['page']==n)),
+                             'bottom_safety_pt':round(body.y1-max(b['bbox'][3] for b in pages if b['page']==n),3)}
+                             for n in range(1,count+1)]},
             'gap_scale':tightness,'scaled_assets':[scaled[key] for key in sorted(scaled)],
             'scope':'Body layout only; compose onto original fixed PDFs and perform actual QA',
             'elapsed_seconds':round(time.monotonic()-started,3)}
@@ -509,13 +535,61 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     return layout
 
 
+def guarded_render(spec, output, layout_path, font, *, asset_root, proof=False,
+                   reading_font=None, balance_last_page=True, timeout=20):
+    """Bound native renderer stalls in a disposable process, including on Windows.
+
+    Each measured/placed block renews the deadline. Never shrink or certify a
+    timed-out block; report its ID and dimensions for a focused repair/proof.
+    """
+    if timeout <= 0 or not math.isfinite(timeout):
+        raise ValueError('Render timeout must be positive and finite')
+    if Path(output).exists() or Path(layout_path).exists():
+        raise ValueError('Use new output names; preserve previous reviewable bytes')
+    with tempfile.TemporaryDirectory(prefix='exam-render-') as directory:
+        scratch=Path(directory)
+        spec_path=scratch/'spec.json';progress=scratch/'progress.json'
+        spec_path.write_text(json.dumps(spec,ensure_ascii=False),encoding='utf-8')
+        command=[sys.executable,str(Path(__file__).resolve()),str(spec_path),
+                 '--output',str(Path(output).resolve()),'--layout',str(Path(layout_path).resolve()),
+                 '--font',str(Path(font).resolve()),'--asset-root',str(Path(asset_root).resolve()),
+                 '--progress',str(progress)]
+        if proof:command.append('--proof')
+        if reading_font:command.extend(['--reading-font',str(Path(reading_font).resolve())])
+        if not balance_last_page:command.append('--no-balance')
+        with (scratch/'worker.log').open('w+b') as log:
+            worker=subprocess.Popen(command,stdout=log,stderr=log,
+                                    creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+            last=time.monotonic();stamp=None
+            try:
+                while worker.poll() is None:
+                    current=progress.stat().st_mtime_ns if progress.exists() else None
+                    if current!=stamp:last=time.monotonic();stamp=current
+                    if time.monotonic()-last>timeout:
+                        detail=progress.read_text(encoding='utf-8') if progress.exists() else 'renderer startup'
+                        raise ValueError(f'Render stalled for {timeout:g}s: {detail}. '
+                                         'Preserve prior PDFs; repair or split this block and run its proof.')
+                    time.sleep(.05)
+            finally:
+                if worker.poll() is None:worker.kill()
+                worker.wait()
+            if worker.returncode:
+                log.seek(0)
+                raise ValueError('Body renderer failed: '+log.read().decode('utf-8',errors='replace')[-3000:])
+        return json.loads(Path(layout_path).read_text(encoding='utf-8'))
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('spec',type=Path)
     for name in ('output','layout','font'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--proof',action='store_true')
     p.add_argument('--reading-font',type=Path)
+    p.add_argument('--asset-root',type=Path)
+    p.add_argument('--progress',type=Path)
+    p.add_argument('--no-balance',action='store_true')
     args=p.parse_args()
     result=render(json.loads(args.spec.read_text(encoding='utf-8')),args.output,args.layout,args.font,
-                  asset_root=args.spec.resolve().parent,proof=args.proof,reading_font=args.reading_font)
+                  asset_root=args.asset_root or args.spec.resolve().parent,proof=args.proof,
+                  reading_font=args.reading_font,balance_last_page=not args.no_balance,progress_path=args.progress)
     print(json.dumps({'body_pdf':str(args.output),'layout':str(args.layout),'elapsed_seconds':result['elapsed_seconds']}))

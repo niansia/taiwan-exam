@@ -122,7 +122,18 @@ the independently verified answer encoding. Radicals, signs and other patterns
 need their own checked response asset; do not force them into plain digits.
 
 Each complete block is measured before painting; a section stays with its next
-block. A block that does not fit fills the rest of the page with its leading
+block. The measured PDF block is reused at full scale, including during gap
+balancing; production placement does not repeat HTML exact-fit. The workflow
+runs body rendering in a separate process with a 20-second progress timeout per
+block operation, reporting the item ID and available/measured height on a stall.
+A full-page measurement failure needs an explicit split/repair; moving an
+oversized block to yet another empty page cannot fix it. Existing whole-block
+pagination moves items that exceed only the current page's remaining space.
+No timeout path shrinks text, drops content or certifies a partial PDF.
+Each build saves `page-plan.json` from the actual measurements, with question
+IDs, block heights, keep-with-next decisions and bottom safety distance. It is
+a repair aid produced during layout, not a claim that density or QA passed.
+A block that does not fit fills the rest of the page with its leading
 paragraphs when it allows `split: paragraphs`; otherwise it moves whole, and a
 block taller than a page needs explicit continuation blocks with the same item
 ID. Nothing is truncated. Consecutive blocks of one owner on the same page form
@@ -143,6 +154,12 @@ a figure that crowds its stem: after every saved batch run `run_hosted_workflow.
 specs` and `proof` for that batch, review its item and solution crops at once,
 then solve and review difficulty in the same small batch. Crop review done here
 is not repeated for unchanged items in the final booklets; page review is.
+Complete all content reviews before the first full build, then run
+`run_hosted_workflow.py lock-content --state <latest-state>`. Keep necessary
+early batch proofs; do not delay discovering a broken figure until the end.
+Change layout hints during pagination. If content really needs correction,
+renew its dependent reviews and re-lock with `--reason`; the previous lock is
+retained. The lock records change control, never editorial approval.
 If the provider does end a response before delivery, these checkpoints are
 where the next turn resumes: reviewed authoring batches first, then one final
 build, page review and finalize. Never end the response at a checkpoint yourself.
@@ -168,6 +185,11 @@ to the actual final PDF before rebinding page numbers. It writes a new
 `run/qa-v1-run-state.json` beside the original state and `run/qa-v1/index.html`.
 The returned `review_queue` names every pending page and crop image; the index
 lists pending images first and retained ones last. Open the actual page AND item
+images only for pending entries after a repair; unchanged pages still have
+their actual, hash-bound prior reviews. Always pass the latest returned
+`state` (also exposed as `continue_from_state`) to the next checkpoint/build,
+not the initial preflight state. Finalize still checks both complete booklets.
+Open the actual page AND item
 images, not just thumbnails. Record observed defects and repairs with
 `run_hosted_workflow.py record-review`, which writes the reviewer's findings and
 refreshes report digests; no helper supplies passing prose. After hand-editing a

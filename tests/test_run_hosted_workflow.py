@@ -82,6 +82,15 @@ def test_finalize_keeps_actual_pending_and_stale_reviews_blocking(saved_run, tmp
     assert workflow.finalize(tmp_path/'run-state.json', tmp_path/'final.json')['status'] == 'pending'
 
 
+def test_finalize_closes_a_paused_conversation_clock(saved_run, tmp_path):
+    state, save = saved_run
+    save('run-state.json', state)
+    workflow.clock(tmp_path/'run-state.json', 'pause')
+    result = workflow.finalize(tmp_path/'run-state.json', tmp_path/'final.json')
+    assert result['status'] == 'evidence-complete'
+    assert not workflow.read(tmp_path/'generation-timing.json').get('paused')
+
+
 def test_finalize_delivers_copies_rendering_the_checked_pages(saved_run, tmp_path):
     state, save = saved_run
     save('run-state.json', state)

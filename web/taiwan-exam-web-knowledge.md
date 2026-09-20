@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.20.1
+# Taiwan Exam Web Knowledge v2026.09.20.2
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 79472,
-    "sha256": "3858a54c1693b9c11cbdd7f7e2ecaf304beb874001925063798df8adc749063d",
-    "embedded_bytes": 79472,
-    "embedded_sha256": "3858a54c1693b9c11cbdd7f7e2ecaf304beb874001925063798df8adc749063d"
+    "bytes": 80186,
+    "sha256": "ad8a4f2d802bb8a1d7a9e6ac8a44627b98876631178d32f6c23736f43eb367ce",
+    "embedded_bytes": 80186,
+    "embedded_sha256": "ad8a4f2d802bb8a1d7a9e6ac8a44627b98876631178d32f6c23736f43eb367ce"
   },
   {
     "path": "core/taxonomy.json",
@@ -547,10 +547,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/fast-full-paper-workflow.md",
-    "bytes": 8343,
-    "sha256": "233ef544a810aa9efa1872eeb9628b311a2284a92dcb1cf8a47e0e49ce083130",
-    "embedded_bytes": 8343,
-    "embedded_sha256": "233ef544a810aa9efa1872eeb9628b311a2284a92dcb1cf8a47e0e49ce083130"
+    "bytes": 8927,
+    "sha256": "737e0ac6846fc71c2aa52a0e8eccac776e185c205c22a08e388f6b4b21b6f694",
+    "embedded_bytes": 8927,
+    "embedded_sha256": "737e0ac6846fc71c2aa52a0e8eccac776e185c205c22a08e388f6b4b21b6f694"
   },
   {
     "path": "references/first-use.md",
@@ -596,17 +596,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-body-workflow.md",
-    "bytes": 13812,
-    "sha256": "5878976645c2de66296f7c2a8ab5a843222d1f261608ad9e65a7de17b97aba74",
-    "embedded_bytes": 13812,
-    "embedded_sha256": "5878976645c2de66296f7c2a8ab5a843222d1f261608ad9e65a7de17b97aba74"
+    "bytes": 15428,
+    "sha256": "5daae648e3b47351693749636122a5c911b9780c3337a317a683202114dd57d6",
+    "embedded_bytes": 15428,
+    "embedded_sha256": "5daae648e3b47351693749636122a5c911b9780c3337a317a683202114dd57d6"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 24891,
-    "sha256": "a05c6dbb5aed72819163feb8781a6ba75112a1aa2aa379efe3da2a95559824f7",
-    "embedded_bytes": 24891,
-    "embedded_sha256": "a05c6dbb5aed72819163feb8781a6ba75112a1aa2aa379efe3da2a95559824f7"
+    "bytes": 26530,
+    "sha256": "d49a7538fe79743aaf32568bf2038b4629cbb681b3b60d51c431eedab33a0ae0",
+    "embedded_bytes": 26530,
+    "embedded_sha256": "d49a7538fe79743aaf32568bf2038b4629cbb681b3b60d51c431eedab33a0ae0"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -617,10 +617,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 14687,
-    "sha256": "89dffabab7cf7fe531f4f660293ba83719e359bc0b3fac159d636802fd5a50e6",
-    "embedded_bytes": 14687,
-    "embedded_sha256": "89dffabab7cf7fe531f4f660293ba83719e359bc0b3fac159d636802fd5a50e6"
+    "bytes": 15800,
+    "sha256": "c34bf218c5f6d2cb702f6a7f89771a703eaa1c1efa1deba94c95d7884aef623e",
+    "embedded_bytes": 15800,
+    "embedded_sha256": "c34bf218c5f6d2cb702f6a7f89771a703eaa1c1efa1deba94c95d7884aef623e"
   },
   {
     "path": "references/hosted-run-evidence.md",
@@ -799,10 +799,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 21116,
-    "sha256": "5c4c4250cc4f7ebffee0f64cb24e511446115bdb037aeeea93e090d8005f2195",
-    "embedded_bytes": 21116,
-    "embedded_sha256": "5c4c4250cc4f7ebffee0f64cb24e511446115bdb037aeeea93e090d8005f2195"
+    "bytes": 21156,
+    "sha256": "dcb0eea738e7b686e108a32c3c42fcf5caf9e3461eb85191c9957cda1e78034d",
+    "embedded_bytes": 21156,
+    "embedded_sha256": "dcb0eea738e7b686e108a32c3c42fcf5caf9e3461eb85191c9957cda1e78034d"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -841,10 +841,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 30225,
-    "sha256": "7e09f8fbc4e3218e6b36c4ffc194a4fcce5513a8cace1f8d57b5af57d861fe85",
-    "embedded_bytes": 30225,
-    "embedded_sha256": "7e09f8fbc4e3218e6b36c4ffc194a4fcce5513a8cace1f8d57b5af57d861fe85"
+    "bytes": 34804,
+    "sha256": "897dfbedf2aaf3a61464983507bf1b2194efe5222129d07fc59a0b39c235ff36",
+    "embedded_bytes": 34804,
+    "embedded_sha256": "897dfbedf2aaf3a61464983507bf1b2194efe5222129d07fc59a0b39c235ff36"
   },
   {
     "path": "scripts/hosted_calibration.py",
@@ -862,10 +862,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_run_timing.py",
-    "bytes": 3522,
-    "sha256": "588572500f52345f7e42821febf4993e5d57de120402fb14c1cee064cb861fff",
-    "embedded_bytes": 3522,
-    "embedded_sha256": "588572500f52345f7e42821febf4993e5d57de120402fb14c1cee064cb861fff"
+    "bytes": 10823,
+    "sha256": "61a086b6ec8a86783b120c032ce3225ca78367021389e6d2a89c8251f55b52ae",
+    "embedded_bytes": 10823,
+    "embedded_sha256": "61a086b6ec8a86783b120c032ce3225ca78367021389e6d2a89c8251f55b52ae"
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
@@ -897,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 64691,
-    "sha256": "3466dabacff16cd4679be877fad1167a19a690345adbe50cff7a5ef1588bf631",
-    "embedded_bytes": 64691,
-    "embedded_sha256": "3466dabacff16cd4679be877fad1167a19a690345adbe50cff7a5ef1588bf631"
+    "bytes": 68919,
+    "sha256": "e32f7cdd585b2be655b0d22d001ea12a4f61527185908d77fdd879d854c1baea",
+    "embedded_bytes": 68919,
+    "embedded_sha256": "e32f7cdd585b2be655b0d22d001ea12a4f61527185908d77fdd879d854c1baea"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -1155,6 +1155,16 @@ Complete-paper tests must use the same content and subject-layout checks as ordi
 When the user requests fast or timed generation, also read [references/fast-full-paper-workflow.md](references/fast-full-paper-workflow.md). Treat an under-20-minute paper as a measured warm-run performance target, not as permission to skip candidate competition, independent solving, source/rights review, subject balance, rendering, or all-page inspection. Report the actual clock boundaries and cache state. If the target is missed, finish the valid paper and report the bottleneck honestly; never relabel a partial or unchecked artifact as a complete paper.
 
 For hosted body layout, use [references/hosted-body-workflow.md](references/hosted-body-workflow.md): reuse measured section/item components, never placeholder questions or diagram topology. Project body specs from the saved exam instead of retyping items, review each authored batch's item crops early, reserve time for final QA, and prepare both booklets' page/item review together. Retain a prior actual visual review only within the same paper: an item crop needs an unchanged authored item record and a pixel-identical rendering or the same printed glyphs, rules and images within 0.02 pt; a page needs identical pixels and item content. Changed parts require new inspection. A body renderer never replaces the original fixed PDF layers.
+
+Before full-booklet layout, finish content/answer/difficulty review and run
+`run_hosted_workflow.py lock-content --state <latest-state>`. Repair pagination
+through layout hints; a necessary content correction requires renewed dependent
+reviews and an explicit re-lock with `--reason`. Continue every repair from the
+state returned by the last build/review, and inspect its pending `review_batches`.
+Before yielding a turn, use `clock --state <latest-state> --operation pause`;
+on continuation use `resume`, and record `touch` during long thinking/review
+periods. These are workflow commands, not automatic chat-platform hooks. Report
+inclusive wall time separately from estimated activity and recorded tool time.
 
 Use `templates/hosted-subject-layouts.json` to select the requested subject's own question/solution layout pair. Seven subject examples are available; load only that pair, never treat the common math-oriented gallery as every subject's paper. Preview PDFs are optional; their placeholders, partial item coverage and page density cannot be used as a full exam.
 
@@ -56063,7 +56073,10 @@ Treat 20 minutes as a per-paper **warm-run performance target**, not a universal
 For a local warm-generation benchmark, the timed generation clock starts after
 a fresh run contract and compatible immutable inputs are loaded; report readiness
 time separately. Hosted runs instead retain the inclusive wall clock from
-reference_preflight in hosted_run_timing.py. Do not present that total as a
+reference_preflight in hosted_run_timing.py, while separately reporting activity
+estimates, explicit/estimated waits and recorded tool time. Pause at conversation
+boundaries and resume the same run; idle inference is not exact work measurement.
+Do not present that total as a
 readiness-excluded warm benchmark. Stop either clock only after both PDFs and
 required reviews exist. A PDF export alone is not completion.
 
@@ -56104,7 +56117,7 @@ a 25-minute end-to-end completion time.
 3. **Source tournament** — query or load several unrelated, rights-safe candidates together, freeze facts and provenance, then close source wording before original writing. 國寫 still requires its task-specific source tournament and paragraph-level map.
 4. **Slot writing** — write candidates from abstract slot specifications. Candidate competition, independent solution, scope mapping, misconception design, and visual-removal tests remain mandatory. Parallelize only independent read-only analysis, rendering, hashing, or validation work that cannot leak one candidate's surface into another.
 5. **Incremental rejection** — run cheap structural, count, score, scope-code, answer-distribution, rights-record, and schema checks before expensive rendering. Replace failed slots and re-solve affected groups; do not defer known defects to final pagination.
-6. **Single controlled render loop** — render the validated content with the maintained subject component, run containment and density checks, then make only form-preserving pagination repairs. Content changes revoke affected solution, source-removal, and originality approvals.
+6. **Single controlled render loop** — freeze reviewed content with `run_hosted_workflow.py lock-content --state <latest-state>`, then render with the maintained subject component. The measured `page-plan.json` identifies each page's items, block heights, kept chains and remaining height; it is not density approval. Review high-risk figures in batch proofs before full composition. Run containment and density checks, then make pagination repairs through hints. A necessary content correction revokes dependent reviews; re-lock with an explicit `--reason` after re-solving/reviewing. Continue from the latest returned state so unchanged actual reviews survive.
 7. **Final gate** — render the final student and answer PDFs, apply document provenance, rasterize every page, inspect every page at readable scale, and bind reviews to final hashes. Run the shared content/delivery gate and record unresolved limitations.
 
 ## Local benchmark timing report
@@ -56690,7 +56703,18 @@ the independently verified answer encoding. Radicals, signs and other patterns
 need their own checked response asset; do not force them into plain digits.
 
 Each complete block is measured before painting; a section stays with its next
-block. A block that does not fit fills the rest of the page with its leading
+block. The measured PDF block is reused at full scale, including during gap
+balancing; production placement does not repeat HTML exact-fit. The workflow
+runs body rendering in a separate process with a 20-second progress timeout per
+block operation, reporting the item ID and available/measured height on a stall.
+A full-page measurement failure needs an explicit split/repair; moving an
+oversized block to yet another empty page cannot fix it. Existing whole-block
+pagination moves items that exceed only the current page's remaining space.
+No timeout path shrinks text, drops content or certifies a partial PDF.
+Each build saves `page-plan.json` from the actual measurements, with question
+IDs, block heights, keep-with-next decisions and bottom safety distance. It is
+a repair aid produced during layout, not a claim that density or QA passed.
+A block that does not fit fills the rest of the page with its leading
 paragraphs when it allows `split: paragraphs`; otherwise it moves whole, and a
 block taller than a page needs explicit continuation blocks with the same item
 ID. Nothing is truncated. Consecutive blocks of one owner on the same page form
@@ -56711,6 +56735,12 @@ a figure that crowds its stem: after every saved batch run `run_hosted_workflow.
 specs` and `proof` for that batch, review its item and solution crops at once,
 then solve and review difficulty in the same small batch. Crop review done here
 is not repeated for unchanged items in the final booklets; page review is.
+Complete all content reviews before the first full build, then run
+`run_hosted_workflow.py lock-content --state <latest-state>`. Keep necessary
+early batch proofs; do not delay discovering a broken figure until the end.
+Change layout hints during pagination. If content really needs correction,
+renew its dependent reviews and re-lock with `--reason`; the previous lock is
+retained. The lock records change control, never editorial approval.
 If the provider does end a response before delivery, these checkpoints are
 where the next turn resumes: reviewed authoring batches first, then one final
 build, page review and finalize. Never end the response at a checkpoint yourself.
@@ -56736,6 +56766,11 @@ to the actual final PDF before rebinding page numbers. It writes a new
 `run/qa-v1-run-state.json` beside the original state and `run/qa-v1/index.html`.
 The returned `review_queue` names every pending page and crop image; the index
 lists pending images first and retained ones last. Open the actual page AND item
+images only for pending entries after a repair; unchanged pages still have
+their actual, hash-bound prior reviews. Always pass the latest returned
+`state` (also exposed as `continue_from_state`) to the next checkpoint/build,
+not the initial preflight state. Finalize still checks both complete booklets.
+Open the actual page AND item
 images, not just thumbnails. Record observed defects and repairs with
 `run_hosted_workflow.py record-review`, which writes the reviewer's findings and
 refreshes report digests; no helper supplies passing prose. After hand-editing a
@@ -57028,6 +57063,18 @@ actual hash contract; never copy stale approvals onto changed content.
 
 ## One layout and review preparation pipeline
 
+After all content, answers and difficulty reviews are complete, freeze the
+saved exam with `run_hosted_workflow.py lock-content --state <latest-state>`.
+Early batch proofs still happen during authoring. During full pagination,
+change layout hints and regenerate specs; a necessary content correction needs
+renewed dependent reviews and `lock-content --reason "actual correction"`.
+The lock preserves its previous version and never supplies editorial approval.
+The build's `page-plan.json` reports actual measured heights, kept blocks, page
+item IDs and remaining bottom space. Inspect these and `reflow_before_review`
+before opening a long review queue. Rendering has a separate-process,
+20-second per-operation stall guard; it reports the block to repair rather
+than retrying exact-fit indefinitely. No guard bypasses a quality check.
+
 Read `reading/layout.md`. Use `hosted_body_templates.py` components and the
 selected subject's question/solution layout pair. Generate the current run's
 body specifications from the saved exam with `specs` (layout hints for special
@@ -57127,6 +57174,18 @@ the actual review mode. `evidence-complete` means recorded evidence is complete
 and current, not official certification or empirical psychometric validation.
 
 ## Time and continuation
+
+Before a response ends, close active work with
+`run_hosted_workflow.py clock --state <latest-state> --operation pause`.
+On continuation use `--operation resume`; during long reading, solving or
+inspection use `--operation touch` at least every five minutes. These are
+explicit agent steps, not automatic platform callbacks. Abrupt interruptions
+are detected on the next clock call: time beyond the last activity plus ten
+minutes is labelled **estimated waiting**. It may include unrecorded thought.
+Keep total wall time, estimated activity, recorded tool duration and explicit/
+estimated waits separate. Legacy logs cannot supply exact active time.
+Always continue repairs from the latest returned review state, so unchanged
+hash-bound page/item reviews survive; inspect the pending `review_batches`.
 
 Time phases by primary activity: `reference_preflight`, `authoring`, `solving`,
 `difficulty_qa`, `render_repair`, `visual_qa`. Batch independent calculations and
@@ -57574,9 +57633,23 @@ record render_repair and visual_qa, and finalize closes the final interval.
 Use all six actual phases, repeat names for repairs, preserve the log in recovery
 material, and register it as run-state.timing. Never reconstruct missing intervals
 from memory. The checker requires positive, ordered, closed intervals for all
-phases and computes total/per-phase times. Interruptions remain wall time.
+phases and computes total/per-phase times. Interruptions remain wall time, but
+must not be presented as active solving or inspection. Before a turn ends use
+`run_hosted_workflow.py clock --state <latest-state> --operation pause`; on the
+next turn use `--operation resume`. During continuous work record `touch`
+at least every five minutes, including reading/solving without file writes.
+These commands refresh the selected state's timing hash. Optional
+`--question-ids`, `--page-numbers`, and `--revision-id` identify repair scope.
+If a turn is abruptly lost, the next timing call labels the portion after the
+last activity plus ten minutes as **estimated waiting**, not known inactivity.
+This is lazy detection, not a background monitor or a precise thinking clock.
+Old logs remain unclassified; do not retroactively subtract gaps from them.
+The report separates `wall_seconds`, estimated `agent_active_seconds`,
+`waiting_seconds`, `estimated_waiting_seconds`, `unclassified_seconds`, and
+`tool_seconds` (only recorded workflow commands, with overlaps counted once).
+No recorded tool time is `null`, not a claim that tools took zero seconds.
 Above 1200 seconds it reports target_met=false and continues QA; the benchmark
-is not a delivery deadline. Missing timing is pending. Do not exclude template
+is not a delivery deadline; `target_met` still uses inclusive wall time. Missing timing is pending. Do not exclude template
 acquisition or repairs to improve reported speed.
 
 Review difficulty in small batches and repair body layout BEFORE fixed-template
@@ -61641,7 +61714,7 @@ from pathlib import Path
 import pymupdf
 from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void
 from hosted_item_layout import geometry_errors, crop_bytes
-from hosted_run_timing import timing_errors, summary as timing_summary
+from hosted_run_timing import timing_errors, summary as timing_summary, workflow_events
 from hosted_blind_review import packet, review_errors, REVIEW_MODES
 from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
@@ -61937,7 +62010,7 @@ def check(state_path: Path) -> dict:
                               if review_mode == 'single-context' else
                               'Separate-context review is recorded; this checker cannot authenticate reviewer identity.'
                               if review_mode == 'independent-context' else 'Difficulty review mode is missing or invalid.'),
-            'timing': timing_summary(timing) if timing and not timing_errors(timing, state.get('paper_id')) else None,
+            'timing': timing_summary(timing, workflow_events(root)) if timing and not timing_errors(timing, state.get('paper_id')) else None,
             'scope': 'Evidence completeness and freshness only; recorded judgments need real review.'}
 
 
@@ -62897,6 +62970,9 @@ import inspect
 import math
 from pathlib import Path
 import re
+import subprocess
+import sys
+import tempfile
 import time
 
 import pymupdf
@@ -63218,7 +63294,8 @@ def _chunk(block,key,units,head,tail):
     return chunk
 
 
-def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None, balance_last_page=True):
+def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None,
+           balance_last_page=True, progress_path=None):
     started=time.monotonic()
     if output.exists() or layout_path.exists():raise ValueError('Use new output names; preserve previous reviewable bytes')
     if spec.get('purpose')=='layout-reference-only' and not proof:raise ValueError('Placeholder gallery cannot become a production exam')
@@ -63247,7 +63324,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 raise ValueError(f'Block {index}: covers must list other distinct item IDs printed in this block')
         blocks.append({**block,'_source':index})
     prepared={};scaled={}
-    measure=pymupdf.open()
+    measurements=[]
 
     def prepare(block):
         """Measure a whole block or piece once with the SAME engine, width and font.
@@ -63259,8 +63336,15 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         key=json.dumps(block,sort_keys=True,ensure_ascii=False)
         if key in prepared:return prepared[key]
         index=block['_source']
+        if progress_path:
+            progress_path.write_text(json.dumps({'block':index,'question_id':block.get('id'),
+                'operation':'measure full-page block','available_height_pt':body.height,
+                'assets':block.get('assets',{})}),encoding='utf-8')
         content=fragment(block,archive,asset_root,index,body.width,font_metric,scaled)
-        sample=measure.new_page(width=595.28,height=841.89)
+        # A grafted source PDF must stay immutable: MuPDF caches its xref map.
+        measured=pymupdf.open()
+        measurements.append(measured)
+        sample=measured.new_page(width=595.28,height=841.89)
         spare,scale=sample.insert_htmlbox(body,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
         if spare<0 or scale!=1:
             prepared[key]=(content,0,math.inf)
@@ -63282,7 +63366,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         if any((a & b).width>1 and (a & b).height>1 for a in images for b in spans):
             raise ValueError(f'Block {index}: image overlaps actual text; use a reserved figure block')
         top=min(0,min((r.y0-body.y0 for r in ink),default=0))-1
-        prepared[key]=(content,top,max(20,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
+        # Retain the actual measured page. Painting reuses these glyphs and images
+        # at 1:1 scale instead of asking HTML exact-fit to lay them out again.
+        prepared[key]=(measured,top,max(20,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
         return prepared[key]
 
     def split_to_fit(block,available):
@@ -63339,10 +63425,14 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                         raise ValueError(f'Block {chain[heights.index(math.inf)]["_source"]} exceeds a page; explicitly split its continuation')
                     raise ValueError('Section and following item exceed page; split the item explicitly')
                 block=work[i]
-                content,block_top,used=prepare(block)
-                rect=pymupdf.Rect(body.x0,y,body.x1,body.y1)
-                spare,scale=page.insert_htmlbox(rect,content,css=css,archive=archive,scale_low=1,**HTML_OPTIONS)
-                if spare<0 or scale!=1:raise ValueError(f'Block {block["_source"]} does not fit at full font size')
+                measured,block_top,used=prepare(block)
+                if progress_path:
+                    progress_path.write_text(json.dumps({'block':block['_source'],'question_id':block.get('id'),
+                        'operation':'place measured block','remaining_height_pt':body.y1-y,
+                        'block_height_pt':used}),encoding='utf-8')
+                shift=y-body.y0
+                page.show_pdf_page(pymupdf.Rect(0,shift,595.28,841.89+shift),
+                                   measured,0,keep_proportion=False)
                 # Crop edges on the same grid avoid partial-pixel clip noise.
                 box=[math.floor(allowed.x0/BLOCK_GRID_PT)*BLOCK_GRID_PT,
                      math.floor((y+block_top)/BLOCK_GRID_PT+1e-9)*BLOCK_GRID_PT,
@@ -63365,7 +63455,10 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                         part={'id':owner,'page':len(doc),'bbox':box,'components':[{'role':'flow-content','bbox':box}]}
                         if covers:part['covers']=covers
                         parts.append(part)
-                pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':len(doc),'bbox':box})
+                pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':len(doc),'bbox':box,
+                              'id':block.get('id'), 'measured_height_pt':used,
+                              'keep_with_next':bool(block.get('keep_with_next') or block['kind']=='section'),
+                              'remaining_height_pt':body.y1-(y+used)})
                 y+=used+gap_after(block)
                 fresh_page=False
                 i+=1
@@ -63386,8 +63479,14 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         output.parent.mkdir(parents=True,exist_ok=True)
         output.write_bytes(raw)
     finally:
-        measure.close()
+        for measured in measurements:measured.close()
     layout={'pdf_sha256':hashlib.sha256(raw).hexdigest(),'parts':parts,'blocks':pages,
+            'measurement_count':len(prepared), 'paint_basis':'reuse measured PDF blocks at full scale',
+            'page_plan':{'body_bbox':list(body),'page_count':count,
+                         'pages':[{'page':n,'question_ids':list(dict.fromkeys(
+                             p['id'] for p in parts if p['page']==n)),
+                             'bottom_safety_pt':round(body.y1-max(b['bbox'][3] for b in pages if b['page']==n),3)}
+                             for n in range(1,count+1)]},
             'gap_scale':tightness,'scaled_assets':[scaled[key] for key in sorted(scaled)],
             'scope':'Body layout only; compose onto original fixed PDFs and perform actual QA',
             'elapsed_seconds':round(time.monotonic()-started,3)}
@@ -63396,15 +63495,63 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     return layout
 
 
+def guarded_render(spec, output, layout_path, font, *, asset_root, proof=False,
+                   reading_font=None, balance_last_page=True, timeout=20):
+    """Bound native renderer stalls in a disposable process, including on Windows.
+
+    Each measured/placed block renews the deadline. Never shrink or certify a
+    timed-out block; report its ID and dimensions for a focused repair/proof.
+    """
+    if timeout <= 0 or not math.isfinite(timeout):
+        raise ValueError('Render timeout must be positive and finite')
+    if Path(output).exists() or Path(layout_path).exists():
+        raise ValueError('Use new output names; preserve previous reviewable bytes')
+    with tempfile.TemporaryDirectory(prefix='exam-render-') as directory:
+        scratch=Path(directory)
+        spec_path=scratch/'spec.json';progress=scratch/'progress.json'
+        spec_path.write_text(json.dumps(spec,ensure_ascii=False),encoding='utf-8')
+        command=[sys.executable,str(Path(__file__).resolve()),str(spec_path),
+                 '--output',str(Path(output).resolve()),'--layout',str(Path(layout_path).resolve()),
+                 '--font',str(Path(font).resolve()),'--asset-root',str(Path(asset_root).resolve()),
+                 '--progress',str(progress)]
+        if proof:command.append('--proof')
+        if reading_font:command.extend(['--reading-font',str(Path(reading_font).resolve())])
+        if not balance_last_page:command.append('--no-balance')
+        with (scratch/'worker.log').open('w+b') as log:
+            worker=subprocess.Popen(command,stdout=log,stderr=log,
+                                    creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+            last=time.monotonic();stamp=None
+            try:
+                while worker.poll() is None:
+                    current=progress.stat().st_mtime_ns if progress.exists() else None
+                    if current!=stamp:last=time.monotonic();stamp=current
+                    if time.monotonic()-last>timeout:
+                        detail=progress.read_text(encoding='utf-8') if progress.exists() else 'renderer startup'
+                        raise ValueError(f'Render stalled for {timeout:g}s: {detail}. '
+                                         'Preserve prior PDFs; repair or split this block and run its proof.')
+                    time.sleep(.05)
+            finally:
+                if worker.poll() is None:worker.kill()
+                worker.wait()
+            if worker.returncode:
+                log.seek(0)
+                raise ValueError('Body renderer failed: '+log.read().decode('utf-8',errors='replace')[-3000:])
+        return json.loads(Path(layout_path).read_text(encoding='utf-8'))
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('spec',type=Path)
     for name in ('output','layout','font'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--proof',action='store_true')
     p.add_argument('--reading-font',type=Path)
+    p.add_argument('--asset-root',type=Path)
+    p.add_argument('--progress',type=Path)
+    p.add_argument('--no-balance',action='store_true')
     args=p.parse_args()
     result=render(json.loads(args.spec.read_text(encoding='utf-8')),args.output,args.layout,args.font,
-                  asset_root=args.spec.resolve().parent,proof=args.proof,reading_font=args.reading_font)
+                  asset_root=args.asset_root or args.spec.resolve().parent,proof=args.proof,
+                  reading_font=args.reading_font,balance_last_page=not args.no_balance,progress_path=args.progress)
     print(json.dumps({'body_pdf':str(args.output),'layout':str(args.layout),'elapsed_seconds':result['elapsed_seconds']}))
 </canonical-source>
 
@@ -63833,12 +63980,12 @@ if __name__ == '__main__':
 
 <canonical-source path="scripts/hosted_run_timing.py">
 #!/usr/bin/env python3
-"""Persist actual phase transitions; time targets never waive QA.
+"""Conversation-aware phase clock. Wall time and estimated activity stay distinct.
 
-Usage: hosted_run_timing.py generation-timing.json PAPER_ID phase PHASE
-       hosted_run_timing.py generation-timing.json PAPER_ID finish
-Switching phase closes the previous interval. Repeat phases for repairs. Gaps
-and interruptions remain wall time, not falsely reported as active CPU time.
+phase PHASE starts work; touch records activity; pause (or idle) closes work
+before yielding to the user; resume starts a new interval; finish closes the run.
+Idle detection is evaluated on the next call, not by a background monitor.
+Legacy intervals are never retrospectively labelled as measured active work.
 """
 from __future__ import annotations
 import argparse
@@ -63849,71 +63996,205 @@ from pathlib import Path
 import time
 
 PHASES = {'reference_preflight', 'authoring', 'solving', 'render_repair', 'visual_qa', 'difficulty_qa'}
+IDLE_SECONDS = 600
+
+
+def finite(value):
+    return type(value) in (int, float) and math.isfinite(value)
 
 
 def timing_errors(report, paper_id):
     errors = []
     rows = report.get('intervals', [])
-    if report.get('paper_id') != paper_id or report.get('active') is not None:
+    if report.get('paper_id') != paper_id or report.get('active') is not None or report.get('paused'):
         errors.append('timing: wrong paper or unfinished interval')
-    if {r.get('phase') for r in rows} != PHASES:
+    if {r.get('phase') for r in rows if r.get('state') != 'waiting'} != PHASES:
         errors.append('timing: all six measured phases required')
     previous = None
     for row in rows:
         start, end = row.get('start'), row.get('end')
-        if not all(type(v) in (int,float) and math.isfinite(v) for v in (start,end)):
+        if not all(finite(v) for v in (start, end)):
             errors.append('timing: invalid clock reading')
             continue
         if end <= start or (previous is not None and start < previous):
             errors.append('timing: reversed or overlapping intervals')
+        if row.get('state') not in (None, 'active', 'waiting'):
+            errors.append('timing: unknown interval state')
         previous = end
     if not rows:
         errors.append('timing: no measured intervals')
     return errors
 
 
-def transition(path, paper_id, phase=None):
+def transition(path, paper_id, phase=None, *, action=None, question_ids=None,
+               page_numbers=None, revision_id=None, idle_seconds=IDLE_SECONDS):
+    path = Path(path)
     now = time.time()
-    report = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {
-        'paper_id': paper_id, 'intervals': [], 'active': None}
+    action = action or ('phase' if phase else 'finish')
+    if action not in {'phase', 'finish', 'pause', 'idle', 'resume', 'touch'}:
+        raise ValueError('Unknown clock action')
+    if (action == 'phase' and phase not in PHASES) or (phase is not None and phase not in PHASES):
+        raise ValueError('Unknown phase')
+    if not finite(idle_seconds) or idle_seconds <= 0:
+        raise ValueError('Idle threshold must be positive and finite')
+    report = json.loads(path.read_text(encoding='utf-8-sig')) if path.exists() else {
+        'schema_version': 2, 'paper_id': paper_id, 'intervals': [], 'active': None,
+        'started_at': now}
     if report['paper_id'] != paper_id:
         raise ValueError('Refusing to mix paper clocks')
-    if report.get('finished_at'):
-        report.pop('finished_at')  # A later repair reopens the SAME measured run.
-    if report['active']:
-        active = report['active']
-        if now <= active['start']:
-            raise ValueError('Clock moved backwards; retain log and investigate')
-        report['intervals'].append({**active, 'end': now})
-    report['active'] = {'phase': phase, 'start': now} if phase else None
-    if phase is None:
-        report['finished_at'] = datetime.now(timezone.utc).isoformat()
-    report['updated_at'] = datetime.now(timezone.utc).isoformat()
+    active, paused = report.get('active'), report.get('paused')
+    boundaries = [r['end'] for r in report['intervals']]
+    boundaries += [r.get('last_activity', r['start']) for r in (active, paused) if r]
+    if boundaries and now < max(boundaries):
+        raise ValueError('Clock moved backwards; retain log and investigate')
+    if action == 'touch' and not active:
+        raise ValueError('Resume a phase before recording activity')
+    next_phase = phase or (active or paused or {}).get('phase') or report.get('last_phase')
+    if action == 'resume' and next_phase not in PHASES:
+        raise ValueError('No phase to resume')
+    # A duplicate finish is read-only, including the original stop boundary.
+    if action == 'finish' and report.get('finished_at') and not (active or paused):
+        return report
+    report.pop('finished_at', None)
+    report.pop('ended_at', None)
+
+    def append(row, end, **extra):
+        if end > row['start']:
+            report['intervals'].append({**row, 'end': end, **extra})
+
+    if active:
+        active = dict(active)
+        # Workflow tools already leave actual start/end events. Consume them
+        # here instead of modifying a clock hash after a state was saved.
+        if 'last_activity' in active:
+            activity = []
+            for event in workflow_events(path.parent):
+                if not isinstance(event, dict):
+                    continue
+                start, seconds = event.get('started_at'), event.get('elapsed_seconds')
+                if finite(start) and finite(seconds) and seconds >= 0:
+                    end = start + seconds
+                    if active['start'] <= end <= now and end > active['last_activity']:
+                        activity.append((max(start, active['start']), end))
+            for start, end in sorted(activity):
+                cutoff = active['last_activity'] + active.get('idle_seconds', idle_seconds)
+                if start > cutoff:
+                    append(active, cutoff)
+                    append({**active, 'start': cutoff}, start, state='waiting', estimated=True,
+                           reason='no recorded activity beyond idle threshold')
+                    active['start'] = start
+                active['last_activity'] = max(active['last_activity'], end)
+            report['active'] = active
+        # Old logs have no heartbeat contract: preserve their unknown duration.
+        cutoff = min(now, active.get('last_activity', now) + active.get('idle_seconds', idle_seconds))
+        if action == 'touch' and cutoff == now:
+            active['last_activity'] = now
+        else:
+            append(active, cutoff)
+            if cutoff < now:
+                append({**active, 'start': cutoff}, now, state='waiting', estimated=True,
+                       reason='no recorded activity beyond idle threshold')
+            report['active'] = None
+    if paused:
+        append(paused, now)
+        report.pop('paused', None)
+    context = {k: v for k, v in {'question_ids': question_ids, 'page_numbers': page_numbers,
+                                'revision_id': revision_id}.items() if v is not None}
+    if action in {'phase', 'resume', 'touch'}:
+        if report.get('active') is None:
+            inherited = {k: v for k, v in (active or paused or {}).items()
+                         if k in {'question_ids', 'page_numbers', 'revision_id'}}
+            report['active'] = {'phase': next_phase, 'start': now, 'last_activity': now,
+                                'state': 'active', 'idle_seconds': idle_seconds, **inherited, **context}
+        else:
+            report['active'].update(context)
+        report['last_phase'] = next_phase
+    elif action in {'pause', 'idle'}:
+        inherited = {k: v for k, v in (active or paused or {}).items()
+                     if k in {'question_ids', 'page_numbers', 'revision_id'}}
+        report['paused'] = {'phase': next_phase, 'start': now, 'state': 'waiting',
+                            'estimated': False, 'reason': 'explicit pause', **inherited, **context}
+        report['last_phase'] = next_phase
+    else:
+        report['finished_at'] = datetime.fromtimestamp(now, timezone.utc).isoformat()
+        report['ended_at'] = now
+    report['updated_at'] = datetime.fromtimestamp(now, timezone.utc).isoformat()
     temporary = path.with_suffix(path.suffix + '.tmp')
     temporary.write_text(json.dumps(report, indent=2), encoding='utf-8')
     temporary.replace(path)
     return report
 
 
-def summary(report):
-    rows = report['intervals']
-    elapsed = rows[-1]['end'] - rows[0]['start'] if rows else 0
-    return {'wall_seconds': elapsed, 'target_seconds': 1200, 'target_met': elapsed <= 1200,
-            'phase_seconds': {phase: sum(r['end']-r['start'] for r in rows if r['phase']==phase)
-                              for phase in sorted(PHASES)}}
+def workflow_events(root):
+    path = Path(root) / 'workflow-events.jsonl'
+    if not path.exists():
+        return []
+    events = []
+    for line in path.read_text(encoding='utf-8').splitlines():
+        try:
+            events.append(json.loads(line))
+        except ValueError:
+            continue  # A interrupted event write is not a measured tool interval.
+    return events
+
+
+def summary(report, tool_events=()):
+    rows = list(report['intervals'])
+    # Open intervals are excluded; the displayed stop is the latest recorded activity.
+    boundaries = [r['end'] for r in rows]
+    boundaries += [r.get('last_activity', r['start']) for r in (report.get('active'), report.get('paused')) if r]
+    start = report.get('started_at', rows[0]['start'] if rows else min(boundaries, default=0))
+    end = report.get('ended_at', max(boundaries, default=start))
+    elapsed = end - start
+    # Expose only the observed portion of an open interval, never time.time().
+    opened = report.get('active')
+    if opened and opened.get('last_activity', opened['start']) > opened['start']:
+        rows.append({**opened, 'end': opened['last_activity']})
+    duration = lambda r: r['end'] - r['start']
+    waiting = sum(duration(r) for r in rows if r.get('state') == 'waiting')
+    active = sum(duration(r) for r in rows if r.get('state') == 'active')
+    unknown = max(0, elapsed - active - waiting)
+    windows = []
+    for event in tool_events:
+        if not isinstance(event, dict):
+            continue
+        a, seconds = event.get('started_at'), event.get('elapsed_seconds')
+        if finite(a) and finite(seconds) and seconds >= 0:
+            b, a = min(end, a + seconds), max(start, a)
+            if b > a:
+                windows.append((a, b))
+    tool_seconds, last = 0, start
+    for a, b in sorted(windows):
+        tool_seconds += max(0, b - max(a, last))
+        last = max(last, b)
+    closed = not report.get('active') and not report.get('paused')
+    return {'wall_seconds': elapsed, 'target_seconds': 1200,
+            'target_met': closed and elapsed <= 1200, 'target_basis': 'inclusive wall time',
+            'agent_active_seconds': active if not unknown else None,
+            'activity_basis': 'estimated from phase boundaries and activity heartbeats; not CPU or thinking time',
+            'waiting_seconds': waiting,
+            'estimated_waiting_seconds': sum(duration(r) for r in rows if r.get('state') == 'waiting' and r.get('estimated')),
+            'unclassified_seconds': unknown,
+            'tool_seconds': tool_seconds if windows else None,
+            'tool_coverage': 'recorded workflow commands only; overlapping intervals counted once',
+            'phase_seconds': {p: sum(duration(r) for r in rows if r['phase'] == p and r.get('state') != 'waiting')
+                              for p in sorted(PHASES)}}
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('path', type=Path)
     parser.add_argument('paper_id')
-    parser.add_argument('action', choices=('phase','finish'))
+    parser.add_argument('action', choices=('phase', 'finish', 'pause', 'idle', 'resume', 'touch'))
     parser.add_argument('phase', nargs='?', choices=sorted(PHASES))
-    args = parser.parse_args()
-    if (args.action == 'phase') != (args.phase is not None):
-        parser.error('phase requires a phase name; finish takes none')
-    report = transition(args.path, args.paper_id, args.phase)
-    print(json.dumps(summary(report), indent=2))
+    parser.add_argument('--question-ids', nargs='*')
+    parser.add_argument('--page-numbers', nargs='*', type=int)
+    parser.add_argument('--revision-id')
+    parser.add_argument('--idle-seconds', type=float, default=IDLE_SECONDS)
+    args = vars(parser.parse_args())
+    path = args.pop('path')
+    report = transition(path, **args)
+    print(json.dumps(summary(report, workflow_events(path.parent)), indent=2))
 </canonical-source>
 
 <canonical-source path="scripts/inspect_hosted_pdf.py">
@@ -65446,7 +65727,7 @@ import time
 
 import pymupdf
 from hosted_run_timing import PHASES, transition
-from hosted_body_templates import render
+from hosted_body_templates import guarded_render as render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
@@ -65569,12 +65850,69 @@ def checkpoint(run_dir, phase=None, review_bundle=None, state=None):
             'reviews_approved_by_tool': False}
 
 
+def clock(state_path, operation, *, phase=None, question_ids=None, page_numbers=None, revision_id=None):
+    """Close conversation work before a reply, preserving the latest review state."""
+    state_path = Path(state_path).resolve()
+    root = state_path.parent
+    state = read(state_path)
+    timing = root / 'generation-timing.json'
+    transition(timing, state['paper_id'], phase, action=operation, question_ids=question_ids,
+               page_numbers=page_numbers, revision_id=revision_id)
+    state['timing'] = record(root, timing)
+    save(state_path, state)
+    return {'status': 'clock-' + operation, 'state': str(state_path)}
+
+
+def content_identity(root, state):
+    exam_path = inside(root, root / state['exam']['path'])
+    if record(root, exam_path) != state['exam']:
+        raise ValueError('Checkpoint the current exam before locking content')
+    assets = {}
+    def visit(value):
+        if isinstance(value, dict):
+            if isinstance(value.get('path'), str) and value.get('sha256'):
+                asset = inside(root, root / value['path'])
+                if not asset.is_file():
+                    raise ValueError('Content asset missing: ' + value['path'])
+                assets[value['path']] = digest(asset)
+                if assets[value['path']] != value['sha256']:
+                    raise ValueError('Content asset hash changed: ' + value['path'])
+            for child in value.values():
+                visit(child)
+        elif isinstance(value, list):
+            for child in value:
+                visit(child)
+    visit(read(exam_path))
+    return {'paper_id': state['paper_id'], 'exam': record(root, exam_path), 'assets': assets}
+
+
+def content_lock(state_path, *, reason=None):
+    state_path = Path(state_path).resolve()
+    root, state = state_path.parent, read(state_path)
+    identity = content_identity(root, state)
+    path = root / 'content-lock.json'
+    previous = read(path) if path.exists() else None
+    if previous and previous['identity'] != identity and not (reason or '').strip():
+        raise ValueError('Content changed: re-solve/review it, then lock with --reason describing the correction')
+    if not previous or previous['identity'] != identity:
+        save(path, {'identity': identity, 'reason': reason or 'Content frozen before complete booklet layout',
+                    'previous': previous, 'scope': 'Change control only; never editorial approval'})
+    return {'status': 'content-locked', 'path': str(path), 'identity': identity}
+
+
+def check_content_lock(root, state):
+    path = root / 'content-lock.json'
+    if path.exists() and read(path)['identity'] != content_identity(root, state):
+        raise ValueError('Locked content changed; restore it or review the correction and explicitly re-lock with --reason')
+
+
 def build(state_path, question_spec, solution_spec, font, output, *, year,
           title='學科能力測驗模擬試題', running_name='學測', reading_font=None):
     started = time.time()
     state_path = Path(state_path).resolve()
     root = state_path.parent
     state = read(state_path)
+    check_content_lock(root, state)
     exam_path = inside(root, root / state['exam']['path'])
     if record(root, exam_path) != state['exam']:
         raise ValueError('Save a checkpoint for the current exam before building')
@@ -65658,6 +65996,11 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
                 running_name=running_name, font_path=Path(font),
                 kind='questions' if role == 'question' else 'answers')
         pairs[role] = (pdf, body, layout)
+    save(output / 'page-plan.json', {
+        'exam': state['exam'], 'specs': identity['specs'],
+        'scope': 'Measured pagination and risk queue; not a density or visual approval',
+        'booklets': {role: {'plan': read(layout)['page_plan'], 'blocks': read(layout)['blocks']}
+                     for role, (_, _, layout) in pairs.items()}})
     result = prepare(state_path, pairs, review_output,
                      render_identity=render_identity(Path(font), Path(reading_font) if reading_font else None))
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
@@ -65668,7 +66011,9 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
     # Human observations may change; immutable PDFs, layouts and images may not.
     immutable = [p for p in output.iterdir() if p.is_file()]
     immutable += list(review_output.rglob('*.png'))
-    result.update(cache_hit=False, reviews_approved_by_tool=False)
+    result.update(cache_hit=False, reviews_approved_by_tool=False,
+                  page_plan=str(output / 'page-plan.json'),
+                  continue_from_state=str(candidate))
     save(manifest_path, {'inputs': identity, 'artifacts': [record(root, p) for p in immutable], 'result': result})
     event(root, 'build', started, cache_hit=False)
     return result
@@ -66513,7 +66858,7 @@ def finalize(state_path, output):
         raise ValueError('Exam changed; recheck affected content and rebuild before finalizing')
     register_reviews(root, state)
     timing = root / 'generation-timing.json'
-    if read(timing).get('active') is not None:
+    if read(timing).get('active') is not None or read(timing).get('paused'):
         transition(timing, state['paper_id'])
     state['timing'] = record(root, timing)
     save(state_path, state)
@@ -66559,6 +66904,16 @@ def main():
     start.add_argument('--phase', choices=sorted(PHASES))
     start.add_argument('--review-bundle', type=Path)
     start.add_argument('--state', type=Path, help='On repair, continue the latest review state')
+    clock_parser = commands.add_parser('clock', help='Pause before yielding; resume or touch during work')
+    clock_parser.add_argument('--state', type=Path, required=True)
+    clock_parser.add_argument('--operation', choices=('pause', 'idle', 'resume', 'touch', 'finish'), required=True)
+    clock_parser.add_argument('--phase', choices=sorted(PHASES))
+    clock_parser.add_argument('--question-ids', nargs='*')
+    clock_parser.add_argument('--page-numbers', nargs='*', type=int)
+    clock_parser.add_argument('--revision-id')
+    lock_parser = commands.add_parser('lock-content', help='Freeze content before full-booklet pagination')
+    lock_parser.add_argument('--state', type=Path, required=True)
+    lock_parser.add_argument('--reason', help='Required when explicitly replacing an existing content lock')
     build_parser = commands.add_parser('build')
     for name in ('state', 'question-spec', 'solution-spec', 'output'):
         build_parser.add_argument('--' + name, type=Path, required=True)
@@ -66597,7 +66952,8 @@ def main():
             args['state_path'] = args.pop('state')
             if action in {'build', 'proof'} and args['font'] is None:
                 args['font'] = recorded_font(args['state_path'])
-            result = {'build': build, 'specs': specs, 'proof': proof, 'finalize': finalize}[action](**args)
+            result = {'build': build, 'specs': specs, 'proof': proof, 'finalize': finalize,
+                      'clock': clock, 'lock-content': content_lock}[action](**args)
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print(json.dumps({'status': 'pending', 'errors': [str(exc)]}, ensure_ascii=False))
         return 2

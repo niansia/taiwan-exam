@@ -18,7 +18,10 @@ Treat 20 minutes as a per-paper **warm-run performance target**, not a universal
 For a local warm-generation benchmark, the timed generation clock starts after
 a fresh run contract and compatible immutable inputs are loaded; report readiness
 time separately. Hosted runs instead retain the inclusive wall clock from
-reference_preflight in hosted_run_timing.py. Do not present that total as a
+reference_preflight in hosted_run_timing.py, while separately reporting activity
+estimates, explicit/estimated waits and recorded tool time. Pause at conversation
+boundaries and resume the same run; idle inference is not exact work measurement.
+Do not present that total as a
 readiness-excluded warm benchmark. Stop either clock only after both PDFs and
 required reviews exist. A PDF export alone is not completion.
 
@@ -59,7 +62,7 @@ a 25-minute end-to-end completion time.
 3. **Source tournament** — query or load several unrelated, rights-safe candidates together, freeze facts and provenance, then close source wording before original writing. 國寫 still requires its task-specific source tournament and paragraph-level map.
 4. **Slot writing** — write candidates from abstract slot specifications. Candidate competition, independent solution, scope mapping, misconception design, and visual-removal tests remain mandatory. Parallelize only independent read-only analysis, rendering, hashing, or validation work that cannot leak one candidate's surface into another.
 5. **Incremental rejection** — run cheap structural, count, score, scope-code, answer-distribution, rights-record, and schema checks before expensive rendering. Replace failed slots and re-solve affected groups; do not defer known defects to final pagination.
-6. **Single controlled render loop** — render the validated content with the maintained subject component, run containment and density checks, then make only form-preserving pagination repairs. Content changes revoke affected solution, source-removal, and originality approvals.
+6. **Single controlled render loop** — freeze reviewed content with `run_hosted_workflow.py lock-content --state <latest-state>`, then render with the maintained subject component. The measured `page-plan.json` identifies each page's items, block heights, kept chains and remaining height; it is not density approval. Review high-risk figures in batch proofs before full composition. Run containment and density checks, then make pagination repairs through hints. A necessary content correction revokes dependent reviews; re-lock with an explicit `--reason` after re-solving/reviewing. Continue from the latest returned state so unchanged actual reviews survive.
 7. **Final gate** — render the final student and answer PDFs, apply document provenance, rasterize every page, inspect every page at readable scale, and bind reviews to final hashes. Run the shared content/delivery gate and record unresolved limitations.
 
 ## Local benchmark timing report

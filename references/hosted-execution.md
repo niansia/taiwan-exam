@@ -258,6 +258,18 @@ actual hash contract; never copy stale approvals onto changed content.
 
 ## One layout and review preparation pipeline
 
+After all content, answers and difficulty reviews are complete, freeze the
+saved exam with `run_hosted_workflow.py lock-content --state <latest-state>`.
+Early batch proofs still happen during authoring. During full pagination,
+change layout hints and regenerate specs; a necessary content correction needs
+renewed dependent reviews and `lock-content --reason "actual correction"`.
+The lock preserves its previous version and never supplies editorial approval.
+The build's `page-plan.json` reports actual measured heights, kept blocks, page
+item IDs and remaining bottom space. Inspect these and `reflow_before_review`
+before opening a long review queue. Rendering has a separate-process,
+20-second per-operation stall guard; it reports the block to repair rather
+than retrying exact-fit indefinitely. No guard bypasses a quality check.
+
 Read `reading/layout.md`. Use `hosted_body_templates.py` components and the
 selected subject's question/solution layout pair. Generate the current run's
 body specifications from the saved exam with `specs` (layout hints for special
@@ -357,6 +369,18 @@ the actual review mode. `evidence-complete` means recorded evidence is complete
 and current, not official certification or empirical psychometric validation.
 
 ## Time and continuation
+
+Before a response ends, close active work with
+`run_hosted_workflow.py clock --state <latest-state> --operation pause`.
+On continuation use `--operation resume`; during long reading, solving or
+inspection use `--operation touch` at least every five minutes. These are
+explicit agent steps, not automatic platform callbacks. Abrupt interruptions
+are detected on the next clock call: time beyond the last activity plus ten
+minutes is labelled **estimated waiting**. It may include unrecorded thought.
+Keep total wall time, estimated activity, recorded tool duration and explicit/
+estimated waits separate. Legacy logs cannot supply exact active time.
+Always continue repairs from the latest returned review state, so unchanged
+hash-bound page/item reviews survive; inspect the pending `review_batches`.
 
 Time phases by primary activity: `reference_preflight`, `authoring`, `solving`,
 `difficulty_qa`, `render_repair`, `visual_qa`. Batch independent calculations and
