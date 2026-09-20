@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.19.4
+# Taiwan Exam Web Knowledge v2026.09.20.1
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -596,17 +596,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-body-workflow.md",
-    "bytes": 13480,
-    "sha256": "ffe04d1fdb8cf06733e3f5911e2b25b8ccd248d0f37f7ff098957a218db87dbc",
-    "embedded_bytes": 13480,
-    "embedded_sha256": "ffe04d1fdb8cf06733e3f5911e2b25b8ccd248d0f37f7ff098957a218db87dbc"
+    "bytes": 13812,
+    "sha256": "5878976645c2de66296f7c2a8ab5a843222d1f261608ad9e65a7de17b97aba74",
+    "embedded_bytes": 13812,
+    "embedded_sha256": "5878976645c2de66296f7c2a8ab5a843222d1f261608ad9e65a7de17b97aba74"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 24069,
-    "sha256": "906c13cd5bd56600119374b7da5d538561f003e8219727bd863fce34d6f7e528",
-    "embedded_bytes": 24069,
-    "embedded_sha256": "906c13cd5bd56600119374b7da5d538561f003e8219727bd863fce34d6f7e528"
+    "bytes": 24891,
+    "sha256": "a05c6dbb5aed72819163feb8781a6ba75112a1aa2aa379efe3da2a95559824f7",
+    "embedded_bytes": 24891,
+    "embedded_sha256": "a05c6dbb5aed72819163feb8781a6ba75112a1aa2aa379efe3da2a95559824f7"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -716,9 +716,9 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/web-platform-use.md",
     "bytes": 31455,
-    "sha256": "27c4f334a6a0fbc73cc1ffb5cae4d1fb0dd60de82cdd12886c1dfaac5e2c6ad7",
+    "sha256": "92ee7832e158084e00cb154c6f967a436b771172d7d7f47b71e8f7e770ed4f39",
     "embedded_bytes": 31455,
-    "embedded_sha256": "27c4f334a6a0fbc73cc1ffb5cae4d1fb0dd60de82cdd12886c1dfaac5e2c6ad7"
+    "embedded_sha256": "92ee7832e158084e00cb154c6f967a436b771172d7d7f47b71e8f7e770ed4f39"
   },
   {
     "path": "schemas/answer.schema.json",
@@ -841,10 +841,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 30077,
-    "sha256": "e0d489406d202af0705be53d29e51e7b416db2f4aa64b228b4c9c074d8a53de6",
-    "embedded_bytes": 30077,
-    "embedded_sha256": "e0d489406d202af0705be53d29e51e7b416db2f4aa64b228b4c9c074d8a53de6"
+    "bytes": 30225,
+    "sha256": "7e09f8fbc4e3218e6b36c4ffc194a4fcce5513a8cace1f8d57b5af57d861fe85",
+    "embedded_bytes": 30225,
+    "embedded_sha256": "7e09f8fbc4e3218e6b36c4ffc194a4fcce5513a8cace1f8d57b5af57d861fe85"
   },
   {
     "path": "scripts/hosted_calibration.py",
@@ -883,10 +883,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 17434,
-    "sha256": "5e564b8831105aaa7ad27ae2ff2a16b2aaaf67753cf46ea01098816130e23c12",
-    "embedded_bytes": 17434,
-    "embedded_sha256": "5e564b8831105aaa7ad27ae2ff2a16b2aaaf67753cf46ea01098816130e23c12"
+    "bytes": 21524,
+    "sha256": "4f0ca5ea7b0f391e4138adbc45a25b08c3a37030a4a62a405237391c4f6656ce",
+    "embedded_bytes": 21524,
+    "embedded_sha256": "4f0ca5ea7b0f391e4138adbc45a25b08c3a37030a4a62a405237391c4f6656ce"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -897,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 62130,
-    "sha256": "e8882f0ea1ef429e02d5c5c0258b9e0b6db1d88355532d571ef01af53c41b4c4",
-    "embedded_bytes": 62130,
-    "embedded_sha256": "e8882f0ea1ef429e02d5c5c0258b9e0b6db1d88355532d571ef01af53c41b4c4"
+    "bytes": 64691,
+    "sha256": "3466dabacff16cd4679be877fad1167a19a690345adbe50cff7a5ef1588bf631",
+    "embedded_bytes": 64691,
+    "embedded_sha256": "3466dabacff16cd4679be877fad1167a19a690345adbe50cff7a5ef1588bf631"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -56664,10 +56664,14 @@ typography, not arbitrary CSS. Complex math and new diagrams may be supplied as
 hash-bound assets inside the current run: `assets.NAME` has `path`, `sha256`,
 `width_pt`; `figure: NAME` and `figure_position: right|below` reserve figure space.
 `{{asset:NAME}}` places a checked inline asset in stems, options, solution steps,
-passages, headings and table cells. A single-page newly authored PDF asset is
-converted to an image for HTML display; this never rasterizes fixed templates.
-Multi-page body assets must be split explicitly. An inline
-asset that collides with text must be moved into a measured display block.
+passages, headings and table cells. Save new artwork as SVG or a single-page PDF:
+both are converted to an image at three times their printed width, so lines and
+labels stay sharp, and this never rasterizes fixed templates. A raster figure
+needs at least twice, preferably three times, its printed width in pixels.
+Multi-page body assets must be split explicitly. The body prints 11 pt text on an
+18 pt line, so an inline asset taller than that overlaps the line above: keep
+inline formulas within one line and move anything taller into a measured display
+block. `append_items.py` reports both sizes when a batch is saved.
 The renderer does not author or validate equations. Check notation and graph
 labels at readable resolution. It rejects overflow; never shrink fonts to fit.
 The common base is 11 pt with measured line flow; validate its suitability
@@ -56819,7 +56823,9 @@ read a linked subject rule when it changes the actual item being authored.
 Use one run directory and paper ID. Reuse a surviving same-paper checkpoint;
 verify its file hashes and continue the first unfinished action. A new user turn
 does not require reinstalling, restarting preflight, rewriting the paper or
-repeating already recorded work on unchanged inputs. If files have expired,
+repeating already recorded work on unchanged inputs. It also does not require
+rereading references already read in this conversation: open a phase's reading
+only the first time you enter it. If files have expired,
 recover the actual saved artifacts or report the missing files precisely.
 
 Before drafting, confirm file creation, Python/PDF operations and readable image
@@ -56905,8 +56911,14 @@ content and review; no pass is prefilled. Read `difficulty-field-contract.md`
 for enums and content-hash rules instead of reverse-engineering validator code.
 For shared numbered subparts use `--subpart`; unnumbered tasks use `--slot-id`.
 
-Save editable content, diagrams, candidate decisions and review progress every
-two to four items, before starting more figures or a long tool call:
+Work one batch at a time: draft two to four items, draw only their figures, save
+them, then proof and review them before drafting the next batch. Only `exam.json`
+carries the paper between phases and turns. Two hosted runs spent every command
+of their turn designing, verifying and illustrating a whole paper that existed
+only in the reply, and finished with nothing saved; the batch loop below turns
+the same work into finished items. Save editable content, diagrams, candidate
+decisions and review progress every two to four items, before starting more
+figures or a long tool call:
 
 ```text
 python scripts/append_items.py --run-dir run --plan run/paper-plan.json --batch run/batch-01.json
@@ -56923,8 +56935,10 @@ their actual display/answer label. The helper refuses a batch whose printed
 fields would print wrongly and lists every such issue at once: LaTeX commands
 (`\frac`, `\cdot`, ...), `$` math delimiters (a currency `$` before a digit is
 allowed), unbalanced `<sup>`/`<sub>`/`<i>`/`<b>`, `{{asset:NAME}}` tokens missing
-from `inline_assets`, and asset files that are absent or differ from their
-sha256. Fix them in the batch and save again; otherwise they surface only after
+from `inline_assets`, asset files that are absent or differ from their
+sha256, an inline image taller than one 18 pt line, and a raster figure below
+twice its printed width (vector art prints at three times its size, so save
+figures as SVG or a one-page PDF). Fix them in the batch and save again; otherwise they surface only after
 rendering and page review. A saved result also lists `design_fields_pending`:
 the final check's difficulty-design messages for the items just saved. Complete
 them with `--replace` while solving and reviewing that batch, before writing the
@@ -57037,9 +57051,10 @@ python scripts/run_hosted_workflow.py build --state run/run-state.json --questio
 
 The result's `review_queue` lists exactly the page and crop images still pending
 in the returned review state, as absolute paths. Open each at readable scale;
-thumbnails/contact sheets only navigate. `review_batches` groups a pending page
-with its pending crops (a proof groups each item's question and solution crops)
-and gives each image's `record_as` key. `observations_template` is a skeleton of
+thumbnails/contact sheets only navigate. One `review_batches` entry is one
+viewing call of up to six images: a build groups a pending page with its pending
+crops, and a proof keeps each item's question and solution crops together. Each
+image carries its `record_as` key. `observations_template` is a skeleton of
 exactly those keys, all `pending`: fill a copy with your actual findings. When the runtime
 shows several separate images at native resolution in one call, open one batch
 per call rather than one image per call; never stitch or downscale images to
@@ -59522,7 +59537,7 @@ Keep storage/installation separate from the execution surface. As checked on
   shared project context, not proof that a native Skill was installed.
 - Native Skill: `Customize > Skills > + > Create skill > Upload a skill`.
   Recommend the versioned multi-file archive:
-  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.19.4/taiwan-exam-hosted-2026.09.19.4.zip>.
+  <https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.20.1/taiwan-exam-hosted-2026.09.20.1.zip>.
   Upload the ZIP unchanged, Save and enable it. Users do not need to extract it.
   Its short SKILL.md routes to existing helpers and phase-specific references;
   do not recommend the approximately 2.5 MB consolidated Markdown as native
@@ -63017,11 +63032,13 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
         extension=path.suffix
         with pymupdf.open(stream=raw) as image_doc:
             rect=image_doc[0].rect
-            if image_doc.is_pdf:
+            if image_doc.is_pdf or extension.lower()=='.svg':
                 if len(image_doc)!=1:raise ValueError('Inline body PDF asset must have exactly one page')
                 # MuPDF's HTML img does not render PDF sources: without this it
-                # silently prints [image]. Convert only newly authored body
-                # artwork, never the immutable fixed-template PDF layers.
+                # silently prints [image]. It rasterizes SVG at about 96 dpi,
+                # which printed visibly blurred lines and labels. Convert only
+                # newly authored body artwork, never the immutable
+                # fixed-template PDF layers.
                 scale=3*asset_width/rect.width
                 raw=image_doc[0].get_pixmap(matrix=pymupdf.Matrix(scale,scale),alpha=True).tobytes('png')
                 extension='.png'
@@ -64585,6 +64602,8 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
+import struct
 import subprocess
 import sys
 import time
@@ -64620,6 +64639,91 @@ class TemplateUnavailable(ValueError):
 BUILTIN_FONT = 'pymupdf-builtin-droid-sans-fallback'
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
+# Hosted images usually install Noto/Source Han CJK as one collection file whose
+# FIRST face is Japanese. MuPDF loads that face, so a paper would print Japanese
+# glyph forms with every glyph present and no warning.
+REGION_MARKERS = {
+    'tc': ('traditional', 'hant', 'cjktc', 'cjk tc', 'tc-', ' tc', 'tw-', ' tw'),
+    'hk': ('cjkhk', 'cjk hk', 'hk-', ' hk'),
+    'jp': ('japan', 'cjkjp', 'cjk jp', 'jp-', ' jp'),
+    'sc': ('simplified', 'hans', 'cjksc', 'cjk sc', 'sc-', ' sc'),
+    'kr': ('korea', 'cjkkr', 'cjk kr', 'kr-', ' kr'),
+}
+
+
+def sfnt_names(data, offset=0):
+    """A face's own family, full and PostScript names, from its name table."""
+    count = struct.unpack('>H', data[offset + 4:offset + 6])[0]
+    tables = [struct.unpack('>4sIII', data[offset + 12 + 16 * i:offset + 28 + 16 * i]) for i in range(count)]
+    table = next((data[start:start + length] for tag, _, start, length in tables if tag == b'name'), None)
+    if table is None:
+        return []
+    records, strings = struct.unpack('>H', table[2:4])[0], struct.unpack('>H', table[4:6])[0]
+    names = []
+    for index in range(records):
+        platform, _, _, name_id, size, start = struct.unpack('>6H', table[6 + 12 * index:18 + 12 * index])
+        if name_id in (1, 4, 6):
+            try:
+                names.append(table[strings + start:strings + start + size].decode('utf-16-be' if platform == 3 else 'latin-1'))
+            except UnicodeDecodeError:
+                continue
+    return names
+
+
+def region_of(names):
+    """'tc', 'jp', ... when a font's own names state one regional form."""
+    text = ' ' + ' '.join(names).lower().replace('_', ' ')
+    found = {region for region, markers in REGION_MARKERS.items() if any(marker in text for marker in markers)}
+    return found.pop() if len(found) == 1 else None
+
+
+def sfnt_face(data, offset):
+    """Standalone font bytes for one face of a TrueType/OpenType collection."""
+    count = struct.unpack('>H', data[offset + 4:offset + 6])[0]
+    header = bytearray(data[offset:offset + 12 + 16 * count])
+    body = bytearray()
+    for index in range(count):
+        tag, checksum, start, length = struct.unpack('>4sIII', data[offset + 12 + 16 * index:offset + 28 + 16 * index])
+        struct.pack_into('>4sIII', header, 12 + 16 * index, tag, checksum, len(header) + len(body), length)
+        body += data[start:start + length].ljust((length + 3) // 4 * 4, b'\0')
+    return bytes(header + body)
+
+
+def collection_face(data, path, run_dir):
+    """(file, description) of the collection's Traditional Chinese face, else its first."""
+    count = struct.unpack('>I', data[8:12])[0]
+    faces = [(offset, sfnt_names(data, offset))
+             for offset in struct.unpack(f'>{count}I', data[12:12 + 4 * count])]
+    offset, names = next((face for face in faces if region_of(face[1]) in ('tc', 'hk')), faces[0])
+    label = names[0] if names else path.stem
+    target = run_dir / 'fonts' / ((re.sub(r'[^A-Za-z0-9]+', '-', label).strip('-') or 'face') + '.ttf')
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(sfnt_face(data, offset))
+    return target, f'{label} of {path.name} ({len(faces)} faces)'
+
+
+def supplied_font(path, run_dir):
+    """(file, record, rejection) for a supplied body font, one face at a time."""
+    face = None
+    try:
+        data = path.read_bytes()
+        chosen, face = collection_face(data, path, run_dir) if data[:4] == b'ttcf' else (path, None)
+        font = pymupdf.Font(fontfile=str(chosen))
+        missing = ''.join(sorted({c for c in FIELD_TEXT if not font.has_glyph(ord(c))}))
+    except Exception as exc:  # MuPDF and the collection reader raise their own error types
+        return None, None, f'cannot use {path.name}: {exc}'
+    if missing:
+        return None, None, f'{path.name} lacks {missing}'
+    record = {'path': str(chosen.resolve()), 'source': 'supplied' if face is None else 'supplied-collection-face',
+              'sha256': digest(chosen)}
+    if face:
+        record.update(face=face, collection=str(path.resolve()))
+    region = region_of(sfnt_names(chosen.read_bytes()))
+    if region in ('jp', 'sc', 'kr'):
+        record['regional_form_note'] = (f'{chosen.name} draws {region.upper()} glyph forms; keep going, say so in the '
+                                        'delivery message, and use a Traditional Chinese face (for example Noto Serif '
+                                        'CJK TC) when one is available')
+    return chosen, record, None
 
 
 def body_font(run_dir, requested=None):
@@ -64631,15 +64735,9 @@ def body_font(run_dir, requested=None):
     """
     note = None
     if requested:
-        path = Path(requested)
-        try:
-            font = pymupdf.Font(fontfile=str(path))
-            missing = ''.join(sorted({c for c in FIELD_TEXT if not font.has_glyph(ord(c))}))
-        except Exception as exc:  # MuPDF raises its own error types for absent or unreadable fonts
-            missing, note = None, f'cannot load {path.name}: {exc}'
-        if missing == '':
-            return path, {'path': str(path.resolve()), 'source': 'supplied', 'sha256': digest(path)}
-        note = note or f'{path.name} lacks {missing}'
+        path, record, note = supplied_font(Path(requested), run_dir)
+        if path is not None:
+            return path, record
     target = run_dir / 'fonts' / 'builtin-cjk.ttf'
     if not target.is_file():
         target.parent.mkdir(exist_ok=True)
@@ -65351,7 +65449,7 @@ from hosted_run_timing import PHASES, transition
 from hosted_body_templates import render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
-from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected,
+from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from fetch_hosted_template_assets import DEFAULT_MAP
@@ -65609,6 +65707,42 @@ LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
 TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
 MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
 ASSET_TOKEN = re.compile(r'\{\{asset:([^{}]+)\}\}')
+# The body prints 11pt text on a 1.65 line box: a taller inline image overlaps
+# the line above it. Vector art prints at three times its size, so a raster
+# below twice the printed width prints visibly soft.
+INLINE_ASSET_LINE_PT = 18
+RASTER_PIXELS_PER_PT = 2
+BODY_WIDTH_PT = 460
+
+
+def asset_issues(path, asset, *, inline):
+    """Printed-size defects that page review would otherwise find after rendering."""
+    if inline:
+        width = asset.get('width_pt')
+        if type(width) not in (int, float) or not 1 <= width <= BODY_WIDTH_PT:
+            return ['width_pt must be a number of points between 1 and 460']
+    else:
+        percent = asset.get('width_percent', 62)  # the projection's own default
+        if type(percent) not in (int, float) or not 1 <= percent <= 100:
+            return ['width_percent must be a number between 1 and 100']
+        width = BODY_WIDTH_PT * percent / 100
+    try:
+        with pymupdf.open(path) as source:
+            box, raster = source[0].rect, not source.is_pdf and path.suffix.lower() != '.svg'
+    except Exception as exc:  # MuPDF raises its own error types for unreadable artwork
+        return [f'cannot be opened as a figure: {exc}']
+    if not box.width or not box.height:
+        return ['figure has no size']
+    found = []
+    height = width * box.height / box.width
+    if inline and height > INLINE_ASSET_LINE_PT:
+        found.append(f'prints {height:.0f} pt tall and overlaps the line above; use width_pt '
+                     f'{INLINE_ASSET_LINE_PT * box.width / box.height:.0f} or less for one line, '
+                     'or print it as the item\'s own figure')
+    if raster and box.width < RASTER_PIXELS_PER_PT * width:
+        found.append(f'is {box.width:.0f} px for {width:.0f} printed pt and prints blurred; export it at '
+                     'three times the printed width, or save the figure as SVG or a one-page PDF')
+    return found
 
 
 def text_issues(value):
@@ -65694,6 +65828,9 @@ def authoring_issues(questions, answers, *, root):
                     found.append(f'item {qid} {owner} {where}: file not found in this run')
                 elif asset.get('sha256') != digest(path):
                     found.append(f'item {qid} {owner} {where}: sha256 missing or different from the file')
+                else:
+                    found += [f'item {qid} {owner} {where}: {issue}'
+                              for issue in asset_issues(path, asset, inline=where.startswith('inline'))]
     return found
 
 
@@ -66218,11 +66355,21 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
     save(output / 'observations-template.json', template)
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
     event(root, 'proof', started, items=wanted)
-    # An item's question and solution crops side by side: separate native images.
+    # Up to six crops per viewing call, with each item's question and solution
+    # together: separate native images, never stitched or downscaled.
+    batches, current = [], {'items': [], 'images': [], 'record_as': []}
+    for qid, rows in by_item.items():
+        if current['images'] and len(current['images']) + len(rows) > REVIEW_BATCH_IMAGES:
+            batches.append(current)
+            current = {'items': [], 'images': [], 'record_as': []}
+        current['items'].append(qid)
+        current['images'] += [image for image, _ in rows]
+        current['record_as'] += [target for _, target in rows]
+    if current['images']:
+        batches.append(current)
     return {'status': 'proof-review-pending', 'proof': output.name, 'proof_dir': str(output),
             'review_queue': queue,
-            'review_batches': [{'item': qid, 'images': [image for image, _ in rows],
-                                'record_as': [target for _, target in rows]} for qid, rows in by_item.items()],
+            'review_batches': batches,
             'observations_template': str(output / 'observations-template.json'),
             'reviews_approved_by_tool': False,
             'next': ('Open each crop at readable scale, fill status and observations in a copy of observations_template, '

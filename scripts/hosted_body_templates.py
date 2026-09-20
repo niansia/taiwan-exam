@@ -145,11 +145,13 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
         extension=path.suffix
         with pymupdf.open(stream=raw) as image_doc:
             rect=image_doc[0].rect
-            if image_doc.is_pdf:
+            if image_doc.is_pdf or extension.lower()=='.svg':
                 if len(image_doc)!=1:raise ValueError('Inline body PDF asset must have exactly one page')
                 # MuPDF's HTML img does not render PDF sources: without this it
-                # silently prints [image]. Convert only newly authored body
-                # artwork, never the immutable fixed-template PDF layers.
+                # silently prints [image]. It rasterizes SVG at about 96 dpi,
+                # which printed visibly blurred lines and labels. Convert only
+                # newly authored body artwork, never the immutable
+                # fixed-template PDF layers.
                 scale=3*asset_width/rect.width
                 raw=image_doc[0].get_pixmap(matrix=pymupdf.Matrix(scale,scale),alpha=True).tobytes('png')
                 extension='.png'

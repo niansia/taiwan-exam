@@ -170,3 +170,33 @@ def test_superscripts_and_subscripts_keep_their_offset_inside_layout_tables(case
         assert script, 'missing script span '+digit
         nearest=min(base,key=lambda y:abs(y-script[0]['origin'][1]))
         assert direction*(script[0]['origin'][1]-nearest)>=offset
+
+
+def test_svg_figures_print_as_sharply_as_the_same_figure_as_pdf(tmp_path):
+    """MuPDF's HTML img rasterizes SVG at about 96 dpi; a run reported blurred figures."""
+    svg = tmp_path / 'figure.svg'
+    svg.write_text('<svg xmlns="http://www.w3.org/2000/svg" width="160" height="110">'
+                   '<path d="M10 100 L150 10" stroke="black" stroke-width="1"/>'
+                   '<text x="12" y="24" font-size="11">A</text></svg>', encoding='utf-8')
+    pdf = tmp_path / 'figure.pdf'
+    with pymupdf.open() as doc:
+        page = doc.new_page(width=160, height=110)
+        page.draw_line((10, 100), (150, 10), width=1)
+        page.insert_text((12, 24), 'A', fontname='tiro', fontsize=11)
+        doc.save(pdf)
+    font = tmp_path / 'font.ttf'
+    font.write_bytes(pymupdf.Font('cjk').buffer)
+    pages = {}
+    for source in (svg, pdf):
+        block = {'kind': 'stimulus', 'id': source.suffix, 'text': 'Figure {{asset:fig}}',
+                 'assets': {'fig': {'path': source.name, 'width_pt': 160,
+                                    'sha256': hashlib.sha256(source.read_bytes()).hexdigest()}}}
+        body = tmp_path / (source.suffix[1:] + '-body.pdf')
+        render({'subject': '數學A', 'blocks': [block]}, body, tmp_path / (source.suffix[1:] + '-layout.json'),
+               font, asset_root=tmp_path)
+        with pymupdf.open(body) as doc:
+            figures = [image for image in doc[0].get_image_info()
+                       if abs(pymupdf.Rect(image['bbox']).width - 160) < 1]
+            assert len(figures) == 1 and figures[0]['width'] >= 3 * 160
+            pages[source.suffix] = doc[0].get_pixmap(matrix=pymupdf.Matrix(2, 2)).samples
+    assert pages['.svg'] == pages['.pdf']
