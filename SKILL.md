@@ -89,6 +89,18 @@ and an answer-with-full-solutions PDF. Generate and visually inspect both with
 the surface's file/code tools. If that surface cannot create files, execute the
 required checks, or inspect every PDF page, state the exact limitation and do
 not label text-only output or an unchecked PDF as the completed formal paper.
+Use the same download naming convention for **all subjects and both exam types**:
+`{考試}_{科目}_{paper_id}_題本.pdf` and `{考試}_{科目}_{paper_id}_詳解.pdf`.
+Use the actual exam (`學測` or `會考`) and canonical subject name (學測:
+`國綜／國寫／英文／數學A／數學B／社會／自然`; 會考: its subject record).
+Choose one short, unique `paper_id` at run creation, such as `20260920-01`,
+and preserve it across both booklets and resumed work. A new paper gets a new
+ID. For example: `學測_數學A_20260920-01_題本.pdf` and
+`學測_數學A_20260920-01_詳解.pdf`. Deliver the actual files using these names,
+not just renamed link labels. Hosted `finalize` supplies these paths in
+`delivery`; hand over those copies, not internal `question.pdf`/`solution.pdf`
+proofs. Browser-added duplicate suffixes such as `(1)` are outside the Skill's
+control. Honour an explicitly requested filename instead of this default.
 For a current-form full paper on a hosted surface, the release-calibration and
 live-spot-check procedure in that reference is mandatory. Use the embedded
 verified Paper/Layout/difficulty profiles and subject references as the

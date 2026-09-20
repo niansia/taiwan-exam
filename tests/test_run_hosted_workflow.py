@@ -102,6 +102,33 @@ def test_finalize_delivers_copies_rendering_the_checked_pages(saved_run, tmp_pat
             assert ([page.get_pixmap(matrix=pymupdf.Matrix(2, 2)).samples for page in checked] ==
                     [page.get_pixmap(matrix=pymupdf.Matrix(2, 2)).samples for page in delivered])
     assert workflow.read(tmp_path/'final.json')['delivery'] == result['delivery']
+    assert Path(result['delivery']['question']['path']).name == '學測_英文_fixture_題本.pdf'
+    assert Path(result['delivery']['solution']['path']).name == '學測_英文_fixture_詳解.pdf'
+    again = workflow.finalize(tmp_path/'run-state.json', tmp_path/'final.json')
+    assert {k: v['path'] for k, v in again['delivery'].items()} == {
+        k: v['path'] for k, v in result['delivery'].items()}
+
+
+@pytest.mark.parametrize('exam,subject', [
+    *[('學測', s) for s in ('國綜', '國寫', '英文', '數學A', '數學B', '社會', '自然')],
+    *[('會考', s) for s in ('國文', '英語', '數學', '社會', '自然')],
+])
+def test_delivery_names_identify_exam_subject_and_pair(exam, subject):
+    metadata = {'exam': exam, 'subject': subject}
+    for role, label in [('question', '題本'), ('solution', '詳解')]:
+        assert workflow.delivery_filename(metadata, '20260920-01', role) == (
+            f'{exam}_{subject}_20260920-01_{label}.pdf')
+
+
+def test_delivery_names_are_portable_distinct_and_bounded():
+    metadata = {'exam': '學測', 'subject': '數A'}
+    names = [workflow.delivery_filename(metadata, paper, 'question')
+             for paper in ('../a:b', '..\\a?b', 'x'*300, 'x'*299+'y')]
+    assert len(set(names)) == 4
+    for name in names:
+        assert name.startswith('學測_數學A_') and name.endswith('_題本.pdf')
+        assert not any(c in name for c in '<>:"/\\|?*')
+        assert len(name) < 150
 
 
 @pytest.mark.parametrize('name', ['run-state.json','exam.json','generation-timing.json','answers.json','question.pdf'])
