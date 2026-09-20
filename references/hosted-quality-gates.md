@@ -205,9 +205,23 @@ record render_repair and visual_qa, and finalize closes the final interval.
 Use all six actual phases, repeat names for repairs, preserve the log in recovery
 material, and register it as run-state.timing. Never reconstruct missing intervals
 from memory. The checker requires positive, ordered, closed intervals for all
-phases and computes total/per-phase times. Interruptions remain wall time.
+phases and computes total/per-phase times. Interruptions remain wall time, but
+must not be presented as active solving or inspection. Before a turn ends use
+`run_hosted_workflow.py clock --state <latest-state> --operation pause`; on the
+next turn use `--operation resume`. During continuous work record `touch`
+at least every five minutes, including reading/solving without file writes.
+These commands refresh the selected state's timing hash. Optional
+`--question-ids`, `--page-numbers`, and `--revision-id` identify repair scope.
+If a turn is abruptly lost, the next timing call labels the portion after the
+last activity plus ten minutes as **estimated waiting**, not known inactivity.
+This is lazy detection, not a background monitor or a precise thinking clock.
+Old logs remain unclassified; do not retroactively subtract gaps from them.
+The report separates `wall_seconds`, estimated `agent_active_seconds`,
+`waiting_seconds`, `estimated_waiting_seconds`, `unclassified_seconds`, and
+`tool_seconds` (only recorded workflow commands, with overlaps counted once).
+No recorded tool time is `null`, not a claim that tools took zero seconds.
 Above 1200 seconds it reports target_met=false and continues QA; the benchmark
-is not a delivery deadline. Missing timing is pending. Do not exclude template
+is not a delivery deadline; `target_met` still uses inclusive wall time. Missing timing is pending. Do not exclude template
 acquisition or repairs to improve reported speed.
 
 Review difficulty in small batches and repair body layout BEFORE fixed-template

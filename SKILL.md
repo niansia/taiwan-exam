@@ -43,6 +43,16 @@ When the user requests fast or timed generation, also read [references/fast-full
 
 For hosted body layout, use [references/hosted-body-workflow.md](references/hosted-body-workflow.md): reuse measured section/item components, never placeholder questions or diagram topology. Project body specs from the saved exam instead of retyping items, review each authored batch's item crops early, reserve time for final QA, and prepare both booklets' page/item review together. Retain a prior actual visual review only within the same paper: an item crop needs an unchanged authored item record and a pixel-identical rendering or the same printed glyphs, rules and images within 0.02 pt; a page needs identical pixels and item content. Changed parts require new inspection. A body renderer never replaces the original fixed PDF layers.
 
+Before full-booklet layout, finish content/answer/difficulty review and run
+`run_hosted_workflow.py lock-content --state <latest-state>`. Repair pagination
+through layout hints; a necessary content correction requires renewed dependent
+reviews and an explicit re-lock with `--reason`. Continue every repair from the
+state returned by the last build/review, and inspect its pending `review_batches`.
+Before yielding a turn, use `clock --state <latest-state> --operation pause`;
+on continuation use `resume`, and record `touch` during long thinking/review
+periods. These are workflow commands, not automatic chat-platform hooks. Report
+inclusive wall time separately from estimated activity and recorded tool time.
+
 Use `templates/hosted-subject-layouts.json` to select the requested subject's own question/solution layout pair. Seven subject examples are available; load only that pair, never treat the common math-oriented gallery as every subject's paper. Preview PDFs are optional; their placeholders, partial item coverage and page density cannot be used as a full exam.
 
 In a complete local checkout, use subject renderers for body/internal proofs, compose formal booklets from the original fixed PDFs, and use the single `scripts/validate_exam_release.py` content/delivery gate. `scripts/validate_exam_pack_contract.py` is only its renderer handoff adapter, not a second validation policy. Set `metadata.run_contract` to the external run-contract.json path relative to exam.json; see the execution contract for the maintained evidence format. On a hosted web surface without the repository executable tree, follow the hosted-equivalent gate in `references/web-platform-use.md`; the absence of a local command is not a release blocker, but every observable content, answer, template and all-page inspection check remains required. A generic renderer cannot render a complete paper merely because metadata claims a verified layout. Renderer output is a **review proof**, not an accepted exam; PDF page inspection and final acceptance are separate. No helper script or export/marking test can self-certify educational quality.

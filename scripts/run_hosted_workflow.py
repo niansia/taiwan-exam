@@ -20,7 +20,7 @@ import time
 
 import pymupdf
 from hosted_run_timing import PHASES, transition
-from hosted_body_templates import render
+from hosted_body_templates import guarded_render as render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
@@ -143,12 +143,69 @@ def checkpoint(run_dir, phase=None, review_bundle=None, state=None):
             'reviews_approved_by_tool': False}
 
 
+def clock(state_path, operation, *, phase=None, question_ids=None, page_numbers=None, revision_id=None):
+    """Close conversation work before a reply, preserving the latest review state."""
+    state_path = Path(state_path).resolve()
+    root = state_path.parent
+    state = read(state_path)
+    timing = root / 'generation-timing.json'
+    transition(timing, state['paper_id'], phase, action=operation, question_ids=question_ids,
+               page_numbers=page_numbers, revision_id=revision_id)
+    state['timing'] = record(root, timing)
+    save(state_path, state)
+    return {'status': 'clock-' + operation, 'state': str(state_path)}
+
+
+def content_identity(root, state):
+    exam_path = inside(root, root / state['exam']['path'])
+    if record(root, exam_path) != state['exam']:
+        raise ValueError('Checkpoint the current exam before locking content')
+    assets = {}
+    def visit(value):
+        if isinstance(value, dict):
+            if isinstance(value.get('path'), str) and value.get('sha256'):
+                asset = inside(root, root / value['path'])
+                if not asset.is_file():
+                    raise ValueError('Content asset missing: ' + value['path'])
+                assets[value['path']] = digest(asset)
+                if assets[value['path']] != value['sha256']:
+                    raise ValueError('Content asset hash changed: ' + value['path'])
+            for child in value.values():
+                visit(child)
+        elif isinstance(value, list):
+            for child in value:
+                visit(child)
+    visit(read(exam_path))
+    return {'paper_id': state['paper_id'], 'exam': record(root, exam_path), 'assets': assets}
+
+
+def content_lock(state_path, *, reason=None):
+    state_path = Path(state_path).resolve()
+    root, state = state_path.parent, read(state_path)
+    identity = content_identity(root, state)
+    path = root / 'content-lock.json'
+    previous = read(path) if path.exists() else None
+    if previous and previous['identity'] != identity and not (reason or '').strip():
+        raise ValueError('Content changed: re-solve/review it, then lock with --reason describing the correction')
+    if not previous or previous['identity'] != identity:
+        save(path, {'identity': identity, 'reason': reason or 'Content frozen before complete booklet layout',
+                    'previous': previous, 'scope': 'Change control only; never editorial approval'})
+    return {'status': 'content-locked', 'path': str(path), 'identity': identity}
+
+
+def check_content_lock(root, state):
+    path = root / 'content-lock.json'
+    if path.exists() and read(path)['identity'] != content_identity(root, state):
+        raise ValueError('Locked content changed; restore it or review the correction and explicitly re-lock with --reason')
+
+
 def build(state_path, question_spec, solution_spec, font, output, *, year,
           title='學科能力測驗模擬試題', running_name='學測', reading_font=None):
     started = time.time()
     state_path = Path(state_path).resolve()
     root = state_path.parent
     state = read(state_path)
+    check_content_lock(root, state)
     exam_path = inside(root, root / state['exam']['path'])
     if record(root, exam_path) != state['exam']:
         raise ValueError('Save a checkpoint for the current exam before building')
@@ -232,6 +289,11 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
                 running_name=running_name, font_path=Path(font),
                 kind='questions' if role == 'question' else 'answers')
         pairs[role] = (pdf, body, layout)
+    save(output / 'page-plan.json', {
+        'exam': state['exam'], 'specs': identity['specs'],
+        'scope': 'Measured pagination and risk queue; not a density or visual approval',
+        'booklets': {role: {'plan': read(layout)['page_plan'], 'blocks': read(layout)['blocks']}
+                     for role, (_, _, layout) in pairs.items()}})
     result = prepare(state_path, pairs, review_output,
                      render_identity=render_identity(Path(font), Path(reading_font) if reading_font else None))
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
@@ -242,7 +304,9 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
     # Human observations may change; immutable PDFs, layouts and images may not.
     immutable = [p for p in output.iterdir() if p.is_file()]
     immutable += list(review_output.rglob('*.png'))
-    result.update(cache_hit=False, reviews_approved_by_tool=False)
+    result.update(cache_hit=False, reviews_approved_by_tool=False,
+                  page_plan=str(output / 'page-plan.json'),
+                  continue_from_state=str(candidate))
     save(manifest_path, {'inputs': identity, 'artifacts': [record(root, p) for p in immutable], 'result': result})
     event(root, 'build', started, cache_hit=False)
     return result
@@ -1087,7 +1151,7 @@ def finalize(state_path, output):
         raise ValueError('Exam changed; recheck affected content and rebuild before finalizing')
     register_reviews(root, state)
     timing = root / 'generation-timing.json'
-    if read(timing).get('active') is not None:
+    if read(timing).get('active') is not None or read(timing).get('paused'):
         transition(timing, state['paper_id'])
     state['timing'] = record(root, timing)
     save(state_path, state)
@@ -1133,6 +1197,16 @@ def main():
     start.add_argument('--phase', choices=sorted(PHASES))
     start.add_argument('--review-bundle', type=Path)
     start.add_argument('--state', type=Path, help='On repair, continue the latest review state')
+    clock_parser = commands.add_parser('clock', help='Pause before yielding; resume or touch during work')
+    clock_parser.add_argument('--state', type=Path, required=True)
+    clock_parser.add_argument('--operation', choices=('pause', 'idle', 'resume', 'touch', 'finish'), required=True)
+    clock_parser.add_argument('--phase', choices=sorted(PHASES))
+    clock_parser.add_argument('--question-ids', nargs='*')
+    clock_parser.add_argument('--page-numbers', nargs='*', type=int)
+    clock_parser.add_argument('--revision-id')
+    lock_parser = commands.add_parser('lock-content', help='Freeze content before full-booklet pagination')
+    lock_parser.add_argument('--state', type=Path, required=True)
+    lock_parser.add_argument('--reason', help='Required when explicitly replacing an existing content lock')
     build_parser = commands.add_parser('build')
     for name in ('state', 'question-spec', 'solution-spec', 'output'):
         build_parser.add_argument('--' + name, type=Path, required=True)
@@ -1171,7 +1245,8 @@ def main():
             args['state_path'] = args.pop('state')
             if action in {'build', 'proof'} and args['font'] is None:
                 args['font'] = recorded_font(args['state_path'])
-            result = {'build': build, 'specs': specs, 'proof': proof, 'finalize': finalize}[action](**args)
+            result = {'build': build, 'specs': specs, 'proof': proof, 'finalize': finalize,
+                      'clock': clock, 'lock-content': content_lock}[action](**args)
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print(json.dumps({'status': 'pending', 'errors': [str(exc)]}, ensure_ascii=False))
         return 2

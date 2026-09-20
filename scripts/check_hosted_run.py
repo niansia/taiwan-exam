@@ -13,7 +13,7 @@ from pathlib import Path
 import pymupdf
 from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void
 from hosted_item_layout import geometry_errors, crop_bytes
-from hosted_run_timing import timing_errors, summary as timing_summary
+from hosted_run_timing import timing_errors, summary as timing_summary, workflow_events
 from hosted_blind_review import packet, review_errors, REVIEW_MODES
 from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
@@ -309,7 +309,7 @@ def check(state_path: Path) -> dict:
                               if review_mode == 'single-context' else
                               'Separate-context review is recorded; this checker cannot authenticate reviewer identity.'
                               if review_mode == 'independent-context' else 'Difficulty review mode is missing or invalid.'),
-            'timing': timing_summary(timing) if timing and not timing_errors(timing, state.get('paper_id')) else None,
+            'timing': timing_summary(timing, workflow_events(root)) if timing and not timing_errors(timing, state.get('paper_id')) else None,
             'scope': 'Evidence completeness and freshness only; recorded judgments need real review.'}
 
 
