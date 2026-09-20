@@ -23,7 +23,7 @@ from hosted_run_timing import PHASES, transition
 from hosted_body_templates import render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
-from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected,
+from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from fetch_hosted_template_assets import DEFAULT_MAP
@@ -281,6 +281,42 @@ LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
 TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
 MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
 ASSET_TOKEN = re.compile(r'\{\{asset:([^{}]+)\}\}')
+# The body prints 11pt text on a 1.65 line box: a taller inline image overlaps
+# the line above it. Vector art prints at three times its size, so a raster
+# below twice the printed width prints visibly soft.
+INLINE_ASSET_LINE_PT = 18
+RASTER_PIXELS_PER_PT = 2
+BODY_WIDTH_PT = 460
+
+
+def asset_issues(path, asset, *, inline):
+    """Printed-size defects that page review would otherwise find after rendering."""
+    if inline:
+        width = asset.get('width_pt')
+        if type(width) not in (int, float) or not 1 <= width <= BODY_WIDTH_PT:
+            return ['width_pt must be a number of points between 1 and 460']
+    else:
+        percent = asset.get('width_percent', 62)  # the projection's own default
+        if type(percent) not in (int, float) or not 1 <= percent <= 100:
+            return ['width_percent must be a number between 1 and 100']
+        width = BODY_WIDTH_PT * percent / 100
+    try:
+        with pymupdf.open(path) as source:
+            box, raster = source[0].rect, not source.is_pdf and path.suffix.lower() != '.svg'
+    except Exception as exc:  # MuPDF raises its own error types for unreadable artwork
+        return [f'cannot be opened as a figure: {exc}']
+    if not box.width or not box.height:
+        return ['figure has no size']
+    found = []
+    height = width * box.height / box.width
+    if inline and height > INLINE_ASSET_LINE_PT:
+        found.append(f'prints {height:.0f} pt tall and overlaps the line above; use width_pt '
+                     f'{INLINE_ASSET_LINE_PT * box.width / box.height:.0f} or less for one line, '
+                     'or print it as the item\'s own figure')
+    if raster and box.width < RASTER_PIXELS_PER_PT * width:
+        found.append(f'is {box.width:.0f} px for {width:.0f} printed pt and prints blurred; export it at '
+                     'three times the printed width, or save the figure as SVG or a one-page PDF')
+    return found
 
 
 def text_issues(value):
@@ -366,6 +402,9 @@ def authoring_issues(questions, answers, *, root):
                     found.append(f'item {qid} {owner} {where}: file not found in this run')
                 elif asset.get('sha256') != digest(path):
                     found.append(f'item {qid} {owner} {where}: sha256 missing or different from the file')
+                else:
+                    found += [f'item {qid} {owner} {where}: {issue}'
+                              for issue in asset_issues(path, asset, inline=where.startswith('inline'))]
     return found
 
 
@@ -890,11 +929,21 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
     save(output / 'observations-template.json', template)
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
     event(root, 'proof', started, items=wanted)
-    # An item's question and solution crops side by side: separate native images.
+    # Up to six crops per viewing call, with each item's question and solution
+    # together: separate native images, never stitched or downscaled.
+    batches, current = [], {'items': [], 'images': [], 'record_as': []}
+    for qid, rows in by_item.items():
+        if current['images'] and len(current['images']) + len(rows) > REVIEW_BATCH_IMAGES:
+            batches.append(current)
+            current = {'items': [], 'images': [], 'record_as': []}
+        current['items'].append(qid)
+        current['images'] += [image for image, _ in rows]
+        current['record_as'] += [target for _, target in rows]
+    if current['images']:
+        batches.append(current)
     return {'status': 'proof-review-pending', 'proof': output.name, 'proof_dir': str(output),
             'review_queue': queue,
-            'review_batches': [{'item': qid, 'images': [image for image, _ in rows],
-                                'record_as': [target for _, target in rows]} for qid, rows in by_item.items()],
+            'review_batches': batches,
             'observations_template': str(output / 'observations-template.json'),
             'reviews_approved_by_tool': False,
             'next': ('Open each crop at readable scale, fill status and observations in a copy of observations_template, '

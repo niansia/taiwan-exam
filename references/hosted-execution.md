@@ -53,7 +53,9 @@ read a linked subject rule when it changes the actual item being authored.
 Use one run directory and paper ID. Reuse a surviving same-paper checkpoint;
 verify its file hashes and continue the first unfinished action. A new user turn
 does not require reinstalling, restarting preflight, rewriting the paper or
-repeating already recorded work on unchanged inputs. If files have expired,
+repeating already recorded work on unchanged inputs. It also does not require
+rereading references already read in this conversation: open a phase's reading
+only the first time you enter it. If files have expired,
 recover the actual saved artifacts or report the missing files precisely.
 
 Before drafting, confirm file creation, Python/PDF operations and readable image
@@ -139,8 +141,14 @@ content and review; no pass is prefilled. Read `difficulty-field-contract.md`
 for enums and content-hash rules instead of reverse-engineering validator code.
 For shared numbered subparts use `--subpart`; unnumbered tasks use `--slot-id`.
 
-Save editable content, diagrams, candidate decisions and review progress every
-two to four items, before starting more figures or a long tool call:
+Work one batch at a time: draft two to four items, draw only their figures, save
+them, then proof and review them before drafting the next batch. Only `exam.json`
+carries the paper between phases and turns. Two hosted runs spent every command
+of their turn designing, verifying and illustrating a whole paper that existed
+only in the reply, and finished with nothing saved; the batch loop below turns
+the same work into finished items. Save editable content, diagrams, candidate
+decisions and review progress every two to four items, before starting more
+figures or a long tool call:
 
 ```text
 python scripts/append_items.py --run-dir run --plan run/paper-plan.json --batch run/batch-01.json
@@ -157,8 +165,10 @@ their actual display/answer label. The helper refuses a batch whose printed
 fields would print wrongly and lists every such issue at once: LaTeX commands
 (`\frac`, `\cdot`, ...), `$` math delimiters (a currency `$` before a digit is
 allowed), unbalanced `<sup>`/`<sub>`/`<i>`/`<b>`, `{{asset:NAME}}` tokens missing
-from `inline_assets`, and asset files that are absent or differ from their
-sha256. Fix them in the batch and save again; otherwise they surface only after
+from `inline_assets`, asset files that are absent or differ from their
+sha256, an inline image taller than one 18 pt line, and a raster figure below
+twice its printed width (vector art prints at three times its size, so save
+figures as SVG or a one-page PDF). Fix them in the batch and save again; otherwise they surface only after
 rendering and page review. A saved result also lists `design_fields_pending`:
 the final check's difficulty-design messages for the items just saved. Complete
 them with `--replace` while solving and reviewing that batch, before writing the
@@ -271,9 +281,10 @@ python scripts/run_hosted_workflow.py build --state run/run-state.json --questio
 
 The result's `review_queue` lists exactly the page and crop images still pending
 in the returned review state, as absolute paths. Open each at readable scale;
-thumbnails/contact sheets only navigate. `review_batches` groups a pending page
-with its pending crops (a proof groups each item's question and solution crops)
-and gives each image's `record_as` key. `observations_template` is a skeleton of
+thumbnails/contact sheets only navigate. One `review_batches` entry is one
+viewing call of up to six images: a build groups a pending page with its pending
+crops, and a proof keeps each item's question and solution crops together. Each
+image carries its `record_as` key. `observations_template` is a skeleton of
 exactly those keys, all `pending`: fill a copy with your actual findings. When the runtime
 shows several separate images at native resolution in one call, open one batch
 per call rather than one image per call; never stitch or downscale images to

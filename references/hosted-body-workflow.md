@@ -96,10 +96,14 @@ typography, not arbitrary CSS. Complex math and new diagrams may be supplied as
 hash-bound assets inside the current run: `assets.NAME` has `path`, `sha256`,
 `width_pt`; `figure: NAME` and `figure_position: right|below` reserve figure space.
 `{{asset:NAME}}` places a checked inline asset in stems, options, solution steps,
-passages, headings and table cells. A single-page newly authored PDF asset is
-converted to an image for HTML display; this never rasterizes fixed templates.
-Multi-page body assets must be split explicitly. An inline
-asset that collides with text must be moved into a measured display block.
+passages, headings and table cells. Save new artwork as SVG or a single-page PDF:
+both are converted to an image at three times their printed width, so lines and
+labels stay sharp, and this never rasterizes fixed templates. A raster figure
+needs at least twice, preferably three times, its printed width in pixels.
+Multi-page body assets must be split explicitly. The body prints 11 pt text on an
+18 pt line, so an inline asset taller than that overlaps the line above: keep
+inline formulas within one line and move anything taller into a measured display
+block. `append_items.py` reports both sizes when a batch is saved.
 The renderer does not author or validate equations. Check notation and graph
 labels at readable resolution. It rejects overflow; never shrink fonts to fit.
 The common base is 11 pt with measured line flow; validate its suitability

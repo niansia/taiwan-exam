@@ -7,6 +7,8 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
+import struct
 import subprocess
 import sys
 import time
@@ -42,6 +44,91 @@ class TemplateUnavailable(ValueError):
 BUILTIN_FONT = 'pymupdf-builtin-droid-sans-fallback'
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
+# Hosted images usually install Noto/Source Han CJK as one collection file whose
+# FIRST face is Japanese. MuPDF loads that face, so a paper would print Japanese
+# glyph forms with every glyph present and no warning.
+REGION_MARKERS = {
+    'tc': ('traditional', 'hant', 'cjktc', 'cjk tc', 'tc-', ' tc', 'tw-', ' tw'),
+    'hk': ('cjkhk', 'cjk hk', 'hk-', ' hk'),
+    'jp': ('japan', 'cjkjp', 'cjk jp', 'jp-', ' jp'),
+    'sc': ('simplified', 'hans', 'cjksc', 'cjk sc', 'sc-', ' sc'),
+    'kr': ('korea', 'cjkkr', 'cjk kr', 'kr-', ' kr'),
+}
+
+
+def sfnt_names(data, offset=0):
+    """A face's own family, full and PostScript names, from its name table."""
+    count = struct.unpack('>H', data[offset + 4:offset + 6])[0]
+    tables = [struct.unpack('>4sIII', data[offset + 12 + 16 * i:offset + 28 + 16 * i]) for i in range(count)]
+    table = next((data[start:start + length] for tag, _, start, length in tables if tag == b'name'), None)
+    if table is None:
+        return []
+    records, strings = struct.unpack('>H', table[2:4])[0], struct.unpack('>H', table[4:6])[0]
+    names = []
+    for index in range(records):
+        platform, _, _, name_id, size, start = struct.unpack('>6H', table[6 + 12 * index:18 + 12 * index])
+        if name_id in (1, 4, 6):
+            try:
+                names.append(table[strings + start:strings + start + size].decode('utf-16-be' if platform == 3 else 'latin-1'))
+            except UnicodeDecodeError:
+                continue
+    return names
+
+
+def region_of(names):
+    """'tc', 'jp', ... when a font's own names state one regional form."""
+    text = ' ' + ' '.join(names).lower().replace('_', ' ')
+    found = {region for region, markers in REGION_MARKERS.items() if any(marker in text for marker in markers)}
+    return found.pop() if len(found) == 1 else None
+
+
+def sfnt_face(data, offset):
+    """Standalone font bytes for one face of a TrueType/OpenType collection."""
+    count = struct.unpack('>H', data[offset + 4:offset + 6])[0]
+    header = bytearray(data[offset:offset + 12 + 16 * count])
+    body = bytearray()
+    for index in range(count):
+        tag, checksum, start, length = struct.unpack('>4sIII', data[offset + 12 + 16 * index:offset + 28 + 16 * index])
+        struct.pack_into('>4sIII', header, 12 + 16 * index, tag, checksum, len(header) + len(body), length)
+        body += data[start:start + length].ljust((length + 3) // 4 * 4, b'\0')
+    return bytes(header + body)
+
+
+def collection_face(data, path, run_dir):
+    """(file, description) of the collection's Traditional Chinese face, else its first."""
+    count = struct.unpack('>I', data[8:12])[0]
+    faces = [(offset, sfnt_names(data, offset))
+             for offset in struct.unpack(f'>{count}I', data[12:12 + 4 * count])]
+    offset, names = next((face for face in faces if region_of(face[1]) in ('tc', 'hk')), faces[0])
+    label = names[0] if names else path.stem
+    target = run_dir / 'fonts' / ((re.sub(r'[^A-Za-z0-9]+', '-', label).strip('-') or 'face') + '.ttf')
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(sfnt_face(data, offset))
+    return target, f'{label} of {path.name} ({len(faces)} faces)'
+
+
+def supplied_font(path, run_dir):
+    """(file, record, rejection) for a supplied body font, one face at a time."""
+    face = None
+    try:
+        data = path.read_bytes()
+        chosen, face = collection_face(data, path, run_dir) if data[:4] == b'ttcf' else (path, None)
+        font = pymupdf.Font(fontfile=str(chosen))
+        missing = ''.join(sorted({c for c in FIELD_TEXT if not font.has_glyph(ord(c))}))
+    except Exception as exc:  # MuPDF and the collection reader raise their own error types
+        return None, None, f'cannot use {path.name}: {exc}'
+    if missing:
+        return None, None, f'{path.name} lacks {missing}'
+    record = {'path': str(chosen.resolve()), 'source': 'supplied' if face is None else 'supplied-collection-face',
+              'sha256': digest(chosen)}
+    if face:
+        record.update(face=face, collection=str(path.resolve()))
+    region = region_of(sfnt_names(chosen.read_bytes()))
+    if region in ('jp', 'sc', 'kr'):
+        record['regional_form_note'] = (f'{chosen.name} draws {region.upper()} glyph forms; keep going, say so in the '
+                                        'delivery message, and use a Traditional Chinese face (for example Noto Serif '
+                                        'CJK TC) when one is available')
+    return chosen, record, None
 
 
 def body_font(run_dir, requested=None):
@@ -53,15 +140,9 @@ def body_font(run_dir, requested=None):
     """
     note = None
     if requested:
-        path = Path(requested)
-        try:
-            font = pymupdf.Font(fontfile=str(path))
-            missing = ''.join(sorted({c for c in FIELD_TEXT if not font.has_glyph(ord(c))}))
-        except Exception as exc:  # MuPDF raises its own error types for absent or unreadable fonts
-            missing, note = None, f'cannot load {path.name}: {exc}'
-        if missing == '':
-            return path, {'path': str(path.resolve()), 'source': 'supplied', 'sha256': digest(path)}
-        note = note or f'{path.name} lacks {missing}'
+        path, record, note = supplied_font(Path(requested), run_dir)
+        if path is not None:
+            return path, record
     target = run_dir / 'fonts' / 'builtin-cjk.ttf'
     if not target.is_file():
         target.parent.mkdir(exist_ok=True)

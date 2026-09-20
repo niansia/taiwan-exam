@@ -1,4 +1,5 @@
 """Formal PDFs compose on bundled fixed templates; a template gap stops instead of redrawing."""
+import io
 import json
 from pathlib import Path
 import shutil
@@ -88,6 +89,40 @@ def test_without_a_chinese_font_the_preflight_uses_the_builtin_one(tmp_path, mon
     assert report['next_action'].startswith('Continue in this same response')
     for text in (report['next_action'], report['body_font']['style']):
         assert 'tell the user' not in text and 'delivery message' in text
+
+
+def cjk_face(label):
+    """One CJK font whose own names claim a regional form."""
+    ttLib = pytest.importorskip('fontTools.ttLib')
+    font = ttLib.TTFont(io.BytesIO(pymupdf.Font('cjk').buffer))
+    for record in font['name'].names:
+        if record.nameID in (1, 4, 6):
+            record.string = label.encode('utf-16-be') if record.platformID == 3 else label.encode('latin-1')
+    return font
+
+
+def test_a_font_collection_uses_its_traditional_chinese_face(tmp_path):
+    collection = pytest.importorskip('fontTools.ttLib').TTCollection()
+    # Hosted images ship Noto CJK this way, with the Japanese face first.
+    collection.fonts = [cjk_face('Test Serif CJK JP'), cjk_face('Test Serif CJK TC')]
+    path = tmp_path / 'test-cjk.ttc'
+    collection.save(str(path))
+    report = preflight.prepare('數學A', tmp_path / 'run', 'collection', path)
+    assert report['status'] == 'ready-for-authoring', report
+    font = report['body_font']
+    assert font['source'] == 'supplied-collection-face' and font['face'].startswith('Test Serif CJK TC')
+    assert 'regional_form_note' not in font
+    assert preflight.sfnt_names(Path(font['path']).read_bytes())[0] == 'Test Serif CJK TC'
+    assert pymupdf.Font(fontfile=font['path']).has_glyph(ord('學'))
+
+
+def test_a_japanese_face_still_runs_but_its_glyph_forms_are_disclosed(tmp_path):
+    path = tmp_path / 'jp.ttf'
+    cjk_face('Test Serif CJK JP').save(str(path))
+    report = preflight.prepare('國綜', tmp_path / 'run', 'jp-face', path)
+    assert report['status'] == 'ready-for-authoring', report
+    assert report['body_font']['source'] == 'supplied'
+    assert 'JP glyph forms' in report['body_font']['regional_form_note']
 
 
 def test_a_font_missing_field_glyphs_is_replaced_and_the_reason_recorded(tmp_path):

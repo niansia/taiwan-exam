@@ -65,16 +65,40 @@ def test_batch_with_print_defects_is_refused_listing_every_issue(run):
     assert not (run / 'exam.json').exists()
 
 
-def test_clean_batch_with_a_registered_formula_image_saves(run):
-    image = run / 'q1.png'
-    image.write_bytes(b'formula image bytes')
+def formula_image(run, name='q1.png', pixels=(240, 48)):
+    """A real inline formula raster: three times its printed width, one line tall."""
+    path = run / name
+    pymupdf.Pixmap(pymupdf.csGRAY, pymupdf.IRect(0, 0, *pixels), False).save(path)
+    return path
+
+
+def inline_item(run, width_pt=60, name='q1.png'):
+    image = formula_image(run, name)
     question = {'id': 'q1', 'number': 1, 'section_id': 's', 'type': 'single_choice',
                 'prompt': '已知 {{asset:f}} 且 x² = 4，求 x。',
                 'options': [{'label': '1', 'text': '2'}, {'label': '2', 'text': '−2'}],
-                'inline_assets': {'f': {'path': 'q1.png', 'sha256': hashlib.sha256(image.read_bytes()).hexdigest(),
-                                        'width_pt': 60}}}
-    answer = {'question_id': 'q1', 'final_answer': '1', 'reasoning': ['由 x² = 4 得 x = ±2。']}
-    assert save_item(run, question, answer)['status'] == 'items-saved'
+                'inline_assets': {'f': {'path': name, 'sha256': hashlib.sha256(image.read_bytes()).hexdigest(),
+                                        'width_pt': width_pt}}}
+    return question, {'question_id': 'q1', 'final_answer': '1', 'reasoning': ['由 x² = 4 得 x = ±2。']}
+
+
+def test_clean_batch_with_a_registered_formula_image_saves(run):
+    assert save_item(run, *inline_item(run))['status'] == 'items-saved'
+
+
+def test_inline_image_taller_than_one_line_is_refused_with_its_printed_size(run):
+    # A run printed a fraction image 34 pt tall; it covered the line above it.
+    with pytest.raises(ValueError, match='overlaps the line above'):
+        save_item(run, *inline_item(run, width_pt=200))
+    assert not (run / 'exam.json').exists()
+
+
+def test_low_resolution_figure_is_refused_before_it_prints_blurred(run):
+    question, answer = inline_item(run)
+    image = formula_image(run, pixels=(60, 12))  # one pixel per printed point
+    question['inline_assets']['f']['sha256'] = hashlib.sha256(image.read_bytes()).hexdigest()
+    with pytest.raises(ValueError, match='prints blurred'):
+        save_item(run, question, answer)
 
 
 def body_font(tmp_path):

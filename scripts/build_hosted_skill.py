@@ -77,9 +77,13 @@ requirements, answer verification, and real page/item visual review. An
 unavailable second model uses the documented honest same-context second pass;
 never invent an independent reviewer or passing observation.
 
-Create one paper ID and run directory. On continuation, verify and resume saved
-work and its first unfinished action. Reuse unchanged verified inputs and actual
-reviews; do not restart authoring or repeat completed setup merely for a new turn.
+Create one paper ID and run directory. Author in batches of two to four items:
+save each batch with `append_items.py`, with only its own figures drawn, before
+drafting the next. Only `exam.json` carries the paper between turns; items
+finished in your reply alone are not progress. On continuation, verify and resume
+saved work and its first unfinished action. Reuse unchanged verified inputs and
+actual reviews; do not restart authoring, reread references already read in this
+conversation, or repeat completed setup merely for a new turn.
 Project body specs from saved items with `run_hosted_workflow.py specs`, review
 each batch's item crops with `proof`, and record findings with `record-review`.
 Deliver separate question and full-solution PDFs only after the final checks.

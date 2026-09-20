@@ -154,6 +154,13 @@ def test_proof_reviews_carry_into_final_booklets_but_pages_still_need_review(run
     state = root / 'run-state.json'
     proof = workflow.proof(state, *specs, ','.join(q['id'] for q in questions), font, root / 'proof-01')
     assert proof['status'] == 'proof-review-pending' and proof['reviews_approved_by_tool'] is False
+    # One viewing call per batch: up to six crops, an item's own crops together.
+    for batch in proof['review_batches']:
+        assert 0 < len(batch['images']) <= workflow.REVIEW_BATCH_IMAGES
+        assert len(batch['record_as']) == len(batch['images'])
+        assert all(Path(image).is_file() for image in batch['images'])
+    assert sum(len(batch['images']) for batch in proof['review_batches']) == len(proof['review_queue'])
+    assert len(proof['review_batches']) < len(questions)  # not one call per item
     notes = {}
     for role in ('question', 'solution'):
         report = workflow.read(root / 'proof-01' / f'{role}-items.json')
