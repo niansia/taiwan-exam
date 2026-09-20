@@ -17,7 +17,7 @@
 - **逐題審閱一次看六張。** 排版預覽的待審圖片改成一次最多六張，同一題的題目與詳解一定在同一批，減少開圖次數。
 - README 寫明：完整考卷通常要 2～3 輪，平台跑到單輪上限就會停在存檔點，回覆「繼續」即可接著做。
 
-原生 Skill ZIP 2026.09.20.1 會在掃描與上傳驗證後發布。
+原生 Skill ZIP 同步發布 2026.09.20.1（約 9.3 MB）。ZIP 與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 實際上傳成功。已安裝的舊 Skill 請重新下載替換。[下載 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.20.1/taiwan-exam-hosted-2026.09.20.1.zip)
 
 ## 2026.09.19.4：預檢後不再停下，一路做到交付
 
