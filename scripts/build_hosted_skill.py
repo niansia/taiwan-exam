@@ -22,7 +22,9 @@ from validate_attribution import validate as validate_attribution
 
 # Published placeholder previews of each subject's question and solution layout.
 PREVIEW_VERSION = '2026.09.14.1'
-# Fetched (never versioned) PyMuPDF wheels; see vendor/wheels/README.md.
+# Fetched (never versioned) PyMuPDF wheels; see vendor/wheels/README.md. The
+# release ships the wheel as a separate GitHub asset so the ZIP stays small;
+# bundling into the ZIP is opt-in (--bundle-wheels).
 WHEEL_SOURCE = ROOT / 'vendor' / 'wheels'
 WHEEL_TARGET = 'resources/wheels/'
 WHEEL_NAME = re.compile(r'pymupdf-(?P<version>[0-9][0-9A-Za-z.]*)-cp39-abi3-manylinux[0-9_]*x86_64[A-Za-z0-9_.]*\.whl')
@@ -70,9 +72,9 @@ route in hosted-execution.md to materialize the selected subject into a writable
 reference directory; run all subsequent helpers from that directory. Do not
 extract or reconstruct the large web-knowledge Markdown, download the
 repository, or reinstall this Skill for an ordinary paper request. PyMuPDF is
-required; if the runtime lacks it, `python scripts/ensure_pymupdf.py` installs
-the bundled wheel offline (the preflight does this itself). Do not stop for a
-missing PyMuPDF before that helper reports install-failed. Run helpers without printing their source. Read the requested subject's
+required. If the runtime lacks it, run `python scripts/ensure_pymupdf.py`; on
+`missing-wheel`, ask the user to upload the PyMuPDF wheel linked in the README
+troubleshooting entry, then rerun it with `--wheel FILE` and continue. Run helpers without printing their source. Read the requested subject's
 guidance at the phase that uses it.
 
 Write new questions and solutions for this run. The selected subject's question
@@ -174,9 +176,10 @@ def bundled_wheels(root, *, required=False):
     """{archive path: (repository path, bytes, metadata)} for the offline PyMuPDF wheel.
 
     Hosted runtimes sometimes lack PyMuPDF and block package indexes;
-    scripts/ensure_pymupdf.py installs this wheel with pip --no-index. One abi3
+    scripts/ensure_pymupdf.py installs a wheel with pip --no-index. One abi3
     manylinux x86_64 wheel serves CPython 3.9+ on the Linux containers hosted
-    platforms use. Missing wheels only fail a release build.
+    platforms use. By default the wheel is a separate Release asset the user
+    uploads on demand; bundling is opt-in so the ZIP stays small.
     """
     folder = root / WHEEL_SOURCE.relative_to(ROOT)
     wheels = {}
@@ -198,11 +201,11 @@ def bundled_wheels(root, *, required=False):
                                            'python': 'cp39-abi3', 'platform': 'manylinux x86_64',
                                            'license': 'AGPL-3.0-only', 'source': 'https://pypi.org/project/PyMuPDF/'})
     if required and not wheels:
-        raise ValueError('No PyMuPDF wheel in vendor/wheels; fetch it per vendor/wheels/README.md before a release build')
+        raise ValueError('No PyMuPDF wheel in vendor/wheels; fetch it per vendor/wheels/README.md before bundling')
     return wheels
 
 
-def build(version, output, *, root=ROOT, require_wheels=False):
+def build(version, output, *, root=ROOT, bundle_wheels=False):
     if not isinstance(version, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,79}', version):
         raise ValueError('Use a short version identifier without whitespace or path separators')
     root = root.resolve()
@@ -239,7 +242,7 @@ def build(version, output, *, root=ROOT, require_wheels=False):
         records.append({'path': target, 'runtime_path': runtime_path,
                         'bytes': len(data), 'sha256': sha(data),
                         'source': relative, 'source_sha256': sha(data)})
-    wheels = bundled_wheels(root, required=require_wheels)
+    wheels = bundled_wheels(root, required=True) if bundle_wheels else {}
     for target, (relative, data, metadata) in sorted(wheels.items()):
         if target in members:
             raise ValueError('Duplicate hosted archive target: ' + target)
@@ -272,6 +275,7 @@ def build(version, output, *, root=ROOT, require_wheels=False):
                                     'bytes': sum(len(data) for _, _, data in previews.values())},
                 'bundled_wheels': {'count': len(wheels), 'bytes': sum(len(data) for _, data, _ in wheels.values()),
                                    'installer': 'scripts/ensure_pymupdf.py',
+                                   'note': 'The PyMuPDF wheel is normally a separate Release asset the user uploads when a runtime lacks PyMuPDF; see the README troubleshooting entry.',
                                    'files': [dict(metadata, path=target, sha256=sha(data))
                                              for target, (_, data, metadata) in sorted(wheels.items())]},
                 'file_count': len(records), 'files': sorted(records, key=lambda row: row['path'])}
@@ -297,10 +301,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--version', required=True)
     parser.add_argument('--output', required=True, type=Path)
-    parser.add_argument('--require-wheels', action='store_true',
-                        help='Fail unless the offline PyMuPDF wheel is present (release builds)')
+    parser.add_argument('--bundle-wheels', action='store_true',
+                        help='Also pack the vendor/wheels PyMuPDF wheel into the ZIP (adds ~24 MB); off by default')
     args = parser.parse_args()
-    print(json.dumps(build(args.version, args.output, require_wheels=args.require_wheels), ensure_ascii=False, indent=2))
+    print(json.dumps(build(args.version, args.output, bundle_wheels=args.bundle_wheels), ensure_ascii=False, indent=2))
     return 0
 
 
