@@ -104,7 +104,7 @@ SUBJECT_FLOORS: dict[str, dict[str, Any]] = {
         "short_stimulus_chars": 120,
         "max_short_part_2_groups": 2,
         "part_1_stimulus_median": 90,
-        "min_cross_discipline_groups": 3,
+        "min_cross_discipline_groups": 2,
     },
 }
 
@@ -255,7 +255,7 @@ def cross_discipline_errors(
     if qualifying < floor:
         errors.append(
             f"only {qualifying} cross-disciplinary 第貳部分 題組; require {floor} "
-            "(official ROC 111-115 range is 3-5 of 6)"
+            "(CEEC declares exactly 2 合科 題組 in every official ROC 111-115 paper; the maintainer's wider reading finds 3-5)"
         )
     return errors, qualifying
 

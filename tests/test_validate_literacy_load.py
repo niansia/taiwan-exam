@@ -215,11 +215,16 @@ def test_group_floors_do_not_exceed_measured_medians(subject):
 
 
 def test_cross_discipline_floor_matches_the_weakest_official_year():
+    """The floor is bound to CEEC's own 合科 count, not the wider maintainer reading."""
     module = load_module()
     record = json.loads((SHARED / "natural-mixed-group-cross-discipline.json").read_text(encoding="utf-8"))
-    weakest = min(year["cross_discipline_groups"] for year in record["years"])
-    assert module.SUBJECT_FLOORS["自然"]["min_cross_discipline_groups"] <= weakest
-    assert record["summary"]["release_floor"] == module.SUBJECT_FLOORS["自然"]["min_cross_discipline_groups"]
+    floor = module.SUBJECT_FLOORS["自然"]["min_cross_discipline_groups"]
+    for year in record["years"]:
+        declared = [g for g in year["groups"] if g.get("ceec_declared")]
+        assert len(declared) == year["ceec_declared_cross_discipline_groups"]
+        assert all(g["cross_discipline"] for g in declared)
+        assert floor <= year["ceec_declared_cross_discipline_groups"] <= year["cross_discipline_groups"]
+    assert record["summary"]["release_floor"] == floor
 
 
 def writing_paper(task_1_chars: int, task_2_chars: int, subparts: int = 2) -> dict:

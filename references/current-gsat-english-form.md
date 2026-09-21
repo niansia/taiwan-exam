@@ -23,16 +23,16 @@ The official 115-onward specification describes group passages of roughly 180–
 
 ### Empirical passage-length bands
 
-The broad 180–400-word specification is not a license to put every passage near its lower edge. Direct counts from the official 111 and 113–115 papers, cross-checked against CEEC's published 112 paper analysis, produce the following working bands for a current-form full paper. Count passage prose only—not directions, group labels, questions, or the printed option bank.
+The broad 180–400-word specification is not a license to put every passage near its lower edge. Direct counts from all five official 111–115 papers, re-measured on 2026-09-21 with the same prose-only rule the validator applies (cloze 179–233, text completion 269–313, discourse structure 224–305, reading 291–376, mixed stimulus 394–473 words), produce the following working bands for a current-form full paper. Each band's lower edge sits below the shortest official passage and its upper edge above the longest, so no official passage is rejected; the earlier 250/320/460 edges had excluded the 111 discourse passage, three 111–112 reading passages and the 112 mixed stimulus. Count passage prose only—not directions, group labels, questions, or the printed option bank.
 
 | Current-form group | Release band |
 |---|---:|
 | cloze 11–15 | 175–235 words |
 | cloze 16–20 | 175–235 words |
 | text completion 21–30 | 265–325 words |
-| discourse structure 31–34 | 250–315 words |
-| each reading passage (35–38, 39–42, 43–46) | 320–390 words |
-| mixed stimulus 47–50 | 340–460 words |
+| discourse structure 31–34 | 220–315 words |
+| each reading passage (35–38, 39–42, 43–46) | 285–390 words |
+| mixed stimulus 47–50 | 340–480 words |
 
 ### Whole-booklet word budget
 

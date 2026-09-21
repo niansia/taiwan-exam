@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.21.1
+# Taiwan Exam Web Knowledge v2026.09.21.2
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 83116,
-    "sha256": "898ee6ae5a59d634cb06a53231edddf9c23ce806bebdcfae94274a62238e8812",
-    "embedded_bytes": 83116,
-    "embedded_sha256": "898ee6ae5a59d634cb06a53231edddf9c23ce806bebdcfae94274a62238e8812"
+    "bytes": 83190,
+    "sha256": "743a1afe09eacf3694b0453ac27f63683f2713f8d798034bb66fa8b144327c80",
+    "embedded_bytes": 83190,
+    "embedded_sha256": "743a1afe09eacf3694b0453ac27f63683f2713f8d798034bb66fa8b144327c80"
   },
   {
     "path": "core/taxonomy.json",
@@ -162,10 +162,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json",
-    "bytes": 5680,
-    "sha256": "36da45ffbb7ec69627bd994ba5e41930f91a8111ce4f65ceace46d648eb6a426",
-    "embedded_bytes": 5680,
-    "embedded_sha256": "36da45ffbb7ec69627bd994ba5e41930f91a8111ce4f65ceace46d648eb6a426"
+    "bytes": 8549,
+    "sha256": "fd433e78bc6a6d3ff8fbf1c824ab2323366bd6f1b621369012a35ddce355afbf",
+    "embedded_bytes": 8549,
+    "embedded_sha256": "fd433e78bc6a6d3ff8fbf1c824ab2323366bd6f1b621369012a35ddce355afbf"
   },
   {
     "path": "exam_packs/學測/source-pack-manifest.json",
@@ -477,24 +477,24 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-form-literacy-load.md",
-    "bytes": 11044,
-    "sha256": "762dc1e6d3900372580a6dd4b2c07b9f0ef47a21275b34e92bea6a99fd638e0c",
-    "embedded_bytes": 11044,
-    "embedded_sha256": "762dc1e6d3900372580a6dd4b2c07b9f0ef47a21275b34e92bea6a99fd638e0c"
+    "bytes": 11669,
+    "sha256": "3e57ce67e65c29e39e9343a80cd8cc554f0f18e3b910547fbc23197c2b71285b",
+    "embedded_bytes": 11669,
+    "embedded_sha256": "3e57ce67e65c29e39e9343a80cd8cc554f0f18e3b910547fbc23197c2b71285b"
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 30546,
-    "sha256": "437386c7fd9f63494bdb081eb5f9b94119001df8a5ad9bee133acbb01375ab1a",
-    "embedded_bytes": 30546,
-    "embedded_sha256": "437386c7fd9f63494bdb081eb5f9b94119001df8a5ad9bee133acbb01375ab1a"
+    "bytes": 30630,
+    "sha256": "6651e9631ad9fb9b1d2ba4cce9e0a972ef9e1a5e1ad6a9a602496439aeacf92e",
+    "embedded_bytes": 30630,
+    "embedded_sha256": "6651e9631ad9fb9b1d2ba4cce9e0a972ef9e1a5e1ad6a9a602496439aeacf92e"
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 23146,
-    "sha256": "7aba34465b53c1e57663583120e4e4dcba2fd9fd8ac2d3f5ba32cbd053ec739a",
-    "embedded_bytes": 23146,
-    "embedded_sha256": "7aba34465b53c1e57663583120e4e4dcba2fd9fd8ac2d3f5ba32cbd053ec739a"
+    "bytes": 23559,
+    "sha256": "6c499b4624144db2f3dfe4782474c8522bb9a3b7bd21d48766e1daca87797f17",
+    "embedded_bytes": 23559,
+    "embedded_sha256": "6c499b4624144db2f3dfe4782474c8522bb9a3b7bd21d48766e1daca87797f17"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -925,10 +925,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_literacy_load.py",
-    "bytes": 18428,
-    "sha256": "f295008cac02f7663fbe679dc2c5c72f481554b2a427058121ed69870f1cd061",
-    "embedded_bytes": 18428,
-    "embedded_sha256": "f295008cac02f7663fbe679dc2c5c72f481554b2a427058121ed69870f1cd061"
+    "bytes": 18505,
+    "sha256": "2f994c582ec82cffeaa324a210f99506b5c84ced89e9ae196f05682868b7a13a",
+    "embedded_bytes": 18505,
+    "embedded_sha256": "2f994c582ec82cffeaa324a210f99506b5c84ced89e9ae196f05682868b7a13a"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -1411,7 +1411,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
 - **Response-format integrity:** if the same-role official page uses a bordered inference or completion table, encode its caption, heading, row meanings, slots and dimensions as structured student-facing content and bind it into the content hash. A semantic table may not be replaced by generic horizontal lines, and a table may not be invented solely to occupy white space.
 - **Substantive density:** compare complete printed passages, item blocks, figures, and occupied page roles at the verified typeface role, apparent size, line pitch, and margins. In hosted mode, a metric-compatible Traditional-Chinese fallback permitted by `web-platform-use.md` may satisfy the role even when its internal family name differs. Passing page count or container height does not excuse short materials, oversized gaps, a sparse terminal page, repeated pseudo-tables, or decorative figures. Repair content and page assignment before release; never stretch, shrink, or pad.
 - **Difficulty and scope:** reject definition lookup, one-clue recognition, one-step substitution, topical-name decoration, peripheral syllabus trivia, and options where only one is remotely plausible. Every stated difficulty label must be supported by the actual shortest solution route. Social Studies and Natural Science additionally require core/high-frequency curriculum anchors and at least two linked evidence operations for every scored item, with medium/hard items normally requiring three. English difficulty must come from in-scope semantic/discourse competition, not rare vocabulary. For 國綜、國寫、英文、社會 and 自然, apply the construction floors in [references/current-form-literacy-load.md](references/current-form-literacy-load.md) before drafting; they are the non-mathematics equivalent of the mathematics difficulty-design gate and are measured from official ROC 111–115 papers.
-- **Reading load and shared stimulus:** 國綜、國寫、英文、社會 and 自然 are 素養 papers whose items mostly sit in 題組 that share one substantial printed stimulus, **including inside 第壹部分**. Assembling a paper from standalone one- or two-sentence scenarios is a structural failure, not a style choice: it is the direct cause of both the short-paper and easy-paper defects. Meet the per-subject group counts, group-stimulus lengths and whole-paper substantive-text floors in `references/current-form-literacy-load.md`, measured against `exam_packs/學測/shared-data/current-form-literacy-envelope.json`. A 自然 paper must additionally place at least three of its six 第貳部分 題組 genuinely across 物理／化學／生物／地科, recorded in `metadata.natural_mixed_group_designs`; a second discipline that can be deleted without changing the solution does not count. These are floors taken below the weakest official year, never targets, and never a reason to pad prose, answer space or figures.
+- **Reading load and shared stimulus:** 國綜、國寫、英文、社會 and 自然 are 素養 papers whose items mostly sit in 題組 that share one substantial printed stimulus, **including inside 第壹部分**. Assembling a paper from standalone one- or two-sentence scenarios is a structural failure, not a style choice: it is the direct cause of both the short-paper and easy-paper defects. Meet the per-subject group counts, group-stimulus lengths and whole-paper substantive-text floors in `references/current-form-literacy-load.md`, measured against `exam_packs/學測/shared-data/current-form-literacy-envelope.json`. A 自然 paper must additionally place at least two of its six 第貳部分 題組 genuinely across 物理／化學／生物／地科 (CEEC declares exactly two 合科 groups in every official 111–115 paper), recorded in `metadata.natural_mixed_group_designs`; a second discipline that can be deleted without changing the solution does not count. These are floors taken below the weakest official year, never targets, and never a reason to pad prose, answer space or figures.
 - **Post-render evidence:** run all content gates again, rasterize every student page, and compare the cover, first content page, every section transition, every page containing a large figure/table, and the final two content pages at readable scale against the matching official page roles. Any renderer change invalidates the earlier visual pass until both student and explanation PDFs are regenerated and rechecked.
 
 ## Required generation sequence
@@ -12565,73 +12565,97 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       "mixed_groups": 6,
       "cross_discipline_groups": 3,
       "groups": [
-        {"group": "37-42", "topic": "黑碳定年與碳質分離", "disciplines": ["化學", "地科", "生物"], "cross_discipline": true},
-        {"group": "43-45", "topic": "海階、海蝕凹壁與穿孔貝", "disciplines": ["地科", "生物"], "cross_discipline": true},
-        {"group": "46-48", "topic": "SARS-CoV-2 與疫苗", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "49-54", "topic": "都卜勒血流儀與飲酒後血流速", "disciplines": ["物理", "生物"], "cross_discipline": true},
-        {"group": "55-57", "topic": "飲用水六價鉻移除", "disciplines": ["化學"], "cross_discipline": false},
-        {"group": "58-60", "topic": "量子單元與電磁天平質量基準", "disciplines": ["物理"], "cross_discipline": false}
-      ]
+        {"group": "37-42", "topic": "黑碳定年與碳質分離", "disciplines": ["化學", "地科", "生物"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "化學/地球科學合科"},
+        {"group": "43-45", "topic": "海階、海蝕凹壁與穿孔貝", "disciplines": ["地科", "生物"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "46-48", "topic": "SARS-CoV-2 與疫苗", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "49-54", "topic": "都卜勒血流儀與飲酒後血流速", "disciplines": ["物理", "生物"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "物理/生物合科"},
+        {"group": "55-57", "topic": "飲用水六價鉻移除", "disciplines": ["化學"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "58-60", "topic": "量子單元與電磁天平質量基準", "disciplines": ["物理"], "cross_discipline": false, "ceec_declared": false}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&qperoid=0M096363415298462880&sid=0M101535003584547623"
     },
     {
       "roc_year": 112,
       "mixed_groups": 6,
       "cross_discipline_groups": 5,
       "groups": [
-        {"group": "37-40", "topic": "燃煤、水力發電與二氧化碳減排", "disciplines": ["地科", "物理", "化學"], "cross_discipline": true},
-        {"group": "41-44", "topic": "火星與地球的居住條件比較", "disciplines": ["地科", "物理"], "cross_discipline": true},
-        {"group": "45-47", "topic": "乳糖發酵與酪蛋白凝聚", "disciplines": ["生物", "化學"], "cross_discipline": true},
-        {"group": "48-50", "topic": "孟德爾、摩根與演化理論", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "51-54", "topic": "岩心中的二氧化碳與鉛紀錄", "disciplines": ["化學", "地科"], "cross_discipline": true},
-        {"group": "55-60", "topic": "抗藥性細菌與點擊反應", "disciplines": ["化學", "生物"], "cross_discipline": true}
-      ]
+        {"group": "37-40", "topic": "燃煤、水力發電與二氧化碳減排", "disciplines": ["地科", "物理", "化學"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "41-44", "topic": "火星與地球的居住條件比較", "disciplines": ["地科", "物理"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "45-47", "topic": "乳糖發酵與酪蛋白凝聚", "disciplines": ["生物", "化學"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "48-50", "topic": "孟德爾、摩根與演化理論", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "51-54", "topic": "岩心中的二氧化碳與鉛紀錄", "disciplines": ["化學", "地科"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "物理/地球科學合科"},
+        {"group": "55-60", "topic": "抗藥性細菌與點擊反應", "disciplines": ["化學", "生物"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "化學/生物合科"}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&sid=0N107320375439312727"
     },
     {
       "roc_year": 113,
       "mixed_groups": 6,
       "cross_discipline_groups": 3,
       "groups": [
-        {"group": "37-39", "topic": "肉雞選育與飼料轉化率", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "40-43", "topic": "捕蠅草捕器的膨壓機制", "disciplines": ["生物", "物理"], "cross_discipline": true},
-        {"group": "44-46", "topic": "線圈迴路與磁鐵棒", "disciplines": ["物理"], "cross_discipline": false},
-        {"group": "47-49", "topic": "二氧化碳電化學還原", "disciplines": ["化學"], "cross_discipline": false},
-        {"group": "50-53", "topic": "縞狀鐵礦床的形成模型", "disciplines": ["地科", "化學"], "cross_discipline": true},
-        {"group": "54-56", "topic": "多波段天文觀測", "disciplines": ["地科", "物理"], "cross_discipline": true}
-      ]
+        {"group": "37-39", "topic": "肉雞選育與飼料轉化率", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "40-43", "topic": "捕蠅草捕器的膨壓機制", "disciplines": ["生物", "物理"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "生物/物理合科"},
+        {"group": "44-46", "topic": "線圈迴路與磁鐵棒", "disciplines": ["物理"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "47-49", "topic": "二氧化碳電化學還原", "disciplines": ["化學"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "50-53", "topic": "縞狀鐵礦床的形成模型", "disciplines": ["地科", "化學"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "化學/地球科學合科"},
+        {"group": "54-56", "topic": "多波段天文觀測", "disciplines": ["地科", "物理"], "cross_discipline": true, "ceec_declared": false}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&sid=0O106481975806899778"
     },
     {
       "roc_year": 114,
       "mixed_groups": 6,
       "cross_discipline_groups": 4,
       "groups": [
-        {"group": "37-39", "topic": "虱目魚耐寒與調鈣蛋白", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "40-43", "topic": "海洋水色與基礎生產力", "disciplines": ["地科", "生物"], "cross_discipline": true},
-        {"group": "44-46", "topic": "乾濕球溫度計與颱風警報", "disciplines": ["地科", "物理"], "cross_discipline": true},
-        {"group": "47-49", "topic": "類神經網路與神經細胞膜傳訊", "disciplines": ["物理", "生物"], "cross_discipline": true},
-        {"group": "50-54", "topic": "二氧化鈦光觸媒的能帶與自由基", "disciplines": ["化學", "物理"], "cross_discipline": true},
-        {"group": "55-57", "topic": "烷類莫耳燃燒熱", "disciplines": ["化學"], "cross_discipline": false}
-      ]
+        {"group": "37-39", "topic": "虱目魚耐寒與調鈣蛋白", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "40-43", "topic": "海洋水色與基礎生產力", "disciplines": ["地科", "生物"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "生物/地球科學合科"},
+        {"group": "44-46", "topic": "乾濕球溫度計與颱風警報", "disciplines": ["地科", "物理"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "47-49", "topic": "類神經網路與神經細胞膜傳訊", "disciplines": ["物理", "生物"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "50-54", "topic": "二氧化鈦光觸媒的能帶與自由基", "disciplines": ["化學", "物理"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "物理/化學合科"},
+        {"group": "55-57", "topic": "烷類莫耳燃燒熱", "disciplines": ["化學"], "cross_discipline": false, "ceec_declared": false}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&qperoid=0P099488587163884959&sid=0P118411794814600583"
     },
     {
       "roc_year": 115,
       "mixed_groups": 6,
       "cross_discipline_groups": 4,
       "groups": [
-        {"group": "37-39", "topic": "巴西龜溫度決定性別與親緣分析", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "40-43", "topic": "野生菸草花蜜成分與蜂鳥取食", "disciplines": ["生物", "化學"], "cross_discipline": true},
-        {"group": "44-46", "topic": "硫化鋅量子點合成", "disciplines": ["化學", "物理"], "cross_discipline": true},
-        {"group": "47-49", "topic": "汞原子能階與紫外光微影", "disciplines": ["物理"], "cross_discipline": false},
-        {"group": "50-53", "topic": "港口潮汐觀測與潮位預報", "disciplines": ["地科", "物理"], "cross_discipline": true},
-        {"group": "54-56", "topic": "隕石放射性同位素定年", "disciplines": ["地科", "化學"], "cross_discipline": true}
-      ]
+        {"group": "37-39", "topic": "巴西龜溫度決定性別與親緣分析", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "40-43", "topic": "野生菸草花蜜成分與蜂鳥取食", "disciplines": ["生物", "化學"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "生物/化學合科"},
+        {"group": "44-46", "topic": "硫化鋅量子點合成", "disciplines": ["化學", "物理"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "47-49", "topic": "汞原子能階與紫外光微影", "disciplines": ["物理"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "50-53", "topic": "港口潮汐觀測與潮位預報", "disciplines": ["地科", "物理"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "地球科學/物理合科"},
+        {"group": "54-56", "topic": "隕石放射性同位素定年", "disciplines": ["地科", "化學"], "cross_discipline": true, "ceec_declared": false}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&qunit=0Q105367191322447606&sid=0Q111421665148625302"
     }
   ],
   "summary": {
     "mixed_groups_per_paper": 6,
-    "cross_discipline_groups_per_paper": {"min": 3, "median": 4, "max": 5},
+    "cross_discipline_groups_per_paper": {
+      "min": 3,
+      "median": 4,
+      "max": 5
+    },
     "cross_discipline_share": 0.633,
-    "release_floor": 3,
-    "release_floor_note": "At least three of the six 第貳部分 題組 must be genuinely cross-disciplinary, matching the weakest observed official year. A second discipline that can be deleted without changing the solution does not count."
+    "release_floor": 2,
+    "release_floor_note": "At least two of the six 第貳部分 題組 must be genuinely cross-disciplinary: two is the number CEEC itself declares as 合科 in every ROC 111-115 paper, and the validator's removability test matches that definition. A second discipline that can be deleted without changing the solution does not count. The maintainer's wider reading (3-5 per paper) describes the observed range, not the floor.",
+    "ceec_declared_cross_discipline_groups_per_paper": {
+      "min": 2,
+      "median": 2,
+      "max": 2
+    }
+  },
+  "ceec_cross_check": {
+    "checked_at": "2026-09-21",
+    "source": "CEEC 學科能力測驗試題特色－【自然】 pages for ROC 111-115, 表1 (試題結構)",
+    "finding": "Every official paper declares exactly two 合科 題組 in 第貳部分. All ten are among the groups this record already marks cross_discipline; the remaining flagged groups are the maintainer's wider reading (a second discipline is load-bearing but not co-credited by CEEC)."
   }
 }
 </canonical-source>
@@ -55489,11 +55513,18 @@ supplies, it is decorative and must be rewritten or relabelled.
 
 `exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json` records
 the maintainer's reading of all thirty official 第貳部分 題組 in ROC 111–115.
-Three to five of the six groups are genuinely cross-disciplinary every year
-(median 4, share 0.63).
+CEEC's own 試題特色 tables declare exactly **two** 合科 題組 in every one of
+those five papers (111: 37–42, 49–54; 112: 51–54, 55–60; 113: 40–43, 50–53;
+114: 40–43, 50–54; 115: 40–43, 50–53). The maintainer's wider reading, which
+also counts groups where a second discipline is load-bearing without being
+co-credited, finds three to five (median 4, share 0.63).
 
-At least **three of the six** 第貳部分 題組 must require concepts from two or more
-of 物理／化學／生物／地科 to reach the scored answers. Declare each such group in
+At least **two of the six** 第貳部分 題組 must require concepts from two or more
+of 物理／化學／生物／地科 to reach the scored answers. Two is the CEEC-declared
+count in every official year, and the validator's test — a second discipline
+that cannot be deleted without changing the solution — is the standard CEEC
+uses to label a group 合科, so a floor of three would have rejected every
+official paper under that definition. Declare each such group in
 `metadata.natural_mixed_group_designs`, the record `validate_chinese_natural_scope.py`
 already defines: `question_numbers`, `required_domains` (two or more), a concrete
 `evidence_bridge`, plus `second_discipline_removable: false`. Only
@@ -55531,7 +55562,7 @@ The numbers are recorded here because they show what collapse looks like:
 | 第壹部分 題組 | 3 – 6 | 0 |
 | 第貳部分 stimulus median | 188 – 365 | 77 |
 | Groups under 120 chars | at most 2 of 6 | 6 of 6 |
-| Cross-disciplinary mixed groups | 3 – 5 of 6 | 0 of 6 |
+| Cross-disciplinary mixed groups | 2 of 6 declared by CEEC; 3 – 5 in the wider reading | 0 of 6 |
 
 Its items were internally correct. They were short, single-discipline, and
 solvable by one substitution — a dilution calculation, a titration equivalence
@@ -55697,8 +55728,9 @@ stimulus median of at least **90**; and at least **10,687 characters** of item
 content (stimuli, stems and options, excluding the cover and 說明 blocks). ROC 113 is the binding case at a 188-character
 median with two short groups.
 
-At least **three of the six 第貳部分 題組** must genuinely require two or more of
-物理／化學／生物／地科. Official years run 3–5 of 6 (median 4); the per-group
+At least **two of the six 第貳部分 題組** must genuinely require two or more of
+物理／化學／生物／地科. CEEC declares exactly 2 合科 groups in every official
+111–115 paper; the maintainer's wider reading finds 3–5 (median 4); the per-group
 classification is recorded in
 `exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json`. Declare
 each such group in `metadata.natural_mixed_group_designs` using the existing
@@ -55791,16 +55823,16 @@ The official 115-onward specification describes group passages of roughly 180–
 
 ### Empirical passage-length bands
 
-The broad 180–400-word specification is not a license to put every passage near its lower edge. Direct counts from the official 111 and 113–115 papers, cross-checked against CEEC's published 112 paper analysis, produce the following working bands for a current-form full paper. Count passage prose only—not directions, group labels, questions, or the printed option bank.
+The broad 180–400-word specification is not a license to put every passage near its lower edge. Direct counts from all five official 111–115 papers, re-measured on 2026-09-21 with the same prose-only rule the validator applies (cloze 179–233, text completion 269–313, discourse structure 224–305, reading 291–376, mixed stimulus 394–473 words), produce the following working bands for a current-form full paper. Each band's lower edge sits below the shortest official passage and its upper edge above the longest, so no official passage is rejected; the earlier 250/320/460 edges had excluded the 111 discourse passage, three 111–112 reading passages and the 112 mixed stimulus. Count passage prose only—not directions, group labels, questions, or the printed option bank.
 
 | Current-form group | Release band |
 |---|---:|
 | cloze 11–15 | 175–235 words |
 | cloze 16–20 | 175–235 words |
 | text completion 21–30 | 265–325 words |
-| discourse structure 31–34 | 250–315 words |
-| each reading passage (35–38, 39–42, 43–46) | 320–390 words |
-| mixed stimulus 47–50 | 340–460 words |
+| discourse structure 31–34 | 220–315 words |
+| each reading passage (35–38, 39–42, 43–46) | 285–390 words |
+| mixed stimulus 47–50 | 340–480 words |
 
 ### Whole-booklet word budget
 
@@ -68229,7 +68261,7 @@ SUBJECT_FLOORS: dict[str, dict[str, Any]] = {
         "short_stimulus_chars": 120,
         "max_short_part_2_groups": 2,
         "part_1_stimulus_median": 90,
-        "min_cross_discipline_groups": 3,
+        "min_cross_discipline_groups": 2,
     },
 }
 
@@ -68380,7 +68412,7 @@ def cross_discipline_errors(
     if qualifying < floor:
         errors.append(
             f"only {qualifying} cross-disciplinary 第貳部分 題組; require {floor} "
-            "(official ROC 111-115 range is 3-5 of 6)"
+            "(CEEC declares exactly 2 合科 題組 in every official ROC 111-115 paper; the maintainer's wider reading finds 3-5)"
         )
     return errors, qualifying
 
