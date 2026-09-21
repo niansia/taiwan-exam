@@ -657,6 +657,8 @@ def option_columns(question, subject):
     if question.get('option_layout') in OPTION_LAYOUT_COLUMNS:
         return OPTION_LAYOUT_COLUMNS[question['option_layout']]
     options = question.get('options') or []
+    if subject == '國綜':
+        return 1  # every official 國綜 option prints on its own line
     longest = max((len(str(o.get('text', ''))) for o in options), default=0)
     if longest > 52:
         return 1

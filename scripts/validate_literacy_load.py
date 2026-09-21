@@ -260,15 +260,11 @@ def cross_discipline_errors(
     return errors, qualifying
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("exam", type=Path)
-    parser.add_argument("--subject", required=True, choices=tuple(SUBJECT_FLOORS))
-    parser.add_argument("--report", type=Path)
-    args = parser.parse_args()
-
-    exam = json.loads(args.exam.read_text(encoding="utf-8-sig"))
-    floors = SUBJECT_FLOORS[args.subject]
+def validate(exam: dict[str, Any], subject: str, exam_path: str = "") -> dict[str, Any]:
+    """Reading-load and shared-stimulus floors for one authored exam record."""
+    if subject not in SUBJECT_FLOORS:
+        raise ValueError("no literacy floor for subject " + str(subject))
+    floors = SUBJECT_FLOORS[subject]
     questions = [q for q in exam.get("questions") or [] if isinstance(q, dict)]
     errors: list[str] = []
 
@@ -368,7 +364,7 @@ def main() -> int:
                         f"at most {floors['max_short_stimulus_ratio']:.0%} may"
                     )
 
-    if args.subject == "國寫":
+    if subject == "國寫":
         # Each 大題 supplies one reading packet that its subparts share, so count
         # distinct packets. Taking the two largest questions instead would let one
         # task's packet satisfy both floors.
@@ -398,7 +394,7 @@ def main() -> int:
                     f"{floors['min_task_2_chars']}"
                 )
 
-    if args.subject == "自然":
+    if subject == "自然":
         cross_errors, qualifying = cross_discipline_errors(
             exam, groups, floors["min_cross_discipline_groups"]
         )
@@ -407,8 +403,8 @@ def main() -> int:
 
     report = {
         "status": "pass" if not errors else "fail",
-        "subject": args.subject,
-        "exam": str(args.exam),
+        "subject": subject,
+        "exam": exam_path,
         "reference": {
             "basis": "official 學測 ROC 111-115",
             "envelope": ENVELOPE.name,
@@ -424,6 +420,17 @@ def main() -> int:
             "pad prose or answer space to clear a floor."
         ),
     }
+    return report
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exam", type=Path)
+    parser.add_argument("--subject", required=True, choices=tuple(SUBJECT_FLOORS))
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam.read_text(encoding="utf-8-sig"))
+    report = validate(exam, args.subject, str(args.exam))
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

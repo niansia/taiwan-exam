@@ -21,6 +21,7 @@ from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
 from validate_current_context import validate as current_context_errors
 from hosted_item_triage import crop_required_ids, part_reviewed_on_page
+from hosted_subject_gates import subject_gate_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
@@ -73,6 +74,10 @@ def check(state_path: Path) -> dict:
     exam = json.loads(exam_path.read_text(encoding='utf-8-sig'))
     errors.extend(math_context_errors(exam))
     errors.extend(current_context_errors(exam))
+    # Every subject's structural validators, the same set the local release
+    # gate runs: headings, option layout, passage lengths, reasoning contracts,
+    # scope codes, discipline balance, literacy floors and explanation sanity.
+    errors.extend(subject_gate_errors(exam, root=root))
     # Execute the embedded checks on actual authored content. A passing review
     # claiming that these ran is not an equivalent execution path.
     errors.extend('difficulty_balance: ' + e for e in difficulty_balance(exam, root)['errors'])

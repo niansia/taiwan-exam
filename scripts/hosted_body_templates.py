@@ -295,6 +295,10 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     else:
         # An explicit stem width keeps option rows full width when the stem is
         # empty (English cloze option rows print only their number).
+        # The 24 pt number column holds "12." or "（一）"; a longer label such
+        # as 英文作文 would stack one glyph per line, so it leads the text instead.
+        if len(html.unescape(re.sub('<[^>]+>','',label)))>3:
+            stem=f'<b>{label}</b>　'+stem;label=''
         result=f'<table><tr><td class="number">{label}</td><td style="width:{width-28:g}pt">{stem}</td></tr></table>'
     return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
 

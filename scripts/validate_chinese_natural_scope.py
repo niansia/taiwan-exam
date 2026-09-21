@@ -103,14 +103,14 @@ def paper_innovation_errors(metadata: dict, expected_subject: str) -> list[str]:
     return errors
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("exam", type=Path)
-    parser.add_argument("--science-spec", type=Path, default=ROOT / "tmp" / "pdfs" / "gsat-science-spec.pdf")
-    parser.add_argument("--report", type=Path)
-    args = parser.parse_args()
-    exam = json.loads(args.exam.read_text(encoding="utf-8-sig"))
-    subject = (exam.get("metadata") or {}).get("paper_subject")
+def validate(exam: dict, science_spec: Path | None = None) -> dict:
+    """Structural scope/innovation/reasoning report for one 國綜 or 自然 exam.
+
+    science_spec is the CEEC 自然 examination specification (PDF or text). When
+    it is unavailable, as on a hosted surface, code membership is not checked
+    and the report says so; every other rule still applies.
+    """
+    subject = (exam.get("metadata") or {}).get("paper_subject") or (exam.get("metadata") or {}).get("subject")
     questions = exam.get("questions") or []
     errors: list[str] = []
     warnings: list[str] = []
@@ -175,9 +175,13 @@ def main() -> int:
             if any(value and count > 1 for value, count in Counter(nearest_differences).items()):
                 errors.append("國綜 subject innovation audits reuse identical nearest-neighbor differences")
     elif subject == "自然":
-        source = pdf_text(args.science_spec)
-        valid_content = set(CONTENT_CODE.findall(source))
-        valid_performance = set(PERFORMANCE_CODE.findall(source))
+        if science_spec is not None and Path(science_spec).is_file():
+            source = pdf_text(Path(science_spec))
+            valid_content = set(CONTENT_CODE.findall(source))
+            valid_performance = set(PERFORMANCE_CODE.findall(source))
+        else:
+            valid_content = valid_performance = None
+            warnings.append("official 自然 specification not supplied: code membership unchecked, code form still required")
         normalized_domains: dict[int, str] = {}
         for q in questions:
             spec = q.get("item_spec") or {}
@@ -187,7 +191,10 @@ def main() -> int:
                 errors.append(f"Q{q.get('number')}: no curriculum code")
                 continue
             for code in codes:
-                if code not in valid_content and code not in valid_performance:
+                if valid_content is None:
+                    if not (CONTENT_CODE.fullmatch(str(code)) or PERFORMANCE_CODE.fullmatch(str(code))):
+                        errors.append(f"Q{q.get('number')}: code is not a 108 自然 learning-content/performance code: {code}")
+                elif code not in valid_content and code not in valid_performance:
                     errors.append(f"Q{q.get('number')}: code not in official specification: {code}")
                 used_codes[code] += 1
             domain = str(spec.get("domain") or "")
@@ -410,8 +417,20 @@ def main() -> int:
         "curriculum_code_counts": dict(sorted(used_codes.items())),
         "inquiry_item_count": inquiry if subject == "自然" else None,
         "errors": errors, "warnings": warnings,
-        "scope_source": str(args.science_spec) if subject == "自然" else "CEEC 國文考科考試說明 A1-A6/B1-B5",
+        "scope_source": (str(science_spec) if science_spec else "code form only; specification not supplied")
+        if subject == "自然" else "CEEC 國文考科考試說明 A1-A6/B1-B5",
     }
+    return report
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exam", type=Path)
+    parser.add_argument("--science-spec", type=Path, default=ROOT / "tmp" / "pdfs" / "gsat-science-spec.pdf")
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam.read_text(encoding="utf-8-sig"))
+    report = validate(exam, args.science_spec)
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

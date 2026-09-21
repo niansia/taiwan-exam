@@ -10,6 +10,13 @@ from pathlib import Path
 from typing import Any
 
 
+OFFICIAL_HEADINGS = (
+    "第壹部分、選擇題（占62分）", "一、詞彙題（占10分）", "二、綜合測驗（占10分）", "三、文意選填（占10分）",
+    "四、篇章結構（占8分）", "五、閱讀測驗（占24分）", "第貳部分、混合題（占10分）",
+    "第參部分、非選擇題（占28分）", "一、中譯英（占8分）", "二、英文作文（占20分）",
+)
+
+
 def validate_exam(exam: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     meta = exam.get("metadata") or {}
@@ -24,7 +31,23 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
     if (meta.get("section_header_previews") or {}).get("2") != "cloze":
         errors.append("115英文第2頁末須預置綜合測驗標題與說明")
 
+    # The printed part/section headings of every official 111-115 paper, in order.
+    printed_titles = "".join(str(section.get("title") or "") for section in exam.get("sections") or [])
+    printed_titles = re.sub(r"\s+", "", printed_titles).replace("(", "（").replace(")", "）")
+    cursor = 0
+    for heading in OFFICIAL_HEADINGS:
+        index = printed_titles.find(heading, cursor)
+        if index < 0:
+            errors.append(f"英文題本須依官方順序印出標題「{heading}」（111–115 每年皆同）")
+        else:
+            cursor = index + len(heading)
+
     by_number = {int(q.get("number")): q for q in exam.get("questions") or [] if isinstance(q.get("number"), int)}
+    for number in range(1, 47):
+        question = by_number.get(number) or {}
+        labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
+        if labels and labels != list("ABCD")[: len(labels)] and not (number in range(31, 35) and labels == list("ABCDE")):
+            errors.append(f"英文第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}")
     for number in range(1, 21):
         if (by_number.get(number) or {}).get("option_layout") != "row-4":
             errors.append(f"英文第{number}題四個短選項須使用同列row-4版型")
@@ -102,6 +125,10 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append("英文作文題幹的英文指令過多，作答說明應以中文為主")
         if "120" not in prompt or "單詞" not in prompt or "英文" not in prompt:
             errors.append("英文作文題幹須以中文明示英文作文與至少120個單詞")
+        if "提示" not in prompt or "第一段" not in prompt or "第二段" not in prompt:
+            errors.append("英文作文題幹須依官方格式以中文寫出「提示：…」並指明第一段與第二段的任務")
+        if re.match(r"\s*[A-Za-z]", prompt):
+            errors.append("英文作文題幹以英文句子開頭；官方提示全文為中文，只有主題詞可附英文")
         spec = composition.get("item_spec") if isinstance(composition.get("item_spec"), dict) else {}
         contract = spec.get("composition_contract") if isinstance(spec.get("composition_contract"), dict) else {}
         if contract.get("directions_language") != "zh-TW":
@@ -128,6 +155,14 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         visible = f'{question.get("group_stimulus") or ""}\n{question.get("prompt") or ""}'
         if "照片：" in visible or "Photo:" in visible:
             errors.append(f"英文第{question.get('number')}題把照片權利資訊印入學生卷")
+    translations = [q for q in exam.get("questions") or []
+                    if q.get("section_id") == "translation" or "中譯英" in str(sections.get(q.get("section_id"), {}).get("title") or "")]
+    for index, question in enumerate(translations, 1):
+        label = re.sub(r"\s+", "", str(question.get("number_display") or question.get("answer_label") or ""))
+        if label not in {f"{index}.", str(index), f"{index}．"}:
+            errors.append(f"中譯英第{index}句須印為「{index}.」，不是「{label or '（無）'}」；「中譯英1」不是官方題號")
+        if re.search(r"[A-Za-z]{3,}", str(question.get("prompt") or "")):
+            errors.append(f"中譯英第{index}句題幹須為中文句子")
     return errors
 
 
