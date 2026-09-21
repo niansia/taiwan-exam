@@ -11,7 +11,7 @@
 
 同時 `append_items.py` 允許純文字題一批最多六題（含圖題維持四題），減少來回；build／proof 回傳仍只列待審項目。每一頁仍逐頁開圖，每一題仍被完整讀過。
 
-新 ZIP（SHA-256 `7b85a4822dd96190067460634ba321229010b47706ad3b8b5ac5fd51fdee5d0c`，9,319,115 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.21.6 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.21.6/taiwan-exam-hosted-2026.09.21.6.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.21.6) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `7b85a4822dd96190067460634ba321229010b47706ad3b8b5ac5fd51fdee5d0c`，9,319,115 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.21.6 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.21.6/taiwan-exam-hosted-2026.09.21.6.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.21.6) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.21.5：五科時事門檻改為預設，出卷時間修正
 
