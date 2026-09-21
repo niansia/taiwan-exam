@@ -230,6 +230,18 @@ def _chinese_paper():
                 "item_spec": {
                     "curriculum_codes": [codes[(number - 1) % len(codes)]],
                     "subject_innovation_audit": _innovation("國綜", number),
+                    "difficulty_design": {"band": "中"},
+                    "chinese_reasoning_contract": {
+                        "recall_or_definition_only": False,
+                        "single_cue_recognition_only": False,
+                        "reasoning_operations": [
+                            "locate the governing clause",
+                            "compare two speakers' stances",
+                            "test the inference against the later turn",
+                        ],
+                        "textual_evidence_span": "第二段末至第三段首",
+                        "material_dependency": "刪去對照段落後無法判定立場轉折",
+                    },
                 },
             }
             for number in range(1, 31)
@@ -248,3 +260,52 @@ def test_chinese_source_novelty_cannot_replace_item_innovation_audit(tmp_path):
     result = _run(tmp_path, paper)
     assert result.returncode == 1
     assert "Q1: missing subject_innovation_audit" in result.stdout
+
+
+def test_chinese_definition_recall_contract_is_rejected(tmp_path):
+    """國綜 had no per-item reasoning floor; a recall item could pass scope review."""
+    paper = _chinese_paper()
+    paper["questions"][0]["item_spec"]["chinese_reasoning_contract"]["recall_or_definition_only"] = True
+    result = _run(tmp_path, paper)
+    assert result.returncode == 1
+    assert "definition or vocabulary recall has not been rejected" in result.stdout
+
+
+def test_chinese_medium_band_needs_three_reasoning_operations(tmp_path):
+    paper = _chinese_paper()
+    contract = paper["questions"][0]["item_spec"]["chinese_reasoning_contract"]
+    contract["reasoning_operations"] = contract["reasoning_operations"][:2]
+    result = _run(tmp_path, paper)
+    assert result.returncode == 1
+    assert "only 2 reasoning operations; require 3" in result.stdout
+
+
+def test_mixed_group_record_shape_is_shared_with_the_literacy_gate(tmp_path):
+    """One declaration must satisfy both gates; two record shapes would be a trap."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "validate_literacy_load", ROOT / "scripts" / "validate_literacy_load.py"
+    )
+    literacy = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(literacy)
+
+    design = {
+        "question_numbers": [37, 38],
+        "required_domains": ["物理", "化學"],
+        "evidence_bridge": "機械能輸出必須和電池反應所接收的能量共同檢核。",
+        "second_discipline_removable": False,
+    }
+    paper = _paper()
+    paper["metadata"]["natural_mixed_group_designs"] = [design]
+    assert _run(tmp_path, paper).returncode == 0
+
+    groups = [{
+        "part": 2, "numbers": [37, 38], "group": "37-38",
+        "domains": ["化學", "物理"], "secondary_domains": [],
+        "stimulus_compact_chars": 300, "items": 2,
+    }]
+    errors, qualifying = literacy.cross_discipline_errors(
+        {"metadata": {"natural_mixed_group_designs": [design]}}, groups, floor=1
+    )
+    assert errors == [] and qualifying == 1

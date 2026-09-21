@@ -16,12 +16,16 @@ import re
 SUBJECT_REFERENCES = {
     "數學A": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md", "math-current-events-and-sourcing.md"},
     "數學B": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md", "math-current-events-and-sourcing.md"},
-    "英文": {"current-gsat-english-form.md"},
-    "社會": {"current-gsat-social-form.md", "social-required-content-codes.json"},
-    "自然": {"current-gsat-chinese-natural-form.md"},
-    "國綜": {"current-gsat-chinese-natural-form.md"},
+    # 國綜／國寫／英文／社會／自然 read current-form-literacy-load.md for the same
+    # reason 數學A／數學B read math-difficulty-design.md: it is the subject's
+    # pre-writing difficulty and reading-load gate.
+    "英文": {"current-gsat-english-form.md", "current-form-literacy-load.md"},
+    "社會": {"current-gsat-social-form.md", "social-required-content-codes.json",
+             "current-form-literacy-load.md"},
+    "自然": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md"},
+    "國綜": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md"},
     "國寫": {"current-gsat-writing-form.md", "gsat-writing-111-115-selection-calibration.md",
-             "gsat-writing-source-ecology.md"},
+             "gsat-writing-source-ecology.md", "current-form-literacy-load.md"},
 }
 SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
 LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',

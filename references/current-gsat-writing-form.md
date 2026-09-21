@@ -39,6 +39,24 @@ The following figures are compact text-layer character counts from the official 
 - The second task is not required to be longer than the first. Its adequacy is judged by the quality of the concrete carrier, semantic turn and experiential opening. For internal mock-paper calibration, text-only second-task pages commonly fall around 500–1,000 compact characters; use this as a warning band, not a mechanical target.
 - Every page must earn its existence. If removing a continuation page leaves the writing decision unchanged, collapse the task to one complete page or replace the material.
 
+### Release floor
+
+The page counts above include running headers, footers and the signature banner.
+Measured with that furniture removed
+(`exam_packs/學測/shared-data/current-form-literacy-envelope.json`), the official
+booklet prints 1,528–1,908 substantive characters, of which 1,109–1,460 is item
+content once the cover and 說明 blocks are excluded: 659–943 in the first task's
+packet and 345–576 in the second's.
+
+Release floors, at 0.85 of the weakest official year: **942 characters of item
+content** (the two packets and their prompts, excluding the cover and 說明
+blocks), **560 for the longer task packet**, **290 for the shorter**. A short
+prompt paired with a large answer area is not a full-form writing task, and a
+paper below the floor is repaired by restoring genuine source material, never by
+enlarging the response area or the type. `validate_literacy_load.py --subject 國寫`
+checks these; it cannot judge whether the material carries a real writing
+affordance, which stays with the source-grounding gate and human review.
+
 ## Blind autonomous source discovery
 
 Historical questions define only the abstract form envelope above. They must not supply a subject, title, image, metaphor, proper noun, source family, or content sequence to the writing pass.

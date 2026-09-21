@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 AUTHORING_REFERENCES = {
+    "current-form-literacy-load.md",
     "current-gsat-chinese-natural-form.md",
     "current-gsat-english-form.md",
     "current-gsat-math-form.md",
@@ -76,6 +77,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "validate_math_context.py")
     paths.extend(root / 'scripts' / name for name in ('hosted_item_layout.py', 'hosted_run_timing.py', 'hosted_blind_review.py'))
     paths.append(root / "scripts" / "validate_math_difficulty_design.py")
+    paths.append(root / "scripts" / "validate_literacy_load.py")
     paths.append(root / "scripts" / "validate_paper_difficulty_balance.py")
 
     for pack in ("學測", "會考"):

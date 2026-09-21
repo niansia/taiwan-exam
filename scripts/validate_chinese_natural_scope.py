@@ -143,6 +143,30 @@ def main() -> int:
             if not used_codes[code]:
                 errors.append(f"國綜 missing {code}")
         if len(questions) >= 30 or (exam.get("metadata") or {}).get("generation_mode") == "full-paper":
+            # 自然 has had a per-item reasoning floor; 國綜 had none, so a
+            # definition-recognition item could pass scope review. Same shape as
+            # the 自然 contract, keyed to reading evidence rather than a model.
+            for q in questions:
+                spec = q.get("item_spec") or {}
+                contract = spec.get("chinese_reasoning_contract") if isinstance(spec.get("chinese_reasoning_contract"), dict) else None
+                if contract is None:
+                    errors.append(f"Q{q.get('number')}: chinese_reasoning_contract missing")
+                    continue
+                if contract.get("recall_or_definition_only") is not False:
+                    errors.append(f"Q{q.get('number')}: definition or vocabulary recall has not been rejected")
+                if contract.get("single_cue_recognition_only") is not False:
+                    errors.append(f"Q{q.get('number')}: one-cue recognition has not been rejected")
+                operations = contract.get("reasoning_operations") or []
+                band = (spec.get("difficulty_design") or {}).get("band")
+                minimum_operations = 3 if band in {"中", "中偏難", "難"} else 2
+                if len(operations) < minimum_operations:
+                    errors.append(
+                        f"Q{q.get('number')}: only {len(operations)} reasoning operations; require {minimum_operations}"
+                    )
+                if not str(contract.get("textual_evidence_span") or "").strip():
+                    errors.append(f"Q{q.get('number')}: textual evidence span missing")
+                if not str(contract.get("material_dependency") or "").strip():
+                    errors.append(f"Q{q.get('number')}: material dependency missing")
             errors.extend(paper_innovation_errors(exam.get("metadata") or {}, "國綜"))
             nearest_differences = [
                 str((((q.get("item_spec") or {}).get("subject_innovation_audit") or {}).get("nearest_neighbor_difference") or "")).strip()

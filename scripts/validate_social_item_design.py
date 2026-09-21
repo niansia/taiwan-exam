@@ -237,17 +237,25 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
                 "found": printable_surface_chars,
                 "minimum": 11000,
             })
-        if median_stimulus_chars < 120:
+        # Measured ROC 111-115 per-year stimulus medians are 203-271 characters
+        # (exam_packs/學測/shared-data/current-form-literacy-envelope.json). The
+        # previous 120-character floor sat at roughly half the weakest official
+        # year and let short-material papers pass. 170 stays below every
+        # official year while rejecting the collapse.
+        if median_stimulus_chars < 170:
             errors.append({
                 "code": "social_unique_stimulus_median_too_short",
                 "found": median_stimulus_chars,
-                "minimum": 120,
+                "minimum": 170,
+                "detail": "官方 111-115 每年共用材料中位數為 203-271 字。",
             })
-        if short_stimulus_ratio > 0.40:
+        # ROC 111 is the weakest official year at 0.26 of its groups under 110
+        # characters, so 0.30 rejects short-material papers without rejecting it.
+        if short_stimulus_ratio > 0.30:
             errors.append({
                 "code": "social_short_materials_dominate",
                 "found_ratio": round(short_stimulus_ratio, 3),
-                "maximum": 0.40,
+                "maximum": 0.30,
             })
 
     for question in exam.get("questions", []):
@@ -348,8 +356,18 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
             if contract.get("cognitive_demand") not in VALID_COGNITIVE_DEMANDS:
                 errors.append({"code": "nonrecall_cognitive_demand_missing", "question_id": qid})
             operations = contract.get("reasoning_operations") or spec.get("reasoning_operations") or []
-            if not isinstance(operations, list) or len(operations) < 2:
-                errors.append({"code": "linked_reasoning_operations_too_few", "question_id": qid, "minimum": 2})
+            # Two operations is the accessible-item floor. A 中/中偏難/難 label has
+            # to be earned by a third linked operation, the same escalation 自然
+            # and 國綜 apply; otherwise a declared band is only a label.
+            band = (spec.get("difficulty_design") or {}).get("band")
+            minimum_operations = 3 if band in {"中", "中偏難", "難"} else 2
+            if not isinstance(operations, list) or len(operations) < minimum_operations:
+                errors.append({
+                    "code": "linked_reasoning_operations_too_few",
+                    "question_id": qid,
+                    "minimum": minimum_operations,
+                    "declared_band": band,
+                })
             dependency = contract.get("material_or_scenario_dependency")
             if not str(dependency or "").strip():
                 errors.append({"code": "material_or_scenario_dependency_missing", "question_id": qid})

@@ -34,6 +34,34 @@ The broad 180–400-word specification is not a license to put every passage nea
 | each reading passage (35–38, 39–42, 43–46) | 320–390 words |
 | mixed stimulus 47–50 | 340–460 words |
 
+### Whole-booklet word budget
+
+The per-passage bands above govern passage prose. Independently, measure the
+whole question booklet. Official ROC 111–115 papers print 3,321–3,550 English
+words across 12 pages, distributed as follows (every English word in the
+section, directions, stems and options included):
+
+| Section | Official min–max |
+|---|---:|
+| 詞彙題 | 256 – 265 |
+| 綜合測驗 | 487 – 535 |
+| 文意選填 | 291 – 334 |
+| 篇章結構 | 295 – 364 |
+| 閱讀測驗 | 1,456 – 1,587 |
+| 混合題 | 430 – 523 |
+
+The floor is measured on a narrower basis than that table, because the gate
+reads the authored exam record rather than the printed booklet: passages, item
+stems and option text, with the cover page and the section directions excluded.
+Official papers print 3,004–3,238 English words on that basis, so the release
+floor is **2,553 English words**, 0.85 of the weakest year.
+
+A paper that meets every passage band but falls short of the total has lost
+material somewhere else — usually thin option text, or a 混合題 stimulus written
+as a prompt rather than a source. 中譯英 and 英文作文 print Chinese directions and
+are outside this count; they remain governed by the task contract below.
+`validate_literacy_load.py --subject 英文` checks the total.
+
 These are current empirical layout-and-reading-load bands, not targets to hit mechanically. A passage must still have a defensible genre, rhetorical arc, and question affordances. Reject padding that merely repeats facts. If a later verified official profile changes materially, replace these bands with newly measured values and record the evidence.
 
 ## Vocabulary boundary

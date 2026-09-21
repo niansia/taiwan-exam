@@ -162,6 +162,8 @@ def _full_paper_with_recent_items(count=3):
             f"測試材料{index}：某地方政府同時公布基準期與政策後資料，分別列出不同地區、群體與時間點的變化。"
             "研究者提醒，總量、比例與平均值的分母不同，不能只靠單一數字判斷因果；訪談紀錄又指出執行程序、可及性與替代方案會改變政策效果。"
             "作答時須把資料的時間順序、比較口徑、適用範圍及材料未能證明的部分一併納入，並以另一項證據交叉檢查。"
+            "附表另列出同期鄰近行政區的對照數值、抽樣方式與回收率，並註明兩份問卷的題目用語曾在期中修訂，"
+            "因此跨期比較時須說明哪些欄位可以直接對照、哪些只能作為趨勢參考。"
         )
         question["prompt"] = "依據材料中的時間、比較口徑與證據界線，哪一項推論最能同時符合所有限制？"
         question["option_layout"] = "stack"
@@ -422,3 +424,32 @@ def test_full_social_paper_requires_paper_innovation_review():
     del exam["metadata"]["subject_innovation_review"]
     report = MODULE.validate_exam(exam)
     assert {"code": "subject_innovation_review_missing"} in report["errors"]
+
+
+def test_stimulus_median_floor_matches_the_measured_official_envelope():
+    """A 155-character median passed the old 120 floor; official years run 203-271."""
+    exam = _full_paper_with_recent_items()
+    for index, question in enumerate(exam["questions"]):
+        question["group_stimulus"] = (
+            f"測試材料{index}：某地方政府公布基準期與政策後資料，並列出不同地區與時間點的變化。"
+            "研究者提醒分母不同不能只靠單一數字判斷因果，訪談紀錄也指出執行程序會改變效果。"
+            "作答時須把時間順序與比較口徑一併納入。"
+        )
+    codes = {e["code"] for e in MODULE.validate_exam(exam)["errors"]}
+    assert "social_unique_stimulus_median_too_short" in codes
+
+
+def test_declared_medium_band_needs_a_third_reasoning_operation():
+    """A 中/中偏難/難 label has to be earned, not just written."""
+    exam = _full_paper_with_recent_items()
+    target = exam["questions"][0]
+    target["item_spec"]["difficulty_design"] = {"band": "中偏難"}
+    errors = [e for e in MODULE.validate_exam(exam)["errors"]
+              if e["code"] == "linked_reasoning_operations_too_few"]
+    assert errors and errors[0]["minimum"] == 3
+
+    target["item_spec"]["social_reasoning_contract"]["reasoning_operations"].append(
+        "reconcile the two sources' comparison scope"
+    )
+    codes = {e["code"] for e in MODULE.validate_exam(exam)["errors"]}
+    assert "linked_reasoning_operations_too_few" not in codes

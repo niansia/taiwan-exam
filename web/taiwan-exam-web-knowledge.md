@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.20.3
+# Taiwan Exam Web Knowledge v2026.09.21.1
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 81135,
-    "sha256": "ce8c802a2ed2d5e8342d0cfa13406136247de5520074baad9b110323e84220a0",
-    "embedded_bytes": 81135,
-    "embedded_sha256": "ce8c802a2ed2d5e8342d0cfa13406136247de5520074baad9b110323e84220a0"
+    "bytes": 83116,
+    "sha256": "898ee6ae5a59d634cb06a53231edddf9c23ce806bebdcfae94274a62238e8812",
+    "embedded_bytes": 83116,
+    "embedded_sha256": "898ee6ae5a59d634cb06a53231edddf9c23ce806bebdcfae94274a62238e8812"
   },
   {
     "path": "core/taxonomy.json",
@@ -140,6 +140,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "bbd2c6aac53ec1b8e809946f05b3193921a45d40d410cb522ff917ffec352866"
   },
   {
+    "path": "exam_packs/學測/shared-data/current-form-literacy-envelope.json",
+    "bytes": 17946,
+    "sha256": "f7495617c70bc6c740c5f975ad0ee20f41b96b4ddf46e0ce3d3a160037607c41",
+    "embedded_bytes": 17946,
+    "embedded_sha256": "f7495617c70bc6c740c5f975ad0ee20f41b96b4ddf46e0ce3d3a160037607c41"
+  },
+  {
     "path": "exam_packs/學測/shared-data/current-math-form-writer-profile.json",
     "bytes": 4370,
     "sha256": "a794f88e449adfcf02fd10bbcf0a00d496b61baf489e6a951260ebe621b2b31b",
@@ -152,6 +159,13 @@ attachments; extract only the selected subject's components.
     "sha256": "2fbd55e0d22cd9f30a11e5129c71f779b482921662f98bd08fb195de816ecd1c",
     "embedded_bytes": 8929,
     "embedded_sha256": "16f7c66ffb50b34fd3d51970cd8712d4ee6c51262078b45000be7977cda00755"
+  },
+  {
+    "path": "exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json",
+    "bytes": 5680,
+    "sha256": "36da45ffbb7ec69627bd994ba5e41930f91a8111ce4f65ceace46d648eb6a426",
+    "embedded_bytes": 5680,
+    "embedded_sha256": "36da45ffbb7ec69627bd994ba5e41930f91a8111ce4f65ceace46d648eb6a426"
   },
   {
     "path": "exam_packs/學測/source-pack-manifest.json",
@@ -462,18 +476,25 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "b57dda353827d8000a717298164d2e993401c0785772566eee7c50de7607c4f2"
   },
   {
+    "path": "references/current-form-literacy-load.md",
+    "bytes": 11044,
+    "sha256": "762dc1e6d3900372580a6dd4b2c07b9f0ef47a21275b34e92bea6a99fd638e0c",
+    "embedded_bytes": 11044,
+    "embedded_sha256": "762dc1e6d3900372580a6dd4b2c07b9f0ef47a21275b34e92bea6a99fd638e0c"
+  },
+  {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 26551,
-    "sha256": "b196394ac94d98745d42279ce74a7be605a49156086fa71d8156d4789174ae57",
-    "embedded_bytes": 26551,
-    "embedded_sha256": "b196394ac94d98745d42279ce74a7be605a49156086fa71d8156d4789174ae57"
+    "bytes": 30546,
+    "sha256": "437386c7fd9f63494bdb081eb5f9b94119001df8a5ad9bee133acbb01375ab1a",
+    "embedded_bytes": 30546,
+    "embedded_sha256": "437386c7fd9f63494bdb081eb5f9b94119001df8a5ad9bee133acbb01375ab1a"
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 21838,
-    "sha256": "bfbdcb0e70e98e6a40c5d32d92f0ba62f727edb6138c12d0c012a8856d18cbc2",
-    "embedded_bytes": 21838,
-    "embedded_sha256": "bfbdcb0e70e98e6a40c5d32d92f0ba62f727edb6138c12d0c012a8856d18cbc2"
+    "bytes": 23146,
+    "sha256": "7aba34465b53c1e57663583120e4e4dcba2fd9fd8ac2d3f5ba32cbd053ec739a",
+    "embedded_bytes": 23146,
+    "embedded_sha256": "7aba34465b53c1e57663583120e4e4dcba2fd9fd8ac2d3f5ba32cbd053ec739a"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -491,17 +512,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-social-form.md",
-    "bytes": 31049,
-    "sha256": "b2fe6c4bca66ab2a8eabb69dc4b5e775bd1af2c0ab9adeed0583c9e3731aca4d",
-    "embedded_bytes": 31049,
-    "embedded_sha256": "b2fe6c4bca66ab2a8eabb69dc4b5e775bd1af2c0ab9adeed0583c9e3731aca4d"
+    "bytes": 32449,
+    "sha256": "23fa14b1f65eda57bcda3d69f1c0fd398c4ff145504c749fc26736e72a48fd42",
+    "embedded_bytes": 32449,
+    "embedded_sha256": "23fa14b1f65eda57bcda3d69f1c0fd398c4ff145504c749fc26736e72a48fd42"
   },
   {
     "path": "references/current-gsat-writing-form.md",
-    "bytes": 14077,
-    "sha256": "facb5986d3112fe67428fb354c6076f90bf52e5ddc4b383bb02b8ea86b620262",
-    "embedded_bytes": 14077,
-    "embedded_sha256": "facb5986d3112fe67428fb354c6076f90bf52e5ddc4b383bb02b8ea86b620262"
+    "bytes": 15133,
+    "sha256": "70f19c3327e4be2d47857d757e39a51ee2a7aa492c67c369f170fbb8b6bee07d",
+    "embedded_bytes": 15133,
+    "embedded_sha256": "70f19c3327e4be2d47857d757e39a51ee2a7aa492c67c369f170fbb8b6bee07d"
   },
   {
     "path": "references/current-source-transformation.md",
@@ -757,10 +778,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "schemas/exam.schema.json",
-    "bytes": 5830,
-    "sha256": "8c7a4a751760039fba52bd7144e53371f2c3ce7411933fae96704e8b5998f518",
-    "embedded_bytes": 5830,
-    "embedded_sha256": "8c7a4a751760039fba52bd7144e53371f2c3ce7411933fae96704e8b5998f518"
+    "bytes": 6344,
+    "sha256": "9882dfda032c9e6fd80fce484195bc542aff3d97673444fcfcafeedc175bf782",
+    "embedded_bytes": 6344,
+    "embedded_sha256": "9882dfda032c9e6fd80fce484195bc542aff3d97673444fcfcafeedc175bf782"
   },
   {
     "path": "schemas/layout-profile.schema.json",
@@ -890,10 +911,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 25404,
-    "sha256": "7a83827c3b1f5ba0e2520fddbd3285d6e9ec420ea28416a2583d5b72f5e1e1c7",
-    "embedded_bytes": 25404,
-    "embedded_sha256": "7a83827c3b1f5ba0e2520fddbd3285d6e9ec420ea28416a2583d5b72f5e1e1c7"
+    "bytes": 25814,
+    "sha256": "c8848c1cebc6b6593cb532bbc0c496c523fc2ab093e34898655299df4058f422",
+    "embedded_bytes": 25814,
+    "embedded_sha256": "c8848c1cebc6b6593cb532bbc0c496c523fc2ab093e34898655299df4058f422"
   },
   {
     "path": "scripts/run_hosted_workflow.py",
@@ -901,6 +922,13 @@ attachments; extract only the selected subject's components.
     "sha256": "b32a71cae34f1699d8764bc2894d2a6d8dfbe353cf2e5649aaa6f628ee6951b2",
     "embedded_bytes": 70355,
     "embedded_sha256": "b32a71cae34f1699d8764bc2894d2a6d8dfbe353cf2e5649aaa6f628ee6951b2"
+  },
+  {
+    "path": "scripts/validate_literacy_load.py",
+    "bytes": 18428,
+    "sha256": "f295008cac02f7663fbe679dc2c5c72f481554b2a427058121ed69870f1cd061",
+    "embedded_bytes": 18428,
+    "embedded_sha256": "f295008cac02f7663fbe679dc2c5c72f481554b2a427058121ed69870f1cd061"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -1382,7 +1410,8 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
 - **Mathematics fraction geometry:** every inline fraction, fill-format fraction, fixed denominator, scoring fraction, and reference-sheet fraction must be one nonbreaking semantic/geometry unit. At final PDF size, verify the numerator is centred above exactly one fraction bar, the denominator is centred below it, neither level collides with neighbouring prose, and no numerator, bar, denominator, sign, slot circle, or answer-row label is clipped or split across lines. A fixed denominator must not draw a second underline beneath itself. Text extraction that happens to contain the right digits is not a visual pass.
 - **Response-format integrity:** if the same-role official page uses a bordered inference or completion table, encode its caption, heading, row meanings, slots and dimensions as structured student-facing content and bind it into the content hash. A semantic table may not be replaced by generic horizontal lines, and a table may not be invented solely to occupy white space.
 - **Substantive density:** compare complete printed passages, item blocks, figures, and occupied page roles at the verified typeface role, apparent size, line pitch, and margins. In hosted mode, a metric-compatible Traditional-Chinese fallback permitted by `web-platform-use.md` may satisfy the role even when its internal family name differs. Passing page count or container height does not excuse short materials, oversized gaps, a sparse terminal page, repeated pseudo-tables, or decorative figures. Repair content and page assignment before release; never stretch, shrink, or pad.
-- **Difficulty and scope:** reject definition lookup, one-clue recognition, one-step substitution, topical-name decoration, peripheral syllabus trivia, and options where only one is remotely plausible. Every stated difficulty label must be supported by the actual shortest solution route. Social Studies and Natural Science additionally require core/high-frequency curriculum anchors and at least two linked evidence operations for every scored item, with medium/hard items normally requiring three. English difficulty must come from in-scope semantic/discourse competition, not rare vocabulary.
+- **Difficulty and scope:** reject definition lookup, one-clue recognition, one-step substitution, topical-name decoration, peripheral syllabus trivia, and options where only one is remotely plausible. Every stated difficulty label must be supported by the actual shortest solution route. Social Studies and Natural Science additionally require core/high-frequency curriculum anchors and at least two linked evidence operations for every scored item, with medium/hard items normally requiring three. English difficulty must come from in-scope semantic/discourse competition, not rare vocabulary. For 國綜、國寫、英文、社會 and 自然, apply the construction floors in [references/current-form-literacy-load.md](references/current-form-literacy-load.md) before drafting; they are the non-mathematics equivalent of the mathematics difficulty-design gate and are measured from official ROC 111–115 papers.
+- **Reading load and shared stimulus:** 國綜、國寫、英文、社會 and 自然 are 素養 papers whose items mostly sit in 題組 that share one substantial printed stimulus, **including inside 第壹部分**. Assembling a paper from standalone one- or two-sentence scenarios is a structural failure, not a style choice: it is the direct cause of both the short-paper and easy-paper defects. Meet the per-subject group counts, group-stimulus lengths and whole-paper substantive-text floors in `references/current-form-literacy-load.md`, measured against `exam_packs/學測/shared-data/current-form-literacy-envelope.json`. A 自然 paper must additionally place at least three of its six 第貳部分 題組 genuinely across 物理／化學／生物／地科, recorded in `metadata.natural_mixed_group_designs`; a second discipline that can be deleted without changing the solution does not count. These are floors taken below the weakest official year, never targets, and never a reason to pad prose, answer space or figures.
 - **Post-render evidence:** run all content gates again, rasterize every student page, and compare the cover, first content page, every section transition, every page containing a large figure/table, and the final two content pages at readable scale against the matching official page roles. Any renderer change invalidates the earlier visual pass until both student and explanation PDFs are regenerated and rechecked.
 
 ## Required generation sequence
@@ -1408,6 +1437,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
 7. Validate scope twice: first map every mathematical operation to one or more official learning-content codes, then audit the actual wording and solution path for hidden out-of-scope terminology, theorems, or procedures. Run `scripts/validate_math_curriculum.py` for Math A/B and require human review of every `defined-bridge` item. Then validate answerability, unique answer where applicable, distractors, units, diagrams, answer distribution, duplicated concepts, total score, difficulty-vector match, stimulus necessity, and blueprint fit. The answer-distribution audit runs on the **final printed option order**: reject a conspicuous omitted label, two-label concentration, mechanical pattern, or unexplained long run. Reordering options requires remapping the key, independent solve, every option verdict and explanation label, followed by fresh content/answer hashes and a complete rerender. A near-even count is an editorial default, never permission to alter which statement is true. Run lexical triage plus the mandatory structural skin-swap audit from `references/originality-firewall.md` against official, mock, and already-generated items. Also validate the paper-level diversity matrix from `references/llm-original-item-generation.md`. Replace only failed items and recheck the whole paper. Any build that inherits legacy generated question content is rejected in full.
    For 國綜 and 自然, validate every item against the controlling CEEC examination specification at the learning-performance/content-code level. The natural-science paper must visibly balance physics, chemistry, biology, earth science, and inquiry/practice across both major parts; naming a discipline in metadata is not a scope audit. Run `scripts/validate_chinese_natural_scope.py generated-exam.json --report output/scope-report.json`, then run `scripts/validate_source_grounding.py` with the frozen source registry and passing novelty report before rendering. A made-up, misspelled, or wrong-subject curriculum code is release-blocking even when the prose seems on topic.
    For source-bearing items, verify that printed facts agree with the frozen source snapshot, invented values are explicitly labelled as simplified or simulated, URLs and dates remain in the audit registry rather than cluttering the formal paper, and removing the source-derived relation changes the solution. For 國寫, verify that each supplied passage has a distinct rhetorical job, every material paragraph has a `material_source_map`, every printed case comes from an identified source, and no source record has invented modelling values. The second task must include an authored Chinese literary source, or a traceable published Chinese translation, suitable for affective expression rather than defaulting to institutional explainers or newly found English-language web essays. On the student page, source attribution stays in full-width parentheses at the end of the material paragraph; it is not a separate source block. Do not title the supplied passages `材料一：` or `材料二：`; use the official-style `甲`/`乙` markers only when multiple texts need labels. Run `scripts/validate_writing_source_grounding.py` and treat any failure as release-blocking.
+   For 國綜、國寫、英文、社會 and 自然, run `scripts/validate_literacy_load.py generated-exam.json --subject <科目> --report output/literacy-load.json` on the authored exam **before** layout. It rejects a paper that prints materially less than an official booklet, that carries too few shared-stimulus 題組, whose group stimuli are too short, or whose 自然 mixed groups never leave one discipline. Repair a failure by restoring genuine source material and complete item blocks; never by enlarging type, inflating figures, widening answer space or appending filler. A structural pass is not an editorial pass.
    For mathematics, run `scripts/validate_math_difficulty_design.py` and reject any item whose planned difficulty collapses to direct substitution, one familiar formula, one routine linear-system solve, or repeated execution of the same operation. Treat model-estimated discrimination only as a design label until representative pilot data exist. Then validate explicit `option_layout` per item (`row-5`, `row-4`, `grid-3-2`, `grid-2`, or `stack`). Never infer the printed arrangement only from character count. Validate the rendered option baselines and inter-option whitespace against recent reference pages.
    Every mathematics fill-in item must declare a machine-marking `answer_format`: integer/decimal/fraction/sign form, exact numerator and denominator slot counts, and the sequential answer-row ids printed in the booklet. The renderer must show the same circle/rail/fraction geometry that the student will mark; a generic blank line is a hard failure.
    A current mathematics paper must also meet its learned answer-bearing visual quota across more than one section. Until item-level 111–115 visual annotation is complete, the internal review floor is four required visuals or structured graphical representations across at least three sections, including at least one item before the mixed-response section. Decorative pictures do not count.
@@ -11415,6 +11445,649 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
 }
 </canonical-source>
 
+<canonical-source path="exam_packs/學測/shared-data/current-form-literacy-envelope.json">
+{
+  "schema_version": 1,
+  "basis": "Direct text measurement of the supplied CEEC 學測 ROC 111-115 question booklets, running headers/footers and the signature banner removed. Reading-load floors only; not a verified Layout Profile and not an official difficulty statistic.",
+  "field_note": "substantive_compact_chars excludes repeated page furniture and is therefore lower than the whole-PDF compact_chars in current-chinese-natural-density.json. item_content_compact_chars additionally excludes the cover page and the section 說明 blocks, and is the basis a gate reading the authored exam record must use. The three are not interchangeable.",
+  "measured_at": "2026-09-21T01:42:41.586383+00:00",
+  "roc_years": [
+    111,
+    112,
+    113,
+    114,
+    115
+  ],
+  "incomplete_subjects": [],
+  "usage": "An anti-collapse floor for release gates. Never pad prose, inflate answer space or duplicate material to reach these numbers.",
+  "subjects": [
+    {
+      "subject": "國綜",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 12,
+          "substantive_compact_chars": 11926,
+          "cjk_chars": 9406,
+          "english_words": 151,
+          "item_content_compact_chars": 10727,
+          "item_content_english_words": 143,
+          "groups": {
+            "total": 9,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 19,
+            "part_2_groups": 2,
+            "part_2_grouped_items": 5
+          }
+        },
+        {
+          "roc_year": 112,
+          "page_count": 12,
+          "substantive_compact_chars": 12422,
+          "cjk_chars": 9852,
+          "english_words": 186,
+          "item_content_compact_chars": 11122,
+          "item_content_english_words": 174,
+          "groups": {
+            "total": 10,
+            "part_1_groups": 8,
+            "part_1_grouped_items": 20,
+            "part_2_groups": 2,
+            "part_2_grouped_items": 5
+          }
+        },
+        {
+          "roc_year": 113,
+          "page_count": 12,
+          "substantive_compact_chars": 12805,
+          "cjk_chars": 10461,
+          "english_words": 148,
+          "item_content_compact_chars": 11794,
+          "item_content_english_words": 140,
+          "groups": {
+            "total": 10,
+            "part_1_groups": 9,
+            "part_1_grouped_items": 21,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 5
+          }
+        },
+        {
+          "roc_year": 114,
+          "page_count": 12,
+          "substantive_compact_chars": 12571,
+          "cjk_chars": 10057,
+          "english_words": 179,
+          "item_content_compact_chars": 11004,
+          "item_content_english_words": 171,
+          "groups": {
+            "total": 9,
+            "part_1_groups": 8,
+            "part_1_grouped_items": 21,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 5
+          }
+        },
+        {
+          "roc_year": 115,
+          "page_count": 12,
+          "substantive_compact_chars": 12871,
+          "cjk_chars": 10283,
+          "english_words": 151,
+          "item_content_compact_chars": 10932,
+          "item_content_english_words": 143,
+          "groups": {
+            "total": 9,
+            "part_1_groups": 8,
+            "part_1_grouped_items": 21,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 5
+          }
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 11926,
+        "median": 12571,
+        "max": 12871
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 10727,
+        "median": 11004,
+        "max": 11794
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 140,
+        "median": 143,
+        "max": 174
+      },
+      "part_1_group_stimulus_chars": {
+        "count": 40,
+        "min": 15,
+        "median": 477,
+        "max": 1104
+      },
+      "part_2_group_stimulus_chars": {
+        "count": 7,
+        "min": 15,
+        "median": 650,
+        "max": 1020
+      }
+    },
+    {
+      "subject": "國寫",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 3,
+          "substantive_compact_chars": 1528,
+          "cjk_chars": 1242,
+          "english_words": 12,
+          "item_content_compact_chars": 1109,
+          "item_content_english_words": 10,
+          "task_1_compact_chars": 659,
+          "task_2_compact_chars": 435
+        },
+        {
+          "roc_year": 112,
+          "page_count": 3,
+          "substantive_compact_chars": 1611,
+          "cjk_chars": 1362,
+          "english_words": 2,
+          "item_content_compact_chars": 1172,
+          "item_content_english_words": 0,
+          "task_1_compact_chars": 760,
+          "task_2_compact_chars": 397
+        },
+        {
+          "roc_year": 113,
+          "page_count": 3,
+          "substantive_compact_chars": 1775,
+          "cjk_chars": 1502,
+          "english_words": 5,
+          "item_content_compact_chars": 1336,
+          "item_content_english_words": 3,
+          "task_1_compact_chars": 745,
+          "task_2_compact_chars": 576
+        },
+        {
+          "roc_year": 114,
+          "page_count": 3,
+          "substantive_compact_chars": 1638,
+          "cjk_chars": 1394,
+          "english_words": 3,
+          "item_content_compact_chars": 1199,
+          "item_content_english_words": 1,
+          "task_1_compact_chars": 839,
+          "task_2_compact_chars": 345
+        },
+        {
+          "roc_year": 115,
+          "page_count": 4,
+          "substantive_compact_chars": 1908,
+          "cjk_chars": 1603,
+          "english_words": 5,
+          "item_content_compact_chars": 1460,
+          "item_content_english_words": 3,
+          "task_1_compact_chars": 943,
+          "task_2_compact_chars": 502
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 1528,
+        "median": 1638,
+        "max": 1908
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 1109,
+        "median": 1199,
+        "max": 1460
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 0,
+        "median": 3,
+        "max": 10
+      }
+    },
+    {
+      "subject": "英文",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 12,
+          "substantive_compact_chars": 18388,
+          "cjk_chars": 946,
+          "english_words": 3439,
+          "item_content_compact_chars": 16267,
+          "item_content_english_words": 3109,
+          "groups": {
+            "total": 8,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 3
+          },
+          "section_total_english_words": {
+            "詞彙題": 263,
+            "綜合測驗": 502,
+            "文意選填": 323,
+            "篇章結構": 295,
+            "閱讀測驗": 1527,
+            "混合題": 522
+          }
+        },
+        {
+          "roc_year": 112,
+          "page_count": 12,
+          "substantive_compact_chars": 18142,
+          "cjk_chars": 899,
+          "english_words": 3403,
+          "item_content_compact_chars": 16167,
+          "item_content_english_words": 3081,
+          "groups": {
+            "total": 7,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 0,
+            "part_2_grouped_items": 0
+          },
+          "section_total_english_words": {
+            "詞彙題": 264,
+            "綜合測驗": 526,
+            "文意選填": 315,
+            "篇章結構": 340,
+            "閱讀測驗": 1476,
+            "混合題": 475
+          }
+        },
+        {
+          "roc_year": 113,
+          "page_count": 12,
+          "substantive_compact_chars": 18567,
+          "cjk_chars": 959,
+          "english_words": 3382,
+          "item_content_compact_chars": 16485,
+          "item_content_english_words": 3041,
+          "groups": {
+            "total": 8,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 4
+          },
+          "section_total_english_words": {
+            "詞彙題": 265,
+            "綜合測驗": 518,
+            "文意選填": 334,
+            "篇章結構": 330,
+            "閱讀測驗": 1489,
+            "混合題": 439
+          }
+        },
+        {
+          "roc_year": 114,
+          "page_count": 12,
+          "substantive_compact_chars": 18322,
+          "cjk_chars": 896,
+          "english_words": 3321,
+          "item_content_compact_chars": 16249,
+          "item_content_english_words": 3004,
+          "groups": {
+            "total": 8,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 4
+          },
+          "section_total_english_words": {
+            "詞彙題": 262,
+            "綜合測驗": 487,
+            "文意選填": 310,
+            "篇章結構": 364,
+            "閱讀測驗": 1456,
+            "混合題": 435
+          }
+        },
+        {
+          "roc_year": 115,
+          "page_count": 12,
+          "substantive_compact_chars": 19230,
+          "cjk_chars": 942,
+          "english_words": 3536,
+          "item_content_compact_chars": 17223,
+          "item_content_english_words": 3238,
+          "groups": {
+            "total": 8,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 4
+          },
+          "section_total_english_words": {
+            "詞彙題": 256,
+            "綜合測驗": 535,
+            "文意選填": 291,
+            "篇章結構": 336,
+            "閱讀測驗": 1587,
+            "混合題": 524
+          }
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 18142,
+        "median": 18388,
+        "max": 19230
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 16167,
+        "median": 16267,
+        "max": 17223
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 3004,
+        "median": 3081,
+        "max": 3238
+      },
+      "part_1_group_stimulus_chars": {
+        "count": 35,
+        "min": 909,
+        "median": 1594,
+        "max": 1962
+      },
+      "part_2_group_stimulus_chars": {
+        "count": 4,
+        "min": 1923,
+        "median": 2677,
+        "max": 3253
+      },
+      "section_total_english_word_bands": {
+        "詞彙題": {
+          "count": 5,
+          "min": 256,
+          "median": 263,
+          "max": 265
+        },
+        "綜合測驗": {
+          "count": 5,
+          "min": 487,
+          "median": 518,
+          "max": 535
+        },
+        "文意選填": {
+          "count": 5,
+          "min": 291,
+          "median": 315,
+          "max": 334
+        },
+        "篇章結構": {
+          "count": 5,
+          "min": 295,
+          "median": 336,
+          "max": 364
+        },
+        "閱讀測驗": {
+          "count": 5,
+          "min": 1456,
+          "median": 1489,
+          "max": 1587
+        },
+        "混合題": {
+          "count": 5,
+          "min": 435,
+          "median": 475,
+          "max": 524
+        }
+      },
+      "section_band_note": "Total English words printed in the section, including directions, item stems and options. Not passage prose alone: the per-passage prose bands live in references/current-gsat-english-form.md.",
+      "paper_english_words": {
+        "count": 5,
+        "min": 3321,
+        "median": 3403,
+        "max": 3536
+      }
+    },
+    {
+      "subject": "社會",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 18,
+          "substantive_compact_chars": 13446,
+          "cjk_chars": 10770,
+          "english_words": 250,
+          "item_content_compact_chars": 12709,
+          "item_content_english_words": 247,
+          "groups": {
+            "total": 19,
+            "part_1_groups": 10,
+            "part_1_grouped_items": 24,
+            "part_2_groups": 9,
+            "part_2_grouped_items": 21
+          }
+        },
+        {
+          "roc_year": 112,
+          "page_count": 20,
+          "substantive_compact_chars": 14282,
+          "cjk_chars": 11488,
+          "english_words": 251,
+          "item_content_compact_chars": 13982,
+          "item_content_english_words": 249,
+          "groups": {
+            "total": 18,
+            "part_1_groups": 10,
+            "part_1_grouped_items": 24,
+            "part_2_groups": 8,
+            "part_2_grouped_items": 20
+          }
+        },
+        {
+          "roc_year": 113,
+          "page_count": 19,
+          "substantive_compact_chars": 14498,
+          "cjk_chars": 11723,
+          "english_words": 256,
+          "item_content_compact_chars": 13636,
+          "item_content_english_words": 253,
+          "groups": {
+            "total": 15,
+            "part_1_groups": 6,
+            "part_1_grouped_items": 15,
+            "part_2_groups": 9,
+            "part_2_grouped_items": 29
+          }
+        },
+        {
+          "roc_year": 114,
+          "page_count": 20,
+          "substantive_compact_chars": 14193,
+          "cjk_chars": 11562,
+          "english_words": 248,
+          "item_content_compact_chars": 13197,
+          "item_content_english_words": 232,
+          "groups": {
+            "total": 14,
+            "part_1_groups": 6,
+            "part_1_grouped_items": 14,
+            "part_2_groups": 8,
+            "part_2_grouped_items": 22
+          }
+        },
+        {
+          "roc_year": 115,
+          "page_count": 20,
+          "substantive_compact_chars": 15269,
+          "cjk_chars": 12336,
+          "english_words": 246,
+          "item_content_compact_chars": 14630,
+          "item_content_english_words": 243,
+          "groups": {
+            "total": 16,
+            "part_1_groups": 5,
+            "part_1_grouped_items": 13,
+            "part_2_groups": 11,
+            "part_2_grouped_items": 27
+          }
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 13446,
+        "median": 14282,
+        "max": 15269
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 12709,
+        "median": 13636,
+        "max": 14630
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 232,
+        "median": 247,
+        "max": 253
+      },
+      "part_1_group_stimulus_chars": {
+        "count": 37,
+        "min": 52,
+        "median": 207,
+        "max": 345
+      },
+      "part_2_group_stimulus_chars": {
+        "count": 45,
+        "min": 59,
+        "median": 254,
+        "max": 552
+      }
+    },
+    {
+      "subject": "自然",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 20,
+          "substantive_compact_chars": 13517,
+          "cjk_chars": 9398,
+          "english_words": 708,
+          "item_content_compact_chars": 12573,
+          "item_content_english_words": 697,
+          "groups": {
+            "total": 12,
+            "part_1_groups": 6,
+            "part_1_grouped_items": 12,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 24
+          }
+        },
+        {
+          "roc_year": 112,
+          "page_count": 20,
+          "substantive_compact_chars": 15243,
+          "cjk_chars": 10709,
+          "english_words": 658,
+          "item_content_compact_chars": 14209,
+          "item_content_english_words": 633,
+          "groups": {
+            "total": 9,
+            "part_1_groups": 3,
+            "part_1_grouped_items": 6,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 24
+          }
+        },
+        {
+          "roc_year": 113,
+          "page_count": 19,
+          "substantive_compact_chars": 14307,
+          "cjk_chars": 10195,
+          "english_words": 599,
+          "item_content_compact_chars": 13576,
+          "item_content_english_words": 591,
+          "groups": {
+            "total": 11,
+            "part_1_groups": 5,
+            "part_1_grouped_items": 10,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 20
+          }
+        },
+        {
+          "roc_year": 114,
+          "page_count": 20,
+          "substantive_compact_chars": 13751,
+          "cjk_chars": 9869,
+          "english_words": 633,
+          "item_content_compact_chars": 12901,
+          "item_content_english_words": 616,
+          "groups": {
+            "total": 11,
+            "part_1_groups": 5,
+            "part_1_grouped_items": 10,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 21
+          }
+        },
+        {
+          "roc_year": 115,
+          "page_count": 20,
+          "substantive_compact_chars": 15091,
+          "cjk_chars": 10228,
+          "english_words": 729,
+          "item_content_compact_chars": 14690,
+          "item_content_english_words": 722,
+          "groups": {
+            "total": 10,
+            "part_1_groups": 4,
+            "part_1_grouped_items": 9,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 20
+          }
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 13517,
+        "median": 14307,
+        "max": 15243
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 12573,
+        "median": 13576,
+        "max": 14690
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 591,
+        "median": 633,
+        "max": 722
+      },
+      "part_1_group_stimulus_chars": {
+        "count": 23,
+        "min": 68,
+        "median": 127,
+        "max": 644
+      },
+      "part_2_group_stimulus_chars": {
+        "count": 30,
+        "min": 84,
+        "median": 268,
+        "max": 576
+      }
+    }
+  ]
+}
+</canonical-source>
+
 <canonical-source path="exam_packs/學測/shared-data/current-math-form-writer-profile.json">
 {
   "schema_version": 1,
@@ -11875,6 +12548,91 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
     "Publisher difficulty labels are expert review, not official CEEC P/D.",
     "Rare one-paper labels are suppressed to reduce source fingerprinting and template imitation."
   ]
+}
+</canonical-source>
+
+<canonical-source path="exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json">
+{
+  "schema_version": 1,
+  "subject": "自然",
+  "basis": "Maintainer reading of every 第貳部分 題組 in the supplied CEEC 學測 ROC 111-115 Natural Science booklets. Each group was classified by whether a candidate must use concepts from more than one of 物理／化學／生物／地科 to reach the scored answers, not by whether a second discipline is merely mentioned.",
+  "status": "reviewed-manual-classification",
+  "caution": "This is an editorial reading recorded for release calibration, not an official CEEC annotation. Re-review it whenever a newer official paper is ingested.",
+  "measured_at": "2026-09-21",
+  "years": [
+    {
+      "roc_year": 111,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 3,
+      "groups": [
+        {"group": "37-42", "topic": "黑碳定年與碳質分離", "disciplines": ["化學", "地科", "生物"], "cross_discipline": true},
+        {"group": "43-45", "topic": "海階、海蝕凹壁與穿孔貝", "disciplines": ["地科", "生物"], "cross_discipline": true},
+        {"group": "46-48", "topic": "SARS-CoV-2 與疫苗", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "49-54", "topic": "都卜勒血流儀與飲酒後血流速", "disciplines": ["物理", "生物"], "cross_discipline": true},
+        {"group": "55-57", "topic": "飲用水六價鉻移除", "disciplines": ["化學"], "cross_discipline": false},
+        {"group": "58-60", "topic": "量子單元與電磁天平質量基準", "disciplines": ["物理"], "cross_discipline": false}
+      ]
+    },
+    {
+      "roc_year": 112,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 5,
+      "groups": [
+        {"group": "37-40", "topic": "燃煤、水力發電與二氧化碳減排", "disciplines": ["地科", "物理", "化學"], "cross_discipline": true},
+        {"group": "41-44", "topic": "火星與地球的居住條件比較", "disciplines": ["地科", "物理"], "cross_discipline": true},
+        {"group": "45-47", "topic": "乳糖發酵與酪蛋白凝聚", "disciplines": ["生物", "化學"], "cross_discipline": true},
+        {"group": "48-50", "topic": "孟德爾、摩根與演化理論", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "51-54", "topic": "岩心中的二氧化碳與鉛紀錄", "disciplines": ["化學", "地科"], "cross_discipline": true},
+        {"group": "55-60", "topic": "抗藥性細菌與點擊反應", "disciplines": ["化學", "生物"], "cross_discipline": true}
+      ]
+    },
+    {
+      "roc_year": 113,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 3,
+      "groups": [
+        {"group": "37-39", "topic": "肉雞選育與飼料轉化率", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "40-43", "topic": "捕蠅草捕器的膨壓機制", "disciplines": ["生物", "物理"], "cross_discipline": true},
+        {"group": "44-46", "topic": "線圈迴路與磁鐵棒", "disciplines": ["物理"], "cross_discipline": false},
+        {"group": "47-49", "topic": "二氧化碳電化學還原", "disciplines": ["化學"], "cross_discipline": false},
+        {"group": "50-53", "topic": "縞狀鐵礦床的形成模型", "disciplines": ["地科", "化學"], "cross_discipline": true},
+        {"group": "54-56", "topic": "多波段天文觀測", "disciplines": ["地科", "物理"], "cross_discipline": true}
+      ]
+    },
+    {
+      "roc_year": 114,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 4,
+      "groups": [
+        {"group": "37-39", "topic": "虱目魚耐寒與調鈣蛋白", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "40-43", "topic": "海洋水色與基礎生產力", "disciplines": ["地科", "生物"], "cross_discipline": true},
+        {"group": "44-46", "topic": "乾濕球溫度計與颱風警報", "disciplines": ["地科", "物理"], "cross_discipline": true},
+        {"group": "47-49", "topic": "類神經網路與神經細胞膜傳訊", "disciplines": ["物理", "生物"], "cross_discipline": true},
+        {"group": "50-54", "topic": "二氧化鈦光觸媒的能帶與自由基", "disciplines": ["化學", "物理"], "cross_discipline": true},
+        {"group": "55-57", "topic": "烷類莫耳燃燒熱", "disciplines": ["化學"], "cross_discipline": false}
+      ]
+    },
+    {
+      "roc_year": 115,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 4,
+      "groups": [
+        {"group": "37-39", "topic": "巴西龜溫度決定性別與親緣分析", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "40-43", "topic": "野生菸草花蜜成分與蜂鳥取食", "disciplines": ["生物", "化學"], "cross_discipline": true},
+        {"group": "44-46", "topic": "硫化鋅量子點合成", "disciplines": ["化學", "物理"], "cross_discipline": true},
+        {"group": "47-49", "topic": "汞原子能階與紫外光微影", "disciplines": ["物理"], "cross_discipline": false},
+        {"group": "50-53", "topic": "港口潮汐觀測與潮位預報", "disciplines": ["地科", "物理"], "cross_discipline": true},
+        {"group": "54-56", "topic": "隕石放射性同位素定年", "disciplines": ["地科", "化學"], "cross_discipline": true}
+      ]
+    }
+  ],
+  "summary": {
+    "mixed_groups_per_paper": 6,
+    "cross_discipline_groups_per_paper": {"min": 3, "median": 4, "max": 5},
+    "cross_discipline_share": 0.633,
+    "release_floor": 3,
+    "release_floor_note": "At least three of the six 第貳部分 題組 must be genuinely cross-disciplinary, matching the weakest observed official year. A second discipline that can be deleted without changing the solution does not count."
+  }
 }
 </canonical-source>
 
@@ -54581,6 +55339,224 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
 {"id":"english","name":"英語","sections":["閱讀","聽力"],"domains":[]}
 </canonical-source>
 
+<canonical-source path="references/current-form-literacy-load.md">
+# Current GSAT reading load and reasoning depth: 國綜, 國寫, 英文, 社會, 自然
+
+Mathematics A and B already carry a pre-writing construction gate in
+[math-difficulty-design.md](math-difficulty-design.md), and reviewer testing
+accepts those two papers. The other five current-form subjects had no
+equivalent, and generated papers collapsed in three specific ways that this
+reference now blocks:
+
+1. items solvable by one formula substitution or one definition lookup;
+2. papers printing roughly half the reading material of an official booklet;
+3. 自然 第貳部分 題組 that stay inside one discipline.
+
+Read this before writing any 國綜, 國寫, 英文, 社會 or 自然 item. It is a
+construction floor, not a writing target, and never a licence to pad.
+
+## Measured envelope, ROC 111–115
+
+`exam_packs/學測/shared-data/current-form-literacy-envelope.json` is produced by
+`scripts/analyze_current_form_literacy.py` from the supplied official booklets.
+`substantive_compact_chars` strips repeated page furniture (running header,
+footer, signature banner), so it is **lower** than the whole-PDF `compact_chars`
+in `current-chinese-natural-density.json`. The two are not interchangeable.
+
+| Subject | Pages | Substantive chars (min–max) | Shared-stimulus 題組 per paper |
+|---|---:|---:|---:|
+| 國綜 | 12 | 11,926 – 12,871 | 9 – 10 |
+| 國寫 | 3 – 4 | 1,528 – 1,908 | two 大題, each with its own packet |
+| 英文 | 12 | 18,142 – 19,230 (3,321 – 3,550 English words) | 7 – 8 |
+| 社會 | 18 – 20 | 13,446 – 15,269 | 14 – 19 |
+| 自然 | 19 – 20 | 13,517 – 15,243 | 9 – 12 |
+
+Two measurement limits are disclosed rather than hidden. Where an official group
+prints its table or figure *after* the item numbers, the extracted stimulus
+length is near zero (a few 15-character rows in the 國綜 series); read those as
+"not separately measurable", not as a 15-character stimulus. And the English
+section bands below count every English word printed in a section, directions,
+stems and options included, so they are section budgets, not passage lengths.
+
+## Whole-paper substantive floor
+
+Before rendering, measure the authored exam's printed student-facing text and
+compare it with the weakest official year. Compare like with like: the gate
+reads the exam record, which holds unique group stimuli, item prompts, option
+text and printed tables — not the cover page and not the section 說明 blocks,
+which the Layout Profile prints. The envelope records that basis separately as
+`item_content_compact_chars`. The floor is 0.85 of the weakest year on it:
+
+| Subject | Weakest official year (item content) | Release floor |
+|---|---:|---:|
+| 國綜 | 10,727 chars | 9,117 chars |
+| 國寫 | 1,109 chars | 942 chars |
+| 英文 | 3,004 English words | 2,553 English words |
+| 社會 | 12,709 chars | 10,802 chars |
+| 自然 | 12,573 chars | 10,687 chars |
+
+Using the whole-booklet figure here would be a miscalibration, not a stricter
+gate: for 國寫 the cover and directions are the difference between 1,528 and
+1,109 characters, so a floor drawn from the larger number would have rejected a
+paper shaped exactly like ROC 111.
+
+Do not count directions boilerplate, answer ruling, decorative labels, figure
+bounding boxes, or repeated page furniture. A paper below its floor is rejected
+and repaired by restoring genuine source material and complete item blocks;
+never by enlarging type, inflating figures, widening answer space, or appending
+`來源補充`.
+
+This gate runs on the authored exam data **before** layout, so a thin paper is
+caught before a full booklet is composed. It does not replace the post-render
+PDF comparison in `validate_current_form_density.py`.
+
+## Shared stimulus is the form, not an option
+
+The single largest structural cause of a thin, easy paper is writing every item
+as a standalone one- or two-sentence scenario. Official papers do not do this.
+Most scored items sit in 題組 that share one substantial stimulus, **including
+inside 第壹部分**, where a generated paper is most likely to omit them.
+
+| Subject | 第壹部分 題組 | Items they carry | 第貳部分 題組 |
+|---|---:|---:|---:|
+| 自然 | 3 – 6 | 6 – 12 | exactly 6 |
+| 社會 | 5 – 10 | 13 – 24 | 8 – 11 |
+| 國綜 | 7 – 9 | 19 – 21 | 1 – 2 |
+| 英文 | 7 | 36 | 1 |
+
+Release floors: 自然 needs at least **3 第壹部分 題組 carrying at least 6 items**
+and exactly **6 第貳部分 題組**; 社會 needs at least **5 第壹部分 題組** and at least
+**7 第貳部分 題組**; 國綜 needs at least **8 題組** in total. A group exists when two
+or more scored items genuinely depend on the same printed material. Numbering
+two unrelated items consecutively under one header is not a 題組.
+
+### Stimulus length floors
+
+Judge the group stimulus — the material printed between the group header and
+its first numbered item — not the item stems.
+
+| Subject / part | Official per-year median | Floor: median | Floor: short groups |
+|---|---:|---:|---|
+| 自然 第貳部分 | 188 – 365 | ≥ 175 chars | at most 2 groups under 120 chars |
+| 自然 第壹部分 | 100 – 198 | ≥ 90 chars | — |
+| 社會 (all groups) | 203 – 271 | ≥ 170 chars | at most 30% under 110 chars |
+| 國綜 第壹部分 | 365 – 572 | ≥ 300 chars | — |
+
+Each floor sits below the weakest official year, so no official paper would be
+rejected by it. ROC 113 自然 is the binding case at median 188 with two groups
+under 120 characters; that is the shape the floor permits, not a target.
+
+## Per-item reasoning floor
+
+Every scored item keeps its subject contract — `natural_reasoning_contract`,
+`social_reasoning_contract`, `english_difficulty_contract`, and now
+`chinese_reasoning_contract` for 國綜, which had no per-item floor at all —
+and also satisfies the following, which mirrors the anti-collapse rule
+mathematics already applies.
+
+An item fails if a proficient candidate can reach the key by:
+
+- recalling one definition, name, date, law, or classification;
+- substituting given numbers into one named formula once;
+- reading one labelled value off one figure or table;
+- applying the same mechanical test to five options with no change of model.
+
+Counting written solution lines does not establish reasoning depth. A step
+counts as a **linked operation** only when it requires a new decision: choosing
+a model, changing representation, controlling a variable, reconciling a
+constraint, comparing competing explanations, bounding an uncertainty, or
+testing a limiting case. Repeating one operation with different numbers is one
+operation.
+
+| Declared band | Minimum linked operations |
+|---|---:|
+| 簡單 | 2, at least one of them non-mechanical |
+| 中 | 3 |
+| 中偏難 / 難 | 3, with at least two distinct bottlenecks |
+
+`簡單` means a short, transparent evidence chain, not a recall prompt. An
+accessible item earns its band through a discoverable route, never a one-line
+substitution.
+
+Every item also records why its printed material is required. Apply the
+stimulus-removal test in [stimulus-generation.md](stimulus-generation.md) and
+the source-relation test in
+[evidence-backed-editorial-audit.md](evidence-backed-editorial-audit.md): if the
+item survives deletion of the stimulus, or of the relation the stimulus
+supplies, it is decorative and must be rewritten or relabelled.
+
+## 自然: cross-disciplinary mixed groups
+
+`exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json` records
+the maintainer's reading of all thirty official 第貳部分 題組 in ROC 111–115.
+Three to five of the six groups are genuinely cross-disciplinary every year
+(median 4, share 0.63).
+
+At least **three of the six** 第貳部分 題組 must require concepts from two or more
+of 物理／化學／生物／地科 to reach the scored answers. Declare each such group in
+`metadata.natural_mixed_group_designs`, the record `validate_chinese_natural_scope.py`
+already defines: `question_numbers`, `required_domains` (two or more), a concrete
+`evidence_bridge`, plus `second_discipline_removable: false`. Only
+cross-disciplinary groups are listed. The declaration alone never establishes the
+crossing: at least one subpart in the group must record a different
+`item_spec.domain`, or declare `item_spec.secondary_domains`.
+
+A group is cross-disciplinary only when deleting the second discipline changes
+the solution. Naming a second field, setting a biology question in a laboratory,
+or mentioning climate in an earth-science stem does not qualify. The official
+pattern is a shared physical object or measurement that forces the crossing:
+
+- 115 野生菸草花蜜 — printed structural formulas of 苄丙酮 and 尼古丁 (化學) drive
+  a pollination and reproductive-success argument (生物);
+- 114 二氧化鈦光觸媒 — band-gap excitation (物理) produces the radicals that do
+  the decomposition chemistry (化學);
+- 113 捕蠅草捕器 — cell turgor (生物) is resolved through a mechanical closure
+  mechanism (物理);
+- 111 都卜勒血流儀 — wave frequency shift (物理) is the measurement instrument for
+  a circulatory response (生物).
+
+The 第壹部分 discipline-block rule in
+[current-gsat-chinese-natural-form.md](current-gsat-chinese-natural-form.md)
+still stops at question 36 and is unchanged; this floor applies to 第貳部分 only.
+
+## Failure pattern: the measured counter-example
+
+A generated ROC 116 自然 paper reviewed on 2026-09-21 failed every floor above.
+The numbers are recorded here because they show what collapse looks like:
+
+| Metric | Official 111–115 | That paper |
+|---|---:|---:|
+| Substantive chars | 13,517 – 15,243 | 7,853 (58% of the weakest year) |
+| Whole-PDF compact chars | 13,909 – 15,970 | 8,248 (59%) |
+| 第壹部分 題組 | 3 – 6 | 0 |
+| 第貳部分 stimulus median | 188 – 365 | 77 |
+| Groups under 120 chars | at most 2 of 6 | 6 of 6 |
+| Cross-disciplinary mixed groups | 3 – 5 of 6 | 0 of 6 |
+
+Its items were internally correct. They were short, single-discipline, and
+solvable by one substitution — a dilution calculation, a titration equivalence
+point, a plate-speed subtraction, an `F = ma` on a uniform acceleration table.
+Correct and in scope is not the same as calibrated.
+
+## Validation
+
+Run `scripts/validate_literacy_load.py` on the authored exam before layout:
+
+```bash
+python scripts/validate_literacy_load.py generated-exam.json --subject 自然 --report output/literacy-load.json
+```
+
+It checks the whole-paper substantive floor, group counts, group stimulus
+lengths, and — for 自然 — the cross-disciplinary mixed-group floor. A structural
+pass is not an editorial pass: a human reviewer must still confirm that the
+declared linked operations, evidence bridges and cross-discipline dependencies
+exist in the printed material.
+
+Subject scope audits (`validate_chinese_natural_scope.py`,
+`validate_social_item_design.py`, `validate_english_difficulty_design.py`) and
+the post-render density comparison remain required and are not superseded.
+</canonical-source>
+
 <canonical-source path="references/current-gsat-chinese-natural-form.md">
 # Current GSAT 國綜 and 自然 Form Envelope
 
@@ -54637,6 +55613,28 @@ Per-year density checks:
 - ROC 114: 12 pages; 13034 compact characters; 36 item starts; 0 pages below 60% used; 12 pages with visual signal.
 - ROC 115: 12 pages; 13319 compact characters; 36 item starts; 0 pages below 60% used; 12 pages with visual signal.
 
+### 國綜 shared-stimulus floor
+
+Measured ROC 111–115: 12 pages, 11,926–12,871 substantive characters, 9–10 題組
+per paper (7–9 in 第壹部分 carrying 19–21 items), with a per-year group-stimulus
+median of 365–572 characters. Release floors: at least **8 題組**, a group-stimulus
+median of at least **300 characters**, and at least **9,117 characters** of item
+content (stimuli, stems and options; the cover and 說明 blocks are the Layout
+Profile's, not the writer's). Restore length with genuine reading material — a longer excerpt, a
+second paired text, a real document — never with directions boilerplate or
+repeated framing sentences.
+
+Every scored item in a complete 國綜 paper also records
+`item_spec.chinese_reasoning_contract`, the reading-evidence counterpart of the
+自然 contract below. It must set `recall_or_definition_only: false` and
+`single_cue_recognition_only: false`, name the `textual_evidence_span` a
+candidate must use, state the `material_dependency` that fails when the passage
+is removed, and list at least two linked reasoning operations — three when the
+declared band is 中, 中偏難 or 難. Recognising one 通同字, matching a 成語 to its
+gloss, or picking the option that repeats a nearby sentence is one cue, not a
+reasoning chain. `validate_chinese_natural_scope.py` rejects a missing or
+collapsed contract.
+
 ### 國綜短答與核心古文：命題及驗收硬規則
 
 以下為使用者指定的新卷命題規則，與上方歷年量測資料分開處理；只適用國綜，不得套用到國寫或回寫官方歷史資料。
@@ -54677,6 +55675,47 @@ Per-year density checks:
 `mechanism_family` 與 `new_subject_mechanism` 必須描述學生實際操作的新科學關係，例如模型與證據互修、變因控制、競爭解釋、限制條件、誤差／不確定性、極端情況、實驗重設、多層表徵轉換或真正跨物理／化學／生物／地科的系統連結。`evidence_or_reasoning_architecture` 必須列出觀察／資料、課綱概念、推論、檢核的順序；`nearest_neighbor_difference` 必須具體指出最近鄰題在變因、控制組、因果結構、資料關係、模型假設、圖形拓樸、選項錯誤路徑或跨科依賴上的差異。
 
 單純換一張圖後讀取同一個標示值、把公式代入包成新聞、重畫同一裝置、把同一實驗換物種、或讓五個選項重複同一機械判斷，都不算創新。完整卷的 `metadata.subject_innovation_review` 必須分別檢查四科、探究實作、兩大部分與混合題的機制及表徵飽和，並與九題分科區塊和整卷難度平衡共同驗收。由 `scripts/validate_chinese_natural_scope.py` 做結構退件；欄位通過不表示科學事實、課綱、答案或實際新穎性已通過。
+
+### 自然: shared stimulus and cross-disciplinary mixed groups
+
+Measured ROC 111–115
+(`exam_packs/學測/shared-data/current-form-literacy-envelope.json`): the booklet
+runs 19–20 pages and 13,517–15,243 substantive characters and carries 9–12 題組.
+**Three to six of those sit inside 第壹部分**, carrying 6–12 of questions 1–36;
+第貳部分 prints exactly 6. Group stimuli run to a per-year median of 100–198
+characters in 第壹部分 and 188–365 in 第貳部分.
+
+A paper written as 36 standalone one- or two-sentence items plus six thin mixed
+groups is not this form. It is the observed failure mode, and it produces the
+short-paper and easy-paper defects together, because the shared stimulus is
+where the reading load and the multi-step inference live.
+
+Release floors, all below the weakest official year: at least **3 第壹部分 題組
+carrying at least 6 items**; exactly **6 第貳部分 題組**; a 第貳部分 stimulus median
+of at least **175 characters** with at most **2 groups under 120**; a 第壹部分
+stimulus median of at least **90**; and at least **10,687 characters** of item
+content (stimuli, stems and options, excluding the cover and 說明 blocks). ROC 113 is the binding case at a 188-character
+median with two short groups.
+
+At least **three of the six 第貳部分 題組** must genuinely require two or more of
+物理／化學／生物／地科. Official years run 3–5 of 6 (median 4); the per-group
+classification is recorded in
+`exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json`. Declare
+each such group in `metadata.natural_mixed_group_designs` using the existing
+record shape — `question_numbers`, `required_domains`, `evidence_bridge` — plus
+`second_discipline_removable: false`. At least one subpart must also record the
+second discipline in `item_spec.domain` or `item_spec.secondary_domains`; a
+declaration by itself never establishes the crossing. A group
+counts only when deleting the second discipline changes the solution: the
+official pattern is a shared object or measurement that forces the crossing, as
+in 115's printed 苄丙酮／尼古丁 structural formulas driving a pollination argument,
+114's band-gap excitation producing the radicals that do the decomposition
+chemistry, or 111's Doppler frequency shift serving as the instrument for a
+circulatory measurement. Naming a second field, or setting a biology item in a
+laboratory, does not qualify.
+
+Run `scripts/validate_literacy_load.py generated-exam.json --subject 自然` before
+layout. See [current-form-literacy-load.md](current-form-literacy-load.md).
 
 ### Discipline order and reasoning floor
 
@@ -54762,6 +55801,34 @@ The broad 180–400-word specification is not a license to put every passage nea
 | discourse structure 31–34 | 250–315 words |
 | each reading passage (35–38, 39–42, 43–46) | 320–390 words |
 | mixed stimulus 47–50 | 340–460 words |
+
+### Whole-booklet word budget
+
+The per-passage bands above govern passage prose. Independently, measure the
+whole question booklet. Official ROC 111–115 papers print 3,321–3,550 English
+words across 12 pages, distributed as follows (every English word in the
+section, directions, stems and options included):
+
+| Section | Official min–max |
+|---|---:|
+| 詞彙題 | 256 – 265 |
+| 綜合測驗 | 487 – 535 |
+| 文意選填 | 291 – 334 |
+| 篇章結構 | 295 – 364 |
+| 閱讀測驗 | 1,456 – 1,587 |
+| 混合題 | 430 – 523 |
+
+The floor is measured on a narrower basis than that table, because the gate
+reads the authored exam record rather than the printed booklet: passages, item
+stems and option text, with the cover page and the section directions excluded.
+Official papers print 3,004–3,238 English words on that basis, so the release
+floor is **2,553 English words**, 0.85 of the weakest year.
+
+A paper that meets every passage band but falls short of the total has lost
+material somewhere else — usually thin option text, or a 混合題 stimulus written
+as a prompt rather than a source. 中譯英 and 英文作文 print Chinese directions and
+are outside this count; they remain governed by the task contract below.
+`validate_literacy_load.py --subject 英文` checks the total.
 
 These are current empirical layout-and-reading-load bands, not targets to hit mechanically. A passage must still have a defensible genre, rhetorical arc, and question affordances. Reject padding that merely repeats facts. If a later verified official profile changes materially, replace these bands with newly measured values and record the evidence.
 
@@ -55314,6 +56381,27 @@ Scope membership alone is not enough. Every item must record a specific `core_cu
 
 ### Prevent short-material collapse
 
+Measured ROC 111–115 envelope, from `exam_packs/學測/shared-data/current-form-literacy-envelope.json`:
+the booklet runs 18–20 pages and 13,446–15,269 substantive characters, carries
+14–19 題組 (5–10 of them inside 第壹部分, 8–11 in 第貳部分), and its unique group
+stimuli have a per-year median of 203–271 characters. ROC 111 is the weakest
+year on every one of those measures.
+
+Release floors, all set below that weakest year: at least 5 第壹部分 題組 and 7
+第貳部分 題組; a group-stimulus median of at least 170 characters; at most 30% of
+groups under 110 characters; and at least 10,802 characters of item content
+(stimuli, stems and options, excluding the cover and 說明 blocks, which the
+Layout Profile prints). `validate_social_item_design.py` enforces the median and
+the short-material ratio; `validate_literacy_load.py` enforces the group counts
+and the paper volume. The earlier 120-character median floor sat at roughly half
+the weakest official year and is retired.
+
+`social_reasoning_contract.reasoning_operations` keeps its two-operation floor
+for an accessible item and now requires **three** whenever
+`item_spec.difficulty_design.band` is 中, 中偏難 or 難, the same escalation 自然 and
+國綜 apply. A band label is a claim about the shortest solution route, not a
+decoration: if the third operation cannot be named, the item is 簡單.
+
 The printed evidence must be rich enough to support the claimed operations. Reject a full paper whose apparent literacy is created by attaching a 60–100-character mini-scenario to nearly every question while leaving most pages sparsely occupied. Short items remain valid only as a deliberate minority matching a short current-form role. Across the paper, use substantial historical excerpts, paired accounts, maps, statistical displays, life documents, policy or legal excerpts, photographs, and multi-source groups so that students must locate relations rather than infer the intended textbook term from one cue.
 
 Before item review, measure each unique printed stimulus once, the prompt and all options, and the final student PDF's compact interior text. Compare the rendered paper with the selected official question booklet using `validate_reference_page_density.py`; the whole-paper substantive-text floor is 80% of the reference and does not include invisible metadata, answer explanations, duplicated shared material, oversized headings, blank answer lines, or decorative captions. An answer-bearing photograph, map, or chart may legitimately replace some prose on its page, but its observed features and reasoning role must be stated in the page review. Passing the numeric floor does not excuse repetitive one-paragraph scenarios, and failing it may not be repaired by smaller type, wider text blocks, padded options, or irrelevant prose.
@@ -55450,6 +56538,24 @@ The following figures are compact text-layer character counts from the official 
 - The first task is normally the denser analytical reading page. Its material supplies enough evidence, distinction and tension for both the 80-character response and the 400-character response.
 - The second task is not required to be longer than the first. Its adequacy is judged by the quality of the concrete carrier, semantic turn and experiential opening. For internal mock-paper calibration, text-only second-task pages commonly fall around 500–1,000 compact characters; use this as a warning band, not a mechanical target.
 - Every page must earn its existence. If removing a continuation page leaves the writing decision unchanged, collapse the task to one complete page or replace the material.
+
+### Release floor
+
+The page counts above include running headers, footers and the signature banner.
+Measured with that furniture removed
+(`exam_packs/學測/shared-data/current-form-literacy-envelope.json`), the official
+booklet prints 1,528–1,908 substantive characters, of which 1,109–1,460 is item
+content once the cover and 說明 blocks are excluded: 659–943 in the first task's
+packet and 345–576 in the second's.
+
+Release floors, at 0.85 of the weakest official year: **942 characters of item
+content** (the two packets and their prompts, excluding the cover and 說明
+blocks), **560 for the longer task packet**, **290 for the shorter**. A short
+prompt paired with a large answer area is not a full-form writing task, and a
+paper below the floor is repaired by restoring genuine source material, never by
+enlarging the response area or the type. `validate_literacy_load.py --subject 國寫`
+checks these; it cannot judge whether the material carries a real writing
+affordance, which stays with the source-grounding gate and human review.
 
 ## Blind autonomous source discovery
 
@@ -60848,6 +61954,7 @@ Any later paper request:
         ,"paper_originality_matrix": {"type": "object"}
         ,"group_originality_records": {"type": "array"}
         ,"mixed_group_originality_records": {"type": "array", "items": {"type": "object"}}
+        ,"natural_mixed_group_designs": {"type": "array", "items": {"type": "object", "required": ["question_numbers", "required_domains", "evidence_bridge"], "properties": {"question_numbers": {"type": "array", "minItems": 2, "items": {"type": "integer"}}, "required_domains": {"type": "array", "minItems": 2, "items": {"type": "string", "enum": ["物理", "化學", "生物", "地科", "地球科學"]}}, "evidence_bridge": {"type": "string", "minLength": 12}, "second_discipline_removable": {"const": false}}}}
         ,"layout_contract_version": {"type": "integer", "minimum": 1}
         ,"cover_year_title": {"type": "string"}
         ,"running_year_label": {"type": "string"}
@@ -65305,12 +66412,16 @@ import re
 SUBJECT_REFERENCES = {
     "數學A": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md", "math-current-events-and-sourcing.md"},
     "數學B": {"current-gsat-math-form.md", "current-gsat-math-scope.md", "math-difficulty-design.md", "math-current-events-and-sourcing.md"},
-    "英文": {"current-gsat-english-form.md"},
-    "社會": {"current-gsat-social-form.md", "social-required-content-codes.json"},
-    "自然": {"current-gsat-chinese-natural-form.md"},
-    "國綜": {"current-gsat-chinese-natural-form.md"},
+    # 國綜／國寫／英文／社會／自然 read current-form-literacy-load.md for the same
+    # reason 數學A／數學B read math-difficulty-design.md: it is the subject's
+    # pre-writing difficulty and reading-load gate.
+    "英文": {"current-gsat-english-form.md", "current-form-literacy-load.md"},
+    "社會": {"current-gsat-social-form.md", "social-required-content-codes.json",
+             "current-form-literacy-load.md"},
+    "自然": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md"},
+    "國綜": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md"},
     "國寫": {"current-gsat-writing-form.md", "gsat-writing-111-115-selection-calibration.md",
-             "gsat-writing-source-ecology.md"},
+             "gsat-writing-source-ecology.md", "current-form-literacy-load.md"},
 }
 SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
 LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',
@@ -67008,6 +68119,444 @@ def main():
 
 
 if __name__ == '__main__':
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_literacy_load.py">
+#!/usr/bin/env python3
+"""Reject under-written or structurally collapsed 國綜／國寫／英文／社會／自然 papers.
+
+Mathematics already has a pre-writing construction gate
+(`validate_math_difficulty_design.py`). The other five current-form subjects did
+not, and reviewed papers collapsed in three ways: standalone one-sentence items
+instead of shared-stimulus 題組, roughly half an official booklet's reading
+material, and 自然 mixed groups that never leave one discipline.
+
+This validator runs on the authored exam JSON **before** layout, so a thin paper
+is caught before a booklet is composed. It does not replace
+`validate_current_form_density.py`, which compares a rendered PDF, nor any
+subject scope audit.
+
+Floors come from `exam_packs/學測/shared-data/current-form-literacy-envelope.json`
+and sit below the weakest official ROC 111-115 year, so no official paper would
+be rejected by them. See `references/current-form-literacy-load.md`.
+
+Usage:
+    python scripts/validate_literacy_load.py generated-exam.json --subject 自然 \
+        --report output/literacy-load.json
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import statistics
+from collections import Counter
+from pathlib import Path
+from typing import Any
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SHARED = ROOT / "exam_packs" / "學測" / "shared-data"
+# The floors below are transcribed from these measured files. A test asserts each
+# one still sits under the weakest official year, so a stale floor cannot silently
+# start rejecting real papers.
+ENVELOPE = SHARED / "current-form-literacy-envelope.json"
+CROSS_DISCIPLINE = SHARED / "natural-mixed-group-cross-discipline.json"
+
+WHITESPACE = re.compile(r"\s+")
+ASCII_WORD = re.compile(r"[A-Za-z][A-Za-z'’-]*")
+DISCIPLINES = ("物理", "化學", "生物", "地科")
+
+# Section ids and titles the packs use for 第貳部分 (混合題或非選擇題).
+PART_TWO_IDS = {"section-2", "mixed", "mixed-response", "non-selected", "constructed"}
+PART_TWO_TITLE = re.compile(r"第貳部分|混合題|非選擇題")
+
+PLACEHOLDER = {
+    "", "n/a", "na", "none", "pending", "pass", "passed", "todo", "tbd",
+    "跨科", "跨科整合", "待補", "通過", "無",
+}
+
+# Floors are 0.85 of the weakest measured official year, except where a count is
+# already an integer minimum.
+#
+# The volume floors compare against `paper_item_content_chars` / `_words`, not
+# the whole booklet: this gate reads the authored exam record, which contains
+# unique group stimuli, item prompts and option text but not the cover page or
+# the section 說明 blocks the Layout Profile prints. Comparing against the full
+# booklet would demand prose the record never holds — for 國寫 that difference
+# alone (1,528 vs 1,109 characters) would have rejected a ROC 111-shaped paper.
+SUBJECT_FLOORS: dict[str, dict[str, Any]] = {
+    "國綜": {
+        "unit": "chars",
+        "min_paper_chars": 9117,
+        "official_weakest": 10727,
+        "min_total_groups": 8,
+        "group_stimulus_median": 300,
+    },
+    "國寫": {
+        "unit": "chars",
+        "min_paper_chars": 942,
+        "official_weakest": 1109,
+        "min_task_1_chars": 560,
+        "min_task_2_chars": 290,
+    },
+    "英文": {
+        "unit": "words",
+        "min_paper_words": 2553,
+        "official_weakest": 3004,
+        "min_total_groups": 6,
+    },
+    "社會": {
+        "unit": "chars",
+        "min_paper_chars": 10802,
+        "official_weakest": 12709,
+        "min_part_1_groups": 5,
+        "min_part_2_groups": 7,
+        "group_stimulus_median": 170,
+        "short_stimulus_chars": 110,
+        "max_short_stimulus_ratio": 0.30,
+    },
+    "自然": {
+        "unit": "chars",
+        "min_paper_chars": 10687,
+        "official_weakest": 12573,
+        "min_part_1_groups": 3,
+        "min_part_1_grouped_items": 6,
+        "exact_part_2_groups": 6,
+        "part_2_stimulus_median": 175,
+        "short_stimulus_chars": 120,
+        "max_short_part_2_groups": 2,
+        "part_1_stimulus_median": 90,
+        "min_cross_discipline_groups": 3,
+    },
+}
+
+
+def compact(text: str) -> int:
+    return len(WHITESPACE.sub("", str(text or "")))
+
+
+def substantive(value: object) -> bool:
+    text = str(value or "").strip()
+    return bool(text) and text.casefold() not in PLACEHOLDER and len(text) >= 12
+
+
+def question_text(question: dict[str, Any]) -> str:
+    parts = [str(question.get("prompt") or "")]
+    for option in question.get("options") or []:
+        parts.append(str((option or {}).get("text") or ""))
+    return "\n".join(parts)
+
+
+def part_two_sections(exam: dict[str, Any]) -> set[str]:
+    ids = set()
+    for section in exam.get("sections") or []:
+        identifier = str(section.get("id") or "")
+        title = str(section.get("title") or "")
+        if identifier in PART_TWO_IDS or PART_TWO_TITLE.search(title):
+            ids.add(identifier)
+    return ids
+
+
+def build_groups(questions: list[dict[str, Any]], part_two: set[str]) -> list[dict[str, Any]]:
+    """A 題組 is two or more scored items sharing one printed stimulus."""
+    shared = Counter(
+        str(q.get("group_stimulus") or "").strip()
+        for q in questions
+        if str(q.get("group_stimulus") or "").strip()
+    )
+    groups: dict[str, dict[str, Any]] = {}
+    for question in questions:
+        stimulus = str(question.get("group_stimulus") or "").strip()
+        if not stimulus or shared[stimulus] < 2:
+            continue
+        record = groups.setdefault(
+            stimulus,
+            {
+                "stimulus_compact_chars": compact(stimulus),
+                "numbers": [],
+                "domains": set(),
+                "secondary_domains": set(),
+                "part": 1,
+            },
+        )
+        record["numbers"].append(question.get("number"))
+        spec = question.get("item_spec") or {}
+        domain = normalize_domain(spec.get("domain"))
+        if domain:
+            record["domains"].add(domain)
+        for extra in spec.get("secondary_domains") or []:
+            extra = normalize_domain(extra)
+            if extra:
+                record["secondary_domains"].add(extra)
+        if str(question.get("section_id") or "") in part_two:
+            record["part"] = 2
+    ordered = []
+    for record in groups.values():
+        numbers = [n for n in record["numbers"] if isinstance(n, int)]
+        record["group"] = f"{min(numbers)}-{max(numbers)}" if numbers else ""
+        record["items"] = len(record["numbers"])
+        record["domains"] = sorted(record["domains"])
+        record["secondary_domains"] = sorted(record["secondary_domains"])
+        ordered.append(record)
+    ordered.sort(key=lambda row: min([n for n in row["numbers"] if isinstance(n, int)] or [0]))
+    return ordered
+
+
+def normalize_domain(value: object) -> str | None:
+    text = str(value or "").replace("地球科學", "地科")
+    return next((name for name in DISCIPLINES if name in text), None)
+
+
+def cross_discipline_errors(
+    exam: dict[str, Any], groups: list[dict[str, Any]], floor: int
+) -> tuple[list[str], int]:
+    """Count mixed groups that genuinely require a second discipline.
+
+    Uses the record shape `validate_chinese_natural_scope.py` already defines for
+    `metadata.natural_mixed_group_designs` — `question_numbers`,
+    `required_domains`, `evidence_bridge` — so a paper declares each group once.
+    Only cross-disciplinary groups are listed, which is that field's existing
+    convention. `second_discipline_removable: false` is the added assertion that
+    the crossing is load-bearing.
+    """
+    errors: list[str] = []
+    declared = (exam.get("metadata") or {}).get("natural_mixed_group_designs")
+    if not isinstance(declared, list) or not declared:
+        return ["metadata.natural_mixed_group_designs is missing or empty"], 0
+
+    by_number: dict[int, dict[str, Any]] = {}
+    for row in groups:
+        if row["part"] != 2:
+            continue
+        for number in row["numbers"]:
+            if isinstance(number, int):
+                by_number[number] = row
+
+    qualifying = 0
+    counted: set[int] = set()
+    for index, record in enumerate(declared, 1):
+        if not isinstance(record, dict):
+            errors.append(f"natural mixed group {index}: invalid design record")
+            continue
+        numbers = [n for n in (record.get("question_numbers") or []) if isinstance(n, int)]
+        if not numbers:
+            errors.append(f"natural mixed group {index}: question numbers missing")
+            continue
+        actual = next((by_number[n] for n in numbers if n in by_number), None)
+        if actual is None:
+            errors.append(f"natural mixed group {index}: matches no 第貳部分 題組")
+            continue
+        domains = {normalize_domain(value) for value in (record.get("required_domains") or [])}
+        domains.discard(None)
+        if len(domains) < 2:
+            errors.append(f"natural mixed group {index}: fewer than two valid domains")
+            continue
+        if not substantive(record.get("evidence_bridge")):
+            errors.append(f"natural mixed group {index}: evidence bridge is missing or a placeholder")
+            continue
+        if record.get("second_discipline_removable") is not False:
+            errors.append(
+                f"natural mixed group {index}: a removable second discipline has not been rejected"
+            )
+            continue
+        # Structural corroboration: the paper must mark the crossing on its own
+        # items, not only in the declaration.
+        marked = set(actual["domains"]) | set(actual["secondary_domains"])
+        if len(marked) < 2:
+            errors.append(
+                f"natural mixed group {index}: declares two disciplines but every subpart records "
+                "one domain and none declares item_spec.secondary_domains"
+            )
+            continue
+        key = min(numbers)
+        if key in counted:
+            errors.append(f"natural mixed group {index}: duplicates an already counted 題組")
+            continue
+        counted.add(key)
+        qualifying += 1
+    if qualifying < floor:
+        errors.append(
+            f"only {qualifying} cross-disciplinary 第貳部分 題組; require {floor} "
+            "(official ROC 111-115 range is 3-5 of 6)"
+        )
+    return errors, qualifying
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exam", type=Path)
+    parser.add_argument("--subject", required=True, choices=tuple(SUBJECT_FLOORS))
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+
+    exam = json.loads(args.exam.read_text(encoding="utf-8-sig"))
+    floors = SUBJECT_FLOORS[args.subject]
+    questions = [q for q in exam.get("questions") or [] if isinstance(q, dict)]
+    errors: list[str] = []
+
+    part_two = part_two_sections(exam)
+    groups = build_groups(questions, part_two)
+
+    # Printed student-facing volume. Each shared stimulus is counted once, the
+    # way a candidate reads it.
+    seen: set[str] = set()
+    printed: list[str] = []
+    for question in questions:
+        stimulus = str(question.get("group_stimulus") or "").strip()
+        if stimulus and stimulus not in seen:
+            seen.add(stimulus)
+            printed.append(stimulus)
+        printed.append(question_text(question))
+    body = "\n".join(printed)
+    paper_chars = compact(body)
+    paper_words = len(ASCII_WORD.findall(body))
+
+    metrics: dict[str, Any] = {
+        "paper_substantive_chars": paper_chars,
+        "paper_english_words": paper_words,
+        "question_count": len(questions),
+        "group_count": len(groups),
+        "part_1_groups": sum(1 for g in groups if g["part"] == 1),
+        "part_2_groups": sum(1 for g in groups if g["part"] == 2),
+        "part_1_grouped_items": sum(g["items"] for g in groups if g["part"] == 1),
+    }
+
+    if floors["unit"] == "words":
+        if paper_words < floors["min_paper_words"]:
+            errors.append(
+                f"paper prints {paper_words} English words; floor is {floors['min_paper_words']} "
+                f"(weakest official year {floors['official_weakest']})"
+            )
+    elif paper_chars < floors["min_paper_chars"]:
+        errors.append(
+            f"paper prints {paper_chars} substantive characters; floor is "
+            f"{floors['min_paper_chars']} (weakest official year {floors['official_weakest']})"
+        )
+
+    if "min_total_groups" in floors and len(groups) < floors["min_total_groups"]:
+        errors.append(f"{len(groups)} shared-stimulus 題組; require {floors['min_total_groups']}")
+    if "min_part_1_groups" in floors and metrics["part_1_groups"] < floors["min_part_1_groups"]:
+        errors.append(
+            f"第壹部分 has {metrics['part_1_groups']} 題組; require {floors['min_part_1_groups']}. "
+            "Standalone one-sentence items are not the current form."
+        )
+    if "min_part_1_grouped_items" in floors and metrics["part_1_grouped_items"] < floors["min_part_1_grouped_items"]:
+        errors.append(
+            f"第壹部分 題組 carry {metrics['part_1_grouped_items']} items; "
+            f"require {floors['min_part_1_grouped_items']}"
+        )
+    if "min_part_2_groups" in floors and metrics["part_2_groups"] < floors["min_part_2_groups"]:
+        errors.append(f"第貳部分 has {metrics['part_2_groups']} 題組; require {floors['min_part_2_groups']}")
+    if "exact_part_2_groups" in floors and metrics["part_2_groups"] != floors["exact_part_2_groups"]:
+        errors.append(
+            f"第貳部分 has {metrics['part_2_groups']} 題組; the current form prints "
+            f"exactly {floors['exact_part_2_groups']}"
+        )
+
+    def stimulus_check(rows: list[dict[str, Any]], label: str, median_floor: int) -> None:
+        lengths = [row["stimulus_compact_chars"] for row in rows]
+        if not lengths:
+            return
+        median = int(statistics.median(lengths))
+        metrics[f"{label}_stimulus_median"] = median
+        metrics[f"{label}_stimulus_min"] = min(lengths)
+        if median < median_floor:
+            errors.append(
+                f"{label} 題組 stimulus median is {median} characters; floor is {median_floor}"
+            )
+
+    if "part_2_stimulus_median" in floors:
+        part2 = [g for g in groups if g["part"] == 2]
+        stimulus_check(part2, "part_2", floors["part_2_stimulus_median"])
+        short = [g for g in part2 if g["stimulus_compact_chars"] < floors["short_stimulus_chars"]]
+        metrics["part_2_short_groups"] = len(short)
+        if len(short) > floors["max_short_part_2_groups"]:
+            errors.append(
+                f"{len(short)} 第貳部分 題組 print under {floors['short_stimulus_chars']} characters; "
+                f"at most {floors['max_short_part_2_groups']} may"
+            )
+    if "part_1_stimulus_median" in floors:
+        stimulus_check([g for g in groups if g["part"] == 1], "part_1", floors["part_1_stimulus_median"])
+    if "group_stimulus_median" in floors:
+        stimulus_check(groups, "all", floors["group_stimulus_median"])
+        if "short_stimulus_chars" in floors:
+            lengths = [g["stimulus_compact_chars"] for g in groups]
+            if lengths:
+                ratio = sum(x < floors["short_stimulus_chars"] for x in lengths) / len(lengths)
+                metrics["short_stimulus_ratio"] = round(ratio, 3)
+                if ratio > floors["max_short_stimulus_ratio"]:
+                    errors.append(
+                        f"{ratio:.0%} of 題組 print under {floors['short_stimulus_chars']} characters; "
+                        f"at most {floors['max_short_stimulus_ratio']:.0%} may"
+                    )
+
+    if args.subject == "國寫":
+        # Each 大題 supplies one reading packet that its subparts share, so count
+        # distinct packets. Taking the two largest questions instead would let one
+        # task's packet satisfy both floors.
+        packets: dict[str, int] = {}
+        for question in questions:
+            text = str(question.get("group_stimulus") or "").strip()
+            if not text:
+                text = str(question.get("prompt") or "").strip()
+            if text:
+                packets[text] = compact(text)
+        sizes = sorted(packets.values(), reverse=True)
+        metrics["writing_packet_chars"] = sizes
+        if len(sizes) < 2:
+            errors.append(
+                f"國寫 prints two 大題, each with its own reading packet; {len(sizes)} distinct packet(s) found"
+            )
+        else:
+            longer, shorter = sizes[0], sizes[1]
+            if longer < floors["min_task_1_chars"]:
+                errors.append(
+                    f"the longer 國寫 packet is {longer} characters; floor is "
+                    f"{floors['min_task_1_chars']}"
+                )
+            if shorter < floors["min_task_2_chars"]:
+                errors.append(
+                    f"the shorter 國寫 packet is {shorter} characters; floor is "
+                    f"{floors['min_task_2_chars']}"
+                )
+
+    if args.subject == "自然":
+        cross_errors, qualifying = cross_discipline_errors(
+            exam, groups, floors["min_cross_discipline_groups"]
+        )
+        metrics["cross_discipline_groups"] = qualifying
+        errors.extend(cross_errors)
+
+    report = {
+        "status": "pass" if not errors else "fail",
+        "subject": args.subject,
+        "exam": str(args.exam),
+        "reference": {
+            "basis": "official 學測 ROC 111-115",
+            "envelope": ENVELOPE.name,
+            "cross_discipline_record": CROSS_DISCIPLINE.name,
+        },
+        "floors": floors,
+        "metrics": metrics,
+        "errors": errors,
+        "note": (
+            "A structural pass is not an editorial pass. A reviewer must still "
+            "confirm that the declared linked operations, evidence bridges and "
+            "cross-discipline dependencies exist in the printed material. Never "
+            "pad prose or answer space to clear a floor."
+        ),
+    }
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0 if report["status"] == "pass" else 1
+
+
+if __name__ == "__main__":
     raise SystemExit(main())
 </canonical-source>
 
