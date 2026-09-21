@@ -11,6 +11,8 @@
 
 wheel 改放在獨立、固定網址的 Release，之後每個 Skill 版本不必再附一次；README 疑難排解已改為「通常不需動作，被擋時才三步」。ZIP 維持約 9.3 MB。
 
+新 ZIP（SHA-256 `0b2ea6b3fefa9e7dac1de706a6072b0273a54f94b81eb4e11685f1076fa1d8b5`，9,292,170 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.21.4 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.21.4/taiwan-exam-hosted-2026.09.21.4.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.21.4) 頁面。已安裝的舊 Skill 請重新下載替換。
+
 ## 2026.09.21.3：缺 PyMuPDF 的環境改用上傳 wheel 離線安裝
 
 使用者實跑時，AI 回報執行環境沒有 PyMuPDF，而且組織的網路政策擋掉 pypi，於是 10 個 hosted 工具在預檢第一步就停下（這是正確行為，沒有自畫版面）。PyMuPDF 是編譯過的二進位套件，本來就不在 ZIP 裡。
