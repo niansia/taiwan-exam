@@ -5,13 +5,13 @@
 以下是修正摘要；目前執行規則以 [SKILL.md](../SKILL.md) 與最新版知識檔為準。
 更新 GitHub 不會自動替換帳號內已儲存的附件，請更新原本的 Skill／Project／Gem。
 
-## 2026.09.21.3：ZIP 內建 PyMuPDF，缺套件的環境也能直接跑
+## 2026.09.21.3：缺 PyMuPDF 的環境改用上傳 wheel 離線安裝
 
-使用者實跑時，AI 回報執行環境沒有 PyMuPDF，而且組織的網路政策擋掉 pypi，於是 10 個 hosted 工具在預檢第一步就停下（這是正確行為，沒有自畫版面）。PyMuPDF 是編譯過的二進位套件，本來不在 ZIP 裡。
+使用者實跑時，AI 回報執行環境沒有 PyMuPDF，而且組織的網路政策擋掉 pypi，於是 10 個 hosted 工具在預檢第一步就停下（這是正確行為，沒有自畫版面）。PyMuPDF 是編譯過的二進位套件，本來就不在 ZIP 裡。
 
-這版把 PyMuPDF 1.26.0 的 wheel（cp39-abi3、manylinux x86_64，適用 Linux 容器上的 Python 3.9 以上，無其他相依）放進 ZIP 的 `resources/wheels/`，新增 `scripts/ensure_pymupdf.py`：先檢查能不能 `import pymupdf`，不行就用 `pip install --no-index` 從內建 wheel 離線安裝（先裝系統 site-packages，失敗再裝使用者目錄），完全不連網、不碰代理或政策設定。預檢 `prepare_hosted_run.py` 會自動先跑這一步，執行路線說明也寫明：只有安裝器回報 `install-failed` 或 `missing-wheel` 時才算卡住，不得改用其他 PDF 程式庫重畫版面。
+這版新增 `scripts/ensure_pymupdf.py`：先檢查能不能 `import pymupdf`，不行就用 `pip install --no-index` 從 wheel 檔離線安裝（先裝 site-packages，失敗再裝使用者目錄），完全不連網、不碰代理或政策設定；預檢會自動先跑這一步。wheel（PyMuPDF 1.26.0，cp39-abi3、manylinux x86_64，適用 Linux 容器上的 Python 3.9 以上，無其他相依）不放進 ZIP，改為每個 Release 的獨立附件，ZIP 維持約 9 MB。遇到缺套件時，AI 會請使用者下載該 wheel 上傳到對話，再以 `--wheel` 安裝後從存檔接著做；README 疑難排解有下載連結與三步說明。打包程式保留 `--bundle-wheels` 選項可把 wheel 包進 ZIP，預設關閉。
 
-ZIP 因此從約 9 MB 增為約 33 MB；`PACKAGE_MANIFEST.json` 記錄 wheel 的雜湊、版本與 AGPL-3.0 授權。wheel 不進版本庫（`vendor/wheels/`，見其 README 的下載指令），發布建置以 `--require-wheels` 強制存在。本機安裝包不含 wheel，照常用 pip 安裝需求。
+已在關閉網路的 `python:3.11-slim` 容器實測：解壓 ZIP、以 wheel 檔離線安裝 PyMuPDF、`--source-dir` 讀取、自然科預檢到 `ready-for-authoring`，全程沒有網路。
 
 ## 2026.09.21.2：以大考中心〈試題特色〉交叉核對自然、社會、英文
 

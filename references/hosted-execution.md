@@ -59,13 +59,17 @@ only the first time you enter it. If files have expired,
 recover the actual saved artifacts or report the missing files precisely.
 
 Every PDF helper needs PyMuPDF. If the runtime lacks it, or a helper fails with
-`ModuleNotFoundError: pymupdf`, run `python scripts/ensure_pymupdf.py`: it
-installs the wheel bundled under `resources/wheels/` with `pip --no-index`, so
-no package index or network policy is involved, and the preflight runs the same
-step itself. Do not stop to ask for a wheel or an allow-list first. Only when
-that helper reports `install-failed` or `missing-wheel` is PyMuPDF a blocker:
-then stop, keep saved work and report its JSON; never compose pages with another
-PDF library.
+`ModuleNotFoundError: pymupdf`, run `python scripts/ensure_pymupdf.py` (the
+preflight runs the same step itself). It installs a PyMuPDF wheel file with
+`pip --no-index`, so no package index or network policy is involved. When it
+reports `missing-wheel`, ask the user once, in these words: download the wheel
+`pymupdf-1.26.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl` from the README troubleshooting entry
+（「AI 說執行環境缺少 PyMuPDF」）and upload it to this chat. Then run
+`python scripts/ensure_pymupdf.py --wheel UPLOADED_FILE` and continue the same
+paper from the saved state. Do not ask for an allow-list, an internal index or
+admin action, and never compose pages with another PDF library. Only
+`install-failed` after the upload is a blocker: stop, keep saved work and report
+its JSON.
 
 Before drafting, confirm file creation, Python/PDF operations and readable image
 inspection in the actual runtime. The preflight starts the run clock

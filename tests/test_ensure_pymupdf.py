@@ -34,7 +34,8 @@ def test_missing_runtime_without_wheel_is_a_named_blocker(monkeypatch, tmp_path)
     monkeypatch.setattr(module, 'HERE', tmp_path / 'skill' / 'scripts')
     report = module.ensure(tmp_path / 'empty')
     assert report['status'] == 'missing-wheel'
-    assert 'Stop before drafting' in report['next_action']
+    assert 'upload' in report['next_action'] and module.WHEEL_FILE in report['next_action']
+    assert 'another PDF library' in report['next_action']
     assert str((tmp_path / 'empty').resolve()) in report['searched']
 
 
@@ -54,8 +55,26 @@ def test_bundled_wheel_is_installed_with_pip_no_index(monkeypatch, tmp_path):
         return {'ok': True, 'command': [], 'output': 'Successfully installed'}
     monkeypatch.setattr(module, '_pip_install', fake_install)
     report = module.ensure()
-    assert report['status'] == 'installed' and report['method'] == 'bundled-wheel:site-packages'
+    assert report['status'] == 'installed' and report['method'] == 'wheel-file:site-packages'
     assert commands == [(wheel, [])]
+
+
+def test_uploaded_wheel_file_is_used_directly(monkeypatch, tmp_path):
+    upload = tmp_path / 'uploads' / 'pymupdf-1.26.0-cp39-abi3-manylinux2014_x86_64.whl'
+    upload.parent.mkdir()
+    upload.write_bytes(b'x')
+    monkeypatch.setattr(module, 'HERE', tmp_path / 'scripts')
+    probes = iter([{'importable': False, 'error': 'missing'}, {'importable': True, 'version': '1.26.0'}])
+    monkeypatch.setattr(module, 'probe', lambda python=sys.executable: next(probes))
+    seen = []
+    monkeypatch.setattr(module, '_pip_install', lambda path, extra, python: (seen.append(path), {'ok': True, 'command': [], 'output': ''})[1])
+    report = module.ensure(wheel=upload)
+    assert report['status'] == 'installed' and seen == [upload.resolve()]
+    # A non-PyMuPDF file is refused rather than installed.
+    other = tmp_path / 'uploads' / 'requests-2.0-py3-none-any.whl'
+    other.write_bytes(b'x')
+    monkeypatch.setattr(module, 'probe', lambda python=sys.executable: {'importable': False, 'error': 'missing'})
+    assert module.ensure(wheel=other)['status'] == 'missing-wheel'
 
 
 def test_failed_install_falls_back_to_user_site_then_stops(monkeypatch, tmp_path):

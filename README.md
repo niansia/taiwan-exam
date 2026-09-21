@@ -231,7 +231,13 @@
 <details>
 <summary>AI 說「執行環境缺少 PyMuPDF，且無法安裝」</summary>
 
-2026.09.21.3 起的 ZIP 已內建 PyMuPDF 的 wheel，預檢會自動離線安裝，不需要上傳任何檔案或開放網路。若還看到這句，多半是帳號裡仍是舊版 Skill：請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.21.3/taiwan-exam-hosted-2026.09.21.3.zip)，刪掉舊的再上傳。已是新版仍失敗時，請 AI 執行 `python scripts/ensure_pymupdf.py` 並把它印出的 JSON 貼到[回報問題](https://github.com/niansia/taiwan-exam/issues)。
+那個對話的執行環境沒有 PyMuPDF，又擋掉 pypi，所以預檢停下來（AI 沒有自畫版面是正確的）。ZIP 刻意不內建這個 24 MB 的套件。解法只有三步：
+
+1. 下載 wheel 檔：[pymupdf-1.26.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.21.3/pymupdf-1.26.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl)（PyMuPDF 1.26.0，適用 Linux 容器上的 Python 3.9 以上；也在每個 Release 頁面的附件裡）。
+2. 把這個檔案直接上傳到同一個出卷對話，回「繼續」。
+3. AI 會執行 `python scripts/ensure_pymupdf.py --wheel 上傳的檔案`（離線 `pip install`，不需要網路），然後從存檔接著出卷。
+
+仍失敗時，請把它印出的 JSON 貼到[回報問題](https://github.com/niansia/taiwan-exam/issues)。
 
 </details>
 
