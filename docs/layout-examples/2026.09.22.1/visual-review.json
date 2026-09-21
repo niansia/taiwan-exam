@@ -1,0 +1,300 @@
+{
+  "scope": "Seven-subject placeholder layout previews only; not authored exam content, difficulty, full-paper density or exam acceptance. Rebuilt on the regenerated fixed templates whose running header no longer wraps 國語文綜合能力測驗.",
+  "reviewer": "Claude (Claude Code session), actual rendered page inspection of the pages marked inspected; other pages carry mechanical checks only",
+  "date": "2026-09-22",
+  "page_count": 29,
+  "records": [
+    {
+      "file": "chinese-questions.pdf",
+      "pdf_sha256": "15c1923c18942d5aaf228984b723244875b8ea4671fa55e8792ba0e94d88a816",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "0544b641bfb9a1a1185e892ed6353c5d0ae7de13e38ae3aa611795f990f0fba5",
+          "raster_scale": 1.1,
+          "status": "inspected",
+          "observation": "固定封面：品牌列、年度、科目名與作答注意事項可讀，無重疊。"
+        },
+        {
+          "page": 2,
+          "raster_sha256": "e5f174ad51cff4ef01749a29594fbe1e53d3e4b992b0f99e0fa8d982e8a6077c",
+          "raster_scale": 1.1,
+          "status": "inspected",
+          "observation": "頁首「116年學測／國語文綜合能力測驗」同列一行（先前版型在此斷行）；單選、跨文本題組與選項逐行直排。"
+        },
+        {
+          "page": 3,
+          "raster_sha256": "74b88321d050eefcd5b4709bab026621ab34a50e1a0d98ebd9477bfc785de3cc",
+          "raster_scale": 1.1,
+          "status": "inspected",
+          "observation": "偶數頁頁首同樣一行；短答表格與 4 分短答配分可讀，頁尾頁碼正確。"
+        }
+      ]
+    },
+    {
+      "file": "chinese-solutions.pdf",
+      "pdf_sha256": "d277ceb67d6b9ddfb82df33359fbd4ae750190d5a881ad2e73987c2e5c2f7998",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "c84a308d2980a275d5876bd4ad0662b1494d9630583dd7b934f09df7523966f9",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "english-questions.pdf",
+      "pdf_sha256": "ffe1b042126d46430f4fa1991dbc8dd01e338461cd802e96fd7e240dbdfa0a52",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "573a6f1c1d30d513dbdc2b07dedaa19706b0c04297e006dddcdf1e6f2e32fcdd",
+          "raster_scale": 1.1,
+          "status": "inspected",
+          "observation": "詞彙 (A)–(D) 逐行；綜合測驗行內底線空格 11、12；文意選填 A–J 選項庫兩列五欄。"
+        },
+        {
+          "page": 2,
+          "raster_sha256": "d133dcd69c766c7ec048c7108a818fad08bd8cd8835032b9e5d5c98304421d65",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 3,
+          "raster_sha256": "6604a05500be84564fae42371e999e6a2d9145b51ddc32d86daa13703c5c1411",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 4,
+          "raster_sha256": "0679e3bbc8210ff3ccc474c7368af24b27f2686315775a7e97bd2ba3e7d7f17e",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "english-solutions.pdf",
+      "pdf_sha256": "b129a03dabf2bceb310efefa122087af0a7613cae432f3ddf10df1aa9f70db8d",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "af7e9ed21d658235016f3b7ba150adb3590499fc8966fbb980f926935c6e9ca4",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "math-a-questions.pdf",
+      "pdf_sha256": "9d3852f6f1f3485b6b2d99a67267146daa32943f832f0d08ae73a766ac9a7e6a",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "283bdb01b515bfb3ee2e364f3c61c3f10f28f695e8701df8aaa38d8112c57662",
+          "raster_scale": 1.1,
+          "status": "inspected",
+          "observation": "單選、多選各五個選項逐行；選填格 13-1～13-3 圓圈題號與橫線完整，未壓到題幹。"
+        },
+        {
+          "page": 2,
+          "raster_sha256": "10959f6e518eb7ac7b901c6cd45121f615764811c60cfd98640a518c7cc08bc8",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 3,
+          "raster_sha256": "75e8e2658941edd6fc5b8c71cacee537152bc4248ef2ea6fa8fe95bd1682e07a",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 4,
+          "raster_sha256": "705574410fcb416b25d33b78647cc74e037d3776fe4feb2619644fb16df10b8e",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "math-a-solutions.pdf",
+      "pdf_sha256": "ecb17228c94fc74e91c00d2fcf3eb46768624216b4c509a75f604132eae2f158",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "35600fbc43e4f6bbc2dfbceefd16c59b16d2299dac3ea6424705119de36ac3f6",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "math-b-questions.pdf",
+      "pdf_sha256": "2c35b0093c6e929503c5d7e405fc30878b76485288433f60bbecfc3fb51dfd46",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "96d367fe06dc7c66a477baca1eb80e9d098b1fcdaa6a5ad15c1cf2e2ae3f303a",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 2,
+          "raster_sha256": "bdcf8fed9c7e75be33b07c443a0998cdd89b45c5cb04bf605c9d5139f12ad654",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 3,
+          "raster_sha256": "78d3e243e080bbf6fd993eb43eb2c1338363e4eae4e982bf465e32d66bd5b563",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 4,
+          "raster_sha256": "811b8edc2514c785c22a28286cc1a05143f7e69b20e4ff1571aac2588eb3d3b5",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "math-b-solutions.pdf",
+      "pdf_sha256": "1be637de09d5250577046d571eea3a6520a5a0fef1bc2d2a5eb9541c70696f39",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "2c5a29d647e32e285fc48e8310c586f483b4912c7fb54999bba180abfdb56ad9",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "science-questions.pdf",
+      "pdf_sha256": "7d5d4223452a4d699d09a86dd04e10991383045dccc7bddb07d795641bdccd72",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "7c6c52f878b42ce754dd9d7362a8ae6d257c8700741e2a81aa02947c70a78fa5",
+          "raster_scale": 1.1,
+          "status": "inspected",
+          "observation": "第壹部分標題與框內說明；單選、多選（應選2項）各五個選項；混合題資料表格線完整。"
+        },
+        {
+          "page": 2,
+          "raster_sha256": "166748b958bbfd8c89d011395ac81d08042c5a36882f1a4f13d485bb666aa582",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 3,
+          "raster_sha256": "0fa9733b5d503466b76da95f4e3e9ba5712c073bb4b7615d7750959e95c94b8a",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "science-solutions.pdf",
+      "pdf_sha256": "915eeb8552d77c19ae3d568a15b934efeb7bfbe3faa7d91e151f94a06f25d545",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "fedfa5c557f00c331c210518581df28572c30b84097bee9fd088322e6be0e514",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "social-questions.pdf",
+      "pdf_sha256": "f0d6d4613f38a6ebebfadabe94d55c200eea3c5b9f59a2b963b6182dd62ff791",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "1fee398414b556226a6304bcd0a327e041e456aa428f76ae211a816a5752f62c",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        },
+        {
+          "page": 2,
+          "raster_sha256": "eb6159b142640341dfa0e316faaa4b8140e1c8cfcfffa3436d538a5b4aec20ec",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "social-solutions.pdf",
+      "pdf_sha256": "13f441e94c8b0c3e6983ff65eb8de1a86e6d9c4ce4a34784fd483edc72b60aef",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "ddfb1074e5b76f79c717885c0cbb4ec8cd4ac4b2ab48679d9e75158631f9259a",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "writing-questions.pdf",
+      "pdf_sha256": "a9606e119ddd95a7937ddb82b68823afea9435714e015587c7acca8b3326178b",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "1699216e8697b797284d6b76fef94b8c46e401c0ea652e5d2afdcdb3faa3c5bb",
+          "raster_scale": 1.1,
+          "status": "inspected",
+          "observation": "頁首「國語文寫作能力測驗」一行；一、二大題與（一）（二）子題配分、字數上限可讀。"
+        },
+        {
+          "page": 2,
+          "raster_sha256": "b60294774600ad7553672f8b7f4b77e81a61438d8146d0603e31c2400e1ab1e8",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    },
+    {
+      "file": "writing-solutions.pdf",
+      "pdf_sha256": "3fd92410bcbb1917a3153853bbe2d2f904c165c6b7de4de17659e1f1c6612672",
+      "pages": [
+        {
+          "page": 1,
+          "raster_sha256": "8fa47d7e1b61191b6bd4c86b014352c877047ba9c842416ff17dc5cb542f6f5b",
+          "raster_scale": 1.1,
+          "status": "not-opened",
+          "observation": "未開啟；只做固定模板雜湊、幾何與文字層機械檢查。"
+        }
+      ]
+    }
+  ],
+  "font_subset_verification": "All 29 rasters at 1.1 px/pt are byte-identical before and after subsetting (29/29); compact_fonts additionally compares pages at 2 px/pt and keeps whole fonts on any difference. Only unused glyphs of the Noto Serif TC body font were removed; fixed PDF assets were not edited.",
+  "download_bytes": {
+    "before_font_subset": 151656139,
+    "after_font_subset": 4135719
+  }
+}

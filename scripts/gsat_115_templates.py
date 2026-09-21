@@ -128,8 +128,9 @@ html,body { margin:0; padding:0; background:#fff; color:#000; }
 .sheet:not(:last-child) { break-after:page; }
 .gsat115-inner { --left:22mm; --right:20.5mm; font-family:"DFKai-SB","BiauKai","KaiTi","PMingLiU",serif; }
 .inner-header { position:absolute; left:var(--left); right:var(--right); top:14.75mm; height:13mm;
-  display:grid; grid-template-columns:31mm 1fr 35mm; column-gap:2mm; align-items:start;
+  display:grid; grid-template-columns:auto 1fr auto; column-gap:2mm; align-items:start;
   font-size:10pt; line-height:13pt; }
+.inner-header > span:first-child, .inner-header .head-right { white-space:nowrap; }
 .inner-header .head-center { width:max-content; max-width:100%; justify-self:center; padding:0 5pt;
   background:#d9d9d9; text-align:center; white-space:nowrap; }
 .inner-header .head-right { text-align:right; }

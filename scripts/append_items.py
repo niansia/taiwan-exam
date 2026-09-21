@@ -15,6 +15,7 @@ import re
 from pathlib import Path
 
 from hosted_item_triage import crop_reasons, needs_crop
+from hosted_subject_gates import item_messages, subject_gate_errors
 from run_hosted_workflow import (authoring_issues, checkpoint, figure_pagination_risks, inside, read, record, save,
                                  text_issues)
 from validate_current_context import progress as context_progress, validate as current_context_errors
@@ -274,6 +275,16 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         report['design_note'] = ('The final check requires these difficulty-design fields. They are not printed: '
                                  'complete them with --replace as the batch is solved and reviewed; page reviews stay valid.')
     report.update(proof_triage(questions, answers, first_batch=first_batch))
+    gate = subject_gate_errors(exam, root=root, authoring=True)
+    per_item = item_messages(gate, questions)
+    if per_item:
+        report['subject_gate_pending'] = per_item
+    paper_level = [m for m in gate if not any(m in rows for rows in per_item.values())]
+    if paper_level:
+        report['subject_gate_paper_pending'] = {'count': len(paper_level), 'sample': paper_level[:8],
+                                                'note': 'Whole-paper floors (headings, section lengths, counts) are '
+                                                        'expected to fail until the paper is complete; the final checker '
+                                                        'runs the same validators.'}
     context = context_progress(exam)
     if context:
         report['current_context_progress'] = context

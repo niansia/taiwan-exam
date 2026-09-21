@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.21.6
+# Taiwan Exam Web Knowledge v2026.09.22.1
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 84427,
-    "sha256": "785459959f47f25e83b504d1d54162cf877cc21942db8ea2bc6a9a28dbf4f2c7",
-    "embedded_bytes": 84427,
-    "embedded_sha256": "785459959f47f25e83b504d1d54162cf877cc21942db8ea2bc6a9a28dbf4f2c7"
+    "bytes": 86005,
+    "sha256": "2426820eb4da62a8e3cf1bf5e037b8f9c081cc44ce3f4bb9691c522661d0879c",
+    "embedded_bytes": 86005,
+    "embedded_sha256": "2426820eb4da62a8e3cf1bf5e037b8f9c081cc44ce3f4bb9691c522661d0879c"
   },
   {
     "path": "core/taxonomy.json",
@@ -131,6 +131,13 @@ attachments; extract only the selected subject's components.
     "sha256": "4b43c12bdb5edbaca5c17a324bfc942eef0e16d52c22c4c07ea642de982ac25a",
     "embedded_bytes": 5022,
     "embedded_sha256": "4b43c12bdb5edbaca5c17a324bfc942eef0e16d52c22c4c07ea642de982ac25a"
+  },
+  {
+    "path": "exam_packs/學測/shared-data/chinese-item-type-envelope.json",
+    "bytes": 4739,
+    "sha256": "c4c68c84fad1b51f10e277e306ffa70cd084eccbea4cd4cb6ed79ca4fee96281",
+    "embedded_bytes": 4739,
+    "embedded_sha256": "c4c68c84fad1b51f10e277e306ffa70cd084eccbea4cd4cb6ed79ca4fee96281"
   },
   {
     "path": "exam_packs/學測/shared-data/current-chinese-natural-density.json",
@@ -415,9 +422,9 @@ attachments; extract only the selected subject's components.
   {
     "path": "exam_packs/學測/templates/115/hosted-web-template-assets.json",
     "bytes": 34334,
-    "sha256": "1d38d9c70964d667f83332abea760dd4941d68732e0c63cf32d49a314d945b99",
+    "sha256": "b1c7a0109f3067c3d2bbac2a3c98d333a7021b71997dba9aa7bb67fac3b7ea95",
     "embedded_bytes": 34334,
-    "embedded_sha256": "1d38d9c70964d667f83332abea760dd4941d68732e0c63cf32d49a314d945b99"
+    "embedded_sha256": "b1c7a0109f3067c3d2bbac2a3c98d333a7021b71997dba9aa7bb67fac3b7ea95"
   },
   {
     "path": "exam_packs/學測/templates/115/template-pack.json",
@@ -498,17 +505,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 30913,
-    "sha256": "b607bb81e634a0350af8e420afa46bbfd53def8d37c0f5d194a958d93ce1b1ee",
-    "embedded_bytes": 30913,
-    "embedded_sha256": "b607bb81e634a0350af8e420afa46bbfd53def8d37c0f5d194a958d93ce1b1ee"
+    "bytes": 35258,
+    "sha256": "d66959ad5942966b3008cec5b18ea1269a6b7ecddad655d9f343675f97219812",
+    "embedded_bytes": 35258,
+    "embedded_sha256": "d66959ad5942966b3008cec5b18ea1269a6b7ecddad655d9f343675f97219812"
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 24212,
-    "sha256": "faf345c53dca0ba47567bddee9dd5294d8caebb65b460b4da71aeccc902f8d74",
-    "embedded_bytes": 24212,
-    "embedded_sha256": "faf345c53dca0ba47567bddee9dd5294d8caebb65b460b4da71aeccc902f8d74"
+    "bytes": 30263,
+    "sha256": "c81621d52c6e01cd5b6e8f5517b73433a25bbb78a20cd314492d411e1b9dc236",
+    "embedded_bytes": 30263,
+    "embedded_sha256": "c81621d52c6e01cd5b6e8f5517b73433a25bbb78a20cd314492d411e1b9dc236"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -632,9 +639,9 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/hosted-body-workflow.md",
     "bytes": 15801,
-    "sha256": "6e8bf4a26d023a24092214b6d9b74e03df280cca0979f66669d3b183132e1e66",
+    "sha256": "9a7a526f3542520d7188c4ca20c9b75afb3d2ba68768ad6fe1dfada380667ea9",
     "embedded_bytes": 15801,
-    "embedded_sha256": "6e8bf4a26d023a24092214b6d9b74e03df280cca0979f66669d3b183132e1e66"
+    "embedded_sha256": "9a7a526f3542520d7188c4ca20c9b75afb3d2ba68768ad6fe1dfada380667ea9"
   },
   {
     "path": "references/hosted-execution.md",
@@ -652,10 +659,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 16519,
-    "sha256": "03d285e5ff5986c41238cec971bab59260fe9892e31bc6792b79b9f95a9c2a65",
-    "embedded_bytes": 16519,
-    "embedded_sha256": "03d285e5ff5986c41238cec971bab59260fe9892e31bc6792b79b9f95a9c2a65"
+    "bytes": 17192,
+    "sha256": "8919a50f61565b74442525868b62011afcb18d54ccadf7f30e43d38bb54ccf04",
+    "embedded_bytes": 17192,
+    "embedded_sha256": "8919a50f61565b74442525868b62011afcb18d54ccadf7f30e43d38bb54ccf04"
   },
   {
     "path": "references/hosted-run-evidence.md",
@@ -826,18 +833,25 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "62e507ca320cf817168a38ed24f19c48f866af70bbd277ecf01e678d5d74a4f5"
   },
   {
+    "path": "scripts/answer_key_patterns.py",
+    "bytes": 5938,
+    "sha256": "1ec6859b20c8a7908bb0071cc28a04050a93f53714db78855dbe425c597822b7",
+    "embedded_bytes": 5938,
+    "embedded_sha256": "1ec6859b20c8a7908bb0071cc28a04050a93f53714db78855dbe425c597822b7"
+  },
+  {
     "path": "scripts/append_items.py",
-    "bytes": 18248,
-    "sha256": "0317cacbd6f70a0e572fae53d3025a7b69275c7e258009e50cb2eb09e81f8cd8",
-    "embedded_bytes": 18248,
-    "embedded_sha256": "0317cacbd6f70a0e572fae53d3025a7b69275c7e258009e50cb2eb09e81f8cd8"
+    "bytes": 19029,
+    "sha256": "f75ba16247bb16027237998472a152349a016ce4a576ce5a4d975d5cfc6901fd",
+    "embedded_bytes": 19029,
+    "embedded_sha256": "f75ba16247bb16027237998472a152349a016ce4a576ce5a4d975d5cfc6901fd"
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 22351,
-    "sha256": "c7d227783e50c8d2121794c2081674c96c847ee0c76aa3002e3693e3d6abdcf3",
-    "embedded_bytes": 22351,
-    "embedded_sha256": "c7d227783e50c8d2121794c2081674c96c847ee0c76aa3002e3693e3d6abdcf3"
+    "bytes": 22695,
+    "sha256": "902ce19fb8f7270a0206ea61ccef40941504018e22d1229356e5c5a2fc4fd53c",
+    "embedded_bytes": 22695,
+    "embedded_sha256": "902ce19fb8f7270a0206ea61ccef40941504018e22d1229356e5c5a2fc4fd53c"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -883,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 34804,
-    "sha256": "897dfbedf2aaf3a61464983507bf1b2194efe5222129d07fc59a0b39c235ff36",
-    "embedded_bytes": 34804,
-    "embedded_sha256": "897dfbedf2aaf3a61464983507bf1b2194efe5222129d07fc59a0b39c235ff36"
+    "bytes": 35087,
+    "sha256": "82b87196bf7dbfd6426ec20289114de3b8210abddd8657efa409c7902a12c84f",
+    "embedded_bytes": 35087,
+    "embedded_sha256": "82b87196bf7dbfd6426ec20289114de3b8210abddd8657efa409c7902a12c84f"
   },
   {
     "path": "scripts/hosted_calibration.py",
@@ -915,6 +929,13 @@ attachments; extract only the selected subject's components.
     "sha256": "61a086b6ec8a86783b120c032ce3225ca78367021389e6d2a89c8251f55b52ae",
     "embedded_bytes": 10823,
     "embedded_sha256": "61a086b6ec8a86783b120c032ce3225ca78367021389e6d2a89c8251f55b52ae"
+  },
+  {
+    "path": "scripts/hosted_subject_gates.py",
+    "bytes": 7136,
+    "sha256": "9ea86e0064a2c607b5a53e8650f99c0067271b0a655dc763bef534a4acc9f66b",
+    "embedded_bytes": 6999,
+    "embedded_sha256": "0f24a1a8e05ba1577b500d67566f302ce138c61c1978d5160d37d8149b823d40"
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
@@ -953,10 +974,24 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 78458,
-    "sha256": "c54300526d02931cfd7ce41bc1549825074f7708ccdf47b898c77ae4774e6e5f",
-    "embedded_bytes": 78458,
-    "embedded_sha256": "c54300526d02931cfd7ce41bc1549825074f7708ccdf47b898c77ae4774e6e5f"
+    "bytes": 78558,
+    "sha256": "a6ce189a6b7baf73099c5f628d237dbc759b18eb88d4c4cfe66e9a58fdee54c0",
+    "embedded_bytes": 78558,
+    "embedded_sha256": "a6ce189a6b7baf73099c5f628d237dbc759b18eb88d4c4cfe66e9a58fdee54c0"
+  },
+  {
+    "path": "scripts/validate_chinese_layout_contract.py",
+    "bytes": 10414,
+    "sha256": "330df941a1ddecf60e5fc6c0b5afa1a00e2c140e4e114145a89a96b5d0c2ccc8",
+    "embedded_bytes": 10414,
+    "embedded_sha256": "330df941a1ddecf60e5fc6c0b5afa1a00e2c140e4e114145a89a96b5d0c2ccc8"
+  },
+  {
+    "path": "scripts/validate_chinese_natural_scope.py",
+    "bytes": 27116,
+    "sha256": "33af43cd5c4a028da983bba71b05270fec8a3f03d3e71bd20dde724726af8d0d",
+    "embedded_bytes": 27116,
+    "embedded_sha256": "33af43cd5c4a028da983bba71b05270fec8a3f03d3e71bd20dde724726af8d0d"
   },
   {
     "path": "scripts/validate_current_context.py",
@@ -966,11 +1001,25 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "465590b92c51707eb93fe980fad5e8936ab633e5c362bcd46c82682feced4f67"
   },
   {
+    "path": "scripts/validate_english_difficulty_design.py",
+    "bytes": 12812,
+    "sha256": "6d4da0096f8c77a59527b667a5f327d696449f3dad8155ffc51fca68b85d6ec0",
+    "embedded_bytes": 12812,
+    "embedded_sha256": "6d4da0096f8c77a59527b667a5f327d696449f3dad8155ffc51fca68b85d6ec0"
+  },
+  {
+    "path": "scripts/validate_english_layout_contract.py",
+    "bytes": 10666,
+    "sha256": "1755238836b006cfc8bdbf5c0ebb04301055d0ef84434fb66229b6ddfe3abfae",
+    "embedded_bytes": 10482,
+    "embedded_sha256": "0710c74e287f365344b04e666876b4adf9670ab1e0e877be8bbf07104fe5f84f"
+  },
+  {
     "path": "scripts/validate_literacy_load.py",
-    "bytes": 18505,
-    "sha256": "2f994c582ec82cffeaa324a210f99506b5c84ced89e9ae196f05682868b7a13a",
-    "embedded_bytes": 18505,
-    "embedded_sha256": "2f994c582ec82cffeaa324a210f99506b5c84ced89e9ae196f05682868b7a13a"
+    "bytes": 18838,
+    "sha256": "f4fc4d3ac4a3fe807703c5a8007204a3b5b618792a48d27a48747ef004e8ab0f",
+    "embedded_bytes": 18838,
+    "embedded_sha256": "f4fc4d3ac4a3fe807703c5a8007204a3b5b618792a48d27a48747ef004e8ab0f"
   },
   {
     "path": "scripts/validate_math_context.py",
@@ -992,6 +1041,20 @@ attachments; extract only the selected subject's components.
     "sha256": "708acc58ab5673fd2c3d5d921b5feb6f74aee87c97ae754db1bb290918dfb968",
     "embedded_bytes": 5656,
     "embedded_sha256": "708acc58ab5673fd2c3d5d921b5feb6f74aee87c97ae754db1bb290918dfb968"
+  },
+  {
+    "path": "scripts/validate_social_item_design.py",
+    "bytes": 28354,
+    "sha256": "891da799b374305b954c2d39871d476ef28fdd97380dcd064a102144647cfb8e",
+    "embedded_bytes": 28354,
+    "embedded_sha256": "891da799b374305b954c2d39871d476ef28fdd97380dcd064a102144647cfb8e"
+  },
+  {
+    "path": "scripts/validate_writing_source_grounding.py",
+    "bytes": 7839,
+    "sha256": "9851897b2aee4c87db9be0e3d9d2c487fb78984513f7b50ee3db7f6219c96a7a",
+    "embedded_bytes": 7839,
+    "embedded_sha256": "9851897b2aee4c87db9be0e3d9d2c487fb78984513f7b50ee3db7f6219c96a7a"
   },
   {
     "path": "scripts/verify_fixed_template_pdf.py",
@@ -1381,7 +1444,7 @@ ask users to disable protection, restore quarantined scripts, or add exclusions.
 7. For current-form GSAT mathematics, also read [references/current-gsat-math-form.md](references/current-gsat-math-form.md) and [references/current-gsat-math-scope.md](references/current-gsat-math-scope.md); their typography, formula, stem-rhetoric, visual-placement, option-geometry, machine-marking, curriculum-code, and boundary rules are hard constraints.
    When present, also read `exam_packs/學測/shared-data/current-math-form-writer-profile.json`; it is an aggregate-only form envelope. Treat common-range mock statistics as shared-unit/form evidence, never as a Math A or Math B full-paper distribution.
    For a complete Math B paper, accessible and medium-labelled items still require at least three genuine decisions; a definition lookup or one exposed formula substitution is not an acceptable entry item. The first three fill-in items must each combine a representation choice with a constraint, case, comparison, or consistency check. A latitude/longitude item may use coordinate conversion only as an intermediate step: its assessed mechanism must be spherical two-point distance, route comparison, or a navigation constraint. Every Math B item must record and pass the non-routine innovation audit described in [references/math-difficulty-design.md](references/math-difficulty-design.md); changing names, numbers, or scenery is not innovation.
-   For current-form GSAT English, read [references/current-gsat-english-form.md](references/current-gsat-english-form.md). Its section sequence, vocabulary envelope, option-competition rules, passage lengths, source transformation, response formats, and page geometry are hard constraints. The vocabulary section must be written from contextual distinctions among plausible alternatives, not from one obvious word surrounded by wrong-part-of-speech fillers.
+   For current-form GSAT English, read [references/current-gsat-english-form.md](references/current-gsat-english-form.md). Its section sequence, vocabulary envelope, option-competition rules, passage lengths, source transformation, response formats, and page geometry are hard constraints, and its printed-form catalogue (the ten official headings with scores, `(A)`–`(D)` labels, one-row vocabulary options, stacked reading options, Chinese 說明／提示 composition prompt, `1.` `2.` translation numbers, 180–470-word passages) is enforced by `scripts/validate_english_layout_contract.py` on every surface through `scripts/hosted_subject_gates.py`. The vocabulary section must be written from contextual distinctions among plausible alternatives, not from one obvious word surrounded by wrong-part-of-speech fillers.
    English difficulty must come from discourse inference, evidence integration, semantic precision, and competitive distractors while remaining inside the CEEC reference-vocabulary boundary. Do not raise difficulty with off-list words, rare trivia, opaque syntax, or longer padding. In the ten vocabulary items, leave at least two locally plausible wrong options in most items and vary near-synonym, collocation, polysemy, argument-structure, register, semantic-prosody, word-family/form, and discourse-relation competition across the paper. Keep all alternatives grammatically usable in the slot; a visibly wrong suffix or part of speech is not useful difficulty. Follow the higher-demand floor in the English reference instead of assigning `中偏難` or `難` labels to direct one-clue sentences. In a complete 115-form paper, cloze/completion/structure must include cross-sentence decisions, reading groups must contain cross-paragraph or text–visual inference, and mixed items must require transformation rather than copying. Run `scripts/validate_english_difficulty_design.py` in addition to the lexical and layout checks.
    English novelty is also an item-level release gate, not a property of the passage topic alone. Every scored vocabulary, cloze, completion, discourse, reading, mixed, translation, and composition task must carry the `item_spec.subject_innovation_audit` defined in [references/llm-original-item-generation.md](references/llm-original-item-generation.md) and realize an English-specific semantic, discourse, evidence-transformation, translation-constraint, or writing-decision mechanism. A fresh article followed by a recoverable stock question template still fails. Apply the section-specific tests in [references/current-gsat-english-form.md](references/current-gsat-english-form.md), require the full-paper `metadata.subject_innovation_review`, and let `scripts/validate_english_difficulty_design.py` reject missing or merely declarative records.
    Every English vocabulary answer explanation must bind the answer label to the exact printed surface form. It may state the lemma or a related form only after explicitly naming the selected word; silently explaining a different derivative or near-synonym is a release failure. Student-facing English-composition directions must be in Traditional Chinese and state the minimum 120-word requirement. Reject a prompt that uses a photo as a pretext for an unrelated abstract lesson or requires facts not visible in the material; record and pass the prompt-coherence contract in the English reference.
@@ -1392,10 +1455,12 @@ ask users to disable protection, restore quarantined scripts, or add exclusions.
    Social Studies novelty applies to every scored standalone and grouped item, not only to cross-disciplinary mixed groups or current-event items. Each item must record `item_spec.subject_innovation_audit` and introduce a new evidence configuration, source tension, spatial/temporal comparison, institutional constraint, quantitative relation, or cross-domain inference that changes the reasoning path. A different place, year, policy name, person, photograph, or dataset attached to the same textbook-definition question is a failed skin swap. Follow the per-domain audit in [references/current-gsat-social-form.md](references/current-gsat-social-form.md), require `metadata.subject_innovation_review`, and enforce it through `scripts/validate_social_item_design.py`.
    For current-form GSAT 國綜 or 自然, read [references/current-gsat-chinese-natural-form.md](references/current-gsat-chinese-natural-form.md). Its ROC 111–115 item-length and page-density envelopes, source-novelty rule, and no-unattributed-passage rule are hard constraints. 國綜 does not permit model-authored literary, classical, expository, or practical-text passages. 自然 may define a school-level model or ask students to transform source data, but every printed empirical datum and real-world claim must be traceable to a frozen source or a transparent calculation from it.
    國綜 and 自然 also require subject-level novelty beyond source novelty or visual novelty. Every scored item must carry `item_spec.subject_innovation_audit` and pass the applicable section in [references/current-gsat-chinese-natural-form.md](references/current-gsat-chinese-natural-form.md). 國綜 must create a new language/interpretive problem and evidence relation; merely selecting a previously unused author or excerpt is insufficient. 自然 must create a new model–evidence, experiment, constraint, uncertainty, multi-representation, or cross-disciplinary reasoning architecture; a new mission, organism, apparatus, photograph, graph skin, or numeric tuple around the same routine is insufficient. Require `metadata.subject_innovation_review` and enforce both subjects through `scripts/validate_chinese_natural_scope.py`.
+   The printed 國綜 form is fixed across 111–115 and enforced by `scripts/validate_chinese_layout_contract.py` on every surface: the four headings with scores (第壹部分、選擇題（占76分）／一、單選題（占48分）／二、多選題（占28分）／第貳部分、混合題或非選擇題（占24分）), item 1 字音 and item 2 字形, standalone items 1–5, seven standalone multiple-choice items 25–31 with at least two language-knowledge items and no （應選n項）, one mixed group 32–36, `(A)`–`(E)` labels with every option on its own line.
    國綜 has two additional editorial constraints: each independently answered short-response subpart is at most 40 Chinese characters and at most 4 points (a full short explanation is designed for 4 points); core classical selections must account for 20–25% of the whole paper's score. Apply the counting, rubric and source-dependency rules in the 國綜 section of that reference. These are not 國寫 limits, not a quota for all classical-language material, and not permission to alter historical official profiles.
    A complete Natural Science paper must place Questions 1–36 in one first part worth exactly 72 points: the printed heading is `第壹部分、選擇題（占72分）` and its boxed direction states `說明：第1題至第36題，含單選題及多選題，每題2分。` (spacing may follow the measured font, but no fact may be omitted). These 36 items are **not** all single-choice and must not be recorded as an unresolved generic choice block after the controlling paper has been reviewed. Reproduce the selected profile's item-level single-/multiple-choice mix; for the measured 115 profile this is 24 single-choice and 12 multiple-choice items. Every Natural Science selected-response item uses five options labelled `A`–`E`. Every multiple-choice item anywhere in the paper—including a selected-response subpart inside the mixed section—must print `（應選 n 項）`, where `n` is derived from and checked against the independently verified answer key. The cover must print both the single-choice and partial-credit multiple-choice scoring rules; a generic `依題本說明` sentence is not an acceptable substitute. Questions 1–36 must also form four uninterrupted nine-item discipline blocks, one each for physics, chemistry, biology, and earth science; record the actual block order and do not interleave disciplines. This block rule stops at Question 36. Do **not** force the mixed/constructed part into four isolated mini-papers: one coherent shared stimulus may and often should integrate two or more of physics, chemistry, biology, and earth science. Give every subpart one primary scored domain, add valid codes for every discipline genuinely required by its solution, and record the non-ornamental evidence bridge in `metadata.natural_mixed_group_designs`. Merely mentioning a second discipline is not integration. Apply the same anti-surface rule used for Social Studies: no pure definition, named-law recall, one-step formula substitution, or decorative experiment/data material. Every item must assess a core or high-frequency curriculum anchor through at least two linked operations; medium and harder items must normally require three. Difficulty may be raised through experimental design, competing models, variable control, multi-representation evidence, uncertainty, or constraint reconciliation, never through peripheral content or calculation bulk.
    Every full Natural Science paper is current-affairs-aware by default, not only on request: read [references/current-form-topicality.md](references/current-form-topicality.md), set an `as_of_date` and editorial lock date, record `metadata.natural_source_ecology_plan` and `metadata.current_context_plan`, and meet the measured floor enforced by `scripts/validate_current_context.py` (at least four verified sources within the year carrying six scored items in both parts, one of them within 120 days such as the autumn Nobel prizes or an in-season Taiwan typhoon/earthquake warning, plus Taiwan-hazard, climate/energy and Taiwan-place contexts). Official 111–115 papers carry 0–5 such contexts a year with a typhoon in four of five years; a paper with none is outside the form. Give the preceding 12 months a larger share of the genuinely time-sensitive source groups, but never let a numerical news quota distort the four-discipline, difficulty, form, or solving-time balance. Sample the remaining dated sources across multiple earlier years and source families rather than clustering on one convenient year; keep evergreen school models in a separate bucket instead of pretending they are dated events. Every recent item must depend on a source-specific measurement, comparison, image feature, method, or constraint—not merely a fashionable name. Favor additional graphs, tables, maps, photographs, and observation images when they carry answer evidence; the visual floor is a minimum, not a target or permission to add decoration.
    For current-form GSAT writing, read [references/current-gsat-writing-form.md](references/current-gsat-writing-form.md) and [references/gsat-writing-source-ecology.md](references/gsat-writing-source-ecology.md). During the writing pass, do not read past question text, year-by-year topic summaries, or prior generated writing prompts. The LLM must discover new articles independently, then design a new material sequence, rhetorical tension, task decision, and title from those sources. Every printable event, case, datum, attributed viewpoint, and concrete anecdote must map to an identified source; the LLM may paraphrase, translate, juxtapose, and ask a new question, but it may not invent a supposedly real or generic case to complete the material. **Do not use United Daily News, any other newspaper, publisher, magazine, platform, archive, or institution as a default, preferred, or de facto exclusive source.** 國寫 source eligibility is publisher-neutral: any traceable and rights-safe source may compete when its transformed material fits the selected official length envelope and rhetorical role. The full-paper candidate pool must still span at least four publishers and four unrelated domains, and one easy-to-search publisher must not occupy more than half the pool. Length compliance is necessary but never substitutes for traceability, rights safety, a concrete carrier, a semantic hinge, material dependence, or role fit. For the second task, search contemporary Chinese essays, new poetry, picture-book prose and other Chinese literary writing first. A foreign work may advance only through a traceable published Chinese translation; do not expose a raw English web bibliography as the normal student-facing source line.
+   In every subject the printed answer key must look like an official key, that is unpatterned: `scripts/answer_key_patterns.py` (run by the release gate, the hosted final checker and each saved batch) rejects four identical positions in a row, a period-2/3/4 cycle that continues past two repeats, an option bank keyed in label order, five answers stepping through the labels, two item groups with the same answer sequence, and label counts differing by more than one. Write the item, shuffle the options, then derive the key; a key such as 1-4-3-2 repeated or A–J in order is a release failure even when every answer is correct.
    For every full 英文, 國綜 and 國寫 paper, also apply [references/current-form-topicality.md](references/current-form-topicality.md): 英文 needs one verified recent passage and a composition prompt tied to a verified current social trend; 國綜 needs one recent group and Taiwan-anchored passages; 國寫 needs one task tied to a verified current trend. Record `metadata.current_context_plan` and each item's `item_spec.current_context`; `scripts/validate_current_context.py` runs in the release gate and the hosted final checker, and `append_items.py` reports progress toward the floor after every batch.
 8. For every competence-oriented item or group stimulus, read [references/stimulus-generation.md](references/stimulus-generation.md).
    For corpus rechecks, current-example/literacy complaints, source-note cleanup, or release review, also read [references/evidence-backed-editorial-audit.md](references/evidence-backed-editorial-audit.md). Report coverage gaps; author-declared pass flags never substitute for a comparison. Keep full provenance internal and print only notes justified by the official form, answerability, or rights.
@@ -11462,6 +11527,85 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
     "https://www.ceec.edu.tw/files/file_pool/1/0K142502539154970794/111%E5%A4%A7%E8%80%83%E7%B4%A0%E9%A4%8A%E5%B0%8E%E5%90%91%E5%91%BD%E9%A1%8C%E6%96%B9%E5%90%91%E8%88%87%E8%A9%A6%E9%A1%8C%E7%A4%BA%E4%BE%8B-1090521.pdf"
   ],
   "warning": "題數、配分、各題型比例與難度分布須由指定年度官方文件或匯入的歷屆 metadata 建立，不在基線中猜測。"
+}
+</canonical-source>
+
+<canonical-source path="exam_packs/學測/shared-data/chinese-item-type-envelope.json">
+{
+  "schema_version": 1,
+  "subject": "國綜",
+  "basis": "Maintainer item-by-item reading of the supplied CEEC 學測 ROC 111-115 國語文綜合能力測驗 booklets (2026-09-22). Each item was classified by 題型, standalone/group, text era and source kind; group stimulus lengths are approximate printed character counts.",
+  "status": "reviewed-manual-classification",
+  "caution": "Editorial reading for release calibration, not a CEEC annotation. 111-112 print 25 single-choice items, 7 multiple-choice and two 第貳部分 groups (22 points); 113-115 print 24, 7 and one group (24 points). The current form is 113-115.",
+  "structure": {
+    "111": {"single": "1-25", "multiple": "26-32", "part_2": "33-37", "part_1_points": 78, "part_2_points": 22, "part_2_groups": 2},
+    "112": {"single": "1-25", "multiple": "26-32", "part_2": "33-37", "part_1_points": 78, "part_2_points": 22, "part_2_groups": 2},
+    "113": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1},
+    "114": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1},
+    "115": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1}
+  },
+  "single_choice_item_types": {
+    "years": [111, 112, 113, 114, 115],
+    "字音": [1, 1, 1, 1, 1],
+    "字形": [1, 1, 1, 1, 1],
+    "成語或詞語運用（白話）": [1, 1, 0, 1, 0],
+    "文言字義": [1, 0, 0, 0, 0],
+    "語法或修辭知識": [1, 0, 0, 0, 2],
+    "文言排序": [0, 0, 1, 0, 1],
+    "應用文或稱謂": [0, 0, 0, 0, 1],
+    "白話說明文閱讀": [1, 5, 15, 9, 14],
+    "白話文學閱讀": [2, 4, 1, 3, 0],
+    "文言閱讀": [9, 9, 4, 5, 0],
+    "古典韻文閱讀": [1, 0, 0, 0, 2],
+    "跨文本比較": [3, 3, 1, 1, 2],
+    "圖表或非連續文本": [4, 1, 0, 3, 0],
+    "standalone_items": ["1-8", "1-7", "1-5", "1-5", "1-5"],
+    "first_group_starts_at": [9, 8, 6, 6, 6],
+    "group_count": [6, 7, 8, 7, 7],
+    "group_sizes": {"111": [3, 2, 4, 2, 3, 3], "112": [2, 3, 2, 3, 3, 2, 3], "113": [3, 2, 2, 3, 2, 3, 2, 2], "114": [3, 2, 2, 2, 5, 2, 3], "115": [3, 2, 3, 2, 3, 3, 3]},
+    "group_stimulus_chars": "250-700 typical; standalone 文言 70-200; longest about 1050"
+  },
+  "multiple_choice_item_types": {
+    "years": [111, 112, 113, 114, 115],
+    "文言字義（「」內的詞，意義前後相同）": [1, 1, 1, 1, 1],
+    "成語運用": [0, 0, 1, 1, 1],
+    "語法或修辭知識": [1, 1, 1, 1, 0],
+    "文化或文學常識": [1, 0, 0, 0, 1],
+    "應用文或稱謂": [1, 0, 0, 0, 0],
+    "白話文學閱讀": [1, 1, 0, 0, 0],
+    "白話說明文閱讀": [0, 0, 1, 2, 0],
+    "新詩閱讀": [0, 1, 0, 0, 0],
+    "文言閱讀": [2, 1, 2, 0, 2],
+    "古典韻文閱讀": [0, 1, 0, 0, 0],
+    "圖表或非連續文本": [0, 0, 1, 0, 0],
+    "跨文本比較": [0, 1, 0, 2, 2],
+    "standalone_items": 5,
+    "closing_group": "last two multiple-choice items share one stimulus containing 文言 or 韻文",
+    "prints_required_selection_count": false,
+    "first_multiple_choice_item": "文言字義 with options drawn from 核心古文 in every year"
+  },
+  "part_2": {
+    "single_choice_subparts": 2,
+    "constructed_items": 3,
+    "constructed_subparts_each": 2,
+    "points_by_year": {"111": [2, 2, 6, 6, 6], "112": [6, 2, 6, 2, 6], "113": [6, 8, 2, 2, 6], "114": [2, 2, 6, 8, 6], "115": [6, 6, 8, 2, 2]},
+    "character_limits": {"2_points": "10-20 字以內", "4_points": "30-40 字以內 (or two parts of 10-15)"},
+    "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts"
+  },
+  "every_year": [
+    "Q1 字音, Q2 字形",
+    "first multiple-choice item is 文言字義 with 核心古文 options",
+    "5 standalone multiple-choice items plus a closing 2-item group",
+    "no multiple-choice stem prints 應選n項",
+    "one 成語/詞語運用 item (Q3 in 111-112, in the multiple-choice block since 113)",
+    "at least one 語法/虛詞 item",
+    "at least one ①②研判題 (皆符合／無法判斷 options); 2-3 a year since 113",
+    "at least one 古典詩詞曲 item",
+    "at least one Taiwan-themed group",
+    "at least three items whose options quote 核心古文 sentences",
+    "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words"
+  ],
+  "trend": "Single-choice 文言閱讀 fell from 9 (111-112) to 0 (115) while 白話說明文閱讀 rose to 14-15; 核心古文 now appears mostly as option material or inside modern criticism rather than as standalone passages."
 }
 </canonical-source>
 
@@ -54618,8 +54762,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-comprehensive/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/blank-template.pdf",
-          "bytes": 247559,
-          "sha256": "6ede018f99dcbbef6ef8fc7274f76bb3c00e83a9e35e9cb5b7794049c6bb39a7",
+          "bytes": 247555,
+          "sha256": "c95e56642007c254a7e228e114ea2dbd3dcd35514ccc694fb9d310a6350db4d5",
           "pages": 3
         },
         {
@@ -54628,7 +54772,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/cover-blank.pdf",
           "bytes": 234349,
-          "sha256": "ca2e2cf8f24df6413521ac36af3bc99388d43576f1eafd10cc4fce03fc2b44e4",
+          "sha256": "767d6ceba1013a2ed37f84deab6af1a31b50d8a88480baf92e919d55825eca7c",
           "pages": 1
         },
         {
@@ -54636,8 +54780,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-comprehensive/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/inner-even-blank.pdf",
-          "bytes": 63259,
-          "sha256": "6201cd86fd9483b476833b340aca04453c42365e9bd28f7a1eec12c350e0eecd",
+          "bytes": 63254,
+          "sha256": "3dcd4b96950d4d5a5e0a56cc7fdaa6fb27031712aab5ca3c3a213c55e5ff7987",
           "pages": 1
         },
         {
@@ -54645,8 +54789,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-comprehensive/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/inner-odd-blank.pdf",
-          "bytes": 63251,
-          "sha256": "d2339973c9a5ffbb7f0585968a78d8c8de6eec29573ed9bd11c1c58d14d0577a",
+          "bytes": 63252,
+          "sha256": "28e07026d6bfbe82a242dad9cd5677ab4b1fb110805e49228815c9f8fff88001",
           "pages": 1
         }
       ],
@@ -54729,8 +54873,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-writing/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/blank-template.pdf",
-          "bytes": 236161,
-          "sha256": "f150bdbe9f3f1b8f88d452a62bba2fd9fb7f551dabb82df291cd558290c220ef",
+          "bytes": 236163,
+          "sha256": "58261fb72db3abf92e3899d1b01847f59d2b3259da5c25d32f6fd1fb9f38f8b0",
           "pages": 3
         },
         {
@@ -54739,7 +54883,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/cover-blank.pdf",
           "bytes": 214045,
-          "sha256": "6681288745bb72f3cb0dba86d7344f6c00032ddede57a51b94426ad2036f10a1",
+          "sha256": "93bbb3a7aed43c47aaff0f97cfafec197e4c1c4b49e2a6f20154fcf307810acb",
           "pages": 1
         },
         {
@@ -54747,8 +54891,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-writing/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/inner-even-blank.pdf",
-          "bytes": 60438,
-          "sha256": "55060abf33107361cf97cc2525359048bba3cc01253371b02efbe289d7eaebd1",
+          "bytes": 60437,
+          "sha256": "559061a01191b4d9b510433b72f75aab70b90fe9862baecf5ed1b3f70e005907",
           "pages": 1
         },
         {
@@ -54756,8 +54900,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-writing/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/inner-odd-blank.pdf",
-          "bytes": 60431,
-          "sha256": "3eeb94218f3dffa1cb53d5a70d1140b89f693fa45a57ceabf20201577cc451d8",
+          "bytes": 60434,
+          "sha256": "32e206705869174cdb58091336b24fb005463e3b5db526294cf6f88f4af01911",
           "pages": 1
         }
       ],
@@ -54840,8 +54984,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/english/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/blank-template.pdf",
-          "bytes": 131361,
-          "sha256": "b6e165ed5fa91a578a2daad7dd597c097c27f277b7fc9ca10cbba463687dd5f2",
+          "bytes": 131364,
+          "sha256": "282dfe943ac5e6fe4f34322baff71854904c642855453b8dc059c565bde2e7bb",
           "pages": 3
         },
         {
@@ -54850,7 +54994,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/cover-blank.pdf",
           "bytes": 119616,
-          "sha256": "ad8c6d5cf9c1cd948b8220e9c5a70e4e2d7878a669fcd1717218a4b118a0a667",
+          "sha256": "31a99f00f2787a4ca7c1dfeda99a11fe1804b824cd720999b0dcbc20d6cd4748",
           "pages": 1
         },
         {
@@ -54858,8 +55002,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/english/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/inner-even-blank.pdf",
-          "bytes": 61903,
-          "sha256": "37fbd5b9db6d49b479233b8b37ed67933a35549f3ee3f9352b4b08bc6d459a2d",
+          "bytes": 61906,
+          "sha256": "d859f824ef870a44aaaa43472c1225fa84fabe2bbed39f38c0c74c9f92ac3b44",
           "pages": 1
         },
         {
@@ -54868,7 +55012,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/inner-odd-blank.pdf",
           "bytes": 61903,
-          "sha256": "55fd49d57ceb05b8d562cd97c72c2a714e353e1e574638a17ea1eb9b8511c56c",
+          "sha256": "e686bafbe8f54cd05f8dea12fc66b1d39f4da80aed55483c04ba96fc9ff73268",
           "pages": 1
         }
       ],
@@ -54951,8 +55095,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/blank-template.pdf",
-          "bytes": 355626,
-          "sha256": "92c2135fd4f5b069967db23b85cabf9c582fa84cb9a4f4ff75ae490319a48756",
+          "bytes": 355628,
+          "sha256": "11b3791d54b3211f794a9d41e378905d2ec209c760eff00f920e4d8e49c30ade",
           "pages": 4
         },
         {
@@ -54961,7 +55105,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/cover-blank.pdf",
           "bytes": 160468,
-          "sha256": "f77ff1e6047e23280fa61294ffd0ec9d4847a6e547dfc6b2f90854a3ced3907b",
+          "sha256": "022f4f33f2764758fb2f73caaaf3ed93ba5254c23eef54384495cf68f0e5a0d6",
           "pages": 1
         },
         {
@@ -54970,7 +55114,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/formula-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/formula-blank.pdf",
           "bytes": 149861,
-          "sha256": "f9ab251046e084300a127d5fad71415ff461a6cf3bdb554db59db2d9b38517e2",
+          "sha256": "8c41dac89dc19b224d9ae5dcaa52461600b11ac925a4707c037ec144bb39fb2b",
           "pages": 1
         },
         {
@@ -54978,8 +55122,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/inner-even-blank.pdf",
-          "bytes": 70297,
-          "sha256": "2d147b496999214b53ee38206d08b7cc96ccab67a4a128822328efd054fe2cce",
+          "bytes": 70299,
+          "sha256": "dcb4e7ffa3351ee0f029e4c18c7e6dec25186fdc7ac0c8537ba022b415acd7ec",
           "pages": 1
         },
         {
@@ -54988,7 +55132,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/inner-odd-blank.pdf",
           "bytes": 70295,
-          "sha256": "cf51ad2f873cb1a990a8abc41cb766b853e905333a0d228427157a95e9237cf7",
+          "sha256": "16ec652c33bc56b37a461ced2905174f5a0a623e4cfe48858d6703b819c5db4e",
           "pages": 1
         }
       ],
@@ -55071,8 +55215,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/blank-template.pdf",
-          "bytes": 342425,
-          "sha256": "2bd3d739ae413a8787c82559b4e39ca43e003e688feb04d64ca93e01308b229b",
+          "bytes": 342430,
+          "sha256": "570ef764f8cabc27fef564cd2a197a174a7309b4bd216d852448475cd7e29285",
           "pages": 4
         },
         {
@@ -55081,7 +55225,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/cover-blank.pdf",
           "bytes": 161139,
-          "sha256": "016c2a28a283ba89ebfc05aa434b79b054eb1f2854809ef70d622d9d5bf70a2d",
+          "sha256": "48086ef489124b1bb0b79ec36942f4417615f9832b9300fbe5c2afce07436323",
           "pages": 1
         },
         {
@@ -55089,8 +55233,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/formula-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/formula-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/formula-blank.pdf",
-          "bytes": 148207,
-          "sha256": "a8787bf5e0737facdfc8a0a3469ea9e7c77116b81be89e2bc3e117ce63346a97",
+          "bytes": 148210,
+          "sha256": "5f0187d2e94fbc157abbf66658ac1753e80507b1df5c8f512fd73d16a9a023cc",
           "pages": 1
         },
         {
@@ -55098,8 +55242,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/inner-even-blank.pdf",
-          "bytes": 70218,
-          "sha256": "1ebb4ea6a12506416c4615126447d741dcc555f3c3758bf2b7c3ce1a8ebda543",
+          "bytes": 70219,
+          "sha256": "b4afd9ea435b87208f6ad374d9f538301067b69ece358fc586798aed00491bd4",
           "pages": 1
         },
         {
@@ -55107,8 +55251,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/inner-odd-blank.pdf",
-          "bytes": 70213,
-          "sha256": "af7d7fec58172967b2b21b0799c2a79d59a498db69757d41bd945a1a39891170",
+          "bytes": 70214,
+          "sha256": "76ea05ad0d870bbaf7b25a59a34689c603370cd160e988544e3400fe3690848c",
           "pages": 1
         }
       ],
@@ -55191,8 +55335,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/social/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/blank-template.pdf",
-          "bytes": 137581,
-          "sha256": "cd92814716e94be265223ad1583ee97f342fa8ee80bba1393edecc7938251910",
+          "bytes": 137585,
+          "sha256": "c0f23bf0a970d013c637436affcfb2c317f5571f11a1d011518fddff80fea5a2",
           "pages": 3
         },
         {
@@ -55201,7 +55345,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/cover-blank.pdf",
           "bytes": 116556,
-          "sha256": "ebf3930ac99fd088edcfa014606f469a69d77bc96c259b3fa35d03a98d01c6c7",
+          "sha256": "7ec2b0f8ec0e729ccb5dbfd8339083e2e184df39ff9823c2c0d96dff6c5addce",
           "pages": 1
         },
         {
@@ -55209,8 +55353,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/social/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/inner-even-blank.pdf",
-          "bytes": 58370,
-          "sha256": "997c4587de9aa89e47f802270708874fcf4f0ea9667da647081cee9c28414c2d",
+          "bytes": 58375,
+          "sha256": "1b51d56a24f22e73cf843e5df3d5ba2299a4494167c2320fe921abd64a03adf1",
           "pages": 1
         },
         {
@@ -55218,8 +55362,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/social/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/inner-odd-blank.pdf",
-          "bytes": 58373,
-          "sha256": "46cffc607eff3d4428d68f04e2a1436a677499f959ccb60a4ef57dcdb94178ec",
+          "bytes": 58372,
+          "sha256": "cbe66dfa089957feabb41c4ef74f7c38ed5558b3c7c443af8422f8b08a845c1d",
           "pages": 1
         }
       ],
@@ -55302,8 +55446,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/science/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/blank-template.pdf",
-          "bytes": 136159,
-          "sha256": "554e825cbc00f56122bdf23c76d20247ae4cea813a2aa443ec360d88a1a96b2c",
+          "bytes": 136160,
+          "sha256": "5d1001ed98839897425601a68f667f40043990a7aacb7f9ed67aa4a835b16ef4",
           "pages": 3
         },
         {
@@ -55312,7 +55456,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/cover-blank.pdf",
           "bytes": 124448,
-          "sha256": "09386541439c6185401e5ee05e4a34e7900b83a99d9c325919994addfa5ef8f9",
+          "sha256": "a2688d1fe7f75d8dfd098bf6b2d2cd508a9fbdcc0c192944ee849b30e4578e2c",
           "pages": 1
         },
         {
@@ -55320,8 +55464,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/science/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/inner-even-blank.pdf",
-          "bytes": 62015,
-          "sha256": "a56be9001b5c12fc1b7678c423080ee42f168e1690d4f594a68992da487cc92e",
+          "bytes": 62016,
+          "sha256": "fb4bfe2a60130e0f94939ba96ec242e79f1cfa45d8b4ea7e52f844edb2fd041b",
           "pages": 1
         },
         {
@@ -55330,7 +55474,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/inner-odd-blank.pdf",
           "bytes": 62012,
-          "sha256": "8e2e54d9a7a5e4ef98c287627b0394665c7218384da8bb5f7c1d504d12e2e312",
+          "sha256": "c66f61e05dcaeaeb8498a830fd8991c7d95aee6a6ab8e07501fc381dc77acc0c",
           "pages": 1
         }
       ],
@@ -55963,6 +56107,65 @@ Per-year density checks:
 - ROC 114: 12 pages; 13034 compact characters; 36 item starts; 0 pages below 60% used; 12 pages with visual signal.
 - ROC 115: 12 pages; 13319 compact characters; 36 item starts; 0 pages below 60% used; 12 pages with visual signal.
 
+### 國綜 printed form catalogue, ROC 111–115 (measured 2026-09-22)
+
+Every official booklet prints these headings, in order, each with one bordered
+說明 line; `validate_chinese_layout_contract.py` rejects a paper that omits them:
+
+| Heading (verbatim) | Direction | Items |
+|---|---|---|
+| 第壹部分、選擇題（占76分） | — | 1–31 |
+| 一、單選題（占48分） | 說明：第1題至第24題，每題2分。 | 1–24 |
+| 二、多選題（占28分） | 說明：第25題至第31題，每題4分。 | 25–31 |
+| 第貳部分、混合題或非選擇題（占24分） | 說明：本部分共有1題組，選擇題每題2分，非選擇題配分標於題末。… | 32–36 (32–37 in 111–112) |
+
+The item-by-item reading of all five papers is recorded in
+`exam_packs/學測/shared-data/chinese-item-type-envelope.json`. What holds every
+year (111–115), and is therefore enforced:
+
+- Item 1 is 字音 (`下列「」內的字，讀音前後相同的是：`), item 2 is 字形
+  (`下列文句，完全沒有錯別字的是：`). Items 1–5 stand alone (詞語運用, 填詞, 文言排序,
+  稱謂, a boxed table, a 70–200-character passage); shared-stimulus 題組 start at
+  item 6 (9 and 8 in 111–112) and carry items 6–24 in 6–8 groups of two or three
+  (one group of 4 or 5 at most).
+- The first multiple-choice item (25) is 文言字義 `下列各組「」內的詞，意義前後相同的是`,
+  its five options quoting 核心古文 (鴻門宴, 燭之武退秦師, 勞山道士, 項脊軒志, 出師表,
+  虯髯客傳, 諫逐客書, 畫菊自序, 鹿港乘桴記, 赤壁賦 recur). Items 25–29 stand alone with
+  their own material; items 30–31 are one closing two-item group containing 文言 or
+  韻文. No 國綜 multiple-choice stem prints （應選n項）.
+- Every year has one 成語／畫底線詞語運用 item (single-choice 3 in 111–112, multiple
+  choice 25–26 since 113), at least one 語法／虛詞 item (「以」表目的, 「則」, 程度副詞,
+  量詞, 條件句), at least one ①②研判題 (皆符合／皆不符合／①符合②不符合／無法判斷;
+  two or three a year since 113), at least one 古典詩詞曲 item, at least one
+  Taiwan-themed group, and at least three items whose options quote 核心古文.
+- 第貳部分 is one group 32–36 on three or four related texts 甲乙丙(丁) that always
+  include 文言 or 韻文: an abstract framing text applied to case texts. It holds
+  exactly two 2-point single-choice subparts and three constructed items each with
+  (1)(2); 2-point subparts allow 10–20 characters, 4-point subparts 30–40 (or two
+  parts of 10–15); constructed points per item are 6, 6 and 8 (or 6, 8, 6).
+
+Measured 113–115 distribution of the 24 single-choice items: 白話說明文閱讀 9–15,
+文言閱讀 0–5, 白話文學閱讀 0–3, 跨文本比較 1–2, 圖表或非連續文本 0–3, 古典韻文 0–2,
+plus the fixed 字音, 字形 and one or two language-knowledge items. Of the seven
+multiple-choice items: 文言字義 1, 成語運用 1, 語法 0–1, 文學常識 0–1, 文言閱讀 0–2,
+白話說明文 0–2, 跨文本 0–2. Modern non-fiction prints 改寫自 with author and
+title; 文言 prints its source; rare words get side notes. The paper is short and
+many-textured rather than long: standalone 文言 70–200 characters, groups 250–700,
+only the 第貳部分 packet and one or two literary-criticism groups exceed 1,000.
+
+Option labels are `(A)`–`(D)` (`(A)`–`(E)` for multiple choice) and every option
+prints on its own line; the projection now forces one column for 國綜. Boxed
+side notes (詞語注釋, 資料框) sit beside the passage. The booklet is a cover plus
+11 body pages, 11,900–12,900 substantive characters.
+
+Measured counter-example, a hosted 國綜 paper reviewed on 2026-09-22: no part
+headings or scores; items 1–2 were a white-text 題組 about a museum label, so
+the paper had no 字音, 字形, 成語 or 文言排序 item at all; every multiple-choice
+item was paired into a 題組 and printed （應選3項）; options were `(1)`–`(5)` in
+two or four narrow columns wrapping into three-line stacks; 15 pages with three
+pages more than 20% empty; the single-choice key rotated 1-3-2-4 without a single
+adjacent repeat. Each of these is now a named error.
+
 ### 國綜 shared-stimulus floor
 
 Measured ROC 111–115: 12 pages, 11,926–12,871 substantive characters, 9–10 題組
@@ -56278,6 +56481,92 @@ windows in `evidence-backed-editorial-audit.md`. Count verified source-dependent
 passages separately from generic life-themed prose; avoid repeating one
 sharing/repair/public-service theme throughout the paper. Internal sources do not
 become automatic printed bibliography lines.
+
+## Printed form catalogue, ROC 111–115 (measured 2026-09-22)
+
+Every one of the five official booklets prints exactly these headings, in this
+order, each followed by one bordered 說明 line; `validate_english_layout_contract.py`
+now rejects a paper that omits or reorders any of them:
+
+| Heading (verbatim) | Direction line | Items |
+|---|---|---|
+| 第壹部分、選擇題（占62分） | — | 1–46 |
+| 一、詞彙題（占10分） | 說明：第1題至第10題為單選題，每題1分。 | 1–10 |
+| 二、綜合測驗（占10分） | 說明：第11題至第20題為單選題，每題1分。 | 11–20 |
+| 三、文意選填（占10分） | 說明：第21題至第30題為單選題，每題1分。 | 21–30 |
+| 四、篇章結構（占8分） | 說明：第31題至第34題為單選題，每題2分。 | 31–34 |
+| 五、閱讀測驗（占24分） | 說明：第35題至第46題為單選題，每題2分。 | 35–46 (three passages, four items each) |
+| 第貳部分、混合題（占10分） | 說明：本部分共有1題組，每一子題配分標於題末。限在答題卷標示題號的作答區內作答，並以規定用筆作答。 | 47–50 |
+| 第參部分、非選擇題（占28分） | 說明：本部分共有二大題，請依各題指示作答，答案必須寫在「答題卷」標示題號之作答區內，作答時不必抄題。 | — |
+| 一、中譯英（占8分） | 說明：依題號將以下中文句子譯成正確、通順、達意的英文。每題4分，共8分。 | printed `1.` `2.` |
+| 二、英文作文（占20分） | 說明：依提示寫一篇英文作文，文長至少120個單詞（words）。 | one 提示 |
+
+Option labels are `(A)`–`(D)` everywhere (`(A)`–`(E)` for discourse structure,
+`(A)`–`(J)` for the completion bank); a paper printed with `(1)`–`(4)` is not
+the GSAT English form. Vocabulary and cloze options sit on one row of four
+equal columns; when one option is long the row breaks into two columns of two
+(115 items 17 and 20), never into narrow cells that wrap a single word. Reading
+and mixed options are stacked one per line. Cloze passages print first, then
+the five option rows `11. (A) … (B) … (C) … (D) …` together after the passage.
+
+Measured sentence structure of the passages (prose only):
+
+| Section | Words | Sentences | Words per sentence | Longest sentence |
+|---|---:|---:|---:|---:|
+| Vocabulary stem (each) | 13–24 | 1 | 13–24 | — |
+| Cloze passage (each) | 180–231 | 9–13 | 15–21 | 24–53 |
+| Text completion | 269–312 | 14–20 | 13–22 | 19–49 |
+| Discourse structure | 224–303 | 9–16 | 17–25 | 34–58 |
+| Reading passage (each) | 291–368 | 14–20 | 16–22 | 26–55 |
+| Mixed stimulus | 348–467 | 16–34 | 12–22 | 32–46 |
+
+Whole booklet: 3,333–3,548 English words on 11 body pages plus the cover; no
+body page except the last of a section leaves more than a quarter of its
+height empty.
+
+The composition prompt is Chinese throughout: 說明 (the 120-word line), then
+`提示：` naming a lived situation in one or two sentences, `請以此為主題，並依據下列
+圖片／參照下列圖片，寫一篇英文作文，文分兩段。第一段…；第二段…`. English appears
+only as a quoted topic word (emoji, AI). Pictures, when used, are drawn scenes
+with captions, not stick figures, and are printed under the prompt.
+
+Translation prints two numbered Chinese sentences `1.` `2.`, each a complete
+sentence of 18–30 characters, on the same page as the composition.
+
+### Measured counter-example: a hosted English paper reviewed on 2026-09-22
+
+| Defect | That paper | Official 111–115 |
+|---|---|---|
+| Headings | 詞彙題 / 綜合測驗 … with no 第壹部分／第參部分 and no scores | the ten headings above, every year |
+| Option labels | `(1)`–`(4)` for vocabulary and reading, `(A)`–`(D)` for cloze | `(A)`–`(D)` throughout |
+| Option layout | two options crammed into a 120 pt cell, a single word wrapping to the next line | one four-column row |
+| Vocabulary distractors | appealing／avoidable／fragile／temporary: three visibly wrong meanings | four same-POS candidates that each fit locally |
+| Cloze passages | 134–150 words | 180–231 |
+| Text completion | 170 words | 269–312 |
+| Discourse structure | 130 words in 3 sentences (43 words each) | 224–303 words in 9–16 sentences |
+| Reading | four passages of 107–134 words, three items each | three passages of 291–368 words, four items each |
+| Mixed stimulus | a 50-word notice | 348–467 words with a map, cards or chart |
+| Composition prompt | English paragraph, "Write a two-paragraph English composition…" | Chinese 說明 + 提示 |
+| Translation labels | 中譯英 1 stacked vertically in the number column | `1.` `2.` |
+| Explanations | "Choice N is the only option consistent with all grammatical and contextual clues." on 46 items | each item's own evidence |
+| Pages | 13, three of them more than 40% empty | 12 |
+
+The same paper's answer key was mechanical: vocabulary 1-4-3-2-1-4-3-2-1-4,
+cloze D-A-C-B-A-D-C-B-A-D, completion A–J in order, discourse A-B-C-D, every
+reading group 3-2-1-4. Official keys show no such order; a candidate who
+notices the pattern answers without reading. `answer_key_patterns.py` rejects,
+on every surface and for every subject: a position used four times in a row,
+a period-2/3/4 cycle continuing over two full repeats plus a partial third, an
+option bank keyed in label order, five consecutive answers stepping through the
+labels, two item groups with the same answer sequence, and uneven position
+counts (each label within one of the others). Shuffle option order after
+writing, then re-derive the key; never assign the key first.
+
+Root cause: the hosted final checker did not execute the English validators
+(only the mathematics and balance checks), so none of this blocked delivery.
+`hosted_subject_gates.py` now runs every subject's validators inside
+`check_hosted_run.py`, and `append_items.py` reports their per-item messages
+after each batch.
 
 ## Layout contract
 
@@ -58076,7 +58365,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.14.1/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.1/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -58975,6 +59264,16 @@ unviewed pages remain. Repairs require new PDF hashes, rasters and page reviews.
 
 Required with hosted-run-evidence.md. These helpers detect specific defects;
 they cannot turn fabricated reviews into real visual or academic acceptance.
+
+The final checker runs every subject's structural validators through
+`hosted_subject_gates.py`: the English layout and difficulty contracts, the
+國綜／自然 scope and reasoning contracts, the 社會 item design, the 國寫 source
+pool, the literacy floors, and an explanation sanity check (a single-choice key
+must be a printed label, an explanation must name the chosen option, and three
+or more items may not share one identical explanation). `append_items.py`
+reports the same messages for each saved batch as `subject_gate_pending`, so a
+wrong option label, a missing reasoning contract or a short passage is fixed
+while the item is fresh rather than at delivery.
 
 ## Layout before claims
 
@@ -63026,6 +63325,120 @@ Any later paper request:
 }
 </canonical-source>
 
+<canonical-source path="scripts/answer_key_patterns.py">
+#!/usr/bin/env python3
+"""Reject answer keys that are visibly mechanical.
+
+A hosted English paper keyed its vocabulary 1-4-3-2-1-4-3-2-1-4, its cloze
+D-A-C-B-A-D-C-B-A-D, its completion bank A through J in order, its discourse
+A-B-C-D and every reading group 3-2-1-4. Official keys carry no such order: a
+candidate who notices the pattern answers without reading. These checks run on
+the final printed label order, on every surface, for every subject.
+"""
+from __future__ import annotations
+
+from collections import Counter
+
+MIN_POPULATION_MULTIPLE = 2   # a population needs 2 x label-count answers before counts are judged
+MONOTONE_RUN = 5              # A,B,C,D,E or 5,4,3,2,1 in a row (a shared option bank)
+CYCLE_REPEATS = 3
+NO_REPEAT_SUSPECT = 16        # P(no adjacent repeat in 16 random 4-option answers) is about 1.3%
+
+
+def _single_choice_populations(exam):
+    answers = {a.get('question_id'): a for a in exam.get('answers') or [] if isinstance(a, dict)}
+    populations = {}
+    for question in exam.get('questions') or []:
+        if not isinstance(question, dict) or question.get('type') != 'single_choice':
+            continue
+        labels = tuple(str(o.get('label')) for o in question.get('options') or [] if isinstance(o, dict))
+        answer = str((answers.get(question.get('id')) or {}).get('final_answer') or '')
+        if len(labels) < 2 or len(set(labels)) != len(labels) or answer not in labels:
+            continue
+        populations.setdefault(labels, []).append((question.get('number'), answer, question))
+    return populations
+
+
+def _monotone_run(sequence, labels, length):
+    """First window of `length` answers that steps +1 or -1 through the labels."""
+    order = {label: i for i, label in enumerate(labels)}
+    for start in range(0, len(sequence) - length + 1):
+        window = [order[a] for a in sequence[start:start + length]]
+        steps = {b - a for a, b in zip(window, window[1:])}
+        if steps == {1} or steps == {-1}:
+            return start
+    return None
+
+
+def _group_key(question):
+    stimulus = question.get('group_stimulus')
+    if isinstance(stimulus, str) and stimulus.strip():
+        return ('stimulus', stimulus.strip()[:200])
+    return None
+
+
+def answer_pattern_errors(exam, *, require_full=True):
+    metadata = exam.get('metadata') or {}
+    if require_full and metadata.get('generation_mode') != 'full-paper':
+        return []
+    errors = []
+    for labels, rows in _single_choice_populations(exam).items():
+        sequence = [answer for _, answer, _ in rows]
+        if len(rows) >= MIN_POPULATION_MULTIPLE * len(labels):
+            counts = Counter(sequence)
+            values = [counts[label] for label in labels]
+            if min(values) == 0 or max(values) - min(values) > 1:
+                errors.append(f'final single-choice answer positions are not near-even for {labels}: {dict(counts)}')
+            run = 1
+            for previous, current in zip(sequence, sequence[1:]):
+                run = run + 1 if current == previous else 1
+                if run >= 4:
+                    errors.append('final single-choice answer key contains four identical positions in succession')
+                    break
+            for period in range(2, 5):
+                # Two full repeats plus a partial third already give the pattern
+                # away: the paper's vocabulary key 1-4-3-2-1-4-3-2-1-4 has ten items.
+                needed = 2 * period + 2  # p=2 needs three repeats; p=4 needs two and a half
+                longest, stretch = 0, period
+                for i in range(period, len(sequence)):
+                    stretch = stretch + 1 if sequence[i] == sequence[i - period] else period
+                    longest = max(longest, stretch)
+                if longest >= needed:
+                    errors.append(f'final single-choice answer key contains a mechanical period-{period} cycle over {longest} items')
+                    break
+            if len(sequence) >= NO_REPEAT_SUSPECT and all(a != b for a, b in zip(sequence, sequence[1:])):
+                errors.append(f'{len(sequence)} consecutive single-choice answers never repeat a position: a rotated '
+                              'key, not a random one (official keys repeat neighbours regularly)')
+        if len(sequence) >= MONOTONE_RUN:
+            start = _monotone_run(sequence, labels, MONOTONE_RUN)
+            if start is not None:
+                first = rows[start][0]
+                errors.append(f'answer key runs through the labels in order from Q{first} '
+                              f'({", ".join(sequence[start:start + MONOTONE_RUN])}): a candidate can answer by the pattern')
+        # A bank shared by many gaps (文意選填 A-J, 篇章結構 A-E): its answers must not
+        # be the bank in order, and every option is used at most as often as the form allows.
+        if len(labels) >= 5 and len(sequence) >= len(labels) - 1:
+            order = {label: i for i, label in enumerate(labels)}
+            indices = [order[a] for a in sequence]
+            if indices == sorted(indices) or indices == sorted(indices, reverse=True):
+                errors.append(f'the {len(labels)}-option bank is keyed in label order ({", ".join(sequence)}); shuffle the bank')
+        # Groups sharing one stimulus must not repeat one another's answer sequence.
+        groups = {}
+        for number, answer, question in rows:
+            key = _group_key(question)
+            if key:
+                groups.setdefault(key, []).append(answer)
+        seen = {}
+        for key, group_sequence in groups.items():
+            if len(group_sequence) >= 3:
+                signature = tuple(group_sequence)
+                if signature in seen:
+                    errors.append(f'two item groups share the same answer sequence {"-".join(signature)}; reorder options in one of them')
+                    break
+                seen[signature] = key
+    return errors
+</canonical-source>
+
 <canonical-source path="scripts/append_items.py">
 #!/usr/bin/env python3
 """Persist a small authored question/answer batch; never generate or approve items.
@@ -63044,6 +63457,7 @@ import re
 from pathlib import Path
 
 from hosted_item_triage import crop_reasons, needs_crop
+from hosted_subject_gates import item_messages, subject_gate_errors
 from run_hosted_workflow import (authoring_issues, checkpoint, figure_pagination_risks, inside, read, record, save,
                                  text_issues)
 from validate_current_context import progress as context_progress, validate as current_context_errors
@@ -63303,6 +63717,16 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         report['design_note'] = ('The final check requires these difficulty-design fields. They are not printed: '
                                  'complete them with --replace as the batch is solved and reviewed; page reviews stay valid.')
     report.update(proof_triage(questions, answers, first_batch=first_batch))
+    gate = subject_gate_errors(exam, root=root, authoring=True)
+    per_item = item_messages(gate, questions)
+    if per_item:
+        report['subject_gate_pending'] = per_item
+    paper_level = [m for m in gate if not any(m in rows for rows in per_item.values())]
+    if paper_level:
+        report['subject_gate_paper_pending'] = {'count': len(paper_level), 'sample': paper_level[:8],
+                                                'note': 'Whole-paper floors (headings, section lengths, counts) are '
+                                                        'expected to fail until the paper is complete; the final checker '
+                                                        'runs the same validators.'}
     context = context_progress(exam)
     if context:
         report['current_context_progress'] = context
@@ -63370,6 +63794,7 @@ from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
 from validate_current_context import validate as current_context_errors
 from hosted_item_triage import crop_required_ids, part_reviewed_on_page
+from hosted_subject_gates import subject_gate_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
@@ -63422,6 +63847,10 @@ def check(state_path: Path) -> dict:
     exam = json.loads(exam_path.read_text(encoding='utf-8-sig'))
     errors.extend(math_context_errors(exam))
     errors.extend(current_context_errors(exam))
+    # Every subject's structural validators, the same set the local release
+    # gate runs: headings, option layout, passage lengths, reasoning contracts,
+    # scope codes, discipline balance, literacy floors and explanation sanity.
+    errors.extend(subject_gate_errors(exam, root=root))
     # Execute the embedded checks on actual authored content. A passing review
     # claiming that these ran is not an equivalent execution path.
     errors.extend('difficulty_balance: ' + e for e in difficulty_balance(exam, root)['errors'])
@@ -65153,6 +65582,10 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     else:
         # An explicit stem width keeps option rows full width when the stem is
         # empty (English cloze option rows print only their number).
+        # The 24 pt number column holds "12." or "（一）"; a longer label such
+        # as 英文作文 would stack one glyph per line, so it leads the text instead.
+        if len(html.unescape(re.sub('<[^>]+>','',label)))>3:
+            stem=f'<b>{label}</b>　'+stem;label=''
         result=f'<table><tr><td class="number">{label}</td><td style="width:{width-28:g}pt">{stem}</td></tr></table>'
     return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
 
@@ -66200,6 +66633,146 @@ if __name__ == '__main__':
     path = args.pop('path')
     report = transition(path, **args)
     print(json.dumps(summary(report, workflow_events(path.parent)), indent=2))
+</canonical-source>
+
+<canonical-source path="scripts/hosted_subject_gates.py">
+#!/usr/bin/env python3
+"""Run every subject's structural validator on the saved exam, on any surface.
+
+The local release gate (validate_exam_release.py) always ran the subject
+validators; the hosted final checker ran only the mathematics and balance
+checks, so a hosted 英文 or 自然 paper could be delivered with wrong headings,
+option labels, passage lengths, missing reasoning contracts and boilerplate
+explanations. This module gives both surfaces one call. Messages are plain
+strings; per-item ones start with the item's number so the authoring loop can
+show them while the item is fresh.
+
+Structural passes are never editorial passes.
+"""
+from __future__ import annotations
+
+from collections import Counter
+import re
+
+from validate_literacy_load import SUBJECT_FLOORS, validate as literacy_report
+
+LITERACY_SUBJECTS = set(SUBJECT_FLOORS)
+BOILERPLATE_MIN_ITEMS = 3
+
+
+def _subject(exam):
+    metadata = exam.get('metadata') or {}
+    return metadata.get('paper_subject') or metadata.get('subject')
+
+
+def _is_full_paper(exam, subject):
+    metadata = exam.get('metadata') or {}
+    if metadata.get('generation_mode') == 'full-paper':
+        return True
+    minimum = {'自然': 50, '社會': 55, '英文': 40, '國綜': 30, '國寫': 2, '數學A': 20, '數學B': 20}.get(subject, 10 ** 6)
+    return len(exam.get('questions') or []) >= minimum
+
+
+def _option_text(option):
+    text = option.get('text') if isinstance(option, dict) else None
+    return text['rich'] if isinstance(text, dict) and set(text) == {'rich'} else text
+
+
+def answer_explanation_errors(exam):
+    """Explanations that could not have been written for this item."""
+    questions = [q for q in exam.get('questions') or [] if isinstance(q, dict)]
+    answers = {a.get('question_id'): a for a in exam.get('answers') or [] if isinstance(a, dict)}
+    errors = []
+    reasoning_texts = Counter()
+    for question in questions:
+        answer = answers.get(question.get('id')) or {}
+        reasoning = answer.get('reasoning') or []
+        joined = ' '.join(str(step) for step in reasoning if isinstance(step, (str, dict))).strip()
+        if joined:
+            reasoning_texts[re.sub(r'\s+', ' ', joined.lower())] += 1
+        options = question.get('options') or []
+        labels = {str(o.get('label')) for o in options if isinstance(o, dict)}
+        key = answer.get('final_answer')
+        number = question.get('number') or question.get('id')
+        if options and question.get('type') == 'single_choice':
+            if str(key) not in labels:
+                errors.append(f'Q{number}: single-choice key {key!r} is not a printed option label')
+            elif joined:
+                chosen = next((_option_text(o) for o in options if str(o.get('label')) == str(key)), None)
+                if isinstance(chosen, str) and chosen.strip():
+                    words = [w for w in re.findall(r"[A-Za-z][A-Za-z'’-]+", chosen) if len(w) > 3]
+                    cjk = re.findall(r'[㐀-鿿]{2,}', chosen)
+                    if (words or cjk) and not any(w.lower() in joined.lower() for w in words) \
+                            and not any(c in joined for c in cjk):
+                        errors.append(f'Q{number}: the explanation never names the selected option ({chosen[:40]})')
+    for text, count in reasoning_texts.items():
+        if count >= BOILERPLATE_MIN_ITEMS:
+            errors.append(f'{count} items share one identical explanation ("{text[:60]}…"): write each item\'s actual reasoning')
+    return errors
+
+
+def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
+    """All subject validators that can run from the exam record alone.
+
+    Whole-paper validators run for a full paper, and during authoring
+    (`authoring=True`) so per-item messages reach the writer early; a partial
+    paper checked for other reasons is not held to full-paper floors.
+    """
+    subject = _subject(exam)
+    errors = []
+    full = _is_full_paper(exam, subject) or authoring
+    if subject in LITERACY_SUBJECTS and full:
+        errors.extend('literacy: ' + e for e in literacy_report(exam, subject)['errors'])
+    if subject == '英文' and full:
+        from validate_english_layout_contract import validate_exam as english_layout
+        from validate_english_difficulty_design import validate_exam as english_design
+        errors.extend('english-layout: ' + e for e in english_layout(exam))
+        errors.extend('english-design: ' + e for e in english_design(exam)['errors'])
+    elif subject in {'國綜', '自然'}:
+        from validate_chinese_natural_scope import validate as scope
+        errors.extend('scope: ' + e for e in scope(exam, science_spec)['errors'])
+        if subject == '國綜' and full:
+            from validate_chinese_layout_contract import validate_exam as chinese_layout
+            errors.extend('chinese-layout: ' + e for e in chinese_layout(exam))
+    elif subject == '社會':
+        from validate_social_item_design import validate_exam as social
+        for row in social(exam)['errors']:
+            if isinstance(row, dict):
+                where = f"Q{row.get('question_id')}: " if row.get('question_id') else ''
+                extra = {k: v for k, v in row.items() if k not in {'code', 'question_id'}}
+                errors.append('social: ' + where + str(row.get('code')) + (f' {extra}' if extra else ''))
+            else:
+                errors.append('social: ' + str(row))
+    elif subject == '國寫' and full:
+        from validate_writing_source_grounding import validate_exam as writing
+        pool = (exam.get('metadata') or {}).get('writing_source_pool')
+        if not isinstance(pool, dict):
+            errors.append('writing: metadata.writing_source_pool (the publisher-neutral source pool) is required')
+        else:
+            errors.extend('writing: ' + e for e in writing(exam, pool))
+    if subject not in {'數學A', '數學B'}:
+        errors.extend('answers: ' + e for e in answer_explanation_errors(exam))
+    from answer_key_patterns import answer_pattern_errors
+    errors.extend('answer-key: ' + e for e in answer_pattern_errors(exam, require_full=not (full or authoring)))
+    return errors
+
+
+def item_messages(errors, questions):
+    """{item id: [messages]} for messages that name a saved item's number or id."""
+    numbers = {}
+    for question in questions:
+        if isinstance(question, dict):
+            if isinstance(question.get('number'), int):
+                numbers.setdefault(str(question['number']), []).append(question.get('id'))
+            numbers.setdefault(str(question.get('id')), []).append(question.get('id'))
+    found = {}
+    for message in errors:
+        body = message.split(': ', 1)[1] if ': ' in message else message
+        match = re.match(r'(?:Q|英文第|第)(\d+)(?:題)?', body) or re.match(r'([A-Za-z0-9_-]+):', body)
+        if match:
+            for qid in numbers.get(match.group(1), []):
+                found.setdefault(qid, []).append(message)
+    return found
 </canonical-source>
 
 <canonical-source path="scripts/inspect_hosted_pdf.py">
@@ -68521,6 +69094,8 @@ def option_columns(question, subject):
     if question.get('option_layout') in OPTION_LAYOUT_COLUMNS:
         return OPTION_LAYOUT_COLUMNS[question['option_layout']]
     options = question.get('options') or []
+    if subject == '國綜':
+        return 1  # every official 國綜 option prints on its own line
     longest = max((len(str(o.get('text', ''))) for o in options), default=0)
     if longest > 52:
         return 1
@@ -69288,6 +69863,623 @@ if __name__ == '__main__':
     raise SystemExit(main())
 </canonical-source>
 
+<canonical-source path="scripts/validate_chinese_layout_contract.py">
+#!/usr/bin/env python3
+"""Printed-form contract of the current GSAT 國綜 paper, measured on ROC 111-115.
+
+The item-by-item reading in exam_packs/學測/shared-data/chinese-item-type-envelope.json
+holds in every year: item 1 is 字音, item 2 is 字形, items 1-5 stand alone, the
+shared-stimulus groups start at item 6 or later, the first multiple-choice item
+is 文言字義, multiple-choice items 25-29 stand alone and 30-31 form one group,
+no multiple-choice stem prints （應選n項）, every year has a 成語／詞語運用 item,
+a 語法 item, a ①②研判題 and a 古典韻文 item, and 第貳部分 is one group 32-36
+with two 2-point single-choice subparts and three constructed items whose
+2-point subparts allow 10-20 characters and 4-point subparts 30-40. Options are
+(A)-(E), one per line, under four headings with scores. A hosted paper reviewed
+on 2026-09-22 broke each of these; this module names them.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+import re
+from typing import Any
+
+OFFICIAL_HEADINGS = (
+    "第壹部分、選擇題（占76分）", "一、單選題（占48分）", "二、多選題（占28分）",
+    "第貳部分、混合題或非選擇題（占24分）",
+)
+LANGUAGE_KNOWLEDGE = re.compile(r"「」內|畫底線|詞語|成語|用法|用來修飾|文學|寫作特色|音節|平仄|押韻|字音|字形|讀音|錯別字|排列順序|填入|稱謂|量詞")
+IDIOM = re.compile(r"成語|畫底線(?:處)?的詞語")
+GRAMMAR = re.compile(r"用法|用來修飾|「以」|「則」|量詞|條件|語意邏輯|平仄|音節|押韻")
+JUDGEMENT = re.compile(r"①.*②")
+CLASSICAL_VERSE = re.compile(r"詩|詞|曲|韻文|絕句|律詩|樂府")
+CHAR_LIMIT = re.compile(r"(\d+)\s*字以內")
+
+
+def validate_exam(exam: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    meta = exam.get("metadata") or {}
+    if (meta.get("paper_subject") or meta.get("subject")) != "國綜":
+        return errors
+    questions = [q for q in exam.get("questions") or [] if isinstance(q, dict)]
+    by_number: dict[int, list[dict]] = {}
+    for question in questions:
+        if isinstance(question.get("number"), int):
+            by_number.setdefault(question["number"], []).append(question)
+
+    printed_titles = "".join(str(section.get("title") or "") for section in exam.get("sections") or [])
+    printed_titles = re.sub(r"\s+", "", printed_titles).replace("(", "（").replace(")", "）")
+    cursor = 0
+    for heading in OFFICIAL_HEADINGS:
+        index = printed_titles.find(heading, cursor)
+        if index < 0:
+            errors.append(f"國綜題本須依官方順序印出標題「{heading}」（111–115 每年皆同）")
+        else:
+            cursor = index + len(heading)
+
+    def first(number: int) -> dict:
+        return (by_number.get(number) or [{}])[0]
+
+    def prompt(number: int) -> str:
+        return " ".join(str(q.get("prompt") or "") for q in by_number.get(number) or [])
+
+    def stimulus(number: int) -> str:
+        return str(first(number).get("group_stimulus") or "").strip()
+
+    shared: dict[str, list[int]] = {}
+    for question in questions:
+        text = str(question.get("group_stimulus") or "").strip()
+        if text and isinstance(question.get("number"), int):
+            shared.setdefault(text, []).append(question["number"])
+    groups = {text: sorted(set(numbers)) for text, numbers in shared.items() if len(set(numbers)) > 1}
+
+    if first(1) and "讀音" not in prompt(1):
+        errors.append("國綜第1題須為字音題（下列「」內的字，讀音前後相同的是），111–115 每年皆同")
+    if first(2) and "錯別字" not in prompt(2):
+        errors.append("國綜第2題須為字形題（下列文句，完全沒有錯別字的是），111–115 每年皆同")
+    for number in range(1, 6):
+        if first(number) and stimulus(number) and stimulus(number) in groups:
+            errors.append(f"國綜第{number}題須為獨立語文知識或短文題，不得與其他題共用題組材料（題組自第6題起）")
+    if first(3) and not any(LANGUAGE_KNOWLEDGE.search(prompt(n)) for n in (3, 4, 5)):
+        errors.append("國綜第3至5題中至少一題須為詞語運用、填詞、稱謂或文言排序等語文知識題")
+    single_groups = [numbers for numbers in groups.values() if numbers and numbers[-1] <= 24]
+    for numbers in single_groups:
+        if not 2 <= len(numbers) <= 5:
+            errors.append(f"國綜單選題組第{numbers[0]}至{numbers[-1]}題有{len(numbers)}題；官方題組為2至3題（最多5題）")
+    if any(n >= 20 for n in by_number) and len(single_groups) < 6:
+        errors.append(f"國綜第6至24題須為6至8個共用材料題組（每組2至3題）；現有{len(single_groups)}組")
+
+    for number in range(1, 32):
+        question = first(number)
+        labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
+        if labels and labels != list("ABCDE")[: len(labels)]:
+            errors.append(f"國綜第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}")
+        if question.get("options") and question.get("option_layout") not in (None, "stack"):
+            errors.append(f"國綜第{number}題選項須逐項直排（官方每個選項自成一行），不得用多欄版型")
+    multiple = [n for n in range(25, 32) if first(n)]
+    if first(25) and not ("「」內的詞" in prompt(25) and "意義" in prompt(25)):
+        errors.append("國綜第25題（多選第一題）須為文言字義題「下列各組「」內的詞，意義前後相同的是」，選項取自核心古文，111–115 每年皆同")
+    for number in multiple:
+        question = first(number)
+        if question.get("type") != "multiple_choice":
+            errors.append(f"國綜第{number}題須為多選題")
+        if "應選" in prompt(number):
+            errors.append(f"國綜第{number}題不得印「應選n項」；國綜多選題不預告正確選項數")
+        if number <= 29 and stimulus(number) and stimulus(number) in groups:
+            errors.append(f"國綜第{number}題須為獨立多選題（第25至29題各有自己的材料，只有第30至31題成組）")
+    if first(30) and first(31) and (not stimulus(30) or stimulus(30) != stimulus(31)):
+        errors.append("國綜第30至31題須為一個共用材料的兩題題組（含文言或韻文），111–115 每年皆同")
+    knowledge = sum(1 for n in multiple if LANGUAGE_KNOWLEDGE.search(prompt(n)))
+    if multiple and knowledge < 2:
+        errors.append(f"國綜多選題須有至少2題語文知識題（文言字義、成語運用、語法、文學常識）；現有{knowledge}題")
+
+    all_prompts = [prompt(n) for n in sorted(by_number)]
+    all_text = "\n".join(all_prompts + [str(q.get("group_stimulus") or "") for q in questions])
+    if len(by_number) >= 30:
+        if not any(IDIOM.search(p) for p in all_prompts):
+            errors.append("國綜每年有一題成語／畫底線詞語運用題（113–115 在多選第25至26題）；本卷沒有")
+        if not any(GRAMMAR.search(p) for p in all_prompts):
+            errors.append("國綜每年至少一題語法或虛詞題（「以」「則」用法、程度副詞、量詞、條件句）；本卷沒有")
+        if not any(JUDGEMENT.search(p) for p in all_prompts):
+            errors.append("國綜每年至少一題①②研判題（皆符合／皆不符合／①符合②不符合／無法判斷）；本卷沒有")
+        if not any(CLASSICAL_VERSE.search(p) for p in all_prompts) and not CLASSICAL_VERSE.search(all_text):
+            errors.append("國綜每年至少一題古典詩詞曲材料；本卷沒有")
+
+    part_two = sorted(n for n in by_number if n >= 32)
+    if part_two:
+        if part_two[0] != 32 or part_two[-1] not in (36, 37):
+            errors.append(f"國綜第貳部分為第32至36題一個題組；現有題號 {part_two}")
+        singles = [q for n in part_two for q in by_number[n] if q.get("type") == "single_choice"]
+        constructed = [q for n in part_two for q in by_number[n] if q.get("type") == "constructed_response"]
+        if len(singles) != 2:
+            errors.append(f"國綜第貳部分須有恰好2題單選子題（各2分）；現有{len(singles)}題")
+        for q in singles:
+            if q.get("score") not in (None, 2):
+                errors.append(f"國綜第貳部分第{q.get('number')}題單選子題配分須為2分")
+        if len({q.get("number") for q in constructed}) < 3:
+            errors.append(f"國綜第貳部分須有3題非選（每題含(1)(2)兩小題）；現有{len({q.get('number') for q in constructed})}題")
+        for q in constructed:
+            score = q.get("score")
+            limits = [int(v) for v in CHAR_LIMIT.findall(str(q.get("prompt") or ""))]
+            if score == 2 and limits and max(limits) > 20:
+                errors.append(f"國綜第{q.get('number')}題2分小題字數上限須為10至20字；印出{max(limits)}字以內")
+            if score == 4 and limits and max(limits) > 40:
+                errors.append(f"國綜第{q.get('number')}題4分小題字數上限須為30至40字；印出{max(limits)}字以內")
+            if score not in (None, 2, 4) and score is not None and score > 4:
+                errors.append(f"國綜第{q.get('number')}題非選小題配分須為2分或4分；現有{score}分")
+        stimuli = {stimulus(n) for n in part_two}
+        if len(stimuli) != 1 or "" in stimuli:
+            errors.append("國綜第貳部分五題須共用同一組多文本材料（甲乙丙，含文言或韻文）")
+    return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("exam_json", type=Path)
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam_json.read_text(encoding="utf-8-sig"))
+    errors = validate_exam(exam)
+    report = {"status": "fail" if errors else "pass", "errors": errors}
+    rendered = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(rendered, encoding="utf-8")
+    print(rendered, end="")
+    return 0 if not errors else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_chinese_natural_scope.py">
+#!/usr/bin/env python3
+"""Validate current GSAT 國綜/自然 structure and official-scope anchors."""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import json
+import re
+from collections import Counter
+from pathlib import Path
+
+import pymupdf
+
+
+ROOT = Path(__file__).resolve().parents[1]
+CONTENT_CODE = re.compile(r"\b[A-Z][A-Za-z]{2}-Vc-\d\b")
+PERFORMANCE_CODE = re.compile(r"\b[a-z]{2}-Ⅴc-\d\b")
+CHINESE_CODES = {f"A{i}" for i in range(1, 7)} | {f"B{i}" for i in range(1, 6)}
+INNOVATION_TEXT_FIELDS = (
+    "mechanism_family",
+    "new_subject_mechanism",
+    "evidence_or_reasoning_architecture",
+    "nearest_neighbor_difference",
+)
+PLACEHOLDER_INNOVATION_TEXT = {
+    "n/a", "na", "none", "pending", "pass", "passed", "todo", "tbd",
+    "new topic", "different context", "new mechanism", "新主題", "不同情境", "新機制", "通過",
+}
+
+
+def pdf_text(path: Path) -> str:
+    if path.suffix.lower() in {".txt", ".md"}:
+        return path.read_text(encoding="utf-8-sig")
+    doc = pymupdf.open(path)
+    return "\n".join(page.get_text("text") or "" for page in doc)
+
+
+def normalized_print(value: object) -> str:
+    return re.sub(r"\s+", "", str(value or "")).replace("（", "(").replace("）", ")")
+
+
+def selected_labels(value: object) -> list[str]:
+    if isinstance(value, list):
+        values = [str(item).strip().upper() for item in value]
+    else:
+        values = re.findall(r"[A-E]", str(value or "").upper())
+    return [value for value in values if value in {"A", "B", "C", "D", "E"}]
+
+
+def meaningful_innovation_text(value: object) -> bool:
+    text = str(value or "").strip()
+    return bool(text) and text.casefold() not in PLACEHOLDER_INNOVATION_TEXT
+
+
+def evidenced_pass(value: object) -> bool:
+    text = str(value or "").strip()
+    return text.startswith("pass:") and len(text.partition(":")[2].strip()) >= 8
+
+
+def innovation_errors(question: dict, expected_subject: str) -> list[str]:
+    label = question.get("number") or question.get("id") or "?"
+    prefix = f"Q{label}"
+    spec = question.get("item_spec") if isinstance(question.get("item_spec"), dict) else {}
+    audit = spec.get("subject_innovation_audit")
+    if not isinstance(audit, dict):
+        return [f"{prefix}: missing subject_innovation_audit"]
+    errors: list[str] = []
+    if audit.get("subject") != expected_subject:
+        errors.append(f"{prefix}: innovation audit subject must be {expected_subject}")
+    if audit.get("candidate_competition_linked") is not True:
+        errors.append(f"{prefix}: innovation audit is not linked to candidate competition")
+    if audit.get("routine_template_recoverable") is not False:
+        errors.append(f"{prefix}: routine/template recoverability has not been rejected")
+    if audit.get("surface_or_topic_novelty_only") is not False:
+        errors.append(f"{prefix}: surface/topic-only novelty has not been rejected")
+    for field in INNOVATION_TEXT_FIELDS:
+        if not meaningful_innovation_text(audit.get(field)):
+            errors.append(f"{prefix}: innovation audit {field} is missing or placeholder text")
+    if audit.get("reviewer_decision") != "pass-subject-novelty":
+        errors.append(f"{prefix}: subject innovation reviewer decision has not passed")
+    return errors
+
+
+def paper_innovation_errors(metadata: dict, expected_subject: str) -> list[str]:
+    review = metadata.get("subject_innovation_review")
+    if not isinstance(review, dict):
+        return [f"metadata: missing subject_innovation_review for {expected_subject}"]
+    errors: list[str] = []
+    if review.get("subject") != expected_subject:
+        errors.append(f"metadata: subject innovation review must identify {expected_subject}")
+    if review.get("all_scored_items_reviewed") is not True:
+        errors.append(f"metadata: subject innovation review must cover every scored {expected_subject} item")
+    for field in (
+        "mechanism_saturation_review",
+        "representation_saturation_review",
+        "section_or_domain_diversity_review",
+    ):
+        if not evidenced_pass(review.get(field)):
+            errors.append(f"metadata: {expected_subject} {field} has not passed")
+    if review.get("reviewer_decision") != "pass-subject-novelty":
+        errors.append(f"metadata: {expected_subject} subject innovation reviewer decision has not passed")
+    return errors
+
+
+def validate(exam: dict, science_spec: Path | None = None) -> dict:
+    """Structural scope/innovation/reasoning report for one 國綜 or 自然 exam.
+
+    science_spec is the CEEC 自然 examination specification (PDF or text). When
+    it is unavailable, as on a hosted surface, code membership is not checked
+    and the report says so; every other rule still applies.
+    """
+    subject = (exam.get("metadata") or {}).get("paper_subject") or (exam.get("metadata") or {}).get("subject")
+    questions = exam.get("questions") or []
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    if subject not in {'國綜', '自然'}:
+        errors.append(f"unsupported paper_subject {subject!r}")
+    else:
+        # Scope and full-paper structure are separate. Never hardcode one
+        # generated paper's section ids/counts as all ROC 111-115 structures.
+        warnings.append('Exact section/type/score structure must pass validate_exam_release.py against the selected source-reviewed profile.')
+
+    used_codes = Counter()
+    domain_counts = Counter()
+    domain_scores = Counter()
+    if subject == "國綜":
+        if any("國寫" in str(q) for q in questions):
+            errors.append("國綜 paper contains 國寫 material")
+        for q in questions:
+            errors.extend(innovation_errors(q, "國綜"))
+            codes = (q.get("item_spec") or {}).get("curriculum_codes") or []
+            if not codes:
+                errors.append(f"Q{q.get('number')}: no curriculum code")
+            bad = [c for c in codes if c not in CHINESE_CODES]
+            if bad:
+                errors.append(f"Q{q.get('number')}: invalid 國綜 scope codes {bad}")
+            used_codes.update(codes)
+        if not any(code.startswith("A") for code in used_codes):
+            errors.append("國綜 has no language-knowledge A objective")
+        for code in ("B1", "B2", "B3", "B4", "B5"):
+            if not used_codes[code]:
+                errors.append(f"國綜 missing {code}")
+        if len(questions) >= 30 or (exam.get("metadata") or {}).get("generation_mode") == "full-paper":
+            # 自然 has had a per-item reasoning floor; 國綜 had none, so a
+            # definition-recognition item could pass scope review. Same shape as
+            # the 自然 contract, keyed to reading evidence rather than a model.
+            for q in questions:
+                spec = q.get("item_spec") or {}
+                contract = spec.get("chinese_reasoning_contract") if isinstance(spec.get("chinese_reasoning_contract"), dict) else None
+                if contract is None:
+                    errors.append(f"Q{q.get('number')}: chinese_reasoning_contract missing")
+                    continue
+                if contract.get("recall_or_definition_only") is not False:
+                    errors.append(f"Q{q.get('number')}: definition or vocabulary recall has not been rejected")
+                if contract.get("single_cue_recognition_only") is not False:
+                    errors.append(f"Q{q.get('number')}: one-cue recognition has not been rejected")
+                operations = contract.get("reasoning_operations") or []
+                band = (spec.get("difficulty_design") or {}).get("band")
+                minimum_operations = 3 if band in {"中", "中偏難", "難"} else 2
+                if len(operations) < minimum_operations:
+                    errors.append(
+                        f"Q{q.get('number')}: only {len(operations)} reasoning operations; require {minimum_operations}"
+                    )
+                if not str(contract.get("textual_evidence_span") or "").strip():
+                    errors.append(f"Q{q.get('number')}: textual evidence span missing")
+                if not str(contract.get("material_dependency") or "").strip():
+                    errors.append(f"Q{q.get('number')}: material dependency missing")
+            errors.extend(paper_innovation_errors(exam.get("metadata") or {}, "國綜"))
+            nearest_differences = [
+                str((((q.get("item_spec") or {}).get("subject_innovation_audit") or {}).get("nearest_neighbor_difference") or "")).strip()
+                for q in questions
+            ]
+            if any(value and count > 1 for value, count in Counter(nearest_differences).items()):
+                errors.append("國綜 subject innovation audits reuse identical nearest-neighbor differences")
+    elif subject == "自然":
+        if science_spec is not None and Path(science_spec).is_file():
+            source = pdf_text(Path(science_spec))
+            valid_content = set(CONTENT_CODE.findall(source))
+            valid_performance = set(PERFORMANCE_CODE.findall(source))
+        else:
+            valid_content = valid_performance = None
+            warnings.append("official 自然 specification not supplied: code membership unchecked, code form still required")
+        normalized_domains: dict[int, str] = {}
+        for q in questions:
+            spec = q.get("item_spec") or {}
+            errors.extend(innovation_errors(q, "自然"))
+            codes = spec.get("curriculum_codes") or []
+            if not codes:
+                errors.append(f"Q{q.get('number')}: no curriculum code")
+                continue
+            for code in codes:
+                if valid_content is None:
+                    if not (CONTENT_CODE.fullmatch(str(code)) or PERFORMANCE_CODE.fullmatch(str(code))):
+                        errors.append(f"Q{q.get('number')}: code is not a 108 自然 learning-content/performance code: {code}")
+                elif code not in valid_content and code not in valid_performance:
+                    errors.append(f"Q{q.get('number')}: code not in official specification: {code}")
+                used_codes[code] += 1
+            domain = str(spec.get("domain") or "")
+            domain = domain.replace("地球科學", "地科")
+            head = next((name for name in ("物理", "化學", "生物", "地科") if name in domain), None)
+            if head:
+                domain_counts[head] += 1
+                domain_scores[head] += float(q.get("score") or 0)
+                if isinstance(q.get("number"), int):
+                    normalized_domains[int(q["number"])] = head
+            else:
+                errors.append(f"Q{q.get('number')}: natural-science domain is not classifiable")
+            if len(questions) >= 50:
+                contract = spec.get("natural_reasoning_contract") if isinstance(spec.get("natural_reasoning_contract"), dict) else {}
+                if contract.get("recall_only") is not False:
+                    errors.append(f"Q{q.get('number')}: pure definition/recall has not been rejected")
+                if contract.get("direct_formula_substitution_only") is not False:
+                    errors.append(f"Q{q.get('number')}: direct formula substitution has not been rejected")
+                if contract.get("curriculum_centrality") not in {"core", "high_frequency"}:
+                    errors.append(f"Q{q.get('number')}: curriculum anchor is peripheral or missing")
+                if not str(contract.get("core_curriculum_anchor") or "").strip():
+                    errors.append(f"Q{q.get('number')}: core curriculum anchor missing")
+                operations = contract.get("reasoning_operations") or []
+                minimum_operations = 3 if ((spec.get("difficulty_design") or {}).get("band") in {"中", "中偏難", "難"}) else 2
+                if len(operations) < minimum_operations:
+                    errors.append(f"Q{q.get('number')}: only {len(operations)} reasoning operations; require {minimum_operations}")
+                if not str(contract.get("material_or_model_dependency") or "").strip():
+                    errors.append(f"Q{q.get('number')}: material/model dependency missing")
+        for domain in ("物理", "化學", "生物", "地科"):
+            if domain_counts[domain] < 8:
+                errors.append(f"{domain} coverage below 8 items: {domain_counts[domain]}")
+        count_values = [domain_counts[name] for name in ("物理", "化學", "生物", "地科")]
+        if max(count_values) - min(count_values) > 3:
+            errors.append(
+                "natural discipline item counts are imbalanced: "
+                + ", ".join(f"{name}={domain_counts[name]}" for name in ("物理", "化學", "生物", "地科"))
+            )
+        total_domain_score = sum(domain_scores.values())
+        score_shares = {
+            name: domain_scores[name] / total_domain_score
+            for name in ("物理", "化學", "生物", "地科")
+        } if total_domain_score else {}
+        if score_shares and max(score_shares.values()) - min(score_shares.values()) > 0.08:
+            errors.append(
+                "natural discipline score shares differ by more than 8 percentage points: "
+                + ", ".join(f"{name}={score_shares[name]:.3f}" for name in ("物理", "化學", "生物", "地科"))
+            )
+        inquiry = sum(any(PERFORMANCE_CODE.fullmatch(c) for c in ((q.get("item_spec") or {}).get("curriculum_codes") or [])) for q in questions)
+        if inquiry < 14:
+            errors.append(f"inquiry/practice coverage below 14 items: {inquiry}")
+        if not any(q.get("type") == "constructed_response" for q in questions):
+            errors.append("natural mixed part has no constructed response")
+        if len(questions) >= 50:
+            metadata = exam.get("metadata") or {}
+            errors.extend(paper_innovation_errors(metadata, "自然"))
+            nearest_differences = [
+                str((((q.get("item_spec") or {}).get("subject_innovation_audit") or {}).get("nearest_neighbor_difference") or "")).strip()
+                for q in questions
+            ]
+            if any(value and count > 1 for value, count in Counter(nearest_differences).items()):
+                errors.append("自然 subject innovation audits reuse identical nearest-neighbor differences")
+            if int(metadata.get("layout_contract_version") or 0) < 5:
+                errors.append("full natural paper requires layout_contract_version 5 for the cover scoring contract")
+            choice_form = metadata.get("natural_choice_form_contract")
+            expected_choice_form = {
+                "profile_roc_year": 115,
+                "first_part_score": 72,
+                "first_part_item_score": 2,
+                "first_part_single_choice_count": 24,
+                "first_part_multiple_choice_count": 12,
+                "mixed_part_single_choice_count": 6,
+                "mixed_part_multiple_choice_count": 6,
+                "mixed_part_constructed_response_count": 8,
+            }
+            if not isinstance(choice_form, dict):
+                errors.append("full natural paper requires natural_choice_form_contract")
+            else:
+                for field, expected_value in expected_choice_form.items():
+                    if choice_form.get(field) != expected_value:
+                        errors.append(f"natural choice form {field} must be {expected_value}")
+                if choice_form.get("option_labels") != ["A", "B", "C", "D", "E"]:
+                    errors.append("natural selected-response option labels must be A-E")
+                if choice_form.get("multiple_selection_cue") != "（應選n項）":
+                    errors.append("natural multiple-selection cue contract must be （應選n項）")
+                cover_rules = set(choice_form.get("cover_scoring_rules") or [])
+                if cover_rules != {"single_choice_all_or_zero", "multiple_choice_n_minus_2k_over_n"}:
+                    errors.append("natural cover must declare both official choice scoring rules")
+
+            numbered = {q.get("number"): q for q in questions if isinstance(q.get("number"), int)}
+            first_questions = [numbered.get(number) for number in range(1, 37)]
+            if any(q is None for q in first_questions):
+                errors.append("natural first part must contain every question from 1 through 36")
+            else:
+                first_types = Counter(q.get("type") for q in first_questions)
+                if first_types != Counter({"single_choice": 24, "multiple_choice": 12}):
+                    errors.append(f"natural first-part 115 choice mix must be 24 single and 12 multiple, got {dict(first_types)}")
+                first_score = sum(float(q.get("score") or 0) for q in first_questions)
+                if first_score != 72 or any(float(q.get("score") or 0) != 2 for q in first_questions):
+                    errors.append("natural Questions 1-36 must each be 2 points and total 72 points")
+                section_ids = {q.get("section_id") for q in first_questions}
+                if len(section_ids) != 1:
+                    errors.append("natural Questions 1-36 must share one first-part section")
+                else:
+                    section_id = next(iter(section_ids))
+                    section = next((s for s in (exam.get("sections") or []) if s.get("id") == section_id), None)
+                    if not section:
+                        errors.append("natural first-part section metadata missing")
+                    else:
+                        if normalized_print(section.get("title")) != normalized_print("第壹部分、選擇題（占72分）"):
+                            errors.append("natural first-part heading must print 第壹部分、選擇題（占72分）")
+                        printed_direction = "".join(str(value) for value in (section.get("instructions") or []))
+                        if normalized_print(printed_direction) != normalized_print("說明：第1題至第36題，含單選題及多選題，每題2分。"):
+                            errors.append("natural first-part direction must state range, both choice types, and 2 points each")
+
+            mixed_questions = [numbered.get(number) for number in range(37, 57)]
+            if len(questions) == 56 and not any(q is None for q in mixed_questions):
+                mixed_types = Counter(q.get("type") for q in mixed_questions)
+                expected_mixed = Counter({"single_choice": 6, "multiple_choice": 6, "constructed_response": 8})
+                if mixed_types != expected_mixed:
+                    errors.append(f"natural mixed-part 115 response mix mismatch: {dict(mixed_types)}")
+
+            answer_by_id = {answer.get("question_id"): answer for answer in (exam.get("answers") or [])}
+            for q in questions:
+                if q.get("type") not in {"single_choice", "multiple_choice"}:
+                    continue
+                number = q.get("number")
+                options = q.get("options") or []
+                labels = [str(option.get("label") or "") for option in options]
+                if len(options) != 5 or labels != ["A", "B", "C", "D", "E"]:
+                    errors.append(f"Q{number}: natural selected response must have five A-E options")
+                answer_labels = selected_labels((answer_by_id.get(q.get("id")) or {}).get("final_answer"))
+                if q.get("type") == "single_choice":
+                    if len(answer_labels) != 1:
+                        errors.append(f"Q{number}: single-choice key must contain exactly one A-E label")
+                else:
+                    required_count = q.get("required_selection_count")
+                    if not isinstance(required_count, int) or required_count < 2 or required_count > 4:
+                        errors.append(f"Q{number}: multiple-choice item requires required_selection_count from 2 to 4")
+                    if len(answer_labels) != required_count:
+                        errors.append(f"Q{number}: （應選{required_count}項） cue disagrees with verified key {answer_labels}")
+            block_order = (exam.get("metadata") or {}).get("natural_objective_block_order")
+            if not isinstance(block_order, list) or len(block_order) != 4 or set(block_order) != {"物理", "化學", "生物", "地科"}:
+                errors.append("natural_objective_block_order must list physics, chemistry, biology, and earth science exactly once")
+            else:
+                expected = {
+                    number: block_order[(number - 1) // 9]
+                    for number in range(1, 37)
+                }
+                missing = [number for number in range(1, 37) if number not in normalized_domains]
+                wrong = [
+                    number for number in range(1, 37)
+                    if number in normalized_domains and normalized_domains[number] != expected[number]
+                ]
+                if missing:
+                    errors.append(f"natural selected-response 1-36 missing numbered/domain items: {missing}")
+                if wrong:
+                    errors.append(f"natural selected-response disciplines are interleaved or not in nine-item blocks: {wrong}")
+            mixed_designs = (exam.get("metadata") or {}).get("natural_mixed_group_designs")
+            if mixed_designs is not None:
+                if not isinstance(mixed_designs, list):
+                    errors.append("natural_mixed_group_designs must be a list when declared")
+                else:
+                    for index, design in enumerate(mixed_designs, 1):
+                        if not isinstance(design, dict):
+                            errors.append(f"natural mixed group {index}: invalid design record")
+                            continue
+                        domains = [str(value).replace("地球科學", "地科") for value in (design.get("required_domains") or [])]
+                        if len(set(domains)) < 2 or not set(domains).issubset({"物理", "化學", "生物", "地科"}):
+                            errors.append(f"natural mixed group {index}: cross-disciplinary record requires at least two valid domains")
+                        if not str(design.get("evidence_bridge") or "").strip():
+                            errors.append(f"natural mixed group {index}: evidence bridge missing")
+                        if not design.get("question_numbers"):
+                            errors.append(f"natural mixed group {index}: question numbers missing")
+            source_plan = (exam.get("metadata") or {}).get("natural_source_ecology_plan")
+            if not isinstance(source_plan, dict):
+                errors.append("full natural paper requires natural_source_ecology_plan")
+            else:
+                if source_plan.get("mode") != "current-affairs-emphasis":
+                    errors.append("natural source ecology must use current-affairs-emphasis mode")
+                if source_plan.get("recent_window_months") != 12:
+                    errors.append("natural current-affairs window must be the preceding 12 months")
+                parsed_dates = {}
+                for field in ("as_of_date", "editorial_lock_date"):
+                    try:
+                        parsed_dates[field] = dt.date.fromisoformat(str(source_plan.get(field) or ""))
+                    except ValueError:
+                        errors.append(f"natural source ecology has invalid {field}")
+                if len(parsed_dates) == 2 and parsed_dates["editorial_lock_date"] > parsed_dates["as_of_date"]:
+                    errors.append("natural editorial lock date cannot be after as-of date")
+                recent_numbers = source_plan.get("recent_item_numbers") or []
+                if (
+                    not isinstance(recent_numbers, list)
+                    or len(recent_numbers) != len(set(recent_numbers))
+                    or any(not isinstance(number, int) or number < 1 or number > len(questions) for number in recent_numbers)
+                ):
+                    errors.append("natural recent_item_numbers must be unique valid question numbers")
+                else:
+                    if len(recent_numbers) < 6:
+                        errors.append("natural full paper needs at least 6 visibly current-affairs-linked items")
+                    recent_domains = {normalized_domains.get(number) for number in recent_numbers}
+                    recent_domains.discard(None)
+                    if len(recent_domains) < 3:
+                        errors.append("natural current-affairs items must span at least 3 science disciplines")
+                    if not any(number <= 36 for number in recent_numbers) or not any(number >= 37 for number in recent_numbers):
+                        errors.append("natural current-affairs items must appear in both selected and mixed-response parts")
+                recent_groups = source_plan.get("recent_source_groups") or []
+                if not isinstance(recent_groups, list) or len(recent_groups) < 4 or any(not str(group).strip() for group in recent_groups):
+                    errors.append("natural source ecology requires at least 4 distinct recent source groups")
+                if not str(source_plan.get("older_dated_source_policy") or "").strip():
+                    errors.append("natural source ecology must state an older-dated random/balanced sampling policy")
+                if not str(source_plan.get("balance_note") or "").strip():
+                    errors.append("natural source ecology must state how recency preserves whole-paper balance")
+    else:
+        inquiry = 0
+
+    report = {
+        "status": "pass" if not errors else "fail", "subject": subject,
+        "question_count": len(questions), "total_score": sum(float(q.get("score") or 0) for q in questions),
+        "domain_counts": dict(domain_counts), "domain_scores": dict(domain_scores),
+        "curriculum_code_counts": dict(sorted(used_codes.items())),
+        "inquiry_item_count": inquiry if subject == "自然" else None,
+        "errors": errors, "warnings": warnings,
+        "scope_source": (str(science_spec) if science_spec else "code form only; specification not supplied")
+        if subject == "自然" else "CEEC 國文考科考試說明 A1-A6/B1-B5",
+    }
+    return report
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exam", type=Path)
+    parser.add_argument("--science-spec", type=Path, default=ROOT / "tmp" / "pdfs" / "gsat-science-spec.pdf")
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam.read_text(encoding="utf-8-sig"))
+    report = validate(exam, args.science_spec)
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0 if report["status"] == "pass" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+</canonical-source>
+
 <canonical-source path="scripts/validate_current_context.py">
 #!/usr/bin/env python3
 """Recent-context floors for 自然, 英文, 國綜 and 國寫 full papers.
@@ -69545,6 +70737,456 @@ def main() -> int:
 
 
 if __name__ == '__main__':
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_english_difficulty_design.py">
+#!/usr/bin/env python3
+"""Validate the non-trivial, in-scope reasoning floor for current GSAT English."""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+from collections import Counter
+from typing import Any
+
+
+GLOBAL_SPANS = {"cross_sentence", "cross_paragraph", "text_visual"}
+VALID_SPANS = {"local_sentence", "cross_clause", *GLOBAL_SPANS}
+HIGHER_VOCABULARY_BANDS = {"中偏難", "難", "medium_hard", "hard"}
+SIMPLE_VOCABULARY_BANDS = {"簡單", "easy"}
+INNOVATION_TEXT_FIELDS = (
+    "mechanism_family",
+    "new_subject_mechanism",
+    "evidence_or_reasoning_architecture",
+    "nearest_neighbor_difference",
+)
+PLACEHOLDER_INNOVATION_TEXT = {
+    "n/a", "na", "none", "pending", "pass", "passed", "todo", "tbd",
+    "new topic", "different context", "new mechanism", "新主題", "不同情境", "新機制", "通過",
+}
+
+
+def _meaningful_innovation_text(value: Any) -> bool:
+    text = str(value or "").strip()
+    return bool(text) and text.casefold() not in PLACEHOLDER_INNOVATION_TEXT
+
+
+def _evidenced_pass(value: Any) -> bool:
+    text = str(value or "").strip()
+    return text.startswith("pass:") and len(text.partition(":")[2].strip()) >= 8
+
+
+def _innovation_errors(question: dict[str, Any]) -> list[str]:
+    label = question.get("number") or question.get("id") or "?"
+    prefix = f"Q{label}"
+    spec = question.get("item_spec") if isinstance(question.get("item_spec"), dict) else {}
+    audit = spec.get("subject_innovation_audit")
+    if not isinstance(audit, dict):
+        return [f"{prefix}: missing subject_innovation_audit"]
+    errors: list[str] = []
+    if audit.get("subject") != "英文":
+        errors.append(f"{prefix}: innovation audit subject must be 英文")
+    if audit.get("candidate_competition_linked") is not True:
+        errors.append(f"{prefix}: innovation audit is not linked to candidate competition")
+    if audit.get("routine_template_recoverable") is not False:
+        errors.append(f"{prefix}: routine/template recoverability has not been rejected")
+    if audit.get("surface_or_topic_novelty_only") is not False:
+        errors.append(f"{prefix}: surface/topic-only novelty has not been rejected")
+    for field in INNOVATION_TEXT_FIELDS:
+        if not _meaningful_innovation_text(audit.get(field)):
+            errors.append(f"{prefix}: innovation audit {field} is missing or placeholder text")
+    if audit.get("reviewer_decision") != "pass-subject-novelty":
+        errors.append(f"{prefix}: subject innovation reviewer decision has not passed")
+    return errors
+
+
+def _paper_innovation_errors(meta: dict[str, Any]) -> list[str]:
+    review = meta.get("subject_innovation_review")
+    if not isinstance(review, dict):
+        return ["metadata: missing subject_innovation_review for English"]
+    errors: list[str] = []
+    if review.get("subject") != "英文":
+        errors.append("metadata: subject innovation review must identify 英文")
+    if review.get("all_scored_items_reviewed") is not True:
+        errors.append("metadata: subject innovation review must cover every scored English task")
+    for field in (
+        "mechanism_saturation_review",
+        "representation_saturation_review",
+        "section_or_domain_diversity_review",
+    ):
+        if not _evidenced_pass(review.get(field)):
+            errors.append(f"metadata: English {field} has not passed")
+    if review.get("reviewer_decision") != "pass-subject-novelty":
+        errors.append("metadata: English subject innovation reviewer decision has not passed")
+    return errors
+
+
+def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
+    meta = exam.get("metadata") or {}
+    subject = meta.get("paper_subject") or meta.get("subject")
+    if subject != "英文":
+        return {"status": "pass", "subject": subject, "errors": [], "note": "not an English paper"}
+
+    by_number = {
+        int(question["number"]): question
+        for question in exam.get("questions") or []
+        if isinstance(question.get("number"), int) and 1 <= int(question["number"]) <= 50
+    }
+    errors: list[str] = []
+    if set(by_number) != set(range(1, 51)):
+        errors.append("complete English paper must contain numbered items 1-50")
+
+    nonlocal_cloze = 0
+    reading_global = 0
+    mixed_synthesis = 0
+    vocabulary_cross_clause = 0
+    vocabulary_competitive = 0
+    vocabulary_simple = 0
+    vocabulary_higher = 0
+    reading_groups = ((35, 38), (39, 42), (43, 46))
+    answers_by_id = {
+        str(answer.get("question_id")): str(answer.get("final_answer") or "")
+        for answer in exam.get("answers") or []
+        if isinstance(answer, dict) and answer.get("question_id") is not None
+    }
+    vocabulary_answer_labels: list[str] = []
+
+    for question in exam.get("questions") or []:
+        if isinstance(question, dict):
+            errors.extend(_innovation_errors(question))
+    nearest_differences = [
+        str((((question.get("item_spec") or {}).get("subject_innovation_audit") or {}).get("nearest_neighbor_difference") or "")).strip()
+        for question in exam.get("questions") or [] if isinstance(question, dict)
+    ]
+    repeated_nearest = {
+        value: count for value, count in Counter(nearest_differences).items()
+        if value and count > 1
+    }
+    if repeated_nearest:
+        errors.append("English subject innovation audits reuse identical nearest-neighbor differences")
+
+    for number in range(1, 51):
+        question = by_number.get(number) or {}
+        spec = question.get("item_spec") or {}
+        contract = spec.get("english_difficulty_contract") if isinstance(spec.get("english_difficulty_contract"), dict) else {}
+        if contract.get("direct_lookup_or_copy_only") is not False:
+            errors.append(f"Q{number}: direct lookup/copy has not been rejected")
+        if contract.get("outside_vocabulary_required") is not False:
+            errors.append(f"Q{number}: outside vocabulary cannot be required")
+        operations = contract.get("reasoning_operations") or []
+        minimum = 3 if number >= 31 else 2
+        if len(operations) < minimum:
+            errors.append(f"Q{number}: only {len(operations)} linked operations; require {minimum}")
+        span = contract.get("evidence_span")
+        if span not in VALID_SPANS:
+            errors.append(f"Q{number}: invalid or missing evidence_span")
+        competition = contract.get("distractor_competition") or []
+        options = question.get("options") or []
+        if options:
+            required = max(3, len(options) - 1)
+            if len(competition) < required:
+                errors.append(f"Q{number}: distractor competition has {len(competition)} records; require {required}")
+            for record in competition:
+                if not isinstance(record, dict) or not record.get("option") or not record.get("initial_fit") or not record.get("defeating_evidence"):
+                    errors.append(f"Q{number}: every distractor record needs option, initial_fit, and defeating_evidence")
+                    break
+        if 11 <= number <= 34 and span in GLOBAL_SPANS:
+            nonlocal_cloze += 1
+        if 35 <= number <= 46 and span in GLOBAL_SPANS:
+            reading_global += 1
+        if 47 <= number <= 50 and contract.get("synthesis_or_transformation") is True and span in GLOBAL_SPANS:
+            mixed_synthesis += 1
+
+        if 1 <= number <= 10:
+            if span == "cross_clause":
+                vocabulary_cross_clause += 1
+            challenge = spec.get("vocabulary_challenge") if isinstance(spec.get("vocabulary_challenge"), dict) else {}
+            if not challenge:
+                errors.append(f"Q{number}: vocabulary_challenge contract missing")
+            else:
+                if challenge.get("one_cue_shortcut_rejected") is not True:
+                    errors.append(f"Q{number}: one-cue vocabulary shortcut has not been rejected")
+                if challenge.get("surface_only_elimination") is not False:
+                    errors.append(f"Q{number}: surface-only elimination has not been rejected")
+                if challenge.get("two_plausible_distractors_after_local_read") is not True:
+                    errors.append(f"Q{number}: fewer than two plausible distractors remain after a local read")
+                if not str(challenge.get("decisive_relation") or "").strip():
+                    errors.append(f"Q{number}: decisive vocabulary relation missing")
+                if challenge.get("reviewed_against_recent_ceec") is not True:
+                    errors.append(f"Q{number}: vocabulary demand was not reviewed against recent CEEC items")
+                if all(
+                    challenge.get(key) is value
+                    for key, value in (
+                        ("one_cue_shortcut_rejected", True),
+                        ("surface_only_elimination", False),
+                        ("two_plausible_distractors_after_local_read", True),
+                        ("reviewed_against_recent_ceec", True),
+                    )
+                ):
+                    vocabulary_competitive += 1
+                band = str(challenge.get("band") or "")
+                if band in SIMPLE_VOCABULARY_BANDS:
+                    vocabulary_simple += 1
+                if band in HIGHER_VOCABULARY_BANDS:
+                    vocabulary_higher += 1
+            label = answers_by_id.get(str(question.get("id") or ""), "")
+            if label:
+                vocabulary_answer_labels.append(label)
+
+    if nonlocal_cloze < 12:
+        errors.append(f"cloze/completion/structure has only {nonlocal_cloze} cross-sentence-or-wider items; require 12")
+    if reading_global < 8:
+        errors.append(f"reading has only {reading_global} cross-sentence-or-wider items; require 8")
+    for start, end in reading_groups:
+        if not any(
+            ((by_number.get(number) or {}).get("item_spec") or {})
+            .get("english_difficulty_contract", {})
+            .get("evidence_span") in {"cross_paragraph", "text_visual"}
+            for number in range(start, end + 1)
+        ):
+            errors.append(f"reading group {start}-{end} lacks cross-paragraph or text-visual inference")
+    if mixed_synthesis < 3:
+        errors.append(f"mixed section has only {mixed_synthesis} synthesis/transformation items; require 3")
+    if vocabulary_cross_clause < 6:
+        errors.append(f"vocabulary section has only {vocabulary_cross_clause} cross-clause decisions; require 6")
+    if vocabulary_competitive < 8:
+        errors.append(f"vocabulary section has only {vocabulary_competitive} fully competitive items; require 8")
+    if vocabulary_simple > 1:
+        errors.append(f"vocabulary section has {vocabulary_simple} simple anchors; allow at most 1")
+    if vocabulary_higher < 5:
+        errors.append(f"vocabulary section has only {vocabulary_higher} medium-hard/hard items; require 5")
+    answer_counts = Counter(vocabulary_answer_labels)
+    if len(vocabulary_answer_labels) != 10:
+        errors.append("vocabulary answer labels could not be resolved for all ten items")
+    elif len(answer_counts) < 3 or max(answer_counts.values()) > 4:
+        errors.append(f"vocabulary answer-position distribution is implausibly concentrated: {dict(answer_counts)}")
+    if set(by_number) == set(range(1, 51)):
+        errors.extend(_paper_innovation_errors(meta))
+
+    return {
+        "schema_version": 1,
+        "status": "pass" if not errors else "fail",
+        "subject": subject,
+        "numbered_item_count": len(by_number),
+        "cross_sentence_or_wider_11_34": nonlocal_cloze,
+        "cross_sentence_or_wider_reading": reading_global,
+        "mixed_synthesis_count": mixed_synthesis,
+        "vocabulary_cross_clause_count": vocabulary_cross_clause,
+        "vocabulary_competitive_item_count": vocabulary_competitive,
+        "vocabulary_simple_anchor_count": vocabulary_simple,
+        "vocabulary_medium_hard_or_hard_count": vocabulary_higher,
+        "vocabulary_answer_position_counts": dict(answer_counts),
+        "errors": errors,
+        "note": "Structural design validation only; vocabulary scope and achieved difficulty are separate checks.",
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("exam_json", type=Path)
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam_json.read_text(encoding="utf-8-sig"))
+    report = validate_exam(exam)
+    rendered = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(rendered, encoding="utf-8")
+    print(rendered, end="")
+    return 0 if report["status"] == "pass" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_english_layout_contract.py">
+#!/usr/bin/env python3
+"""Validate release-blocking structure for the verified 115 GSAT English form."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+from pathlib import Path
+from typing import Any
+
+
+OFFICIAL_HEADINGS = (
+    "第壹部分、選擇題（占62分）", "一、詞彙題（占10分）", "二、綜合測驗（占10分）", "三、文意選填（占10分）",
+    "四、篇章結構（占8分）", "五、閱讀測驗（占24分）", "第貳部分、混合題（占10分）",
+    "第參部分、非選擇題（占28分）", "一、中譯英（占8分）", "二、英文作文（占20分）",
+)
+
+
+def validate_exam(exam: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    meta = exam.get("metadata") or {}
+    if (meta.get("paper_subject") or meta.get("subject")) != "英文":
+        return errors
+    sections = {section.get("id"): section for section in exam.get("sections") or []}
+    vocabulary_title = str((sections.get("vocabulary") or {}).get("title") or "")
+    if "占62分" not in vocabulary_title.replace(" ", ""):
+        errors.append("115英文第壹部分必須標示占62分")
+    if "62分" not in str(meta.get("scoring_note") or ""):
+        errors.append("英文封面計分方式須標示第壹部分62分")
+    if (meta.get("section_header_previews") or {}).get("2") != "cloze":
+        errors.append("115英文第2頁末須預置綜合測驗標題與說明")
+
+    # The printed part/section headings of every official 111-115 paper, in order.
+    printed_titles = "".join(str(section.get("title") or "") for section in exam.get("sections") or [])
+    printed_titles = re.sub(r"\s+", "", printed_titles).replace("(", "（").replace(")", "）")
+    cursor = 0
+    for heading in OFFICIAL_HEADINGS:
+        index = printed_titles.find(heading, cursor)
+        if index < 0:
+            errors.append(f"英文題本須依官方順序印出標題「{heading}」（111–115 每年皆同）")
+        else:
+            cursor = index + len(heading)
+
+    by_number = {int(q.get("number")): q for q in exam.get("questions") or [] if isinstance(q.get("number"), int)}
+    for number in range(1, 47):
+        question = by_number.get(number) or {}
+        labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
+        if labels and labels != list("ABCD")[: len(labels)] and not (number in range(31, 35) and labels == list("ABCDE")):
+            errors.append(f"英文第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}")
+    for number in range(1, 21):
+        if (by_number.get(number) or {}).get("option_layout") != "row-4":
+            errors.append(f"英文第{number}題四個短選項須使用同列row-4版型")
+    for number in range(35, 49):
+        question = by_number.get(number) or {}
+        if question.get("options") and question.get("option_layout") != "stack":
+            errors.append(f"英文第{number}題閱讀或混合題選項須逐項直排")
+    for number in range(11, 35):
+        question = by_number.get(number) or {}
+        if question.get("suppress_question_display") is not True:
+            errors.append(f"英文第{number}題不得另印工作紙式獨立空格列")
+        stimulus = str(question.get("group_stimulus") or "")
+        if f"[[{number}]]" not in stimulus:
+            errors.append(f"英文第{number}題缺少文章內編號底線空格")
+        if "Blank (" in str(question.get("prompt") or "") or "Choose the best answer for blank" in str(question.get("prompt") or ""):
+            errors.append(f"英文第{number}題仍含重複空格提示")
+
+    completion = str((by_number.get(21) or {}).get("group_stimulus") or "")
+    if "(J)" not in completion or "(K)" in completion or "(L)" in completion:
+        errors.append("115英文文意選填須為十空、十個A至J選項")
+    if not all((by_number.get(number) or {}).get("page") == 3 for number in range(11, 21)):
+        errors.append("115英文兩組綜合測驗須依量測版型同置第3頁")
+
+    # Empirical guardrails from the 111–115 official papers.  Count prose only,
+    # excluding the option bank appended to inline-layout stimuli.
+    word_re = re.compile(r"[A-Za-z]+(?:[-'’][A-Za-z]+)*")
+
+    def prose_word_count(number: int) -> int:
+        question = by_number.get(number) or {}
+        stimulus = str(question.get("group_stimulus") or "")
+        if number in {11, 16}:
+            stimulus = re.split(rf"\n\s*\n\s*{number}\.", stimulus, maxsplit=1)[0]
+        elif number in {21, 31}:
+            stimulus = re.split(r"\n\s*\n\s*\(A\)", stimulus, maxsplit=1)[0]
+        return len(word_re.findall(stimulus))
+
+    length_contracts = {
+        11: (175, 235, "第11至15題綜合測驗"),
+        16: (175, 235, "第16至20題綜合測驗"),
+        21: (265, 325, "文意選填"),
+        31: (220, 315, "篇章結構"),
+        35: (285, 390, "第35至38題閱讀"),
+        39: (285, 390, "第39至42題閱讀"),
+        43: (285, 390, "第43至46題閱讀"),
+        47: (340, 480, "混合題材料"),
+    }
+    for number, (minimum, maximum, label) in length_contracts.items():
+        count = prose_word_count(number)
+        if count < minimum or count > maximum:
+            errors.append(f"{label}正文{count}字，不在111–115實卷基準{minimum}–{maximum}字內")
+
+    mixed = by_number.get(47) or {}
+    page_splits = mixed.get("group_stimulus_page_splits") or {}
+    if set(page_splits) != {"10", "11"} or "".join(page_splits.values()).strip() == "":
+        errors.append("英文混合題長材料須跨第9至10題本頁分段配置，避免單頁擁塞或次頁大片留白")
+    if not mixed.get("visual_asset"):
+        errors.append("115英文混合題首段須配置可讀的非連續文本或視覺證據，避免材料頁大面積留白")
+
+    composition = next(
+        (
+            question for question in exam.get("questions") or []
+            if question.get("section_id") == "composition" or question.get("type") == "guided_writing"
+        ),
+        None,
+    )
+    if not composition:
+        errors.append("115英文完整卷缺英文作文")
+    else:
+        prompt = str(composition.get("prompt") or "")
+        cjk_count = len(re.findall(r"[\u3400-\u9fff]", prompt))
+        latin_word_count = len(re.findall(r"[A-Za-z]+(?:[-'’][A-Za-z]+)*", prompt))
+        if cjk_count < 30:
+            errors.append("英文作文的學生作答提示必須以中文完整書寫")
+        if cjk_count and latin_word_count > max(20, cjk_count):
+            errors.append("英文作文題幹的英文指令過多，作答說明應以中文為主")
+        if "120" not in prompt or "單詞" not in prompt or "英文" not in prompt:
+            errors.append("英文作文題幹須以中文明示英文作文與至少120個單詞")
+        if "提示" not in prompt or "第一段" not in prompt or "第二段" not in prompt:
+            errors.append("英文作文題幹須依官方格式以中文寫出「提示：…」並指明第一段與第二段的任務")
+        if re.match(r"\s*[A-Za-z]", prompt):
+            errors.append("英文作文題幹以英文句子開頭；官方提示全文為中文，只有主題詞可附英文")
+        spec = composition.get("item_spec") if isinstance(composition.get("item_spec"), dict) else {}
+        contract = spec.get("composition_contract") if isinstance(spec.get("composition_contract"), dict) else {}
+        if contract.get("directions_language") != "zh-TW":
+            errors.append("英文作文 composition_contract 必須標示 directions_language=zh-TW")
+        if int(contract.get("minimum_words") or 0) != 120:
+            errors.append("英文作文 composition_contract 必須記錄 minimum_words=120")
+        if contract.get("student_accessible_context") is not True:
+            errors.append("英文作文情境必須在高中生日常生活或學習範疇內")
+        review = contract.get("prompt_coherence_review") if isinstance(contract.get("prompt_coherence_review"), dict) else {}
+        if review.get("status") != "pass":
+            errors.append("英文作文未通過題意連貫與自然性審查")
+        if review.get("forced_moral_or_abstract_jump") is not False:
+            errors.append("英文作文不得從圖片觀察硬跳到無關的抽象教訓")
+        if review.get("multiple_valid_angles") is not True:
+            errors.append("英文作文須容許多種合理取徑，不能暗藏單一標準故事")
+        if not str(review.get("task_bridge") or "").strip():
+            errors.append("英文作文兩段任務的語意橋接未說明")
+        if composition.get("visual_asset") and review.get("visible_evidence_boundary") is not True:
+            errors.append("看圖作文必須限定圖像可見證據，不得要求學生編造圖中不存在的細節")
+
+    for question in exam.get("questions") or []:
+        if not question.get("visual_asset"):
+            continue
+        visible = f'{question.get("group_stimulus") or ""}\n{question.get("prompt") or ""}'
+        if "照片：" in visible or "Photo:" in visible:
+            errors.append(f"英文第{question.get('number')}題把照片權利資訊印入學生卷")
+    translations = [q for q in exam.get("questions") or []
+                    if q.get("section_id") == "translation" or "中譯英" in str(sections.get(q.get("section_id"), {}).get("title") or "")]
+    for index, question in enumerate(translations, 1):
+        label = re.sub(r"\s+", "", str(question.get("number_display") or question.get("answer_label") or ""))
+        if label not in {f"{index}.", str(index), f"{index}．"}:
+            errors.append(f"中譯英第{index}句須印為「{index}.」，不是「{label or '（無）'}」；「中譯英1」不是官方題號")
+        if re.search(r"[A-Za-z]{3,}", str(question.get("prompt") or "")):
+            errors.append(f"中譯英第{index}句題幹須為中文句子")
+    return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("exam_json", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam_json.read_text(encoding="utf-8-sig"))
+    errors = validate_exam(exam)
+    if errors:
+        for error in errors:
+            print(f"FAIL: {error}")
+        return 1
+    print("PASS: verified 115 English layout contract")
+    return 0
+
+
+if __name__ == "__main__":
     raise SystemExit(main())
 </canonical-source>
 
@@ -69811,15 +71453,11 @@ def cross_discipline_errors(
     return errors, qualifying
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("exam", type=Path)
-    parser.add_argument("--subject", required=True, choices=tuple(SUBJECT_FLOORS))
-    parser.add_argument("--report", type=Path)
-    args = parser.parse_args()
-
-    exam = json.loads(args.exam.read_text(encoding="utf-8-sig"))
-    floors = SUBJECT_FLOORS[args.subject]
+def validate(exam: dict[str, Any], subject: str, exam_path: str = "") -> dict[str, Any]:
+    """Reading-load and shared-stimulus floors for one authored exam record."""
+    if subject not in SUBJECT_FLOORS:
+        raise ValueError("no literacy floor for subject " + str(subject))
+    floors = SUBJECT_FLOORS[subject]
     questions = [q for q in exam.get("questions") or [] if isinstance(q, dict)]
     errors: list[str] = []
 
@@ -69919,7 +71557,7 @@ def main() -> int:
                         f"at most {floors['max_short_stimulus_ratio']:.0%} may"
                     )
 
-    if args.subject == "國寫":
+    if subject == "國寫":
         # Each 大題 supplies one reading packet that its subparts share, so count
         # distinct packets. Taking the two largest questions instead would let one
         # task's packet satisfy both floors.
@@ -69949,7 +71587,7 @@ def main() -> int:
                     f"{floors['min_task_2_chars']}"
                 )
 
-    if args.subject == "自然":
+    if subject == "自然":
         cross_errors, qualifying = cross_discipline_errors(
             exam, groups, floors["min_cross_discipline_groups"]
         )
@@ -69958,8 +71596,8 @@ def main() -> int:
 
     report = {
         "status": "pass" if not errors else "fail",
-        "subject": args.subject,
-        "exam": str(args.exam),
+        "subject": subject,
+        "exam": exam_path,
         "reference": {
             "basis": "official 學測 ROC 111-115",
             "envelope": ENVELOPE.name,
@@ -69975,6 +71613,17 @@ def main() -> int:
             "pad prose or answer space to clear a floor."
         ),
     }
+    return report
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exam", type=Path)
+    parser.add_argument("--subject", required=True, choices=tuple(SUBJECT_FLOORS))
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam.read_text(encoding="utf-8-sig"))
+    report = validate(exam, args.subject, str(args.exam))
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -70482,6 +72131,725 @@ def main():
     if a.output:a.output.write_text(json.dumps(r,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({k:v for k,v in r.items()if k!='items'},ensure_ascii=False));return bool(r['errors'])
 if __name__=='__main__':raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_social_item_design.py">
+#!/usr/bin/env python3
+"""Validate evidence design and paper balance for current GSAT social studies."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import statistics
+from collections import Counter
+from datetime import date
+from pathlib import Path
+from typing import Any
+
+
+VALID_DOMAINS = {"歷史", "地理", "公民與社會"}
+VALID_SOURCE_FAMILIES = {
+    "historical_primary_source", "historical_secondary_source", "archive", "map",
+    "aerial_or_satellite_image", "statistical_chart", "open_data", "law_or_judgment",
+    "policy_document", "research", "news", "photograph", "life_document",
+    "literature_or_artifact", "synthetic_closed_scenario", "official_disaster_report",
+}
+VALID_COGNITIVE_DEMANDS = {
+    "evidence_application", "relation_analysis", "causal_constraint",
+    "comparison_judgment", "source_evaluation", "procedural_application",
+    "spatial_scale_reasoning", "quantitative_evidence_reasoning",
+}
+INNOVATION_TEXT_FIELDS = (
+    "mechanism_family",
+    "new_subject_mechanism",
+    "evidence_or_reasoning_architecture",
+    "nearest_neighbor_difference",
+)
+PLACEHOLDER_INNOVATION_TEXT = {
+    "n/a", "na", "none", "pending", "pass", "passed", "todo", "tbd",
+    "new topic", "different context", "new mechanism", "新主題", "不同情境", "新機制", "通過",
+}
+
+REGISTRY_PATH = Path(__file__).resolve().parents[1] / "references" / "social-required-content-codes.json"
+_REGISTRY = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+CONTENT_CODES_BY_DOMAIN = {
+    domain: {str(code) for code in codes}
+    for domain, codes in (_REGISTRY.get("domains") or {}).items()
+}
+ALL_CONTENT_CODES = set().union(*CONTENT_CODES_BY_DOMAIN.values())
+ASSESSMENT_TARGETS_BY_DOMAIN = {
+    domain: {str(target) for target in targets}
+    for domain, targets in (_REGISTRY.get("ceec_assessment_targets") or {}).items()
+}
+ALL_ASSESSMENT_TARGETS = set().union(*ASSESSMENT_TARGETS_BY_DOMAIN.values())
+PERFORMANCE_CODE_RE = re.compile(r"^[歷地公]\d[a-z]-[ⅤV]-\d+$")
+
+
+def canonical_content_code(value: Any) -> str:
+    """Normalize harmless spacing/roman-numeral variants without changing the code."""
+    return re.sub(r"\s+", "", str(value or "")).replace("-V-", "-Ⅴ-")
+
+
+def _meaningful_innovation_text(value: Any) -> bool:
+    text = str(value or "").strip()
+    return bool(text) and text.casefold() not in PLACEHOLDER_INNOVATION_TEXT
+
+
+def _evidenced_pass(value: Any) -> bool:
+    text = str(value or "").strip()
+    return text.startswith("pass:") and len(text.partition(":")[2].strip()) >= 8
+
+
+def _subject_innovation_errors(spec: dict[str, Any], qid: str) -> list[dict[str, Any]]:
+    audit = spec.get("subject_innovation_audit")
+    if not isinstance(audit, dict):
+        return [{"code": "subject_innovation_audit_missing", "question_id": qid}]
+    errors: list[dict[str, Any]] = []
+    checks = (
+        (audit.get("subject") == "社會", "subject_innovation_subject_mismatch"),
+        (audit.get("candidate_competition_linked") is True, "innovation_candidate_competition_not_linked"),
+        (audit.get("routine_template_recoverable") is False, "routine_template_recoverability_not_rejected"),
+        (audit.get("surface_or_topic_novelty_only") is False, "surface_or_topic_only_novelty_not_rejected"),
+        (audit.get("reviewer_decision") == "pass-subject-novelty", "subject_innovation_review_not_passed"),
+    )
+    for passed, code in checks:
+        if not passed:
+            errors.append({"code": code, "question_id": qid})
+    for field in INNOVATION_TEXT_FIELDS:
+        if not _meaningful_innovation_text(audit.get(field)):
+            errors.append({
+                "code": "subject_innovation_evidence_missing_or_placeholder",
+                "question_id": qid,
+                "field": field,
+            })
+    return errors
+
+
+def _paper_innovation_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
+    review = (exam.get("metadata") or {}).get("subject_innovation_review")
+    if not isinstance(review, dict):
+        return [{"code": "subject_innovation_review_missing"}]
+    errors: list[dict[str, Any]] = []
+    if review.get("subject") != "社會":
+        errors.append({"code": "subject_innovation_review_subject_mismatch"})
+    if review.get("all_scored_items_reviewed") is not True:
+        errors.append({"code": "subject_innovation_review_incomplete"})
+    for field in (
+        "mechanism_saturation_review",
+        "representation_saturation_review",
+        "section_or_domain_diversity_review",
+    ):
+        if not _evidenced_pass(review.get(field)):
+            errors.append({"code": "subject_innovation_paper_review_not_passed", "field": field})
+    if review.get("reviewer_decision") != "pass-subject-novelty":
+        errors.append({"code": "subject_innovation_paper_decision_not_passed"})
+    return errors
+
+
+def _scope_contract_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
+    contract = (exam.get("metadata") or {}).get("social_scope_contract")
+    if not isinstance(contract, dict):
+        return [{"code": "social_scope_contract_missing"}]
+    errors: list[dict[str, Any]] = []
+    for field in (
+        "ceec_specification_url", "ceec_specification_retrieved_at",
+        "ceec_specification_sha256", "naer_curriculum_url",
+        "naer_curriculum_retrieved_at", "naer_curriculum_sha256",
+    ):
+        if not str(contract.get(field) or "").strip():
+            errors.append({"code": "social_scope_source_evidence_missing", "field": field})
+    sections = {str(value) for value in (contract.get("examined_spec_sections") or [])}
+    required_sections = {"測驗目標", "測驗內容", "題型配分", "試題舉例"}
+    if not required_sections <= sections:
+        errors.append({
+            "code": "social_specification_sections_not_reviewed",
+            "missing": sorted(required_sections - sections),
+        })
+    return errors
+
+
+def objective_order_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
+    """Check standalone blocks only; a mixed-section choice is not a standalone.
+
+    Exact annual counts/order still require the selected reference review. Shared
+    material is identified in the same way as the renderer, not by domain tags.
+    """
+    errors: list[dict[str, Any]] = []
+    questions = [q for q in exam.get("questions", []) if isinstance(q, dict)]
+    sections = exam.get("sections") or []
+    if sections and isinstance(sections[0], dict):
+        objective_id = sections[0].get("id")
+    else:
+        # Older metadata-only records use these explicit first-part ids.
+        section_ids = {q.get("section_id") for q in questions}
+        objective_id = next((s for s in ("objective", "section-1") if s in section_ids), None)
+    if not objective_id:
+        return [{"code": "social_objective_section_unresolved"}]
+    ordered = sorted(enumerate(questions), key=lambda pair: pair[1].get("number", pair[0] + 1))
+    objective = [q for _, q in ordered if q.get("section_id") == objective_id]
+    if not objective:
+        return [{"code": "social_objective_section_empty", "section_id": objective_id}]
+    stimuli = Counter(q.get("group_stimulus") for q in objective if q.get("group_stimulus"))
+    closed_domains: set[str] = set()
+    seen_groups: set[str] = set()
+    last_domain = None
+    last_group = None
+    groups_started = False
+    for q in objective:
+        qid = str(q.get("id") or q.get("number") or "unknown")
+        stimulus = q.get("group_stimulus")
+        if stimulus and stimuli[stimulus] > 1:
+            groups_started = True
+            if stimulus != last_group and stimulus in seen_groups:
+                errors.append({"code": "social_objective_group_split", "question_id": qid})
+            seen_groups.add(stimulus)
+            last_group = stimulus
+            continue
+        last_group = None
+        if groups_started:
+            errors.append({"code": "social_standalone_after_objective_groups", "question_id": qid})
+        spec = q.get("item_spec") if isinstance(q.get("item_spec"), dict) else {}
+        domain = spec.get("domain") or q.get("domain")
+        if domain not in VALID_DOMAINS:
+            continue  # The item-level domain check supplies the error.
+        if domain != last_domain:
+            if domain in closed_domains:
+                errors.append({"code": "social_standalone_domain_interleaved", "question_id": qid, "domain": domain})
+            if last_domain is not None:
+                closed_domains.add(last_domain)
+            last_domain = domain
+    return errors
+
+
+def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
+    errors: list[dict[str, Any]] = []
+    warnings: list[dict[str, Any]] = []
+    domains: Counter[str] = Counter()
+    domain_item_counts: Counter[str] = Counter()
+    source_families: Counter[str] = Counter()
+    current_items = 0
+    within_year_items = 0
+    editorial_lock_dates: set[date] = set()
+    current_score = 0.0
+    current_clusters: set[tuple[str, ...]] = set()
+    objective_current_clusters: set[tuple[str, ...]] = set()
+    competence_items = 0
+    basic_items = 0
+    full_current_paper = len(exam.get("questions") or []) >= 60
+    questions = [q for q in (exam.get("questions") or []) if isinstance(q, dict)]
+    unique_stimuli = {
+        str(q.get("group_stimulus") or "").strip()
+        for q in questions
+        if str(q.get("group_stimulus") or "").strip()
+    }
+    stimulus_lengths = [len(re.sub(r"\s+", "", text)) for text in unique_stimuli]
+    prompt_chars = sum(len(re.sub(r"\s+", "", str(q.get("prompt") or ""))) for q in questions)
+    evidence_text_chars = sum(stimulus_lengths) + prompt_chars
+    option_chars = sum(
+        len(re.sub(r"\s+", "", str(option.get("text") or "")))
+        for q in questions for option in (q.get("options") or []) if isinstance(option, dict)
+    )
+    printable_surface_chars = evidence_text_chars + option_chars
+    median_stimulus_chars = statistics.median(stimulus_lengths) if stimulus_lengths else 0
+    short_stimulus_ratio = (
+        sum(length < 110 for length in stimulus_lengths) / len(stimulus_lengths)
+        if stimulus_lengths else 1.0
+    )
+
+    if full_current_paper:
+        errors.extend(_scope_contract_errors(exam))
+        if evidence_text_chars < 7500:
+            errors.append({
+                "code": "social_evidence_text_volume_too_low",
+                "found": evidence_text_chars,
+                "minimum": 7500,
+                "detail": "計數含每份共用材料一次及所有題幹，不含選項、解析與隱藏 metadata。",
+            })
+        if printable_surface_chars < 11000:
+            errors.append({
+                "code": "social_printable_surface_volume_too_low",
+                "found": printable_surface_chars,
+                "minimum": 11000,
+            })
+        # Measured ROC 111-115 per-year stimulus medians are 203-271 characters
+        # (exam_packs/學測/shared-data/current-form-literacy-envelope.json). The
+        # previous 120-character floor sat at roughly half the weakest official
+        # year and let short-material papers pass. 170 stays below every
+        # official year while rejecting the collapse.
+        if median_stimulus_chars < 170:
+            errors.append({
+                "code": "social_unique_stimulus_median_too_short",
+                "found": median_stimulus_chars,
+                "minimum": 170,
+                "detail": "官方 111-115 每年共用材料中位數為 203-271 字。",
+            })
+        # ROC 111 is the weakest official year at 0.26 of its groups under 110
+        # characters, so 0.30 rejects short-material papers without rejecting it.
+        if short_stimulus_ratio > 0.30:
+            errors.append({
+                "code": "social_short_materials_dominate",
+                "found_ratio": round(short_stimulus_ratio, 3),
+                "maximum": 0.30,
+            })
+
+    for question in exam.get("questions", []):
+        if not isinstance(question, dict):
+            continue
+        qid = str(question.get("id") or question.get("number") or "unknown")
+        if question.get("options") and question.get("option_layout") != "stack":
+            errors.append({"code": "social_options_not_stacked", "question_id": qid})
+        spec = question.get("item_spec") if isinstance(question.get("item_spec"), dict) else {}
+        if question.get("visual_asset"):
+            visible_text = f'{question.get("group_stimulus") or ""}\n{question.get("prompt") or ""}'
+            if "照片：" in visible_text or "Photo:" in visible_text:
+                errors.append({"code": "photo_credit_printed_in_student_booklet", "question_id": qid})
+        domain = str(spec.get("domain") or question.get("domain") or "")
+        if domain not in VALID_DOMAINS:
+            errors.append({"code": "social_domain_missing", "question_id": qid})
+        else:
+            domains[domain] += float(question.get("score") or 1)
+            domain_item_counts[domain] += 1
+        curriculum_codes = spec.get("curriculum_codes") or question.get("curriculum_codes") or []
+        if not curriculum_codes:
+            errors.append({"code": "curriculum_code_missing", "question_id": qid})
+        canonical_codes = [canonical_content_code(code) for code in curriculum_codes]
+        for raw_code, code in zip(curriculum_codes, canonical_codes):
+            if PERFORMANCE_CODE_RE.fullmatch(code):
+                errors.append({
+                    "code": "learning_performance_code_in_curriculum_codes",
+                    "question_id": qid,
+                    "value": str(raw_code),
+                    "detail": "curriculum_codes 只能放高一、高二必修學習內容碼；學習表現須另列。",
+                })
+            elif code not in ALL_CONTENT_CODES:
+                errors.append({
+                    "code": "curriculum_content_code_invalid",
+                    "question_id": qid,
+                    "value": str(raw_code),
+                })
+        if domain in VALID_DOMAINS and not (set(canonical_codes) & CONTENT_CODES_BY_DOMAIN[domain]):
+            errors.append({
+                "code": "primary_domain_content_code_missing",
+                "question_id": qid,
+                "domain": domain,
+            })
+
+        assessment_targets = [str(target) for target in (spec.get("ceec_assessment_targets") or [])]
+        if full_current_paper and not assessment_targets:
+            errors.append({"code": "ceec_assessment_target_missing", "question_id": qid})
+        for target in assessment_targets:
+            if target not in ALL_ASSESSMENT_TARGETS:
+                errors.append({
+                    "code": "ceec_assessment_target_invalid",
+                    "question_id": qid,
+                    "value": target,
+                })
+        allowed_targets = ASSESSMENT_TARGETS_BY_DOMAIN.get(domain, set()) | ASSESSMENT_TARGETS_BY_DOMAIN.get("跨科", set())
+        if assessment_targets and not (set(assessment_targets) & allowed_targets):
+            errors.append({
+                "code": "ceec_assessment_target_domain_mismatch",
+                "question_id": qid,
+                "domain": domain,
+            })
+
+        if full_current_paper:
+            alignment = spec.get("curriculum_alignment")
+            if not isinstance(alignment, list):
+                alignment = []
+            aligned_codes: set[str] = set()
+            for record in alignment:
+                if not isinstance(record, dict):
+                    continue
+                aligned_codes.add(canonical_content_code(record.get("content_code")))
+                if not all(str(record.get(field) or "").strip() for field in
+                           ("assessed_relation", "stimulus_evidence", "centrality_reason")):
+                    errors.append({
+                        "code": "curriculum_alignment_evidence_incomplete",
+                        "question_id": qid,
+                        "content_code": record.get("content_code"),
+                    })
+            for code in canonical_codes:
+                if code in ALL_CONTENT_CODES and code not in aligned_codes:
+                    errors.append({
+                        "code": "curriculum_alignment_record_missing",
+                        "question_id": qid,
+                        "content_code": code,
+                    })
+
+        if full_current_paper:
+            contract = spec.get("social_reasoning_contract")
+            if not isinstance(contract, dict):
+                errors.append({"code": "social_reasoning_contract_missing", "question_id": qid})
+                contract = {}
+            if contract.get("recall_only") is not False:
+                errors.append({"code": "bare_definition_or_recall_not_rejected", "question_id": qid})
+            if not str(contract.get("core_curriculum_anchor") or "").strip():
+                errors.append({"code": "core_curriculum_anchor_missing", "question_id": qid})
+            if contract.get("curriculum_centrality") not in {"core", "high-frequency"}:
+                errors.append({"code": "curriculum_target_not_central", "question_id": qid})
+            if contract.get("cognitive_demand") not in VALID_COGNITIVE_DEMANDS:
+                errors.append({"code": "nonrecall_cognitive_demand_missing", "question_id": qid})
+            operations = contract.get("reasoning_operations") or spec.get("reasoning_operations") or []
+            # Two operations is the accessible-item floor. A 中/中偏難/難 label has
+            # to be earned by a third linked operation, the same escalation 自然
+            # and 國綜 apply; otherwise a declared band is only a label.
+            band = (spec.get("difficulty_design") or {}).get("band")
+            minimum_operations = 3 if band in {"中", "中偏難", "難"} else 2
+            if not isinstance(operations, list) or len(operations) < minimum_operations:
+                errors.append({
+                    "code": "linked_reasoning_operations_too_few",
+                    "question_id": qid,
+                    "minimum": minimum_operations,
+                    "declared_band": band,
+                })
+            dependency = contract.get("material_or_scenario_dependency")
+            if not str(dependency or "").strip():
+                errors.append({"code": "material_or_scenario_dependency_missing", "question_id": qid})
+            errors.extend(_subject_innovation_errors(spec, qid))
+
+        orientation = spec.get("orientation") or "basic"
+        if orientation == "basic":
+            basic_items += 1
+            continue
+        competence_items += 1
+        source_family = str(spec.get("source_family") or "")
+        if source_family not in VALID_SOURCE_FAMILIES:
+            errors.append({"code": "source_family_missing_or_invalid", "question_id": qid})
+        else:
+            source_families[source_family] += 1
+        for field in ("source_ids", "evidence_targets", "reasoning_operations"):
+            if not spec.get(field):
+                errors.append({"code": f"{field}_missing", "question_id": qid})
+        if spec.get("stimulus_required") is not True or spec.get("stimulus_removal_test") != "fail_without_stimulus":
+            errors.append({"code": "stimulus_necessity_not_proven", "question_id": qid})
+        if spec.get("external_knowledge_required") is not False:
+            errors.append({"code": "external_news_knowledge_may_be_required", "question_id": qid})
+        if spec.get("fact_check_status") != "verified":
+            errors.append({"code": "source_fact_check_incomplete", "question_id": qid})
+        if spec.get("freshness_class") in {"current_event", "recent_context"}:
+            current_items += 1
+            current_score += float(question.get("score") or 1)
+            cluster = tuple(sorted(str(value) for value in (spec.get("source_ids") or [])))
+            if cluster:
+                current_clusters.add(cluster)
+                if question.get("section_id") == "objective":
+                    objective_current_clusters.add(cluster)
+            if not spec.get("published_at") or not spec.get("editorial_lock_date"):
+                errors.append({"code": "current_source_dates_missing", "question_id": qid})
+            try:
+                published = date.fromisoformat(str(spec.get("published_at") or ""))
+                lock = date.fromisoformat(str(spec.get("editorial_lock_date") or ""))
+                editorial_lock_dates.add(lock)
+                if published > lock:
+                    errors.append({"code": "current_source_published_after_lock", "question_id": qid})
+                relevant_date = spec.get("substantive_update_date") or spec.get("event_date")
+                if relevant_date:
+                    happened = date.fromisoformat(str(relevant_date))
+                    try:
+                        year_start = lock.replace(year=lock.year - 1)
+                    except ValueError:  # February 29 has no counterpart in the previous year.
+                        year_start = date(lock.year - 1, 2, 28)
+                    if happened > lock:
+                        errors.append({"code": "current_event_after_lock", "question_id": qid})
+                    elif published <= lock and year_start <= happened and spec.get("fact_check_status") == "verified":
+                        within_year_items += 1
+                else:
+                    warnings.append({"code": "current_event_date_missing_not_counted_within_year", "question_id": qid})
+            except (ValueError, TypeError):
+                errors.append({"code": "current_source_date_invalid", "question_id": qid})
+            relation_review = spec.get("source_relation_review") or {}
+            relation_supported = all(relation_review.get(key) for key in
+                                     ("evidence_location", "curriculum_bridge", "removal_counterfactual"))
+            if not relation_supported and spec.get("proper_noun_substitution_test") != "mechanism_changes":
+                errors.append({"code": "topical_name_is_decorative", "question_id": qid})
+            if not relation_supported:
+                warnings.append({"code": "source_relation_review_not_evidenced", "question_id": qid})
+        if spec.get("source_family") == "news" and not spec.get("primary_fact_source_ids"):
+            errors.append({"code": "news_is_sole_factual_authority", "question_id": qid})
+
+    if set(domains) != VALID_DOMAINS:
+        errors.append({"code": "paper_missing_social_discipline", "found": sorted(domains)})
+    total_score = sum(domains.values())
+    if total_score:
+        for domain, score in domains.items():
+            share = score / total_score
+            if share < 0.25 or share > 0.42:
+                warnings.append({"code": "discipline_score_share_review", "domain": domain, "share": round(share, 4)})
+    if competence_items and len(source_families) < 4:
+        errors.append({"code": "source_ecology_too_narrow", "source_families": dict(source_families)})
+    if current_items and basic_items == 0:
+        errors.append({"code": "paper_is_all_topical_no_basic_anchor"})
+    if full_current_paper:
+        errors.extend(_paper_innovation_errors(exam))
+        nearest_differences = [
+            str((((q.get("item_spec") or {}).get("subject_innovation_audit") or {}).get("nearest_neighbor_difference") or "")).strip()
+            for q in questions
+        ]
+        repeated_nearest = {
+            value: count for value, count in Counter(nearest_differences).items()
+            if value and count > 1
+        }
+        if repeated_nearest:
+            errors.append({
+                "code": "subject_innovation_nearest_neighbor_text_reused",
+                "duplicate_count": sum(repeated_nearest.values()),
+            })
+        errors.extend(objective_order_errors(exam))
+        item_values = [domain_item_counts[name] for name in sorted(VALID_DOMAINS)]
+        if max(item_values) - min(item_values) > 3:
+            errors.append({
+                "code": "social_discipline_item_count_imbalanced",
+                "counts": dict(domain_item_counts),
+                "maximum_allowed_gap": 3,
+            })
+        score_shares = {name: domains[name] / total_score for name in VALID_DOMAINS} if total_score else {}
+        if score_shares and max(score_shares.values()) - min(score_shares.values()) > 0.08:
+            errors.append({
+                "code": "social_discipline_score_share_imbalanced",
+                "shares": {name: round(score_shares[name], 4) for name in sorted(score_shares)},
+                "maximum_allowed_gap": 0.08,
+            })
+        if within_year_items < 3:
+            errors.append({"code": "within_year_current_context_items_too_few", "found": within_year_items, "minimum": 3})
+        if len(editorial_lock_dates) > 1:
+            errors.append({"code": "inconsistent_editorial_lock_dates"})
+
+    return {
+        "schema_version": 1,
+        "status": "pass" if not errors else "fail",
+        "release_status": "editorial-evidence-review-required",
+        "domain_score_counts": dict(domains),
+        "domain_item_counts": dict(domain_item_counts),
+        "source_family_counts": dict(source_families),
+        "competence_item_count": competence_items,
+        "basic_item_count": basic_items,
+        "current_context_item_count": current_items,
+        "within_year_current_context_item_count": within_year_items,
+        "current_context_score": current_score,
+        "current_source_cluster_count": len(current_clusters),
+        "objective_current_source_cluster_count": len(objective_current_clusters),
+        "unique_stimulus_count": len(unique_stimuli),
+        "unique_stimulus_chars": sum(stimulus_lengths),
+        "median_unique_stimulus_chars": median_stimulus_chars,
+        "short_stimulus_ratio": round(short_stimulus_ratio, 3),
+        "evidence_text_chars": evidence_text_chars,
+        "printable_surface_chars": printable_surface_chars,
+        "errors": errors,
+        "warnings": warnings,
+        "notes": [
+            "本工具只檢查設計欄位；不認證來源真實性、素養程度或原創性。計數是作者宣告值，不是逐題複核後的已驗證值。",
+            "curriculum_codes 必須是國教院社會領綱高一、高二部定必修的學習內容碼；歷1b-Ⅴ-2 這類學習表現碼不得混充。",
+            "完整卷還必須以 H/G/C/S 測驗目標碼另列能力層，並為每個學習內容碼說明實際得分關係、材料證據與核心性。",
+            "25%–42% 為跨年度組卷警示帶，不取代所選正式年度的科別配分。",
+            "完整卷的歷史、地理、公民題數差不得超過 3，配分占比差不得超過 8 個百分點。",
+            "第一部分獨立單題按科連續；共用材料題組及整個第二部分不受此限制，可真正跨科。精確年度區塊題數與順序仍須核對正式參考卷。",
+            "完整卷每題均須通過反純定義與課綱核心性契約；僅有課綱代碼不構成通過。",
+            "完整卷每題另須通過社會科創新命題稽核；新地名、年份、政策名稱、圖片或來源不能替代新的證據與推理結構。",
+            "社會完整卷另以內部反短材料門檻檢查可見證據量與獨立材料中位長度；這些值是退件下限，不是要求逐題灌字或冒充大考中心統計。",
+            "時事只提供證據情境；題目不得要求考生事先知道新聞。",
+            "完整卷預設只要求至少 3 題依賴截稿日前一年內的事件或實質更新；其餘選材不設新鮮度、時事配分或分區配額。日期計數仍須來源及內容複核。",
+        ],
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("exam_json", type=Path)
+    parser.add_argument("--report", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam_json.read_text(encoding="utf-8-sig"))
+    report = validate_exam(exam)
+    rendered = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(rendered, encoding="utf-8")
+    print(rendered, end="")
+    return 0 if report["status"] == "pass" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_writing_source_grounding.py">
+#!/usr/bin/env python3
+"""Reject current-form 國寫 materials that contain ungrounded or invented cases."""
+
+from __future__ import annotations
+
+import argparse
+from collections import Counter
+import json
+import re
+from pathlib import Path
+from typing import Any
+
+
+BANNED_MARKERS = (
+    "命題所設",
+    "案例為命題",
+    "情境為命題",
+    "虛構案例",
+    "情境模擬",
+)
+
+AUTHORED_AFFECTIVE_VOICES = {
+    "authored_literary_prose",
+    "authored_poetry",
+    "authored_essay",
+    "literary_nonfiction",
+    "cultural_criticism",
+    "interview_or_field_notes",
+}
+
+MATERIAL_HEADING = re.compile(r"材料[一二三四甲乙丙丁][：:]")
+SOURCE_NOTE = re.compile(r"[（(][^）)]*(?:改寫|節錄|摘錄|取材|引)自[^）)]*[）)]")
+
+
+def validate_exam(exam: dict[str, Any], source_pool: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    if exam.get("metadata", {}).get("paper_subject") != "國寫":
+        return ["exam metadata.paper_subject 必須是國寫"]
+
+    records = {
+        record.get("source_id"): record
+        for record in source_pool.get("sources", [])
+        if record.get("source_id")
+    }
+    questions = exam.get("questions", [])
+    if len(questions) != 2:
+        errors.append("當代國寫完整卷必須有兩大題")
+
+    if exam.get("metadata", {}).get("generation_mode") == "full-paper":
+        policy = source_pool.get("selection_policy") or {}
+        if policy.get("publisher_neutral") is not True:
+            errors.append("完整國寫卷的 source pool 必須明記 publisher_neutral: true")
+        for field in ("preferred_publishers", "allowed_publishers", "publisher_whitelist"):
+            if policy.get(field):
+                errors.append(f"完整國寫卷不得設定 {field}；來源資格必須與出版者無關")
+
+        candidates = source_pool.get("sources", [])
+        publishers = [str(row.get("publisher") or "").strip() for row in candidates]
+        domains = [str(row.get("source_domain") or "").strip() for row in candidates]
+        if len(candidates) < 8:
+            errors.append("完整國寫卷的來源競賽至少需要8個候選")
+        if any(not value for value in publishers):
+            errors.append("完整國寫卷的每個來源候選都必須記錄 publisher")
+        elif len(set(publishers)) < 4:
+            errors.append("完整國寫卷的來源競賽至少需要4個不同出版者")
+        if any(not value for value in domains):
+            errors.append("完整國寫卷的每個來源候選都必須記錄 source_domain")
+        elif len(set(domains)) < 4:
+            errors.append("完整國寫卷的來源競賽至少需要4個不同領域")
+
+        if publishers and all(publishers):
+            publisher, count = Counter(publishers).most_common(1)[0]
+            if count > len(publishers) / 2 and not policy.get("dominant_publisher_justification"):
+                errors.append(
+                    f"完整國寫卷的候選池由「{publisher}」占過半，且未記錄外部可得性理由"
+                )
+
+    for question in questions:
+        qid = question.get("id") or f"question-{question.get('number', '?')}"
+        prompt = str(question.get("prompt") or "")
+        continuation_text = "\n\n".join(
+            str(value) for _, value in sorted(
+                (question.get("continuation_pages") or {}).items(),
+                key=lambda item: int(item[0]),
+            )
+        )
+        material_text = "\n\n".join(part for part in (prompt, continuation_text) if part)
+        spec = question.get("item_spec") or {}
+        source_ids = spec.get("source_ids") or []
+        mappings = spec.get("material_source_map") or []
+
+        if not source_ids:
+            errors.append(f"{qid}: 缺少 source_ids")
+        if not mappings:
+            errors.append(f"{qid}: 缺少 paragraph-level material_source_map")
+
+        for marker in BANNED_MARKERS:
+            if marker in material_text:
+                errors.append(f"{qid}: 題面含禁止的虛構材料標記「{marker}」")
+
+        if MATERIAL_HEADING.search(material_text):
+            errors.append(f"{qid}: 正式國寫題面不得用「材料一：／材料二：」作正文標題；多文請用甲、乙編記")
+
+        paragraphs = [part.strip() for part in re.split(r"\n\s*\n", material_text) if part.strip()]
+        for paragraph in paragraphs:
+            if SOURCE_NOTE.fullmatch(paragraph):
+                errors.append(f"{qid}: 來源註記不得獨立成段，應緊接所屬正文末句")
+
+        missing_records = [source_id for source_id in source_ids if source_id not in records]
+        if missing_records:
+            errors.append(f"{qid}: source pool 缺少 {', '.join(missing_records)}")
+
+        for source_id in source_ids:
+            record = records.get(source_id) or {}
+            if record.get("invented_modelling_values"):
+                errors.append(f"{qid}: 國寫來源 {source_id} 的 invented_modelling_values 必須為空")
+
+        mapped_ids: set[str] = set()
+        for index, mapping in enumerate(mappings, 1):
+            label = mapping.get("material_id") or f"mapping-{index}"
+            mapping_ids = mapping.get("source_ids") or []
+            claims = mapping.get("supported_claims") or []
+            if not mapping_ids:
+                errors.append(f"{qid}/{label}: 缺少來源")
+            if not claims:
+                errors.append(f"{qid}/{label}: 缺少受來源支持的主張清單")
+            for source_id in mapping_ids:
+                mapped_ids.add(source_id)
+                if source_id not in source_ids:
+                    errors.append(f"{qid}/{label}: {source_id} 未列於題目 source_ids")
+                if source_id not in records:
+                    errors.append(f"{qid}/{label}: {source_id} 不存在於 source pool")
+
+        unmapped = set(source_ids) - mapped_ids
+        if unmapped:
+            errors.append(f"{qid}: 題目來源未映射到材料段落：{', '.join(sorted(unmapped))}")
+
+        if material_text.count("改寫自") < len(set(source_ids)):
+            errors.append(f"{qid}: 題面來源註記少於實際使用的來源數")
+
+        if spec.get("writing_task_role") == "affective_expression":
+            voices = {records.get(source_id, {}).get("source_voice") for source_id in source_ids}
+            if not (voices & AUTHORED_AFFECTIVE_VOICES):
+                errors.append(f"{qid}: 第二大題缺少具有作者聲音的散文／文學性非虛構來源")
+            chinese_ready = any(
+                str(records.get(source_id, {}).get("source_language") or "").startswith("zh")
+                or (
+                    records.get(source_id, {}).get("authorized_chinese_translation") is True
+                    and str(records.get(source_id, {}).get("printed_title_language") or "").startswith("zh")
+                )
+                for source_id in source_ids
+            )
+            if not chinese_ready:
+                errors.append(f"{qid}: 第二大題應優先採中文創作；使用翻譯文學時須有可辨識的正式中譯來源與中文篇名")
+
+    return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exam_json", type=Path)
+    parser.add_argument("source_pool_json", type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam_json.read_text(encoding="utf-8"))
+    source_pool = json.loads(args.source_pool_json.read_text(encoding="utf-8"))
+    errors = validate_exam(exam, source_pool)
+    if errors:
+        for error in errors:
+            print(f"FAIL: {error}")
+        return 1
+    print("PASS: 國寫來源池不預設出版者，材料均有逐段來源、正式來源註記版式，且第二大題具中文文學來源")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 </canonical-source>
 
 <canonical-source path="scripts/verify_fixed_template_pdf.py">

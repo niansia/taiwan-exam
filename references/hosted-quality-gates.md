@@ -3,6 +3,16 @@
 Required with hosted-run-evidence.md. These helpers detect specific defects;
 they cannot turn fabricated reviews into real visual or academic acceptance.
 
+The final checker runs every subject's structural validators through
+`hosted_subject_gates.py`: the English layout and difficulty contracts, the
+國綜／自然 scope and reasoning contracts, the 社會 item design, the 國寫 source
+pool, the literacy floors, and an explanation sanity check (a single-choice key
+must be a printed label, an explanation must name the chosen option, and three
+or more items may not share one identical explanation). `append_items.py`
+reports the same messages for each saved batch as `subject_gate_pending`, so a
+wrong option label, a missing reasoning contract or a short passage is fixed
+while the item is fresh rather than at delivery.
+
 ## Layout before claims
 
 Use the measured components and batch-review procedure in

@@ -80,48 +80,9 @@ def independent_answer_errors(exam):
 
 
 def answer_distribution_errors(exam):
-    """Reject conspicuous answer-key artifacts in a complete paper.
-
-    This operates on the final printed label order.  It intentionally checks
-    homogeneous single-choice populations only; multiple-selection inclusion
-    frequencies need a separate subject-aware review.
-    """
-    meta = exam.get('metadata') or {}
-    if meta.get('generation_mode') != 'full-paper':
-        return []
-    answer_by_id = {a.get('question_id'): a for a in exam.get('answers') or []}
-    populations = {}
-    for question in exam.get('questions') or []:
-        if question.get('type') != 'single_choice':
-            continue
-        labels = tuple(str(option.get('label')) for option in question.get('options') or [])
-        answer = str((answer_by_id.get(question.get('id')) or {}).get('final_answer') or '')
-        if len(labels) < 2 or len(set(labels)) != len(labels) or answer not in labels:
-            continue
-        populations.setdefault(labels, []).append((question.get('number'), answer))
-    errors = []
-    for labels, numbered_answers in populations.items():
-        if len(numbered_answers) < 2 * len(labels):
-            continue
-        sequence = [answer for _, answer in numbered_answers]
-        counts = Counter(sequence)
-        values = [counts[label] for label in labels]
-        if min(values) == 0 or max(values) - min(values) > 1:
-            errors.append(f'final single-choice answer positions are not near-even for {labels}: {dict(counts)}')
-        run = 1
-        for previous, current in zip(sequence, sequence[1:]):
-            run = run + 1 if current == previous else 1
-            if run >= 4:
-                errors.append('final single-choice answer key contains four identical positions in succession')
-                break
-        for period in range(2, min(5, len(sequence) // 3 + 1)):
-            span = period * 3
-            if any(sequence[start:start + period] * 3 == sequence[start:start + span]
-                   for start in range(0, len(sequence) - span + 1)):
-                errors.append(f'final single-choice answer key contains a mechanical period-{period} cycle repeated three times')
-                break
-    return errors
-
+    """Reject conspicuous answer-key artifacts in a complete paper (shared with the hosted checker)."""
+    from answer_key_patterns import answer_pattern_errors
+    return answer_pattern_errors(exam, require_full=True)
 
 def source_link_errors(exam, registry):
     if isinstance(registry, dict):
@@ -314,6 +275,8 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
     if subject in {'數學A', '數學B'}:
         commands += [('validate_math_curriculum.py', [exam_path]), ('validate_math_difficulty_design.py', [exam_path])]
     elif subject in {'國綜', '自然'}:
+        if subject == '國綜':
+            commands += [('validate_chinese_layout_contract.py', [exam_path])]
         commands += [('validate_chinese_natural_scope.py', [exam_path]),
                      ('validate_source_grounding.py', [exam_path, source_path, '--novelty-report', base / contract.get('source_novelty_report', '')])]
     elif subject == '社會':

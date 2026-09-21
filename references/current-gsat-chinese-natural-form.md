@@ -53,6 +53,65 @@ Per-year density checks:
 - ROC 114: 12 pages; 13034 compact characters; 36 item starts; 0 pages below 60% used; 12 pages with visual signal.
 - ROC 115: 12 pages; 13319 compact characters; 36 item starts; 0 pages below 60% used; 12 pages with visual signal.
 
+### 國綜 printed form catalogue, ROC 111–115 (measured 2026-09-22)
+
+Every official booklet prints these headings, in order, each with one bordered
+說明 line; `validate_chinese_layout_contract.py` rejects a paper that omits them:
+
+| Heading (verbatim) | Direction | Items |
+|---|---|---|
+| 第壹部分、選擇題（占76分） | — | 1–31 |
+| 一、單選題（占48分） | 說明：第1題至第24題，每題2分。 | 1–24 |
+| 二、多選題（占28分） | 說明：第25題至第31題，每題4分。 | 25–31 |
+| 第貳部分、混合題或非選擇題（占24分） | 說明：本部分共有1題組，選擇題每題2分，非選擇題配分標於題末。… | 32–36 (32–37 in 111–112) |
+
+The item-by-item reading of all five papers is recorded in
+`exam_packs/學測/shared-data/chinese-item-type-envelope.json`. What holds every
+year (111–115), and is therefore enforced:
+
+- Item 1 is 字音 (`下列「」內的字，讀音前後相同的是：`), item 2 is 字形
+  (`下列文句，完全沒有錯別字的是：`). Items 1–5 stand alone (詞語運用, 填詞, 文言排序,
+  稱謂, a boxed table, a 70–200-character passage); shared-stimulus 題組 start at
+  item 6 (9 and 8 in 111–112) and carry items 6–24 in 6–8 groups of two or three
+  (one group of 4 or 5 at most).
+- The first multiple-choice item (25) is 文言字義 `下列各組「」內的詞，意義前後相同的是`,
+  its five options quoting 核心古文 (鴻門宴, 燭之武退秦師, 勞山道士, 項脊軒志, 出師表,
+  虯髯客傳, 諫逐客書, 畫菊自序, 鹿港乘桴記, 赤壁賦 recur). Items 25–29 stand alone with
+  their own material; items 30–31 are one closing two-item group containing 文言 or
+  韻文. No 國綜 multiple-choice stem prints （應選n項）.
+- Every year has one 成語／畫底線詞語運用 item (single-choice 3 in 111–112, multiple
+  choice 25–26 since 113), at least one 語法／虛詞 item (「以」表目的, 「則」, 程度副詞,
+  量詞, 條件句), at least one ①②研判題 (皆符合／皆不符合／①符合②不符合／無法判斷;
+  two or three a year since 113), at least one 古典詩詞曲 item, at least one
+  Taiwan-themed group, and at least three items whose options quote 核心古文.
+- 第貳部分 is one group 32–36 on three or four related texts 甲乙丙(丁) that always
+  include 文言 or 韻文: an abstract framing text applied to case texts. It holds
+  exactly two 2-point single-choice subparts and three constructed items each with
+  (1)(2); 2-point subparts allow 10–20 characters, 4-point subparts 30–40 (or two
+  parts of 10–15); constructed points per item are 6, 6 and 8 (or 6, 8, 6).
+
+Measured 113–115 distribution of the 24 single-choice items: 白話說明文閱讀 9–15,
+文言閱讀 0–5, 白話文學閱讀 0–3, 跨文本比較 1–2, 圖表或非連續文本 0–3, 古典韻文 0–2,
+plus the fixed 字音, 字形 and one or two language-knowledge items. Of the seven
+multiple-choice items: 文言字義 1, 成語運用 1, 語法 0–1, 文學常識 0–1, 文言閱讀 0–2,
+白話說明文 0–2, 跨文本 0–2. Modern non-fiction prints 改寫自 with author and
+title; 文言 prints its source; rare words get side notes. The paper is short and
+many-textured rather than long: standalone 文言 70–200 characters, groups 250–700,
+only the 第貳部分 packet and one or two literary-criticism groups exceed 1,000.
+
+Option labels are `(A)`–`(D)` (`(A)`–`(E)` for multiple choice) and every option
+prints on its own line; the projection now forces one column for 國綜. Boxed
+side notes (詞語注釋, 資料框) sit beside the passage. The booklet is a cover plus
+11 body pages, 11,900–12,900 substantive characters.
+
+Measured counter-example, a hosted 國綜 paper reviewed on 2026-09-22: no part
+headings or scores; items 1–2 were a white-text 題組 about a museum label, so
+the paper had no 字音, 字形, 成語 or 文言排序 item at all; every multiple-choice
+item was paired into a 題組 and printed （應選3項）; options were `(1)`–`(5)` in
+two or four narrow columns wrapping into three-line stacks; 15 pages with three
+pages more than 20% empty; the single-choice key rotated 1-3-2-4 without a single
+adjacent repeat. Each of these is now a named error.
+
 ### 國綜 shared-stimulus floor
 
 Measured ROC 111–115: 12 pages, 11,926–12,871 substantive characters, 9–10 題組

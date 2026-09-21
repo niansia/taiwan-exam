@@ -160,6 +160,92 @@ passages separately from generic life-themed prose; avoid repeating one
 sharing/repair/public-service theme throughout the paper. Internal sources do not
 become automatic printed bibliography lines.
 
+## Printed form catalogue, ROC 111–115 (measured 2026-09-22)
+
+Every one of the five official booklets prints exactly these headings, in this
+order, each followed by one bordered 說明 line; `validate_english_layout_contract.py`
+now rejects a paper that omits or reorders any of them:
+
+| Heading (verbatim) | Direction line | Items |
+|---|---|---|
+| 第壹部分、選擇題（占62分） | — | 1–46 |
+| 一、詞彙題（占10分） | 說明：第1題至第10題為單選題，每題1分。 | 1–10 |
+| 二、綜合測驗（占10分） | 說明：第11題至第20題為單選題，每題1分。 | 11–20 |
+| 三、文意選填（占10分） | 說明：第21題至第30題為單選題，每題1分。 | 21–30 |
+| 四、篇章結構（占8分） | 說明：第31題至第34題為單選題，每題2分。 | 31–34 |
+| 五、閱讀測驗（占24分） | 說明：第35題至第46題為單選題，每題2分。 | 35–46 (three passages, four items each) |
+| 第貳部分、混合題（占10分） | 說明：本部分共有1題組，每一子題配分標於題末。限在答題卷標示題號的作答區內作答，並以規定用筆作答。 | 47–50 |
+| 第參部分、非選擇題（占28分） | 說明：本部分共有二大題，請依各題指示作答，答案必須寫在「答題卷」標示題號之作答區內，作答時不必抄題。 | — |
+| 一、中譯英（占8分） | 說明：依題號將以下中文句子譯成正確、通順、達意的英文。每題4分，共8分。 | printed `1.` `2.` |
+| 二、英文作文（占20分） | 說明：依提示寫一篇英文作文，文長至少120個單詞（words）。 | one 提示 |
+
+Option labels are `(A)`–`(D)` everywhere (`(A)`–`(E)` for discourse structure,
+`(A)`–`(J)` for the completion bank); a paper printed with `(1)`–`(4)` is not
+the GSAT English form. Vocabulary and cloze options sit on one row of four
+equal columns; when one option is long the row breaks into two columns of two
+(115 items 17 and 20), never into narrow cells that wrap a single word. Reading
+and mixed options are stacked one per line. Cloze passages print first, then
+the five option rows `11. (A) … (B) … (C) … (D) …` together after the passage.
+
+Measured sentence structure of the passages (prose only):
+
+| Section | Words | Sentences | Words per sentence | Longest sentence |
+|---|---:|---:|---:|---:|
+| Vocabulary stem (each) | 13–24 | 1 | 13–24 | — |
+| Cloze passage (each) | 180–231 | 9–13 | 15–21 | 24–53 |
+| Text completion | 269–312 | 14–20 | 13–22 | 19–49 |
+| Discourse structure | 224–303 | 9–16 | 17–25 | 34–58 |
+| Reading passage (each) | 291–368 | 14–20 | 16–22 | 26–55 |
+| Mixed stimulus | 348–467 | 16–34 | 12–22 | 32–46 |
+
+Whole booklet: 3,333–3,548 English words on 11 body pages plus the cover; no
+body page except the last of a section leaves more than a quarter of its
+height empty.
+
+The composition prompt is Chinese throughout: 說明 (the 120-word line), then
+`提示：` naming a lived situation in one or two sentences, `請以此為主題，並依據下列
+圖片／參照下列圖片，寫一篇英文作文，文分兩段。第一段…；第二段…`. English appears
+only as a quoted topic word (emoji, AI). Pictures, when used, are drawn scenes
+with captions, not stick figures, and are printed under the prompt.
+
+Translation prints two numbered Chinese sentences `1.` `2.`, each a complete
+sentence of 18–30 characters, on the same page as the composition.
+
+### Measured counter-example: a hosted English paper reviewed on 2026-09-22
+
+| Defect | That paper | Official 111–115 |
+|---|---|---|
+| Headings | 詞彙題 / 綜合測驗 … with no 第壹部分／第參部分 and no scores | the ten headings above, every year |
+| Option labels | `(1)`–`(4)` for vocabulary and reading, `(A)`–`(D)` for cloze | `(A)`–`(D)` throughout |
+| Option layout | two options crammed into a 120 pt cell, a single word wrapping to the next line | one four-column row |
+| Vocabulary distractors | appealing／avoidable／fragile／temporary: three visibly wrong meanings | four same-POS candidates that each fit locally |
+| Cloze passages | 134–150 words | 180–231 |
+| Text completion | 170 words | 269–312 |
+| Discourse structure | 130 words in 3 sentences (43 words each) | 224–303 words in 9–16 sentences |
+| Reading | four passages of 107–134 words, three items each | three passages of 291–368 words, four items each |
+| Mixed stimulus | a 50-word notice | 348–467 words with a map, cards or chart |
+| Composition prompt | English paragraph, "Write a two-paragraph English composition…" | Chinese 說明 + 提示 |
+| Translation labels | 中譯英 1 stacked vertically in the number column | `1.` `2.` |
+| Explanations | "Choice N is the only option consistent with all grammatical and contextual clues." on 46 items | each item's own evidence |
+| Pages | 13, three of them more than 40% empty | 12 |
+
+The same paper's answer key was mechanical: vocabulary 1-4-3-2-1-4-3-2-1-4,
+cloze D-A-C-B-A-D-C-B-A-D, completion A–J in order, discourse A-B-C-D, every
+reading group 3-2-1-4. Official keys show no such order; a candidate who
+notices the pattern answers without reading. `answer_key_patterns.py` rejects,
+on every surface and for every subject: a position used four times in a row,
+a period-2/3/4 cycle continuing over two full repeats plus a partial third, an
+option bank keyed in label order, five consecutive answers stepping through the
+labels, two item groups with the same answer sequence, and uneven position
+counts (each label within one of the others). Shuffle option order after
+writing, then re-derive the key; never assign the key first.
+
+Root cause: the hosted final checker did not execute the English validators
+(only the mathematics and balance checks), so none of this blocked delivery.
+`hosted_subject_gates.py` now runs every subject's validators inside
+`check_hosted_run.py`, and `append_items.py` reports their per-item messages
+after each batch.
+
 ## Layout contract
 
 The verified 115 paper has a cover plus eleven numbered body pages. Body pages use a one-column A4 frame, running page/total-page labels, the centered signature reminder, subject/year header, and bottom page number. Major section headings and their bordered instruction boxes appear once at each section start.
