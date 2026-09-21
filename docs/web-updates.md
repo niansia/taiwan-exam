@@ -13,7 +13,7 @@
 
 同一位使用者的 116 國綜卷問題同類：沒有「第壹部分、選擇題（占76分）」等四個標題，第 1、2 題不是官方每年固定的字音、字形題而是白話題組，第 3～5 題與多選 25～31 全部成組、多選沒有任何語文知識題還印「（應選3項）」，選項 (1)–(5) 擠成兩欄或四欄，頁首「國語文綜合能力測驗」斷成兩行，答案鍵 1-3-2-4 輪替無任何相鄰重複。新增 `scripts/validate_chinese_layout_contract.py`（四個標題、第 1 題字音、第 2 題字形、第 1～5 題與多選各自獨立、多選至少兩題語文知識、不印應選 n 項、選項 A–E 逐行直排、混合題 32～36 一組）；投影固定國綜單欄；答案鍵新增「16 題以上無相鄰重複」規則；版型 HTML 的頁首欄改為依內容自動寬度並禁止換行，重建七科挖空版元件（雜湊隨之更新，`hosted-web-template-assets.json`、模板資源 PDF 與七科版型預覽 `layout-examples/2026.09.22.1` 一併重建；預覽以 Noto Serif TC 排版）。`references/current-gsat-chinese-natural-form.md` 新增國綜印刷形式目錄；詳見 [docs/chinese-form-audit-2026-09-22.md](chinese-form-audit-2026-09-22.md)。
 
-新 ZIP（SHA-256 `418192fc7f04f0567fa28f49a1b381d6ce033eff874b8f7ebba97133953bb1db`，6,797,554 位元組；版型預覽改以字型子集化後體積縮小）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.1 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.1/taiwan-exam-hosted-2026.09.22.1.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.1) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `418192fc7f04f0567fa28f49a1b381d6ce033eff874b8f7ebba97133953bb1db`，6,797,554 位元組；版型預覽改以字型子集化後體積縮小）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.1 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.1/taiwan-exam-hosted-2026.09.22.1.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.1) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.21.6：純文字題改在頁面圖上審閱，批次放寬到六題
 
