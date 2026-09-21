@@ -301,7 +301,9 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
             errors.append('pack calibration incomplete; no formal-calibration claim')
     errors.extend(independent_answer_errors(exam))
     from validate_math_context import validate as math_context_errors
+    from validate_current_context import validate as current_context_errors
     errors.extend(math_context_errors(exam))
+    errors.extend(current_context_errors(exam))
     errors.extend(answer_distribution_errors(exam))
     source_path = base / contract.get('source_registry', '')
     registry = load(source_path) if source_path.is_file() else []

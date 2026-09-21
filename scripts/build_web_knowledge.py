@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 AUTHORING_REFERENCES = {
     "current-form-literacy-load.md",
+    "current-form-topicality.md",
     "current-gsat-chinese-natural-form.md",
     "current-gsat-english-form.md",
     "current-gsat-math-form.md",
@@ -75,11 +76,13 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "run_hosted_workflow.py")
     paths.extend(root / 'scripts' / name for name in ('append_items.py', 'emit_item_skeleton.py', 'check_paper_plan.py'))
     paths.append(root / "scripts" / "validate_math_context.py")
+    paths.append(root / "scripts" / "validate_current_context.py")
     paths.extend(root / 'scripts' / name for name in ('hosted_item_layout.py', 'hosted_run_timing.py', 'hosted_blind_review.py'))
     paths.append(root / "scripts" / "validate_math_difficulty_design.py")
     paths.append(root / "scripts" / "validate_literacy_load.py")
     paths.append(root / "scripts" / "validate_paper_difficulty_balance.py")
     paths.append(root / "scripts" / "ensure_pymupdf.py")
+    paths.append(root / "scripts" / "normalize_figure_asset.py")
 
     for pack in ("學測", "會考"):
         pack_root = root / "exam_packs" / pack

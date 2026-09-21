@@ -5,6 +5,16 @@
 以下是修正摘要；目前執行規則以 [SKILL.md](../SKILL.md) 與最新版知識檔為準。
 更新 GitHub 不會自動替換帳號內已儲存的附件，請更新原本的 Skill／Project／Gem。
 
+## 2026.09.21.5：五科時事門檻改為預設，出卷時間修正
+
+使用者以 Claude 出完 116 自然模擬卷（67 題項、實際工作 189 分）：難度合適，但近一年時事情境為 0、颱風題為 0。逐題普查 111～115 五年正式卷（自然、社會、英文、國綜、國寫）後發現：自然每年 0～5 個可定年近事情境（多為考前 3.5 個月的諾貝爾獎），颱風五年出現四年；社會近事 12%，颱風只在選項帶過、地震全無；英文五年只有兩處近事、作文四年扣當前風潮；國綜每年恰一個近事題組；國寫無可定年事件但四年扣當代風潮。根本原因是 hosted 最終檢查器沒有執行自然科既有的時事驗證，SKILL.md 又把時事寫成「使用者要求時才做」。
+
+這版新增 `references/current-form-topicality.md`、`exam_packs/學測/shared-data/current-form-topicality-envelope.json` 與 `scripts/validate_current_context.py`：自然、英文、國綜、國寫完整卷各有預設近事門檻（自然 ≥ 4 個一年內來源、≥ 6 題、兩部分皆有、其中一個來源在 120 天內，並須有臺灣災害、氣候／能源與臺灣本土情境；英文一篇近事文章加作文扣趨勢；國綜一個近事題組加臺灣錨點；國寫一題扣趨勢），每題須有內部來源紀錄與「刪掉來源後為何不可解」的說明；發布閘門與 hosted 最終檢查器都會執行，存題時回報進度。社會維持原規則，數 A／數 B 不變。
+
+時間面依使用者計時修正：新增 `run_hosted_workflow.py plan`（只跑分頁、不產 PDF 與圖，60 題合成卷 3.6 秒對 build 13.9 秒）；存題時回傳 `proof_recommended`／`proof_optional`（純文字題不必逐批 proof，最終仍逐題逐頁審）、`layout_risks`（過高的圖）、`absolute_claim_options`（含「必定／只／無關」的選項提醒）、`plan_hint`；共用題號的 `subpart_id` 必須以印出序號開頭，杜絕小題倒置；`scripts/normalize_figure_asset.py` 讓同一張圖重畫後雜湊不變；build／proof／plan 回傳暫停提醒。最終逐頁逐題複檢一項未減。詳見 [docs/topicality-and-time-2026-09-21.md](topicality-and-time-2026-09-21.md)。
+
+新 ZIP（SHA-256 `37ee185d065db11e4df8ea772898ca579ccb4db70385b0b25cecf80ead73a325`，9,315,929 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.21.5 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.21.5/taiwan-exam-hosted-2026.09.21.5.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.21.5) 頁面。已安裝的舊 Skill 請重新下載替換。
+
 ## 2026.09.21.4：缺 PyMuPDF 時 Skill 自己下載 wheel
 
 接續 2026.09.21.3：使用者問能不能不用手動上傳。`scripts/ensure_pymupdf.py` 現在依序做三件事：先用磁碟上已有的 wheel（內建、上傳資料夾或 `--wheel`）；沒有就從本專案固定網址的 Release [wheels-pymupdf-1.26.0](https://github.com/niansia/taiwan-exam/releases/tag/wheels-pymupdf-1.26.0) 下載，比對固定的 SHA-256 與大小後才安裝，不符即丟棄；連這個也被網路政策擋掉，才請使用者下載同一個檔案上傳到對話。安裝一律是 `pip install --no-index` 本機檔案，不改代理或政策設定，也不換用其他 PDF 程式庫；上傳檔被改名時會先復原正式檔名再安裝。`--no-download` 可停用下載。等價的一行指令 `python -m pip install "<wheel 網址>"` 也寫在執行路線與 README。

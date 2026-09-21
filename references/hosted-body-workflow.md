@@ -151,8 +151,13 @@ repairs and the final checker. This is a scheduling budget, not a platform limit
 claim or guaranteed runtime. Keep the existing inclusive phase clock. Do not
 wait until all items are written to discover a broken equation/rail renderer or
 a figure that crowds its stem: after every saved batch run `run_hosted_workflow.py
-specs` and `proof` for that batch, review its item and solution crops at once,
-then solve and review difficulty in the same small batch. Crop review done here
+specs` and `proof` for the items the batch result lists under
+`proof_recommended` (first batch, figures, formulas, rails, tables, gaps, long
+stimuli), review those crops at once, then solve and review difficulty in the
+same small batch. Plain-text items listed under `proof_optional` are reviewed
+in the final build's crops and pages. Once about twenty items are saved, run
+`run_hosted_workflow.py plan` (seconds, no PDFs) to see the pagination before
+the whole paper is written, and decide figure sizes then. Crop review done here
 is not repeated for unchanged items in the final booklets; page review is.
 Complete all content reviews before the first full build, then run
 `run_hosted_workflow.py lock-content --state <latest-state>`. Keep necessary

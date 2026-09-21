@@ -307,10 +307,92 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
     immutable += list(review_output.rglob('*.png'))
     result.update(cache_hit=False, reviews_approved_by_tool=False,
                   page_plan=str(output / 'page-plan.json'),
-                  continue_from_state=str(candidate))
+                  continue_from_state=str(candidate), clock_reminder=CLOCK_REMINDER)
     save(manifest_path, {'inputs': identity, 'artifacts': [record(root, p) for p in immutable], 'result': result})
     event(root, 'build', started, cache_hit=False)
     return result
+
+
+CLOCK_REMINDER = ('Before yielding this turn run `clock --state <latest-state> --operation pause`; '
+                  'an unpaused gap is estimated as waiting only after the idle threshold.')
+
+
+def plan(state_path, question_spec, solution_spec, font, output, *, reading_font=None):
+    """Paginate both bodies without composing, rasterizing or preparing review.
+
+    A build spends most of its time on fixed-template composition, page rasters
+    and crop preparation, yet a pagination repair only needs the measured page
+    plan. This runs the same renderer on the same specs and reports each page's
+    remaining bottom space; it produces no deliverable, no review state and no
+    density or visual approval. Use it before the content lock to learn the
+    paper's pagination rhythm, and between layout-hint repairs; run one full
+    build once the plan is acceptable.
+    """
+    started = time.time()
+    state_path = Path(state_path).resolve()
+    root = state_path.parent
+    state = read(state_path)
+    exam_path = inside(root, root / state['exam']['path'])
+    if record(root, exam_path) != state['exam']:
+        raise ValueError('Save a checkpoint for the current exam before planning pages')
+    exam = read(exam_path)
+    subject = exam['metadata']['subject']
+    output = inside(root, output)
+    if output.parent != root:
+        raise ValueError('Plan output must be a direct child directory of the run')
+    if output.exists():
+        raise ValueError('Plan output exists; preserve it and use a new name')
+    specs = {'question': inside(root, Path(question_spec).resolve()),
+             'solution': inside(root, Path(solution_spec).resolve())}
+    for path in specs.values():
+        spec = read(path)
+        if spec.get('subject') != subject:
+            raise ValueError('Body spec must match the actual exam subject')
+        current_generated_spec(spec, state)
+    lock_path = root / 'content-lock.json'
+    lock_status = 'none'
+    if lock_path.exists():
+        try:
+            lock_status = 'matches' if read(lock_path)['identity'] == content_identity(root, state) else 'changed'
+        except ValueError:
+            lock_status = 'changed'
+    output.mkdir()
+    booklets, attention = {}, []
+    for role, spec_path in specs.items():
+        layout = render(read(spec_path), output / (role + '-body.pdf'), output / (role + '-layout.json'),
+                        Path(font), asset_root=spec_path.parent,
+                        reading_font=Path(reading_font) if reading_font else None)
+        page_plan = layout['page_plan']
+        body_height = page_plan['body_bbox'][3] - page_plan['body_bbox'][1]
+        pages = []
+        for row in page_plan['pages']:
+            void = round(row['bottom_safety_pt'] / body_height, 3)
+            pages.append({**row, 'bottom_void_ratio': void})
+            last = row['page'] == page_plan['page_count']
+            if void >= BOTTOM_VOID_ATTENTION and not last:
+                attention.append({'role': role, 'page': row['page'], 'bottom_void_ratio': void,
+                                  'question_ids': row['question_ids']})
+        booklets[role] = {'page_count': page_plan['page_count'], 'gap_scale': layout.get('gap_scale'),
+                          'scaled_assets': layout.get('scaled_assets', []), 'pages': pages,
+                          'blocks': layout['blocks'], 'render_seconds': layout.get('elapsed_seconds')}
+    plan_path = output / 'page-plan.json'
+    save(plan_path, {'kind': 'hosted-page-plan', 'exam': state['exam'], 'paper_id': state['paper_id'],
+                     'specs': {role: record(root, path) for role, path in specs.items()},
+                     'content_lock': lock_status, 'booklets': booklets,
+                     'scope': 'Measured pagination only: no composed booklet, raster, review state, density or visual approval'})
+    event(root, 'plan', started, pages={role: b['page_count'] for role, b in booklets.items()})
+    return {'status': 'page-plan-only', 'plan': output.name, 'page_plan': str(plan_path),
+            'page_counts': {role: b['page_count'] for role, b in booklets.items()},
+            'bottom_void_attention': attention, 'content_lock': lock_status,
+            'reviews_approved_by_tool': False, 'deliverable': False,
+            'next': ('Adjust layout hints and plan again while pages need attention; then lock content '
+                     'and run one full build for actual page and crop review.'),
+            'clock_reminder': CLOCK_REMINDER}
+
+
+# The final inspector flags a body page whose bottom void exceeds 0.32 of the
+# body; the plan names such pages (with a small margin) before any raster.
+BOTTOM_VOID_ATTENTION = 0.28
 
 
 def render_identity(font, reading_font=None):
@@ -381,6 +463,49 @@ def asset_issues(path, asset, *, inline):
     if raster and box.width < RASTER_PIXELS_PER_PT * width:
         found.append(f'is {box.width:.0f} px for {width:.0f} printed pt and prints blurred; export it at '
                      'three times the printed width, or save the figure as SVG or a one-page PDF')
+    return found
+
+
+# A below-figure taller than this share of the body cannot share its page with
+# much text: it forces a page break that later shows up as a bottom void.
+TALL_FIGURE_BODY_SHARE = 0.4
+
+
+def figure_pagination_risks(questions, answers, *, root, subject):
+    """Printed figure heights that will drive pagination, reported when saved.
+
+    Figure size is content: deciding it at authoring time avoids redrawing a
+    figure after the whole booklet has been paginated around it.
+    """
+    try:
+        geometry = next(s for s in read(DEFAULT_MAP)['subjects'] if s['subject'] == subject)['overlay_geometry_pt']['body']
+    except (StopIteration, OSError, KeyError, ValueError):
+        return []
+    body_width, body_height = geometry[2] - geometry[0] - 8, geometry[3] - geometry[1]
+    by_answer = {a.get('question_id'): a for a in answers}
+    found = []
+    for question in questions:
+        for owner, record_ in (('question', question), ('answer', by_answer.get(question.get('id'), {}))):
+            visual = record_.get('visual_asset')
+            if not isinstance(visual, dict) or not visual.get('path') or record_.get('visual_layout') == 'side-right':
+                continue
+            path = (root / str(visual['path'])).resolve()
+            if not path.is_file():
+                continue
+            try:
+                with pymupdf.open(path) as source:
+                    box = source[0].rect
+            except Exception:  # unreadable artwork is already reported as an authoring issue
+                continue
+            if not box.width or not box.height:
+                continue
+            width = body_width * (visual.get('width_percent') or 62) / 100
+            height = width * box.height / box.width
+            if height > TALL_FIGURE_BODY_SHARE * body_height:
+                found.append(f'item {question.get("id")} {owner} figure prints {height:.0f} pt tall '
+                             f'({height / body_height:.0%} of the body): it will force a page break; lower '
+                             f'width_percent (at most {TALL_FIGURE_BODY_SHARE * body_height * box.width / box.height / body_width * 100:.0f}), '
+                             'redraw with a wider aspect ratio, or place it side-right, before pagination')
     return found
 
 
@@ -1012,7 +1137,8 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             'observations_template': str(output / 'observations-template.json'),
             'reviews_approved_by_tool': False,
             'next': ('Open each crop at readable scale, fill status and observations in a copy of observations_template, '
-                     'and record them with one record-review --proof ' + str(output) + ' call')}
+                     'and record them with one record-review --proof ' + str(output) + ' call'),
+            'clock_reminder': CLOCK_REMINDER}
 
 
 REVIEW_STATUSES = {'pass', 'fail', 'pending'}
@@ -1242,6 +1368,11 @@ def main():
     build_parser.add_argument('--title', default='學科能力測驗模擬試題')
     build_parser.add_argument('--running-name', default='學測')
     build_parser.add_argument('--reading-font', type=Path)
+    plan_parser = commands.add_parser('plan', help='Paginate both bodies in seconds; no PDFs, rasters or review state')
+    for name in ('state', 'question-spec', 'solution-spec', 'output'):
+        plan_parser.add_argument('--' + name, type=Path, required=True)
+    plan_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
+    plan_parser.add_argument('--reading-font', type=Path)
     spec_parser = commands.add_parser('specs', help='Project saved items into both body layout specs')
     spec_parser.add_argument('--state', type=Path, required=True)
     spec_parser.add_argument('--question-output', type=Path, required=True)
@@ -1270,9 +1401,9 @@ def main():
             result = record_review(args.pop('observations'), **args)
         else:
             args['state_path'] = args.pop('state')
-            if action in {'build', 'proof'} and args['font'] is None:
+            if action in {'build', 'proof', 'plan'} and args['font'] is None:
                 args['font'] = recorded_font(args['state_path'])
-            result = {'build': build, 'specs': specs, 'proof': proof, 'finalize': finalize,
+            result = {'build': build, 'specs': specs, 'proof': proof, 'plan': plan, 'finalize': finalize,
                       'clock': clock, 'lock-content': content_lock}[action](**args)
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print(json.dumps({'status': 'pending', 'errors': [str(exc)]}, ensure_ascii=False))

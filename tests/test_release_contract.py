@@ -288,6 +288,12 @@ def test_release_positive_coordinator_and_failing_child(tmp_path, monkeypatch):
     def check(name, args):
         calls.append(name); return {'check': name, 'exit_code': 0}
     monkeypatch.setattr(release, 'run_check', check)
+    # The in-process recent-context gate is wired into the release gate: a one-item
+    # 自然 "full paper" with no verified recent sources fails before the child checks.
+    blocked = release.validate(exam, contract, root=tmp_path)
+    assert blocked['status'] == 'fail' and any(e.startswith('current_context:') for e in blocked['errors'])
+    import validate_current_context
+    monkeypatch.setattr(validate_current_context, 'validate', lambda exam: [])
     r = release.validate(exam, contract, root=tmp_path)
     assert r['status'] == 'pass-content-evidence', r['errors']
     assert 'validate_paper_difficulty_balance.py' in calls and 'validate_source_grounding.py' in calls
