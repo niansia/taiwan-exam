@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "basis": "Maintainer reading of every item, passage and 題組 stimulus in the supplied CEEC 學測 ROC 111-115 question booklets for 自然, 社會, 英文, 國綜 and 國寫, classified by whether the printed context names a real event, discovery, policy, report, product, disaster or dataset that can be dated to within 24 months before that administration (datable_recent), a real but undated or older context (real_undated), or a generic textbook scenario (generic). Hazard and theme flags count any mention, including inside options.",
+  "status": "reviewed-manual-classification",
+  "caution": "An editorial reading recorded for release calibration, not a CEEC annotation. Dates of unlabelled sources were attributed from the printed context; boundary cases are listed under notes. Re-read whenever a newer official paper is ingested.",
+  "measured_at": "2026-09-21",
+  "exam_months": {"111": "2022-01", "112": "2023-01", "113": "2024-01", "114": "2025-01", "115": "2026-01"},
+  "subjects": {
+    "自然": {
+      "unit": "scored item; contexts count distinct stems or shared stimuli",
+      "years": [
+        {"roc_year": 111, "items": 60, "datable_recent_items": 10, "datable_recent_contexts": 5, "contexts_within_4_months": 2, "recent_items_part_1": 7, "recent_items_part_2": 3, "real_undated_items": 28, "generic_items": 22,
+         "flags": {"typhoon": 3, "weather_hazard": 1, "earthquake": 4, "climate_energy": 6, "epidemic": 6, "space": 4, "taiwan": 3, "technology": 1},
+         "recent_contexts": ["2021 諾貝爾物理獎 氣候模型（第7-8題）", "2021 諾貝爾化學獎 催化劑（第18題）", "COVID-19 mRNA 疫苗（第24-25題）", "毅力號登陸火星 2021-02（第28-29題）", "SARS-CoV-2 親緣網絡（第46-48題）"]},
+        {"roc_year": 112, "items": 60, "datable_recent_items": 12, "datable_recent_contexts": 4, "contexts_within_4_months": 2, "recent_items_part_1": 2, "recent_items_part_2": 10, "real_undated_items": 22, "generic_items": 26,
+         "flags": {"typhoon": 2, "weather_hazard": 0, "earthquake": 1, "climate_energy": 10, "epidemic": 4, "space": 5, "taiwan": 5, "technology": 0},
+         "recent_contexts": ["2022 諾貝爾生醫獎 古基因體（第12題）", "COVID-19 防疫（第29題）", "IEA 2020 燃煤發電資料（第37-40題）", "2022 諾貝爾化學獎 點擊反應（第55-60題）"]},
+        {"roc_year": 113, "items": 56, "datable_recent_items": 1, "datable_recent_contexts": 1, "contexts_within_4_months": 1, "recent_items_part_1": 1, "recent_items_part_2": 0, "real_undated_items": 30, "generic_items": 25,
+         "flags": {"typhoon": 0, "weather_hazard": 0, "earthquake": 1, "climate_energy": 9, "epidemic": 2, "space": 0, "taiwan": 5, "technology": 0},
+         "recent_contexts": ["2023 諾貝爾生醫獎 mRNA（第5題）"]},
+        {"roc_year": 114, "items": 57, "datable_recent_items": 7, "datable_recent_contexts": 3, "contexts_within_4_months": 3, "recent_items_part_1": 1, "recent_items_part_2": 6, "real_undated_items": 21, "generic_items": 29,
+         "flags": {"typhoon": 3, "weather_hazard": 3, "earthquake": 2, "climate_energy": 13, "epidemic": 1, "space": 6, "taiwan": 5, "technology": 6},
+         "recent_contexts": ["2024 諾貝爾生醫獎 microRNA（第9題）", "康芮颱風 2024-10-31 警報（第44-46題）", "2024 諾貝爾物理獎 AI 神經網路（第47-49題）"]},
+        {"roc_year": 115, "items": 56, "datable_recent_items": 0, "datable_recent_contexts": 0, "contexts_within_4_months": 0, "recent_items_part_1": 0, "recent_items_part_2": 0, "real_undated_items": 27, "generic_items": 29,
+         "flags": {"typhoon": 1, "weather_hazard": 1, "earthquake": 2, "climate_energy": 8, "epidemic": 1, "space": 7, "taiwan": 3, "technology": 3},
+         "recent_contexts": []}
+      ],
+      "typhoon_contexts": ["111 第1-2題 未具名颱風路徑", "111 第34題 秋季衛星雲圖選項", "112 第1題 西北颱", "112 第4題 2013 海燕颱風瘋狗浪", "114 第44-46題 康芮颱風", "115 第6題 假設颱風花蓮登陸"],
+      "earthquake_contexts": ["111 第43-45題 海階抬升大地震", "112 第9題 環太平洋地震帶", "113 第31題 氣象署地震預警", "114 第14題 校園斷層", "114 第15題 近百年五大地震", "115 第7-8題 311 地震海嘯預警"],
+      "notes": ["Seven of the thirteen recent contexts are the Nobel prizes announced in October, about 3.5 months before the January exam; the only recent disaster is 康芮颱風 (2.5 months).", "Events older than 24 months (2013 海燕, 2019 SI 新制, 2020 貝魯特, 2023 量子點 in 115) are used as real undated background, not as news.", "112 第37-40題 (IEA 2020 coal data) is the only recent context rated medium confidence."]
+    },
+    "社會": {
+      "unit": "scored item; strict counts exclude boundary cases whose policy continued into the window",
+      "years": [
+        {"roc_year": 111, "items": 67, "datable_recent_items": 7, "datable_recent_items_loose": 7, "recent_items_part_1": 3, "recent_items_part_2": 4, "real_undated_items": 50, "generic_items": 10,
+         "flags": {"typhoon": 0, "climate_energy": 2, "earthquake": 0, "epidemic": 4, "election_law": 2, "conflict": 4, "population": 6, "taiwan": 28, "technology": 5, "indigenous_justice": 5}},
+        {"roc_year": 112, "items": 66, "datable_recent_items": 7, "datable_recent_items_loose": 10, "recent_items_part_1": 10, "recent_items_part_2": 0, "real_undated_items": 49, "generic_items": 7,
+         "flags": {"typhoon": 0, "climate_energy": 6, "earthquake": 0, "epidemic": 6, "election_law": 5, "conflict": 6, "population": 6, "taiwan": 26, "technology": 7, "indigenous_justice": 6}},
+        {"roc_year": 113, "items": 64, "datable_recent_items": 9, "datable_recent_items_loose": 14, "recent_items_part_1": 10, "recent_items_part_2": 4, "real_undated_items": 48, "generic_items": 2,
+         "flags": {"typhoon": 1, "climate_energy": 5, "earthquake": 0, "epidemic": 5, "election_law": 8, "conflict": 8, "population": 2, "taiwan": 23, "technology": 5, "indigenous_justice": 9}},
+        {"roc_year": 114, "items": 64, "datable_recent_items": 6, "datable_recent_items_loose": 6, "recent_items_part_1": 2, "recent_items_part_2": 4, "real_undated_items": 51, "generic_items": 7,
+         "flags": {"typhoon": 3, "climate_energy": 8, "earthquake": 0, "epidemic": 0, "election_law": 7, "conflict": 11, "population": 4, "taiwan": 23, "technology": 6, "indigenous_justice": 4}},
+        {"roc_year": 115, "items": 65, "datable_recent_items": 10, "datable_recent_items_loose": 11, "recent_items_part_1": 4, "recent_items_part_2": 7, "real_undated_items": 44, "generic_items": 10,
+         "flags": {"typhoon": 1, "climate_energy": 13, "earthquake": 0, "epidemic": 6, "election_law": 7, "conflict": 19, "population": 3, "taiwan": 24, "technology": 7, "indigenous_justice": 5}}
+      ],
+      "recent_items_by_discipline": {"歷史": 1, "地理": 25, "公民": 22},
+      "typhoon_contexts": ["113 第31題 選項 颱風外圍環流", "114 第19題 澎湖颱風停航", "114 第35題 選項", "114 第57題 選項", "115 第31題 選項"],
+      "earthquake_contexts": [],
+      "notes": ["Recent items are carried almost entirely by geography and civics; history contributed one item in five years.", "Freshest items: 114 第28題 敘利亞政府垮台 (2024-12-08, about one month before the exam) and 114 第20題 聯合軍演 (about three months).", "Since 114 the mixed/constructed section carries most recent items (7 of 11 in 115)."]
+    },
+    "英文": {
+      "unit": "passage or task unit: 10 vocabulary sentences, 2 cloze passages, completion, discourse, 3 reading passages, mixed passage, translation, composition (20 units per year)",
+      "years": [
+        {"roc_year": 111, "units": 20, "datable_recent_units": 1, "datable_recent_items": 3, "real_undated_units": 11, "generic_units": 8, "composition_tied_to_current_trend": false,
+         "flags": {"typhoon": 0, "climate_weather": 0, "earthquake": 0, "epidemic": 0, "technology_social": 3, "taiwan": 2, "environment": 0, "health": 2},
+         "recent_contexts": ["混合題 47-49 難民奧運隊 東京 2021-08"]},
+        {"roc_year": 112, "units": 20, "datable_recent_units": 0, "datable_recent_items": 0, "real_undated_units": 9, "generic_units": 11, "composition_tied_to_current_trend": true,
+         "flags": {"typhoon": 1, "climate_weather": 0, "earthquake": 0, "epidemic": 0, "technology_social": 2, "taiwan": 0, "environment": 2, "health": 5},
+         "recent_contexts": []},
+        {"roc_year": 113, "units": 20, "datable_recent_units": 0, "datable_recent_items": 0, "real_undated_units": 11, "generic_units": 9, "composition_tied_to_current_trend": true,
+         "flags": {"typhoon": 0, "climate_weather": 1, "earthquake": 1, "epidemic": 1, "technology_social": 2, "taiwan": 2, "environment": 1, "health": 6},
+         "recent_contexts": []},
+        {"roc_year": 114, "units": 20, "datable_recent_units": 1, "datable_recent_items": 10, "real_undated_units": 7, "generic_units": 12, "composition_tied_to_current_trend": true,
+         "flags": {"typhoon": 1, "climate_weather": 1, "earthquake": 0, "epidemic": 1, "technology_social": 4, "taiwan": 2, "environment": 1, "health": 2},
+         "recent_contexts": ["文意選填 21-30 巴黎聖母院 2024-12-08 重啟"]},
+        {"roc_year": 115, "units": 20, "datable_recent_units": 0, "datable_recent_items": 0, "real_undated_units": 10, "generic_units": 10, "composition_tied_to_current_trend": true,
+         "flags": {"typhoon": 0, "climate_weather": 0, "earthquake": 0, "epidemic": 0, "technology_social": 2, "taiwan": 3, "environment": 1, "health": 3},
+         "recent_contexts": []}
+      ],
+      "composition_trends": {"111": "理想公園（泛用）", "112": "社群媒體與 emoji", "113": "機器人小幫手與青少年困擾", "114": "颱風假", "115": "臺灣養寵物風氣"},
+      "typhoon_contexts": ["112 詞彙第4題 超級颱風警報前搶購", "114 英文作文 颱風假"],
+      "earthquake_contexts": ["113 文意選填 21-30 2011 海嘯（無 earthquake 一詞）"],
+      "notes": ["Both recent units place the event in the closing sentence of a passage (mixed group, text completion), never as the question's core.", "Reading passages are history, science or culture; no reading passage in five years is set in Taiwan.", "Composition prompts name a current social trend with generic wording (隨著…普及、近年來、每逢…) in four of five years."]
+    },
+    "國綜": {
+      "unit": "passage or 題組 stimulus; standalone items count as one passage each",
+      "years": [
+        {"roc_year": 111, "items": 37, "passages": 22, "datable_recent_passages": 1, "datable_recent_items": 3, "datable_recent_points": 14, "recent_location": "第貳部分 35-37", "real_undated_passages": 15, "generic_passages": 6,
+         "flags": {"typhoon": 0, "climate_environment": 1, "earthquake": 0, "epidemic": 1, "technology_social": 1, "taiwan": 4, "generation": 0, "gender_rights": 1},
+         "recent_contexts": ["COP26 2021-11 氣候新聞（第35-37題）"]},
+        {"roc_year": 112, "items": 37, "passages": 22, "datable_recent_passages": 1, "datable_recent_items": 3, "datable_recent_points": 6, "recent_location": "第壹部分 10-12", "real_undated_passages": 16, "generic_passages": 5,
+         "flags": {"typhoon": 0, "climate_environment": 1, "earthquake": 0, "epidemic": 0, "technology_social": 2, "taiwan": 4, "generation": 0, "gender_rights": 0},
+         "recent_contexts": ["木星合土星 2020-12-21（第10-12題，約25個月，邊界）"]},
+        {"roc_year": 113, "items": 36, "passages": 20, "datable_recent_passages": 1, "datable_recent_items": 3, "datable_recent_points": 6, "recent_location": "第壹部分 13-15", "real_undated_passages": 14, "generic_passages": 5,
+         "flags": {"typhoon": 0, "climate_environment": 0, "earthquake": 1, "epidemic": 1, "technology_social": 3, "taiwan": 3, "generation": 0, "gender_rights": 1},
+         "recent_contexts": ["電影《周處除三害》2023-10 與迷因（第13-15題）"]},
+        {"roc_year": 114, "items": 36, "passages": 19, "datable_recent_passages": 1, "datable_recent_items": 2, "datable_recent_points": 4, "recent_location": "第壹部分 13-14", "real_undated_passages": 13, "generic_passages": 5,
+         "flags": {"typhoon": 0, "climate_environment": 0, "earthquake": 0, "epidemic": 0, "technology_social": 3, "taiwan": 2, "generation": 0, "gender_rights": 0},
+         "recent_contexts": ["MBTI E人I人風潮 2023-2024（第13-14題）"]},
+        {"roc_year": 115, "items": 36, "passages": 19, "datable_recent_passages": 1, "datable_recent_items": 3, "datable_recent_points": 6, "recent_location": "第壹部分 19-21", "real_undated_passages": 12, "generic_passages": 6,
+         "flags": {"typhoon": 0, "climate_environment": 2, "earthquake": 0, "epidemic": 0, "technology_social": 2, "taiwan": 4, "generation": 1, "gender_rights": 1},
+         "recent_contexts": ["故宮百年院慶〈自敘帖〉電動車 2025（第19-21題）"]}
+      ],
+      "typhoon_contexts": [],
+      "earthquake_contexts": ["113 第30-31題 乙文 清代鄭成功傳說中的地震"],
+      "notes": ["Exactly one recent group per year; the recent element sits in a side box, quoted news list or framing sentence next to an older main text.", "No printed 改寫自／節錄自 note carries a year; recency is visible only through the subject matter.", "Since 112 the recent group sits in 第壹部分; 第貳部分 carries Taiwan, gender and generation material from older sources."]
+    },
+    "國寫": {
+      "unit": "major task (two per year)",
+      "years": [
+        {"roc_year": 111, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 1, "trends": ["高齡化 樂齡出遊"]},
+        {"roc_year": 112, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 0, "trends": []},
+        {"roc_year": 113, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 1, "trends": ["標籤與世代（草莓族）"]},
+        {"roc_year": 114, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 1, "trends": ["社群媒體 擬社會互動（臉書、IG）"]},
+        {"roc_year": 115, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 2, "trends": ["動物倫理與韓劇", "親子世代溝通（幾米）"]}
+      ],
+      "typhoon_contexts": [],
+      "earthquake_contexts": [],
+      "notes": ["No task anchors a datable event; four of five years tie at least one task to a current social trend while the material itself is an older book, essay, picture book or web article.", "Trend families: ageing, generation labels, social media, animal ethics and popular culture, parent-child communication."]
+    }
+  }
+}

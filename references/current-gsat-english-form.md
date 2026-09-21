@@ -139,7 +139,7 @@ Find fresh source material independently after the simulated editorial lock date
 
 Create a fact ledger, close the source text, and compose a new passage with a different rhetorical sequence. A passage derived mainly by sentence-level paraphrase fails. Topic novelty alone is also insufficient: the questions must depend on relations in the newly written passage.
 
-Keep a paper-level mix of humanities, social life, science/technology, environment, culture, and everyday experience. Do not let a single fashionable domain dominate. Current events are candidates, not quotas.
+Keep a paper-level mix of humanities, social life, science/technology, environment, culture, and everyday experience. Do not let a single fashionable domain dominate. Current events are candidates, not quotas, but a full paper is not timeless either: the measured official form ([current-form-topicality.md](current-form-topicality.md)) places one datable recent element in the closing sentence of a 文意選填 or 混合題 passage in two of five years and ties the composition prompt to a current social trend (社群媒體, AI 小幫手, 颱風假, 養寵物) in four of five. The default floor is one verified recent passage (event within 365 days of the lock) and a composition prompt with a verified `current_trend` source; `validate_current_context.py` enforces it. Vocabulary sentences stay invented scenarios, and no reading passage needs to be recent.
 
 ### English-specific innovation gate
 

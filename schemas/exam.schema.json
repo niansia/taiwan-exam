@@ -12,6 +12,7 @@
       "properties": {
         "paper_id": {"type": "string", "minLength": 1},
         "current_event_plan": {"type": "object"},
+        "current_context_plan": {"type": "object", "required": ["editorial_lock_date", "sources"], "properties": {"editorial_lock_date": {"type": "string", "format": "date"}, "sources": {"type": "array", "items": {"type": "object", "required": ["source_id"]}}}},
         "title": {"type": "string"},
         "subtitle": {"type": ["string", "null"]},
         "exam": {"type": "string"},

@@ -11,7 +11,10 @@ reference now blocks:
 3. 自然 第貳部分 題組 that stay inside one discipline.
 
 Read this before writing any 國綜, 國寫, 英文, 社會 or 自然 item. It is a
-construction floor, not a writing target, and never a licence to pad.
+construction floor, not a writing target, and never a licence to pad. Its
+companion [current-form-topicality.md](current-form-topicality.md) fixes the
+other measured gap of the same review: how many recent, Taiwan-anchored and
+hazard contexts an official paper carries.
 
 ## Measured envelope, ROC 111–115
 

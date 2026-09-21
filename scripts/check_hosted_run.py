@@ -19,6 +19,7 @@ from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
+from validate_current_context import validate as current_context_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
@@ -70,6 +71,7 @@ def check(state_path: Path) -> dict:
     exam_hash = sha(exam_path)
     exam = json.loads(exam_path.read_text(encoding='utf-8-sig'))
     errors.extend(math_context_errors(exam))
+    errors.extend(current_context_errors(exam))
     # Execute the embedded checks on actual authored content. A passing review
     # claiming that these ran is not an equivalent execution path.
     errors.extend('difficulty_balance: ' + e for e in difficulty_balance(exam, root)['errors'])

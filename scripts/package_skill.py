@@ -86,7 +86,7 @@ hosted_body_templates.py prepare_hosted_review.py run_hosted_workflow.py
 append_items.py emit_item_skeleton.py check_paper_plan.py
 compose_hosted_pdf.py inspect_hosted_pdf.py check_hosted_run.py verify_fixed_template_pdf.py
 hosted_item_layout.py hosted_run_timing.py hosted_blind_review.py
-validate_math_context.py
+validate_math_context.py validate_current_context.py normalize_figure_asset.py
 qa_math_current_form.py safe_rendering.py
 render_exam.py render_gsat_internal_review_pdf.py render_gsat_internal_review.py
 render_gsat_official_pdf.py render_gsat_official.py render_pdf.py render_visual.py

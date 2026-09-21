@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.21.4
+# Taiwan Exam Web Knowledge v2026.09.21.5
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 83190,
-    "sha256": "743a1afe09eacf3694b0453ac27f63683f2713f8d798034bb66fa8b144327c80",
-    "embedded_bytes": 83190,
-    "embedded_sha256": "743a1afe09eacf3694b0453ac27f63683f2713f8d798034bb66fa8b144327c80"
+    "bytes": 84427,
+    "sha256": "785459959f47f25e83b504d1d54162cf877cc21942db8ea2bc6a9a28dbf4f2c7",
+    "embedded_bytes": 84427,
+    "embedded_sha256": "785459959f47f25e83b504d1d54162cf877cc21942db8ea2bc6a9a28dbf4f2c7"
   },
   {
     "path": "core/taxonomy.json",
@@ -145,6 +145,13 @@ attachments; extract only the selected subject's components.
     "sha256": "f7495617c70bc6c740c5f975ad0ee20f41b96b4ddf46e0ce3d3a160037607c41",
     "embedded_bytes": 17946,
     "embedded_sha256": "f7495617c70bc6c740c5f975ad0ee20f41b96b4ddf46e0ce3d3a160037607c41"
+  },
+  {
+    "path": "exam_packs/學測/shared-data/current-form-topicality-envelope.json",
+    "bytes": 14855,
+    "sha256": "1f0173510e21fc3a00628abb4092c57c501d383e4a5d699630d1a9a4e74e4a72",
+    "embedded_bytes": 14855,
+    "embedded_sha256": "1f0173510e21fc3a00628abb4092c57c501d383e4a5d699630d1a9a4e74e4a72"
   },
   {
     "path": "exam_packs/學測/shared-data/current-math-form-writer-profile.json",
@@ -477,24 +484,31 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-form-literacy-load.md",
-    "bytes": 11669,
-    "sha256": "3e57ce67e65c29e39e9343a80cd8cc554f0f18e3b910547fbc23197c2b71285b",
-    "embedded_bytes": 11669,
-    "embedded_sha256": "3e57ce67e65c29e39e9343a80cd8cc554f0f18e3b910547fbc23197c2b71285b"
+    "bytes": 11869,
+    "sha256": "ecd72467178db1c5df19fd50711cf56721c6978535104e3674b2630a0050f744",
+    "embedded_bytes": 11869,
+    "embedded_sha256": "ecd72467178db1c5df19fd50711cf56721c6978535104e3674b2630a0050f744"
+  },
+  {
+    "path": "references/current-form-topicality.md",
+    "bytes": 10252,
+    "sha256": "5a23be3a3cb40691d9b9f7964caf907d5d9fb5136e5cc9574ae41227da32683f",
+    "embedded_bytes": 10252,
+    "embedded_sha256": "5a23be3a3cb40691d9b9f7964caf907d5d9fb5136e5cc9574ae41227da32683f"
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 30630,
-    "sha256": "6651e9631ad9fb9b1d2ba4cce9e0a972ef9e1a5e1ad6a9a602496439aeacf92e",
-    "embedded_bytes": 30630,
-    "embedded_sha256": "6651e9631ad9fb9b1d2ba4cce9e0a972ef9e1a5e1ad6a9a602496439aeacf92e"
+    "bytes": 30913,
+    "sha256": "b607bb81e634a0350af8e420afa46bbfd53def8d37c0f5d194a958d93ce1b1ee",
+    "embedded_bytes": 30913,
+    "embedded_sha256": "b607bb81e634a0350af8e420afa46bbfd53def8d37c0f5d194a958d93ce1b1ee"
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 23559,
-    "sha256": "6c499b4624144db2f3dfe4782474c8522bb9a3b7bd21d48766e1daca87797f17",
-    "embedded_bytes": 23559,
-    "embedded_sha256": "6c499b4624144db2f3dfe4782474c8522bb9a3b7bd21d48766e1daca87797f17"
+    "bytes": 24212,
+    "sha256": "faf345c53dca0ba47567bddee9dd5294d8caebb65b460b4da71aeccc902f8d74",
+    "embedded_bytes": 24212,
+    "embedded_sha256": "faf345c53dca0ba47567bddee9dd5294d8caebb65b460b4da71aeccc902f8d74"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -519,10 +533,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-writing-form.md",
-    "bytes": 15133,
-    "sha256": "70f19c3327e4be2d47857d757e39a51ee2a7aa492c67c369f170fbb8b6bee07d",
-    "embedded_bytes": 15133,
-    "embedded_sha256": "70f19c3327e4be2d47857d757e39a51ee2a7aa492c67c369f170fbb8b6bee07d"
+    "bytes": 15533,
+    "sha256": "f7e96fd773f9376c37b29a162242a4c733f1d1399104834884352b27eebed5e1",
+    "embedded_bytes": 15533,
+    "embedded_sha256": "f7e96fd773f9376c37b29a162242a4c733f1d1399104834884352b27eebed5e1"
   },
   {
     "path": "references/current-source-transformation.md",
@@ -617,17 +631,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-body-workflow.md",
-    "bytes": 15428,
-    "sha256": "5daae648e3b47351693749636122a5c911b9780c3337a317a683202114dd57d6",
-    "embedded_bytes": 15428,
-    "embedded_sha256": "5daae648e3b47351693749636122a5c911b9780c3337a317a683202114dd57d6"
+    "bytes": 15801,
+    "sha256": "6e8bf4a26d023a24092214b6d9b74e03df280cca0979f66669d3b183132e1e66",
+    "embedded_bytes": 15801,
+    "embedded_sha256": "6e8bf4a26d023a24092214b6d9b74e03df280cca0979f66669d3b183132e1e66"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 28313,
-    "sha256": "e2e5a3abf8eae6c2c58bab836facb4072bf74d6d5422ecfeeee89fb9a9e391c4",
-    "embedded_bytes": 28313,
-    "embedded_sha256": "e2e5a3abf8eae6c2c58bab836facb4072bf74d6d5422ecfeeee89fb9a9e391c4"
+    "bytes": 31030,
+    "sha256": "1bb8c8b94a00e284519de894a01624c1b3b94aa74be4e1d97feb58f2b6439400",
+    "embedded_bytes": 31030,
+    "embedded_sha256": "1bb8c8b94a00e284519de894a01624c1b3b94aa74be4e1d97feb58f2b6439400"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -638,10 +652,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 15800,
-    "sha256": "c34bf218c5f6d2cb702f6a7f89771a703eaa1c1efa1deba94c95d7884aef623e",
-    "embedded_bytes": 15800,
-    "embedded_sha256": "c34bf218c5f6d2cb702f6a7f89771a703eaa1c1efa1deba94c95d7884aef623e"
+    "bytes": 16148,
+    "sha256": "eb266c585219fe6fe15ab27094dfd294b8c9d9c6e081ea94d3abd7bc77f42e14",
+    "embedded_bytes": 16148,
+    "embedded_sha256": "eb266c585219fe6fe15ab27094dfd294b8c9d9c6e081ea94d3abd7bc77f42e14"
   },
   {
     "path": "references/hosted-run-evidence.md",
@@ -778,10 +792,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "schemas/exam.schema.json",
-    "bytes": 6344,
-    "sha256": "9882dfda032c9e6fd80fce484195bc542aff3d97673444fcfcafeedc175bf782",
-    "embedded_bytes": 6344,
-    "embedded_sha256": "9882dfda032c9e6fd80fce484195bc542aff3d97673444fcfcafeedc175bf782"
+    "bytes": 6607,
+    "sha256": "bd7607976b6b590d6629c74735341901932d0646943882acbeca7582e5cef66c",
+    "embedded_bytes": 6607,
+    "embedded_sha256": "bd7607976b6b590d6629c74735341901932d0646943882acbeca7582e5cef66c"
   },
   {
     "path": "schemas/layout-profile.schema.json",
@@ -813,17 +827,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/append_items.py",
-    "bytes": 12578,
-    "sha256": "1c1b484714dc9dcb2730254d84ba3c6de77f348d214f7d3a5c94f010c4d3356b",
-    "embedded_bytes": 12578,
-    "embedded_sha256": "1c1b484714dc9dcb2730254d84ba3c6de77f348d214f7d3a5c94f010c4d3356b"
+    "bytes": 19116,
+    "sha256": "5b947a52dfba5d3b08fd18b0b695fce843027958c321b169b51f05cae59b7c28",
+    "embedded_bytes": 19116,
+    "embedded_sha256": "5b947a52dfba5d3b08fd18b0b695fce843027958c321b169b51f05cae59b7c28"
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 21156,
-    "sha256": "dcb0eea738e7b686e108a32c3c42fcf5caf9e3461eb85191c9957cda1e78034d",
-    "embedded_bytes": 21156,
-    "embedded_sha256": "dcb0eea738e7b686e108a32c3c42fcf5caf9e3461eb85191c9957cda1e78034d"
+    "bytes": 21276,
+    "sha256": "0a80259e4ecc7b90c654079c8bbc8116c787020bc461c78641e2d4a0816540ca",
+    "embedded_bytes": 21276,
+    "embedded_sha256": "0a80259e4ecc7b90c654079c8bbc8116c787020bc461c78641e2d4a0816540ca"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -841,10 +855,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/emit_item_skeleton.py",
-    "bytes": 7787,
-    "sha256": "8f50ccee0dac25d0ee5952fba533e186bb530ab44954b8ad5277ed912b0e35c2",
-    "embedded_bytes": 7787,
-    "embedded_sha256": "8f50ccee0dac25d0ee5952fba533e186bb530ab44954b8ad5277ed912b0e35c2"
+    "bytes": 8214,
+    "sha256": "6a04572fe07d830f0d8d89294d38b15fc519868fc096062d9a6bcaa351df33dd",
+    "embedded_bytes": 8214,
+    "embedded_sha256": "6a04572fe07d830f0d8d89294d38b15fc519868fc096062d9a6bcaa351df33dd"
   },
   {
     "path": "scripts/ensure_pymupdf.py",
@@ -903,6 +917,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "ac4cbf275cd724940216b3dae7557727b9efbd391db2ba1c42f29fdd2ea25c04"
   },
   {
+    "path": "scripts/normalize_figure_asset.py",
+    "bytes": 4324,
+    "sha256": "0eaf8fee55e778120e20b7d9f4b71e66747dd08083b61d72f8fd1c5b0a354194",
+    "embedded_bytes": 4324,
+    "embedded_sha256": "0eaf8fee55e778120e20b7d9f4b71e66747dd08083b61d72f8fd1c5b0a354194"
+  },
+  {
     "path": "scripts/prepare_hosted_review.py",
     "bytes": 25617,
     "sha256": "89929da8288994d4089aaf683ae953ea4fb26253df39e106435950430fbac261",
@@ -925,10 +946,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 70355,
-    "sha256": "b32a71cae34f1699d8764bc2894d2a6d8dfbe353cf2e5649aaa6f628ee6951b2",
-    "embedded_bytes": 70355,
-    "embedded_sha256": "b32a71cae34f1699d8764bc2894d2a6d8dfbe353cf2e5649aaa6f628ee6951b2"
+    "bytes": 77838,
+    "sha256": "5635185582a9c2c49aca644c15dcd3f4fb8e3730d65c89467bb57f2c439540c1",
+    "embedded_bytes": 77838,
+    "embedded_sha256": "5635185582a9c2c49aca644c15dcd3f4fb8e3730d65c89467bb57f2c439540c1"
+  },
+  {
+    "path": "scripts/validate_current_context.py",
+    "bytes": 14492,
+    "sha256": "465590b92c51707eb93fe980fad5e8936ab633e5c362bcd46c82682feced4f67",
+    "embedded_bytes": 14492,
+    "embedded_sha256": "465590b92c51707eb93fe980fad5e8936ab633e5c362bcd46c82682feced4f67"
   },
   {
     "path": "scripts/validate_literacy_load.py",
@@ -1359,8 +1387,9 @@ ask users to disable protection, restore quarantined scripts, or add exclusions.
    國綜 and 自然 also require subject-level novelty beyond source novelty or visual novelty. Every scored item must carry `item_spec.subject_innovation_audit` and pass the applicable section in [references/current-gsat-chinese-natural-form.md](references/current-gsat-chinese-natural-form.md). 國綜 must create a new language/interpretive problem and evidence relation; merely selecting a previously unused author or excerpt is insufficient. 自然 must create a new model–evidence, experiment, constraint, uncertainty, multi-representation, or cross-disciplinary reasoning architecture; a new mission, organism, apparatus, photograph, graph skin, or numeric tuple around the same routine is insufficient. Require `metadata.subject_innovation_review` and enforce both subjects through `scripts/validate_chinese_natural_scope.py`.
    國綜 has two additional editorial constraints: each independently answered short-response subpart is at most 40 Chinese characters and at most 4 points (a full short explanation is designed for 4 points); core classical selections must account for 20–25% of the whole paper's score. Apply the counting, rubric and source-dependency rules in the 國綜 section of that reference. These are not 國寫 limits, not a quota for all classical-language material, and not permission to alter historical official profiles.
    A complete Natural Science paper must place Questions 1–36 in one first part worth exactly 72 points: the printed heading is `第壹部分、選擇題（占72分）` and its boxed direction states `說明：第1題至第36題，含單選題及多選題，每題2分。` (spacing may follow the measured font, but no fact may be omitted). These 36 items are **not** all single-choice and must not be recorded as an unresolved generic choice block after the controlling paper has been reviewed. Reproduce the selected profile's item-level single-/multiple-choice mix; for the measured 115 profile this is 24 single-choice and 12 multiple-choice items. Every Natural Science selected-response item uses five options labelled `A`–`E`. Every multiple-choice item anywhere in the paper—including a selected-response subpart inside the mixed section—must print `（應選 n 項）`, where `n` is derived from and checked against the independently verified answer key. The cover must print both the single-choice and partial-credit multiple-choice scoring rules; a generic `依題本說明` sentence is not an acceptable substitute. Questions 1–36 must also form four uninterrupted nine-item discipline blocks, one each for physics, chemistry, biology, and earth science; record the actual block order and do not interleave disciplines. This block rule stops at Question 36. Do **not** force the mixed/constructed part into four isolated mini-papers: one coherent shared stimulus may and often should integrate two or more of physics, chemistry, biology, and earth science. Give every subpart one primary scored domain, add valid codes for every discipline genuinely required by its solution, and record the non-ornamental evidence bridge in `metadata.natural_mixed_group_designs`. Merely mentioning a second discipline is not integration. Apply the same anti-surface rule used for Social Studies: no pure definition, named-law recall, one-step formula substitution, or decorative experiment/data material. Every item must assess a core or high-frequency curriculum anchor through at least two linked operations; medium and harder items must normally require three. Difficulty may be raised through experimental design, competing models, variable control, multi-representation evidence, uncertainty, or constraint reconciliation, never through peripheral content or calculation bulk.
-   When a Natural Science request asks for current-affairs emphasis, set an `as_of_date` and editorial lock date and record `metadata.natural_source_ecology_plan`. Give the preceding 12 months a larger share of the genuinely time-sensitive source groups, but never let a numerical news quota distort the four-discipline, difficulty, form, or solving-time balance. Sample the remaining dated sources across multiple earlier years and source families rather than clustering on one convenient year; keep evergreen school models in a separate bucket instead of pretending they are dated events. Every recent item must depend on a source-specific measurement, comparison, image feature, method, or constraint—not merely a fashionable name. Favor additional graphs, tables, maps, photographs, and observation images when they carry answer evidence; the visual floor is a minimum, not a target or permission to add decoration.
+   Every full Natural Science paper is current-affairs-aware by default, not only on request: read [references/current-form-topicality.md](references/current-form-topicality.md), set an `as_of_date` and editorial lock date, record `metadata.natural_source_ecology_plan` and `metadata.current_context_plan`, and meet the measured floor enforced by `scripts/validate_current_context.py` (at least four verified sources within the year carrying six scored items in both parts, one of them within 120 days such as the autumn Nobel prizes or an in-season Taiwan typhoon/earthquake warning, plus Taiwan-hazard, climate/energy and Taiwan-place contexts). Official 111–115 papers carry 0–5 such contexts a year with a typhoon in four of five years; a paper with none is outside the form. Give the preceding 12 months a larger share of the genuinely time-sensitive source groups, but never let a numerical news quota distort the four-discipline, difficulty, form, or solving-time balance. Sample the remaining dated sources across multiple earlier years and source families rather than clustering on one convenient year; keep evergreen school models in a separate bucket instead of pretending they are dated events. Every recent item must depend on a source-specific measurement, comparison, image feature, method, or constraint—not merely a fashionable name. Favor additional graphs, tables, maps, photographs, and observation images when they carry answer evidence; the visual floor is a minimum, not a target or permission to add decoration.
    For current-form GSAT writing, read [references/current-gsat-writing-form.md](references/current-gsat-writing-form.md) and [references/gsat-writing-source-ecology.md](references/gsat-writing-source-ecology.md). During the writing pass, do not read past question text, year-by-year topic summaries, or prior generated writing prompts. The LLM must discover new articles independently, then design a new material sequence, rhetorical tension, task decision, and title from those sources. Every printable event, case, datum, attributed viewpoint, and concrete anecdote must map to an identified source; the LLM may paraphrase, translate, juxtapose, and ask a new question, but it may not invent a supposedly real or generic case to complete the material. **Do not use United Daily News, any other newspaper, publisher, magazine, platform, archive, or institution as a default, preferred, or de facto exclusive source.** 國寫 source eligibility is publisher-neutral: any traceable and rights-safe source may compete when its transformed material fits the selected official length envelope and rhetorical role. The full-paper candidate pool must still span at least four publishers and four unrelated domains, and one easy-to-search publisher must not occupy more than half the pool. Length compliance is necessary but never substitutes for traceability, rights safety, a concrete carrier, a semantic hinge, material dependence, or role fit. For the second task, search contemporary Chinese essays, new poetry, picture-book prose and other Chinese literary writing first. A foreign work may advance only through a traceable published Chinese translation; do not expose a raw English web bibliography as the normal student-facing source line.
+   For every full 英文, 國綜 and 國寫 paper, also apply [references/current-form-topicality.md](references/current-form-topicality.md): 英文 needs one verified recent passage and a composition prompt tied to a verified current social trend; 國綜 needs one recent group and Taiwan-anchored passages; 國寫 needs one task tied to a verified current trend. Record `metadata.current_context_plan` and each item's `item_spec.current_context`; `scripts/validate_current_context.py` runs in the release gate and the hosted final checker, and `append_items.py` reports progress toward the floor after every batch.
 8. For every competence-oriented item or group stimulus, read [references/stimulus-generation.md](references/stimulus-generation.md).
    For corpus rechecks, current-example/literacy complaints, source-note cleanup, or release review, also read [references/evidence-backed-editorial-audit.md](references/evidence-backed-editorial-audit.md). Report coverage gaps; author-declared pass flags never substitute for a comparison. Keep full provenance internal and print only notes justified by the official form, answerability, or rights.
    If the stimulus is drawn from a dated article, event, dataset, research release, or technical update, also read [references/current-source-transformation.md](references/current-source-transformation.md). A recognizable topic name is not evidence of literacy or originality. When users request real/current-event literacy, anonymous hypothetical cases do not fulfill that request: source actual dated evidence first, then require its specific relations to enter the curriculum reasoning. Keep event, publication and page-update dates distinct; never backfill invented observations under a real institution's name.
@@ -12092,6 +12121,121 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
       }
     }
   ]
+}
+</canonical-source>
+
+<canonical-source path="exam_packs/學測/shared-data/current-form-topicality-envelope.json">
+{
+  "schema_version": 1,
+  "basis": "Maintainer reading of every item, passage and 題組 stimulus in the supplied CEEC 學測 ROC 111-115 question booklets for 自然, 社會, 英文, 國綜 and 國寫, classified by whether the printed context names a real event, discovery, policy, report, product, disaster or dataset that can be dated to within 24 months before that administration (datable_recent), a real but undated or older context (real_undated), or a generic textbook scenario (generic). Hazard and theme flags count any mention, including inside options.",
+  "status": "reviewed-manual-classification",
+  "caution": "An editorial reading recorded for release calibration, not a CEEC annotation. Dates of unlabelled sources were attributed from the printed context; boundary cases are listed under notes. Re-read whenever a newer official paper is ingested.",
+  "measured_at": "2026-09-21",
+  "exam_months": {"111": "2022-01", "112": "2023-01", "113": "2024-01", "114": "2025-01", "115": "2026-01"},
+  "subjects": {
+    "自然": {
+      "unit": "scored item; contexts count distinct stems or shared stimuli",
+      "years": [
+        {"roc_year": 111, "items": 60, "datable_recent_items": 10, "datable_recent_contexts": 5, "contexts_within_4_months": 2, "recent_items_part_1": 7, "recent_items_part_2": 3, "real_undated_items": 28, "generic_items": 22,
+         "flags": {"typhoon": 3, "weather_hazard": 1, "earthquake": 4, "climate_energy": 6, "epidemic": 6, "space": 4, "taiwan": 3, "technology": 1},
+         "recent_contexts": ["2021 諾貝爾物理獎 氣候模型（第7-8題）", "2021 諾貝爾化學獎 催化劑（第18題）", "COVID-19 mRNA 疫苗（第24-25題）", "毅力號登陸火星 2021-02（第28-29題）", "SARS-CoV-2 親緣網絡（第46-48題）"]},
+        {"roc_year": 112, "items": 60, "datable_recent_items": 12, "datable_recent_contexts": 4, "contexts_within_4_months": 2, "recent_items_part_1": 2, "recent_items_part_2": 10, "real_undated_items": 22, "generic_items": 26,
+         "flags": {"typhoon": 2, "weather_hazard": 0, "earthquake": 1, "climate_energy": 10, "epidemic": 4, "space": 5, "taiwan": 5, "technology": 0},
+         "recent_contexts": ["2022 諾貝爾生醫獎 古基因體（第12題）", "COVID-19 防疫（第29題）", "IEA 2020 燃煤發電資料（第37-40題）", "2022 諾貝爾化學獎 點擊反應（第55-60題）"]},
+        {"roc_year": 113, "items": 56, "datable_recent_items": 1, "datable_recent_contexts": 1, "contexts_within_4_months": 1, "recent_items_part_1": 1, "recent_items_part_2": 0, "real_undated_items": 30, "generic_items": 25,
+         "flags": {"typhoon": 0, "weather_hazard": 0, "earthquake": 1, "climate_energy": 9, "epidemic": 2, "space": 0, "taiwan": 5, "technology": 0},
+         "recent_contexts": ["2023 諾貝爾生醫獎 mRNA（第5題）"]},
+        {"roc_year": 114, "items": 57, "datable_recent_items": 7, "datable_recent_contexts": 3, "contexts_within_4_months": 3, "recent_items_part_1": 1, "recent_items_part_2": 6, "real_undated_items": 21, "generic_items": 29,
+         "flags": {"typhoon": 3, "weather_hazard": 3, "earthquake": 2, "climate_energy": 13, "epidemic": 1, "space": 6, "taiwan": 5, "technology": 6},
+         "recent_contexts": ["2024 諾貝爾生醫獎 microRNA（第9題）", "康芮颱風 2024-10-31 警報（第44-46題）", "2024 諾貝爾物理獎 AI 神經網路（第47-49題）"]},
+        {"roc_year": 115, "items": 56, "datable_recent_items": 0, "datable_recent_contexts": 0, "contexts_within_4_months": 0, "recent_items_part_1": 0, "recent_items_part_2": 0, "real_undated_items": 27, "generic_items": 29,
+         "flags": {"typhoon": 1, "weather_hazard": 1, "earthquake": 2, "climate_energy": 8, "epidemic": 1, "space": 7, "taiwan": 3, "technology": 3},
+         "recent_contexts": []}
+      ],
+      "typhoon_contexts": ["111 第1-2題 未具名颱風路徑", "111 第34題 秋季衛星雲圖選項", "112 第1題 西北颱", "112 第4題 2013 海燕颱風瘋狗浪", "114 第44-46題 康芮颱風", "115 第6題 假設颱風花蓮登陸"],
+      "earthquake_contexts": ["111 第43-45題 海階抬升大地震", "112 第9題 環太平洋地震帶", "113 第31題 氣象署地震預警", "114 第14題 校園斷層", "114 第15題 近百年五大地震", "115 第7-8題 311 地震海嘯預警"],
+      "notes": ["Seven of the thirteen recent contexts are the Nobel prizes announced in October, about 3.5 months before the January exam; the only recent disaster is 康芮颱風 (2.5 months).", "Events older than 24 months (2013 海燕, 2019 SI 新制, 2020 貝魯特, 2023 量子點 in 115) are used as real undated background, not as news.", "112 第37-40題 (IEA 2020 coal data) is the only recent context rated medium confidence."]
+    },
+    "社會": {
+      "unit": "scored item; strict counts exclude boundary cases whose policy continued into the window",
+      "years": [
+        {"roc_year": 111, "items": 67, "datable_recent_items": 7, "datable_recent_items_loose": 7, "recent_items_part_1": 3, "recent_items_part_2": 4, "real_undated_items": 50, "generic_items": 10,
+         "flags": {"typhoon": 0, "climate_energy": 2, "earthquake": 0, "epidemic": 4, "election_law": 2, "conflict": 4, "population": 6, "taiwan": 28, "technology": 5, "indigenous_justice": 5}},
+        {"roc_year": 112, "items": 66, "datable_recent_items": 7, "datable_recent_items_loose": 10, "recent_items_part_1": 10, "recent_items_part_2": 0, "real_undated_items": 49, "generic_items": 7,
+         "flags": {"typhoon": 0, "climate_energy": 6, "earthquake": 0, "epidemic": 6, "election_law": 5, "conflict": 6, "population": 6, "taiwan": 26, "technology": 7, "indigenous_justice": 6}},
+        {"roc_year": 113, "items": 64, "datable_recent_items": 9, "datable_recent_items_loose": 14, "recent_items_part_1": 10, "recent_items_part_2": 4, "real_undated_items": 48, "generic_items": 2,
+         "flags": {"typhoon": 1, "climate_energy": 5, "earthquake": 0, "epidemic": 5, "election_law": 8, "conflict": 8, "population": 2, "taiwan": 23, "technology": 5, "indigenous_justice": 9}},
+        {"roc_year": 114, "items": 64, "datable_recent_items": 6, "datable_recent_items_loose": 6, "recent_items_part_1": 2, "recent_items_part_2": 4, "real_undated_items": 51, "generic_items": 7,
+         "flags": {"typhoon": 3, "climate_energy": 8, "earthquake": 0, "epidemic": 0, "election_law": 7, "conflict": 11, "population": 4, "taiwan": 23, "technology": 6, "indigenous_justice": 4}},
+        {"roc_year": 115, "items": 65, "datable_recent_items": 10, "datable_recent_items_loose": 11, "recent_items_part_1": 4, "recent_items_part_2": 7, "real_undated_items": 44, "generic_items": 10,
+         "flags": {"typhoon": 1, "climate_energy": 13, "earthquake": 0, "epidemic": 6, "election_law": 7, "conflict": 19, "population": 3, "taiwan": 24, "technology": 7, "indigenous_justice": 5}}
+      ],
+      "recent_items_by_discipline": {"歷史": 1, "地理": 25, "公民": 22},
+      "typhoon_contexts": ["113 第31題 選項 颱風外圍環流", "114 第19題 澎湖颱風停航", "114 第35題 選項", "114 第57題 選項", "115 第31題 選項"],
+      "earthquake_contexts": [],
+      "notes": ["Recent items are carried almost entirely by geography and civics; history contributed one item in five years.", "Freshest items: 114 第28題 敘利亞政府垮台 (2024-12-08, about one month before the exam) and 114 第20題 聯合軍演 (about three months).", "Since 114 the mixed/constructed section carries most recent items (7 of 11 in 115)."]
+    },
+    "英文": {
+      "unit": "passage or task unit: 10 vocabulary sentences, 2 cloze passages, completion, discourse, 3 reading passages, mixed passage, translation, composition (20 units per year)",
+      "years": [
+        {"roc_year": 111, "units": 20, "datable_recent_units": 1, "datable_recent_items": 3, "real_undated_units": 11, "generic_units": 8, "composition_tied_to_current_trend": false,
+         "flags": {"typhoon": 0, "climate_weather": 0, "earthquake": 0, "epidemic": 0, "technology_social": 3, "taiwan": 2, "environment": 0, "health": 2},
+         "recent_contexts": ["混合題 47-49 難民奧運隊 東京 2021-08"]},
+        {"roc_year": 112, "units": 20, "datable_recent_units": 0, "datable_recent_items": 0, "real_undated_units": 9, "generic_units": 11, "composition_tied_to_current_trend": true,
+         "flags": {"typhoon": 1, "climate_weather": 0, "earthquake": 0, "epidemic": 0, "technology_social": 2, "taiwan": 0, "environment": 2, "health": 5},
+         "recent_contexts": []},
+        {"roc_year": 113, "units": 20, "datable_recent_units": 0, "datable_recent_items": 0, "real_undated_units": 11, "generic_units": 9, "composition_tied_to_current_trend": true,
+         "flags": {"typhoon": 0, "climate_weather": 1, "earthquake": 1, "epidemic": 1, "technology_social": 2, "taiwan": 2, "environment": 1, "health": 6},
+         "recent_contexts": []},
+        {"roc_year": 114, "units": 20, "datable_recent_units": 1, "datable_recent_items": 10, "real_undated_units": 7, "generic_units": 12, "composition_tied_to_current_trend": true,
+         "flags": {"typhoon": 1, "climate_weather": 1, "earthquake": 0, "epidemic": 1, "technology_social": 4, "taiwan": 2, "environment": 1, "health": 2},
+         "recent_contexts": ["文意選填 21-30 巴黎聖母院 2024-12-08 重啟"]},
+        {"roc_year": 115, "units": 20, "datable_recent_units": 0, "datable_recent_items": 0, "real_undated_units": 10, "generic_units": 10, "composition_tied_to_current_trend": true,
+         "flags": {"typhoon": 0, "climate_weather": 0, "earthquake": 0, "epidemic": 0, "technology_social": 2, "taiwan": 3, "environment": 1, "health": 3},
+         "recent_contexts": []}
+      ],
+      "composition_trends": {"111": "理想公園（泛用）", "112": "社群媒體與 emoji", "113": "機器人小幫手與青少年困擾", "114": "颱風假", "115": "臺灣養寵物風氣"},
+      "typhoon_contexts": ["112 詞彙第4題 超級颱風警報前搶購", "114 英文作文 颱風假"],
+      "earthquake_contexts": ["113 文意選填 21-30 2011 海嘯（無 earthquake 一詞）"],
+      "notes": ["Both recent units place the event in the closing sentence of a passage (mixed group, text completion), never as the question's core.", "Reading passages are history, science or culture; no reading passage in five years is set in Taiwan.", "Composition prompts name a current social trend with generic wording (隨著…普及、近年來、每逢…) in four of five years."]
+    },
+    "國綜": {
+      "unit": "passage or 題組 stimulus; standalone items count as one passage each",
+      "years": [
+        {"roc_year": 111, "items": 37, "passages": 22, "datable_recent_passages": 1, "datable_recent_items": 3, "datable_recent_points": 14, "recent_location": "第貳部分 35-37", "real_undated_passages": 15, "generic_passages": 6,
+         "flags": {"typhoon": 0, "climate_environment": 1, "earthquake": 0, "epidemic": 1, "technology_social": 1, "taiwan": 4, "generation": 0, "gender_rights": 1},
+         "recent_contexts": ["COP26 2021-11 氣候新聞（第35-37題）"]},
+        {"roc_year": 112, "items": 37, "passages": 22, "datable_recent_passages": 1, "datable_recent_items": 3, "datable_recent_points": 6, "recent_location": "第壹部分 10-12", "real_undated_passages": 16, "generic_passages": 5,
+         "flags": {"typhoon": 0, "climate_environment": 1, "earthquake": 0, "epidemic": 0, "technology_social": 2, "taiwan": 4, "generation": 0, "gender_rights": 0},
+         "recent_contexts": ["木星合土星 2020-12-21（第10-12題，約25個月，邊界）"]},
+        {"roc_year": 113, "items": 36, "passages": 20, "datable_recent_passages": 1, "datable_recent_items": 3, "datable_recent_points": 6, "recent_location": "第壹部分 13-15", "real_undated_passages": 14, "generic_passages": 5,
+         "flags": {"typhoon": 0, "climate_environment": 0, "earthquake": 1, "epidemic": 1, "technology_social": 3, "taiwan": 3, "generation": 0, "gender_rights": 1},
+         "recent_contexts": ["電影《周處除三害》2023-10 與迷因（第13-15題）"]},
+        {"roc_year": 114, "items": 36, "passages": 19, "datable_recent_passages": 1, "datable_recent_items": 2, "datable_recent_points": 4, "recent_location": "第壹部分 13-14", "real_undated_passages": 13, "generic_passages": 5,
+         "flags": {"typhoon": 0, "climate_environment": 0, "earthquake": 0, "epidemic": 0, "technology_social": 3, "taiwan": 2, "generation": 0, "gender_rights": 0},
+         "recent_contexts": ["MBTI E人I人風潮 2023-2024（第13-14題）"]},
+        {"roc_year": 115, "items": 36, "passages": 19, "datable_recent_passages": 1, "datable_recent_items": 3, "datable_recent_points": 6, "recent_location": "第壹部分 19-21", "real_undated_passages": 12, "generic_passages": 6,
+         "flags": {"typhoon": 0, "climate_environment": 2, "earthquake": 0, "epidemic": 0, "technology_social": 2, "taiwan": 4, "generation": 1, "gender_rights": 1},
+         "recent_contexts": ["故宮百年院慶〈自敘帖〉電動車 2025（第19-21題）"]}
+      ],
+      "typhoon_contexts": [],
+      "earthquake_contexts": ["113 第30-31題 乙文 清代鄭成功傳說中的地震"],
+      "notes": ["Exactly one recent group per year; the recent element sits in a side box, quoted news list or framing sentence next to an older main text.", "No printed 改寫自／節錄自 note carries a year; recency is visible only through the subject matter.", "Since 112 the recent group sits in 第壹部分; 第貳部分 carries Taiwan, gender and generation material from older sources."]
+    },
+    "國寫": {
+      "unit": "major task (two per year)",
+      "years": [
+        {"roc_year": 111, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 1, "trends": ["高齡化 樂齡出遊"]},
+        {"roc_year": 112, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 0, "trends": []},
+        {"roc_year": 113, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 1, "trends": ["標籤與世代（草莓族）"]},
+        {"roc_year": 114, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 1, "trends": ["社群媒體 擬社會互動（臉書、IG）"]},
+        {"roc_year": 115, "tasks": 2, "datable_recent_tasks": 0, "tasks_tied_to_current_trend": 2, "trends": ["動物倫理與韓劇", "親子世代溝通（幾米）"]}
+      ],
+      "typhoon_contexts": [],
+      "earthquake_contexts": [],
+      "notes": ["No task anchors a datable event; four of five years tie at least one task to a current social trend while the material itself is an older book, essay, picture book or web article.", "Trend families: ageing, generation labels, social media, animal ethics and popular culture, parent-child communication."]
+    }
+  }
 }
 </canonical-source>
 
@@ -55384,7 +55528,10 @@ reference now blocks:
 3. 自然 第貳部分 題組 that stay inside one discipline.
 
 Read this before writing any 國綜, 國寫, 英文, 社會 or 自然 item. It is a
-construction floor, not a writing target, and never a licence to pad.
+construction floor, not a writing target, and never a licence to pad. Its
+companion [current-form-topicality.md](current-form-topicality.md) fixes the
+other measured gap of the same review: how many recent, Taiwan-anchored and
+hazard contexts an official paper carries.
 
 ## Measured envelope, ROC 111–115
 
@@ -55595,6 +55742,164 @@ Subject scope audits (`validate_chinese_natural_scope.py`,
 the post-render density comparison remain required and are not superseded.
 </canonical-source>
 
+<canonical-source path="references/current-form-topicality.md">
+# Current-form topicality: recent events, Taiwan hazards and living contexts
+
+Read this before planning any full 自然, 社會, 英文, 國綜 or 國寫 paper. Math A/B keep
+[math-current-events-and-sourcing.md](math-current-events-and-sourcing.md); 社會 keeps the
+per-item dating rules in [current-gsat-social-form.md](current-gsat-social-form.md) and
+`validate_social_item_design.py`. The other four subjects had no measured floor for
+"how recent is a real GSAT paper", so generated papers drifted to timeless textbook
+scenarios: a ROC 116 自然 paper reviewed on 2026-09-21 had zero datable contexts and
+no typhoon, while the official form carries both. This reference records what the
+official papers actually do and turns it into a default gate enforced by
+`scripts/validate_current_context.py`.
+
+## Measured envelope, ROC 111–115
+
+`exam_packs/學測/shared-data/current-form-topicality-envelope.json` is the maintainer's
+item-by-item reading of the supplied official booklets (2026-09-21). "Recent" means
+the printed context names a real event, discovery, policy, report, product, disaster
+or dataset datable to within 24 months before that January administration.
+
+| Subject | Recent contexts per year (111→115) | Recent scored items | Where they sit | Freshness |
+|---|---|---|---|---|
+| 自然 | 5, 4, 1, 3, 0 (13 in five years) | 10, 12, 1, 7, 0 (10% of items) | 11 in 第壹部分, 19 in 第貳部分 | 7 of 13 are the October Nobel prizes (≈3.5 months before the exam); 康芮颱風 2.5 months |
+| 社會 | 7, 7, 9, 6, 10 strict items (12%) | same | 29 objective, 19 mixed; since 114 mostly mixed | 1–23 months; 敘利亞 2024-12-08 one month before the exam |
+| 英文 | 1, 0, 0, 1, 0 passage units of 20 | 3, 0, 0, 10, 0 | closing sentence of a 混合題 or 文意選填 passage | 5 months (難民奧運隊), 6 weeks (聖母院) |
+| 國綜 | exactly 1 group every year | 3, 3, 3, 2, 3 (5–8%) | 第貳部分 in 111, 第壹部分 since 112 | 2–3 months (COP26, 周處除三害), up to 25 months |
+| 國寫 | 0 datable tasks | — | — | trend-tied tasks in 4 of 5 years, material itself older |
+
+Three shapes recur and are the model for generated papers:
+
+- **自然** carries recency through a shared stimulus (Nobel result, mission, disaster warning)
+  whose measurement, structure or time series the items must use; the arithmetic itself
+  is timeless. Four of five years include an autumn Nobel prize.
+- **英文 and 國綜** attach one recent element (a news list, a film synopsis, a side box, a
+  closing sentence) to an otherwise older main text. Recency never appears through a
+  printed 改寫自 year.
+- **國寫 and the English composition** name a current social trend with generic wording
+  (「隨著…普及」「近年來」「每逢…」) rather than one event: 颱風假, 養寵物風氣, emoji,
+  AI 小幫手, 擬社會互動, 高齡出遊, 世代標籤.
+
+### Taiwan hazards and living-context themes
+
+The complaint "typhoons are in the news every day but never in the paper" is right for
+自然 and wrong for the others:
+
+| Theme | 自然 | 社會 | 英文 | 國綜／國寫 |
+|---|---|---|---|---|
+| 颱風 | 4 of 5 years (6 contexts; 康芮 2024 is the only recent one) | options or one clause in 113–115 | 112 詞彙, 114 作文 颱風假 | none |
+| 地震／火山／海嘯 | 3 of 5 years (6 contexts, incl. 311 預警 in 115) | none in five years | 113 海嘯 only | one classical passage |
+| 氣候／碳／能源 | 6–13 items every year | 2→13 items, rising | absent | 1–2 passages in 3 years |
+| 臺灣本土地名或機構 | 3–5 items every year (mostly 地科) | 23–28 items every year | 2–3 units (詞彙, 中譯英, 作文); no reading passage | 2–4 passages every year |
+| 疫情 | 1–6 items, falling since 113 | 4–6 items, 0 in 114 | one clause | 1 classical/literary echo |
+| AI／科技 | 0–6 (six in 114) | 5–7 | 2–4 units | 1–3 passages |
+
+So a 自然 paper without a Taiwan hazard context, without a climate/energy strand and with
+no Taiwan place or agency is outside the official envelope even before recency is
+counted. For the other subjects the typhoon is a composition or option motif, not a
+required item.
+
+## Default floors (editorial targets, not CEEC statistics)
+
+The maintainer asked for markedly more recent material than the weakest official years,
+so these floors sit at the official median or above and are stated with the official
+years they would reject. They apply to every full paper by default; a user may lower
+them explicitly for a themed or historical simulation.
+
+| Subject | Floor | Official years failing it |
+|---|---|---|
+| 自然 | ≥ 4 verified recent sources carrying ≥ 6 scored items, in both 第壹部分 and 第貳部分; ≥ 1 source within 120 days of the lock; ≥ 1 Taiwan hazard item (颱風／地震／豪雨／寒害 tagged `taiwan` plus the hazard); ≥ 4 items tagged `climate_energy`; ≥ 3 tagged `taiwan` | 113 and 115 (recency); none for the theme tags |
+| 英文 | ≥ 1 verified recent source carrying ≥ 3 items (a passage, not a vocabulary sentence); the composition prompt declares a verified `current_trend` | 112, 113, 115 (recency); 111 (composition) |
+| 國綜 | ≥ 1 verified recent source carrying ≥ 2 items; ≥ 2 passages tagged `taiwan` | none |
+| 國寫 | ≥ 1 task tied to a verified `current_trend` source | 112 |
+| 社會 | unchanged: ≥ 3 items within the year, per its own validator | — |
+
+Targets above the floor: 自然 3–5 contexts with 7–12 items (the 111–112 shape); 英文 2
+recent passages; 國綜 1–2 groups. Do not exceed the official share by turning the paper
+into a news quiz: every recent item still passes the source-relation and removal tests in
+[current-source-transformation.md](current-source-transformation.md), and the discipline,
+difficulty and reading-load balances are unchanged.
+
+"Recent" is measured from the editorial lock: event date **and** publication date within
+365 days before it (`current_event`, `recent_context`), or within 730 days for a social
+trend (`current_trend`). Use Asia/Taipei calendar dates. A refreshed page date, an
+anniversary retelling or a forecast of an unresolved outcome does not qualify. When the
+simulated exam is dated (for example 116 學測, January 2027) but the lock is today,
+today's lock still governs; never backfill later news into an earlier lock.
+
+## Records the validator reads
+
+```json
+"metadata": {
+  "current_context_plan": {
+    "editorial_lock_date": "2026-09-21",
+    "sources": [{
+      "source_id": "cwa-typhoon-2026-08",
+      "publisher": "中央氣象署", "title": "…颱風警報單…", "canonical_url": "https://…",
+      "source_family": "government_data", "authority_class": "primary",
+      "event_date": "2026-08-18", "published_at": "2026-08-18", "accessed_at": "2026-09-20",
+      "fact_check_status": "verified", "rights_status": "facts_only_synthesis",
+      "verified_facts": ["中心氣壓 …", "…"]
+    }]
+  }
+},
+"questions": [{
+  "id": "q44", "number": 44,
+  "item_spec": {
+    "current_context": {
+      "source_id": "cwa-typhoon-2026-08", "freshness_class": "current_event",
+      "relation": "警報單的氣壓與風向時間序列決定登陸側判斷",
+      "removal_counterfactual": "刪去序列後只能背定義，題目不可解",
+      "outside_knowledge_required": false
+    },
+    "context_tags": ["typhoon", "taiwan", "weather_hazard"]
+  }
+}]
+```
+
+`context_tags` come from: `typhoon`, `earthquake`, `weather_hazard`, `climate_energy`,
+`epidemic`, `space`, `taiwan`, `technology`, `society_trend`, `health`, `conflict`,
+`population`, `environment`. Tag every item whose printed context genuinely belongs to
+the theme, recent or not; the tag floors count themes, not news. A record with an
+unverifiable date or a non-https source is not counted, and a missing `relation` or
+`removal_counterfactual` fails the item. For 自然, every number in
+`natural_source_ecology_plan.recent_item_numbers` must also carry a verified
+`current_context`; numbers alone are not evidence.
+
+`append_items.py` prints `current_context_progress` after every batch so the recent
+items are planned while the paper is being written. `validate_current_context.py` runs
+inside the release gate and the hosted final checker; it checks dates, records and
+floors, not whether the source is true or whether the relation really changes the
+reasoning. Those remain editorial review under
+[evidence-backed-editorial-audit.md](evidence-backed-editorial-audit.md).
+
+## How to find the material
+
+1. Freeze the lock date first. Then run one bounded discovery pass per paper using
+   primary announcements (中央氣象署, 中央地質調查所, 環境部, NASA/ESA, Nobel Foundation,
+   journals, agency statistics) and a few reputable secondary reports. Where the surface
+   has web access, use it; where it does not, use the frozen facts the user supplies or
+   choose sources whose facts you can state with dates, and mark anything uncertain
+   as pending instead of inventing a date.
+2. Prefer sources that supply a measurement, a series, an image feature, a procedure or a
+   constraint. A name, a headline or a prize alone is decoration and fails the
+   source-relation test.
+3. For 自然 plan the autumn Nobel prizes when the lock date allows, and one in-season Taiwan
+   hazard (a named typhoon warning, an earthquake report, a cold surge or a rainfall
+   event) as a shared stimulus with real printed data.
+4. For 英文 and 國綜 write the older main text first, then add the recent element the way
+   the official papers do: a closing sentence, a side box, a quoted list, a synopsis.
+5. For 國寫 and the English composition choose a trend that students live inside and can
+   write about from experience; source it to a real report or survey, keep the prompt's
+   wording generic, and keep the affective task free of policy argument.
+6. Keep publisher, URL, dates and verified facts in the internal record. Print only what
+   the official form prints: 自然 stems may name the agency and date when the data need
+   it; 國綜 and 英文 print no bibliography year; 國寫 prints its adapted-source note as in
+   [current-gsat-writing-form.md](current-gsat-writing-form.md).
+</canonical-source>
+
 <canonical-source path="references/current-gsat-chinese-natural-form.md">
 # Current GSAT 國綜 and 自然 Form Envelope
 
@@ -55765,7 +56070,7 @@ layout. See [current-form-literacy-load.md](current-form-literacy-load.md).
 - Every complete-paper item records `item_spec.natural_reasoning_contract`. It must reject pure recall and one-step formula substitution, name a `core` or `high_frequency` curriculum anchor, list at least two genuinely linked reasoning operations, and state why the printed material/model/experiment is needed. A material that can be removed without changing the answer is decorative and fails.
 - `簡單` means the evidence chain is short and transparent, not that the item asks for a definition. Medium and harder items should normally require at least three linked operations. Use variable control, competing explanations, graph/table/photograph integration, uncertainty, limiting cases, experimental redesign, or constraint reconciliation to increase demand.
 - Do not imitate depth with peripheral facts, advanced terminology, unattractive arithmetic, or excessive reading. The assessed science remains a central 108-curriculum operation even when the context is novel.
-- For a current-affairs-emphasis paper, freeze `as_of_date` and the editorial lock date before searching. Recent means that the event or measurement—not merely a later profile page—falls within the preceding 12 months. Let recent material form a visible plurality of the truly dated source groups while preserving discipline, difficulty, section, and time balance. Draw older dated material by stratified random selection across different years and source families, and track evergreen models separately. Record the adopted items, event dates, publication/update dates, lead times, disciplines, and section spread in `metadata.natural_source_ecology_plan`.
+- Every full paper is current-affairs-aware by default; see [current-form-topicality.md](current-form-topicality.md) for the measured ROC 111–115 envelope (0–5 recent contexts a year, a typhoon context in four of five years, 6–13 climate/energy items every year) and the floor `validate_current_context.py` enforces. Freeze `as_of_date` and the editorial lock date before searching. Recent means that the event or measurement—not merely a later profile page—falls within the preceding 12 months. Let recent material form a visible plurality of the truly dated source groups while preserving discipline, difficulty, section, and time balance. Draw older dated material by stratified random selection across different years and source families, and track evergreen models separately. Record the adopted items, event dates, publication/update dates, lead times, disciplines, and section spread in `metadata.natural_source_ecology_plan`.
 - Current context is not a shortcut around literacy. A recent name, mission, disaster, disease, or technology counts only if its source-specific image, measurement, experimental method, temporal comparison, or operational constraint changes the solution. Prefer more than the minimum number of answer-bearing figures when they improve representation variety; reject screenshots, ornamental photos, and one-value lookup graphics.
 
 Per-year density checks:
@@ -55946,7 +56251,7 @@ Find fresh source material independently after the simulated editorial lock date
 
 Create a fact ledger, close the source text, and compose a new passage with a different rhetorical sequence. A passage derived mainly by sentence-level paraphrase fails. Topic novelty alone is also insufficient: the questions must depend on relations in the newly written passage.
 
-Keep a paper-level mix of humanities, social life, science/technology, environment, culture, and everyday experience. Do not let a single fashionable domain dominate. Current events are candidates, not quotas.
+Keep a paper-level mix of humanities, social life, science/technology, environment, culture, and everyday experience. Do not let a single fashionable domain dominate. Current events are candidates, not quotas, but a full paper is not timeless either: the measured official form ([current-form-topicality.md](current-form-topicality.md)) places one datable recent element in the closing sentence of a 文意選填 or 混合題 passage in two of five years and ties the composition prompt to a current social trend (社群媒體, AI 小幫手, 颱風假, 養寵物) in four of five. The default floor is one verified recent passage (event within 365 days of the lock) and a composition prompt with a verified `current_trend` source; `validate_current_context.py` enforces it. Vocabulary sentences stay invented scenarios, and no reading passage needs to be recent.
 
 ### English-specific innovation gate
 
@@ -56604,7 +56909,7 @@ For each new full paper:
 
 1. Start with only the intended rhetorical role and publication cutoff. Do not open past-question text or previous generated prompts.
 2. Search the public web independently. Collect at least eight traceable articles or public records for the paper, spanning at least four unrelated domains and four publishers. No publisher may occupy more than half the candidate pool merely because it is easier to discover or extract, and the search record must not declare a preferred or allowed publisher list. Both major tasks must begin from this search pool.
-3. Record a factual nucleus, concrete carrier, tension and possible response directions for each candidate. Reject sources selected only because they are recent or famous.
+3. Record a factual nucleus, concrete carrier, tension and possible response directions for each candidate. Reject sources selected only because they are recent or famous. The official 111–115 tasks never anchor a datable event, but four of five years tie at least one task to a current social trend (高齡出遊, 世代標籤, 擬社會互動, 養寵物, 親子溝通) built on older material: give at least one task a verified `current_trend` source under [current-form-topicality.md](current-form-topicality.md), and keep the affective task free of policy argument.
 4. Select one or more sources for each task, then write a new fact-and-viewpoint ledger. Design the material order, comparison, title and writing decision from scratch, but build every concrete scenario from a documented source rather than model invention. Do not reproduce an article's prose sequence or signature metaphor.
 5. Only after the paper is complete, run a separate similarity screen against the official corpus and prior generated papers. The official corpus may veto a draft but may never inspire its replacement.
 
@@ -57889,8 +58194,13 @@ repairs and the final checker. This is a scheduling budget, not a platform limit
 claim or guaranteed runtime. Keep the existing inclusive phase clock. Do not
 wait until all items are written to discover a broken equation/rail renderer or
 a figure that crowds its stem: after every saved batch run `run_hosted_workflow.py
-specs` and `proof` for that batch, review its item and solution crops at once,
-then solve and review difficulty in the same small batch. Crop review done here
+specs` and `proof` for the items the batch result lists under
+`proof_recommended` (first batch, figures, formulas, rails, tables, gaps, long
+stimuli), review those crops at once, then solve and review difficulty in the
+same small batch. Plain-text items listed under `proof_optional` are reviewed
+in the final build's crops and pages. Once about twenty items are saved, run
+`run_hosted_workflow.py plan` (seconds, no PDFs) to see the pagination before
+the whole paper is written, and decide figure sizes then. Crop review done here
 is not repeated for unchanged items in the final booklets; page review is.
 Complete all content reviews before the first full build, then run
 `run_hosted_workflow.py lock-content --state <latest-state>`. Keep necessary
@@ -58164,6 +58474,36 @@ python scripts/run_hosted_workflow.py proof --state run/run-state.json --questio
 Where the runtime allows, chain `append_items.py`, `specs` and `proof` with `&&`
 in one tool call, so each batch costs one command before its crops are opened.
 
+Proof what can print wrongly, not everything. The saved-batch result lists
+`proof_recommended` (the first batch, and any item with a figure, inline formula
+image, sub/superscript or markup, answer blank or gap, response table, fill rail,
+or a long shared stimulus) with the reason, and `proof_optional` (plain-text
+items, which print through the same paragraph path as every earlier proof).
+Proof the recommended items now; text-only items may wait for the final build,
+where every crop and every page is still reviewed. A measured 自然 paper spent
+90 minutes on 50 batch proofs whose text-only crops found no defect.
+
+The same result names other things that are cheapest to fix while the item is
+fresh: `absolute_claim_options` (options containing 必定／只／無關／皆 and
+similar; ask once whether any condition makes the option true), `layout_risks`
+(a figure that will print taller than 40% of the body and force a page break;
+lower `width_percent`, redraw wider, or place it side-right now), and
+`plan_hint` once about twenty items are saved.
+
+Subparts print in `subpart_id` order, so ids that share one printed number must
+start with their printed ordinal (`1-plot`, `2-calculation`, or `a`, `b`); a
+bare name such as `plot`/`calculation` is refused because alphabetical order
+would print (2) before (1). `emit_item_skeleton.py` already prefixes the
+ordinal for profile slot names.
+
+Draw each figure with its own small script and run
+`python scripts/normalize_figure_asset.py FIG.svg` (or `.pdf`) before recording
+its sha256: it strips the export timestamp, random document ID and salted
+element ids, so an unchanged figure redrawn later keeps its hash and its item,
+reviews and content lock stay valid. Regenerating a whole batch of figures with
+one script changes every hash and costs a `--replace`, re-lock and rebuild for
+figures that did not change.
+
 `specs` copies printed text only from exam.json and applies the same saved-item
 conventions as the maintained official-form renderers, for every subject:
 section titles/instructions; prompts; options printed as `(A)`/`(1)`;
@@ -58246,7 +58586,19 @@ renewed dependent reviews and `lock-content --reason "actual correction"`.
 The lock preserves its previous version and never supplies editorial approval.
 The build's `page-plan.json` reports actual measured heights, kept blocks, page
 item IDs and remaining bottom space. Inspect these and `reflow_before_review`
-before opening a long review queue. Rendering has a separate-process,
+before opening a long review queue. Do not pay for a full build to learn only
+the pagination: `run_hosted_workflow.py plan` runs the same renderer on the same
+specs in seconds, writes `page-plan.json` with each page's `bottom_void_ratio`
+and lists `bottom_void_attention` pages, but composes no booklet, rasterizes
+nothing and creates no review state. Run it once about twenty items in (the
+batch result says when) to learn the paper's rhythm and catch tall figures or
+over-long groups early, and again after each layout-hint repair; run one full
+build only when the plan is acceptable. A measured 自然 run spent 16 of 17
+builds (about 25 minutes) on pagination that a plan would have shown.
+
+```text
+python scripts/run_hosted_workflow.py plan --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --output run/plan-01
+``` Rendering has a separate-process,
 20-second per-operation stall guard; it reports the block to repair rather
 than retrying exact-fit indefinitely. No guard bypasses a quality check.
 
@@ -58818,7 +59170,12 @@ from memory. The checker requires positive, ordered, closed intervals for all
 phases and computes total/per-phase times. Interruptions remain wall time, but
 must not be presented as active solving or inspection. Before a turn ends use
 `run_hosted_workflow.py clock --state <latest-state> --operation pause`; on the
-next turn use `--operation resume`. During continuous work record `touch`
+next turn use `--operation resume`. Every `build`, `proof` and `plan` result
+repeats this as `clock_reminder`. If a turn ends without the pause, the clock
+counts at most the idle threshold (ten minutes) after the last tool event as
+work and labels the rest estimated waiting; report phase time from
+`phase_seconds` (active only), never by summing intervals that include
+waiting rows. During continuous work record `touch`
 at least every five minutes, including reading/solving without file writes.
 These commands refresh the selected state's timing hash. Optional
 `--question-ids`, `--page-numbers`, and `--revision-id` identify repair scope.
@@ -61987,6 +62344,7 @@ Any later paper request:
       "properties": {
         "paper_id": {"type": "string", "minLength": 1},
         "current_event_plan": {"type": "object"},
+        "current_context_plan": {"type": "object", "required": ["editorial_lock_date", "sources"], "properties": {"editorial_lock_date": {"type": "string", "format": "date"}, "sources": {"type": "array", "items": {"type": "object", "required": ["source_id"]}}}},
         "title": {"type": "string"},
         "subtitle": {"type": ["string", "null"]},
         "exam": {"type": "string"},
@@ -62669,9 +63027,82 @@ import json
 import re
 from pathlib import Path
 
-from run_hosted_workflow import authoring_issues, checkpoint, inside, read, record, save, text_issues
+from run_hosted_workflow import (ASSET_TOKEN, RICH_TAG, SCRIPT_RUN, SPLIT_MIN_CHARACTERS, authoring_issues,
+                                 checkpoint, figure_pagination_risks, inside, printed_fields, read, record, save,
+                                 text_issues)
+from validate_current_context import progress as context_progress, validate as current_context_errors
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
+
+# Subparts print in subpart_id order. An id that starts with its printed
+# ordinal (1, 2-a, b …) cannot be sorted out of order; a bare name can.
+ORDERED_SUBPART = re.compile(r'^(?:\d+|[a-z])(?:$|[-_.])')
+EARLY_PLAN_ITEMS = 20
+# Words that make an option absolute. Such a distractor is wrong only if no
+# condition makes it true; the writer confirms that once, when the item is saved.
+ABSOLUTE_CLAIM = re.compile(r'必定|一定|必然|必|只有|只能|只|僅|無關|皆|所有|全部|不可能|永遠|從不|唯一|任何|一律|'
+                            r'\b(?:always|never|only|all|none|impossible|every|entirely|solely)\b', re.I)
+
+
+def absolute_claim_options(questions):
+    """Options whose wording is absolute; a reminder, never a rejection."""
+    rows = []
+    for question in questions:
+        for option in question.get('options') or []:
+            text = option.get('text') if isinstance(option, dict) else None
+            raw = text['rich'] if isinstance(text, dict) and set(text) == {'rich'} else text
+            if isinstance(raw, str):
+                match = ABSOLUTE_CLAIM.search(raw)
+                if match:
+                    rows.append({'id': question.get('id'), 'label': option.get('label'), 'word': match.group(),
+                                 'text': raw[:60]})
+    return rows
+
+
+def proof_triage(questions, answers, *, first_batch):
+    """Which saved items need an early crop proof, and why.
+
+    Text-only items print through the same paragraph path as every earlier
+    proof; their final-build crops and page review still inspect them. Figures,
+    formulas, rails, tables, gaps and split stimuli are where early proofs have
+    found defects, so those are proofed now.
+    """
+    by_answer = {a.get('question_id'): a for a in answers}
+    recommended, optional = {}, []
+    for question in questions:
+        qid = question.get('id')
+        answer = by_answer.get(qid, {})
+        reasons = []
+        if first_batch:
+            reasons.append('first batch: verify the renderer, font and section layout once')
+        for owner, record_ in (('question', question), ('answer', answer)):
+            if isinstance(record_.get('visual_asset'), dict):
+                reasons.append(owner + ' figure')
+            if record_.get('inline_assets'):
+                reasons.append(owner + ' inline formula image')
+        if question.get('response_format_table'):
+            reasons.append('response table')
+        if question.get('answer_format') or question.get('continuation_pages') or question.get('group_stimulus_page_splits'):
+            reasons.append('fill rail or explicit page continuation')
+        stimulus = question.get('group_stimulus')
+        if isinstance(stimulus, str) and len(stimulus) >= SPLIT_MIN_CHARACTERS:
+            reasons.append('long shared stimulus that may split across pages')
+        for where, value in printed_fields(question, answer):
+            rich = isinstance(value, dict) and set(value) == {'rich'}
+            raw = value['rich'] if rich else value
+            if not isinstance(raw, str):
+                continue
+            if rich or RICH_TAG.search(raw) or SCRIPT_RUN.search(raw) or ASSET_TOKEN.search(raw):
+                reasons.append(f'{where}: sub/superscript, markup or formula image')
+            if '{{answer}}' in raw or '______' in raw or re.search(r'\[\[\d+\]\]', raw):
+                reasons.append(f'{where}: answer blank or gap')
+        if reasons:
+            recommended[qid] = list(dict.fromkeys(reasons))
+        else:
+            optional.append(qid)
+    return {'proof_recommended': recommended, 'proof_optional': optional,
+            'proof_note': ('Proof the recommended items now (their crops carry forward to the final build). '
+                           'Text-only items may wait for the final build, where every crop and page is still reviewed.')}
 
 
 def design_gaps(exam, root, questions):
@@ -62684,6 +63115,8 @@ def design_gaps(exam, root, questions):
     messages = list(difficulty_balance(exam, root)['errors'])
     if exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
         messages += math_design(exam)['errors']
+    # Per-item record defects only; the whole-paper floors are reported as progress.
+    messages += [m for m in current_context_errors(exam) if not m.startswith('current_context:')]
     gaps = {}
     for question in questions:
         prefixes = (question['id'] + ':', f"Q{question.get('number')}:")
@@ -62710,6 +63143,16 @@ def check_numbering(questions):
         if group and (sub is None or None in group or sub in group):
             raise ValueError('Question number collides; same-number scored subparts require unique subpart_id')
         group.append(sub)
+    for n,subs in groups.items():
+        if len(subs)<2:
+            continue
+        unordered=[s for s in subs if not ORDERED_SUBPART.match(s)]
+        if unordered:
+            raise ValueError(f'Question {n}: subparts print in subpart_id order, so ids sharing one number must '
+                             f'start with their printed ordinal (1, 2, 1-plot, 2-calculation or a, b); rename '
+                             + ', '.join(sorted(unordered)))
+        if len({s[0].isdigit() for s in subs})>1:
+            raise ValueError(f'Question {n}: use one ordering scheme for its subparts, either 1, 2, … or a, b, …')
 
 
 def validate_batch(batch):
@@ -62810,6 +63253,7 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
     current_questions, current_answers = exam.get('questions', []), exam.get('answers', [])
     if not isinstance(current_questions, list) or not isinstance(current_answers, list):
         raise ValueError('Existing exam requires question and answer lists')
+    first_batch = not current_questions
     by_id = {q['id']: q for q in current_questions}
     by_answer = {a['question_id']: a for a in current_answers}
     if len(by_id) != len(current_questions) or len(by_answer) != len(current_answers):
@@ -62857,6 +63301,26 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         report['design_fields_pending'] = gaps
         report['design_note'] = ('The final check requires these difficulty-design fields. They are not printed: '
                                  'complete them with --replace as the batch is solved and reviewed; page reviews stay valid.')
+    report.update(proof_triage(questions, answers, first_batch=first_batch))
+    context = context_progress(exam)
+    if context:
+        report['current_context_progress'] = context
+        report['current_context_note'] = ('Verified recent sources and tagged Taiwan/hazard/climate contexts so far against '
+                                          'the subject floor (references/current-form-topicality.md); plan the remaining '
+                                          'recent items now, not after the paper is paginated.')
+    absolute = absolute_claim_options(questions)
+    if absolute:
+        report['absolute_claim_options'] = absolute
+        report['absolute_claim_note'] = ('For each absolute wording ask once: is there any condition under which this '
+                                         'option is true? If so, reword it before proof; a correct key is unaffected.')
+    risks = figure_pagination_risks(questions, answers, root=root, subject=exam['metadata'].get('subject'))
+    if risks:
+        report['layout_risks'] = risks
+    # About a third of a 自然/社會/英文 paper, or most of a 國綜/數學 paper.
+    if len(exam['questions']) >= EARLY_PLAN_ITEMS and not (root / 'content-lock.json').exists():
+        report['plan_hint'] = ('Enough items are saved to learn the pagination rhythm: run specs, then '
+                               '`run_hosted_workflow.py plan` (seconds, no PDFs) and fix tall figures or '
+                               'over-long groups now instead of after the whole paper is paginated.')
     return report
 
 
@@ -62903,6 +63367,7 @@ from verify_fixed_template_pdf import verify_pdf
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
+from validate_current_context import validate as current_context_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
@@ -62954,6 +63419,7 @@ def check(state_path: Path) -> dict:
     exam_hash = sha(exam_path)
     exam = json.loads(exam_path.read_text(encoding='utf-8-sig'))
     errors.extend(math_context_errors(exam))
+    errors.extend(current_context_errors(exam))
     # Execute the embedded checks on actual authored content. A passing review
     # claiming that these ran is not an equivalent execution path.
     errors.extend('difficulty_balance: ' + e for e in difficulty_balance(exam, root)['errors'])
@@ -63680,6 +64146,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 
 from validate_math_difficulty_design import profile_for, profile_targets, required_decisions
 from validate_paper_difficulty_balance import BANDS
@@ -63706,7 +64173,13 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
     slot=matches[0]
     number=slot['number']
     question={key:slot[key] for key in ('id','number','section_id','type','score')}
-    if slot.get('subpart_id'):question['subpart_id']=slot['subpart_id']
+    if slot.get('subpart_id'):
+        # Subparts print in subpart_id order; a profile name such as "check"
+        # gets its printed ordinal in front so it cannot sort before "plot".
+        siblings=[s for s in slots if s['number']==number and s.get('subpart_id')]
+        ordinal=next(i for i,s in enumerate(siblings,1) if s['id']==slot['id'])
+        sub=str(slot['subpart_id'])
+        question['subpart_id']=sub if re.match(r'^(?:\d+|[a-z])(?:$|[-_.])',sub) else f'{ordinal}-{sub}'
     if number is None:
         section=next(s for s in profile['sections'] if s['id']==slot['section_id'])
         question['number_display']=slot.get('printed_label') or section['title']
@@ -65837,6 +66310,107 @@ if __name__ == "__main__":
     raise SystemExit(2 if report["blocking_pages"] else 0)
 </canonical-source>
 
+<canonical-source path="scripts/normalize_figure_asset.py">
+#!/usr/bin/env python3
+"""Make a figure file byte-reproducible so an unchanged drawing keeps its sha256.
+
+Plotting libraries stamp each export with the current time (SVG ``<dc:date>``,
+PDF ``/CreationDate``), a random document ID and randomly salted element ids.
+Re-running an unchanged figure script therefore changes every hash, which
+invalidates the saved item, its reviews and the content lock for no printed
+change. This helper removes only that non-printing noise: SVG metadata blocks
+and id salt, PDF info dictionary dates/producer and the trailer ID. Paths,
+glyphs, images and page geometry are untouched, so the printed figure is the
+same. It never creates, scales or repairs artwork.
+
+    python scripts/normalize_figure_asset.py run/fig-12.svg run/fig-16.pdf
+
+Each file is rewritten in place (``--output DIR`` writes copies instead) and
+its final sha256 is printed for the item record. Draw each figure with its own
+script so a repair redraws one file; do not regenerate a whole batch.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import re
+
+SVG_METADATA = re.compile(r'\s*<metadata\b.*?</metadata>', re.S)
+SVG_DATE = re.compile(r'\s*<dc:date>[^<]*</dc:date>')
+SVG_ID = re.compile(r'\bid="([^"]+)"')
+PDF_ID = re.compile(rb'/ID *\[ *<([0-9A-Fa-f]+)> *<([0-9A-Fa-f]+)> *\]')
+
+
+def normalize_svg(text: str) -> str:
+    """Drop export metadata and rename ids in first-appearance order."""
+    text = SVG_DATE.sub('', SVG_METADATA.sub('', text))
+    names = {}
+    for match in SVG_ID.finditer(text):
+        names.setdefault(match.group(1), f'n{len(names) + 1}')
+    # Longest first so an id that prefixes another is never partially rewritten.
+    for old in sorted(names, key=len, reverse=True):
+        new = names[old]
+        escaped = re.escape(old)
+        text = re.sub(rf'\bid="{escaped}"', f'id="{new}"', text)
+        text = re.sub(rf'#{escaped}(?=["\s)])', f'#{new}', text)
+    return text
+
+
+def normalize_pdf(data: bytes) -> bytes:
+    """Blank the info dictionary dates/producer and fix the trailer ID."""
+    import pymupdf
+
+    with pymupdf.open(stream=data, filetype='pdf') as document:
+        if not document.is_pdf:
+            raise ValueError('Not a PDF figure')
+        document.set_metadata({'creationDate': '', 'modDate': '', 'producer': '', 'creator': ''})
+        rewritten = document.tobytes(garbage=4, deflate=True)
+    # Same-length zero IDs keep every byte offset valid; /ID is optional for
+    # an unencrypted file, so readers accept a constant value.
+    return PDF_ID.sub(lambda m: b'/ID[<' + b'0' * len(m.group(1)) + b'><' + b'0' * len(m.group(2)) + b'>]',
+                      rewritten)
+
+
+def normalize(path: Path, output: Path | None = None) -> dict:
+    path = Path(path)
+    suffix = path.suffix.lower()
+    if suffix == '.svg':
+        result = normalize_svg(path.read_text(encoding='utf-8')).encode('utf-8')
+    elif suffix == '.pdf':
+        result = normalize_pdf(path.read_bytes())
+    else:
+        raise ValueError('Normalize SVG or single-page PDF figures only: ' + path.name)
+    target = (Path(output) / path.name) if output else path
+    changed = not target.exists() or target.read_bytes() != result
+    if changed:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(result)
+    return {'path': str(target), 'sha256': hashlib.sha256(result).hexdigest(),
+            'bytes': len(result), 'changed': changed}
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('figures', nargs='+', type=Path)
+    parser.add_argument('--output', type=Path, help='Write normalized copies into this directory')
+    args = parser.parse_args()
+    try:
+        rows = [normalize(figure, args.output) for figure in args.figures]
+    except (OSError, ValueError, RuntimeError) as exc:
+        print(json.dumps({'status': 'pending', 'errors': [str(exc)]}, ensure_ascii=False))
+        return 2
+    print(json.dumps({'status': 'normalized', 'figures': rows,
+                      'note': 'Record each sha256 in the item; a redrawn unchanged figure now keeps it.'},
+                     ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
+</canonical-source>
+
 <canonical-source path="scripts/prepare_hosted_review.py">
 #!/usr/bin/env python3
 """Prepare actual final-PDF page/item review in one batch; never approve content."""
@@ -67433,10 +68007,92 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
     immutable += list(review_output.rglob('*.png'))
     result.update(cache_hit=False, reviews_approved_by_tool=False,
                   page_plan=str(output / 'page-plan.json'),
-                  continue_from_state=str(candidate))
+                  continue_from_state=str(candidate), clock_reminder=CLOCK_REMINDER)
     save(manifest_path, {'inputs': identity, 'artifacts': [record(root, p) for p in immutable], 'result': result})
     event(root, 'build', started, cache_hit=False)
     return result
+
+
+CLOCK_REMINDER = ('Before yielding this turn run `clock --state <latest-state> --operation pause`; '
+                  'an unpaused gap is estimated as waiting only after the idle threshold.')
+
+
+def plan(state_path, question_spec, solution_spec, font, output, *, reading_font=None):
+    """Paginate both bodies without composing, rasterizing or preparing review.
+
+    A build spends most of its time on fixed-template composition, page rasters
+    and crop preparation, yet a pagination repair only needs the measured page
+    plan. This runs the same renderer on the same specs and reports each page's
+    remaining bottom space; it produces no deliverable, no review state and no
+    density or visual approval. Use it before the content lock to learn the
+    paper's pagination rhythm, and between layout-hint repairs; run one full
+    build once the plan is acceptable.
+    """
+    started = time.time()
+    state_path = Path(state_path).resolve()
+    root = state_path.parent
+    state = read(state_path)
+    exam_path = inside(root, root / state['exam']['path'])
+    if record(root, exam_path) != state['exam']:
+        raise ValueError('Save a checkpoint for the current exam before planning pages')
+    exam = read(exam_path)
+    subject = exam['metadata']['subject']
+    output = inside(root, output)
+    if output.parent != root:
+        raise ValueError('Plan output must be a direct child directory of the run')
+    if output.exists():
+        raise ValueError('Plan output exists; preserve it and use a new name')
+    specs = {'question': inside(root, Path(question_spec).resolve()),
+             'solution': inside(root, Path(solution_spec).resolve())}
+    for path in specs.values():
+        spec = read(path)
+        if spec.get('subject') != subject:
+            raise ValueError('Body spec must match the actual exam subject')
+        current_generated_spec(spec, state)
+    lock_path = root / 'content-lock.json'
+    lock_status = 'none'
+    if lock_path.exists():
+        try:
+            lock_status = 'matches' if read(lock_path)['identity'] == content_identity(root, state) else 'changed'
+        except ValueError:
+            lock_status = 'changed'
+    output.mkdir()
+    booklets, attention = {}, []
+    for role, spec_path in specs.items():
+        layout = render(read(spec_path), output / (role + '-body.pdf'), output / (role + '-layout.json'),
+                        Path(font), asset_root=spec_path.parent,
+                        reading_font=Path(reading_font) if reading_font else None)
+        page_plan = layout['page_plan']
+        body_height = page_plan['body_bbox'][3] - page_plan['body_bbox'][1]
+        pages = []
+        for row in page_plan['pages']:
+            void = round(row['bottom_safety_pt'] / body_height, 3)
+            pages.append({**row, 'bottom_void_ratio': void})
+            last = row['page'] == page_plan['page_count']
+            if void >= BOTTOM_VOID_ATTENTION and not last:
+                attention.append({'role': role, 'page': row['page'], 'bottom_void_ratio': void,
+                                  'question_ids': row['question_ids']})
+        booklets[role] = {'page_count': page_plan['page_count'], 'gap_scale': layout.get('gap_scale'),
+                          'scaled_assets': layout.get('scaled_assets', []), 'pages': pages,
+                          'blocks': layout['blocks'], 'render_seconds': layout.get('elapsed_seconds')}
+    plan_path = output / 'page-plan.json'
+    save(plan_path, {'kind': 'hosted-page-plan', 'exam': state['exam'], 'paper_id': state['paper_id'],
+                     'specs': {role: record(root, path) for role, path in specs.items()},
+                     'content_lock': lock_status, 'booklets': booklets,
+                     'scope': 'Measured pagination only: no composed booklet, raster, review state, density or visual approval'})
+    event(root, 'plan', started, pages={role: b['page_count'] for role, b in booklets.items()})
+    return {'status': 'page-plan-only', 'plan': output.name, 'page_plan': str(plan_path),
+            'page_counts': {role: b['page_count'] for role, b in booklets.items()},
+            'bottom_void_attention': attention, 'content_lock': lock_status,
+            'reviews_approved_by_tool': False, 'deliverable': False,
+            'next': ('Adjust layout hints and plan again while pages need attention; then lock content '
+                     'and run one full build for actual page and crop review.'),
+            'clock_reminder': CLOCK_REMINDER}
+
+
+# The final inspector flags a body page whose bottom void exceeds 0.32 of the
+# body; the plan names such pages (with a small margin) before any raster.
+BOTTOM_VOID_ATTENTION = 0.28
 
 
 def render_identity(font, reading_font=None):
@@ -67507,6 +68163,49 @@ def asset_issues(path, asset, *, inline):
     if raster and box.width < RASTER_PIXELS_PER_PT * width:
         found.append(f'is {box.width:.0f} px for {width:.0f} printed pt and prints blurred; export it at '
                      'three times the printed width, or save the figure as SVG or a one-page PDF')
+    return found
+
+
+# A below-figure taller than this share of the body cannot share its page with
+# much text: it forces a page break that later shows up as a bottom void.
+TALL_FIGURE_BODY_SHARE = 0.4
+
+
+def figure_pagination_risks(questions, answers, *, root, subject):
+    """Printed figure heights that will drive pagination, reported when saved.
+
+    Figure size is content: deciding it at authoring time avoids redrawing a
+    figure after the whole booklet has been paginated around it.
+    """
+    try:
+        geometry = next(s for s in read(DEFAULT_MAP)['subjects'] if s['subject'] == subject)['overlay_geometry_pt']['body']
+    except (StopIteration, OSError, KeyError, ValueError):
+        return []
+    body_width, body_height = geometry[2] - geometry[0] - 8, geometry[3] - geometry[1]
+    by_answer = {a.get('question_id'): a for a in answers}
+    found = []
+    for question in questions:
+        for owner, record_ in (('question', question), ('answer', by_answer.get(question.get('id'), {}))):
+            visual = record_.get('visual_asset')
+            if not isinstance(visual, dict) or not visual.get('path') or record_.get('visual_layout') == 'side-right':
+                continue
+            path = (root / str(visual['path'])).resolve()
+            if not path.is_file():
+                continue
+            try:
+                with pymupdf.open(path) as source:
+                    box = source[0].rect
+            except Exception:  # unreadable artwork is already reported as an authoring issue
+                continue
+            if not box.width or not box.height:
+                continue
+            width = body_width * (visual.get('width_percent') or 62) / 100
+            height = width * box.height / box.width
+            if height > TALL_FIGURE_BODY_SHARE * body_height:
+                found.append(f'item {question.get("id")} {owner} figure prints {height:.0f} pt tall '
+                             f'({height / body_height:.0%} of the body): it will force a page break; lower '
+                             f'width_percent (at most {TALL_FIGURE_BODY_SHARE * body_height * box.width / box.height / body_width * 100:.0f}), '
+                             'redraw with a wider aspect ratio, or place it side-right, before pagination')
     return found
 
 
@@ -68138,7 +68837,8 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             'observations_template': str(output / 'observations-template.json'),
             'reviews_approved_by_tool': False,
             'next': ('Open each crop at readable scale, fill status and observations in a copy of observations_template, '
-                     'and record them with one record-review --proof ' + str(output) + ' call')}
+                     'and record them with one record-review --proof ' + str(output) + ' call'),
+            'clock_reminder': CLOCK_REMINDER}
 
 
 REVIEW_STATUSES = {'pass', 'fail', 'pending'}
@@ -68368,6 +69068,11 @@ def main():
     build_parser.add_argument('--title', default='學科能力測驗模擬試題')
     build_parser.add_argument('--running-name', default='學測')
     build_parser.add_argument('--reading-font', type=Path)
+    plan_parser = commands.add_parser('plan', help='Paginate both bodies in seconds; no PDFs, rasters or review state')
+    for name in ('state', 'question-spec', 'solution-spec', 'output'):
+        plan_parser.add_argument('--' + name, type=Path, required=True)
+    plan_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
+    plan_parser.add_argument('--reading-font', type=Path)
     spec_parser = commands.add_parser('specs', help='Project saved items into both body layout specs')
     spec_parser.add_argument('--state', type=Path, required=True)
     spec_parser.add_argument('--question-output', type=Path, required=True)
@@ -68396,15 +69101,275 @@ def main():
             result = record_review(args.pop('observations'), **args)
         else:
             args['state_path'] = args.pop('state')
-            if action in {'build', 'proof'} and args['font'] is None:
+            if action in {'build', 'proof', 'plan'} and args['font'] is None:
                 args['font'] = recorded_font(args['state_path'])
-            result = {'build': build, 'specs': specs, 'proof': proof, 'finalize': finalize,
+            result = {'build': build, 'specs': specs, 'proof': proof, 'plan': plan, 'finalize': finalize,
                       'clock': clock, 'lock-content': content_lock}[action](**args)
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print(json.dumps({'status': 'pending', 'errors': [str(exc)]}, ensure_ascii=False))
         return 2
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 2 if result.get('status') == 'pending' else 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_current_context.py">
+#!/usr/bin/env python3
+"""Recent-context floors for 自然, 英文, 國綜 and 國寫 full papers.
+
+Math A/B use validate_math_context.py and 社會 uses validate_social_item_design.py.
+This gate checks the per-item source and date records that make a "recent"
+claim traceable, and the subject floors in references/current-form-topicality.md,
+which were set from the maintainer's reading of ROC 111-115 official papers
+(exam_packs/學測/shared-data/current-form-topicality-envelope.json). Dates and
+record completeness are mechanical; whether the source relation really changes
+the reasoning still needs the editorial review named in that reference.
+
+    python scripts/validate_current_context.py generated-exam.json [--report out.json]
+"""
+from __future__ import annotations
+
+import argparse
+from datetime import date, datetime, timedelta, timezone
+import json
+from pathlib import Path
+from urllib.parse import urlparse
+
+SUBJECTS = {'自然', '英文', '國綜', '國寫'}
+RECENT_CLASSES = {'current_event', 'recent_context'}
+TREND_CLASS = 'current_trend'
+RECENT_DAYS = 365
+TREND_DAYS = 730
+FRESH_DAYS = 120
+FULL_PAPER_ITEMS = {'自然': 50, '英文': 40, '國綜': 30, '國寫': 2}
+HAZARD_TAGS = {'typhoon', 'earthquake', 'weather_hazard'}
+KNOWN_TAGS = HAZARD_TAGS | {'climate_energy', 'epidemic', 'space', 'taiwan', 'technology', 'society_trend',
+                            'health', 'conflict', 'population', 'environment'}
+# Floors are editorial targets above the weakest official year; the reference
+# states which official years would fail them.
+FLOORS = {
+    '自然': {'recent_sources': 4, 'recent_items': 6, 'fresh_sources': 1, 'both_parts': True,
+           'tags': {'taiwan_hazard': 1, 'climate_energy': 4, 'taiwan': 3}},
+    '英文': {'recent_sources': 1, 'recent_items': 3, 'composition_trend': True},
+    '國綜': {'recent_sources': 1, 'recent_items': 2, 'tags': {'taiwan': 2}},
+    '國寫': {'trend_tasks': 1},
+}
+SOURCE_FIELDS = ('publisher', 'title', 'rights_status', 'source_family')
+
+
+def parse_date(value):
+    try:
+        return date.fromisoformat(str(value))
+    except (TypeError, ValueError):
+        return None
+
+
+def is_full_paper(exam):
+    metadata = exam.get('metadata') or {}
+    subject = metadata.get('paper_subject') or metadata.get('subject')
+    if metadata.get('generation_mode') == 'full-paper':
+        return True
+    return len(exam.get('questions') or []) >= FULL_PAPER_ITEMS.get(subject, 10 ** 6)
+
+
+def is_composition(question, sections):
+    title = sections.get(question.get('section_id'), '')
+    labels = ' '.join(str(question.get(k) or '') for k in ('number_display', 'answer_label', 'id', 'type'))
+    return '作文' in title or '作文' in labels or question.get('type') == 'guided_writing'
+
+
+def item_tags(question):
+    spec = question.get('item_spec') or {}
+    tags = spec.get('context_tags') or []
+    return {str(tag) for tag in tags} if isinstance(tags, list) else set()
+
+
+def collect(exam):
+    """Per-item records with their resolved source and freshness, plus errors."""
+    metadata = exam.get('metadata') or {}
+    plan = metadata.get('current_context_plan') or {}
+    lock = parse_date(plan.get('editorial_lock_date'))
+    errors, warnings = [], []
+    records = plan.get('sources') or []
+    sources = {}
+    for record in records if isinstance(records, list) else []:
+        if not isinstance(record, dict) or not record.get('source_id'):
+            errors.append('current_context: every source record needs a source_id')
+            continue
+        if record['source_id'] in sources:
+            errors.append(f'current_context: duplicate source id {record["source_id"]}')
+        sources[record['source_id']] = record
+    rows = []
+    for question in exam.get('questions') or []:
+        spec = question.get('item_spec') or {}
+        context = spec.get('current_context')
+        for tag in item_tags(question) - KNOWN_TAGS:
+            warnings.append(f'{question.get("id")}: unknown context tag {tag}')
+        if not context:
+            continue
+        qid = question.get('id')
+        if not isinstance(context, dict):
+            errors.append(f'{qid}: current_context must be an object')
+            continue
+        freshness = context.get('freshness_class')
+        if freshness not in RECENT_CLASSES | {TREND_CLASS}:
+            errors.append(f'{qid}: freshness_class must be current_event, recent_context or current_trend')
+        for field in ('relation', 'removal_counterfactual'):
+            if not str(context.get(field) or '').strip():
+                errors.append(f'{qid}: current_context.{field} is required (what the source supplies and what breaks without it)')
+        if context.get('outside_knowledge_required') is not False:
+            errors.append(f'{qid}: current_context.outside_knowledge_required must be false; print every needed fact')
+        record = sources.get(context.get('source_id'))
+        if record is None:
+            errors.append(f'{qid}: current_context.source_id has no record in metadata.current_context_plan.sources')
+            rows.append({'id': qid, 'question': question, 'record': None, 'freshness': freshness, 'qualifies': False})
+            continue
+        qualifies = lock is not None
+        if lock is None:
+            errors.append(f'{qid}: current_context_plan.editorial_lock_date is required for recent claims')
+        event = parse_date(record.get('event_date'))
+        published = parse_date(record.get('published_at'))
+        accessed = parse_date(record.get('accessed_at'))
+        prefix = f'{qid} source {record["source_id"]}'
+        if not (event and published and accessed):
+            errors.append(f'{prefix}: event_date, published_at and accessed_at are required (YYYY-MM-DD)')
+            qualifies = False
+        elif lock:
+            window = TREND_DAYS if freshness == TREND_CLASS else RECENT_DAYS
+            if not 0 <= (lock - event).days <= window or not 0 <= (lock - published).days <= window:
+                errors.append(f'{prefix}: event AND publication must fall within {window} days before the editorial lock')
+                qualifies = False
+            if not published <= accessed <= lock:
+                errors.append(f'{prefix}: access date must lie between publication and the lock')
+                qualifies = False
+        url = urlparse(str(record.get('canonical_url') or ''))
+        if url.scheme != 'https' or not url.netloc:
+            errors.append(f'{prefix}: canonical_url must be an https address (kept internal, never printed)')
+            qualifies = False
+        if record.get('fact_check_status') != 'verified' or not record.get('verified_facts'):
+            errors.append(f'{prefix}: fact_check_status must be verified with a verified_facts snapshot')
+            qualifies = False
+        missing = [field for field in SOURCE_FIELDS if not record.get(field)]
+        if missing:
+            errors.append(f'{prefix}: missing ' + ', '.join(missing))
+            qualifies = False
+        rows.append({'id': qid, 'question': question, 'record': record, 'freshness': freshness,
+                     'qualifies': qualifies, 'event': event})
+    if lock and lock > (datetime.now(timezone.utc) + timedelta(hours=8)).date():
+        errors.append('current_context: editorial lock date cannot be in the future')
+    return {'lock': lock, 'sources': sources, 'rows': rows, 'errors': errors, 'warnings': warnings}
+
+
+def progress(exam):
+    """Counts against the subject floor, for the authoring loop; no pass/fail."""
+    metadata = exam.get('metadata') or {}
+    subject = metadata.get('paper_subject') or metadata.get('subject')
+    if subject not in SUBJECTS:
+        return None
+    found = collect(exam)
+    recent = [r for r in found['rows'] if r['qualifies'] and r['freshness'] in RECENT_CLASSES]
+    trend = [r for r in found['rows'] if r['qualifies'] and r['freshness'] == TREND_CLASS]
+    tags = [tag for q in exam.get('questions') or [] for tag in item_tags(q)]
+    floor = FLOORS[subject]
+    counts = {'recent_sources': len({r['record']['source_id'] for r in recent}), 'recent_items': len(recent),
+              'trend_tasks': len(trend), 'lock_date': str(found['lock']) if found['lock'] else None}
+    if found['lock']:
+        counts['fresh_sources'] = len({r['record']['source_id'] for r in recent
+                                       if (found['lock'] - r['event']).days <= FRESH_DAYS})
+    if 'tags' in floor:
+        counts['tags'] = {name: sum(1 for t in tags if t == name) for name in floor['tags'] if name != 'taiwan_hazard'}
+        if 'taiwan_hazard' in floor['tags']:
+            counts['tags']['taiwan_hazard'] = sum(1 for q in exam.get('questions') or []
+                                                  if item_tags(q) & HAZARD_TAGS and 'taiwan' in item_tags(q))
+    return {'subject': subject, 'floor': floor, 'counts': counts}
+
+
+def validate(exam):
+    """Errors only, in the flat message style the hosted checker and release gate print."""
+    metadata = exam.get('metadata') or {}
+    subject = metadata.get('paper_subject') or metadata.get('subject')
+    if subject not in SUBJECTS:
+        return []
+    found = collect(exam)
+    errors = list(found['errors'])
+    if not is_full_paper(exam):
+        return errors
+    floor = FLOORS[subject]
+    lock = found['lock']
+    recent = [r for r in found['rows'] if r['qualifies'] and r['freshness'] in RECENT_CLASSES]
+    recent_sources = {r['record']['source_id'] for r in recent}
+    questions = exam.get('questions') or []
+    sections = {s.get('id'): str(s.get('title') or '') for s in exam.get('sections') or [] if isinstance(s, dict)}
+    if floor.get('recent_sources') and len(recent_sources) < floor['recent_sources']:
+        errors.append(f'current_context: {subject} full paper needs at least {floor["recent_sources"]} verified '
+                      f'recent source(s) (event within {RECENT_DAYS} days before the lock); found {len(recent_sources)}')
+    if floor.get('recent_items') and len(recent) < floor['recent_items']:
+        errors.append(f'current_context: {subject} full paper needs at least {floor["recent_items"]} scored items '
+                      f'whose reasoning depends on a verified recent source; found {len(recent)}')
+    if floor.get('fresh_sources') and lock:
+        fresh = {r['record']['source_id'] for r in recent if (lock - r['event']).days <= FRESH_DAYS}
+        if len(fresh) < floor['fresh_sources']:
+            errors.append(f'current_context: {subject} needs at least {floor["fresh_sources"]} recent source from the '
+                          f'last {FRESH_DAYS} days before the lock (the official pattern is the autumn Nobel prizes '
+                          'or an in-season Taiwan hazard); found ' + str(len(fresh)))
+    if floor.get('both_parts') and recent:
+        numbers = [r['question'].get('number') for r in recent if isinstance(r['question'].get('number'), int)]
+        if not any(n <= 36 for n in numbers) or not any(n >= 37 for n in numbers):
+            errors.append('current_context: 自然 recent items must appear in both 第壹部分 (1-36) and 第貳部分 (37+)')
+    for name, minimum in (floor.get('tags') or {}).items():
+        if name == 'taiwan_hazard':
+            count = sum(1 for q in questions if item_tags(q) & HAZARD_TAGS and 'taiwan' in item_tags(q))
+            what = 'item(s) whose context is a Taiwan hazard (颱風／地震／豪雨／寒害 tagged taiwan plus the hazard)'
+        else:
+            count = sum(1 for q in questions if name in item_tags(q))
+            what = f'item(s) tagged {name}'
+        if count < minimum:
+            errors.append(f'current_context: {subject} full paper needs at least {minimum} {what}; found {count}')
+    if floor.get('composition_trend'):
+        compositions = [q for q in questions if is_composition(q, sections)]
+        tied = [r for r in found['rows'] if r['qualifies'] and r['freshness'] == TREND_CLASS
+                and is_composition(r['question'], sections)]
+        if compositions and not tied:
+            errors.append('current_context: the English composition prompt must declare a verified current_trend '
+                          'source (a real social trend within 730 days before the lock), as four of five official years do')
+    if floor.get('trend_tasks'):
+        tied = [r for r in found['rows'] if r['qualifies'] and r['freshness'] == TREND_CLASS]
+        if len(tied) < floor['trend_tasks']:
+            errors.append(f'current_context: 國寫 needs at least {floor["trend_tasks"]} task tied to a verified '
+                          'current_trend source; older literary material stays eligible for the other task')
+    families = {r['record'].get('source_family') for r in found['rows'] if r['qualifies']}
+    if len({r['record']['source_id'] for r in found['rows'] if r['qualifies']}) >= 2 and len(families) < 2:
+        errors.append('current_context: use at least two unrelated source families across the recent sources')
+    ecology = metadata.get('natural_source_ecology_plan')
+    if subject == '自然' and isinstance(ecology, dict):
+        verified_numbers = {r['question'].get('number') for r in recent}
+        listed = ecology.get('recent_item_numbers') or []
+        unverified = [n for n in listed if n not in verified_numbers]
+        if unverified:
+            errors.append('current_context: natural_source_ecology_plan.recent_item_numbers lists items without a '
+                          'verified current_context record: ' + ', '.join(str(n) for n in unverified))
+    return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('exam', type=Path)
+    parser.add_argument('--report', type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam.read_text(encoding='utf-8-sig'))
+    errors = validate(exam)
+    report = {'status': 'fail' if errors else 'pass', 'errors': errors,
+              'warnings': collect(exam)['warnings'], 'progress': progress(exam),
+              'scope': 'Dates, records and floors only; source truth and reasoning dependence need editorial review'}
+    rendered = json.dumps(report, ensure_ascii=False, indent=2)
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(rendered + '\n', encoding='utf-8')
+    print(rendered)
+    return 2 if errors else 0
 
 
 if __name__ == '__main__':

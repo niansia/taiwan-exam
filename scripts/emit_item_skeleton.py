@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 
 from validate_math_difficulty_design import profile_for, profile_targets, required_decisions
 from validate_paper_difficulty_balance import BANDS
@@ -32,7 +33,13 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
     slot=matches[0]
     number=slot['number']
     question={key:slot[key] for key in ('id','number','section_id','type','score')}
-    if slot.get('subpart_id'):question['subpart_id']=slot['subpart_id']
+    if slot.get('subpart_id'):
+        # Subparts print in subpart_id order; a profile name such as "check"
+        # gets its printed ordinal in front so it cannot sort before "plot".
+        siblings=[s for s in slots if s['number']==number and s.get('subpart_id')]
+        ordinal=next(i for i,s in enumerate(siblings,1) if s['id']==slot['id'])
+        sub=str(slot['subpart_id'])
+        question['subpart_id']=sub if re.match(r'^(?:\d+|[a-z])(?:$|[-_.])',sub) else f'{ordinal}-{sub}'
     if number is None:
         section=next(s for s in profile['sections'] if s['id']==slot['section_id'])
         question['number_display']=slot.get('printed_label') or section['title']

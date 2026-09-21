@@ -208,7 +208,12 @@ from memory. The checker requires positive, ordered, closed intervals for all
 phases and computes total/per-phase times. Interruptions remain wall time, but
 must not be presented as active solving or inspection. Before a turn ends use
 `run_hosted_workflow.py clock --state <latest-state> --operation pause`; on the
-next turn use `--operation resume`. During continuous work record `touch`
+next turn use `--operation resume`. Every `build`, `proof` and `plan` result
+repeats this as `clock_reminder`. If a turn ends without the pause, the clock
+counts at most the idle threshold (ten minutes) after the last tool event as
+work and labels the rest estimated waiting; report phase time from
+`phase_seconds` (active only), never by summing intervals that include
+waiting rows. During continuous work record `touch`
 at least every five minutes, including reading/solving without file writes.
 These commands refresh the selected state's timing hash. Optional
 `--question-ids`, `--page-numbers`, and `--revision-id` identify repair scope.

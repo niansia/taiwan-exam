@@ -14,9 +14,82 @@ import json
 import re
 from pathlib import Path
 
-from run_hosted_workflow import authoring_issues, checkpoint, inside, read, record, save, text_issues
+from run_hosted_workflow import (ASSET_TOKEN, RICH_TAG, SCRIPT_RUN, SPLIT_MIN_CHARACTERS, authoring_issues,
+                                 checkpoint, figure_pagination_risks, inside, printed_fields, read, record, save,
+                                 text_issues)
+from validate_current_context import progress as context_progress, validate as current_context_errors
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
+
+# Subparts print in subpart_id order. An id that starts with its printed
+# ordinal (1, 2-a, b …) cannot be sorted out of order; a bare name can.
+ORDERED_SUBPART = re.compile(r'^(?:\d+|[a-z])(?:$|[-_.])')
+EARLY_PLAN_ITEMS = 20
+# Words that make an option absolute. Such a distractor is wrong only if no
+# condition makes it true; the writer confirms that once, when the item is saved.
+ABSOLUTE_CLAIM = re.compile(r'必定|一定|必然|必|只有|只能|只|僅|無關|皆|所有|全部|不可能|永遠|從不|唯一|任何|一律|'
+                            r'\b(?:always|never|only|all|none|impossible|every|entirely|solely)\b', re.I)
+
+
+def absolute_claim_options(questions):
+    """Options whose wording is absolute; a reminder, never a rejection."""
+    rows = []
+    for question in questions:
+        for option in question.get('options') or []:
+            text = option.get('text') if isinstance(option, dict) else None
+            raw = text['rich'] if isinstance(text, dict) and set(text) == {'rich'} else text
+            if isinstance(raw, str):
+                match = ABSOLUTE_CLAIM.search(raw)
+                if match:
+                    rows.append({'id': question.get('id'), 'label': option.get('label'), 'word': match.group(),
+                                 'text': raw[:60]})
+    return rows
+
+
+def proof_triage(questions, answers, *, first_batch):
+    """Which saved items need an early crop proof, and why.
+
+    Text-only items print through the same paragraph path as every earlier
+    proof; their final-build crops and page review still inspect them. Figures,
+    formulas, rails, tables, gaps and split stimuli are where early proofs have
+    found defects, so those are proofed now.
+    """
+    by_answer = {a.get('question_id'): a for a in answers}
+    recommended, optional = {}, []
+    for question in questions:
+        qid = question.get('id')
+        answer = by_answer.get(qid, {})
+        reasons = []
+        if first_batch:
+            reasons.append('first batch: verify the renderer, font and section layout once')
+        for owner, record_ in (('question', question), ('answer', answer)):
+            if isinstance(record_.get('visual_asset'), dict):
+                reasons.append(owner + ' figure')
+            if record_.get('inline_assets'):
+                reasons.append(owner + ' inline formula image')
+        if question.get('response_format_table'):
+            reasons.append('response table')
+        if question.get('answer_format') or question.get('continuation_pages') or question.get('group_stimulus_page_splits'):
+            reasons.append('fill rail or explicit page continuation')
+        stimulus = question.get('group_stimulus')
+        if isinstance(stimulus, str) and len(stimulus) >= SPLIT_MIN_CHARACTERS:
+            reasons.append('long shared stimulus that may split across pages')
+        for where, value in printed_fields(question, answer):
+            rich = isinstance(value, dict) and set(value) == {'rich'}
+            raw = value['rich'] if rich else value
+            if not isinstance(raw, str):
+                continue
+            if rich or RICH_TAG.search(raw) or SCRIPT_RUN.search(raw) or ASSET_TOKEN.search(raw):
+                reasons.append(f'{where}: sub/superscript, markup or formula image')
+            if '{{answer}}' in raw or '______' in raw or re.search(r'\[\[\d+\]\]', raw):
+                reasons.append(f'{where}: answer blank or gap')
+        if reasons:
+            recommended[qid] = list(dict.fromkeys(reasons))
+        else:
+            optional.append(qid)
+    return {'proof_recommended': recommended, 'proof_optional': optional,
+            'proof_note': ('Proof the recommended items now (their crops carry forward to the final build). '
+                           'Text-only items may wait for the final build, where every crop and page is still reviewed.')}
 
 
 def design_gaps(exam, root, questions):
@@ -29,6 +102,8 @@ def design_gaps(exam, root, questions):
     messages = list(difficulty_balance(exam, root)['errors'])
     if exam.get('metadata', {}).get('subject') in {'數學A', '數學B'}:
         messages += math_design(exam)['errors']
+    # Per-item record defects only; the whole-paper floors are reported as progress.
+    messages += [m for m in current_context_errors(exam) if not m.startswith('current_context:')]
     gaps = {}
     for question in questions:
         prefixes = (question['id'] + ':', f"Q{question.get('number')}:")
@@ -55,6 +130,16 @@ def check_numbering(questions):
         if group and (sub is None or None in group or sub in group):
             raise ValueError('Question number collides; same-number scored subparts require unique subpart_id')
         group.append(sub)
+    for n,subs in groups.items():
+        if len(subs)<2:
+            continue
+        unordered=[s for s in subs if not ORDERED_SUBPART.match(s)]
+        if unordered:
+            raise ValueError(f'Question {n}: subparts print in subpart_id order, so ids sharing one number must '
+                             f'start with their printed ordinal (1, 2, 1-plot, 2-calculation or a, b); rename '
+                             + ', '.join(sorted(unordered)))
+        if len({s[0].isdigit() for s in subs})>1:
+            raise ValueError(f'Question {n}: use one ordering scheme for its subparts, either 1, 2, … or a, b, …')
 
 
 def validate_batch(batch):
@@ -155,6 +240,7 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
     current_questions, current_answers = exam.get('questions', []), exam.get('answers', [])
     if not isinstance(current_questions, list) or not isinstance(current_answers, list):
         raise ValueError('Existing exam requires question and answer lists')
+    first_batch = not current_questions
     by_id = {q['id']: q for q in current_questions}
     by_answer = {a['question_id']: a for a in current_answers}
     if len(by_id) != len(current_questions) or len(by_answer) != len(current_answers):
@@ -202,6 +288,26 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         report['design_fields_pending'] = gaps
         report['design_note'] = ('The final check requires these difficulty-design fields. They are not printed: '
                                  'complete them with --replace as the batch is solved and reviewed; page reviews stay valid.')
+    report.update(proof_triage(questions, answers, first_batch=first_batch))
+    context = context_progress(exam)
+    if context:
+        report['current_context_progress'] = context
+        report['current_context_note'] = ('Verified recent sources and tagged Taiwan/hazard/climate contexts so far against '
+                                          'the subject floor (references/current-form-topicality.md); plan the remaining '
+                                          'recent items now, not after the paper is paginated.')
+    absolute = absolute_claim_options(questions)
+    if absolute:
+        report['absolute_claim_options'] = absolute
+        report['absolute_claim_note'] = ('For each absolute wording ask once: is there any condition under which this '
+                                         'option is true? If so, reword it before proof; a correct key is unaffected.')
+    risks = figure_pagination_risks(questions, answers, root=root, subject=exam['metadata'].get('subject'))
+    if risks:
+        report['layout_risks'] = risks
+    # About a third of a 自然/社會/英文 paper, or most of a 國綜/數學 paper.
+    if len(exam['questions']) >= EARLY_PLAN_ITEMS and not (root / 'content-lock.json').exists():
+        report['plan_hint'] = ('Enough items are saved to learn the pagination rhythm: run specs, then '
+                               '`run_hosted_workflow.py plan` (seconds, no PDFs) and fix tall figures or '
+                               'over-long groups now instead of after the whole paper is paginated.')
     return report
 
 

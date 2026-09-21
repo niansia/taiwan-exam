@@ -202,6 +202,36 @@ python scripts/run_hosted_workflow.py proof --state run/run-state.json --questio
 Where the runtime allows, chain `append_items.py`, `specs` and `proof` with `&&`
 in one tool call, so each batch costs one command before its crops are opened.
 
+Proof what can print wrongly, not everything. The saved-batch result lists
+`proof_recommended` (the first batch, and any item with a figure, inline formula
+image, sub/superscript or markup, answer blank or gap, response table, fill rail,
+or a long shared stimulus) with the reason, and `proof_optional` (plain-text
+items, which print through the same paragraph path as every earlier proof).
+Proof the recommended items now; text-only items may wait for the final build,
+where every crop and every page is still reviewed. A measured 自然 paper spent
+90 minutes on 50 batch proofs whose text-only crops found no defect.
+
+The same result names other things that are cheapest to fix while the item is
+fresh: `absolute_claim_options` (options containing 必定／只／無關／皆 and
+similar; ask once whether any condition makes the option true), `layout_risks`
+(a figure that will print taller than 40% of the body and force a page break;
+lower `width_percent`, redraw wider, or place it side-right now), and
+`plan_hint` once about twenty items are saved.
+
+Subparts print in `subpart_id` order, so ids that share one printed number must
+start with their printed ordinal (`1-plot`, `2-calculation`, or `a`, `b`); a
+bare name such as `plot`/`calculation` is refused because alphabetical order
+would print (2) before (1). `emit_item_skeleton.py` already prefixes the
+ordinal for profile slot names.
+
+Draw each figure with its own small script and run
+`python scripts/normalize_figure_asset.py FIG.svg` (or `.pdf`) before recording
+its sha256: it strips the export timestamp, random document ID and salted
+element ids, so an unchanged figure redrawn later keeps its hash and its item,
+reviews and content lock stay valid. Regenerating a whole batch of figures with
+one script changes every hash and costs a `--replace`, re-lock and rebuild for
+figures that did not change.
+
 `specs` copies printed text only from exam.json and applies the same saved-item
 conventions as the maintained official-form renderers, for every subject:
 section titles/instructions; prompts; options printed as `(A)`/`(1)`;
@@ -284,7 +314,19 @@ renewed dependent reviews and `lock-content --reason "actual correction"`.
 The lock preserves its previous version and never supplies editorial approval.
 The build's `page-plan.json` reports actual measured heights, kept blocks, page
 item IDs and remaining bottom space. Inspect these and `reflow_before_review`
-before opening a long review queue. Rendering has a separate-process,
+before opening a long review queue. Do not pay for a full build to learn only
+the pagination: `run_hosted_workflow.py plan` runs the same renderer on the same
+specs in seconds, writes `page-plan.json` with each page's `bottom_void_ratio`
+and lists `bottom_void_attention` pages, but composes no booklet, rasterizes
+nothing and creates no review state. Run it once about twenty items in (the
+batch result says when) to learn the paper's rhythm and catch tall figures or
+over-long groups early, and again after each layout-hint repair; run one full
+build only when the plan is acceptable. A measured 自然 run spent 16 of 17
+builds (about 25 minutes) on pagination that a plan would have shown.
+
+```text
+python scripts/run_hosted_workflow.py plan --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --output run/plan-01
+``` Rendering has a separate-process,
 20-second per-operation stall guard; it reports the block to repair rather
 than retrying exact-fit indefinitely. No guard bypasses a quality check.
 
