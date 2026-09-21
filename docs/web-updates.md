@@ -5,6 +5,14 @@
 以下是修正摘要；目前執行規則以 [SKILL.md](../SKILL.md) 與最新版知識檔為準。
 更新 GitHub 不會自動替換帳號內已儲存的附件，請更新原本的 Skill／Project／Gem。
 
+## 2026.09.21.3：ZIP 內建 PyMuPDF，缺套件的環境也能直接跑
+
+使用者實跑時，AI 回報執行環境沒有 PyMuPDF，而且組織的網路政策擋掉 pypi，於是 10 個 hosted 工具在預檢第一步就停下（這是正確行為，沒有自畫版面）。PyMuPDF 是編譯過的二進位套件，本來不在 ZIP 裡。
+
+這版把 PyMuPDF 1.26.0 的 wheel（cp39-abi3、manylinux x86_64，適用 Linux 容器上的 Python 3.9 以上，無其他相依）放進 ZIP 的 `resources/wheels/`，新增 `scripts/ensure_pymupdf.py`：先檢查能不能 `import pymupdf`，不行就用 `pip install --no-index` 從內建 wheel 離線安裝（先裝系統 site-packages，失敗再裝使用者目錄），完全不連網、不碰代理或政策設定。預檢 `prepare_hosted_run.py` 會自動先跑這一步，執行路線說明也寫明：只有安裝器回報 `install-failed` 或 `missing-wheel` 時才算卡住，不得改用其他 PDF 程式庫重畫版面。
+
+ZIP 因此從約 9 MB 增為約 33 MB；`PACKAGE_MANIFEST.json` 記錄 wheel 的雜湊、版本與 AGPL-3.0 授權。wheel 不進版本庫（`vendor/wheels/`，見其 README 的下載指令），發布建置以 `--require-wheels` 強制存在。本機安裝包不含 wheel，照常用 pip 安裝需求。
+
 ## 2026.09.21.2：以大考中心〈試題特色〉交叉核對自然、社會、英文
 
 把專案內建的 111～115 量測值，逐項對照大考中心各年〈學科能力測驗試題特色〉（自然、社會、英文）與磁碟上的正式試卷。磁碟上的 PDF 與大考中心目錄網址的檔案雜湊一致（114 自然為更正後定稿：規模 9.0、2011/3/11，不是考當天版本）；`analyze_current_form_literacy.py` 重跑後與內建 envelope 完全相同。

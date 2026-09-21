@@ -79,6 +79,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "validate_math_difficulty_design.py")
     paths.append(root / "scripts" / "validate_literacy_load.py")
     paths.append(root / "scripts" / "validate_paper_difficulty_balance.py")
+    paths.append(root / "scripts" / "ensure_pymupdf.py")
 
     for pack in ("學測", "會考"):
         pack_root = root / "exam_packs" / pack

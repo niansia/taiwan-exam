@@ -13,7 +13,10 @@ import subprocess
 import sys
 import time
 
-import pymupdf
+import ensure_pymupdf
+
+ensure_pymupdf.require()  # Installs the bundled wheel offline when the runtime lacks PyMuPDF.
+import pymupdf  # noqa: E402
 from compose_hosted_pdf import compose
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, materialize, production_records, verify
 from hosted_calibration import SUBJECTS, snapshot
@@ -25,7 +28,7 @@ from verify_fixed_template_pdf import verify_pdf
 PREFLIGHT_DEPENDENCIES = (
     'prepare_hosted_run.py', 'compose_hosted_pdf.py', 'fetch_hosted_template_assets.py',
     'verify_fixed_template_pdf.py', 'inspect_hosted_pdf.py', 'validate_math_context.py',
-    'hosted_calibration.py', 'hosted_run_timing.py', 'hosted_blind_review.py',
+    'hosted_calibration.py', 'hosted_run_timing.py', 'hosted_blind_review.py', 'ensure_pymupdf.py',
 )
 
 
