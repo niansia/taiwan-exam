@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "subject": "自然",
+  "basis": "Maintainer reading of every 第貳部分 題組 in the supplied CEEC 學測 ROC 111-115 Natural Science booklets. Each group was classified by whether a candidate must use concepts from more than one of 物理／化學／生物／地科 to reach the scored answers, not by whether a second discipline is merely mentioned.",
+  "status": "reviewed-manual-classification",
+  "caution": "This is an editorial reading recorded for release calibration, not an official CEEC annotation. Re-review it whenever a newer official paper is ingested.",
+  "measured_at": "2026-09-21",
+  "years": [
+    {
+      "roc_year": 111,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 3,
+      "groups": [
+        {"group": "37-42", "topic": "黑碳定年與碳質分離", "disciplines": ["化學", "地科", "生物"], "cross_discipline": true},
+        {"group": "43-45", "topic": "海階、海蝕凹壁與穿孔貝", "disciplines": ["地科", "生物"], "cross_discipline": true},
+        {"group": "46-48", "topic": "SARS-CoV-2 與疫苗", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "49-54", "topic": "都卜勒血流儀與飲酒後血流速", "disciplines": ["物理", "生物"], "cross_discipline": true},
+        {"group": "55-57", "topic": "飲用水六價鉻移除", "disciplines": ["化學"], "cross_discipline": false},
+        {"group": "58-60", "topic": "量子單元與電磁天平質量基準", "disciplines": ["物理"], "cross_discipline": false}
+      ]
+    },
+    {
+      "roc_year": 112,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 5,
+      "groups": [
+        {"group": "37-40", "topic": "燃煤、水力發電與二氧化碳減排", "disciplines": ["地科", "物理", "化學"], "cross_discipline": true},
+        {"group": "41-44", "topic": "火星與地球的居住條件比較", "disciplines": ["地科", "物理"], "cross_discipline": true},
+        {"group": "45-47", "topic": "乳糖發酵與酪蛋白凝聚", "disciplines": ["生物", "化學"], "cross_discipline": true},
+        {"group": "48-50", "topic": "孟德爾、摩根與演化理論", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "51-54", "topic": "岩心中的二氧化碳與鉛紀錄", "disciplines": ["化學", "地科"], "cross_discipline": true},
+        {"group": "55-60", "topic": "抗藥性細菌與點擊反應", "disciplines": ["化學", "生物"], "cross_discipline": true}
+      ]
+    },
+    {
+      "roc_year": 113,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 3,
+      "groups": [
+        {"group": "37-39", "topic": "肉雞選育與飼料轉化率", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "40-43", "topic": "捕蠅草捕器的膨壓機制", "disciplines": ["生物", "物理"], "cross_discipline": true},
+        {"group": "44-46", "topic": "線圈迴路與磁鐵棒", "disciplines": ["物理"], "cross_discipline": false},
+        {"group": "47-49", "topic": "二氧化碳電化學還原", "disciplines": ["化學"], "cross_discipline": false},
+        {"group": "50-53", "topic": "縞狀鐵礦床的形成模型", "disciplines": ["地科", "化學"], "cross_discipline": true},
+        {"group": "54-56", "topic": "多波段天文觀測", "disciplines": ["地科", "物理"], "cross_discipline": true}
+      ]
+    },
+    {
+      "roc_year": 114,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 4,
+      "groups": [
+        {"group": "37-39", "topic": "虱目魚耐寒與調鈣蛋白", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "40-43", "topic": "海洋水色與基礎生產力", "disciplines": ["地科", "生物"], "cross_discipline": true},
+        {"group": "44-46", "topic": "乾濕球溫度計與颱風警報", "disciplines": ["地科", "物理"], "cross_discipline": true},
+        {"group": "47-49", "topic": "類神經網路與神經細胞膜傳訊", "disciplines": ["物理", "生物"], "cross_discipline": true},
+        {"group": "50-54", "topic": "二氧化鈦光觸媒的能帶與自由基", "disciplines": ["化學", "物理"], "cross_discipline": true},
+        {"group": "55-57", "topic": "烷類莫耳燃燒熱", "disciplines": ["化學"], "cross_discipline": false}
+      ]
+    },
+    {
+      "roc_year": 115,
+      "mixed_groups": 6,
+      "cross_discipline_groups": 4,
+      "groups": [
+        {"group": "37-39", "topic": "巴西龜溫度決定性別與親緣分析", "disciplines": ["生物"], "cross_discipline": false},
+        {"group": "40-43", "topic": "野生菸草花蜜成分與蜂鳥取食", "disciplines": ["生物", "化學"], "cross_discipline": true},
+        {"group": "44-46", "topic": "硫化鋅量子點合成", "disciplines": ["化學", "物理"], "cross_discipline": true},
+        {"group": "47-49", "topic": "汞原子能階與紫外光微影", "disciplines": ["物理"], "cross_discipline": false},
+        {"group": "50-53", "topic": "港口潮汐觀測與潮位預報", "disciplines": ["地科", "物理"], "cross_discipline": true},
+        {"group": "54-56", "topic": "隕石放射性同位素定年", "disciplines": ["地科", "化學"], "cross_discipline": true}
+      ]
+    }
+  ],
+  "summary": {
+    "mixed_groups_per_paper": 6,
+    "cross_discipline_groups_per_paper": {"min": 3, "median": 4, "max": 5},
+    "cross_discipline_share": 0.633,
+    "release_floor": 3,
+    "release_floor_note": "At least three of the six 第貳部分 題組 must be genuinely cross-disciplinary, matching the weakest observed official year. A second discipline that can be deleted without changing the solution does not count."
+  }
+}

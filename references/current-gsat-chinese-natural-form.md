@@ -53,6 +53,28 @@ Per-year density checks:
 - ROC 114: 12 pages; 13034 compact characters; 36 item starts; 0 pages below 60% used; 12 pages with visual signal.
 - ROC 115: 12 pages; 13319 compact characters; 36 item starts; 0 pages below 60% used; 12 pages with visual signal.
 
+### 國綜 shared-stimulus floor
+
+Measured ROC 111–115: 12 pages, 11,926–12,871 substantive characters, 9–10 題組
+per paper (7–9 in 第壹部分 carrying 19–21 items), with a per-year group-stimulus
+median of 365–572 characters. Release floors: at least **8 題組**, a group-stimulus
+median of at least **300 characters**, and at least **9,117 characters** of item
+content (stimuli, stems and options; the cover and 說明 blocks are the Layout
+Profile's, not the writer's). Restore length with genuine reading material — a longer excerpt, a
+second paired text, a real document — never with directions boilerplate or
+repeated framing sentences.
+
+Every scored item in a complete 國綜 paper also records
+`item_spec.chinese_reasoning_contract`, the reading-evidence counterpart of the
+自然 contract below. It must set `recall_or_definition_only: false` and
+`single_cue_recognition_only: false`, name the `textual_evidence_span` a
+candidate must use, state the `material_dependency` that fails when the passage
+is removed, and list at least two linked reasoning operations — three when the
+declared band is 中, 中偏難 or 難. Recognising one 通同字, matching a 成語 to its
+gloss, or picking the option that repeats a nearby sentence is one cue, not a
+reasoning chain. `validate_chinese_natural_scope.py` rejects a missing or
+collapsed contract.
+
 ### 國綜短答與核心古文：命題及驗收硬規則
 
 以下為使用者指定的新卷命題規則，與上方歷年量測資料分開處理；只適用國綜，不得套用到國寫或回寫官方歷史資料。
@@ -93,6 +115,47 @@ Per-year density checks:
 `mechanism_family` 與 `new_subject_mechanism` 必須描述學生實際操作的新科學關係，例如模型與證據互修、變因控制、競爭解釋、限制條件、誤差／不確定性、極端情況、實驗重設、多層表徵轉換或真正跨物理／化學／生物／地科的系統連結。`evidence_or_reasoning_architecture` 必須列出觀察／資料、課綱概念、推論、檢核的順序；`nearest_neighbor_difference` 必須具體指出最近鄰題在變因、控制組、因果結構、資料關係、模型假設、圖形拓樸、選項錯誤路徑或跨科依賴上的差異。
 
 單純換一張圖後讀取同一個標示值、把公式代入包成新聞、重畫同一裝置、把同一實驗換物種、或讓五個選項重複同一機械判斷，都不算創新。完整卷的 `metadata.subject_innovation_review` 必須分別檢查四科、探究實作、兩大部分與混合題的機制及表徵飽和，並與九題分科區塊和整卷難度平衡共同驗收。由 `scripts/validate_chinese_natural_scope.py` 做結構退件；欄位通過不表示科學事實、課綱、答案或實際新穎性已通過。
+
+### 自然: shared stimulus and cross-disciplinary mixed groups
+
+Measured ROC 111–115
+(`exam_packs/學測/shared-data/current-form-literacy-envelope.json`): the booklet
+runs 19–20 pages and 13,517–15,243 substantive characters and carries 9–12 題組.
+**Three to six of those sit inside 第壹部分**, carrying 6–12 of questions 1–36;
+第貳部分 prints exactly 6. Group stimuli run to a per-year median of 100–198
+characters in 第壹部分 and 188–365 in 第貳部分.
+
+A paper written as 36 standalone one- or two-sentence items plus six thin mixed
+groups is not this form. It is the observed failure mode, and it produces the
+short-paper and easy-paper defects together, because the shared stimulus is
+where the reading load and the multi-step inference live.
+
+Release floors, all below the weakest official year: at least **3 第壹部分 題組
+carrying at least 6 items**; exactly **6 第貳部分 題組**; a 第貳部分 stimulus median
+of at least **175 characters** with at most **2 groups under 120**; a 第壹部分
+stimulus median of at least **90**; and at least **10,687 characters** of item
+content (stimuli, stems and options, excluding the cover and 說明 blocks). ROC 113 is the binding case at a 188-character
+median with two short groups.
+
+At least **three of the six 第貳部分 題組** must genuinely require two or more of
+物理／化學／生物／地科. Official years run 3–5 of 6 (median 4); the per-group
+classification is recorded in
+`exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json`. Declare
+each such group in `metadata.natural_mixed_group_designs` using the existing
+record shape — `question_numbers`, `required_domains`, `evidence_bridge` — plus
+`second_discipline_removable: false`. At least one subpart must also record the
+second discipline in `item_spec.domain` or `item_spec.secondary_domains`; a
+declaration by itself never establishes the crossing. A group
+counts only when deleting the second discipline changes the solution: the
+official pattern is a shared object or measurement that forces the crossing, as
+in 115's printed 苄丙酮／尼古丁 structural formulas driving a pollination argument,
+114's band-gap excitation producing the radicals that do the decomposition
+chemistry, or 111's Doppler frequency shift serving as the instrument for a
+circulatory measurement. Naming a second field, or setting a biology item in a
+laboratory, does not qualify.
+
+Run `scripts/validate_literacy_load.py generated-exam.json --subject 自然` before
+layout. See [current-form-literacy-load.md](current-form-literacy-load.md).
 
 ### Discipline order and reasoning floor
 

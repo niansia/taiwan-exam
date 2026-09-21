@@ -101,6 +101,27 @@ Scope membership alone is not enough. Every item must record a specific `core_cu
 
 ### Prevent short-material collapse
 
+Measured ROC 111–115 envelope, from `exam_packs/學測/shared-data/current-form-literacy-envelope.json`:
+the booklet runs 18–20 pages and 13,446–15,269 substantive characters, carries
+14–19 題組 (5–10 of them inside 第壹部分, 8–11 in 第貳部分), and its unique group
+stimuli have a per-year median of 203–271 characters. ROC 111 is the weakest
+year on every one of those measures.
+
+Release floors, all set below that weakest year: at least 5 第壹部分 題組 and 7
+第貳部分 題組; a group-stimulus median of at least 170 characters; at most 30% of
+groups under 110 characters; and at least 10,802 characters of item content
+(stimuli, stems and options, excluding the cover and 說明 blocks, which the
+Layout Profile prints). `validate_social_item_design.py` enforces the median and
+the short-material ratio; `validate_literacy_load.py` enforces the group counts
+and the paper volume. The earlier 120-character median floor sat at roughly half
+the weakest official year and is retired.
+
+`social_reasoning_contract.reasoning_operations` keeps its two-operation floor
+for an accessible item and now requires **three** whenever
+`item_spec.difficulty_design.band` is 中, 中偏難 or 難, the same escalation 自然 and
+國綜 apply. A band label is a claim about the shortest solution route, not a
+decoration: if the third operation cannot be named, the item is 簡單.
+
 The printed evidence must be rich enough to support the claimed operations. Reject a full paper whose apparent literacy is created by attaching a 60–100-character mini-scenario to nearly every question while leaving most pages sparsely occupied. Short items remain valid only as a deliberate minority matching a short current-form role. Across the paper, use substantial historical excerpts, paired accounts, maps, statistical displays, life documents, policy or legal excerpts, photographs, and multi-source groups so that students must locate relations rather than infer the intended textbook term from one cue.
 
 Before item review, measure each unique printed stimulus once, the prompt and all options, and the final student PDF's compact interior text. Compare the rendered paper with the selected official question booklet using `validate_reference_page_density.py`; the whole-paper substantive-text floor is 80% of the reference and does not include invisible metadata, answer explanations, duplicated shared material, oversized headings, blank answer lines, or decorative captions. An answer-bearing photograph, map, or chart may legitimately replace some prose on its page, but its observed features and reasoning role must be stated in the page review. Passing the numeric floor does not excuse repetitive one-paragraph scenarios, and failing it may not be repaired by smaller type, wider text blocks, padded options, or irrelevant prose.

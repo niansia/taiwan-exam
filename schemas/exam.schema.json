@@ -36,6 +36,7 @@
         ,"paper_originality_matrix": {"type": "object"}
         ,"group_originality_records": {"type": "array"}
         ,"mixed_group_originality_records": {"type": "array", "items": {"type": "object"}}
+        ,"natural_mixed_group_designs": {"type": "array", "items": {"type": "object", "required": ["question_numbers", "required_domains", "evidence_bridge"], "properties": {"question_numbers": {"type": "array", "minItems": 2, "items": {"type": "integer"}}, "required_domains": {"type": "array", "minItems": 2, "items": {"type": "string", "enum": ["物理", "化學", "生物", "地科", "地球科學"]}}, "evidence_bridge": {"type": "string", "minLength": 12}, "second_discipline_removable": {"const": false}}}}
         ,"layout_contract_version": {"type": "integer", "minimum": 1}
         ,"cover_year_title": {"type": "string"}
         ,"running_year_label": {"type": "string"}

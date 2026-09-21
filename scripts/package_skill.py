@@ -91,6 +91,7 @@ render_exam.py render_gsat_internal_review_pdf.py render_gsat_internal_review.py
 render_gsat_official_pdf.py render_gsat_official.py render_pdf.py render_visual.py
 gsat_115_templates.py render_gsat_template_assets.py
 summarize_four_band_reference.py validate_attribution.py
+analyze_current_form_literacy.py validate_literacy_load.py
 validate_chinese_natural_scope.py validate_current_form_density.py
 validate_english_difficulty_design.py
 validate_english_layout_contract.py validate_english_vocabulary_scope.py

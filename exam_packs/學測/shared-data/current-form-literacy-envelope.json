@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "basis": "Direct text measurement of the supplied CEEC 學測 ROC 111-115 question booklets, running headers/footers and the signature banner removed. Reading-load floors only; not a verified Layout Profile and not an official difficulty statistic.",
+  "field_note": "substantive_compact_chars excludes repeated page furniture and is therefore lower than the whole-PDF compact_chars in current-chinese-natural-density.json. item_content_compact_chars additionally excludes the cover page and the section 說明 blocks, and is the basis a gate reading the authored exam record must use. The three are not interchangeable.",
+  "measured_at": "2026-09-21T01:42:41.586383+00:00",
+  "roc_years": [
+    111,
+    112,
+    113,
+    114,
+    115
+  ],
+  "incomplete_subjects": [],
+  "usage": "An anti-collapse floor for release gates. Never pad prose, inflate answer space or duplicate material to reach these numbers.",
+  "subjects": [
+    {
+      "subject": "國綜",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 12,
+          "substantive_compact_chars": 11926,
+          "cjk_chars": 9406,
+          "english_words": 151,
+          "item_content_compact_chars": 10727,
+          "item_content_english_words": 143,
+          "groups": {
+            "total": 9,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 19,
+            "part_2_groups": 2,
+            "part_2_grouped_items": 5
+          }
+        },
+        {
+          "roc_year": 112,
+          "page_count": 12,
+          "substantive_compact_chars": 12422,
+          "cjk_chars": 9852,
+          "english_words": 186,
+          "item_content_compact_chars": 11122,
+          "item_content_english_words": 174,
+          "groups": {
+            "total": 10,
+            "part_1_groups": 8,
+            "part_1_grouped_items": 20,
+            "part_2_groups": 2,
+            "part_2_grouped_items": 5
+          }
+        },
+        {
+          "roc_year": 113,
+          "page_count": 12,
+          "substantive_compact_chars": 12805,
+          "cjk_chars": 10461,
+          "english_words": 148,
+          "item_content_compact_chars": 11794,
+          "item_content_english_words": 140,
+          "groups": {
+            "total": 10,
+            "part_1_groups": 9,
+            "part_1_grouped_items": 21,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 5
+          }
+        },
+        {
+          "roc_year": 114,
+          "page_count": 12,
+          "substantive_compact_chars": 12571,
+          "cjk_chars": 10057,
+          "english_words": 179,
+          "item_content_compact_chars": 11004,
+          "item_content_english_words": 171,
+          "groups": {
+            "total": 9,
+            "part_1_groups": 8,
+            "part_1_grouped_items": 21,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 5
+          }
+        },
+        {
+          "roc_year": 115,
+          "page_count": 12,
+          "substantive_compact_chars": 12871,
+          "cjk_chars": 10283,
+          "english_words": 151,
+          "item_content_compact_chars": 10932,
+          "item_content_english_words": 143,
+          "groups": {
+            "total": 9,
+            "part_1_groups": 8,
+            "part_1_grouped_items": 21,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 5
+          }
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 11926,
+        "median": 12571,
+        "max": 12871
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 10727,
+        "median": 11004,
+        "max": 11794
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 140,
+        "median": 143,
+        "max": 174
+      },
+      "part_1_group_stimulus_chars": {
+        "count": 40,
+        "min": 15,
+        "median": 477,
+        "max": 1104
+      },
+      "part_2_group_stimulus_chars": {
+        "count": 7,
+        "min": 15,
+        "median": 650,
+        "max": 1020
+      }
+    },
+    {
+      "subject": "國寫",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 3,
+          "substantive_compact_chars": 1528,
+          "cjk_chars": 1242,
+          "english_words": 12,
+          "item_content_compact_chars": 1109,
+          "item_content_english_words": 10,
+          "task_1_compact_chars": 659,
+          "task_2_compact_chars": 435
+        },
+        {
+          "roc_year": 112,
+          "page_count": 3,
+          "substantive_compact_chars": 1611,
+          "cjk_chars": 1362,
+          "english_words": 2,
+          "item_content_compact_chars": 1172,
+          "item_content_english_words": 0,
+          "task_1_compact_chars": 760,
+          "task_2_compact_chars": 397
+        },
+        {
+          "roc_year": 113,
+          "page_count": 3,
+          "substantive_compact_chars": 1775,
+          "cjk_chars": 1502,
+          "english_words": 5,
+          "item_content_compact_chars": 1336,
+          "item_content_english_words": 3,
+          "task_1_compact_chars": 745,
+          "task_2_compact_chars": 576
+        },
+        {
+          "roc_year": 114,
+          "page_count": 3,
+          "substantive_compact_chars": 1638,
+          "cjk_chars": 1394,
+          "english_words": 3,
+          "item_content_compact_chars": 1199,
+          "item_content_english_words": 1,
+          "task_1_compact_chars": 839,
+          "task_2_compact_chars": 345
+        },
+        {
+          "roc_year": 115,
+          "page_count": 4,
+          "substantive_compact_chars": 1908,
+          "cjk_chars": 1603,
+          "english_words": 5,
+          "item_content_compact_chars": 1460,
+          "item_content_english_words": 3,
+          "task_1_compact_chars": 943,
+          "task_2_compact_chars": 502
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 1528,
+        "median": 1638,
+        "max": 1908
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 1109,
+        "median": 1199,
+        "max": 1460
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 0,
+        "median": 3,
+        "max": 10
+      }
+    },
+    {
+      "subject": "英文",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 12,
+          "substantive_compact_chars": 18388,
+          "cjk_chars": 946,
+          "english_words": 3439,
+          "item_content_compact_chars": 16267,
+          "item_content_english_words": 3109,
+          "groups": {
+            "total": 8,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 3
+          },
+          "section_total_english_words": {
+            "詞彙題": 263,
+            "綜合測驗": 502,
+            "文意選填": 323,
+            "篇章結構": 295,
+            "閱讀測驗": 1527,
+            "混合題": 522
+          }
+        },
+        {
+          "roc_year": 112,
+          "page_count": 12,
+          "substantive_compact_chars": 18142,
+          "cjk_chars": 899,
+          "english_words": 3403,
+          "item_content_compact_chars": 16167,
+          "item_content_english_words": 3081,
+          "groups": {
+            "total": 7,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 0,
+            "part_2_grouped_items": 0
+          },
+          "section_total_english_words": {
+            "詞彙題": 264,
+            "綜合測驗": 526,
+            "文意選填": 315,
+            "篇章結構": 340,
+            "閱讀測驗": 1476,
+            "混合題": 475
+          }
+        },
+        {
+          "roc_year": 113,
+          "page_count": 12,
+          "substantive_compact_chars": 18567,
+          "cjk_chars": 959,
+          "english_words": 3382,
+          "item_content_compact_chars": 16485,
+          "item_content_english_words": 3041,
+          "groups": {
+            "total": 8,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 4
+          },
+          "section_total_english_words": {
+            "詞彙題": 265,
+            "綜合測驗": 518,
+            "文意選填": 334,
+            "篇章結構": 330,
+            "閱讀測驗": 1489,
+            "混合題": 439
+          }
+        },
+        {
+          "roc_year": 114,
+          "page_count": 12,
+          "substantive_compact_chars": 18322,
+          "cjk_chars": 896,
+          "english_words": 3321,
+          "item_content_compact_chars": 16249,
+          "item_content_english_words": 3004,
+          "groups": {
+            "total": 8,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 4
+          },
+          "section_total_english_words": {
+            "詞彙題": 262,
+            "綜合測驗": 487,
+            "文意選填": 310,
+            "篇章結構": 364,
+            "閱讀測驗": 1456,
+            "混合題": 435
+          }
+        },
+        {
+          "roc_year": 115,
+          "page_count": 12,
+          "substantive_compact_chars": 19230,
+          "cjk_chars": 942,
+          "english_words": 3536,
+          "item_content_compact_chars": 17223,
+          "item_content_english_words": 3238,
+          "groups": {
+            "total": 8,
+            "part_1_groups": 7,
+            "part_1_grouped_items": 36,
+            "part_2_groups": 1,
+            "part_2_grouped_items": 4
+          },
+          "section_total_english_words": {
+            "詞彙題": 256,
+            "綜合測驗": 535,
+            "文意選填": 291,
+            "篇章結構": 336,
+            "閱讀測驗": 1587,
+            "混合題": 524
+          }
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 18142,
+        "median": 18388,
+        "max": 19230
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 16167,
+        "median": 16267,
+        "max": 17223
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 3004,
+        "median": 3081,
+        "max": 3238
+      },
+      "part_1_group_stimulus_chars": {
+        "count": 35,
+        "min": 909,
+        "median": 1594,
+        "max": 1962
+      },
+      "part_2_group_stimulus_chars": {
+        "count": 4,
+        "min": 1923,
+        "median": 2677,
+        "max": 3253
+      },
+      "section_total_english_word_bands": {
+        "詞彙題": {
+          "count": 5,
+          "min": 256,
+          "median": 263,
+          "max": 265
+        },
+        "綜合測驗": {
+          "count": 5,
+          "min": 487,
+          "median": 518,
+          "max": 535
+        },
+        "文意選填": {
+          "count": 5,
+          "min": 291,
+          "median": 315,
+          "max": 334
+        },
+        "篇章結構": {
+          "count": 5,
+          "min": 295,
+          "median": 336,
+          "max": 364
+        },
+        "閱讀測驗": {
+          "count": 5,
+          "min": 1456,
+          "median": 1489,
+          "max": 1587
+        },
+        "混合題": {
+          "count": 5,
+          "min": 435,
+          "median": 475,
+          "max": 524
+        }
+      },
+      "section_band_note": "Total English words printed in the section, including directions, item stems and options. Not passage prose alone: the per-passage prose bands live in references/current-gsat-english-form.md.",
+      "paper_english_words": {
+        "count": 5,
+        "min": 3321,
+        "median": 3403,
+        "max": 3536
+      }
+    },
+    {
+      "subject": "社會",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 18,
+          "substantive_compact_chars": 13446,
+          "cjk_chars": 10770,
+          "english_words": 250,
+          "item_content_compact_chars": 12709,
+          "item_content_english_words": 247,
+          "groups": {
+            "total": 19,
+            "part_1_groups": 10,
+            "part_1_grouped_items": 24,
+            "part_2_groups": 9,
+            "part_2_grouped_items": 21
+          }
+        },
+        {
+          "roc_year": 112,
+          "page_count": 20,
+          "substantive_compact_chars": 14282,
+          "cjk_chars": 11488,
+          "english_words": 251,
+          "item_content_compact_chars": 13982,
+          "item_content_english_words": 249,
+          "groups": {
+            "total": 18,
+            "part_1_groups": 10,
+            "part_1_grouped_items": 24,
+            "part_2_groups": 8,
+            "part_2_grouped_items": 20
+          }
+        },
+        {
+          "roc_year": 113,
+          "page_count": 19,
+          "substantive_compact_chars": 14498,
+          "cjk_chars": 11723,
+          "english_words": 256,
+          "item_content_compact_chars": 13636,
+          "item_content_english_words": 253,
+          "groups": {
+            "total": 15,
+            "part_1_groups": 6,
+            "part_1_grouped_items": 15,
+            "part_2_groups": 9,
+            "part_2_grouped_items": 29
+          }
+        },
+        {
+          "roc_year": 114,
+          "page_count": 20,
+          "substantive_compact_chars": 14193,
+          "cjk_chars": 11562,
+          "english_words": 248,
+          "item_content_compact_chars": 13197,
+          "item_content_english_words": 232,
+          "groups": {
+            "total": 14,
+            "part_1_groups": 6,
+            "part_1_grouped_items": 14,
+            "part_2_groups": 8,
+            "part_2_grouped_items": 22
+          }
+        },
+        {
+          "roc_year": 115,
+          "page_count": 20,
+          "substantive_compact_chars": 15269,
+          "cjk_chars": 12336,
+          "english_words": 246,
+          "item_content_compact_chars": 14630,
+          "item_content_english_words": 243,
+          "groups": {
+            "total": 16,
+            "part_1_groups": 5,
+            "part_1_grouped_items": 13,
+            "part_2_groups": 11,
+            "part_2_grouped_items": 27
+          }
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 13446,
+        "median": 14282,
+        "max": 15269
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 12709,
+        "median": 13636,
+        "max": 14630
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 232,
+        "median": 247,
+        "max": 253
+      },
+      "part_1_group_stimulus_chars": {
+        "count": 37,
+        "min": 52,
+        "median": 207,
+        "max": 345
+      },
+      "part_2_group_stimulus_chars": {
+        "count": 45,
+        "min": 59,
+        "median": 254,
+        "max": 552
+      }
+    },
+    {
+      "subject": "自然",
+      "papers": [
+        {
+          "roc_year": 111,
+          "page_count": 20,
+          "substantive_compact_chars": 13517,
+          "cjk_chars": 9398,
+          "english_words": 708,
+          "item_content_compact_chars": 12573,
+          "item_content_english_words": 697,
+          "groups": {
+            "total": 12,
+            "part_1_groups": 6,
+            "part_1_grouped_items": 12,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 24
+          }
+        },
+        {
+          "roc_year": 112,
+          "page_count": 20,
+          "substantive_compact_chars": 15243,
+          "cjk_chars": 10709,
+          "english_words": 658,
+          "item_content_compact_chars": 14209,
+          "item_content_english_words": 633,
+          "groups": {
+            "total": 9,
+            "part_1_groups": 3,
+            "part_1_grouped_items": 6,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 24
+          }
+        },
+        {
+          "roc_year": 113,
+          "page_count": 19,
+          "substantive_compact_chars": 14307,
+          "cjk_chars": 10195,
+          "english_words": 599,
+          "item_content_compact_chars": 13576,
+          "item_content_english_words": 591,
+          "groups": {
+            "total": 11,
+            "part_1_groups": 5,
+            "part_1_grouped_items": 10,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 20
+          }
+        },
+        {
+          "roc_year": 114,
+          "page_count": 20,
+          "substantive_compact_chars": 13751,
+          "cjk_chars": 9869,
+          "english_words": 633,
+          "item_content_compact_chars": 12901,
+          "item_content_english_words": 616,
+          "groups": {
+            "total": 11,
+            "part_1_groups": 5,
+            "part_1_grouped_items": 10,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 21
+          }
+        },
+        {
+          "roc_year": 115,
+          "page_count": 20,
+          "substantive_compact_chars": 15091,
+          "cjk_chars": 10228,
+          "english_words": 729,
+          "item_content_compact_chars": 14690,
+          "item_content_english_words": 722,
+          "groups": {
+            "total": 10,
+            "part_1_groups": 4,
+            "part_1_grouped_items": 9,
+            "part_2_groups": 6,
+            "part_2_grouped_items": 20
+          }
+        }
+      ],
+      "paper_substantive_chars": {
+        "count": 5,
+        "min": 13517,
+        "median": 14307,
+        "max": 15243
+      },
+      "paper_item_content_chars": {
+        "count": 5,
+        "min": 12573,
+        "median": 13576,
+        "max": 14690
+      },
+      "paper_item_content_words": {
+        "count": 5,
+        "min": 591,
+        "median": 633,
+        "max": 722
+      },
+      "part_1_group_stimulus_chars": {
+        "count": 23,
+        "min": 68,
+        "median": 127,
+        "max": 644
+      },
+      "part_2_group_stimulus_chars": {
+        "count": 30,
+        "min": 84,
+        "median": 268,
+        "max": 576
+      }
+    }
+  ]
+}
