@@ -20,6 +20,7 @@ from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
 from validate_current_context import validate as current_context_errors
+from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
@@ -227,11 +228,22 @@ def check(state_path: Path) -> dict:
                 layout_errors = geometry_errors(actual, parts)
                 errors.extend(f'{role}: {error}' for error in layout_errors)
                 if not layout_errors:
+                    # Text-only crops may be reviewed on their page; the checker
+                    # recomputes that from the exam so a report cannot relabel an item.
+                    crop_required = crop_required_ids(exam)
+                    page_rows = {r.get('page'): r for r in
+                                 json.loads(review_path.read_text(encoding='utf-8-sig')).get('pages', [])}
                     for part in parts:
                         crop = file({'path': part.get('raster_path'), 'sha256': part.get('raster_sha256')},
                                     f'{role}/{part.get("id")}/crop')
                         need(crop is not None and crop.read_bytes() == crop_bytes(actual[part['page']-1], part['bbox']),
                              f'{role}/{part.get("id")}: crop is not from final PDF')
+                        if part.get('review_via') == 'page':
+                            need(bool(part.get('item_sha256')) and part_reviewed_on_page(part, crop_required),
+                                 f'{role}/{part.get("id")}: item prints a figure, formula, rail, gap or table and needs its own crop review')
+                            page_row = page_rows.get(part.get('page'), {})
+                            need(page_row.get('status') == 'pass' and bool(page_row.get('observations')),
+                                 f'{role}/{part.get("id")}: its page {part.get("page")} is not a passed review')
                         need(part.get('status') == 'pass' and bool(part.get('observations')),
                              f'{role}/{part.get("id")}: readable item review missing')
         scan = json.loads(scan_path.read_text(encoding='utf-8-sig'))

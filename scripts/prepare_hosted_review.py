@@ -13,6 +13,7 @@ import time
 import pymupdf
 from hosted_calibration import snapshot
 from hosted_item_layout import crop_items, crop_bytes, geometry_errors, render_signature, equivalent_render
+from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from inspect_hosted_pdf import audit
 
 # Review and design metadata change while real reviews are recorded; they are
@@ -82,6 +83,38 @@ def crop_keys(parts):
 def pending_note():
     """Blank reviewer entry: pending until the reviewer writes status and observations."""
     return {'status': 'pending', 'observations': ''}
+
+
+def mark_page_reviewed_parts(parts, exam):
+    """Text-only crops are read on their page; the decision comes from the exam."""
+    required = crop_required_ids(exam)
+    count = 0
+    for part in parts:
+        if part.get('item_sha256') and part_reviewed_on_page(part, required):
+            part['review_via'] = 'page'
+            count += 1
+        else:
+            part.pop('review_via', None)
+    return count
+
+
+def propagate_page_reviews(parts, page_rows):
+    """A passed page review is the review of the text-only crops printed on it.
+
+    A failed or pending page leaves them pending; the reviewer's own item note,
+    if any, still overrides. Returns how many crops were settled this way.
+    """
+    rows = {row.get('page'): row for row in page_rows}
+    settled = 0
+    for part in parts:
+        row = rows.get(part.get('page'))
+        if part.get('review_via') != 'page' or part.get('status') == 'pass' or not row:
+            continue
+        if row.get('status') == 'pass' and row.get('observations'):
+            part.update(status='pass', observations=f"text-only item read on page {part['page']}: {row['observations']}",
+                        review_basis='reviewed on its passed page image; no separate crop opened')
+            settled += 1
+    return settled
 
 
 def annotate_parts(parts, hashes):
@@ -250,8 +283,13 @@ def retain_parts(root, role, parts, source, identity, sources, renderings, legac
             else:
                 continue
             equivalent.append((path, old, mode))
-        if not equivalent or any(old.get('status') != 'pass' and old.get('observations')
-                                 for _, old, _ in equivalent):
+        if any(old.get('status') != 'pass' and old.get('observations') for _, old, _ in equivalent):
+            # A recorded defect on this rendering keeps its own crop in the queue,
+            # even for a text-only item that would otherwise be read on its page.
+            fresh.pop('review_via', None)
+            fresh['prior_finding'] = 'a non-pass finding was recorded on an equivalent rendering'
+            continue
+        if not equivalent:
             continue
         passed = [(path, old, mode) for path, old, mode in equivalent
                   if old.get('status') == 'pass' and old.get('observations')]
@@ -303,6 +341,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     state.setdefault('pdfs',{})
     reused={'pages':0,'parts':0}
     basis={'pixel-identical':0,'vector-equivalent':0}
+    page_read={}
     queue={};density_flags=[];batches=[];template={}
     renderings=Renderings(root)
     try:
@@ -312,6 +351,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'})
             relative_rasters(items['parts']);relative_rasters(scan['pages'])
             annotate_parts(items['parts'],hashes)
+            page_read[role]=mark_page_reviewed_parts(items['parts'],exam)
             items.update(role=role,render_identity=render_identity,source=record(pdf),paper_print_sha256=paper_hash)
             by_page={}
             for part in items['parts']:by_page.setdefault(part['page'],[]).append(part)
@@ -376,6 +416,8 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             counts=retain_parts(root,role,items['parts'],items['source'],render_identity,sources,renderings,legacy_parts)
             for mode,count in counts.items():
                 basis[mode]+=count;reused['parts']+=count
+            # A retained passed page already reviews the text-only crops on it.
+            propagate_page_reviews(items['parts'],visual['pages'])
             state['pdfs'][role]={'file':record(pdf),'exam_sha256':state['exam']['sha256'],
                                 'inspection':save(role+'-inspection.json',scan),
                                 'item_review':save(role+'-items.json',items),
@@ -384,12 +426,13 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             absolute=lambda relative:str((root/relative).resolve())
             keys={id(part):key for part,key in zip(items['parts'],crop_keys(items['parts']))}
             queue[role]={'pages':[absolute(p['raster_path']) for p,row in zip(scan['pages'],visual['pages']) if row['status']!='pass'],
-                         'items':[absolute(p['raster_path']) for p in items['parts'] if p['status']!='pass']}
+                         'items':[absolute(p['raster_path']) for p in items['parts']
+                                  if p['status']!='pass' and p.get('review_via')!='page']}
             notes=template.setdefault(role,{'pages':{},'items':{}})
             for p,row in zip(scan['pages'],visual['pages']):
                 images=([(absolute(p['raster_path']),{'pages':str(p['page'])})] if row['status']!='pass' else [])+[
                     (absolute(part['raster_path']),{'items':keys[id(part)]})
-                    for part in by_page.get(p['page'],[]) if part['status']!='pass']
+                    for part in by_page.get(p['page'],[]) if part['status']!='pass' and part.get('review_via')!='page']
                 for _,target in images:
                     (kind,key),=target.items()
                     notes[kind][key]=pending_note()
@@ -419,6 +462,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     blocked=[flag for flag in density_flags if flag['status']=='exceeds-all-embedded-references']
     return {'status':'review-pending','state':str(candidate),'index':str(index_path),
             'retained_actual_reviews':reused,'retention_basis':basis,
+            'items_read_on_pages':page_read,
             'review_queue':queue,'review_batches':batches,'observations_template':str(template_path),
             'density_flags':density_flags,
             'reflow_before_review':blocked,

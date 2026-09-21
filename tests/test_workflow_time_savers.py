@@ -205,3 +205,60 @@ def test_plan_refuses_a_stale_spec_and_a_foreign_subject(paper):
     workflow.save(root/'stale.json', stale)
     with pytest.raises(ValueError, match='predates'):
         workflow.plan(root/'run-state.json', root/'stale.json', root/'s.json', font, root/'plan-y')
+
+
+def test_text_only_crops_are_read_on_their_page_and_settle_with_it(paper):
+    """Every item is still read: text-only crops pass through their page review."""
+    root, font = paper
+    figure = root/'fig.svg'
+    figure.write_text(SVG.format(w=100, h=30, date='x', a='c', b='p'), encoding='utf-8')
+    workflow.save(root/'batch.json', batch([item('q13', 13, type='single_choice',
+                                                 visual_asset={'path': 'fig.svg', 'sha256': workflow.digest(figure)},
+                                                 options=[{'label': l, 'text': f'選項 {l}'} for l in 'ABCDE'])]))
+    appender.append(root, root/'batch.json')
+    workflow.specs(root/'run-state.json', root/'q2.json', root/'s2.json')
+    built = workflow.build(root/'run-state.json', root/'q2.json', root/'s2.json', font, root/'build-v2', year=116)
+    state = workflow.read(Path(built['state']))
+    items = workflow.read(root/state['pdfs']['question']['item_review']['path'])['parts']
+    by_id = {p['id']: p for p in items}
+    assert by_id['q13'].get('review_via') is None and by_id['q1']['review_via'] == 'page'
+    assert built['items_read_on_pages']['question'] == 12
+    queued = {Path(p).name for p in built['review_queue']['question']['items']}
+    assert queued == {Path(by_id['q13']['raster_path']).name}
+    template = workflow.read(Path(built['observations_template']))
+    assert set(template['question']['items']) == {'q13'}
+    for role in ('question', 'solution'):
+        for key in template[role].get('items', {}):
+            template[role]['items'][key] = {'status': 'pass', 'observations': 'figure and labels readable'}
+        for key in template[role]['pages']:
+            template[role]['pages'][key] = {'status': 'pass', 'observations': f'page {key} read at full size'}
+    workflow.save(root/'notes.json', template)
+    result = workflow.record_review(root/'notes.json', state=built['state'])
+    assert all(not r['items_pending'] and not r['items_settled_by_page_review_pending'] for r in result['remaining'].values())
+    settled = workflow.read(root/state['pdfs']['question']['item_review']['path'])['parts']
+    assert all(p['status'] == 'pass' and 'read on page' in p['observations'] for p in settled if p['id'] != 'q13')
+    check = workflow.finalize(built['state'], root/'final.json')
+    assert not any('readable item review missing' in e or 'is not a passed review' in e for e in check['errors'])
+    # A report cannot relabel a figure item as page-reviewed: the checker recomputes the triage.
+    report_path = root/state['pdfs']['question']['item_review']['path']
+    report = workflow.read(report_path)
+    for part in report['parts']:
+        if part['id'] == 'q13':
+            part.update(review_via='page', status='pass', observations='text-only item read on page 4: faked')
+    workflow.save(report_path, report)
+    from prepare_hosted_review import refresh_review_hashes
+    refresh_review_hashes(Path(built['state']))
+    check = workflow.finalize(built['state'], root/'final-2.json')
+    assert any('needs its own crop review' in e for e in check['errors'])
+
+
+def test_batches_of_six_are_for_text_only_items(run):
+    six = [item(f'q{n}', n) for n in range(1, 7)]
+    assert append(run, six)['question_count'] == 6
+    figure = run/'fig.svg'
+    figure.write_text(SVG.format(w=100, h=30, date='x', a='c', b='p'), encoding='utf-8')
+    with pytest.raises(ValueError, match='at most 4'):
+        append(run, [item(f'q{n}', n) for n in range(7, 12)] +
+               [item('q12', 12, visual_asset={'path': 'fig.svg', 'sha256': workflow.digest(figure)})])
+    with pytest.raises(ValueError, match='2-4'):
+        append(run, [item(f'q{n}', n) for n in range(13, 20)])

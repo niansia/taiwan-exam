@@ -78,20 +78,20 @@ offline; only on `missing-wheel` ask the user to upload that wheel (README
 troubleshooting entry), rerun it with `--wheel FILE`, and continue. Run helpers without printing their source. Read the requested subject's
 guidance at the phase that uses it.
 
-Write new questions and solutions for this run. The selected subject's question
-and solution layout previews are bundled under `layout-previews/`; users need not
-attach them. They contain placeholders only; reuse their layout conventions,
-never their question content or diagram mechanisms. Every subject's verified
+Write new questions and solutions for this run. The selected subject's layout
+previews under `layout-previews/` hold placeholders only; reuse their layout
+conventions, never their question content or diagram mechanisms. Every subject's
 fixed template components are bundled; the preflight uses them without network
-access. An uploaded resource PDF is an equivalent carrier. Keep original fixed
+access. An uploaded resource PDF is equivalent. Keep original fixed
 PDF layers, curriculum and score structure, difficulty and originality
 requirements, answer verification, and real page/item visual review. An
 unavailable second model uses the documented honest same-context second pass;
 never invent an independent reviewer or passing observation.
 
-Create one paper ID and run directory. Author in batches of two to four items:
-save each batch with `append_items.py`, with only its own figures drawn, before
-drafting the next. Only `exam.json` carries the paper between turns; items
+Create one paper ID and run directory. Author in batches of two to four items
+(six if text-only): save each batch with `append_items.py`, with only its own
+figures drawn, before drafting the next; proof only its `proof_recommended`
+items; `plan` before a full build. Only `exam.json` carries the paper between turns; items
 finished in your reply alone are not progress. On continuation, verify and resume
 saved work and its first unfinished action. Reuse unchanged verified inputs and
 actual reviews; do not restart authoring, reread references already read in this

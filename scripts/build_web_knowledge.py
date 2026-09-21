@@ -77,6 +77,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.extend(root / 'scripts' / name for name in ('append_items.py', 'emit_item_skeleton.py', 'check_paper_plan.py'))
     paths.append(root / "scripts" / "validate_math_context.py")
     paths.append(root / "scripts" / "validate_current_context.py")
+    paths.append(root / "scripts" / "hosted_item_triage.py")
     paths.extend(root / 'scripts' / name for name in ('hosted_item_layout.py', 'hosted_run_timing.py', 'hosted_blind_review.py'))
     paths.append(root / "scripts" / "validate_math_difficulty_design.py")
     paths.append(root / "scripts" / "validate_literacy_load.py")

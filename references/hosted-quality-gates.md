@@ -37,7 +37,12 @@ python scripts/hosted_item_layout.py --pdf question.pdf --layout layout.json --o
 ```
 
 The report starts pending (or retains a qualifying actual review of an unchanged
-item under hosted-body-workflow.md). Open EVERY new or changed crop at readable
+item under hosted-body-workflow.md). A crop whose item prints nothing but
+paragraphs (no figure, formula image, sub/superscript, answer blank, gap, table
+or rail; recomputed from the exam by `hosted_item_triage.py`) is marked
+`review_via: page`: it is not queued, and it passes when the page it sits on
+receives a passed review; the checker verifies both the triage and the page.
+Every other crop is opened. Open EVERY new or changed crop at readable
 resolution (2 pixels/pt), inspect stem, options, rail, equations and every diagram
 label, then record status and concrete observations for each part
 (`run_hosted_workflow.py record-review` writes them). Keep crops unchanged. Repeat for
