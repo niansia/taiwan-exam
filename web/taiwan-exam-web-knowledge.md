@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.21.5
+# Taiwan Exam Web Knowledge v2026.09.21.6
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -638,10 +638,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 31030,
-    "sha256": "1bb8c8b94a00e284519de894a01624c1b3b94aa74be4e1d97feb58f2b6439400",
-    "embedded_bytes": 31030,
-    "embedded_sha256": "1bb8c8b94a00e284519de894a01624c1b3b94aa74be4e1d97feb58f2b6439400"
+    "bytes": 31317,
+    "sha256": "e9b0b10072dcffc817bb3b8ee30278d15b5b6f9748f7f526ba95b08f6233db16",
+    "embedded_bytes": 31317,
+    "embedded_sha256": "e9b0b10072dcffc817bb3b8ee30278d15b5b6f9748f7f526ba95b08f6233db16"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -652,17 +652,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 16148,
-    "sha256": "eb266c585219fe6fe15ab27094dfd294b8c9d9c6e081ea94d3abd7bc77f42e14",
-    "embedded_bytes": 16148,
-    "embedded_sha256": "eb266c585219fe6fe15ab27094dfd294b8c9d9c6e081ea94d3abd7bc77f42e14"
+    "bytes": 16519,
+    "sha256": "03d285e5ff5986c41238cec971bab59260fe9892e31bc6792b79b9f95a9c2a65",
+    "embedded_bytes": 16519,
+    "embedded_sha256": "03d285e5ff5986c41238cec971bab59260fe9892e31bc6792b79b9f95a9c2a65"
   },
   {
     "path": "references/hosted-run-evidence.md",
-    "bytes": 9206,
-    "sha256": "06ce8859effb2b2b00ccfdc50a22d5427a600920f4690694df298de8baa88d82",
-    "embedded_bytes": 9206,
-    "embedded_sha256": "06ce8859effb2b2b00ccfdc50a22d5427a600920f4690694df298de8baa88d82"
+    "bytes": 9233,
+    "sha256": "8e2ed179d5b4aa2647ca25acb4657dc86aa64a9d47ac2e2045f4c63146943ca5",
+    "embedded_bytes": 9233,
+    "embedded_sha256": "8e2ed179d5b4aa2647ca25acb4657dc86aa64a9d47ac2e2045f4c63146943ca5"
   },
   {
     "path": "references/layout-fidelity.md",
@@ -827,17 +827,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/append_items.py",
-    "bytes": 19116,
-    "sha256": "5b947a52dfba5d3b08fd18b0b695fce843027958c321b169b51f05cae59b7c28",
-    "embedded_bytes": 19116,
-    "embedded_sha256": "5b947a52dfba5d3b08fd18b0b695fce843027958c321b169b51f05cae59b7c28"
+    "bytes": 18248,
+    "sha256": "0317cacbd6f70a0e572fae53d3025a7b69275c7e258009e50cb2eb09e81f8cd8",
+    "embedded_bytes": 18248,
+    "embedded_sha256": "0317cacbd6f70a0e572fae53d3025a7b69275c7e258009e50cb2eb09e81f8cd8"
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 21276,
-    "sha256": "0a80259e4ecc7b90c654079c8bbc8116c787020bc461c78641e2d4a0816540ca",
-    "embedded_bytes": 21276,
-    "embedded_sha256": "0a80259e4ecc7b90c654079c8bbc8116c787020bc461c78641e2d4a0816540ca"
+    "bytes": 22351,
+    "sha256": "c7d227783e50c8d2121794c2081674c96c847ee0c76aa3002e3693e3d6abdcf3",
+    "embedded_bytes": 22351,
+    "embedded_sha256": "c7d227783e50c8d2121794c2081674c96c847ee0c76aa3002e3693e3d6abdcf3"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -903,6 +903,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "43be9cdef43d018e2498085234abd3d27b92c01da1358c2995c3aacccb35afed"
   },
   {
+    "path": "scripts/hosted_item_triage.py",
+    "bytes": 4795,
+    "sha256": "3e4fa36de72365630839d034cdd5030ffd8d00fd0ff561daae64d0b9fff81877",
+    "embedded_bytes": 4795,
+    "embedded_sha256": "3e4fa36de72365630839d034cdd5030ffd8d00fd0ff561daae64d0b9fff81877"
+  },
+  {
     "path": "scripts/hosted_run_timing.py",
     "bytes": 10823,
     "sha256": "61a086b6ec8a86783b120c032ce3225ca78367021389e6d2a89c8251f55b52ae",
@@ -925,10 +932,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_review.py",
-    "bytes": 25617,
-    "sha256": "89929da8288994d4089aaf683ae953ea4fb26253df39e106435950430fbac261",
-    "embedded_bytes": 25617,
-    "embedded_sha256": "89929da8288994d4089aaf683ae953ea4fb26253df39e106435950430fbac261"
+    "bytes": 27662,
+    "sha256": "6c4f9fa6d55bd91b447a768d5ee3509cba5c4a6b4b378a8d15daea4171a496db",
+    "embedded_bytes": 27662,
+    "embedded_sha256": "6c4f9fa6d55bd91b447a768d5ee3509cba5c4a6b4b378a8d15daea4171a496db"
   },
   {
     "path": "scripts/prepare_hosted_run.py",
@@ -946,10 +953,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 77838,
-    "sha256": "5635185582a9c2c49aca644c15dcd3f4fb8e3730d65c89467bb57f2c439540c1",
-    "embedded_bytes": 77838,
-    "embedded_sha256": "5635185582a9c2c49aca644c15dcd3f4fb8e3730d65c89467bb57f2c439540c1"
+    "bytes": 78458,
+    "sha256": "c54300526d02931cfd7ce41bc1549825074f7708ccdf47b898c77ae4774e6e5f",
+    "embedded_bytes": 78458,
+    "embedded_sha256": "c54300526d02931cfd7ce41bc1549825074f7708ccdf47b898c77ae4774e6e5f"
   },
   {
     "path": "scripts/validate_current_context.py",
@@ -58431,7 +58438,8 @@ content and review; no pass is prefilled. Read `difficulty-field-contract.md`
 for enums and content-hash rules instead of reverse-engineering validator code.
 For shared numbered subparts use `--subpart`; unnumbered tasks use `--slot-id`.
 
-Work one batch at a time: draft two to four items, draw only their figures, save
+Work one batch at a time: draft two to four items (up to six when every item is
+text-only, since those need no proof), draw only their figures, save
 them, then proof and review them before drafting the next batch. Only `exam.json`
 carries the paper between phases and turns. Two hosted runs spent every command
 of their turn designing, verifying and illustrating a whole paper that existed
@@ -58479,8 +58487,11 @@ Proof what can print wrongly, not everything. The saved-batch result lists
 image, sub/superscript or markup, answer blank or gap, response table, fill rail,
 or a long shared stimulus) with the reason, and `proof_optional` (plain-text
 items, which print through the same paragraph path as every earlier proof).
-Proof the recommended items now; text-only items may wait for the final build,
-where every crop and every page is still reviewed. A measured 自然 paper spent
+Proof the recommended items now. Text-only items need no proof and no final
+crop of their own: the final build marks their crops `review_via: page`, and
+they pass when the page image they sit on receives a passed review; the
+checker recomputes the triage from the exam and verifies the page. Every page
+is still opened, so every item is still read. A measured 自然 paper spent
 90 minutes on 50 batch proofs whose text-only crops found no defect.
 
 The same result names other things that are cheapest to fix while the item is
@@ -58999,7 +59010,12 @@ python scripts/hosted_item_layout.py --pdf question.pdf --layout layout.json --o
 ```
 
 The report starts pending (or retains a qualifying actual review of an unchanged
-item under hosted-body-workflow.md). Open EVERY new or changed crop at readable
+item under hosted-body-workflow.md). A crop whose item prints nothing but
+paragraphs (no figure, formula image, sub/superscript, answer blank, gap, table
+or rail; recomputed from the exam by `hosted_item_triage.py`) is marked
+`review_via: page`: it is not queued, and it passes when the page it sits on
+receives a passed review; the checker verifies both the triage and the page.
+Every other crop is opened. Open EVERY new or changed crop at readable
 resolution (2 pixels/pt), inspect stem, options, rail, equations and every diagram
 label, then record status and concrete observations for each part
 (`run_hosted_workflow.py record-review` writes them). Keep crops unchanged. Repeat for
@@ -59213,7 +59229,7 @@ actual PDF collisions, item crops, mode-appropriate difficulty review and timing
 
 Create one run directory and paper_id before writing. Save exam.json, original
 editable visual assets, candidate decisions and independent solution records in
-small batches (normally two to four items), updating run-state.json each time.
+small batches (normally two to four items; up to six text-only items), updating run-state.json each time.
 Review each item's shortest solution, provisional difficulty, comparison with
 recent accessible mechanisms, and visual-removal test before proceeding. Preserve
 failed items and reasons separately; only selected items enter the paper.
@@ -63027,8 +63043,8 @@ import json
 import re
 from pathlib import Path
 
-from run_hosted_workflow import (ASSET_TOKEN, RICH_TAG, SCRIPT_RUN, SPLIT_MIN_CHARACTERS, authoring_issues,
-                                 checkpoint, figure_pagination_risks, inside, printed_fields, read, record, save,
+from hosted_item_triage import crop_reasons, needs_crop
+from run_hosted_workflow import (authoring_issues, checkpoint, figure_pagination_risks, inside, read, record, save,
                                  text_issues)
 from validate_current_context import progress as context_progress, validate as current_context_errors
 from validate_math_difficulty_design import validate as math_design
@@ -63038,6 +63054,7 @@ from validate_paper_difficulty_balance import validate as difficulty_balance
 # ordinal (1, 2-a, b …) cannot be sorted out of order; a bare name can.
 ORDERED_SUBPART = re.compile(r'^(?:\d+|[a-z])(?:$|[-_.])')
 EARLY_PLAN_ITEMS = 20
+TEXT_ONLY_BATCH_ITEMS = 6
 # Words that make an option absolute. Such a distractor is wrong only if no
 # condition makes it true; the writer confirms that once, when the item is saved.
 ABSOLUTE_CLAIM = re.compile(r'必定|一定|必然|必|只有|只能|只|僅|無關|皆|所有|全部|不可能|永遠|從不|唯一|任何|一律|'
@@ -63071,38 +63088,15 @@ def proof_triage(questions, answers, *, first_batch):
     recommended, optional = {}, []
     for question in questions:
         qid = question.get('id')
-        answer = by_answer.get(qid, {})
-        reasons = []
-        if first_batch:
-            reasons.append('first batch: verify the renderer, font and section layout once')
-        for owner, record_ in (('question', question), ('answer', answer)):
-            if isinstance(record_.get('visual_asset'), dict):
-                reasons.append(owner + ' figure')
-            if record_.get('inline_assets'):
-                reasons.append(owner + ' inline formula image')
-        if question.get('response_format_table'):
-            reasons.append('response table')
-        if question.get('answer_format') or question.get('continuation_pages') or question.get('group_stimulus_page_splits'):
-            reasons.append('fill rail or explicit page continuation')
-        stimulus = question.get('group_stimulus')
-        if isinstance(stimulus, str) and len(stimulus) >= SPLIT_MIN_CHARACTERS:
-            reasons.append('long shared stimulus that may split across pages')
-        for where, value in printed_fields(question, answer):
-            rich = isinstance(value, dict) and set(value) == {'rich'}
-            raw = value['rich'] if rich else value
-            if not isinstance(raw, str):
-                continue
-            if rich or RICH_TAG.search(raw) or SCRIPT_RUN.search(raw) or ASSET_TOKEN.search(raw):
-                reasons.append(f'{where}: sub/superscript, markup or formula image')
-            if '{{answer}}' in raw or '______' in raw or re.search(r'\[\[\d+\]\]', raw):
-                reasons.append(f'{where}: answer blank or gap')
+        reasons = (['first batch: verify the renderer, font and section layout once'] if first_batch else [])
+        reasons += crop_reasons(question, by_answer.get(qid, {}))
         if reasons:
-            recommended[qid] = list(dict.fromkeys(reasons))
+            recommended[qid] = reasons
         else:
             optional.append(qid)
     return {'proof_recommended': recommended, 'proof_optional': optional,
             'proof_note': ('Proof the recommended items now (their crops carry forward to the final build). '
-                           'Text-only items may wait for the final build, where every crop and page is still reviewed.')}
+                           'Text-only items need no proof: the final build reads them on their reviewed page images.')}
 
 
 def design_gaps(exam, root, questions):
@@ -63159,10 +63153,17 @@ def validate_batch(batch):
     if not isinstance(batch, dict) or set(batch) - {'questions', 'answers'}:
         raise ValueError('Batch must contain only questions and answers')
     questions, answers = batch.get('questions'), batch.get('answers')
-    if not isinstance(questions, list) or not 1 <= len(questions) <= 4:
-        raise ValueError('Save 2-4 authored items per batch; a first or final single item is allowed')
+    if not isinstance(questions, list) or not 1 <= len(questions) <= TEXT_ONLY_BATCH_ITEMS:
+        raise ValueError(f'Save 2-4 authored items per batch (up to {TEXT_ONLY_BATCH_ITEMS} when every item is '
+                         'text-only); a first or final single item is allowed')
     if not isinstance(answers, list) or len(answers) != len(questions):
         raise ValueError('Save one authored answer for every question in the batch')
+    if len(questions) > 4:
+        by_id = {a.get('question_id'): a for a in answers if isinstance(a, dict)}
+        needing = [q.get('id') for q in questions if isinstance(q, dict) and needs_crop(q, by_id.get(q.get('id')))]
+        if needing:
+            raise ValueError('Batches of 5-6 items are for text-only items; these need their own proof, so save '
+                             'them in a batch of at most 4: ' + ', '.join(map(str, needing)))
     ids = set()
     for q in questions:
         if not isinstance(q, dict):
@@ -63368,6 +63369,7 @@ from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
 from validate_current_context import validate as current_context_errors
+from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from hosted_calibration import snapshot, anchor_errors, density_limit
 
 
@@ -63575,11 +63577,22 @@ def check(state_path: Path) -> dict:
                 layout_errors = geometry_errors(actual, parts)
                 errors.extend(f'{role}: {error}' for error in layout_errors)
                 if not layout_errors:
+                    # Text-only crops may be reviewed on their page; the checker
+                    # recomputes that from the exam so a report cannot relabel an item.
+                    crop_required = crop_required_ids(exam)
+                    page_rows = {r.get('page'): r for r in
+                                 json.loads(review_path.read_text(encoding='utf-8-sig')).get('pages', [])}
                     for part in parts:
                         crop = file({'path': part.get('raster_path'), 'sha256': part.get('raster_sha256')},
                                     f'{role}/{part.get("id")}/crop')
                         need(crop is not None and crop.read_bytes() == crop_bytes(actual[part['page']-1], part['bbox']),
                              f'{role}/{part.get("id")}: crop is not from final PDF')
+                        if part.get('review_via') == 'page':
+                            need(bool(part.get('item_sha256')) and part_reviewed_on_page(part, crop_required),
+                                 f'{role}/{part.get("id")}: item prints a figure, formula, rail, gap or table and needs its own crop review')
+                            page_row = page_rows.get(part.get('page'), {})
+                            need(page_row.get('status') == 'pass' and bool(page_row.get('observations')),
+                                 f'{role}/{part.get("id")}: its page {part.get("page")} is not a passed review')
                         need(part.get('status') == 'pass' and bool(part.get('observations')),
                              f'{role}/{part.get("id")}: readable item review missing')
         scan = json.loads(scan_path.read_text(encoding='utf-8-sig'))
@@ -65863,6 +65876,113 @@ if __name__ == '__main__':
     args.report.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
 </canonical-source>
 
+<canonical-source path="scripts/hosted_item_triage.py">
+#!/usr/bin/env python3
+"""Which saved items need their own readable crop, from the authored record alone.
+
+A figure, formula image, sub/superscript, answer blank, cloze gap, response
+table, fill rail or a long shared stimulus can print wrongly in ways a page
+image at 1.5 px/pt may hide, so those items get 2 px/pt crops at proof and
+final review. A plain paragraph item prints through the same text path as
+every earlier proof; its final review happens on the page image that the
+reviewer opens anyway, and the checker verifies that the page passed. The
+decision is recomputed from the exam wherever it is used, so a review report
+cannot relabel an item.
+"""
+from __future__ import annotations
+
+import re
+
+RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong)>|<br>')
+SCRIPT_RUN = re.compile('[₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱ]')
+ASSET_TOKEN = re.compile(r'\{\{asset:[^{}]+\}\}')
+GAP = re.compile(r'\[\[\d+\]\]')
+LONG_STIMULUS_CHARACTERS = 260  # the renderer's paragraph-split threshold
+
+
+def _text(value):
+    raw = value['rich'] if isinstance(value, dict) and set(value) == {'rich'} else value
+    return raw if isinstance(raw, str) else None
+
+
+def printed_values(question, answer):
+    """(where, text) for every field the body projection prints."""
+    for key in ('prompt', 'number_display', 'answer_label', 'group_stimulus'):
+        yield key, question.get(key)
+    for option in question.get('options') or []:
+        if isinstance(option, dict):
+            yield f'option {option.get("label")}', option.get('text')
+    for key in ('continuation_pages', 'group_stimulus_page_splits'):
+        for page, value in sorted((question.get(key) or {}).items()):
+            yield f'{key} {page}', value
+    table = question.get('response_format_table')
+    if isinstance(table, dict):
+        yield 'response table', table.get('caption')
+        for row in table.get('rows') or []:
+            if isinstance(row, dict):
+                yield 'response row', row.get('instruction')
+    final = (answer or {}).get('final_answer')
+    for value in final if isinstance(final, list) else [final]:
+        yield 'final_answer', value
+    for step in (answer or {}).get('reasoning') or []:
+        yield 'reasoning', step
+    for block in (answer or {}).get('explanation_blocks') or []:
+        if isinstance(block, dict):
+            yield 'explanation', block.get('content')
+
+
+def crop_reasons(question, answer):
+    """Why this item needs its own crop; an empty list means text-only."""
+    answer = answer or {}
+    reasons = []
+    for owner, record in (('question', question), ('answer', answer)):
+        if isinstance(record.get('visual_asset'), dict):
+            reasons.append(owner + ' figure')
+        if record.get('inline_assets'):
+            reasons.append(owner + ' inline formula image')
+    if question.get('response_format_table'):
+        reasons.append('response table')
+    if question.get('answer_format') or question.get('continuation_pages') or question.get('group_stimulus_page_splits'):
+        reasons.append('fill rail or explicit page continuation')
+    stimulus = _text(question.get('group_stimulus'))
+    if stimulus and len(stimulus) >= LONG_STIMULUS_CHARACTERS:
+        reasons.append('long shared stimulus that may split across pages')
+    for where, value in printed_values(question, answer):
+        rich = isinstance(value, dict) and set(value) == {'rich'}
+        raw = _text(value)
+        if raw is None:
+            continue
+        if rich or RICH_TAG.search(raw) or SCRIPT_RUN.search(raw) or ASSET_TOKEN.search(raw):
+            reasons.append(f'{where}: sub/superscript, markup or formula image')
+        if '{{answer}}' in raw or '______' in raw or GAP.search(raw):
+            reasons.append(f'{where}: answer blank or gap')
+    return list(dict.fromkeys(reasons))
+
+
+def needs_crop(question, answer):
+    return bool(crop_reasons(question, answer))
+
+
+def crop_required_ids(exam):
+    """{question id: reasons} for every item whose crops must be opened."""
+    answers = {a.get('question_id'): a for a in exam.get('answers') or [] if isinstance(a, dict)}
+    found = {}
+    for question in exam.get('questions') or []:
+        if isinstance(question, dict):
+            reasons = crop_reasons(question, answers.get(question.get('id')))
+            if reasons:
+                found[question.get('id')] = reasons
+    return found
+
+
+def part_reviewed_on_page(part, required):
+    """A crop is read on its page only when nothing it prints needs a crop."""
+    members = [part.get('id'), *(part.get('covers') or [])]
+    if any(member in required for member in members):
+        return False
+    return all(component.get('role') == 'flow-content' for component in part.get('components') or [])
+</canonical-source>
+
 <canonical-source path="scripts/hosted_run_timing.py">
 #!/usr/bin/env python3
 """Conversation-aware phase clock. Wall time and estimated activity stay distinct.
@@ -66427,6 +66547,7 @@ import time
 import pymupdf
 from hosted_calibration import snapshot
 from hosted_item_layout import crop_items, crop_bytes, geometry_errors, render_signature, equivalent_render
+from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from inspect_hosted_pdf import audit
 
 # Review and design metadata change while real reviews are recorded; they are
@@ -66496,6 +66617,38 @@ def crop_keys(parts):
 def pending_note():
     """Blank reviewer entry: pending until the reviewer writes status and observations."""
     return {'status': 'pending', 'observations': ''}
+
+
+def mark_page_reviewed_parts(parts, exam):
+    """Text-only crops are read on their page; the decision comes from the exam."""
+    required = crop_required_ids(exam)
+    count = 0
+    for part in parts:
+        if part.get('item_sha256') and part_reviewed_on_page(part, required):
+            part['review_via'] = 'page'
+            count += 1
+        else:
+            part.pop('review_via', None)
+    return count
+
+
+def propagate_page_reviews(parts, page_rows):
+    """A passed page review is the review of the text-only crops printed on it.
+
+    A failed or pending page leaves them pending; the reviewer's own item note,
+    if any, still overrides. Returns how many crops were settled this way.
+    """
+    rows = {row.get('page'): row for row in page_rows}
+    settled = 0
+    for part in parts:
+        row = rows.get(part.get('page'))
+        if part.get('review_via') != 'page' or part.get('status') == 'pass' or not row:
+            continue
+        if row.get('status') == 'pass' and row.get('observations'):
+            part.update(status='pass', observations=f"text-only item read on page {part['page']}: {row['observations']}",
+                        review_basis='reviewed on its passed page image; no separate crop opened')
+            settled += 1
+    return settled
 
 
 def annotate_parts(parts, hashes):
@@ -66664,8 +66817,13 @@ def retain_parts(root, role, parts, source, identity, sources, renderings, legac
             else:
                 continue
             equivalent.append((path, old, mode))
-        if not equivalent or any(old.get('status') != 'pass' and old.get('observations')
-                                 for _, old, _ in equivalent):
+        if any(old.get('status') != 'pass' and old.get('observations') for _, old, _ in equivalent):
+            # A recorded defect on this rendering keeps its own crop in the queue,
+            # even for a text-only item that would otherwise be read on its page.
+            fresh.pop('review_via', None)
+            fresh['prior_finding'] = 'a non-pass finding was recorded on an equivalent rendering'
+            continue
+        if not equivalent:
             continue
         passed = [(path, old, mode) for path, old, mode in equivalent
                   if old.get('status') == 'pass' and old.get('observations')]
@@ -66717,6 +66875,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     state.setdefault('pdfs',{})
     reused={'pages':0,'parts':0}
     basis={'pixel-identical':0,'vector-equivalent':0}
+    page_read={}
     queue={};density_flags=[];batches=[];template={}
     renderings=Renderings(root)
     try:
@@ -66726,6 +66885,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'})
             relative_rasters(items['parts']);relative_rasters(scan['pages'])
             annotate_parts(items['parts'],hashes)
+            page_read[role]=mark_page_reviewed_parts(items['parts'],exam)
             items.update(role=role,render_identity=render_identity,source=record(pdf),paper_print_sha256=paper_hash)
             by_page={}
             for part in items['parts']:by_page.setdefault(part['page'],[]).append(part)
@@ -66790,6 +66950,8 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             counts=retain_parts(root,role,items['parts'],items['source'],render_identity,sources,renderings,legacy_parts)
             for mode,count in counts.items():
                 basis[mode]+=count;reused['parts']+=count
+            # A retained passed page already reviews the text-only crops on it.
+            propagate_page_reviews(items['parts'],visual['pages'])
             state['pdfs'][role]={'file':record(pdf),'exam_sha256':state['exam']['sha256'],
                                 'inspection':save(role+'-inspection.json',scan),
                                 'item_review':save(role+'-items.json',items),
@@ -66798,12 +66960,13 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             absolute=lambda relative:str((root/relative).resolve())
             keys={id(part):key for part,key in zip(items['parts'],crop_keys(items['parts']))}
             queue[role]={'pages':[absolute(p['raster_path']) for p,row in zip(scan['pages'],visual['pages']) if row['status']!='pass'],
-                         'items':[absolute(p['raster_path']) for p in items['parts'] if p['status']!='pass']}
+                         'items':[absolute(p['raster_path']) for p in items['parts']
+                                  if p['status']!='pass' and p.get('review_via')!='page']}
             notes=template.setdefault(role,{'pages':{},'items':{}})
             for p,row in zip(scan['pages'],visual['pages']):
                 images=([(absolute(p['raster_path']),{'pages':str(p['page'])})] if row['status']!='pass' else [])+[
                     (absolute(part['raster_path']),{'items':keys[id(part)]})
-                    for part in by_page.get(p['page'],[]) if part['status']!='pass']
+                    for part in by_page.get(p['page'],[]) if part['status']!='pass' and part.get('review_via')!='page']
                 for _,target in images:
                     (kind,key),=target.items()
                     notes[kind][key]=pending_note()
@@ -66833,6 +66996,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     blocked=[flag for flag in density_flags if flag['status']=='exceeds-all-embedded-references']
     return {'status':'review-pending','state':str(candidate),'index':str(index_path),
             'retained_actual_reviews':reused,'retention_basis':basis,
+            'items_read_on_pages':page_read,
             'review_queue':queue,'review_batches':batches,'observations_template':str(template_path),
             'density_flags':density_flags,
             'reflow_before_review':blocked,
@@ -67725,7 +67889,8 @@ from hosted_body_templates import guarded_render as render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
-                                   refresh_review_hashes, canonical_sha, crop_keys, pending_note)
+                                   refresh_review_hashes, canonical_sha, crop_keys, pending_note,
+                                   propagate_page_reviews)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from fetch_hosted_template_assets import DEFAULT_MAP
 
@@ -68920,6 +69085,10 @@ def record_review(observations, *, state=None, proof=None):
                 intact(scan[row['page']])
                 apply_review(row, note, f'{role} page {key}', scan[row['page']]['issues'])
             save(targets[role]['pages'], report)
+            # Text-only crops are read on their page: a passed page settles them.
+            items_report = read(targets[role]['items'])
+            if propagate_page_reviews(items_report['parts'], report['pages']):
+                save(targets[role]['items'], items_report)
         if sections.get('items'):
             report = read(targets[role]['items'])
             keyed = dict(zip(crop_keys(report['parts']), report['parts']))
@@ -68934,7 +69103,10 @@ def record_review(observations, *, state=None, proof=None):
         refresh_review_hashes(state_path)
     for role, paths in targets.items():
         items = read(paths['items'])['parts']
-        remaining = {'items_pending': [p['raster_path'] for p in items if p.get('status') != 'pass']}
+        remaining = {'items_pending': [p['raster_path'] for p in items
+                                       if p.get('status') != 'pass' and p.get('review_via') != 'page'],
+                     'items_settled_by_page_review_pending': [p['id'] for p in items
+                                                              if p.get('status') != 'pass' and p.get('review_via') == 'page']}
         if 'pages' in paths:
             report = read(paths['pages'])
             scan = {p['page']: p for p in read(paths['inspection'])['pages']}

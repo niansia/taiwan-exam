@@ -144,7 +144,8 @@ def test_hosted_template_fetcher_is_packaged_and_embedded(tmp_path):
     assert "scripts/fetch_hosted_template_assets.py" in paths
     for helper in ("compose_hosted_pdf.py", "inspect_hosted_pdf.py", "check_hosted_run.py",
                    "hosted_item_layout.py", "hosted_run_timing.py", "hosted_blind_review.py", "validate_math_context.py", "verify_fixed_template_pdf.py",
-                   "run_hosted_workflow.py", "validate_current_context.py", "normalize_figure_asset.py"):
+                   "run_hosted_workflow.py", "validate_current_context.py", "normalize_figure_asset.py",
+                   "hosted_item_triage.py"):
         assert "scripts/" + helper in paths
         assert package_skill.should_include(ROOT / "scripts" / helper)
     assert "references/hosted-pdf-production.md" in paths

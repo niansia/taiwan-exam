@@ -146,7 +146,7 @@ def test_invalid_batch_cannot_change_saved_exam_or_checkpoint(run, bad):
     elif bad == 'missing-reasoning': supplied['answers'][0].pop('reasoning')
     elif bad == 'invalid-reasoning': supplied['answers'][0]['reasoning'] = True
     elif bad == 'unknown-section': supplied['questions'][0]['section_id'] = 'missing'
-    else: supplied = batch([3, 4, 5, 6, 7])
+    else: supplied = batch([3, 4, 5, 6, 7, 8, 9])
     workflow.save(run/'batch.json', supplied)
     original = {name: (run/name).read_bytes() for name in ('exam.json', 'run-state.json', 'generation-timing.json')}
     with pytest.raises(ValueError): append(run, replace=True)

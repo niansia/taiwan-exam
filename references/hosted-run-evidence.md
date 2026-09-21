@@ -10,7 +10,7 @@ actual PDF collisions, item crops, mode-appropriate difficulty review and timing
 
 Create one run directory and paper_id before writing. Save exam.json, original
 editable visual assets, candidate decisions and independent solution records in
-small batches (normally two to four items), updating run-state.json each time.
+small batches (normally two to four items; up to six text-only items), updating run-state.json each time.
 Review each item's shortest solution, provisional difficulty, comparison with
 recent accessible mechanisms, and visual-removal test before proceeding. Preserve
 failed items and reasons separately; only selected items enter the paper.

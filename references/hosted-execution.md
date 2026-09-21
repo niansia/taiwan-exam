@@ -159,7 +159,8 @@ content and review; no pass is prefilled. Read `difficulty-field-contract.md`
 for enums and content-hash rules instead of reverse-engineering validator code.
 For shared numbered subparts use `--subpart`; unnumbered tasks use `--slot-id`.
 
-Work one batch at a time: draft two to four items, draw only their figures, save
+Work one batch at a time: draft two to four items (up to six when every item is
+text-only, since those need no proof), draw only their figures, save
 them, then proof and review them before drafting the next batch. Only `exam.json`
 carries the paper between phases and turns. Two hosted runs spent every command
 of their turn designing, verifying and illustrating a whole paper that existed
@@ -207,8 +208,11 @@ Proof what can print wrongly, not everything. The saved-batch result lists
 image, sub/superscript or markup, answer blank or gap, response table, fill rail,
 or a long shared stimulus) with the reason, and `proof_optional` (plain-text
 items, which print through the same paragraph path as every earlier proof).
-Proof the recommended items now; text-only items may wait for the final build,
-where every crop and every page is still reviewed. A measured 自然 paper spent
+Proof the recommended items now. Text-only items need no proof and no final
+crop of their own: the final build marks their crops `review_via: page`, and
+they pass when the page image they sit on receives a passed review; the
+checker recomputes the triage from the exam and verifies the page. Every page
+is still opened, so every item is still read. A measured 自然 paper spent
 90 minutes on 50 batch proofs whose text-only crops found no defect.
 
 The same result names other things that are cheapest to fix while the item is

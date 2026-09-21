@@ -14,8 +14,8 @@ import json
 import re
 from pathlib import Path
 
-from run_hosted_workflow import (ASSET_TOKEN, RICH_TAG, SCRIPT_RUN, SPLIT_MIN_CHARACTERS, authoring_issues,
-                                 checkpoint, figure_pagination_risks, inside, printed_fields, read, record, save,
+from hosted_item_triage import crop_reasons, needs_crop
+from run_hosted_workflow import (authoring_issues, checkpoint, figure_pagination_risks, inside, read, record, save,
                                  text_issues)
 from validate_current_context import progress as context_progress, validate as current_context_errors
 from validate_math_difficulty_design import validate as math_design
@@ -25,6 +25,7 @@ from validate_paper_difficulty_balance import validate as difficulty_balance
 # ordinal (1, 2-a, b …) cannot be sorted out of order; a bare name can.
 ORDERED_SUBPART = re.compile(r'^(?:\d+|[a-z])(?:$|[-_.])')
 EARLY_PLAN_ITEMS = 20
+TEXT_ONLY_BATCH_ITEMS = 6
 # Words that make an option absolute. Such a distractor is wrong only if no
 # condition makes it true; the writer confirms that once, when the item is saved.
 ABSOLUTE_CLAIM = re.compile(r'必定|一定|必然|必|只有|只能|只|僅|無關|皆|所有|全部|不可能|永遠|從不|唯一|任何|一律|'
@@ -58,38 +59,15 @@ def proof_triage(questions, answers, *, first_batch):
     recommended, optional = {}, []
     for question in questions:
         qid = question.get('id')
-        answer = by_answer.get(qid, {})
-        reasons = []
-        if first_batch:
-            reasons.append('first batch: verify the renderer, font and section layout once')
-        for owner, record_ in (('question', question), ('answer', answer)):
-            if isinstance(record_.get('visual_asset'), dict):
-                reasons.append(owner + ' figure')
-            if record_.get('inline_assets'):
-                reasons.append(owner + ' inline formula image')
-        if question.get('response_format_table'):
-            reasons.append('response table')
-        if question.get('answer_format') or question.get('continuation_pages') or question.get('group_stimulus_page_splits'):
-            reasons.append('fill rail or explicit page continuation')
-        stimulus = question.get('group_stimulus')
-        if isinstance(stimulus, str) and len(stimulus) >= SPLIT_MIN_CHARACTERS:
-            reasons.append('long shared stimulus that may split across pages')
-        for where, value in printed_fields(question, answer):
-            rich = isinstance(value, dict) and set(value) == {'rich'}
-            raw = value['rich'] if rich else value
-            if not isinstance(raw, str):
-                continue
-            if rich or RICH_TAG.search(raw) or SCRIPT_RUN.search(raw) or ASSET_TOKEN.search(raw):
-                reasons.append(f'{where}: sub/superscript, markup or formula image')
-            if '{{answer}}' in raw or '______' in raw or re.search(r'\[\[\d+\]\]', raw):
-                reasons.append(f'{where}: answer blank or gap')
+        reasons = (['first batch: verify the renderer, font and section layout once'] if first_batch else [])
+        reasons += crop_reasons(question, by_answer.get(qid, {}))
         if reasons:
-            recommended[qid] = list(dict.fromkeys(reasons))
+            recommended[qid] = reasons
         else:
             optional.append(qid)
     return {'proof_recommended': recommended, 'proof_optional': optional,
             'proof_note': ('Proof the recommended items now (their crops carry forward to the final build). '
-                           'Text-only items may wait for the final build, where every crop and page is still reviewed.')}
+                           'Text-only items need no proof: the final build reads them on their reviewed page images.')}
 
 
 def design_gaps(exam, root, questions):
@@ -146,10 +124,17 @@ def validate_batch(batch):
     if not isinstance(batch, dict) or set(batch) - {'questions', 'answers'}:
         raise ValueError('Batch must contain only questions and answers')
     questions, answers = batch.get('questions'), batch.get('answers')
-    if not isinstance(questions, list) or not 1 <= len(questions) <= 4:
-        raise ValueError('Save 2-4 authored items per batch; a first or final single item is allowed')
+    if not isinstance(questions, list) or not 1 <= len(questions) <= TEXT_ONLY_BATCH_ITEMS:
+        raise ValueError(f'Save 2-4 authored items per batch (up to {TEXT_ONLY_BATCH_ITEMS} when every item is '
+                         'text-only); a first or final single item is allowed')
     if not isinstance(answers, list) or len(answers) != len(questions):
         raise ValueError('Save one authored answer for every question in the batch')
+    if len(questions) > 4:
+        by_id = {a.get('question_id'): a for a in answers if isinstance(a, dict)}
+        needing = [q.get('id') for q in questions if isinstance(q, dict) and needs_crop(q, by_id.get(q.get('id')))]
+        if needing:
+            raise ValueError('Batches of 5-6 items are for text-only items; these need their own proof, so save '
+                             'them in a batch of at most 4: ' + ', '.join(map(str, needing)))
     ids = set()
     for q in questions:
         if not isinstance(q, dict):

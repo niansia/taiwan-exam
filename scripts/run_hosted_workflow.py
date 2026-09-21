@@ -25,7 +25,8 @@ from hosted_body_templates import guarded_render as render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
-                                   refresh_review_hashes, canonical_sha, crop_keys, pending_note)
+                                   refresh_review_hashes, canonical_sha, crop_keys, pending_note,
+                                   propagate_page_reviews)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from fetch_hosted_template_assets import DEFAULT_MAP
 
@@ -1220,6 +1221,10 @@ def record_review(observations, *, state=None, proof=None):
                 intact(scan[row['page']])
                 apply_review(row, note, f'{role} page {key}', scan[row['page']]['issues'])
             save(targets[role]['pages'], report)
+            # Text-only crops are read on their page: a passed page settles them.
+            items_report = read(targets[role]['items'])
+            if propagate_page_reviews(items_report['parts'], report['pages']):
+                save(targets[role]['items'], items_report)
         if sections.get('items'):
             report = read(targets[role]['items'])
             keyed = dict(zip(crop_keys(report['parts']), report['parts']))
@@ -1234,7 +1239,10 @@ def record_review(observations, *, state=None, proof=None):
         refresh_review_hashes(state_path)
     for role, paths in targets.items():
         items = read(paths['items'])['parts']
-        remaining = {'items_pending': [p['raster_path'] for p in items if p.get('status') != 'pass']}
+        remaining = {'items_pending': [p['raster_path'] for p in items
+                                       if p.get('status') != 'pass' and p.get('review_via') != 'page'],
+                     'items_settled_by_page_review_pending': [p['id'] for p in items
+                                                              if p.get('status') != 'pass' and p.get('review_via') == 'page']}
         if 'pages' in paths:
             report = read(paths['pages'])
             scan = {p['page']: p for p in read(paths['inspection'])['pages']}
