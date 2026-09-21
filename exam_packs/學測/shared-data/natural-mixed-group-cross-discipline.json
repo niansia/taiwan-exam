@@ -11,72 +11,96 @@
       "mixed_groups": 6,
       "cross_discipline_groups": 3,
       "groups": [
-        {"group": "37-42", "topic": "黑碳定年與碳質分離", "disciplines": ["化學", "地科", "生物"], "cross_discipline": true},
-        {"group": "43-45", "topic": "海階、海蝕凹壁與穿孔貝", "disciplines": ["地科", "生物"], "cross_discipline": true},
-        {"group": "46-48", "topic": "SARS-CoV-2 與疫苗", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "49-54", "topic": "都卜勒血流儀與飲酒後血流速", "disciplines": ["物理", "生物"], "cross_discipline": true},
-        {"group": "55-57", "topic": "飲用水六價鉻移除", "disciplines": ["化學"], "cross_discipline": false},
-        {"group": "58-60", "topic": "量子單元與電磁天平質量基準", "disciplines": ["物理"], "cross_discipline": false}
-      ]
+        {"group": "37-42", "topic": "黑碳定年與碳質分離", "disciplines": ["化學", "地科", "生物"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "化學/地球科學合科"},
+        {"group": "43-45", "topic": "海階、海蝕凹壁與穿孔貝", "disciplines": ["地科", "生物"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "46-48", "topic": "SARS-CoV-2 與疫苗", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "49-54", "topic": "都卜勒血流儀與飲酒後血流速", "disciplines": ["物理", "生物"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "物理/生物合科"},
+        {"group": "55-57", "topic": "飲用水六價鉻移除", "disciplines": ["化學"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "58-60", "topic": "量子單元與電磁天平質量基準", "disciplines": ["物理"], "cross_discipline": false, "ceec_declared": false}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&qperoid=0M096363415298462880&sid=0M101535003584547623"
     },
     {
       "roc_year": 112,
       "mixed_groups": 6,
       "cross_discipline_groups": 5,
       "groups": [
-        {"group": "37-40", "topic": "燃煤、水力發電與二氧化碳減排", "disciplines": ["地科", "物理", "化學"], "cross_discipline": true},
-        {"group": "41-44", "topic": "火星與地球的居住條件比較", "disciplines": ["地科", "物理"], "cross_discipline": true},
-        {"group": "45-47", "topic": "乳糖發酵與酪蛋白凝聚", "disciplines": ["生物", "化學"], "cross_discipline": true},
-        {"group": "48-50", "topic": "孟德爾、摩根與演化理論", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "51-54", "topic": "岩心中的二氧化碳與鉛紀錄", "disciplines": ["化學", "地科"], "cross_discipline": true},
-        {"group": "55-60", "topic": "抗藥性細菌與點擊反應", "disciplines": ["化學", "生物"], "cross_discipline": true}
-      ]
+        {"group": "37-40", "topic": "燃煤、水力發電與二氧化碳減排", "disciplines": ["地科", "物理", "化學"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "41-44", "topic": "火星與地球的居住條件比較", "disciplines": ["地科", "物理"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "45-47", "topic": "乳糖發酵與酪蛋白凝聚", "disciplines": ["生物", "化學"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "48-50", "topic": "孟德爾、摩根與演化理論", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "51-54", "topic": "岩心中的二氧化碳與鉛紀錄", "disciplines": ["化學", "地科"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "物理/地球科學合科"},
+        {"group": "55-60", "topic": "抗藥性細菌與點擊反應", "disciplines": ["化學", "生物"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "化學/生物合科"}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&sid=0N107320375439312727"
     },
     {
       "roc_year": 113,
       "mixed_groups": 6,
       "cross_discipline_groups": 3,
       "groups": [
-        {"group": "37-39", "topic": "肉雞選育與飼料轉化率", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "40-43", "topic": "捕蠅草捕器的膨壓機制", "disciplines": ["生物", "物理"], "cross_discipline": true},
-        {"group": "44-46", "topic": "線圈迴路與磁鐵棒", "disciplines": ["物理"], "cross_discipline": false},
-        {"group": "47-49", "topic": "二氧化碳電化學還原", "disciplines": ["化學"], "cross_discipline": false},
-        {"group": "50-53", "topic": "縞狀鐵礦床的形成模型", "disciplines": ["地科", "化學"], "cross_discipline": true},
-        {"group": "54-56", "topic": "多波段天文觀測", "disciplines": ["地科", "物理"], "cross_discipline": true}
-      ]
+        {"group": "37-39", "topic": "肉雞選育與飼料轉化率", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "40-43", "topic": "捕蠅草捕器的膨壓機制", "disciplines": ["生物", "物理"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "生物/物理合科"},
+        {"group": "44-46", "topic": "線圈迴路與磁鐵棒", "disciplines": ["物理"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "47-49", "topic": "二氧化碳電化學還原", "disciplines": ["化學"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "50-53", "topic": "縞狀鐵礦床的形成模型", "disciplines": ["地科", "化學"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "化學/地球科學合科"},
+        {"group": "54-56", "topic": "多波段天文觀測", "disciplines": ["地科", "物理"], "cross_discipline": true, "ceec_declared": false}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&sid=0O106481975806899778"
     },
     {
       "roc_year": 114,
       "mixed_groups": 6,
       "cross_discipline_groups": 4,
       "groups": [
-        {"group": "37-39", "topic": "虱目魚耐寒與調鈣蛋白", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "40-43", "topic": "海洋水色與基礎生產力", "disciplines": ["地科", "生物"], "cross_discipline": true},
-        {"group": "44-46", "topic": "乾濕球溫度計與颱風警報", "disciplines": ["地科", "物理"], "cross_discipline": true},
-        {"group": "47-49", "topic": "類神經網路與神經細胞膜傳訊", "disciplines": ["物理", "生物"], "cross_discipline": true},
-        {"group": "50-54", "topic": "二氧化鈦光觸媒的能帶與自由基", "disciplines": ["化學", "物理"], "cross_discipline": true},
-        {"group": "55-57", "topic": "烷類莫耳燃燒熱", "disciplines": ["化學"], "cross_discipline": false}
-      ]
+        {"group": "37-39", "topic": "虱目魚耐寒與調鈣蛋白", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "40-43", "topic": "海洋水色與基礎生產力", "disciplines": ["地科", "生物"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "生物/地球科學合科"},
+        {"group": "44-46", "topic": "乾濕球溫度計與颱風警報", "disciplines": ["地科", "物理"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "47-49", "topic": "類神經網路與神經細胞膜傳訊", "disciplines": ["物理", "生物"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "50-54", "topic": "二氧化鈦光觸媒的能帶與自由基", "disciplines": ["化學", "物理"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "物理/化學合科"},
+        {"group": "55-57", "topic": "烷類莫耳燃燒熱", "disciplines": ["化學"], "cross_discipline": false, "ceec_declared": false}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&qperoid=0P099488587163884959&sid=0P118411794814600583"
     },
     {
       "roc_year": 115,
       "mixed_groups": 6,
       "cross_discipline_groups": 4,
       "groups": [
-        {"group": "37-39", "topic": "巴西龜溫度決定性別與親緣分析", "disciplines": ["生物"], "cross_discipline": false},
-        {"group": "40-43", "topic": "野生菸草花蜜成分與蜂鳥取食", "disciplines": ["生物", "化學"], "cross_discipline": true},
-        {"group": "44-46", "topic": "硫化鋅量子點合成", "disciplines": ["化學", "物理"], "cross_discipline": true},
-        {"group": "47-49", "topic": "汞原子能階與紫外光微影", "disciplines": ["物理"], "cross_discipline": false},
-        {"group": "50-53", "topic": "港口潮汐觀測與潮位預報", "disciplines": ["地科", "物理"], "cross_discipline": true},
-        {"group": "54-56", "topic": "隕石放射性同位素定年", "disciplines": ["地科", "化學"], "cross_discipline": true}
-      ]
+        {"group": "37-39", "topic": "巴西龜溫度決定性別與親緣分析", "disciplines": ["生物"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "40-43", "topic": "野生菸草花蜜成分與蜂鳥取食", "disciplines": ["生物", "化學"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "生物/化學合科"},
+        {"group": "44-46", "topic": "硫化鋅量子點合成", "disciplines": ["化學", "物理"], "cross_discipline": true, "ceec_declared": false},
+        {"group": "47-49", "topic": "汞原子能階與紫外光微影", "disciplines": ["物理"], "cross_discipline": false, "ceec_declared": false},
+        {"group": "50-53", "topic": "港口潮汐觀測與潮位預報", "disciplines": ["地科", "物理"], "cross_discipline": true, "ceec_declared": true, "ceec_label": "地球科學/物理合科"},
+        {"group": "54-56", "topic": "隕石放射性同位素定年", "disciplines": ["地科", "化學"], "cross_discipline": true, "ceec_declared": false}
+      ],
+      "ceec_declared_cross_discipline_groups": 2,
+      "ceec_feature_report_url": "https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&qunit=0Q105367191322447606&sid=0Q111421665148625302"
     }
   ],
   "summary": {
     "mixed_groups_per_paper": 6,
-    "cross_discipline_groups_per_paper": {"min": 3, "median": 4, "max": 5},
+    "cross_discipline_groups_per_paper": {
+      "min": 3,
+      "median": 4,
+      "max": 5
+    },
     "cross_discipline_share": 0.633,
-    "release_floor": 3,
-    "release_floor_note": "At least three of the six 第貳部分 題組 must be genuinely cross-disciplinary, matching the weakest observed official year. A second discipline that can be deleted without changing the solution does not count."
+    "release_floor": 2,
+    "release_floor_note": "At least two of the six 第貳部分 題組 must be genuinely cross-disciplinary: two is the number CEEC itself declares as 合科 in every ROC 111-115 paper, and the validator's removability test matches that definition. A second discipline that can be deleted without changing the solution does not count. The maintainer's wider reading (3-5 per paper) describes the observed range, not the floor.",
+    "ceec_declared_cross_discipline_groups_per_paper": {
+      "min": 2,
+      "median": 2,
+      "max": 2
+    }
+  },
+  "ceec_cross_check": {
+    "checked_at": "2026-09-21",
+    "source": "CEEC 學科能力測驗試題特色－【自然】 pages for ROC 111-115, 表1 (試題結構)",
+    "finding": "Every official paper declares exactly two 合科 題組 in 第貳部分. All ten are among the groups this record already marks cross_discipline; the remaining flagged groups are the maintainer's wider reading (a second discipline is load-bearing but not co-credited by CEEC)."
   }
 }

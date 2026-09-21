@@ -137,8 +137,9 @@ stimulus median of at least **90**; and at least **10,687 characters** of item
 content (stimuli, stems and options, excluding the cover and 說明 blocks). ROC 113 is the binding case at a 188-character
 median with two short groups.
 
-At least **three of the six 第貳部分 題組** must genuinely require two or more of
-物理／化學／生物／地科. Official years run 3–5 of 6 (median 4); the per-group
+At least **two of the six 第貳部分 題組** must genuinely require two or more of
+物理／化學／生物／地科. CEEC declares exactly 2 合科 groups in every official
+111–115 paper; the maintainer's wider reading finds 3–5 (median 4); the per-group
 classification is recorded in
 `exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json`. Declare
 each such group in `metadata.natural_mixed_group_designs` using the existing

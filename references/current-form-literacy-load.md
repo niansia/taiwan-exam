@@ -147,11 +147,18 @@ supplies, it is decorative and must be rewritten or relabelled.
 
 `exam_packs/學測/shared-data/natural-mixed-group-cross-discipline.json` records
 the maintainer's reading of all thirty official 第貳部分 題組 in ROC 111–115.
-Three to five of the six groups are genuinely cross-disciplinary every year
-(median 4, share 0.63).
+CEEC's own 試題特色 tables declare exactly **two** 合科 題組 in every one of
+those five papers (111: 37–42, 49–54; 112: 51–54, 55–60; 113: 40–43, 50–53;
+114: 40–43, 50–54; 115: 40–43, 50–53). The maintainer's wider reading, which
+also counts groups where a second discipline is load-bearing without being
+co-credited, finds three to five (median 4, share 0.63).
 
-At least **three of the six** 第貳部分 題組 must require concepts from two or more
-of 物理／化學／生物／地科 to reach the scored answers. Declare each such group in
+At least **two of the six** 第貳部分 題組 must require concepts from two or more
+of 物理／化學／生物／地科 to reach the scored answers. Two is the CEEC-declared
+count in every official year, and the validator's test — a second discipline
+that cannot be deleted without changing the solution — is the standard CEEC
+uses to label a group 合科, so a floor of three would have rejected every
+official paper under that definition. Declare each such group in
 `metadata.natural_mixed_group_designs`, the record `validate_chinese_natural_scope.py`
 already defines: `question_numbers`, `required_domains` (two or more), a concrete
 `evidence_bridge`, plus `second_discipline_removable: false`. Only
@@ -189,7 +196,7 @@ The numbers are recorded here because they show what collapse looks like:
 | 第壹部分 題組 | 3 – 6 | 0 |
 | 第貳部分 stimulus median | 188 – 365 | 77 |
 | Groups under 120 chars | at most 2 of 6 | 6 of 6 |
-| Cross-disciplinary mixed groups | 3 – 5 of 6 | 0 of 6 |
+| Cross-disciplinary mixed groups | 2 of 6 declared by CEEC; 3 – 5 in the wider reading | 0 of 6 |
 
 Its items were internally correct. They were short, single-discipline, and
 solvable by one substitution — a dilution calculation, a titration equivalence
