@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.21.2
+# Taiwan Exam Web Knowledge v2026.09.21.3
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -624,10 +624,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 26984,
-    "sha256": "34afb478d5850f07c4799816002f505707e6a098870a24a955db6334aca5f2ed",
-    "embedded_bytes": 26984,
-    "embedded_sha256": "34afb478d5850f07c4799816002f505707e6a098870a24a955db6334aca5f2ed"
+    "bytes": 27549,
+    "sha256": "1105f67fbd79801c557dad486d3430c55deb7b1a70717a17c1581fb1fddf66b3",
+    "embedded_bytes": 27549,
+    "embedded_sha256": "1105f67fbd79801c557dad486d3430c55deb7b1a70717a17c1581fb1fddf66b3"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -847,6 +847,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "8f50ccee0dac25d0ee5952fba533e186bb530ab44954b8ad5277ed912b0e35c2"
   },
   {
+    "path": "scripts/ensure_pymupdf.py",
+    "bytes": 6188,
+    "sha256": "ba52f81519f3840fe450e7f3d24cc93c8fc820beb50903b55c019aa0a2de76eb",
+    "embedded_bytes": 6188,
+    "embedded_sha256": "ba52f81519f3840fe450e7f3d24cc93c8fc820beb50903b55c019aa0a2de76eb"
+  },
+  {
     "path": "scripts/fetch_hosted_template_assets.py",
     "bytes": 9421,
     "sha256": "2204aa8f2534f6ccb6a5a9b0bbb5f885d40f7f18b87ab688b5e66b6d04d41e77",
@@ -904,10 +911,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 21524,
-    "sha256": "4f0ca5ea7b0f391e4138adbc45a25b08c3a37030a4a62a405237391c4f6656ce",
-    "embedded_bytes": 21524,
-    "embedded_sha256": "4f0ca5ea7b0f391e4138adbc45a25b08c3a37030a4a62a405237391c4f6656ce"
+    "bytes": 21677,
+    "sha256": "550f9512d8d9fc26f6d5058432b332256a5902eeb7bc0097da60dd24ea8d67c5",
+    "embedded_bytes": 21677,
+    "embedded_sha256": "550f9512d8d9fc26f6d5058432b332256a5902eeb7bc0097da60dd24ea8d67c5"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -58013,6 +58020,15 @@ rereading references already read in this conversation: open a phase's reading
 only the first time you enter it. If files have expired,
 recover the actual saved artifacts or report the missing files precisely.
 
+Every PDF helper needs PyMuPDF. If the runtime lacks it, or a helper fails with
+`ModuleNotFoundError: pymupdf`, run `python scripts/ensure_pymupdf.py`: it
+installs the wheel bundled under `resources/wheels/` with `pip --no-index`, so
+no package index or network policy is involved, and the preflight runs the same
+step itself. Do not stop to ask for a wheel or an allow-list first. Only when
+that helper reports `install-failed` or `missing-wheel` is PyMuPDF a blocker:
+then stop, keep saved work and report its JSON; never compose pages with another
+PDF library.
+
 Before drafting, confirm file creation, Python/PDF operations and readable image
 inspection in the actual runtime. The preflight starts the run clock
 (`generation-timing.json` in the run directory, phase `reference_preflight`);
@@ -63769,6 +63785,151 @@ if __name__=='__main__':
     raise SystemExit(main())
 </canonical-source>
 
+<canonical-source path="scripts/ensure_pymupdf.py">
+#!/usr/bin/env python3
+"""Make PyMuPDF importable offline from the wheel bundled with the hosted Skill.
+
+Every hosted PDF helper composes onto the original fixed template PDFs with
+PyMuPDF. Some hosted runtimes ship without it and block package indexes, so the
+Skill carries a manylinux x86_64 abi3 wheel under ``resources/wheels/`` and this
+helper installs it with ``pip --no-index``; no network is needed. It never
+downloads, never touches proxy or policy settings, and never substitutes another
+PDF library. This file must not import pymupdf at module level.
+"""
+from __future__ import annotations
+
+import argparse
+import importlib
+import json
+import os
+from pathlib import Path
+import platform
+import subprocess
+import sys
+
+HERE = Path(__file__).resolve().parent
+WHEEL_PATTERN = 'pymupdf-*.whl'
+STOP_ACTION = (
+    'Stop before drafting. The formal PDF route needs PyMuPDF and neither the runtime nor the bundled '
+    'wheel could supply it. Report this exact result to the user; do not compose pages with another '
+    'PDF library or deliver a redrawn substitute.')
+
+
+def candidate_directories(wheel_dir: Path | None = None) -> list[Path]:
+    """Bundled wheel locations, nearest first: an explicit dir, the env override, then the Skill tree."""
+    candidates = []
+    if wheel_dir:
+        candidates.append(Path(wheel_dir))
+    env = os.environ.get('TAIWAN_EXAM_WHEEL_DIR')
+    if env:
+        candidates.append(Path(env))
+    for base in (HERE.parent, *HERE.parents[1:3]):
+        candidates.append(base / 'resources' / 'wheels')
+        candidates.append(base / 'vendor' / 'wheels')
+    unique = []
+    for path in candidates:
+        resolved = path.expanduser().resolve()
+        if resolved not in unique:
+            unique.append(resolved)
+    return unique
+
+
+def find_wheels(wheel_dir: Path | None = None) -> list[Path]:
+    for directory in candidate_directories(wheel_dir):
+        if directory.is_dir():
+            wheels = sorted(directory.glob(WHEEL_PATTERN))
+            if wheels:
+                return wheels
+    return []
+
+
+def probe(python: str = sys.executable) -> dict:
+    """Import in a fresh interpreter, which is what every later helper will do."""
+    code = 'import pymupdf, json; print(json.dumps({"version": pymupdf.__version__, "file": pymupdf.__file__}))'
+    try:
+        completed = subprocess.run([python, '-c', code], capture_output=True, text=True, timeout=120)
+    except (OSError, subprocess.TimeoutExpired) as error:
+        return {'importable': False, 'error': str(error)}
+    if completed.returncode == 0:
+        try:
+            return dict(json.loads(completed.stdout.strip().splitlines()[-1]), importable=True)
+        except (ValueError, IndexError):
+            return {'importable': True, 'version': None}
+    return {'importable': False, 'error': (completed.stderr or completed.stdout).strip()[-800:]}
+
+
+def _pip_install(wheel: Path, extra: list[str], python: str) -> dict:
+    command = [python, '-m', 'pip', 'install', '--no-index', '--no-deps', '--disable-pip-version-check',
+               '--find-links', str(wheel.parent), *extra, str(wheel)]
+    try:
+        completed = subprocess.run(command, capture_output=True, text=True, timeout=900)
+    except (OSError, subprocess.TimeoutExpired) as error:
+        return {'ok': False, 'command': command, 'error': str(error)}
+    output = (completed.stdout + '\n' + completed.stderr).strip()
+    return {'ok': completed.returncode == 0, 'command': command, 'output': output[-1500:]}
+
+
+def ensure(wheel_dir: Path | None = None, python: str = sys.executable) -> dict:
+    """Return a JSON-able report; status is present, installed, missing-wheel or install-failed."""
+    before = probe(python)
+    if before['importable']:
+        return {'status': 'present', 'version': before.get('version'), 'method': 'runtime',
+                'python': python}
+    wheels = find_wheels(wheel_dir)
+    machine = platform.machine().lower()
+    report = {'status': 'missing-wheel', 'python': python, 'platform': f'{sys.platform}-{machine}',
+              'searched': [str(p) for p in candidate_directories(wheel_dir)], 'import_error': before.get('error')}
+    if not wheels:
+        report['next_action'] = STOP_ACTION
+        return report
+    wheel = wheels[-1]
+    report['wheel'] = str(wheel)
+    attempts = []
+    for label, extra in (('site-packages', []), ('user-site', ['--user'])):
+        result = _pip_install(wheel, extra, python)
+        attempts.append({'target': label, 'ok': result['ok'], 'output': result.get('output') or result.get('error')})
+        if result['ok']:
+            after = probe(python)
+            if after['importable']:
+                report.update(status='installed', method=f'bundled-wheel:{label}', version=after.get('version'),
+                              attempts=attempts)
+                return report
+            attempts[-1]['ok'] = False
+            attempts[-1]['output'] = 'pip reported success but a fresh interpreter cannot import pymupdf: ' \
+                                     + str(after.get('error'))
+    report.update(status='install-failed', attempts=attempts, next_action=STOP_ACTION)
+    return report
+
+
+def require() -> None:
+    """For helpers: install the bundled wheel if needed, then import; raise with the report otherwise."""
+    try:
+        importlib.import_module('pymupdf')
+        return
+    except ImportError:
+        pass
+    report = ensure()
+    if report['status'] in {'present', 'installed'}:
+        importlib.invalidate_caches()
+        importlib.import_module('pymupdf')
+        return
+    raise SystemExit(json.dumps({'status': 'blocked-missing-pymupdf', 'ensure_pymupdf': report,
+                                 'next_action': STOP_ACTION}, ensure_ascii=False, indent=2))
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--wheel-dir', type=Path, help='Directory holding the bundled PyMuPDF wheel')
+    args = parser.parse_args()
+    report = ensure(args.wheel_dir)
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0 if report['status'] in {'present', 'installed'} else 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
+</canonical-source>
+
 <canonical-source path="scripts/fetch_hosted_template_assets.py">
 #!/usr/bin/env python3
 """Fetch and verify one subject's fixed GSAT template PDF components.
@@ -66047,7 +66208,10 @@ import subprocess
 import sys
 import time
 
-import pymupdf
+import ensure_pymupdf
+
+ensure_pymupdf.require()  # Installs the bundled wheel offline when the runtime lacks PyMuPDF.
+import pymupdf  # noqa: E402
 from compose_hosted_pdf import compose
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, materialize, production_records, verify
 from hosted_calibration import SUBJECTS, snapshot
@@ -66059,7 +66223,7 @@ from verify_fixed_template_pdf import verify_pdf
 PREFLIGHT_DEPENDENCIES = (
     'prepare_hosted_run.py', 'compose_hosted_pdf.py', 'fetch_hosted_template_assets.py',
     'verify_fixed_template_pdf.py', 'inspect_hosted_pdf.py', 'validate_math_context.py',
-    'hosted_calibration.py', 'hosted_run_timing.py', 'hosted_blind_review.py',
+    'hosted_calibration.py', 'hosted_run_timing.py', 'hosted_blind_review.py', 'ensure_pymupdf.py',
 )
 
 

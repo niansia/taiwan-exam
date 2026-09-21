@@ -12,7 +12,7 @@ from validate_attribution import validate as validate_attribution
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDED_TOP_LEVEL = {".git", ".github", ".playwright-cli", ".pytest_cache", "dist", "downloads", "maintenance", "output", "tests", "tmp", "web"}
+EXCLUDED_TOP_LEVEL = {".git", ".github", ".playwright-cli", ".pytest_cache", "dist", "downloads", "maintenance", "output", "tests", "tmp", "vendor", "web"}
 PRIVATE_INTAKE_DIRS = {"歷屆試題", "模擬考", "format-references", "answer-profiles", "official-statistics", "命題範圍"}
 KEEP_IN_PRIVATE_DIRS = {
     "放資料到這裡.md",
@@ -72,6 +72,7 @@ DISTRIBUTABLE_SCRIPTS = set('''
 analyze_current_chinese_natural_form.py analyze_gsat_official_patterns.py
 analyze_historical_content.py analyze_mock_bundle.py analyze_mock_exam_dataset.py
 analyze_pdf_visuals.py analyze_recent_math_form.py analyze_stimulus_ecology.py
+ensure_pymupdf.py
 analyze_writing_source_corpus.py audit_corpus_overlap.py audit_item_originality.py
 audit_source_novelty.py audit_exam_pack.py audit_generated_suite.py
 bootstrap_exam_sources.py writer_calibration.py

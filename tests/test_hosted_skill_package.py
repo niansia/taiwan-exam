@@ -72,6 +72,26 @@ def test_short_entry_is_separate_from_exact_canonical_sources(native):
     for row in manifest['files']:
         data=(installed/row['path']).read_bytes()
         assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256']
+    # The offline PyMuPDF wheel rides along when fetched; its installer is always shipped.
+    assert (installed/'scripts/ensure_pymupdf.py').is_file()
+    wheels=[row for row in manifest['files'] if row['path'].endswith('.whl')]
+    vendored=sorted((ROOT/'vendor/wheels').glob('*.whl')) if (ROOT/'vendor/wheels').is_dir() else []
+    assert manifest['bundled_wheels']['count']==len(wheels)==len(vendored)==result['bundled_wheels']
+    assert manifest['bundled_wheels']['installer']=='scripts/ensure_pymupdf.py'
+    for row in wheels:
+        assert row['path'].startswith('resources/wheels/pymupdf-') and 'cp39-abi3-manylinux' in row['path']
+        assert row['third_party']['name']=='PyMuPDF' and row['third_party']['license']=='AGPL-3.0-only'
+        assert hashlib.sha256((ROOT/row['source']).read_bytes()).hexdigest()==row['sha256']
+    assert not any(name.endswith('.whl') and not name.startswith('taiwan-exam-generator/resources/wheels/') for name in names)
+
+
+def test_release_build_requires_the_offline_wheel(tmp_path):
+    if sorted((ROOT/'vendor/wheels').glob('*.whl')):
+        report=build('wheel-test',tmp_path/'with.zip',require_wheels=True)
+        assert report['bundled_wheels']>=1
+    else:
+        with pytest.raises(ValueError,match='vendor/wheels'):
+            build('wheel-test',tmp_path/'without.zip',require_wheels=True)
 
 
 @pytest.mark.parametrize('path', ['exam_packs/學測/manifest.json',

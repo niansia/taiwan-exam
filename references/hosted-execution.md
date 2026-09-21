@@ -58,6 +58,15 @@ rereading references already read in this conversation: open a phase's reading
 only the first time you enter it. If files have expired,
 recover the actual saved artifacts or report the missing files precisely.
 
+Every PDF helper needs PyMuPDF. If the runtime lacks it, or a helper fails with
+`ModuleNotFoundError: pymupdf`, run `python scripts/ensure_pymupdf.py`: it
+installs the wheel bundled under `resources/wheels/` with `pip --no-index`, so
+no package index or network policy is involved, and the preflight runs the same
+step itself. Do not stop to ask for a wheel or an allow-list first. Only when
+that helper reports `install-failed` or `missing-wheel` is PyMuPDF a blocker:
+then stop, keep saved work and report its JSON; never compose pages with another
+PDF library.
+
 Before drafting, confirm file creation, Python/PDF operations and readable image
 inspection in the actual runtime. The preflight starts the run clock
 (`generation-timing.json` in the run directory, phase `reference_preflight`);

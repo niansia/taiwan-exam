@@ -22,6 +22,10 @@ from validate_attribution import validate as validate_attribution
 
 # Published placeholder previews of each subject's question and solution layout.
 PREVIEW_VERSION = '2026.09.14.1'
+# Fetched (never versioned) PyMuPDF wheels; see vendor/wheels/README.md.
+WHEEL_SOURCE = ROOT / 'vendor' / 'wheels'
+WHEEL_TARGET = 'resources/wheels/'
+WHEEL_NAME = re.compile(r'pymupdf-(?P<version>[0-9][0-9A-Za-z.]*)-cp39-abi3-manylinux[0-9_]*x86_64[A-Za-z0-9_.]*\.whl')
 
 
 ENTRY = """---
@@ -63,12 +67,12 @@ Start with [references/hosted-execution.md](references/hosted-execution.md).
 This multi-file Skill already contains its executable `scripts/`, subject
 references, schemas, and template maps. First use the reader's `--source-dir`
 route in hosted-execution.md to materialize the selected subject into a writable
-reference directory; run all subsequent helpers from that directory. ZIP member
-names use ASCII; PACKAGE_MANIFEST.json maps them to original runtime paths without
-changing file contents (layout previews only merge duplicate fonts). Do not
-manually rename folders. Do not extract or reconstruct the large web-knowledge
-Markdown, download the repository, or reinstall this Skill for an ordinary paper
-request. Run helpers without printing their source. Read the requested subject's
+reference directory; run all subsequent helpers from that directory. Do not
+extract or reconstruct the large web-knowledge Markdown, download the
+repository, or reinstall this Skill for an ordinary paper request. PyMuPDF is
+required; if the runtime lacks it, `python scripts/ensure_pymupdf.py` installs
+the bundled wheel offline (the preflight does this itself). Do not stop for a
+missing PyMuPDF before that helper reports install-failed. Run helpers without printing their source. Read the requested subject's
 guidance at the phase that uses it.
 
 Write new questions and solutions for this run. The selected subject's question
@@ -166,7 +170,39 @@ def layout_previews(root):
     return previews
 
 
-def build(version, output, *, root=ROOT):
+def bundled_wheels(root, *, required=False):
+    """{archive path: (repository path, bytes, metadata)} for the offline PyMuPDF wheel.
+
+    Hosted runtimes sometimes lack PyMuPDF and block package indexes;
+    scripts/ensure_pymupdf.py installs this wheel with pip --no-index. One abi3
+    manylinux x86_64 wheel serves CPython 3.9+ on the Linux containers hosted
+    platforms use. Missing wheels only fail a release build.
+    """
+    folder = root / WHEEL_SOURCE.relative_to(ROOT)
+    wheels = {}
+    for path in sorted(folder.glob('*.whl')) if folder.is_dir() else []:
+        match = WHEEL_NAME.fullmatch(path.name)
+        if not match:
+            raise ValueError('Unexpected wheel in vendor/wheels (need a PyMuPDF cp39-abi3 manylinux x86_64 wheel): ' + path.name)
+        data = path.read_bytes()
+        with ZipFile(path) as wheel:
+            names = wheel.namelist()
+            metadata = next((n for n in names if n.endswith('.dist-info/METADATA')), None)
+            if not metadata or not any(n.endswith('.dist-info/RECORD') for n in names):
+                raise ValueError('Wheel lacks dist-info metadata: ' + path.name)
+            headers = wheel.read(metadata).decode('utf-8', errors='replace')
+        if 'Name: PyMuPDF' not in headers or f"Version: {match.group('version')}" not in headers:
+            raise ValueError('Wheel metadata does not describe PyMuPDF ' + match.group('version') + ': ' + path.name)
+        wheels[WHEEL_TARGET + path.name] = (path.relative_to(root).as_posix(), data,
+                                          {'name': 'PyMuPDF', 'version': match.group('version'),
+                                           'python': 'cp39-abi3', 'platform': 'manylinux x86_64',
+                                           'license': 'AGPL-3.0-only', 'source': 'https://pypi.org/project/PyMuPDF/'})
+    if required and not wheels:
+        raise ValueError('No PyMuPDF wheel in vendor/wheels; fetch it per vendor/wheels/README.md before a release build')
+    return wheels
+
+
+def build(version, output, *, root=ROOT, require_wheels=False):
     if not isinstance(version, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,79}', version):
         raise ValueError('Use a short version identifier without whitespace or path separators')
     root = root.resolve()
@@ -203,6 +239,13 @@ def build(version, output, *, root=ROOT):
         records.append({'path': target, 'runtime_path': runtime_path,
                         'bytes': len(data), 'sha256': sha(data),
                         'source': relative, 'source_sha256': sha(data)})
+    wheels = bundled_wheels(root, required=require_wheels)
+    for target, (relative, data, metadata) in sorted(wheels.items()):
+        if target in members:
+            raise ValueError('Duplicate hosted archive target: ' + target)
+        members[target] = data
+        records.append({'path': target, 'runtime_path': target, 'bytes': len(data), 'sha256': sha(data),
+                        'source': relative, 'source_sha256': sha(data), 'third_party': metadata})
     previews = layout_previews(root)
     for runtime_path, (relative, original, data) in sorted(previews.items()):
         target = archive_path(runtime_path)
@@ -227,6 +270,10 @@ def build(version, output, *, root=ROOT):
                                       'bytes': sum(path.stat().st_size for path in templates.values())},
                 'layout_previews': {'version': PREVIEW_VERSION, 'count': len(previews),
                                     'bytes': sum(len(data) for _, _, data in previews.values())},
+                'bundled_wheels': {'count': len(wheels), 'bytes': sum(len(data) for _, data, _ in wheels.values()),
+                                   'installer': 'scripts/ensure_pymupdf.py',
+                                   'files': [dict(metadata, path=target, sha256=sha(data))
+                                             for target, (_, data, metadata) in sorted(wheels.items())]},
                 'file_count': len(records), 'files': sorted(records, key=lambda row: row['path'])}
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix('.zip.partial')
@@ -242,6 +289,7 @@ def build(version, output, *, root=ROOT):
             'bytes': output.stat().st_size, 'file_count': len(records),
             'entry_bytes': len(members['SKILL.md']), 'distribution_status': manifest['distribution_status'],
             'security_acceptance': manifest['security_acceptance'],
+            'bundled_wheels': manifest['bundled_wheels']['count'],
             'next_action': 'Run the existing exact-archive security and normal-browser acceptance workflow before publishing.'}
 
 
@@ -249,8 +297,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--version', required=True)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--require-wheels', action='store_true',
+                        help='Fail unless the offline PyMuPDF wheel is present (release builds)')
     args = parser.parse_args()
-    print(json.dumps(build(args.version, args.output), ensure_ascii=False, indent=2))
+    print(json.dumps(build(args.version, args.output, require_wheels=args.require_wheels), ensure_ascii=False, indent=2))
     return 0
 
 
