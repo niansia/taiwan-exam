@@ -13,6 +13,8 @@
 
 已在關閉網路的 `python:3.11-slim` 容器實測：解壓 ZIP、以 wheel 檔離線安裝 PyMuPDF、`--source-dir` 讀取、自然科預檢到 `ready-for-authoring`，全程沒有網路。
 
+新 ZIP（SHA-256 `5694fe65cf61805882191acfdcacc3457c9027d2e6112adaa003d50b23e737ab`，9,290,802 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.21.3 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.21.3/taiwan-exam-hosted-2026.09.21.3.zip)；wheel 附件與 security.json、browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.21.3) 頁面。已安裝的舊 Skill 請重新下載替換。
+
 ## 2026.09.21.2：以大考中心〈試題特色〉交叉核對自然、社會、英文
 
 把專案內建的 111～115 量測值，逐項對照大考中心各年〈學科能力測驗試題特色〉（自然、社會、英文）與磁碟上的正式試卷。磁碟上的 PDF 與大考中心目錄網址的檔案雜湊一致（114 自然為更正後定稿：規模 9.0、2011/3/11，不是考當天版本）；`analyze_current_form_literacy.py` 重跑後與內建 envelope 完全相同。
