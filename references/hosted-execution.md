@@ -60,9 +60,14 @@ recover the actual saved artifacts or report the missing files precisely.
 
 Every PDF helper needs PyMuPDF. If the runtime lacks it, or a helper fails with
 `ModuleNotFoundError: pymupdf`, run `python scripts/ensure_pymupdf.py` (the
-preflight runs the same step itself). It installs a PyMuPDF wheel file with
-`pip --no-index`, so no package index or network policy is involved. When it
-reports `missing-wheel`, ask the user once, in these words: download the wheel
+preflight runs the same step itself). It first uses any wheel already on disk,
+then downloads the pinned PyMuPDF wheel from this project's GitHub Release
+(SHA-256 verified, one bounded HTTPS request, no proxy or policy change) and
+installs it with `pip --no-index`. The equivalent one-line command, when pip can
+reach github.com, is `python -m pip install "https://github.com/niansia/taiwan-exam/releases/download/wheels-pymupdf-1.26.0/pymupdf-1.26.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"`.
+Only when the helper reports `missing-wheel`, which
+means the runtime blocks that download too, ask the user once, in these words:
+download the wheel
 `pymupdf-1.26.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl` from the README troubleshooting entry
 （「AI 說執行環境缺少 PyMuPDF」）and upload it to this chat. Then run
 `python scripts/ensure_pymupdf.py --wheel UPLOADED_FILE` and continue the same

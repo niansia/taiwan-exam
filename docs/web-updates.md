@@ -5,6 +5,12 @@
 以下是修正摘要；目前執行規則以 [SKILL.md](../SKILL.md) 與最新版知識檔為準。
 更新 GitHub 不會自動替換帳號內已儲存的附件，請更新原本的 Skill／Project／Gem。
 
+## 2026.09.21.4：缺 PyMuPDF 時 Skill 自己下載 wheel
+
+接續 2026.09.21.3：使用者問能不能不用手動上傳。`scripts/ensure_pymupdf.py` 現在依序做三件事：先用磁碟上已有的 wheel（內建、上傳資料夾或 `--wheel`）；沒有就從本專案固定網址的 Release [wheels-pymupdf-1.26.0](https://github.com/niansia/taiwan-exam/releases/tag/wheels-pymupdf-1.26.0) 下載，比對固定的 SHA-256 與大小後才安裝，不符即丟棄；連這個也被網路政策擋掉，才請使用者下載同一個檔案上傳到對話。安裝一律是 `pip install --no-index` 本機檔案，不改代理或政策設定，也不換用其他 PDF 程式庫；上傳檔被改名時會先復原正式檔名再安裝。`--no-download` 可停用下載。等價的一行指令 `python -m pip install "<wheel 網址>"` 也寫在執行路線與 README。
+
+wheel 改放在獨立、固定網址的 Release，之後每個 Skill 版本不必再附一次；README 疑難排解已改為「通常不需動作，被擋時才三步」。ZIP 維持約 9.3 MB。
+
 ## 2026.09.21.3：缺 PyMuPDF 的環境改用上傳 wheel 離線安裝
 
 使用者實跑時，AI 回報執行環境沒有 PyMuPDF，而且組織的網路政策擋掉 pypi，於是 10 個 hosted 工具在預檢第一步就停下（這是正確行為，沒有自畫版面）。PyMuPDF 是編譯過的二進位套件，本來就不在 ZIP 裡。

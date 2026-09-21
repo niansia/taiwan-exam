@@ -72,9 +72,10 @@ route in hosted-execution.md to materialize the selected subject into a writable
 reference directory; run all subsequent helpers from that directory. Do not
 extract or reconstruct the large web-knowledge Markdown, download the
 repository, or reinstall this Skill for an ordinary paper request. PyMuPDF is
-required. If the runtime lacks it, run `python scripts/ensure_pymupdf.py`; on
-`missing-wheel`, ask the user to upload the PyMuPDF wheel linked in the README
-troubleshooting entry, then rerun it with `--wheel FILE` and continue. Run helpers without printing their source. Read the requested subject's
+required. If the runtime lacks it, run `python scripts/ensure_pymupdf.py`: it
+downloads the pinned wheel from this project's GitHub Release and installs it
+offline; only on `missing-wheel` ask the user to upload that wheel (README
+troubleshooting entry), rerun it with `--wheel FILE`, and continue. Run helpers without printing their source. Read the requested subject's
 guidance at the phase that uses it.
 
 Write new questions and solutions for this run. The selected subject's question
