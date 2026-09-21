@@ -106,6 +106,11 @@ validate_exam_release.py validate_exam_pack_contract.py
 '''.split())
 
 
+# Characters that are illegal in a Windows filename or special in a URL or
+# archive member path. Non-ASCII is fine: exam_packs uses Chinese folder names.
+UNPORTABLE_NAME_CHARS = frozenset('#?%*|"<>:\\\r\n\t')
+
+
 def should_include(path: Path) -> bool:
     rel = path.relative_to(ROOT)
     if path.suffix.lower() in {'.zip', '.7z', '.rar', '.tar', '.gz'}:
@@ -115,6 +120,14 @@ def should_include(path: Path) -> bool:
     if not rel.parts or rel.parts[0] in EXCLUDED_TOP_LEVEL or rel.parts[0].startswith("drive-download"):
         return False
     if rel.name == "PACKAGE_MANIFEST.json" or rel.name == ".env" or rel.name.startswith(".env."):
+        return False
+    # A path component carrying a URL-fragment, wildcard or Windows-illegal
+    # character is a scratch artifact, never a reviewed source. `#` is the one
+    # that reached this repository: it breaks archive member paths, Markdown
+    # links and raw URLs, and a leftover anchor-named copy of a reference must
+    # not ship beside the reference itself. The hosted builder is already safe
+    # because it packages from an explicit allowlist; this tree walk was not.
+    if any(set(part) & UNPORTABLE_NAME_CHARS for part in rel.parts):
         return False
     if rel.as_posix() in MAINTAINER_ONLY_FILES:
         return False

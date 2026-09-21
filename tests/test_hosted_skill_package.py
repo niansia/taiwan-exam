@@ -119,3 +119,25 @@ def test_native_helpers_start_outside_repository(native,tmp_path,helper):
     result=subprocess.run([sys.executable,str(installed/'scripts'/helper),'--help'],
                           cwd=tmp_path,capture_output=True,timeout=30)
     assert result.returncode==0,result.stderr
+
+
+@pytest.mark.parametrize('name', [
+    'references/math-difficulty-design.md#math-a-unpredictable-answer-counts-and-occasional-close-options',
+    'references/notes?draft.md',
+    'scripts/tmp|copy.py',
+    'exam_packs/學測/scratch<1>.json',
+])
+def test_unportable_filenames_never_enter_a_distribution(name):
+    """A scratch copy named with a URL fragment or wildcard is not a source.
+
+    One such leftover sat beside references/math-difficulty-design.md; the
+    hosted builder skipped it only because it packages from an allowlist.
+    """
+    assert not should_include(ROOT / name)
+
+
+def test_the_exclusion_does_not_reach_real_sources():
+    for name in ('LICENSE', 'NOTICE', 'SKILL.md',
+                 'references/math-difficulty-design.md',
+                 'exam_packs/學測/manifest.json'):
+        assert should_include(ROOT / name), name
