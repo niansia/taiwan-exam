@@ -19,6 +19,8 @@ PERFORMANCE_CODE = re.compile(r"\b[a-z]{2}-Ⅴc-\d\b")
 CHINESE_CODES = {f"A{i}" for i in range(1, 7)} | {f"B{i}" for i in range(1, 6)}
 # 自然 form bands measured on the official 111–115 question booklets (2026-09-22).
 NATURAL_PROFILE_YEARS = {111, 112, 113, 114, 115}
+NATURAL_THEMES_MIN = 3          # distinct 主題 letters per discipline; official chapters per discipline 4-7
+NATURAL_THEME_MAX_ITEMS = 6     # official maximum in one chapter: 5 (111 天文)
 NATURAL_FIRST_PART_MULTIPLE = (12, 19)          # 多選 in Q1–36: 18, 15, 19, 18, 12
 NATURAL_MIXED_LAST = (56, 60)                   # last numbered item: 60, 60, 56, 57, 56
 NATURAL_MIXED_BANDS = {
@@ -192,6 +194,7 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
             valid_content = valid_performance = None
             warnings.append("official 自然 specification not supplied: code membership unchecked, code form still required")
         normalized_domains: dict[int, str] = {}
+        themes_by_domain: dict[str, Counter] = {name: Counter() for name in ("物理", "化學", "生物", "地科")}
         for q in questions:
             spec = q.get("item_spec") or {}
             errors.extend(innovation_errors(q, "自然"))
@@ -212,6 +215,9 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
             if head:
                 domain_counts[head] += 1
                 domain_scores[head] += float(q.get("score") or 0)
+                content = [str(c) for c in codes if CONTENT_CODE.fullmatch(str(c))]
+                if content:
+                    themes_by_domain[head][content[0][1]] += 1
                 if isinstance(q.get("number"), int):
                     normalized_domains[int(q["number"])] = head
             else:
@@ -251,6 +257,18 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
                 "natural discipline score shares differ by more than 8 percentage points: "
                 + ", ".join(f"{name}={score_shares[name]:.3f}" for name in ("物理", "化學", "生物", "地科"))
             )
+        if len(questions) >= 50:
+            # 命題範圍 breadth measured on the official 111-115 booklets (chapter reading of every
+            # item, see subject-form-envelopes-111-115.json): each discipline's items spread over
+            # 4-7 chapters a year and no chapter carries more than 5 items. The 108 content code's
+            # second character is the 主題 letter, so breadth is checked on it.
+            for name, themes in themes_by_domain.items():
+                if domain_counts[name] and len(themes) < NATURAL_THEMES_MIN:
+                    errors.append(f"{name} items cover only {len(themes)} 108 主題 (codes {sorted(themes)}); official 111-115 spread each "
+                                  f"discipline over at least {NATURAL_THEMES_MIN} 主題 every year (4-7 chapters)")
+                for theme, count in themes.items():
+                    if count > NATURAL_THEME_MAX_ITEMS:
+                        errors.append(f"{name} 主題 {theme} carries {count} items; official 111-115 never exceed {NATURAL_THEME_MAX_ITEMS} items in one chapter")
         inquiry = sum(any(PERFORMANCE_CODE.fullmatch(c) for c in ((q.get("item_spec") or {}).get("curriculum_codes") or [])) for q in questions)
         if inquiry < 14:
             errors.append(f"inquiry/practice coverage below 14 items: {inquiry}")

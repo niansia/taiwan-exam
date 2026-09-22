@@ -35,6 +35,25 @@ Every profile is 110 minutes and 144 points. Select one verified year before wri
 - **第二部分混合題／非選擇題完全不受上述分科連續限制**，包括其中的單選小題。判別依所在部分及共用材料，不是看到 `single_choice` 就一律搬到第一部分分科排序。
 - `sections` 按正式印刷順序記錄兩大部分；題目以 `section_id` 歸屬、`number` 排序。同組小題使用相同的非空 `group_stimulus`；只有一題引用的材料仍屬單題。出卷前用 `validate_social_item_design.py` 檢查獨立單題是否回頭交錯科別、是否出現在題組後、共用題組是否被拆開。所選年度的精確區塊題數及跨科組合，另外與 `exam_packs` 參考架構人工核對，程式通過不等於已完成這項比對。
 
+### Measured 111–115 form bands and 命題範圍 (enforced since 2026.09.22.12)
+
+Text extracted from the five official booklets on disk, 111/112/113/114/115:
+第壹部分 單選 46/45/35/42/38 items (2 points each), 第貳部分 21/21/29/22/27 numbered items
+in 9/8/9/8/11 題組 with 11/11/19/12/16 單選 and 10/10/10/10/11 非選; 64–67 numbered items;
+every selected response is four options (A)–(D) and no year prints a 多選.
+`validate_social_item_design.form_band_errors` enforces the bands (35–46 / 21–29 / 11–19 /
+9–11 / 8–11 / 64–67) on a paper that prints two sections.
+
+命題範圍 (maintainer's item-by-item reading, counts 111/112/113/114/115): 歷史 臺灣史
+8/9/8/7/10, 中國與東亞史 5/7/7/6/8, 世界史 7/6/10/9/5, with at least one 史料判讀 item every
+year; 地理 技能 (地圖、GIS、遙測、等高線) 6/3/1/3/5, 自然地理 3/4/4/1/3, 人口與都市 1/4/1/2/1,
+產業與經濟 3/3/4/5/5, 區域互賴與地緣 2/1/3/4/4, 文化 1/2/1/1/1; 公民 政治 5/4/3/4/3, 法律
+4/5/5/5/7, 經濟 7/6/5/6/6, 社會與文化 4/4/5/5/4. `curriculum_breadth_errors` checks the
+108 content-code 主題 letters: 歷A–F (臺灣史 and 歷史考察一), 歷G–J (中國與東亞) and 歷K–O
+(世界) at least 2 items each; 地A (技能) ≥ 1, 地B (系統) ≥ 3, 地C (視野) ≥ 2; 公B (社會生活的
+組織及制度: 政治、法律、經濟) ≥ 4 and at least three of the four 公民 主題. The full table is
+`exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
+
 ### 混合題的跨科素養與新穎性
 
 同一大題可以同時涵蓋**歷史、地理、公民與社會**，也可以合理結合其中兩科或保留單科題組；不強迫每大題三科齊全，也不要求每個小題同時考三科。材料適合時，優先設計有共同證據問題的跨科題組，不因第一部分的分科排序而拆成三份小考卷。

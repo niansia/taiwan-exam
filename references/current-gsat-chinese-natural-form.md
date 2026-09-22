@@ -275,6 +275,19 @@ laboratory, does not qualify.
 Run `scripts/validate_literacy_load.py generated-exam.json --subject 自然` before
 layout. See [current-form-literacy-load.md](current-form-literacy-load.md).
 
+### 命題範圍 by chapter, ROC 111–115 (maintainer's reading of every Q1–36 item)
+
+Items per chapter, 111/112/113/114/115. 物理: 運動與力、能量 4/2/2/2/3, 電與磁 1/0/0/1/2,
+波與光 0/4/1/2/0, 熱學 2/2/2/1/1, 近代物理 0/0/3/2/2, 基本交互作用與科學史 2/1/1/1/0, 天體物理
+0/0/0/0/1. 化學: 原子與週期表 2/1/1/0/1, 化學鍵與結構 2/2/1/1/1, 溶液、物質狀態與分離 2/1/1/2/1,
+酸鹼 1/1/0/0/2, 反應與計量 1/3/2/2/1, 有機、材料與生活化學 1/1/3/3/0, 實驗與分析 0/0/1/1/3.
+生物: 細胞與能量 3/2/2/2/3, 遺傳與分子生物 3/2/3/3/2, 演化與分類 2/2/3/2/3, 生理、免疫與生態
+1/3/1/2/1. 地科: 天文 5/1/0/4/3, 大氣 2/4/3/0/2, 海洋 2/3/2/1/0, 固體地球 0/1/2/3/2, 地球歷史與
+環境變遷 0/0/2/1/2. Each discipline spreads over 4–7 chapters a year and no chapter carries more
+than 5 items; 細胞, 遺傳 and 演化 appear every year, as do 運動與力 and 熱學. The scope
+validator checks breadth on the 108 content code's 主題 letter: every discipline ≥ 3 distinct
+主題 and no 主題 above 6 items. Table: `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
+
 ### Discipline order and reasoning floor
 
 - The first-part contract is visible, not metadata-only: print `第壹部分、選擇題（占72分）`, followed by the bordered direction `說明：第1題至第36題，含單選題及多選題，每題2分。` Questions 1–36 therefore total 72 points and contain both single- and multiple-choice items. Measured on the five official booklets the multiple-choice share of Q1–36 is 18, 15, 19, 18 and 12 items (111–115); the contract accepts 12–19 多選 (單選 = 36 − 多選) and `metadata.natural_choice_form_contract` must record the paper's actual counts—115 alone is not the form, and 36 generic or single-choice items are rejected. Every official 多選 prints 應選2項 or 應選3項, never 4.

@@ -36,6 +36,17 @@ def _paper_innovation_review(subject):
     }
 
 
+CODE_PREFIX = {"物理": "P", "化學": "C", "生物": "B", "地科": "E"}
+
+
+def _content_code(domain, number):
+    """Rotate 主題 letters so each discipline covers several chapters, as the official booklets do."""
+    return f"{CODE_PREFIX[domain]}{'ABCD'[(number // 4 + number) % 4]}a-Vc-1"
+
+
+SPEC_CODES = " ".join(sorted({f"{prefix}{letter}a-Vc-1" for prefix in CODE_PREFIX.values() for letter in "ABCD"} | {"pa-Ⅴc-2"}))
+
+
 def _paper(interleaved=False):
     order = ["物理", "化學", "生物", "地科"]
     first_multiple = {7, 8, 9, 11, 12, 23, 25, 26, 27, 31, 32, 35}
@@ -67,7 +78,7 @@ def _paper(interleaved=False):
             **({"required_selection_count": 2} if question_type == "multiple_choice" else {}),
             "item_spec": {
                 "domain": domain,
-                "curriculum_codes": ["BDa-Vc-1", "pa-Ⅴc-2"],
+                "curriculum_codes": [_content_code(domain, number), "pa-Ⅴc-2"],
                 "subject_innovation_audit": _innovation("自然", number),
                 "difficulty_design": {"band": "中"},
                 "natural_reasoning_contract": {
@@ -125,7 +136,7 @@ def _run(tmp_path, paper):
     path = tmp_path / "exam.json"
     spec_path = tmp_path / "science-spec.txt"
     path.write_text(json.dumps(paper, ensure_ascii=False), encoding="utf-8")
-    spec_path.write_text("BDa-Vc-1 pa-Ⅴc-2", encoding="utf-8")
+    spec_path.write_text(SPEC_CODES, encoding="utf-8")
     return subprocess.run(
         [sys.executable, str(SCRIPT), str(path), "--science-spec", str(spec_path)],
         capture_output=True, text=True, encoding="utf-8", errors="replace",
