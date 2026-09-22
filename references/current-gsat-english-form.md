@@ -84,9 +84,10 @@ These are current empirical layout-and-reading-load bands, not targets to hit me
 
 The CEEC specification says the paper is based mainly on the 4,500 common high-school words and points to levels 1–5 of the reference list, while allowing occasional level-6-or-higher language for authentic use. Apply that distinction as follows:
 
-- vocabulary answers and answer-bearing alternatives: levels 1–5 only;
-- at least 70% of the ten vocabulary targets: levels 1–4; use the current multi-year profile when it supplies a stronger target;
-- non-reading sections: every unlisted or level-6 word must be explicitly justified as a defined term, transparent proper noun, or indispensable authentic expression; otherwise reject it;
+- the list itself is the CEEC 高中英文參考詞彙表 (https://www.ceec.edu.tw/SourceUse/ce37/4.pdf, 6,474 headwords in six levels of about 1,080 each), which the maintainer identifies as the source of 詞彙題 and 文意選填 words; it ships as `exam_packs/學測/shared-data/ceec-english-vocabulary-list.json` and `validate_english_vocabulary_scope.py` now runs when a hosted batch is saved;
+- measured on the official 111–115 booklets (2026-09-23): the fifty 詞彙題 answers sit at levels 1:1, 2:7, 3:11, 4:20, 5:6, 6:2 with two derived forms not in the list (supposedly, compulsory); per year 7–9 of the ten targets are at levels 1–4 and 1–3 at levels 5–6 (potentially, quest, blurring, vacancy, assaulted, randomly, consumption); distractors include 1–6 level-6 words a year; the 文意選填 bank has 2–4 words at level 4 or above and at most two words outside the list (risky, absorption, fateful);
+- items 1–34 carry 1.9–3.1% off-list tokens and 2.2–5.4% level-6 tokens once proper nouns, contractions, hyphenated compounds and inflected forms are set aside; the reading passages 4.5–7.3% and 2.1–4.5%;
+- contract: at least six of the ten targets at levels 1–4 and at least one at levels 5–6, at most one level-6 target and one derived off-list target; bank words from the list (≤1 unresolved) with at least two at level 4+; non-reading sections at most 5% off-list and 7% level-6 tokens, every off-list word listed for review and declarable as `allowed_proper_nouns`/`glossed_terms`; reading passages warn above 10% off-list. The earlier rules (no off-list or level-6 word outside reading, every target at most level 5, 70% at levels 1–4) rejected every official year and are retired;
 - reading and mixed stimuli: an unfamiliar word may occur only when it is nonessential, glossed, or inferable from the immediate text. Never make outside vocabulary knowledge the hidden answer key;
 - do not judge difficulty from a word's list level alone. CEEC states that frequency and learning difficulty are not the same.
 
