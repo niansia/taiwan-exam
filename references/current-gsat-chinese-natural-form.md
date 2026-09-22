@@ -93,16 +93,20 @@ year (111–115), and is therefore enforced:
   any official year: the contract now rejects a group without an attribution.
 - 排序題 is 文言 when it appears (113 Q5 `下列是一段古文`, 115 Q5 with 甲–戊); a
   白話 sentence reorder is not the form and is rejected.
+- 第貳部分 materials pair a 白話 framing or critical text with 文言／韻文 case texts every
+  year (113: 回憶文學論述 and 記憶科普 applied to 琦君〈髻〉and 李煜詞; 115: 歸有光's own
+  framing and 柯慶明's criticism applied to 出師表 and 陳損益表). A generated group made of
+  師說, 學記 and 顏氏家訓 alone is 純文言閱讀 and is rejected; so is an all-白話 group.
 - Material kinds: official 白話 groups are essays, science and culture writing,
   criticism and literary prose; 文言 groups are 核心古文, 文言小說 and 古典韻文; at most
   one group a year comes from a regulation, manual, dictionary entry, notice or
   application form (法條、辦法、手冊、辭典條目、公告、公所說明、簡章). A generated paper
   built six of nine groups from such documents (著作權法第65條, 標點符號手冊, 台語辭典
   用字原則, 區公所調解說明, 徵文辦法) and read like a civics test; the contract caps
-  those groups at one. 文言／古典 material (detected from character statistics) covers
-  11, 9, 9, 4 and 4 of items 1–31 in 111–115; the maintainer set the floor at 10 with a
-  target of 12–14 because 文言 is the curriculum's weight, so a paper meeting it is more
-  classical than 113–115. Judgement items print ①②, never ➀➁ dingbats.
+  those groups at one. 文言／古典 material (detected from character statistics, 韻文 included) covers
+  18, 12, 12, 8 and 13 of items 1–31 in 111–115; the maintainer set the floor at 15 with a
+  target of 16–18 because 文言 is the curriculum's weight, so a paper meeting it is more
+  classical than 112–115. Judgement items print ①②, never ➀➁ dingbats.
 - Difficulty signals measured on the five booklets and enforced by the contract:
   options containing absolute words (完全、必然、唯一、所有、只會…) are 6–12% of all
   options and appear in at most 36% of items; the generated paper had 22% and 70%,

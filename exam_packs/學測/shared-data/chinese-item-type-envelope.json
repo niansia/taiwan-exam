@@ -357,7 +357,8 @@
    "2_points": "10-20 字以內",
    "4_points": "30-40 字以內 (or two parts of 10-15)"
   },
-  "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts"
+  "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts",
+  "material_mix": "Every year pairs a 白話 framing or critical text with 文言/韻文 case texts (113: 回憶文學論述 + 記憶科普 + 琦君〈髻〉 + 李煜詞; 115: 歸有光 framing + 柯慶明 criticism + 出師表/陳損益表). A generated paper set 師說, 學記 and 顏氏家訓 with no 白話 text: rejected by validate_chinese_layout_contract.part_two_material_errors."
  },
  "every_year": [
   "Q1 字音, Q2 字形",
@@ -432,6 +433,6 @@
   "basis": "Group material of the five booklets classified by kind (2026-09-22); a generated paper (GZ116A) built six of nine groups from regulations, manuals and dictionary entries.",
   "official": "白話 groups are essays, science and culture writing, criticism and literary prose with 改寫自 attributions; 文言 groups are 核心古文, 文言小說 and 古典韻文; charts and tables 0-4 items; regulations, manuals, dictionary entries, notices and application forms at most one group a year (111 and 113 one each).",
   "rule": "At most one 題組 may draw on 法條、辦法、手冊、辭典條目、公告、公所說明 or 簡章; reading material is literature, essays, criticism and 文言.",
-  "classical_share_detector": "Items 1-31 whose material is 文言/古典 by character statistics: 111 11, 112 9, 113 9, 114 4, 115 4. Floor 10, target 12-14 at the maintainer's request (文言 is the curriculum weight); GZ116A scored 8."
+  "classical_share_detector": "Items 1-31 whose material is 文言/古典 by character statistics (韻文 included): 111 18, 112 12, 113 12, 114 8, 115 13. Floor 15, target 16-18 at the maintainer's request (文言 is the curriculum weight); GZ116A scored 14."
  }
 }

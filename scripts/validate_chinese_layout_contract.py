@@ -69,13 +69,18 @@ REGULATORY_MATERIAL = re.compile(r'第[一二三四五六七八九十百零\d]+�
 REGULATORY_GROUPS_MAX = 1
 # 文言／古典 material, detected from character statistics: classical function
 # characters (之乎者也矣焉哉於而以其曰…) at 6% or more of the CJK text with almost no
-# modern particles (的了們這那…). Detector counts on the official booklets: 111 11,
-# 112 9, 113 9, 114 4, 115 4 of items 1-31. The maintainer asked for a share above
-# the recent official years because 文言 is the curriculum's weight, so the floor
-# is 10 and the target 12-14; a generated paper reached 8.
+# modern particles (的了們這那…), or 古典韻文 read as short clauses without modern
+# particles. Detector counts on the official booklets: 111 18, 112 12, 113 12,
+# 114 8, 115 13 of items 1-31. The maintainer asked for a share above the recent
+# official years because 文言 is the curriculum's weight, so the floor is 15 and
+# the target 16-18; a generated paper reached 14.
 CLASSICAL_CHARACTERS = set('之乎者也矣焉哉兮於而以其曰乃夫則故所為與若何遂')
-MODERN_PARTICLES = set('的了們這那嗎吧呢著把很就是被')
-CLASSICAL_ITEMS_FLOOR = 10
+MODERN_PARTICLES = set('的了們這那嗎吧呢著把被')
+CLASSICAL_ITEMS_FLOOR = 15
+# 第貳部分 materials, 111-115: a 白話 framing or critical text (回憶文學論述, 柯慶明 on
+# 「表」, 科普 on memory) applied to 文言 or 韻文 case texts (出師表, 陳損益表, 李煜 詞,
+# 歸有光 節錄). Never all-文言 and never all-白話.
+MATERIAL_LABEL = re.compile(r'(?:^|\n)\s*([甲乙丙丁戊])[、：:．.]')
 CIRCLED_DINGBATS = re.compile(r'[➀➁➂➃➄➅➆➇➈➉❶❷❸❹❺]')
 CLASSICAL_VERSE = re.compile(r"詩|詞|曲|韻文|絕句|律詩|樂府")
 CHAR_LIMIT = re.compile(r"(\d+)\s*字以內")
@@ -140,8 +145,12 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             is_classical(str(q.get("prompt") or "") + " " + " ".join(str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict)))
             for q in by_number[n])]
         if len(classical) < CLASSICAL_ITEMS_FLOOR:
-            errors.append(f"國綜第1至31題中以文言／古典材料命題者僅 {len(classical)} 題（{classical}），下限 {CLASSICAL_ITEMS_FLOOR}、目標 12–14："
-                          "文言是課綱重點，官方 111 有 11 題；請以核心古文、古典詩詞曲與文言小說增加題組")
+            errors.append(f"國綜第1至31題中以文言／古典材料命題者僅 {len(classical)} 題（{classical}），下限 {CLASSICAL_ITEMS_FLOOR}、目標 16–18："
+                          "文言是課綱重點，官方 111 有 18 題（偵測值）；請以核心古文、古典詩詞曲與文言小說增加題組")
+    part_two = [q for q in questions if isinstance(q, dict) and isinstance(q.get("number"), int) and q["number"] >= 32
+                and q.get("group_stimulus")]
+    if part_two:
+        errors.extend(part_two_material_errors(str(part_two[0]["group_stimulus"])))
     for q in questions:
         if isinstance(q, dict):
             printed = str(q.get("prompt") or "") + str(q.get("group_stimulus") or "") + " ".join(
@@ -302,6 +311,29 @@ def difficulty_signal_errors(questions: list[dict]) -> list[str]:
     return errors
 
 
+def part_two_material_errors(stimulus: str) -> list[str]:
+    """甲乙丙(丁) of the mixed group must pair 白話 framing with 文言/韻文 case texts."""
+    starts = list(MATERIAL_LABEL.finditer(stimulus))
+    if len(starts) < 2:
+        return ["國綜第貳部分材料須以甲、乙、丙（丁）分別標示至少兩篇文本（111–115 為三或四篇）；目前分不出篇章"]
+    segments = []
+    for index, match in enumerate(starts):
+        end = starts[index + 1].start() if index + 1 < len(starts) else len(stimulus)
+        body = re.sub(r"[（(]?注[：:].*", "", stimulus[match.end():end], flags=re.S)
+        segments.append((match.group(1), body))
+    classical = [label for label, body in segments if is_classical(body)]
+    modern = [label for label, body in segments
+              if not is_classical(body) and len([c for c in body if "\u4e00" <= c <= "\u9fff"]) >= 60]
+    errors = []
+    if not classical:
+        errors.append("國綜第貳部分材料須含至少一篇文言或古典韻文（官方每年如此：出師表、陳損益表、李煜詞、歸有光節錄）；"
+                      f"目前 {'、'.join(l for l, _ in segments)} 皆為白話")
+    if not modern:
+        errors.append("國綜第貳部分材料須含至少一篇白話的框架或評論文本（官方每年以一篇白話論述統攝文言案例：回憶文學論述、"
+                      f"柯慶明論「表」、記憶科普）；目前 {'、'.join(l for l, _ in segments)} 皆為文言，變成純文言閱讀")
+    return errors
+
+
 def _compact_text(value) -> str:
     return re.sub(r"\s+", "", str(value or ""))
 
@@ -313,7 +345,13 @@ def is_classical(text: str) -> bool:
         return False
     classical = sum(c in CLASSICAL_CHARACTERS for c in cjk) / len(cjk)
     modern = sum(c in MODERN_PARTICLES for c in cjk) / len(cjk)
-    return classical >= 0.06 and modern <= 0.02
+    if classical >= 0.06 and modern <= 0.02:
+        return True
+    # 古典韻文 (詩詞曲) carries few function characters; it shows as short clauses
+    # between punctuation with almost no modern particles.
+    clauses = [c for c in re.split(r"[，。、；：？！\n「」『』（）]", str(text or "")) if c.strip()]
+    average = (sum(len([ch for ch in c if "\u4e00" <= ch <= "\u9fff"]) for c in clauses) / len(clauses)) if clauses else 99
+    return modern <= 0.01 and average <= 7 and len(clauses) >= 4
 
 
 def pronunciation_pair_errors(question: dict) -> list[str]:
