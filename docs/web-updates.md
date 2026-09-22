@@ -11,7 +11,7 @@ hosted Claude 出 116 國寫（W116M1）時在命題前停下：.11 新增的 `v
 
 同類問題順便清查其他科：社會 .12 的形式區間也是按「紀錄」計數，而 115 剖面把第 44、46、52 題各存成勾選＋說明兩筆，官方形狀本身會被算成第貳部分 30 題、非選 14 題而退件，改為按題號計數（同題號有任一非選紀錄即算非選）；社會主題廣度改為只計該科自己的內容碼（跨科題先列他科代碼不再誤計）；數B 單元對照補上 D-10-1（集合與文氏圖），先列該碼的題目不再被判「不在數B範圍」，本機發布用的課綱驗證單元上限與 hosted 一致改為 5。自然 .11 的區間本來就按題號計、英文混合題 47–50 與 115 剖面（填充 2＋2、多選 4、簡答 2）相符，不用改。
 
-新 ZIP（SHA-256 `8cca22bde4cdb3d5c52aaa7f4eda8a48b06a6d836d95ab9a1e825dca1ffa73d6`，6,871,838 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.14 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.14/taiwan-exam-hosted-2026.09.22.14.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.14) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `8cca22bde4cdb3d5c52aaa7f4eda8a48b06a6d836d95ab9a1e825dca1ffa73d6`，6,871,838 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.14 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.14/taiwan-exam-hosted-2026.09.22.14.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.14) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.13：內建大考中心高中英文參考詞彙表，詞彙題與文意選填用字依官方 111～115 校準
 
