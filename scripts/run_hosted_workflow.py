@@ -388,6 +388,22 @@ CLOCK_REMINDER = ('Before yielding this turn run `clock --state <latest-state> -
 
 
 ITERATION_BUDGET = {'plan': 3, 'proof': 4, 'build': 2}
+# Body pages of the official question booklets (cover and formula page excluded),
+# measured on ROC 111-115: a plan far above these is verbosity or figure size,
+# not extra content. A hosted 數A paper ran 7 body pages against the official 6.
+OFFICIAL_BODY_PAGES = {'數學A': 6, '數學B': 6, '國綜': 11, '英文': 11, '社會': 18, '自然': 18}
+
+
+def page_budget(subject, booklets):
+    official = OFFICIAL_BODY_PAGES.get(subject)
+    planned = (booklets.get('question') or {}).get('page_count')
+    if official is None or planned is None:
+        return None
+    over = planned > official + 1
+    return {'subject': subject, 'official_body_pages': official, 'planned_question_body_pages': planned,
+            'over_budget': over,
+            'note': (f'{planned} body pages against the official {official}: shorten stems that explain instead of ask, '
+                     'and size figures to the column before redrawing anything') if over else 'within the official range'}
 
 
 def iteration_budget(root, kind, output):
@@ -485,6 +501,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
     return {'status': 'page-plan-only', 'plan': output.name, 'page_plan': str(plan_path),
             'page_counts': {role: b['page_count'] for role, b in booklets.items()},
             'bottom_void_attention': attention, 'content_lock': lock_status,
+            'page_budget': page_budget(read(specs['question']).get('subject'), booklets),
             'compared_with_previous': comparison, 'iteration_budget': iteration_budget(root, 'plan', output),
             'reviews_approved_by_tool': False, 'deliverable': False,
             'next': ('Adjust layout hints and plan again while pages need attention; then lock content '
@@ -529,6 +546,7 @@ LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
 # A currency amount is the only printed dollar sign: $ directly before a digit.
 TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
 MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
+LATEX_SCRIPT = re.compile(r'[A-Za-z0-9)\]]_\{|\^\{|(?<![A-Za-z])[A-Za-z]_[A-Za-z0-9]')
 INVISIBLE_CHARS = re.compile('[⁠﻿​­‌‍]')
 # A leading U+3000 is the customary paragraph indent; one inside a sentence is not.
 FULL_WIDTH_SPACE_INSIDE = re.compile('(?<=[^\s　])　(?=[^\s　])')
@@ -626,6 +644,8 @@ def text_issues(value):
                       'or a declared {{asset:NAME}} formula image')
     if TEX_DOLLAR.search(raw):
         issues.append('"$" prints literally: TeX math delimiters are not rendered')
+    if LATEX_SCRIPT.search(raw):
+        issues.append('LaTeX subscript/superscript (x_{i+1}, a^{2}, y_1) prints literally: write <sub>i+1</sub> / <sup>2</sup>')
     invisible = INVISIBLE_CHARS.findall(raw)
     if invisible:
         issues.append('contains ' + ', '.join(sorted({f'U+{ord(c):04X}' for c in invisible})) +

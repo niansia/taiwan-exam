@@ -89,6 +89,32 @@ question-writing substitute:
   preserve prior delivered files, withdraw stale candidate review claims, and
   compare every page before making a new acceptance claim.
 
+## Printed-form contract (enforced by `validate_math_layout_contract.py`)
+
+Measured on the ten 111–115 booklets and checked on every hosted save and at the
+final check:
+
+- Headings, printed verbatim as `sections[].title`: 第壹部分、選擇（填）題（占85分）；
+  一、單選題（占30分；數B 35分）；二、多選題（占30分；數B 25分）；三、選填題（占25分）；
+  第貳部分、混合題或非選擇題（占15分）.
+- Every choice item prints five options labelled (1)–(5); the batch saver refuses a
+  mathematics choice item saved without exactly five.
+- Selected-response stems (items 1–17) run 83–123 compact characters at the median
+  and never above 340; a paper whose median exceeds 150 is rejected. Two hosted 116
+  papers show the failure modes: one over-explained every setting (「某班在討論…老師
+  指出…」, 9 pages against the official 8), the other wrote the method into the stem
+  (「先利用對數律合併左式，再依 x 的正負限制選取可行值」). Official stems never name
+  the formula or step; the contract rejects 先利用／再依／判斷時應／可先 and similar.
+- No student-facing disclaimer (模擬資料、本題情境、並非…實際、自擬).
+- No real-world context shared by three or more items after generic exam wording
+  is removed (a 題組 counts once). Official repeats are only 坐標平面上、試選出正確的
+  選項 and the like; a hosted paper used 物價指數年增率 in three separate items.
+- Digits, Latin letters and the radical sign print in the Latin face (Times-like),
+  as in the official booklets; the CJK body font drew √ one em wide. The renderer
+  wraps those runs automatically for 數學A／數學B, so authors write 「√5」 plainly.
+- `plan` reports `page_budget`: the official question booklet has 6 body pages;
+  a plan above 7 is verbosity or figure size, not content.
+
 ## Stem rhetoric contract
 
 A current-form literacy item normally has three functional moves:
@@ -119,6 +145,7 @@ Apply the full record and release thresholds in [math-difficulty-design.md](math
 - Hard items should require three or more linked operations, a non-obvious representation change, case separation, global consistency, or rejection of a tempting shortcut.
 - Treat operations as linked only when they require distinct choices or inferences. Several algebra lines, repeated matrix multiplication, or applying one area/ratio rule multiple times still count as one routine if no new decision is made.
 - Multiple-choice distractors must correspond to distinct mathematical claims. Do not create options by superficial sign or arithmetic changes.
+- At least two printed distractors must be the exact `predicted_outcome` of a listed misconception path (`validate_math_difficulty_design.py` checks the printed option text); a distractor no error produces is dismissed at a glance, which is why two hosted 數A papers read as easy despite passing the linked-decision minimums.
 - For Math A, apply [the answer-count and close-option rules](math-difficulty-design.md#math-a-unpredictable-answer-counts-and-occasional-close-options): randomize the planned correct-option count across 1–5 without a fixed pattern; occasionally use one or two justified close-numerical-option items. Mathematical truth determines the final key, and closeness alone does not establish difficulty.
 - A diagram is part of the reasoning when scale, incidence, trend, partition, ordering, or correspondence must be extracted from it. It must not be decorative clip art.
 

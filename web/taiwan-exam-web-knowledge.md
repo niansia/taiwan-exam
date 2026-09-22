@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.7
+# Taiwan Exam Web Knowledge v2026.09.22.8
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -519,10 +519,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-math-form.md",
-    "bytes": 20082,
-    "sha256": "8868d8a9fe6442d2d370f88e578aa3e76806637d0ed573c43cb30381ddaef402",
-    "embedded_bytes": 20082,
-    "embedded_sha256": "8868d8a9fe6442d2d370f88e578aa3e76806637d0ed573c43cb30381ddaef402"
+    "bytes": 22332,
+    "sha256": "58011895f0d045e1ac59838a26b0845d47260ac3db646a88f3f109c880039e8a",
+    "embedded_bytes": 22332,
+    "embedded_sha256": "58011895f0d045e1ac59838a26b0845d47260ac3db646a88f3f109c880039e8a"
   },
   {
     "path": "references/current-gsat-math-scope.md",
@@ -645,10 +645,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 39352,
-    "sha256": "196ff51cc0a4e8f7c2d1bd20e8fc4f265ff2ce0abc4f87d2a350e43cb07e2318",
-    "embedded_bytes": 39352,
-    "embedded_sha256": "196ff51cc0a4e8f7c2d1bd20e8fc4f265ff2ce0abc4f87d2a350e43cb07e2318"
+    "bytes": 39761,
+    "sha256": "907fed843654314a3f52b0cfdf14935983edc50937272451ef8290251a5bff2e",
+    "embedded_bytes": 39761,
+    "embedded_sha256": "907fed843654314a3f52b0cfdf14935983edc50937272451ef8290251a5bff2e"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -848,10 +848,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/append_items.py",
-    "bytes": 21444,
-    "sha256": "b6c4bf6067dad79c24b8df8c190f6c318b8d0fa2886fdec88b78995bf2119035",
-    "embedded_bytes": 21444,
-    "embedded_sha256": "b6c4bf6067dad79c24b8df8c190f6c318b8d0fa2886fdec88b78995bf2119035"
+    "bytes": 24181,
+    "sha256": "768d495fee50ddc6e048ce1ff5af4c17a6c983397ecdd1d133da2188c49b199c",
+    "embedded_bytes": 24181,
+    "embedded_sha256": "768d495fee50ddc6e048ce1ff5af4c17a6c983397ecdd1d133da2188c49b199c"
   },
   {
     "path": "scripts/audit_item_originality.py",
@@ -918,10 +918,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 37150,
-    "sha256": "4e16fba65eef04635f6342c0faca20e308942caeb6fdd6ce381c8a1d0f5a7d45",
-    "embedded_bytes": 37150,
-    "embedded_sha256": "4e16fba65eef04635f6342c0faca20e308942caeb6fdd6ce381c8a1d0f5a7d45"
+    "bytes": 38532,
+    "sha256": "7c186c622d85a0f48a1978c9647f0153bdf3cf11d134af61bda785cc1e3395a5",
+    "embedded_bytes": 38532,
+    "embedded_sha256": "7c186c622d85a0f48a1978c9647f0153bdf3cf11d134af61bda785cc1e3395a5"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -967,10 +967,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_subject_gates.py",
-    "bytes": 10193,
-    "sha256": "df61d2252a6f1041b646294ff215e0e42eb0d2626f7734162c9cbf7a83cb8b68",
-    "embedded_bytes": 10007,
-    "embedded_sha256": "97ea54cb70bfc38d14429507b051bf9af67efea7c83d8c5fd0d90c9b406d8c6d"
+    "bytes": 10429,
+    "sha256": "d396ff21a4886f7bc709bef3835f16ad2856d8474372bcafe1943085b357e328",
+    "embedded_bytes": 10239,
+    "embedded_sha256": "1853c1c031d688379821b7cd5e24bd7db92349399f4021ffe92dc3426748716d"
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
@@ -1016,10 +1016,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 86861,
-    "sha256": "cea1a6220820f09a87aac14f3d1b54af48494f7f313b134821f0495a6009e798",
-    "embedded_bytes": 86861,
-    "embedded_sha256": "cea1a6220820f09a87aac14f3d1b54af48494f7f313b134821f0495a6009e798"
+    "bytes": 88182,
+    "sha256": "4a4dab81e89b26729c144f1b3aae92943ec11f9393e07e6b72410e4253b67624",
+    "embedded_bytes": 88182,
+    "embedded_sha256": "4a4dab81e89b26729c144f1b3aae92943ec11f9393e07e6b72410e4253b67624"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1114,10 +1114,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_difficulty_design.py",
-    "bytes": 17522,
-    "sha256": "126c88721c9acc324d0f3c36d8a2e9bcbda43c1aac4deca202d60e68ff3722a3",
-    "embedded_bytes": 17522,
-    "embedded_sha256": "126c88721c9acc324d0f3c36d8a2e9bcbda43c1aac4deca202d60e68ff3722a3"
+    "bytes": 18895,
+    "sha256": "4ce14d9c71f4843030db0c8621c321607b447b7efa02bae8020d363e1c024196",
+    "embedded_bytes": 18895,
+    "embedded_sha256": "4ce14d9c71f4843030db0c8621c321607b447b7efa02bae8020d363e1c024196"
+  },
+  {
+    "path": "scripts/validate_math_layout_contract.py",
+    "bytes": 8716,
+    "sha256": "db650eaf3e5c296b2cfeaf67f3505df127e877745631a850d7ad176e3a7a1cb0",
+    "embedded_bytes": 8583,
+    "embedded_sha256": "c0aba2b1841dc46bbc5a4cc42128b2d54491c4e7e239c102b9b157a7c0b41c07"
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
@@ -57199,6 +57206,32 @@ question-writing substitute:
   preserve prior delivered files, withdraw stale candidate review claims, and
   compare every page before making a new acceptance claim.
 
+## Printed-form contract (enforced by `validate_math_layout_contract.py`)
+
+Measured on the ten 111–115 booklets and checked on every hosted save and at the
+final check:
+
+- Headings, printed verbatim as `sections[].title`: 第壹部分、選擇（填）題（占85分）；
+  一、單選題（占30分；數B 35分）；二、多選題（占30分；數B 25分）；三、選填題（占25分）；
+  第貳部分、混合題或非選擇題（占15分）.
+- Every choice item prints five options labelled (1)–(5); the batch saver refuses a
+  mathematics choice item saved without exactly five.
+- Selected-response stems (items 1–17) run 83–123 compact characters at the median
+  and never above 340; a paper whose median exceeds 150 is rejected. Two hosted 116
+  papers show the failure modes: one over-explained every setting (「某班在討論…老師
+  指出…」, 9 pages against the official 8), the other wrote the method into the stem
+  (「先利用對數律合併左式，再依 x 的正負限制選取可行值」). Official stems never name
+  the formula or step; the contract rejects 先利用／再依／判斷時應／可先 and similar.
+- No student-facing disclaimer (模擬資料、本題情境、並非…實際、自擬).
+- No real-world context shared by three or more items after generic exam wording
+  is removed (a 題組 counts once). Official repeats are only 坐標平面上、試選出正確的
+  選項 and the like; a hosted paper used 物價指數年增率 in three separate items.
+- Digits, Latin letters and the radical sign print in the Latin face (Times-like),
+  as in the official booklets; the CJK body font drew √ one em wide. The renderer
+  wraps those runs automatically for 數學A／數學B, so authors write 「√5」 plainly.
+- `plan` reports `page_budget`: the official question booklet has 6 body pages;
+  a plan above 7 is verbosity or figure size, not content.
+
 ## Stem rhetoric contract
 
 A current-form literacy item normally has three functional moves:
@@ -57229,6 +57262,7 @@ Apply the full record and release thresholds in [math-difficulty-design.md](math
 - Hard items should require three or more linked operations, a non-obvious representation change, case separation, global consistency, or rejection of a tempting shortcut.
 - Treat operations as linked only when they require distinct choices or inferences. Several algebra lines, repeated matrix multiplication, or applying one area/ratio rule multiple times still count as one routine if no new decision is made.
 - Multiple-choice distractors must correspond to distinct mathematical claims. Do not create options by superficial sign or arithmetic changes.
+- At least two printed distractors must be the exact `predicted_outcome` of a listed misconception path (`validate_math_difficulty_design.py` checks the printed option text); a distractor no error produces is dismissed at a glance, which is why two hosted 數A papers read as easy despite passing the linked-decision minimums.
 - For Math A, apply [the answer-count and close-option rules](math-difficulty-design.md#math-a-unpredictable-answer-counts-and-occasional-close-options): randomize the planned correct-option count across 1–5 without a fixed pattern; occasionally use one or two justified close-numerical-option items. Mathematical truth determines the final key, and closeness alone does not establish difficulty.
 - A diagram is part of the reasoning when scale, incidence, trend, partition, ordering, or correspondence must be extracted from it. It must not be decorative clip art.
 
@@ -59498,6 +59532,11 @@ re-open every page.
   line). The inspector's `narrow-wrap-column` hard failure and the final
   checker catch any body whose wrapped lines leave a quarter of the width
   unused with nothing beside them, however the body was produced.
+- Mathematics digits, Latin letters and √ print in the Latin face automatically;
+  `x_{i+1}` or `a^{2}` in saved text is refused at save time (write `<sub>`/`<sup>`),
+  a mathematics choice item is refused without its five options, a figure taller
+  than 60% of the body is refused until resized, and a key that differs from the
+  planned position in `paper-plan.json` is listed as `answer_position_drift`.
 - Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
   (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
   社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs
@@ -64630,6 +64669,30 @@ def inherit_audits(questions, existing):
     return inherited
 
 
+def answer_position_drift(root, questions, answers):
+    """Saved keys that differ from the positions planned in run/paper-plan.json."""
+    plan_path = root / 'paper-plan.json'
+    if not plan_path.is_file():
+        return []
+    try:
+        plan = read(plan_path)
+    except ValueError:
+        return []
+    planned = {item.get('id'): item for item in plan.get('items') or [] if isinstance(item, dict)}
+    by_answer = {a.get('question_id'): a for a in answers}
+    drift = []
+    for question in questions:
+        item = planned.get(question.get('id'))
+        expected = [str(v).strip('()（）') for v in (item or {}).get('planned_correct_labels') or []]
+        if not expected or question.get('type') not in {'single_choice', 'multiple_choice'}:
+            continue
+        final = by_answer.get(question['id'], {}).get('final_answer')
+        actual = sorted(str(v).strip('()（）') for v in (final if isinstance(final, list) else [final]) if v is not None)
+        if actual != sorted(expected):
+            drift.append({'id': question['id'], 'planned': sorted(expected), 'saved': actual})
+    return drift
+
+
 def append(run_dir, batch, *, state=None, plan=None, replace=False):
     root = Path(run_dir).resolve()
     preflight = read(root / 'preflight.json')
@@ -64647,6 +64710,15 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         existing_state = {}
     supplied = read(batch)
     questions, answers = validate_batch(supplied)
+    # A hosted run saved a choice item with its five options missing and learned it
+    # from a render failure two phases later.
+    for question in questions:
+        if question.get('type') in {'single_choice', 'multiple_choice'}:
+            options = question.get('options') or []
+            if len(options) < 2:
+                raise ValueError(f'{question["id"]}: a {question["type"]} item needs its authored options in the same batch')
+            if preflight.get('subject') in {'數學A', '數學B'} and len(options) != 5:
+                raise ValueError(f'{question["id"]}: 數學 choice items print exactly five options (1)-(5); found {len(options)}')
     exam_path = root / 'exam.json'
     if exam_path.exists():
         exam = read(exam_path)
@@ -64681,6 +64753,13 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
               for key, value in [('title', s.get('title')), *[('instructions', v) for v in s.get('instructions') or []]]
               for issue in text_issues(value)]
     issues += authoring_issues(questions, answers, root=root)
+    # A figure taller than 60% of the body cannot share a page with its own stem;
+    # a hosted run drew one 312 pt tall, paginated the whole paper around it,
+    # then threw the plan away. Size it now.
+    for risk in figure_pagination_risks(questions, answers, root=root, subject=preflight.get('subject')):
+        share = re.search(r'\((\d+)% of the body\)', risk)
+        if share and int(share.group(1)) >= 60:
+            issues.append(risk + ' [blocking: resize before saving]')
     if issues:
         raise ValueError(f'Fix {len(issues)} print issue(s), then save the batch again: ' + ' | '.join(issues))
     current_questions, current_answers = exam.get('questions', []), exam.get('answers', [])
@@ -64752,6 +64831,12 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
                                                 'note': 'Whole-paper floors (headings, section lengths, counts) are '
                                                         'expected to fail until the paper is complete; the final checker '
                                                         'runs the same validators.'}
+    drift = answer_position_drift(root, questions, answers)
+    if drift:
+        report['answer_position_drift'] = drift
+        report['answer_position_note'] = ('These keys differ from the positions planned in paper-plan.json. Permute the '
+                                          'already valid options now (then re-solve dependent records) or update the plan; '
+                                          'the whole-paper key check runs at finalize.')
     context = context_progress(exam)
     if context:
         report['current_context_progress'] = context
@@ -66712,7 +66797,7 @@ td.figure {vertical-align:top}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
 sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
 .optionlist {margin-left:28pt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
-.passage {font-family:Reading,Body} .english {font-family:Latin,Body}
+.passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
@@ -66762,15 +66847,38 @@ class RichText(HTMLParser):
     def handle_data(self, data): self.output.append(html.escape(data))
 
 
+# Official mathematics booklets set digits, Latin letters and the radical sign in a
+# proportional Latin face; the CJK body font draws √ one em wide, so 「√5」
+# printed with a visible gap and a hosted run rewrote every radical by hand.
+MATH_SUBJECTS = {'數學A', '數學B'}
+LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
+_latin_runs_enabled = False
+
+
+def latin_runs(markup):
+    """Wrap Latin/digit/radical runs of already-escaped markup in the Latin font, leaving tags alone."""
+    parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)  # tags, entities and {{tokens}} stay untouched
+    for index, part in enumerate(parts):
+        if not part or part.startswith(('<', '&', '{{')):
+            continue
+        # Escaped markup printed literally (&lt;script&gt;) stays one visible token.
+        if (index and parts[index - 1] == '&lt;') or (index + 1 < len(parts) and parts[index + 1] == '&gt;'):
+            continue
+        parts[index] = LATIN_RUN.sub(lambda m: f'<span class="latin">{m.group(0)}</span>', part)
+    return ''.join(parts)
+
+
 def text(value):
     if isinstance(value, dict) and set(value) == {'rich'}:
         parser = RichText(); parser.feed(value['rich']); parser.close()
         if parser.stack: raise ValueError('Unclosed rich-text tag')
-        return ''.join(parser.output)
+        result = ''.join(parser.output)
+        return latin_runs(result) if _latin_runs_enabled else result
     if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
     if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
         raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
-    return html.escape(value).replace('\n','<br>')
+    result = html.escape(value).replace('\n','<br>')
+    return latin_runs(result) if _latin_runs_enabled else result
 
 
 def rail_image(number, rows):
@@ -67037,6 +67145,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         raise ValueError('Placeholder gallery IDs cannot become production questions')
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
+    global _latin_runs_enabled
+    _latin_runs_enabled = spec['subject'] in MATH_SUBJECTS
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
@@ -68706,6 +68816,9 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
         from pathlib import Path
         from validate_visual_item_contract import validate_exam as visuals
         errors.extend('visuals: ' + str(e) for e in visuals(exam, Path(root)).get('errors', []))
+    if subject in {'數學A', '數學B'}:
+        from validate_math_layout_contract import validate_exam as math_layout
+        errors.extend('math-form: ' + e for e in math_layout(exam))
     if subject in {'國綜', '自然'}:
         from validate_source_grounding import item_errors as grounding_item_errors
         registry = (exam.get('metadata') or {}).get('source_registry') or {}
@@ -68734,7 +68847,8 @@ def item_messages(errors, questions):
     found = {}
     for message in errors:
         body = message.split(': ', 1)[1] if ': ' in message else message
-        match = re.match(r'(?:Q|英文第|第)(\d+)(?:題)?', body) or re.match(r'([A-Za-z0-9_-]+):', body)
+        match = (re.match(r'(?:Q|英文第|國綜第|數學[AB]第|第)(\d+)(?:題)?', body)
+                 or re.match(r'([A-Za-z0-9_-]+):', body))
         if match:
             for qid in numbers.get(match.group(1), []):
                 found.setdefault(qid, []).append(message)
@@ -71183,6 +71297,22 @@ CLOCK_REMINDER = ('Before yielding this turn run `clock --state <latest-state> -
 
 
 ITERATION_BUDGET = {'plan': 3, 'proof': 4, 'build': 2}
+# Body pages of the official question booklets (cover and formula page excluded),
+# measured on ROC 111-115: a plan far above these is verbosity or figure size,
+# not extra content. A hosted 數A paper ran 7 body pages against the official 6.
+OFFICIAL_BODY_PAGES = {'數學A': 6, '數學B': 6, '國綜': 11, '英文': 11, '社會': 18, '自然': 18}
+
+
+def page_budget(subject, booklets):
+    official = OFFICIAL_BODY_PAGES.get(subject)
+    planned = (booklets.get('question') or {}).get('page_count')
+    if official is None or planned is None:
+        return None
+    over = planned > official + 1
+    return {'subject': subject, 'official_body_pages': official, 'planned_question_body_pages': planned,
+            'over_budget': over,
+            'note': (f'{planned} body pages against the official {official}: shorten stems that explain instead of ask, '
+                     'and size figures to the column before redrawing anything') if over else 'within the official range'}
 
 
 def iteration_budget(root, kind, output):
@@ -71280,6 +71410,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
     return {'status': 'page-plan-only', 'plan': output.name, 'page_plan': str(plan_path),
             'page_counts': {role: b['page_count'] for role, b in booklets.items()},
             'bottom_void_attention': attention, 'content_lock': lock_status,
+            'page_budget': page_budget(read(specs['question']).get('subject'), booklets),
             'compared_with_previous': comparison, 'iteration_budget': iteration_budget(root, 'plan', output),
             'reviews_approved_by_tool': False, 'deliverable': False,
             'next': ('Adjust layout hints and plan again while pages need attention; then lock content '
@@ -71324,6 +71455,7 @@ LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
 # A currency amount is the only printed dollar sign: $ directly before a digit.
 TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
 MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
+LATEX_SCRIPT = re.compile(r'[A-Za-z0-9)\]]_\{|\^\{|(?<![A-Za-z])[A-Za-z]_[A-Za-z0-9]')
 INVISIBLE_CHARS = re.compile('[⁠﻿​­‌‍]')
 # A leading U+3000 is the customary paragraph indent; one inside a sentence is not.
 FULL_WIDTH_SPACE_INSIDE = re.compile('(?<=[^\s　])　(?=[^\s　])')
@@ -71421,6 +71553,8 @@ def text_issues(value):
                       'or a declared {{asset:NAME}} formula image')
     if TEX_DOLLAR.search(raw):
         issues.append('"$" prints literally: TeX math delimiters are not rendered')
+    if LATEX_SCRIPT.search(raw):
+        issues.append('LaTeX subscript/superscript (x_{i+1}, a^{2}, y_1) prints literally: write <sub>i+1</sub> / <sup>2</sup>')
     invisible = INVISIBLE_CHARS.findall(raw)
     if invisible:
         issues.append('contains ' + ', '.join(sorted({f'U+{ord(c):04X}' for c in invisible})) +
@@ -75613,6 +75747,14 @@ def as_list(value: Any) -> list[Any]:
     return value if isinstance(value, list) else []
 
 
+FULLWIDTH = str.maketrans("０１２３４５６７８９＋－＝（）／．，", "0123456789+-=()/.,")
+
+
+def _normalized(value) -> str:
+    text = str(value or "").translate(FULLWIDTH).replace("−", "-").replace("×", "*")
+    return "".join(text.split()).lower()
+
+
 def required_decisions(p_center: float | None, number: int, question_type: str) -> int:
     if p_center is None:
         return 4 if number == 20 else 3
@@ -75717,6 +75859,19 @@ def validate_item(
         if not isinstance(row, dict) or not row.get("predicted_outcome"):
             errors.append(f"{qid}: every misconception path needs a predicted_outcome")
             break
+    # Official distractors are the outcomes of specific errors. A hosted 數A paper
+    # listed misconceptions whose outcomes matched none of its printed options, so
+    # the distractors could be dismissed at a glance; require at least two printed
+    # non-key options to be exactly the predicted outcomes.
+    options = [o for o in item.get("options") or [] if isinstance(o, dict)]
+    if question_type in {"single_choice", "multiple_choice"} and options and paths:
+        printed = {_normalized(o.get("text")) for o in options}
+        outcomes = [_normalized(row.get("predicted_outcome")) for row in paths if isinstance(row, dict)]
+        realised = {o for o in outcomes if o and (o in printed or any(o in text for text in printed if len(text) <= 24))}
+        if len(realised) < 2:
+            errors.append(f"{qid}: only {len(realised)} misconception outcome(s) appear among the printed options; "
+                          "at least two distractors must be the predicted outcomes of the listed misconceptions "
+                          "(write the outcome exactly as the option prints it)")
 
     discrimination = design.get("discrimination_design") if isinstance(design.get("discrimination_design"), dict) else {}
     level = discrimination.get("level")
@@ -75909,6 +76064,142 @@ def validate(exam: dict, profile: Path | None = None) -> dict:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_math_layout_contract.py">
+#!/usr/bin/env python3
+"""Printed-form and stem-rhetoric contract for 數學A／數學B, measured on ROC 111–115.
+
+Two hosted 116 數A papers (2026-09-22) passed every existing gate and still read
+unlike the official booklets: one printed method instructions inside stems
+(「先利用對數律合併左式，再依 x 的正負限制選取可行值」), a student-facing
+disclaimer (「下列數值與流程為本題的模擬資料」) and no part headings; the other
+ran 9 pages against the official 8 because stems averaged twice the official
+length and used the same 物價指數年增率 context in three items.
+
+Official facts this module enforces (text extracted from the ten booklets):
+
+* headings: 第壹部分、選擇（填）題（占85分）／一、單選題（占30分 in 數A, 35 in 數B）／
+  二、多選題（占30分 in 數A, 25 in 數B）／三、選填題（占25分）／第貳部分、混合題或非選擇題（占15分）;
+* five options labelled (1)–(5) on every choice item;
+* selected-response stems (items 1–17): median 83–123 compact characters,
+  never above 340 in 數A; no stem tells the solver which formula or step to use;
+* no student-facing disclaimer or invented-source label;
+* no real-world context repeated in three or more items (official four-character
+  repeats are only generic phrases such as 坐標平面上 and 試選出正確的選項).
+
+Structural passes are never editorial passes.
+"""
+from __future__ import annotations
+
+from collections import Counter
+import re
+from typing import Any
+
+HEADINGS = {
+    '數學A': ['第壹部分、選擇（填）題（占85分）', '一、單選題（占30分）', '二、多選題（占30分）', '三、選填題（占25分）',
+            '第貳部分、混合題或非選擇題（占15分）'],
+    '數學B': ['第壹部分、選擇（填）題（占85分）', '一、單選題（占35分）', '二、多選題（占25分）', '三、選填題（占25分）',
+            '第貳部分、混合題或非選擇題（占15分）'],
+}
+METHOD_HINT = re.compile(r'先利用|先以|再依|再利用|判斷時應|可先|請先|先求出?|先化|先將|先代入|利用.{0,6}(?:公式|定理|律|性質).{0,4}(?:求|得|判斷|合併)|'
+                         r'依.{0,8}(?:性質|定理|條件).{0,3}[，,]')
+DISCLAIMER = re.compile(r'模擬資料|本題情境|並非.{0,14}(?:實際|真實)|自擬|自撰|虛構|編者.{0,6}撰')
+GENERIC_PHRASES = ('根據上述', '依據上述', '根據題意', '依據題意', '哪個選項', '哪一選項', '下列敘述哪些正確', '下列敘述何者正確', '下列敘述何者為真', '下列選項何者正確', '下列哪些選項正確', '哪些選項是正確的',
+                   '哪一個選項是正確的', '試選出正確的選項', '選出正確的選項', '試問下列何者正確', '下列何者正確', '為下列何者',
+                   '等於下列何者', '之值為何', '為何', '坐標平面上', '坐標空間中', '化為最簡分數', '最簡分數', '如圖所示', '在答題卷',
+                   '非選擇題', '所有可能的', '正整數', '實數', '下列哪一', '試問', '下列', '哪些', '何者', '滿足', '已知', '則', '若',
+                   '其中', '設', '令', '為', '的', '與', '且', '之', '是', '有', '一個', '兩個', '三個', '四個', '五個')
+GENERIC_PATTERN = re.compile('|'.join(sorted(map(re.escape, GENERIC_PHRASES), key=len, reverse=True)))
+STEM_MAX_CHARACTERS = 340
+STEM_MEDIAN_MAX = 150
+CONTEXT_REPEAT_ITEMS = 3
+OPTION_LABELS = ('1', '2', '3', '4', '5')
+
+
+def _compact(text: Any) -> str:
+    return re.sub(r'\s+', '', str(text or ''))
+
+
+def _label(option: dict) -> str:
+    return str(option.get('label') or '').strip().strip('()（）')
+
+
+def validate_exam(exam: dict) -> list[str]:
+    metadata = exam.get('metadata') or {}
+    subject = metadata.get('paper_subject') or metadata.get('subject')
+    if subject not in HEADINGS:
+        return []
+    questions = [q for q in exam.get('questions') or [] if isinstance(q, dict)]
+    errors: list[str] = []
+    full = metadata.get('generation_mode') == 'full-paper' or len(questions) >= 20
+
+    for question in questions:
+        number = question.get('number') or question.get('id')
+        stem = _compact(question.get('prompt'))
+        hint = METHOD_HINT.search(stem)
+        if hint:
+            errors.append(f'{subject}第{number}題題幹寫出解法指示「{hint.group(0)}」：官方 111–115 題幹從不告訴考生該用哪個公式或步驟，'
+                          '刪掉指示，讓判斷路徑成為題目的一部分')
+        printed = stem + _compact(question.get('group_stimulus'))
+        disclaimer = DISCLAIMER.search(printed)
+        if disclaimer:
+            errors.append(f'{subject}第{number}題印出「{disclaimer.group(0)}」：學生卷不得出現模擬資料、本題情境、並非實際等聲明；'
+                          '情境數值要麼取自可印出處的真實資料，要麼寫成不需聲明的假設情境')
+        if isinstance(question.get('number'), int) and question['number'] <= 17 and len(stem) > STEM_MAX_CHARACTERS:
+            errors.append(f'{subject}第{number}題題幹 {len(stem)} 字：官方選擇（填）題題幹不超過 {STEM_MAX_CHARACTERS} 字（中位數 83–123），'
+                          '刪掉不改變解題路徑的敘述')
+        if question.get('type') in {'single_choice', 'multiple_choice'}:
+            labels = [_label(o) for o in question.get('options') or [] if isinstance(o, dict)]
+            if tuple(labels) != OPTION_LABELS:
+                errors.append(f'{subject}第{number}題須有五個選項並標為(1)(2)(3)(4)(5)；現有 {labels}')
+
+    if full:
+        titles = [_compact(s.get('title')) for s in exam.get('sections') or [] if isinstance(s, dict)]
+        for heading in HEADINGS[subject]:
+            if _compact(heading) not in titles:
+                errors.append(f'{subject}缺少官方標題「{heading}」（111–115 每年皆同；sections[].title 須逐字相同）')
+        stems = [len(_compact(q.get('prompt'))) for q in questions if isinstance(q.get('number'), int) and q['number'] <= 17]
+        if stems:
+            ordered = sorted(stems)
+            median = ordered[len(ordered) // 2]
+            if median > STEM_MEDIAN_MAX:
+                errors.append(f'{subject}選擇（填）題題幹中位數 {median} 字，官方 111–115 為 83–123 字：'
+                              '整卷敘述過長會多出一頁，且把判斷寫成說明降低難度')
+        # A shared stimulus is one context however many items read it.
+        contexts: dict[str, list] = {}
+        for q in questions:
+            key = _compact(q.get('group_stimulus')) or f"item:{q.get('id')}"
+            entry = contexts.setdefault(key, [key if not key.startswith('item:') else '', []])
+            entry[0] += _compact(q.get('prompt'))
+            entry[1].append(str(q.get('number') or q.get('id')))
+        stems = [text for text, _ in contexts.values()]
+        labels = ['、'.join(items) if len(items) == 1 else f'{items[0]}–{items[-1]}' for _, items in contexts.values()]
+        for items, gram in context_repeats(stems, labels)[:3]:
+            errors.append(f'{subject}第{"、".join(items)}題共用同一情境「{gram}」：官方 111–115 從不在三題以上重複同一現實情境'
+                          '（重複的只有坐標平面上、試選出正確的選項等套語），換成不同情境')
+    return errors
+
+
+def context_repeats(stems: list[str], labels: list[str] | None = None) -> list[tuple[tuple, str]]:
+    """Four-character phrases (generic exam wording removed) shared by three or more stems."""
+    labels = labels or [str(i + 1) for i in range(len(stems))]
+    owners: dict[str, set] = {}
+    for label, stem in zip(labels, stems):
+        cleaned = GENERIC_PATTERN.sub(' ', _compact(stem))
+        seen = set()
+        for run in re.findall(r'[一-鿿]{4,}', cleaned):
+            for i in range(len(run) - 3):
+                gram = run[i:i + 4]
+                if gram not in seen:
+                    seen.add(gram)
+                    owners.setdefault(gram, set()).add(label)
+    repeated = {gram: tuple(sorted(items, key=lambda v: (len(v), v))) for gram, items in owners.items()
+                if len(items) >= CONTEXT_REPEAT_ITEMS}
+    by_items: dict[tuple, str] = {}
+    for gram, items in sorted(repeated.items(), key=lambda kv: -len(kv[0])):
+        by_items.setdefault(items, gram)
+    return list(by_items.items())
 </canonical-source>
 
 <canonical-source path="scripts/validate_paper_difficulty_balance.py">

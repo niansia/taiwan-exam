@@ -407,6 +407,11 @@ re-open every page.
   line). The inspector's `narrow-wrap-column` hard failure and the final
   checker catch any body whose wrapped lines leave a quarter of the width
   unused with nothing beside them, however the body was produced.
+- Mathematics digits, Latin letters and √ print in the Latin face automatically;
+  `x_{i+1}` or `a^{2}` in saved text is refused at save time (write `<sub>`/`<sup>`),
+  a mathematics choice item is refused without its five options, a figure taller
+  than 60% of the body is refused until resized, and a key that differs from the
+  planned position in `paper-plan.json` is listed as `answer_position_drift`.
 - Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
   (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
   社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs
