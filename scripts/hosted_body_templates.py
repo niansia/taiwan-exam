@@ -17,6 +17,7 @@ import time
 
 import pymupdf
 from fetch_hosted_template_assets import DEFAULT_MAP
+from hosted_density import page_void_limit
 from hosted_item_layout import draw_rail
 
 HTML_OPTIONS = {'_scale_word_width':False} if '_scale_word_width' in inspect.signature(pymupdf.Page.insert_htmlbox).parameters else {}
@@ -109,9 +110,9 @@ class RichText(HTMLParser):
     def handle_data(self, data): self.output.append(html.escape(data))
 
 
-# Official mathematics booklets set digits, Latin letters and the radical sign in a
-# proportional Latin face; the CJK body font draws √ one em wide, so 「√5」
-# printed with a visible gap and a hosted run rewrote every radical by hand.
+# Official booklets set digits, Latin letters and the radical sign in Times for every
+# subject; the CJK body font draws √ one em wide, so 「√5」 printed with a visible
+# gap and a hosted run rewrote every radical by hand.
 MATH_SUBJECTS = {'數學A', '數學B'}
 LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
 _latin_runs_enabled = False
@@ -408,7 +409,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
     global _latin_runs_enabled
-    _latin_runs_enabled = spec['subject'] in MATH_SUBJECTS
+    # Official booklets set digits and Latin letters in Times for every subject
+    # (國綜, 社會, 自然, 英文 and 數學 all measured); the CJK face keeps the CJK glyphs.
+    _latin_runs_enabled = True
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
@@ -489,8 +492,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 return [first,_chunk(block,key,units[count:],False,True)]
         return None
 
-    def paginate(tightness):
-        """One pagination pass. Only the gaps between blocks scale with tightness."""
+    def paginate(tightness,capacity=None):
+        """One pagination pass. Gaps scale with tightness; `capacity` breaks pages early to spread content evenly."""
         def gap_after(block):
             return (8 if block['kind']=='section' else item_gap_pt(spec['subject']))*tightness
 
@@ -510,14 +513,17 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 heights=[prepare(block)[2] for block in chain]
                 # A kept block may start up to one grid step lower.
                 required=sum(heights)+sum(gap_after(block)+BLOCK_GRID_PT for block in chain[:-1])
-                if y+required>body.y1:
+                # Even-fill passes stop at the capacity line unless the page is still
+                # empty; a block that fits the real page is never pushed off it.
+                bound=body.y1 if capacity is None or fresh_page else min(body.y1,top+capacity)
+                if y+required>bound:
                     # Fill this page with leading paragraphs of the first block in
                     # the kept chain that allows continuation, instead of leaving
                     # a terminal void or failing on an over-long block.
                     offset=0;split=None
                     for position,block in enumerate(chain):
                         if _units(block)[1]:
-                            split=split_to_fit(block,body.y1-y-offset)
+                            split=split_to_fit(block,bound-y-offset)
                             if split:
                                 work[i+position:i+position+1]=split
                             break
@@ -571,17 +577,41 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
             last=max(row['bbox'][3] for row in pages if row['page']==len(doc))
             return doc.tobytes(garbage=4,deflate=True),parts,pages,len(doc),(last-top)/body.height
 
+    def voids(pages_,count_):
+        return [round((body.y1-max(row['bbox'][3] for row in pages_ if row['page']==n))/body.height,3) for n in range(1,count_+1)]
+
+    def over_limit(voids_):
+        limits=[page_void_limit(spec['subject'],'solutions' if spec.get('booklet_role')=='solutions' else 'body',n==len(voids_))
+                for n in range(1,len(voids_)+1)]
+        return sum(1 for v,l in zip(voids_,limits) if l is not None and v>l),max(voids_) if voids_ else 0
+
     try:
         raw,parts,pages,count,fill=paginate(1)
-        tightness=1
+        tightness=1;pagination='greedy'
         if balance_last_page and count>1 and fill<TRAILING_PAGE_FILL:
             # A last page holding a line or two fails the density check and costs
             # a rewrite; closer block spacing may pull it back onto earlier pages.
             for trial in TIGHTER_GAPS:
                 attempt=paginate(trial)
                 if attempt[3]<count:
-                    raw,parts,pages,count,fill=attempt;tightness=trial
+                    raw,parts,pages,count,fill=attempt;tightness=trial;pagination='tighter-gaps'
                     break
+        best_voids=voids(pages,count)
+        if balance_last_page and count>1 and over_limit(best_voids)[0]:
+            # Greedy filling piles every remainder onto the last page and leaves a
+            # tall block's page half empty. Spread the same content evenly across
+            # the same number of pages and keep the pass with the fewest pages
+            # over the fixed limit, then the smallest worst void.
+            used=sum(row['measured_height_pt'] for row in pages)+sum(
+                (8 if row['kind']=='section' else item_gap_pt(spec['subject']))*tightness for row in pages)
+            best=(over_limit(best_voids),count)
+            for slack in (1.02,1.05,1.08,1.12):
+                attempt=paginate(tightness,capacity=used/count*slack)
+                if attempt[3]>count:continue
+                candidate=(over_limit(voids(attempt[2],attempt[3])),attempt[3])
+                if candidate<best:
+                    raw,parts,pages,count,fill=attempt;best=candidate;pagination=f'balanced-{slack:g}'
+                    best_voids=voids(pages,count)
         output.parent.mkdir(parents=True,exist_ok=True)
         output.write_bytes(raw)
     finally:
@@ -593,7 +623,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                              p['id'] for p in parts if p['page']==n)),
                              'bottom_safety_pt':round(body.y1-max(b['bbox'][3] for b in pages if b['page']==n),3)}
                              for n in range(1,count+1)]},
-            'gap_scale':tightness,'scaled_assets':[scaled[key] for key in sorted(scaled)],
+            'gap_scale':tightness,'pagination':pagination,'bottom_void_ratios':best_voids,
+            'scaled_assets':[scaled[key] for key in sorted(scaled)],
             'scope':'Body layout only; compose onto original fixed PDFs and perform actual QA',
             'elapsed_seconds':round(time.monotonic()-started,3)}
     layout_path.parent.mkdir(parents=True,exist_ok=True)

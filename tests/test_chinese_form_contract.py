@@ -35,6 +35,10 @@ def chinese_paper():
                             {'label': 'C', 'text': '「攢」蹙累積／踰牆「鑽」穴'}, {'label': 'D', 'text': '「剜」肉補瘡／壯士斷「腕」'}]
         if n in groups:  # official group material always prints its source
             q['group_stimulus'] = groups[n] + '（改寫自某作者〈某篇〉；另見《某書》）'
+        if n in (9, 10, 13, 14, 15, 16, 17, 22, 23, 24, 30, 31):  # 文言 groups keep the classical share at the official level
+            q['group_stimulus'] = ('蝜蝂者，善負小蟲也。行遇物，輒持取，卬其首負之。背愈重，雖困劇不止也。其背甚澀，物積因不散，卒躓仆不能起。'
+                                   '人或憐之，為去其負，苟能行，又持取如故。又好上高，極其力不已，至墜地死。今世之嗜取者，遇貨不避，以厚其室，不知為己累也。'
+                                   + groups[n] + '（改寫自柳宗元〈蝜蝂傳〉；另見《某書》）')
         if n == 2:  # 18-23 character sentences, one hidden 錯別字 each
             q['options'] = [{'label': l, 'text': f'面對突如其來的質疑，他仍神色自若，逐一釐清原委{l}。'} for l in 'ABCD']
         if n == 7:  # the official ①②研判 option set
@@ -137,6 +141,31 @@ def test_measured_difficulty_signals_reject_an_easy_imitation():
     declared = json.loads(json.dumps(paper))
     declared['questions'][31]['group_stimulus'] += '（乙選自袁宏道〈滿井遊記〉；甲、丙、丁由編者依題組脈絡撰成。）'
     assert any('編者依題組脈絡撰成' in e for e in chinese_layout(declared))
+
+
+def test_regulatory_material_is_capped_classical_share_has_a_floor_and_dingbats_are_rejected():
+    from validate_chinese_layout_contract import is_classical
+    assert is_classical('蝜蝂者，善負小蟲也。行遇物，輒持取，卬其首負之。背愈重，雖困劇不止也。其背甚澀，物積因不散，卒躓仆不能起。人或憐之，為去其負。')
+    assert not is_classical('把主要靠口說流傳的語言寫成漢字，難處不在找不到字，而在同一個詞往往有幾種寫法可以主張。')
+    paper = chinese_paper()
+    assert not any('法條、辦法、手冊' in e for e in chinese_layout(paper))
+    civics = json.loads(json.dumps(paper))
+    labels = {'閱讀材料一': '著作權法第六十五條規定合理使用的四項基準', '閱讀材料三': '教育部《重訂標點符號手冊》修訂版規定引號',
+              '閱讀材料六': '鄉鎮市區公所的調解是訴訟的前置程序'}
+    for q in civics['questions']:
+        for key, text in labels.items():
+            if q.get('group_stimulus', '').startswith(key):
+                q['group_stimulus'] = text + q['group_stimulus']
+    errors = chinese_layout(civics)
+    assert any('3 組材料取自法條、辦法、手冊、辭典條目' in e for e in errors)
+    modern = json.loads(json.dumps(paper))
+    for q in modern['questions']:
+        if '蝜蝂' in q.get('group_stimulus', ''):
+            q['group_stimulus'] = '把主要靠口說流傳的語言寫成漢字，難處不在找不到字，而在同一個詞往往有幾種寫法可以主張。' + q['group_stimulus'][-40:]
+    assert any('以文言／古典材料命題者僅' in e for e in chinese_layout(modern))
+    dingbat = json.loads(json.dumps(paper))
+    dingbat['questions'][6]['prompt'] = '關於➀、➁是否符合上文內容，最適當的研判是：'
+    assert any('dingbat 圈號' in e for e in chinese_layout(dingbat))
 
 
 def test_item_one_pairs_two_different_lookalike_characters_and_short_options_share_rows():

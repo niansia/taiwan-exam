@@ -27,6 +27,9 @@ def fixed_evidence_pdfs(tmp_path_factory):
         p = doc.new_page(width=595.28, height=841.89)
         for i in range(4):
             p.insert_text((75, 120+i*60), 'Synthetic layout test '+str(i))
+        # Fill the body: the fixed density limit (hosted_density.py) applies to every body page.
+        for y in range(360, 760, 16):
+            p.insert_text((75, y), 'Synthetic filler prose keeps the page inside the fixed density limit.')
         doc.save(body)
     font = folder/'font.ttf'
     font.write_bytes(pymupdf.Font('cjk').buffer)
@@ -156,13 +159,16 @@ def test_stale_or_incomplete_evidence_blocks_delivery(saved_run, change):
         Path('question.pdf').write_bytes(Path('question.pdf').read_bytes() + b'\n%changed')
     elif change == 'raster':
         next(Path('rasters').rglob('*.png')).write_bytes(b'changed')
-    elif change in {'missing_page', 'unresolved_void'}:
+    elif change == 'missing_page':
         review = json.loads(Path('question-review.json').read_text())
-        if change == 'missing_page':
-            review['pages'] = []
-        else:
-            review['pages'][1]['issue_dispositions'] = {}
+        review['pages'] = []
         state['pdfs']['question']['visual_review'] = save('question-review.json', review)
+    elif change == 'unresolved_void':
+        # A body page over the fixed density limit fails whatever the review says.
+        with pymupdf.open('question.pdf') as doc:
+            doc[1].draw_rect(pymupdf.Rect(64, 300, 531, 775), color=(1, 1, 1), fill=(1, 1, 1))
+            doc.save('sparse.pdf')
+        state['pdfs']['question']['file'] = {'path': 'sparse.pdf', 'sha256': gate.sha(Path('sparse.pdf'))}
     else:
         review = json.loads(Path('difficulty.json').read_text())
         review['items'].pop()

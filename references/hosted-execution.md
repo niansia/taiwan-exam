@@ -412,6 +412,11 @@ re-open every page.
   a mathematics choice item is refused without its five options, a figure taller
   than 60% of the body is refused until resized, and a key that differs from the
   planned position in `paper-plan.json` is listed as `answer_position_drift`.
+- Typography is fixed for all seven subjects (國綜、國寫、英文、數學A、數學B、社會、自然), as in the official booklets: CJK in the
+  pinned Traditional Chinese serif (明體-style Noto Serif TC, downloaded by the
+  preflight; a supplied font is used only when that download fails, the built-in
+  sans-serif is the last resort) and digits, Latin letters and √ in the Times-like
+  Latin face. Authors never choose fonts.
 - Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
   (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
   社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs
@@ -505,14 +510,20 @@ pages needing priority magnification; those rasters are prepared at higher
 resolution. Every page and required crop still needs review. A false flag does
 not prove visual quality; zoom any uncertain page regardless of the heuristic.
 
-For each `large-bottom-void-review` the build attaches `density_evidence`: the
-page role and the comparable same-role embedded official measurements.
-`reflow_before_review` lists pages that no comparable measurement can justify;
-reflow those before spending review time on them. For a genuinely comparable
-page, record `{"decision": "justified", "reason": "...", "embedded_reference": N}`
-under that page's `issue_dispositions`; the helper copies the measurement's
-identity and the final checker remeasures both. Prose cannot waive a collision
-or an unjustified terminal void.
+Page density has one fixed rule, shared by `plan`, the inspector and the final
+checker (`hosted_density.py`): a body page may leave at most 32% of the
+printable body blank (英文 42%, where official section breaks reach 40%), the
+last body page at most 60%; the cover and the mathematics formula page are
+fixed layers and are never measured. `plan` lists pages over their limit under
+`bottom_void_attention` with the limit that applies, the inspector flags them
+as `large-bottom-void-review`, and `finalize` fails them; no disposition,
+reference PDF or prose waives a page over the limit. `density_evidence` still
+attaches the comparable embedded official measurements, as reference only.
+`reflow_before_review` lists the pages to fix before spending review time. The
+renderer paginates for these limits: after the greedy pass it re-flows the same
+content evenly across the same number of pages when any page would exceed its
+limit, so an over-limit page in a plan means a figure or block is too tall for
+its position, not a threshold to argue about.
 
 Repair the saved item (`append_items.py --replace --state LATEST_REVIEW_STATE`)
 or the layout hints, rerun `specs` with that state, and build to a new output

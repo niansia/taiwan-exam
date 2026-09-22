@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 
 import pymupdf
+from hosted_density import booklet_limits
 from validate_math_context import source_note_samples, production_caption_samples
 
 
@@ -180,13 +181,16 @@ def table_collision_samples(page) -> list[dict]:
     return findings[:20]
 
 
-def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> dict:
+def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False, subject=None,
+          solutions: bool = False) -> dict:
     data = pdf.read_bytes()
     digest = hashlib.sha256(data).hexdigest()
     target = raster_dir / digest[:16]
     target.mkdir(parents=True, exist_ok=True)
     pages = []
     with pymupdf.open(stream=data, filetype="pdf") as doc:
+        limits = booklet_limits([(n, p.get_text()) for n, p in enumerate(doc, 1)],
+                                subject or ('數學A' if math else None), solutions=solutions)
         for number, page in enumerate(doc, 1):
             issues = []
             rect = page.rect
@@ -224,7 +228,8 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             # include white page-size rectangles that are NOT printed content.
             # The same applies to white image margins and clipped Form XObjects.
             void = bottom_void(page, body)
-            if void > .32:
+            role_name, void_limit = limits[number]
+            if void_limit is not None and void > void_limit:
                 issues.append("large-bottom-void-review")
             risk_reasons=list(issues)
             if page.get_image_info():risk_reasons.append('embedded-image-or-answer-rail')
@@ -251,7 +256,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "narrow_wrap_samples": narrow_wraps,
                           "rail_collision_samples": rail_collisions,
                           "rail_format_samples": rail_formats,
-                          "bottom_void_ratio": void,
+                          "bottom_void_ratio": void, "bottom_void_limit": void_limit, "page_role": role_name,
                           "needs_full_resolution_review":needs_full_resolution,
                           "full_resolution_reasons":sorted(set(risk_reasons)),
                           "raster_scale":raster_scale,

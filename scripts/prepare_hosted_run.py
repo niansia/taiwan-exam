@@ -187,17 +187,22 @@ def body_font(run_dir, requested=None):
     install one. PyMuPDF, already required here, ships Droid Sans Fallback with
     full CJK coverage, so a missing or incomplete font never stops a paper.
     """
+    # Fixed typography for every subject: the pinned Traditional Chinese serif
+    # (明體-style Noto Serif TC) for CJK and Times for digits and Latin letters,
+    # as in the official booklets. A supplied font is used only when the pinned
+    # serif cannot be obtained; the built-in sans-serif is the last resort.
     note = None
-    if requested:
-        path, record, note = supplied_font(Path(requested), run_dir)
-        if path is not None:
-            return path, record
     serif, serif_note = downloaded_serif_font(run_dir)
     if serif is not None:
         path, record = serif
-        if note:
-            record['replaced'] = note
+        if requested:
+            record['supplied_font_ignored'] = f'{Path(requested).name}: the pinned serif body font is fixed for every subject'
         return path, record
+    if requested:
+        path, record, note = supplied_font(Path(requested), run_dir)
+        if path is not None:
+            record['serif_download'] = serif_note
+            return path, record
     target = run_dir / 'fonts' / 'builtin-cjk.ttf'
     if not target.is_file():
         target.parent.mkdir(exist_ok=True)

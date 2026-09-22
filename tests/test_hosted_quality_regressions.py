@@ -89,25 +89,22 @@ def test_clean_claim_cannot_hide_colliding_pdf(saved_run):
     assert any('actual PDF answer-rail' in e for e in evaluate(state,save)['errors'])
 
 
-def test_prose_only_density_waiver_is_rejected(saved_run):
-    state,save=saved_run
-    review=json.loads(Path('question-review.json').read_text())
-    review['pages'][1]['issue_dispositions']['large-bottom-void-review'].pop('reference_pdf')
-    state['pdfs']['question']['visual_review']=save('question-review.json',review)
-    assert any('density-reference' in e for e in evaluate(state,save)['errors'])
-
-
-def test_self_created_density_reference_is_rejected(saved_run):
+def test_sparse_page_fails_the_fixed_density_limit_whatever_the_disposition(saved_run):
+    """No reference PDF or prose waiver can justify a page over the fixed limit (hosted_density.py)."""
     state,save=saved_run
     import check_hosted_run as gate
-    with pymupdf.open('question-reference.pdf') as doc:
-        doc.set_metadata({'title':'Unverified substitute'})
-        doc.save('unverified-reference.pdf')
+    with pymupdf.open('question.pdf') as doc:
+        page=doc[1]
+        page.draw_rect(pymupdf.Rect(64,300,531,775),color=(1,1,1),fill=(1,1,1))  # blank the lower body
+        doc.save('sparse.pdf')
+    state['pdfs']['question']['file']={'path':'sparse.pdf','sha256':gate.sha(Path('sparse.pdf'))}
     review=json.loads(Path('question-review.json').read_text())
-    review['pages'][1]['issue_dispositions']['large-bottom-void-review']['reference_pdf']={
-        'path':'unverified-reference.pdf','sha256':gate.sha(Path('unverified-reference.pdf'))}
+    review['pages'][1]['issue_dispositions']={'large-bottom-void-review':{'decision':'justified','reason':'prose waiver',
+        'reference_pdf':{'path':'question-reference.pdf','sha256':gate.sha(Path('question-reference.pdf'))},
+        'reference_page':2,'page_role':'body'}}
     state['pdfs']['question']['visual_review']=save('question-review.json',review)
-    assert any('verified same-subject official source' in e for e in evaluate(state,save)['errors'])
+    errors=evaluate(state,save)['errors']
+    assert any('exceeds the fixed limit' in e for e in errors)
 
 
 def test_blind_packet_removes_labels_and_detects_shortcut_time_collapse():

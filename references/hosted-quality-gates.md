@@ -81,11 +81,13 @@ Alternatively retain an already available same-subject official 111–115 PDF an
 use `reference_pdf: {path, sha256}`, reference_page, page_role and decision/reason.
 This legacy route verifies its source hash and remeasures both PDFs. Choose the
 route at preflight, never start downloading originals during final QA.
-Candidate bottom void cannot exceed reference by over 10 percentage points.
+Page density is a fixed limit shared by plan, inspector and checker (body 0.32,
+英文 0.42, last body page 0.60; see `hosted_density.py`); embedded official
+measurements are reference material only.
 This conservative review threshold is project policy, not an official exam rule.
 The build precomputes each flagged page's `density_evidence`: its role and up to
 three same-role embedded measurements within that limit, or
-`exceeds-all-embedded-references` when none qualifies (reflow first). Selecting
+`exceeds-fixed-limit` when the page is over its limit (reflow first; nothing waives it). Selecting
 one with `embedded_reference` in record-review copies its identity; the reviewer
 still confirms the page is genuinely comparable and writes the reason.
 Editorial review must verify role compatibility: never compare an interior page

@@ -24,6 +24,7 @@ from validate_current_context import validate as current_context_errors
 from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from hosted_subject_gates import subject_gate_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
+from hosted_density import booklet_limits
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -195,6 +196,8 @@ def check(state_path: Path) -> dict:
         with pymupdf.open(pdf) as actual:
             actual_count = len(actual)
             actual_issues = {}
+            void_limits = booklet_limits([(n, p.get_text()) for n, p in enumerate(actual, 1)],
+                                         exam['metadata'].get('subject'), solutions=role == 'solution')
             need(actual.metadata.get('creator') == COMPOSER,
                  f'{role}: PDF was not composed by compose_hosted_pdf (creator stamp missing); '
                  'a body typeset by another route is not deliverable')
@@ -219,8 +222,13 @@ def check(state_path: Path) -> dict:
                 need(len(narrow_wrap_samples(actual_page, pymupdf.Rect(64, 87, rect.width - 64, 775))) < 2,
                      f'{role}/page-{number}: actual PDF narrow-wrap-column (text set in a column far narrower than the body)')
                 actual_issues[number] = set()
-                if bottom_void(actual_page) > .32:
+                page_role_name, void_limit = void_limits[number]
+                actual_void = bottom_void(actual_page)
+                if void_limit is not None and actual_void > void_limit:
                     actual_issues[number].add('large-bottom-void-review')
+                    # Fixed limit shared with plan and the inspector; no disposition waives it.
+                    need(False, f'{role}/page-{number}: bottom void {actual_void:.3f} exceeds the fixed limit {void_limit} '
+                                f'for a {page_role_name} page; reflow the layout (hosted_density.py)')
             item_path = file(bundle.get('item_review'), f'{role}/item_review')
             if item_path:
                 item_review = json.loads(item_path.read_text(encoding='utf-8-sig'))

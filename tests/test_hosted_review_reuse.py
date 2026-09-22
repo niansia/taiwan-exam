@@ -288,12 +288,12 @@ def test_review_list_opens_from_anywhere_and_its_template_records_in_one_call(ru
 
 
 def test_density_evidence_lists_only_same_role_embedded_measurements():
-    inside = density_evidence('數學A', 'question', 3, 8, 0.33)
-    assert inside['status'] == 'within-embedded-reference-limit' and inside['page_role'] == 'body'
-    assert all(r['page_role'] == 'body' and 0.33 <= r['limit'] for r in inside['embedded_references'])
+    inside = density_evidence('數學A', 'question', 3, 8, 0.30)
+    assert inside['status'] == 'within-fixed-limit' and inside['page_role'] == 'body' and inside['limit'] == 0.32
+    assert all(r['page_role'] == 'body' and 0.30 <= r['limit'] for r in inside['embedded_references'])
     assert inside['decision'] == 'not-made-by-tool'
     outside = density_evidence('數學A', 'question', 3, 8, 0.5)
-    assert outside['status'] == 'exceeds-all-embedded-references' and not outside['embedded_references']
+    assert outside['status'] == 'exceeds-fixed-limit' and not outside['embedded_references']
     assert density_evidence('數學A', 'solution', 2, 3, 0.5)['page_role'] == 'solutions'
     assert density_evidence('數學A', 'question', 8, 8, 0.5)['page_role'] == 'formula'
 
