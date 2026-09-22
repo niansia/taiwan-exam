@@ -11,7 +11,7 @@
 
 修正：預檢新增第二個固定字型下載——LXGW WenKai TC Regular（OFL 1.1，unmodified，重掛於本專案 Release `fonts-lxgw-wenkai-tc-1`，固定 SHA-256），全科說明框與國寫材料改用楷體，下載失敗退回明體；渲染器新增國寫模式（`_writing_stem`）：不印題號欄，「一、」獨占一行，材料段落楷體縮排兩字、甲乙標記不縮排、「請…問題：」靠邊界、問題（一）（二）懸掛六字、第二大題題目縮排兩字；國寫改為 12pt／20pt。plan、build、proof 帶 `--kai-font`（預設讀預檢紀錄），渲染身分含楷體字型摘要。契約新增：說明框須為官方 115 全文；「請分項回答下列問題：」「請回答下列問題：」兩句必印。時間機制：國寫只有兩大題三筆紀錄，存批即檢（印刷契約、來源驗證）與 plan 先算分頁都已涵蓋，這份卷無須重寫。
 
-新 ZIP（SHA-256 `b35ec53a30d26a39461db62041f787c8daf993ddae0c1372c6ec9bda02ad11d3`，6,875,174 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.15 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.15/taiwan-exam-hosted-2026.09.22.15.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.15) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `b35ec53a30d26a39461db62041f787c8daf993ddae0c1372c6ec9bda02ad11d3`，6,875,174 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.15 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.15/taiwan-exam-hosted-2026.09.22.15.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.15) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.14：修正國寫兩支檢查互相矛盾（大題數 vs 題目筆數）
 
