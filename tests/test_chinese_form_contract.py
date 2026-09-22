@@ -35,7 +35,7 @@ def chinese_paper():
                             {'label': 'C', 'text': '「攢」蹙累積／踰牆「鑽」穴'}, {'label': 'D', 'text': '「剜」肉補瘡／壯士斷「腕」'}]
         if n in groups:  # official group material always prints its source
             q['group_stimulus'] = groups[n] + '（改寫自某作者〈某篇〉；另見《某書》）'
-        if n in (9, 10, 13, 14, 15, 16, 17, 22, 23, 24, 30, 31):  # 文言 groups keep the classical share at the official level
+        if n in (6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 22, 23, 24, 30, 31):  # 文言 groups keep the classical share at the floor
             q['group_stimulus'] = ('蝜蝂者，善負小蟲也。行遇物，輒持取，卬其首負之。背愈重，雖困劇不止也。其背甚澀，物積因不散，卒躓仆不能起。'
                                    '人或憐之，為去其負，苟能行，又持取如故。又好上高，極其力不已，至墜地死。今世之嗜取者，遇貨不避，以厚其室，不知為己累也。'
                                    + groups[n] + '（改寫自柳宗元〈蝜蝂傳〉；另見《某書》）')
@@ -47,7 +47,9 @@ def chinese_paper():
         questions.append(q)
         answers.append({'question_id': q['id'], 'final_answer': 'B' if kind == 'single_choice' else 'A、C',
                         'reasoning': [f'選項{n}B 依據第二段證據成立。']})
-    mixed = '甲、回憶文學論述（改寫自某作者〈某篇〉）；乙、琦君〈髻〉；丙、李煜〈浪淘沙〉'
+    mixed = ('甲、回憶一直是文學重要的題材和主題。在書寫回憶的文學作品裡，一般關注的是追憶的內容、方式以及其中的自我。沒有記憶，我們就不知道自己是誰，'
+             '過去曾是什麼，未來又將有什麼樣的發展。（改寫自某作者〈某篇〉）\n乙、琦君〈髻〉：母親年輕的時候，一把青絲梳一條又粗又長的辮子。\n'
+             '丙、李煜〈浪淘沙〉：簾外雨潺潺，春意闌珊。羅衾不耐五更寒。夢裡不知身是客，一晌貪歡。獨自莫憑欄，無限江山，別時容易見時難。流水落花春去也，天上人間。')
     for n, kind, score, text in ((32, 'constructed_response', 2, '（1）依甲文，乙文屬於哪一種回憶方式？（占2分，作答字數：10字以內。）'),
                                  (32, 'constructed_response', 4, '（2）回憶時會意識到哪些情況？（占4分，作答字數：30字以內。）'),
                                  (33, 'constructed_response', 4, '（1）（占4分，作答字數：40字以內。）'),
@@ -150,8 +152,8 @@ def test_regulatory_material_is_capped_classical_share_has_a_floor_and_dingbats_
     paper = chinese_paper()
     assert not any('法條、辦法、手冊' in e for e in chinese_layout(paper))
     civics = json.loads(json.dumps(paper))
-    labels = {'閱讀材料一': '著作權法第六十五條規定合理使用的四項基準', '閱讀材料三': '教育部《重訂標點符號手冊》修訂版規定引號',
-              '閱讀材料六': '鄉鎮市區公所的調解是訴訟的前置程序'}
+    labels = {'閱讀材料三': '著作權法第六十五條規定合理使用的四項基準', '閱讀材料六': '教育部《重訂標點符號手冊》修訂版規定引號',
+              '閱讀材料七': '鄉鎮市區公所的調解是訴訟的前置程序'}
     for q in civics['questions']:
         for key, text in labels.items():
             if q.get('group_stimulus', '').startswith(key):
@@ -166,6 +168,25 @@ def test_regulatory_material_is_capped_classical_share_has_a_floor_and_dingbats_
     dingbat = json.loads(json.dumps(paper))
     dingbat['questions'][6]['prompt'] = '關於➀、➁是否符合上文內容，最適當的研判是：'
     assert any('dingbat 圈號' in e for e in chinese_layout(dingbat))
+
+
+def test_part_two_materials_must_pair_modern_framing_with_classical_texts():
+    from validate_chinese_layout_contract import part_two_material_errors
+    assert chinese_layout(chinese_paper()) == []
+    all_classical = ('甲、古之學者必有師。師者，所以傳道、受業、解惑也。人非生而知之者，孰能無惑？惑而不從師，其為惑也，終不解矣。（節錄自韓愈〈師說〉）\n'
+                     '乙、學然後知不足，教然後知困。知不足，然後能自反也；知困，然後能自強也。故曰：教學相長也。（節錄自《禮記·學記》）\n'
+                     '丙、人生小幼，精神專利，長成已後，思慮散逸，固須早教，勿失機也。吾七歲時，誦靈光殿賦，至於今日，十年一理，猶不遺忘。（節錄自《顏氏家訓·勉學》）')
+    errors = part_two_material_errors(all_classical)
+    assert len(errors) == 1 and '皆為文言，變成純文言閱讀' in errors[0]
+    all_modern = ('甲、回憶一直是文學重要的題材和主題。在書寫回憶的文學作品裡，一般關注的是追憶的內容、方式以及其中的自我。沒有記憶，我們就不知道自己是誰。\n'
+                  '乙、長期記憶分布在腦內各處，不像短期記憶一樣分布在某個專屬區域。因此，人不會突如其來地完全忘記某件事，而是在時光流逝中逐漸失去細節。')
+    assert any('皆為白話' in e for e in part_two_material_errors(all_modern))
+    assert any('分不出篇章' in e for e in part_two_material_errors('一段沒有標示的材料。'))
+    paper = chinese_paper()
+    for q in paper['questions']:
+        if q['number'] >= 32:
+            q['group_stimulus'] = all_classical
+    assert any('純文言閱讀' in e for e in chinese_layout(paper))
 
 
 def test_item_one_pairs_two_different_lookalike_characters_and_short_options_share_rows():

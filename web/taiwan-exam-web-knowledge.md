@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.9
+# Taiwan Exam Web Knowledge v2026.09.22.10
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -134,10 +134,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "exam_packs/學測/shared-data/chinese-item-type-envelope.json",
-    "bytes": 9545,
-    "sha256": "f31031ed53a6d28d51ed543b28b852be74fc23193731db52835c522eb7f2ad71",
-    "embedded_bytes": 9545,
-    "embedded_sha256": "f31031ed53a6d28d51ed543b28b852be74fc23193731db52835c522eb7f2ad71"
+    "bytes": 9958,
+    "sha256": "12e56916fb788a96f96f88d7c8ec6c879affe3914db687d1cc57dcc121405b31",
+    "embedded_bytes": 9958,
+    "embedded_sha256": "12e56916fb788a96f96f88d7c8ec6c879affe3914db687d1cc57dcc121405b31"
   },
   {
     "path": "exam_packs/學測/shared-data/current-chinese-natural-density.json",
@@ -505,10 +505,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 40003,
-    "sha256": "4babfdf1e08b112a9fd1ddee25151b8258550b93c1ef448f279583c08dbe7963",
-    "embedded_bytes": 40003,
-    "embedded_sha256": "4babfdf1e08b112a9fd1ddee25151b8258550b93c1ef448f279583c08dbe7963"
+    "bytes": 40764,
+    "sha256": "d870d321a7b2970b35098176f40a74d0310d674c03daa1dd6760aa8b645c35a6",
+    "embedded_bytes": 40441,
+    "embedded_sha256": "f52c16fcfe1dc827f80c88204fcd0adc1bcaa980678bdfa2e587f257a03e25ca"
   },
   {
     "path": "references/current-gsat-english-form.md",
@@ -1037,10 +1037,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_chinese_layout_contract.py",
-    "bytes": 26141,
-    "sha256": "7a4e2cc1c57747ca24948a088502806327641d0200a3a1391490a849dbd84716",
-    "embedded_bytes": 26141,
-    "embedded_sha256": "7a4e2cc1c57747ca24948a088502806327641d0200a3a1391490a849dbd84716"
+    "bytes": 29282,
+    "sha256": "9219a77f6892b2a17b8f0fb0923917439589c0d1b90f7fd78a7554ece04167ac",
+    "embedded_bytes": 28856,
+    "embedded_sha256": "3cc816158d15886ed09e85acf96bdf4ede8a00daaff6abd78d4094ed36d9e41b"
   },
   {
     "path": "scripts/validate_chinese_natural_scope.py",
@@ -12014,7 +12014,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
    "2_points": "10-20 字以內",
    "4_points": "30-40 字以內 (or two parts of 10-15)"
   },
-  "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts"
+  "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts",
+  "material_mix": "Every year pairs a 白話 framing or critical text with 文言/韻文 case texts (113: 回憶文學論述 + 記憶科普 + 琦君〈髻〉 + 李煜詞; 115: 歸有光 framing + 柯慶明 criticism + 出師表/陳損益表). A generated paper set 師說, 學記 and 顏氏家訓 with no 白話 text: rejected by validate_chinese_layout_contract.part_two_material_errors."
  },
  "every_year": [
   "Q1 字音, Q2 字形",
@@ -12089,7 +12090,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
   "basis": "Group material of the five booklets classified by kind (2026-09-22); a generated paper (GZ116A) built six of nine groups from regulations, manuals and dictionary entries.",
   "official": "白話 groups are essays, science and culture writing, criticism and literary prose with 改寫自 attributions; 文言 groups are 核心古文, 文言小說 and 古典韻文; charts and tables 0-4 items; regulations, manuals, dictionary entries, notices and application forms at most one group a year (111 and 113 one each).",
   "rule": "At most one 題組 may draw on 法條、辦法、手冊、辭典條目、公告、公所說明 or 簡章; reading material is literature, essays, criticism and 文言.",
-  "classical_share_detector": "Items 1-31 whose material is 文言/古典 by character statistics: 111 11, 112 9, 113 9, 114 4, 115 4. Floor 10, target 12-14 at the maintainer's request (文言 is the curriculum weight); GZ116A scored 8."
+  "classical_share_detector": "Items 1-31 whose material is 文言/古典 by character statistics (韻文 included): 111 18, 112 12, 113 12, 114 8, 115 13. Floor 15, target 16-18 at the maintainer's request (文言 is the curriculum weight); GZ116A scored 14."
  }
 }
 </canonical-source>
@@ -56636,16 +56637,20 @@ year (111–115), and is therefore enforced:
   any official year: the contract now rejects a group without an attribution.
 - 排序題 is 文言 when it appears (113 Q5 `下列是一段古文`, 115 Q5 with 甲–戊); a
   白話 sentence reorder is not the form and is rejected.
+- 第貳部分 materials pair a 白話 framing or critical text with 文言／韻文 case texts every
+  year (113: 回憶文學論述 and 記憶科普 applied to 琦君〈髻〉and 李煜詞; 115: 歸有光's own
+  framing and 柯慶明's criticism applied to 出師表 and 陳損益表). A generated group made of
+  師說, 學記 and 顏氏家訓 alone is 純文言閱讀 and is rejected; so is an all-白話 group.
 - Material kinds: official 白話 groups are essays, science and culture writing,
   criticism and literary prose; 文言 groups are 核心古文, 文言小說 and 古典韻文; at most
   one group a year comes from a regulation, manual, dictionary entry, notice or
   application form (法條、辦法、手冊、辭典條目、公告、公所說明、簡章). A generated paper
   built six of nine groups from such documents (著作權法第65條, 標點符號手冊, 台語辭典
   用字原則, 區公所調解說明, 徵文辦法) and read like a civics test; the contract caps
-  those groups at one. 文言／古典 material (detected from character statistics) covers
-  11, 9, 9, 4 and 4 of items 1–31 in 111–115; the maintainer set the floor at 10 with a
-  target of 12–14 because 文言 is the curriculum's weight, so a paper meeting it is more
-  classical than 113–115. Judgement items print ①②, never ➀➁ dingbats.
+  those groups at one. 文言／古典 material (detected from character statistics, 韻文 included) covers
+  18, 12, 12, 8 and 13 of items 1–31 in 111–115; the maintainer set the floor at 15 with a
+  target of 16–18 because 文言 is the curriculum's weight, so a paper meeting it is more
+  classical than 112–115. Judgement items print ①②, never ➀➁ dingbats.
 - Difficulty signals measured on the five booklets and enforced by the contract:
   options containing absolute words (完全、必然、唯一、所有、只會…) are 6–12% of all
   options and appear in at most 36% of items; the generated paper had 22% and 70%,
@@ -72869,13 +72874,18 @@ REGULATORY_MATERIAL = re.compile(r'第[一二三四五六七八九十百零\d]+�
 REGULATORY_GROUPS_MAX = 1
 # 文言／古典 material, detected from character statistics: classical function
 # characters (之乎者也矣焉哉於而以其曰…) at 6% or more of the CJK text with almost no
-# modern particles (的了們這那…). Detector counts on the official booklets: 111 11,
-# 112 9, 113 9, 114 4, 115 4 of items 1-31. The maintainer asked for a share above
-# the recent official years because 文言 is the curriculum's weight, so the floor
-# is 10 and the target 12-14; a generated paper reached 8.
+# modern particles (的了們這那…), or 古典韻文 read as short clauses without modern
+# particles. Detector counts on the official booklets: 111 18, 112 12, 113 12,
+# 114 8, 115 13 of items 1-31. The maintainer asked for a share above the recent
+# official years because 文言 is the curriculum's weight, so the floor is 15 and
+# the target 16-18; a generated paper reached 14.
 CLASSICAL_CHARACTERS = set('之乎者也矣焉哉兮於而以其曰乃夫則故所為與若何遂')
-MODERN_PARTICLES = set('的了們這那嗎吧呢著把很就是被')
-CLASSICAL_ITEMS_FLOOR = 10
+MODERN_PARTICLES = set('的了們這那嗎吧呢著把被')
+CLASSICAL_ITEMS_FLOOR = 15
+# 第貳部分 materials, 111-115: a 白話 framing or critical text (回憶文學論述, 柯慶明 on
+# 「表」, 科普 on memory) applied to 文言 or 韻文 case texts (出師表, 陳損益表, 李煜 詞,
+# 歸有光 節錄). Never all-文言 and never all-白話.
+MATERIAL_LABEL = re.compile(r'(?:^|\n)\s*([甲乙丙丁戊])[、：:．.]')
 CIRCLED_DINGBATS = re.compile(r'[➀➁➂➃➄➅➆➇➈➉❶❷❸❹❺]')
 CLASSICAL_VERSE = re.compile(r"詩|詞|曲|韻文|絕句|律詩|樂府")
 CHAR_LIMIT = re.compile(r"(\d+)\s*字以內")
@@ -72940,8 +72950,12 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             is_classical(str(q.get("prompt") or "") + " " + " ".join(str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict)))
             for q in by_number[n])]
         if len(classical) < CLASSICAL_ITEMS_FLOOR:
-            errors.append(f"國綜第1至31題中以文言／古典材料命題者僅 {len(classical)} 題（{classical}），下限 {CLASSICAL_ITEMS_FLOOR}、目標 12–14："
-                          "文言是課綱重點，官方 111 有 11 題；請以核心古文、古典詩詞曲與文言小說增加題組")
+            errors.append(f"國綜第1至31題中以文言／古典材料命題者僅 {len(classical)} 題（{classical}），下限 {CLASSICAL_ITEMS_FLOOR}、目標 16–18："
+                          "文言是課綱重點，官方 111 有 18 題（偵測值）；請以核心古文、古典詩詞曲與文言小說增加題組")
+    part_two = [q for q in questions if isinstance(q, dict) and isinstance(q.get("number"), int) and q["number"] >= 32
+                and q.get("group_stimulus")]
+    if part_two:
+        errors.extend(part_two_material_errors(str(part_two[0]["group_stimulus"])))
     for q in questions:
         if isinstance(q, dict):
             printed = str(q.get("prompt") or "") + str(q.get("group_stimulus") or "") + " ".join(
@@ -73102,6 +73116,29 @@ def difficulty_signal_errors(questions: list[dict]) -> list[str]:
     return errors
 
 
+def part_two_material_errors(stimulus: str) -> list[str]:
+    """甲乙丙(丁) of the mixed group must pair 白話 framing with 文言/韻文 case texts."""
+    starts = list(MATERIAL_LABEL.finditer(stimulus))
+    if len(starts) < 2:
+        return ["國綜第貳部分材料須以甲、乙、丙（丁）分別標示至少兩篇文本（111–115 為三或四篇）；目前分不出篇章"]
+    segments = []
+    for index, match in enumerate(starts):
+        end = starts[index + 1].start() if index + 1 < len(starts) else len(stimulus)
+        body = re.sub(r"[（(]?注[：:].*", "", stimulus[match.end():end], flags=re.S)
+        segments.append((match.group(1), body))
+    classical = [label for label, body in segments if is_classical(body)]
+    modern = [label for label, body in segments
+              if not is_classical(body) and len([c for c in body if "\u4e00" <= c <= "\u9fff"]) >= 60]
+    errors = []
+    if not classical:
+        errors.append("國綜第貳部分材料須含至少一篇文言或古典韻文（官方每年如此：出師表、陳損益表、李煜詞、歸有光節錄）；"
+                      f"目前 {'、'.join(l for l, _ in segments)} 皆為白話")
+    if not modern:
+        errors.append("國綜第貳部分材料須含至少一篇白話的框架或評論文本（官方每年以一篇白話論述統攝文言案例：回憶文學論述、"
+                      f"柯慶明論「表」、記憶科普）；目前 {'、'.join(l for l, _ in segments)} 皆為文言，變成純文言閱讀")
+    return errors
+
+
 def _compact_text(value) -> str:
     return re.sub(r"\s+", "", str(value or ""))
 
@@ -73113,7 +73150,13 @@ def is_classical(text: str) -> bool:
         return False
     classical = sum(c in CLASSICAL_CHARACTERS for c in cjk) / len(cjk)
     modern = sum(c in MODERN_PARTICLES for c in cjk) / len(cjk)
-    return classical >= 0.06 and modern <= 0.02
+    if classical >= 0.06 and modern <= 0.02:
+        return True
+    # 古典韻文 (詩詞曲) carries few function characters; it shows as short clauses
+    # between punctuation with almost no modern particles.
+    clauses = [c for c in re.split(r"[，。、；：？！\n「」『』（）]", str(text or "")) if c.strip()]
+    average = (sum(len([ch for ch in c if "\u4e00" <= ch <= "\u9fff"]) for c in clauses) / len(clauses)) if clauses else 99
+    return modern <= 0.01 and average <= 7 and len(clauses) >= 4
 
 
 def pronunciation_pair_errors(question: dict) -> list[str]:
