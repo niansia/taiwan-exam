@@ -1,5 +1,6 @@
 """Defects a 3-hour hosted run met only at whole-paper gates now surface when a batch is saved."""
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -88,19 +89,22 @@ def test_skeleton_prints_official_subpart_labels():
 
 
 def test_preflight_lists_authoring_requirements_per_subject():
-    common = preflight.authoring_requirements('數學A')
+    common = preflight.authoring_requirements('')
     assert any('curriculum_codes' in r for r in common) and any('inherits_audit_from' in r for r in common)
     chinese = preflight.authoring_requirements('國綜')
     assert len(chinese) == len(common) + 1 and '改寫自' in chinese[-1] and '①②研判' in chinese[-1]
+    for subject, marker in (('數學A', 'scope_codes'), ('數學B', 'matrix, sphere/space'), ('國寫', '文長限80字以內'), ('自然', '12-19 多選'), ('英文', '中譯英 18-28 字')):
+        assert any(marker in r for r in preflight.authoring_requirements(subject)[len(common):]), subject
 
 
 def test_plan_checker_accepts_the_plan_as_a_flag(tmp_path):
     report = tmp_path / 'plan.json'
     subprocess.run([sys.executable, str(ROOT / 'scripts/check_paper_plan.py'), '--skeleton', '--subject', '國綜',
                     '--paper-id', 'flag-test', '--year', '116', '--report', str(report)], check=True, capture_output=True)
+    env = {**os.environ, 'PYTHONIOENCODING': 'utf-8'}  # the report names 國綜 bands; decode it the way it is written
     positional = subprocess.run([sys.executable, str(ROOT / 'scripts/check_paper_plan.py'), str(report)],
-                                capture_output=True, text=True, encoding='utf-8')
+                                capture_output=True, text=True, encoding='utf-8', env=env)
     flagged = subprocess.run([sys.executable, str(ROOT / 'scripts/check_paper_plan.py'), '--plan', str(report)],
-                             capture_output=True, text=True, encoding='utf-8')
+                             capture_output=True, text=True, encoding='utf-8', env=env)
     assert flagged.returncode == positional.returncode
     assert json.loads(flagged.stdout)['status'] == json.loads(positional.stdout)['status']

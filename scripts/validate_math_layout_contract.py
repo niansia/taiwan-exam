@@ -46,6 +46,39 @@ STEM_MAX_CHARACTERS = 340
 STEM_MEDIAN_MAX = 150
 CONTEXT_REPEAT_ITEMS = 3
 OPTION_LABELS = ('1', '2', '3', '4', '5')
+# 數學B unit families by 108 scope code (templates/current-gsat-math-scope.json), and the
+# per-paper envelope hand-classified on the official 111–115 booklets (20 items each, the
+# 第貳部分 題組 counted as three): matrix 1/1/1/1/1, sphere or space 1/1/3/2/1,
+# perspective 1/3/0/1/1, conic 0/1/0/1/1, polynomial 2/2/2/2/2, line-circle 1/1/1/1/5,
+# trigonometry 3/2/1/2/2, exp-log 2/2/2/2/1, sequence 0/2/1/1/2, counting 2/1/1/1/1,
+# probability 2/1/2/2/2, data 1/1/2/1/1, vector 2/1/2/1/0, number 2/2/1/2/1. Items carrying
+# an 11B-only code: 7/8/6/8/8.
+MATH_B_FAMILIES = {
+    'number': ('N-10-1', 'N-10-2', 'N-10-5', 'N-10-7'),
+    'exp_log': ('N-10-3', 'N-10-4', 'F-11B-2'),
+    'polynomial': ('A-10-1', 'A-10-2', 'F-10-1', 'F-10-2', 'F-10-3'),
+    'line_circle': ('G-10-1', 'G-10-2', 'G-10-3', 'G-10-4'),
+    'trigonometry': ('G-10-5', 'G-10-6', 'G-10-7', 'N-11B-1', 'F-11B-1'),
+    'sequence': ('N-10-6',),
+    'counting': ('D-10-3',),
+    'probability': ('D-10-4', 'D-11B-1'),
+    'data': ('D-10-2', 'D-11B-2'),
+    'matrix': ('A-11B-1',),
+    'vector': ('G-11B-1', 'G-11B-2'),
+    'sphere_space': ('S-11B-1', 'G-11B-4'),
+    'perspective': ('G-11B-3',),
+    'conic': ('S-11B-2',),
+}
+MATH_B_FAMILY_LABELS = {'number': '數與式', 'exp_log': '指數與對數', 'polynomial': '多項式函數', 'line_circle': '直線與圓',
+                        'trigonometry': '三角', 'sequence': '數列與級數', 'counting': '排列組合', 'probability': '機率',
+                        'data': '數據分析', 'matrix': '矩陣', 'vector': '平面向量', 'sphere_space': '空間概念與球面',
+                        'perspective': '單點透視', 'conic': '圓錐曲線'}
+MATH_B_REQUIRED_FAMILIES = ('matrix', 'sphere_space', 'polynomial', 'line_circle', 'trigonometry', 'exp_log',
+                            'counting', 'probability', 'data')          # ≥1 item in every official year
+MATH_B_FAMILY_CAPS = {'sequence': 2, 'counting': 2, 'probability': 3, 'matrix': 2, 'sphere_space': 3}
+MATH_B_ANY_FAMILY_CAP = 5
+MATH_B_11B_ITEMS = (3, 10)
+MATH_A_ONLY_CODES = re.compile(r'^[A-Z]-11A-\d+$')
 
 
 def _compact(text: Any) -> str:
@@ -64,6 +97,8 @@ def validate_exam(exam: dict) -> list[str]:
     questions = [q for q in exam.get('questions') or [] if isinstance(q, dict)]
     errors: list[str] = []
     full = metadata.get('generation_mode') == 'full-paper' or len(questions) >= 20
+    if subject == '數學B':
+        errors.extend(math_b_scope_errors(questions, full))
 
     for question in questions:
         number = question.get('number') or question.get('id')
@@ -109,6 +144,55 @@ def validate_exam(exam: dict) -> list[str]:
         for items, gram in context_repeats(stems, labels)[:3]:
             errors.append(f'{subject}第{"、".join(items)}題共用同一情境「{gram}」：官方 111–115 從不在三題以上重複同一現實情境'
                           '（重複的只有坐標平面上、試選出正確的選項等套語），換成不同情境')
+    return errors
+
+
+def math_b_family(codes: list) -> str | None:
+    """Primary unit family of an item: the family of its first recognised scope code."""
+    for code in codes:
+        for family, members in MATH_B_FAMILIES.items():
+            if str(code) in members:
+                return family
+    return None
+
+
+def math_b_scope_errors(questions: list[dict], full: bool) -> list[str]:
+    """Per-item scope codes and the measured 111–115 unit envelope of a 數學B paper."""
+    errors: list[str] = []
+    families: Counter = Counter()
+    eleven_b = 0
+    for q in questions:
+        number = q.get('number')
+        spec = q.get('item_spec') if isinstance(q.get('item_spec'), dict) else {}
+        codes = [str(c) for c in (spec.get('scope_codes') or [])]
+        if not codes:
+            errors.append(f'數學B第{number}題缺 item_spec.scope_codes（108 課綱代碼，見 current-gsat-math-scope.md）')
+            continue
+        foreign = [c for c in codes if MATH_A_ONLY_CODES.match(c)]
+        if foreign:
+            errors.append(f'數學B第{number}題使用數A專屬代碼 {foreign}；數B不含空間向量、平面方程式、和角公式與一般對數律')
+        family = math_b_family(codes)
+        if family is None:
+            errors.append(f'數學B第{number}題的代碼 {codes} 不在數B範圍（10年級共同核心＋11B）')
+            continue
+        families[family] += 1
+        if any('11B' in c for c in codes):
+            eleven_b += 1
+    if not full or len(questions) < 20:
+        return errors
+    missing = [MATH_B_FAMILY_LABELS[f] for f in MATH_B_REQUIRED_FAMILIES if families[f] == 0]
+    if missing:
+        errors.append(f'數學B整卷缺 {"、".join(missing)}：官方 111–115 每卷都各有至少 1 題')
+    for family, cap in MATH_B_FAMILY_CAPS.items():
+        if families[family] > cap:
+            errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 有 {families[family]} 題，官方 111–115 每卷最多 {cap} 題')
+    for family, count in families.items():
+        if count > MATH_B_ANY_FAMILY_CAP:
+            errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 有 {count} 題，超過單一單元上限 {MATH_B_ANY_FAMILY_CAP}（官方最高為 115 直線與圓 5 題）')
+    low, high = MATH_B_11B_ITEMS
+    if not low <= eleven_b <= high:
+        errors.append(f'數學B 帶 11B 專屬代碼的題目 {eleven_b} 題，官方 111–115 為 6–8 題（允許 {low}–{high}）：'
+                      '矩陣、球面／空間、透視、圓錐曲線、正弦模型、平面向量、條件機率須有合理比重')
     return errors
 
 

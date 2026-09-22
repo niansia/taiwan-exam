@@ -10,6 +10,14 @@ from pathlib import Path
 from typing import Any
 
 
+WORD = re.compile(r"[A-Za-z]+(?:[-'’][A-Za-z]+)*")
+VOCABULARY_STEM_WORDS = (12, 26)          # official 111–115: 13–24
+TRANSLATION_SENTENCE_CJK = (16, 32)       # official 111–115: 18–28
+COMPOSITION_PROMPT_CJK_MAX = 220          # official 111–115: 108–174
+READING_DETAIL_MAX = 4                    # official 111–115: 2–4 true/NOT detail checks
+REFERENCE_STEM = re.compile(r"refer to|refers to|closest in meaning|mean by|is used .{0,30}to refer|idiom|which words? .{0,20}(?:used|refer)", re.I)
+GLOBAL_STEM = re.compile(r"mainly about|main purpose|purpose of|what question|can we learn|be inferred|inferred|how does the author|conclude|develop the ideas|best title|field of study", re.I)
+DETAIL_STEM = re.compile(r"\b(?:is|are) (?:true|NOT|not)\b|\bNOT\b", re.I)
 OFFICIAL_HEADINGS = (
     "第壹部分、選擇題（占62分）", "一、詞彙題（占10分）", "二、綜合測驗（占10分）", "三、文意選填（占10分）",
     "四、篇章結構（占8分）", "五、閱讀測驗（占24分）", "第貳部分、混合題（占10分）",
@@ -43,6 +51,7 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             cursor = index + len(heading)
 
     by_number = {int(q.get("number")): q for q in exam.get("questions") or [] if isinstance(q.get("number"), int)}
+    word_re = WORD
     for number in range(1, 47):
         question = by_number.get(number) or {}
         labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
@@ -68,13 +77,21 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
     completion = str((by_number.get(21) or {}).get("group_stimulus") or "")
     if "(J)" not in completion or "(K)" in completion or "(L)" in completion:
         errors.append("115英文文意選填須為十空、十個A至J選項")
+    discourse = str((by_number.get(31) or {}).get("group_stimulus") or "")
+    if discourse and ("(D)" not in discourse or "(F)" in discourse):
+        errors.append("英文篇章結構須為四空配四或五個候選句(A)–(D)／(A)–(E)（111–114 四句、115 五句）")
+    for number in range(1, 11):
+        stem = str((by_number.get(number) or {}).get("prompt") or "")
+        words = len(word_re.findall(stem))
+        if stem and not VOCABULARY_STEM_WORDS[0] <= words <= VOCABULARY_STEM_WORDS[1]:
+            errors.append(f"英文第{number}題詞彙題幹 {words} 個單詞，官方 111–115 為 13–24 個（允許 {VOCABULARY_STEM_WORDS[0]}–{VOCABULARY_STEM_WORDS[1]}）")
+    errors.extend(reading_stem_errors(by_number))
+    errors.extend(mixed_section_errors(by_number))
     if not all((by_number.get(number) or {}).get("page") == 3 for number in range(11, 21)):
         errors.append("115英文兩組綜合測驗須依量測版型同置第3頁")
 
     # Empirical guardrails from the 111–115 official papers.  Count prose only,
     # excluding the option bank appended to inline-layout stimuli.
-    word_re = re.compile(r"[A-Za-z]+(?:[-'’][A-Za-z]+)*")
-
     def prose_word_count(number: int) -> int:
         question = by_number.get(number) or {}
         stimulus = str(question.get("group_stimulus") or "")
@@ -129,6 +146,10 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append("英文作文題幹須依官方格式以中文寫出「提示：…」並指明第一段與第二段的任務")
         if re.match(r"\s*[A-Za-z]", prompt):
             errors.append("英文作文題幹以英文句子開頭；官方提示全文為中文，只有主題詞可附英文")
+        if cjk_count > COMPOSITION_PROMPT_CJK_MAX:
+            errors.append(f"英文作文提示 {cjk_count} 字，官方 111–115 為 108–174 字；提示不是作文範本")
+        if not composition.get("visual_asset"):
+            errors.append("英文作文須附圖片（官方 111–115 每年皆為看圖寫作：兩張圖、表情符號、三張圖、對比圖、多張圖）")
         spec = composition.get("item_spec") if isinstance(composition.get("item_spec"), dict) else {}
         contract = spec.get("composition_contract") if isinstance(spec.get("composition_contract"), dict) else {}
         if contract.get("directions_language") != "zh-TW":
@@ -163,6 +184,53 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append(f"中譯英第{index}句須印為「{index}.」，不是「{label or '（無）'}」；「中譯英1」不是官方題號")
         if re.search(r"[A-Za-z]{3,}", str(question.get("prompt") or "")):
             errors.append(f"中譯英第{index}句題幹須為中文句子")
+        cjk = len(re.findall(r"[\u3400-\u9fff]", str(question.get("prompt") or "")))
+        if not TRANSLATION_SENTENCE_CJK[0] <= cjk <= TRANSLATION_SENTENCE_CJK[1]:
+            errors.append(f"中譯英第{index}句 {cjk} 字，官方 111–115 每句 18–28 字（允許 {TRANSLATION_SENTENCE_CJK[0]}–{TRANSLATION_SENTENCE_CJK[1]}）")
+    return errors
+
+
+def reading_stem_errors(by_number: dict[int, dict]) -> list[str]:
+    """閱讀測驗 35–46 stem mix measured on 111–115: 2–4 word/reference-in-context items,
+    at least one global item (main idea, purpose, inference, author's method) and never
+    more than four 'which statement is true / NOT' detail checks per booklet."""
+    stems = {n: str((by_number.get(n) or {}).get("prompt") or "") for n in range(35, 47)}
+    if not all(stems.values()):
+        return []
+    reference = [n for n, s in stems.items() if REFERENCE_STEM.search(s)]
+    global_items = [n for n, s in stems.items() if GLOBAL_STEM.search(s)]
+    detail = [n for n, s in stems.items() if DETAIL_STEM.search(s)]
+    errors = []
+    if len(reference) < 2:
+        errors.append(f"英文閱讀測驗須有至少 2 題字詞／指涉題（refer to、closest in meaning、mean by），目前 {len(reference)} 題；官方 111–115 每年 2–4 題")
+    if not global_items:
+        errors.append("英文閱讀測驗須有至少 1 題全文題（mainly about、purpose、what can we learn、inferred、how does the author）；官方 111–115 每年皆有")
+    if len(detail) > READING_DETAIL_MAX:
+        errors.append(f"英文閱讀測驗 {len(detail)} 題為「which is true／NOT」細節核對題（{detail}），官方 111–115 每年最多 4 題")
+    return errors
+
+
+def mixed_section_errors(by_number: dict[int, dict]) -> list[str]:
+    """混合題 47–50, identical in 111–115: a 4-point word-fill or short-answer pair (47–48),
+    one 4-point 多選 and one 2-point 簡答; never a 單選."""
+    items = {n: by_number.get(n) for n in range(47, 51)}
+    if any(q is None for q in items.values()):
+        return []
+    errors = []
+    types = {n: str(q.get("type") or "") for n, q in items.items()}
+    if any(t == "single_choice" for t in types.values()):
+        errors.append("英文混合題 47–50 不得有單選題；官方 111–115 為填充／簡答（4分）、多選（4分）、簡答（2分）")
+    multiples = [n for n, t in types.items() if t == "multiple_choice"]
+    if len(multiples) != 1:
+        errors.append(f"英文混合題須恰有 1 題多選題（4分），目前 {len(multiples)} 題")
+    scores = {n: q.get("score") for n, q in items.items()}
+    if all(isinstance(s, (int, float)) for s in scores.values()):
+        if sum(scores.values()) != 10:
+            errors.append(f"英文混合題配分須合計 10 分，目前 {scores}")
+        if multiples and scores.get(multiples[0]) != 4:
+            errors.append("英文混合題的多選題須為 4 分")
+        if 2 not in scores.values():
+            errors.append("英文混合題須有一題 2 分簡答題（官方 111–115 每年為第50題）")
     return errors
 
 

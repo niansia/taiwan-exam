@@ -88,7 +88,7 @@ compose_hosted_pdf.py inspect_hosted_pdf.py check_hosted_run.py verify_fixed_tem
 hosted_item_layout.py hosted_run_timing.py hosted_blind_review.py
 validate_math_context.py validate_current_context.py normalize_figure_asset.py hosted_item_triage.py hosted_subject_gates.py hosted_evidence_refresh.py hosted_bundles.py answer_key_patterns.py validate_chinese_layout_contract.py validate_math_layout_contract.py hosted_density.py
 validate_english_layout_contract.py validate_english_difficulty_design.py
-validate_social_item_design.py validate_writing_source_grounding.py
+validate_social_item_design.py validate_writing_source_grounding.py validate_writing_layout_contract.py
 qa_math_current_form.py safe_rendering.py
 render_exam.py render_gsat_internal_review_pdf.py render_gsat_internal_review.py
 render_gsat_official_pdf.py render_gsat_official.py render_pdf.py render_visual.py
@@ -104,7 +104,7 @@ validate_math_difficulty_design.py validate_paper_difficulty_balance.py
 validate_reference_page_density.py validate_rendered_paper.py
 validate_social_item_design.py validate_source_grounding.py
 validate_svg_text_geometry.py validate_visual_item_contract.py
-validate_writing_source_grounding.py
+validate_writing_source_grounding.py validate_writing_layout_contract.py
 validate_exam_release.py validate_exam_pack_contract.py
 '''.split())
 

@@ -105,4 +105,23 @@ The scope check is not complete until the whole paper is inspected. For a 20-que
 - each complete Math B paper should include at least one Math-B-distinctive spatial, design, periodic, vector, or conic mechanism rather than reproducing only the grade-10 common core. Across any planned or delivered window of three successive Math B papers, include at least one answer-bearing one-point-perspective item mapped to `G-11B-3` and at least one latitude/longitude or sphere item mapped to `S-11B-1` or `G-11B-4`. Both need not appear on every paper. A sphere item's assessed mechanism must be `spherical_distance`, `route_comparison`, or `navigation_constraint`; coordinate conversion may appear only as a necessary intermediate representation and never as the whole task. Record `item_spec.math_b_sphere_application` with that family, at least three linked operations, `direct_coordinate_conversion_only: false`, and `requires_comparison_or_constraint: true`. Record the current form and rolling-window status in `metadata.math_b_distinctive_rotation`;
 - a contextual mixed group must still map every subpart to scope codes and must pass a source-removal audit; physical plausibility is not a substitute for mathematical scope.
 
+### Measured 數學B unit envelope, ROC 111–115 (enforced at save time)
+
+Every item of the five official 數B booklets was classified by unit (the 第貳部分 題組
+counted as three items). Items per paper, 111/112/113/114/115: 矩陣 1/1/1/1/1;
+空間概念與球面（經緯度、大圓、立體） 1/1/3/2/1; 單點透視 1/3/0/1/1; 圓錐曲線 0/1/0/1/1;
+多項式函數 2/2/2/2/2; 直線與圓 1/1/1/1/5; 三角 3/2/1/2/2; 指數與對數 2/2/2/2/1;
+數列與級數 0/2/1/1/2; 排列組合 2/1/1/1/1; 機率 2/1/2/2/2; 數據分析 1/1/2/1/1;
+平面向量 2/1/2/1/0; 數與式 2/2/1/2/1. Items carrying an 11B-only code: 7/8/6/8/8. The
+第貳部分 題組 is always an applied context (斜塔, 電線桿畫布, 截角石塊, UVI 正弦模型,
+星軌照片) scored 3+6+6 (111: 5+4+6, 113: 3+4+8).
+
+`validate_math_layout_contract.math_b_scope_errors` (hosted batch save and finalize)
+reads `item_spec.scope_codes` and requires: every paper has at least one 矩陣, 球面／
+空間, 多項式, 直線與圓, 三角, 指對數, 排列組合, 機率 and 數據 item (all nine appear in
+every official year); 數列 ≤ 2, 排列組合 ≤ 2, 機率 ≤ 3, 矩陣 ≤ 2, 球面／空間 ≤ 3; no unit
+above 5 items (115 直線與圓 is the maximum); 3–10 items carry 11B codes; no 11A code.
+An item without `scope_codes` is refused when its batch is saved. The measured table is
+`exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
+
 Treat these percentages as an internal ecology gate derived from the user's target for balanced papers, not as a claim that CEEC fixes a public annual quota.

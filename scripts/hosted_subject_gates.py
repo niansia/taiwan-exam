@@ -141,6 +141,8 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
             else:
                 errors.append('social: ' + str(row))
     elif subject == '國寫' and full:
+        from validate_writing_layout_contract import validate_exam as writing_form
+        errors.extend('writing-form: ' + e for e in writing_form(exam))
         from validate_writing_source_grounding import validate_exam as writing
         pool = (exam.get('metadata') or {}).get('writing_source_pool')
         if not isinstance(pool, dict):
@@ -182,7 +184,7 @@ def item_messages(errors, questions):
     found = {}
     for message in errors:
         body = message.split(': ', 1)[1] if ': ' in message else message
-        match = (re.match(r'(?:Q|英文第|國綜第|數學[AB]第|第)(\d+)(?:題)?', body)
+        match = (re.match(r'(?:Q|英文第|國綜第|國寫第|數學[AB]第|第)(\d+)(?:題)?', body)
                  or re.match(r'([A-Za-z0-9_-]+):', body))
         if match:
             for qid in numbers.get(match.group(1), []):

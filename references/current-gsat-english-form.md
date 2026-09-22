@@ -34,6 +34,22 @@ The broad 180–400-word specification is not a license to put every passage nea
 | each reading passage (35–38, 39–42, 43–46) | 285–390 words |
 | mixed stimulus 47–50 | 340–480 words |
 
+### Item-form rules measured on 111–115 (enforced)
+
+- Vocabulary stems 1–10 are 13–24 words (contract 12–26).
+- 篇章結構 prints four candidate sentences (A)–(D) in 111–114 and five (A)–(E) in 115; never more.
+- 閱讀測驗 35–46 mixes, every year, 2–4 word/reference-in-context items (refer to, closest in
+  meaning, mean by, idiom), at least one global item (mainly about, purpose, what question, can we
+  learn, inferred, how the author develops/concludes) and at most four "which statement is
+  true / NOT" detail checks; a booklet of twelve detail checks is not the form.
+- 混合題 47–50 is the same shape every year: a 4-point word-fill or short-answer pair (47–48), one
+  4-point 多選 and one 2-point 簡答; never a 單選.
+- 中譯英 sentences are 18–28 CJK characters each (contract 16–32) on one shared theme.
+- 英文作文 is picture-based every year (兩張圖, emoji, 三張圖, 對比圖, 多張圖); the 提示 is
+  108–174 CJK characters (contract ≤ 220) and the composition item carries `visual_asset`.
+
+The measured table is `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
+
 ### Whole-booklet word budget
 
 The per-passage bands above govern passage prose. Independently, measure the

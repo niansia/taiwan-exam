@@ -77,7 +77,7 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
         targets=profile_targets(path)
         target=targets.get(number,{})
         p=target.get('p_center')
-        minimum=required_decisions(p,number,slot['type'])
+        minimum=required_decisions(p,number,slot['type'],subject)
         metric='constructed_response' if slot['type']=='constructed_response' else (
             'score_rate' if slot['type']=='multiple_choice' else 'answer_rate')
         design.update(target_p_center=p,target_p_range=target.get('p_range'),
@@ -117,6 +117,8 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
             'target':None,'minimum_linked_decisions':None,
             'note':'Use this subject’s rules. No Math A/B P/D or decision minimum is inferred.'}
     question['item_spec']={'difficulty':{'label':None},'difficulty_design':design}
+    if subject in {'數學A','數學B'}:
+        question['item_spec'].update(scope_codes=[],scope_status=None,topic_family=None,context_class=None)
     return {'status':'pending-authoring','subject':subject,'question':question,
             'answer':{'question_id':slot['id'],'final_answer':None,'reasoning':[],
                       'difficulty_label':None},'requirements':requirements}

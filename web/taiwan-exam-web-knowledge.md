@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.10
+# Taiwan Exam Web Knowledge v2026.09.22.11
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 86748,
-    "sha256": "c810e1dffad180266612c77e07fdb3ffbd8335b3b3aeb4eacd47ac24e821f3f5",
-    "embedded_bytes": 86748,
-    "embedded_sha256": "c810e1dffad180266612c77e07fdb3ffbd8335b3b3aeb4eacd47ac24e821f3f5"
+    "bytes": 87153,
+    "sha256": "ac573ee6e77afeaa5d1a606b1ff0d584a5e0bbb01e9bcfc52e2ef09f5b669107",
+    "embedded_bytes": 87153,
+    "embedded_sha256": "ac573ee6e77afeaa5d1a606b1ff0d584a5e0bbb01e9bcfc52e2ef09f5b669107"
   },
   {
     "path": "core/taxonomy.json",
@@ -180,6 +180,13 @@ attachments; extract only the selected subject's components.
     "sha256": "fd433e78bc6a6d3ff8fbf1c824ab2323366bd6f1b621369012a35ddce355afbf",
     "embedded_bytes": 8549,
     "embedded_sha256": "fd433e78bc6a6d3ff8fbf1c824ab2323366bd6f1b621369012a35ddce355afbf"
+  },
+  {
+    "path": "exam_packs/學測/shared-data/subject-form-envelopes-111-115.json",
+    "bytes": 5439,
+    "sha256": "203e89bac80b7fff20f820caf7915b038fc913b0b63ee204b00de7cc92f47644",
+    "embedded_bytes": 5439,
+    "embedded_sha256": "203e89bac80b7fff20f820caf7915b038fc913b0b63ee204b00de7cc92f47644"
   },
   {
     "path": "exam_packs/學測/source-pack-manifest.json",
@@ -505,17 +512,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 40764,
-    "sha256": "d870d321a7b2970b35098176f40a74d0310d674c03daa1dd6760aa8b645c35a6",
-    "embedded_bytes": 40441,
-    "embedded_sha256": "f52c16fcfe1dc827f80c88204fcd0adc1bcaa980678bdfa2e587f257a03e25ca"
+    "bytes": 41414,
+    "sha256": "75f85d27f4233cda46393e44f8eabae4d204fd962e1806eafa4fb8b710bbff6e",
+    "embedded_bytes": 41090,
+    "embedded_sha256": "4162f6268bfd7a1ed436ce657d55e6eb2ca67baa4626d9363cfbc707b3fa507a"
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 30263,
-    "sha256": "c81621d52c6e01cd5b6e8f5517b73433a25bbb78a20cd314492d411e1b9dc236",
-    "embedded_bytes": 30263,
-    "embedded_sha256": "c81621d52c6e01cd5b6e8f5517b73433a25bbb78a20cd314492d411e1b9dc236"
+    "bytes": 31417,
+    "sha256": "799040b036f7be6bf8c706e19b7a2dbc9869228d36594d6938cd18b495a1f603",
+    "embedded_bytes": 31417,
+    "embedded_sha256": "799040b036f7be6bf8c706e19b7a2dbc9869228d36594d6938cd18b495a1f603"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -526,10 +533,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-math-scope.md",
-    "bytes": 10387,
-    "sha256": "cf0900115c7bc75e34f8a71c64c6b4c95440412cc3d20e32b65c5328db3b97d7",
-    "embedded_bytes": 10387,
-    "embedded_sha256": "cf0900115c7bc75e34f8a71c64c6b4c95440412cc3d20e32b65c5328db3b97d7"
+    "bytes": 11844,
+    "sha256": "a664fc360519ff34840b3736a2734be575a9b17c66447be24220d7e1b2aba255",
+    "embedded_bytes": 11844,
+    "embedded_sha256": "a664fc360519ff34840b3736a2734be575a9b17c66447be24220d7e1b2aba255"
   },
   {
     "path": "references/current-gsat-social-form.md",
@@ -540,10 +547,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-writing-form.md",
-    "bytes": 15533,
-    "sha256": "f7e96fd773f9376c37b29a162242a4c733f1d1399104834884352b27eebed5e1",
-    "embedded_bytes": 15533,
-    "embedded_sha256": "f7e96fd773f9376c37b29a162242a4c733f1d1399104834884352b27eebed5e1"
+    "bytes": 17391,
+    "sha256": "3ab4ee1d473ca192f7c0008f2f6e39934b27a0db3aa5b6f7bf56f2494bd605a7",
+    "embedded_bytes": 17391,
+    "embedded_sha256": "3ab4ee1d473ca192f7c0008f2f6e39934b27a0db3aa5b6f7bf56f2494bd605a7"
   },
   {
     "path": "references/current-source-transformation.md",
@@ -890,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/emit_item_skeleton.py",
-    "bytes": 8862,
-    "sha256": "d43f5a1d670de41c81458e11e188b251f8abd13e679faf881c3ed3fbcfc14979",
-    "embedded_bytes": 8862,
-    "embedded_sha256": "d43f5a1d670de41c81458e11e188b251f8abd13e679faf881c3ed3fbcfc14979"
+    "bytes": 9019,
+    "sha256": "412d624fe8b5aaa79f0b23ad469eec455b80e433cba8fd84aa9275aeb741c650",
+    "embedded_bytes": 9019,
+    "embedded_sha256": "412d624fe8b5aaa79f0b23ad469eec455b80e433cba8fd84aa9275aeb741c650"
   },
   {
     "path": "scripts/ensure_pymupdf.py",
@@ -974,10 +981,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_subject_gates.py",
-    "bytes": 10429,
-    "sha256": "d396ff21a4886f7bc709bef3835f16ad2856d8474372bcafe1943085b357e328",
-    "embedded_bytes": 10239,
-    "embedded_sha256": "1853c1c031d688379821b7cd5e24bd7db92349399f4021ffe92dc3426748716d"
+    "bytes": 10596,
+    "sha256": "8550063953a522a795023c11ac3721c9b13a71e990bd29c359e7018463fb5607",
+    "embedded_bytes": 10404,
+    "embedded_sha256": "6d71a25e43ffa9e0bdd47d2fdfc08e24e6517cb74a3c272c6214457cb99e9a70"
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
@@ -1009,10 +1016,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 28251,
-    "sha256": "a59abff9fe4664a8679b4ce8b0d2d619e4fa920714bfd7d1dc8d37c5d155156e",
-    "embedded_bytes": 28251,
-    "embedded_sha256": "a59abff9fe4664a8679b4ce8b0d2d619e4fa920714bfd7d1dc8d37c5d155156e"
+    "bytes": 29973,
+    "sha256": "555e9e35668bdd819656c5bedd80ab73a4e806df6f0bc22f17d6194e4e75727d",
+    "embedded_bytes": 29973,
+    "embedded_sha256": "555e9e35668bdd819656c5bedd80ab73a4e806df6f0bc22f17d6194e4e75727d"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1044,10 +1051,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_chinese_natural_scope.py",
-    "bytes": 27116,
-    "sha256": "33af43cd5c4a028da983bba71b05270fec8a3f03d3e71bd20dde724726af8d0d",
-    "embedded_bytes": 27116,
-    "embedded_sha256": "33af43cd5c4a028da983bba71b05270fec8a3f03d3e71bd20dde724726af8d0d"
+    "bytes": 31496,
+    "sha256": "96843d13a238b8e43005e1c97c39bc9477b51bc8399d4b0aabaac5d77c293237",
+    "embedded_bytes": 31496,
+    "embedded_sha256": "96843d13a238b8e43005e1c97c39bc9477b51bc8399d4b0aabaac5d77c293237"
   },
   {
     "path": "scripts/validate_current_context.py",
@@ -1072,10 +1079,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_english_layout_contract.py",
-    "bytes": 10666,
-    "sha256": "1755238836b006cfc8bdbf5c0ebb04301055d0ef84434fb66229b6ddfe3abfae",
-    "embedded_bytes": 10482,
-    "embedded_sha256": "0710c74e287f365344b04e666876b4adf9670ab1e0e877be8bbf07104fe5f84f"
+    "bytes": 15760,
+    "sha256": "5d2cc1a20a64353d27f3281a3bbc26004897ea42e6765660c55242c1fa78488b",
+    "embedded_bytes": 15508,
+    "embedded_sha256": "0a7bca0a8aa9df030c330b896cdd95c67a66880241fd08e217049d2b983d5d9a"
   },
   {
     "path": "scripts/validate_english_vocabulary_scope.py",
@@ -1121,17 +1128,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_difficulty_design.py",
-    "bytes": 18895,
-    "sha256": "4ce14d9c71f4843030db0c8621c321607b447b7efa02bae8020d363e1c024196",
-    "embedded_bytes": 18895,
-    "embedded_sha256": "4ce14d9c71f4843030db0c8621c321607b447b7efa02bae8020d363e1c024196"
+    "bytes": 19291,
+    "sha256": "1cd847da255affe6854e19674807b773eb1db4bb309bdb616fe703c26a6d2440",
+    "embedded_bytes": 19291,
+    "embedded_sha256": "1cd847da255affe6854e19674807b773eb1db4bb309bdb616fe703c26a6d2440"
   },
   {
     "path": "scripts/validate_math_layout_contract.py",
-    "bytes": 8716,
-    "sha256": "db650eaf3e5c296b2cfeaf67f3505df127e877745631a850d7ad176e3a7a1cb0",
-    "embedded_bytes": 8583,
-    "embedded_sha256": "c0aba2b1841dc46bbc5a4cc42128b2d54491c4e7e239c102b9b157a7c0b41c07"
+    "bytes": 13615,
+    "sha256": "36b1f3dcef770d4657819b445d2e6cc06d29c3d3a803c4275690bcaf665907bb",
+    "embedded_bytes": 13398,
+    "embedded_sha256": "4c4ec3ec1f0c2ed77c3fa59605160f323313f2fc20c0e4f71b925d2c81b3111a"
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
@@ -1167,6 +1174,13 @@ attachments; extract only the selected subject's components.
     "sha256": "fc5bd6808996d0037c82f0b50aae177e2da91e5d91114b84d166926344e45310",
     "embedded_bytes": 13195,
     "embedded_sha256": "fc5bd6808996d0037c82f0b50aae177e2da91e5d91114b84d166926344e45310"
+  },
+  {
+    "path": "scripts/validate_writing_layout_contract.py",
+    "bytes": 7914,
+    "sha256": "d59841a5036a572af816606c8845db70a92735550a600110e448305f98251bae",
+    "embedded_bytes": 7914,
+    "embedded_sha256": "d59841a5036a572af816606c8845db70a92735550a600110e448305f98251bae"
   },
   {
     "path": "scripts/validate_writing_source_grounding.py",
@@ -1581,7 +1595,7 @@ ask users to disable protection, restore quarantined scripts, or add exclusions.
    國綜 and 自然 also require subject-level novelty beyond source novelty or visual novelty. Every scored item must carry `item_spec.subject_innovation_audit` and pass the applicable section in [references/current-gsat-chinese-natural-form.md](references/current-gsat-chinese-natural-form.md). 國綜 must create a new language/interpretive problem and evidence relation; merely selecting a previously unused author or excerpt is insufficient. 自然 must create a new model–evidence, experiment, constraint, uncertainty, multi-representation, or cross-disciplinary reasoning architecture; a new mission, organism, apparatus, photograph, graph skin, or numeric tuple around the same routine is insufficient. Require `metadata.subject_innovation_review` and enforce both subjects through `scripts/validate_chinese_natural_scope.py`.
    The printed 國綜 form is fixed across 111–115 and enforced by `scripts/validate_chinese_layout_contract.py` on every surface: the four headings with scores (第壹部分、選擇題（占76分）／一、單選題（占48分）／二、多選題（占28分）／第貳部分、混合題或非選擇題（占24分）), item 1 字音 and item 2 字形, standalone items 1–5, seven standalone multiple-choice items 25–31 with at least two language-knowledge items and no （應選n項）, one mixed group 32–36, `(A)`–`(E)` labels with every option on its own line.
    國綜 has two additional editorial constraints: each independently answered short-response subpart is at most 40 Chinese characters and at most 4 points (a full short explanation is designed for 4 points); core classical selections must account for 20–25% of the whole paper's score. Apply the counting, rubric and source-dependency rules in the 國綜 section of that reference. These are not 國寫 limits, not a quota for all classical-language material, and not permission to alter historical official profiles.
-   A complete Natural Science paper must place Questions 1–36 in one first part worth exactly 72 points: the printed heading is `第壹部分、選擇題（占72分）` and its boxed direction states `說明：第1題至第36題，含單選題及多選題，每題2分。` (spacing may follow the measured font, but no fact may be omitted). These 36 items are **not** all single-choice and must not be recorded as an unresolved generic choice block after the controlling paper has been reviewed. Reproduce the selected profile's item-level single-/multiple-choice mix; for the measured 115 profile this is 24 single-choice and 12 multiple-choice items. Every Natural Science selected-response item uses five options labelled `A`–`E`. Every multiple-choice item anywhere in the paper—including a selected-response subpart inside the mixed section—must print `（應選 n 項）`, where `n` is derived from and checked against the independently verified answer key. The cover must print both the single-choice and partial-credit multiple-choice scoring rules; a generic `依題本說明` sentence is not an acceptable substitute. Questions 1–36 must also form four uninterrupted nine-item discipline blocks, one each for physics, chemistry, biology, and earth science; record the actual block order and do not interleave disciplines. This block rule stops at Question 36. Do **not** force the mixed/constructed part into four isolated mini-papers: one coherent shared stimulus may and often should integrate two or more of physics, chemistry, biology, and earth science. Give every subpart one primary scored domain, add valid codes for every discipline genuinely required by its solution, and record the non-ornamental evidence bridge in `metadata.natural_mixed_group_designs`. Merely mentioning a second discipline is not integration. Apply the same anti-surface rule used for Social Studies: no pure definition, named-law recall, one-step formula substitution, or decorative experiment/data material. Every item must assess a core or high-frequency curriculum anchor through at least two linked operations; medium and harder items must normally require three. Difficulty may be raised through experimental design, competing models, variable control, multi-representation evidence, uncertainty, or constraint reconciliation, never through peripheral content or calculation bulk.
+   A complete Natural Science paper must place Questions 1–36 in one first part worth exactly 72 points: the printed heading is `第壹部分、選擇題（占72分）` and its boxed direction states `說明：第1題至第36題，含單選題及多選題，每題2分。` (spacing may follow the measured font, but no fact may be omitted). These 36 items are **not** all single-choice and must not be recorded as an unresolved generic choice block after the controlling paper has been reviewed. Reproduce a measured official mix: the official 111–115 booklets print 18, 15, 19, 18 and 12 multiple-choice items among Questions 1–36 (single-choice is the remainder), so a paper must carry 12–19 multiple-choice items there and record its actual counts in `metadata.natural_choice_form_contract`; every multiple-choice item prints 應選2項 or 應選3項. The mixed part numbers 37 through 56–60 as exactly six groups of 3–6 items, each with at least one constructed-response item (official bands: 3–9 single, 5–10 multiple, 8–9 constructed). Every Natural Science selected-response item uses five options labelled `A`–`E`. Every multiple-choice item anywhere in the paper—including a selected-response subpart inside the mixed section—must print `（應選 n 項）`, where `n` is derived from and checked against the independently verified answer key. The cover must print both the single-choice and partial-credit multiple-choice scoring rules; a generic `依題本說明` sentence is not an acceptable substitute. Questions 1–36 must also form four uninterrupted nine-item discipline blocks, one each for physics, chemistry, biology, and earth science; record the actual block order and do not interleave disciplines. This block rule stops at Question 36. Do **not** force the mixed/constructed part into four isolated mini-papers: one coherent shared stimulus may and often should integrate two or more of physics, chemistry, biology, and earth science. Give every subpart one primary scored domain, add valid codes for every discipline genuinely required by its solution, and record the non-ornamental evidence bridge in `metadata.natural_mixed_group_designs`. Merely mentioning a second discipline is not integration. Apply the same anti-surface rule used for Social Studies: no pure definition, named-law recall, one-step formula substitution, or decorative experiment/data material. Every item must assess a core or high-frequency curriculum anchor through at least two linked operations; medium and harder items must normally require three. Difficulty may be raised through experimental design, competing models, variable control, multi-representation evidence, uncertainty, or constraint reconciliation, never through peripheral content or calculation bulk.
    Every full Natural Science paper is current-affairs-aware by default, not only on request: read [references/current-form-topicality.md](references/current-form-topicality.md), set an `as_of_date` and editorial lock date, record `metadata.natural_source_ecology_plan` and `metadata.current_context_plan`, and meet the measured floor enforced by `scripts/validate_current_context.py` (at least five verified sources within the year carrying eight scored items in both parts, two of them within 180 days such as the autumn Nobel prizes or an in-season Taiwan typhoon/earthquake warning, plus Taiwan-hazard, climate/energy and Taiwan-place contexts). Official 111–115 papers carry 0–5 such contexts a year with a typhoon in four of five years; a paper with none is outside the form. Give the preceding 12 months a larger share of the genuinely time-sensitive source groups, but never let a numerical news quota distort the four-discipline, difficulty, form, or solving-time balance. Sample the remaining dated sources across multiple earlier years and source families rather than clustering on one convenient year; keep evergreen school models in a separate bucket instead of pretending they are dated events. Every recent item must depend on a source-specific measurement, comparison, image feature, method, or constraint—not merely a fashionable name. Favor additional graphs, tables, maps, photographs, and observation images when they carry answer evidence; the visual floor is a minimum, not a target or permission to add decoration.
    For current-form GSAT writing, read [references/current-gsat-writing-form.md](references/current-gsat-writing-form.md) and [references/gsat-writing-source-ecology.md](references/gsat-writing-source-ecology.md). During the writing pass, do not read past question text, year-by-year topic summaries, or prior generated writing prompts. The LLM must discover new articles independently, then design a new material sequence, rhetorical tension, task decision, and title from those sources. Every printable event, case, datum, attributed viewpoint, and concrete anecdote must map to an identified source; the LLM may paraphrase, translate, juxtapose, and ask a new question, but it may not invent a supposedly real or generic case to complete the material. **Do not use United Daily News, any other newspaper, publisher, magazine, platform, archive, or institution as a default, preferred, or de facto exclusive source.** 國寫 source eligibility is publisher-neutral: any traceable and rights-safe source may compete when its transformed material fits the selected official length envelope and rhetorical role. The full-paper candidate pool must still span at least four publishers and four unrelated domains, and one easy-to-search publisher must not occupy more than half the pool. Length compliance is necessary but never substitutes for traceability, rights safety, a concrete carrier, a semantic hinge, material dependence, or role fit. For the second task, search contemporary Chinese essays, new poetry, picture-book prose and other Chinese literary writing first. A foreign work may advance only through a traceable published Chinese translation; do not expose a raw English web bibliography as the normal student-facing source line.
    In every subject the printed answer key must look like an official key, that is unpatterned: `scripts/answer_key_patterns.py` (run by the release gate, the hosted final checker and each saved batch) rejects four identical positions in a row, a period-2/3/4 cycle that continues past two repeats, an option bank keyed in label order, five answers stepping through the labels, two item groups with the same answer sequence, and label counts differing by more than one. Write the item, shuffle the options, then derive the key; a key such as 1-4-3-2 repeated or A–J in order is a release failure even when every answer is correct.
@@ -13445,6 +13459,319 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
     "source": "CEEC 學科能力測驗試題特色－【自然】 pages for ROC 111-115, 表1 (試題結構)",
     "finding": "Every official paper declares exactly two 合科 題組 in 第貳部分. All ten are among the groups this record already marks cross_discipline; the remaining flagged groups are the maintainer's wider reading (a second discipline is load-bearing but not co-credited by CEEC)."
   }
+}
+</canonical-source>
+
+<canonical-source path="exam_packs/學測/shared-data/subject-form-envelopes-111-115.json">
+{
+ "measured_at": "2026-09-22",
+ "basis": "Text extracted from the official ROC 111-115 question booklets on disk (exam_packs/學測/subjects/*/歷屆試題); 數學B units hand-classified item by item; the 第貳部分 題組 counted as three items.",
+ "自然": {
+  "first_part_multiple_choice": {
+   "111": 18,
+   "112": 15,
+   "113": 19,
+   "114": 18,
+   "115": 12,
+   "band": [
+    12,
+    19
+   ]
+  },
+  "first_part_groups": {
+   "111": 6,
+   "112": 3,
+   "113": 5,
+   "114": 5,
+   "115": 4
+  },
+  "mixed_last_item": {
+   "111": 60,
+   "112": 60,
+   "113": 56,
+   "114": 57,
+   "115": 56,
+   "band": [
+    56,
+    60
+   ]
+  },
+  "mixed_single_choice": {
+   "111": 6,
+   "112": 9,
+   "113": 5,
+   "114": 3,
+   "115": 6,
+   "band": [
+    3,
+    9
+   ]
+  },
+  "mixed_multiple_choice": {
+   "111": 10,
+   "112": 5,
+   "113": 7,
+   "114": 9,
+   "115": 6,
+   "band": [
+    5,
+    10
+   ]
+  },
+  "mixed_constructed": {
+   "111": 8,
+   "112": 8,
+   "113": 8,
+   "114": 9,
+   "115": 8,
+   "band": [
+    8,
+    9
+   ]
+  },
+  "mixed_groups": 6,
+  "mixed_group_size": [
+   3,
+   6
+  ],
+  "every_mixed_group_has_constructed": true,
+  "required_selection_count": [
+   2,
+   3
+  ],
+  "discipline_blocks": "four uninterrupted nine-item blocks in Q1-36 every year; order varies (111 物化生地, 112 地生化物, 113 生化物地, 114 生地物化, 115 地物化生)",
+  "rule": "validate_chinese_natural_scope.py: bands above replace the 115-only 24/12 and 6/6/8 counts; metadata.natural_choice_form_contract records the paper's actual counts."
+ },
+ "數學B": {
+  "families_per_paper": {
+   "matrix": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "sphere_space": [
+    1,
+    1,
+    3,
+    2,
+    1
+   ],
+   "perspective": [
+    1,
+    3,
+    0,
+    1,
+    1
+   ],
+   "conic": [
+    0,
+    1,
+    0,
+    1,
+    1
+   ],
+   "polynomial": [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "line_circle": [
+    1,
+    1,
+    1,
+    1,
+    5
+   ],
+   "trigonometry": [
+    3,
+    2,
+    1,
+    2,
+    2
+   ],
+   "exp_log": [
+    2,
+    2,
+    2,
+    2,
+    1
+   ],
+   "sequence": [
+    0,
+    2,
+    1,
+    1,
+    2
+   ],
+   "counting": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "probability": [
+    2,
+    1,
+    2,
+    2,
+    2
+   ],
+   "data": [
+    1,
+    1,
+    2,
+    1,
+    1
+   ],
+   "vector": [
+    2,
+    1,
+    2,
+    1,
+    0
+   ],
+   "number": [
+    2,
+    2,
+    1,
+    2,
+    1
+   ]
+  },
+  "items_with_11B_codes": [
+   7,
+   8,
+   6,
+   8,
+   8
+  ],
+  "mixed_group_topics": {
+   "111": "斜塔傾斜度（三角比）",
+   "112": "電線桿畫布（單點透視）",
+   "113": "截角石塊（空間幾何）",
+   "114": "UVI 指數與正弦模型",
+   "115": "星軌照片（圓方程式）"
+  },
+  "mixed_group_scores": {
+   "111": "5+4+6",
+   "112": "3+6+6",
+   "113": "3+4+8",
+   "114": "3+6+6",
+   "115": "3+6+6"
+  },
+  "rule": "validate_math_layout_contract.math_b_scope_errors: every paper has matrix, sphere/space, polynomial, line-circle, trigonometry, exp-log, counting, probability and data; sequence<=2, counting<=2, probability<=3, matrix<=2, sphere/space<=3, any family<=5, 3-10 items with 11B codes."
+ },
+ "英文": {
+  "vocabulary_stem_words": {
+   "min": 13,
+   "max": 24,
+   "band": [
+    12,
+    26
+   ]
+  },
+  "translation_sentence_cjk": {
+   "111": [
+    27,
+    28
+   ],
+   "112": [
+    18,
+    22
+   ],
+   "113": [
+    22,
+    28
+   ],
+   "114": [
+    19,
+    22
+   ],
+   "115": [
+    28,
+    25
+   ],
+   "band": [
+    16,
+    32
+   ]
+  },
+  "composition_prompt_cjk": {
+   "111": 108,
+   "112": 156,
+   "113": 174,
+   "114": 120,
+   "115": 123,
+   "max": 220,
+   "picture_based_every_year": true
+  },
+  "discourse_candidates": {
+   "111": 4,
+   "112": 4,
+   "113": 4,
+   "114": 4,
+   "115": 5
+  },
+  "reading_stems_35_46": {
+   "reference_or_meaning": [
+    2,
+    2,
+    2,
+    2,
+    4
+   ],
+   "true_or_not_detail": [
+    4,
+    3,
+    3,
+    2,
+    3
+   ],
+   "global_present_every_year": true
+  },
+  "mixed_47_50": "填充／簡答 4分 (47-48) + 多選 4分 + 簡答 2分 every year; never a 單選",
+  "rule": "validate_english_layout_contract.py: vocabulary stem 12-26 words, 中譯英 16-32 字, composition prompt <=220 字 with a picture, reading mix (>=2 reference, >=1 global, <=4 detail checks), mixed section shape."
+ },
+ "國寫": {
+  "task_one_material_cjk": {
+   "111": 331,
+   "112": 531,
+   "113": 507,
+   "114": 606,
+   "115": 575,
+   "band": [
+    280,
+    700
+   ]
+  },
+  "task_two_material_cjk": {
+   "111": 277,
+   "112": 249,
+   "113": 443,
+   "114": 226,
+   "115": 233,
+   "band": [
+    180,
+    520
+   ]
+  },
+  "task_one_form": "問題（一）文長限80字以內（至多4行）（占4分）; 問題（二）文長限400字以內（至多19行）（占21分); 問題（一） cites 上文／甲、乙二文 every year",
+  "task_two_form": "請以「題目」為題（占25分）; 114 文長不限; asks for 書寫／抒發／敘述／描述 experience, feeling or imagination every year",
+  "attributed_materials": {
+   "111": "二 節錄自薛憶婷〈我們的課本〉",
+   "112": "一 改寫自《數字的陷阱》; 二 改寫自蔣勳《給青年藝術家的信》",
+   "113": "二 改寫自《樹木教我的人生課》",
+   "114": "一 改寫自泛科學〈擬社會互動〉",
+   "115": "一 改寫自《就算牠沒有臉》; 二 圖文改寫自幾米"
+  },
+  "classical_material": false,
+  "rule": "validate_writing_layout_contract.py (hosted save time and finalize)."
+ }
 }
 </canonical-source>
 
@@ -56821,9 +57148,10 @@ layout. See [current-form-literacy-load.md](current-form-literacy-load.md).
 
 ### Discipline order and reasoning floor
 
-- The first-part contract is visible, not metadata-only: print `第壹部分、選擇題（占72分）`, followed by the bordered direction `說明：第1題至第36題，含單選題及多選題，每題2分。` Questions 1–36 therefore total 72 points and contain both single- and multiple-choice items. Under the measured 115 profile the item-level mix is 24 single-choice plus 12 multiple-choice; do not replace this with 36 generic or single-choice items.
+- The first-part contract is visible, not metadata-only: print `第壹部分、選擇題（占72分）`, followed by the bordered direction `說明：第1題至第36題，含單選題及多選題，每題2分。` Questions 1–36 therefore total 72 points and contain both single- and multiple-choice items. Measured on the five official booklets the multiple-choice share of Q1–36 is 18, 15, 19, 18 and 12 items (111–115); the contract accepts 12–19 多選 (單選 = 36 − 多選) and `metadata.natural_choice_form_contract` must record the paper's actual counts—115 alone is not the form, and 36 generic or single-choice items are rejected. Every official 多選 prints 應選2項 or 應選3項, never 4.
 - Every Natural Science selected-response item has five options labelled `A`–`E`. Print `（應選 n 項）` in every multiple-choice stem, including multiple-choice subparts in `第貳部分`; derive `n` from the independently verified key and fail if the cue and key disagree. Do not ask candidates to infer how many choices are correct. The cover must reproduce both scoring rules: single-choice is all-or-zero, while multiple-choice judges all options independently and applies the selected official partial-credit formula. A generic scoring note or answer-key-only type marker does not satisfy this contract.
 - Questions 1–36 of a complete current-form paper are four uninterrupted selected-response blocks of nine items. Physics, chemistry, biology, and earth science must each occupy one block; record their actual order in `metadata.natural_objective_block_order`. Do not interleave disciplines or meet balance only after the mixed section is counted.
+- 第貳部分 measured 111–115: numbered items run 37–60, 37–60, 37–56, 37–57 and 37–56; exactly six 題組 of 3–6 items, each printing at least one 非選擇題; 單選 6/9/5/3/6, 多選 10/5/7/9/6, 非選 8/8/8/9/8. The contract enforces these bands (last item 56–60, 單選 3–9, 多選 5–10, 非選 8–9, six groups with a 非選 each) instead of the 115-only 6/6/8 mix.
 - That block-order rule stops at Question 36. Mixed/constructed groups may be single-discipline or genuinely cross-disciplinary. Prefer a cross-disciplinary group when one coherent observation, experiment, installation, or decision naturally requires evidence from two or more disciplines; never split a coherent group merely to preserve four subject silos. Each subpart still has one primary scored domain, valid codes for every required discipline, and a non-ornamental evidence bridge recorded in `metadata.natural_mixed_group_designs`. A passage that merely mentions a second discipline without changing the solution remains single-discipline.
 - Every complete-paper item records `item_spec.natural_reasoning_contract`. It must reject pure recall and one-step formula substitution, name a `core` or `high_frequency` curriculum anchor, list at least two genuinely linked reasoning operations, and state why the printed material/model/experiment is needed. A material that can be removed without changing the answer is decorative and fails.
 - `簡單` means the evidence chain is short and transparent, not that the item asks for a definition. Medium and harder items should normally require at least three linked operations. Use variable control, competing explanations, graph/table/photograph integration, uncertainty, limiting cases, experimental redesign, or constraint reconciliation to increase demand.
@@ -56903,6 +57231,22 @@ The broad 180–400-word specification is not a license to put every passage nea
 | discourse structure 31–34 | 220–315 words |
 | each reading passage (35–38, 39–42, 43–46) | 285–390 words |
 | mixed stimulus 47–50 | 340–480 words |
+
+### Item-form rules measured on 111–115 (enforced)
+
+- Vocabulary stems 1–10 are 13–24 words (contract 12–26).
+- 篇章結構 prints four candidate sentences (A)–(D) in 111–114 and five (A)–(E) in 115; never more.
+- 閱讀測驗 35–46 mixes, every year, 2–4 word/reference-in-context items (refer to, closest in
+  meaning, mean by, idiom), at least one global item (mainly about, purpose, what question, can we
+  learn, inferred, how the author develops/concludes) and at most four "which statement is
+  true / NOT" detail checks; a booklet of twelve detail checks is not the form.
+- 混合題 47–50 is the same shape every year: a 4-point word-fill or short-answer pair (47–48), one
+  4-point 多選 and one 2-point 簡答; never a 單選.
+- 中譯英 sentences are 18–28 CJK characters each (contract 16–32) on one shared theme.
+- 英文作文 is picture-based every year (兩張圖, emoji, 三張圖, 對比圖, 多張圖); the 提示 is
+  108–174 CJK characters (contract ≤ 220) and the composition item carries `visual_asset`.
+
+The measured table is `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
 
 ### Whole-booklet word budget
 
@@ -57489,6 +57833,25 @@ The scope check is not complete until the whole paper is inspected. For a 20-que
 - each complete Math B paper should include at least one Math-B-distinctive spatial, design, periodic, vector, or conic mechanism rather than reproducing only the grade-10 common core. Across any planned or delivered window of three successive Math B papers, include at least one answer-bearing one-point-perspective item mapped to `G-11B-3` and at least one latitude/longitude or sphere item mapped to `S-11B-1` or `G-11B-4`. Both need not appear on every paper. A sphere item's assessed mechanism must be `spherical_distance`, `route_comparison`, or `navigation_constraint`; coordinate conversion may appear only as a necessary intermediate representation and never as the whole task. Record `item_spec.math_b_sphere_application` with that family, at least three linked operations, `direct_coordinate_conversion_only: false`, and `requires_comparison_or_constraint: true`. Record the current form and rolling-window status in `metadata.math_b_distinctive_rotation`;
 - a contextual mixed group must still map every subpart to scope codes and must pass a source-removal audit; physical plausibility is not a substitute for mathematical scope.
 
+### Measured 數學B unit envelope, ROC 111–115 (enforced at save time)
+
+Every item of the five official 數B booklets was classified by unit (the 第貳部分 題組
+counted as three items). Items per paper, 111/112/113/114/115: 矩陣 1/1/1/1/1;
+空間概念與球面（經緯度、大圓、立體） 1/1/3/2/1; 單點透視 1/3/0/1/1; 圓錐曲線 0/1/0/1/1;
+多項式函數 2/2/2/2/2; 直線與圓 1/1/1/1/5; 三角 3/2/1/2/2; 指數與對數 2/2/2/2/1;
+數列與級數 0/2/1/1/2; 排列組合 2/1/1/1/1; 機率 2/1/2/2/2; 數據分析 1/1/2/1/1;
+平面向量 2/1/2/1/0; 數與式 2/2/1/2/1. Items carrying an 11B-only code: 7/8/6/8/8. The
+第貳部分 題組 is always an applied context (斜塔, 電線桿畫布, 截角石塊, UVI 正弦模型,
+星軌照片) scored 3+6+6 (111: 5+4+6, 113: 3+4+8).
+
+`validate_math_layout_contract.math_b_scope_errors` (hosted batch save and finalize)
+reads `item_spec.scope_codes` and requires: every paper has at least one 矩陣, 球面／
+空間, 多項式, 直線與圓, 三角, 指對數, 排列組合, 機率 and 數據 item (all nine appear in
+every official year); 數列 ≤ 2, 排列組合 ≤ 2, 機率 ≤ 3, 矩陣 ≤ 2, 球面／空間 ≤ 3; no unit
+above 5 items (115 直線與圓 is the maximum); 3–10 items carry 11B codes; no 11A code.
+An item without `scope_codes` is refused when its batch is saved. The measured table is
+`exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
+
 Treat these percentages as an internal ecology gate derived from the user's target for balanced papers, not as a claim that CEEC fixes a public annual quota.
 </canonical-source>
 
@@ -57736,6 +58099,26 @@ https://www.ceec.edu.tw/files/file_pool/1/0J270523673716106563/111%E5%AD%B8%E5%B
 - Cross-domain material must be transformed into a new reading-and-writing task. Do not copy source phrasing, and do not require candidates to reproduce technical background.
 - Source eligibility is publisher-neutral. Do not maintain a whitelist, preferred outlet, or search shortcut that defaults to United Daily News or any other publisher, newspaper, magazine, platform, archive, or institution. A source wins because its transformed material fits the official length envelope, rhetorical role and evidence needs—not because its site is easy to search.
 - Meeting the material-length envelope is necessary, not sufficient. Traceability, rights and attribution safety, a concrete carrier, a semantic hinge, broad access, material dependence and task-role fit remain release gates.
+
+## Printed form measured on 111–115 (enforced by `validate_writing_layout_contract.py`)
+
+Text extracted from the five official 國寫 booklets on disk:
+
+| ROC | 一、material (CJK) | 問題（一） | 問題（二） | 二、material (CJK) | 二、task | attributed material |
+|---|---:|---|---|---:|---|---|
+| 111 | 331 (不老騎士／樂齡卡打車 reportage) | 80字/4行/4分 | 400字/19行/21分 | 277 (薛憶婷 poem + prose) | 「當我打開課本」25分 | 二 節錄自 |
+| 112 | 531 (福爾摩斯 dialogue) | same | same | 249 (蔣勳) | 「花草樹木的氣味記憶」25分 | 一、二 改寫自 |
+| 113 | 507 (甲、乙 two texts) | same, cites 甲、乙二文 | same | 443 (禹鐘榮) | 「縫隙的聯想」25分 | 二 改寫自 |
+| 114 | 606 (泛科學 擬社會互動) | same | same | 226 (52 赫茲鯨魚) | 「關於52赫茲，我想說的是……」文長不限 | 一 改寫自 |
+| 115 | 575 (黃宗慧、黃宗潔) | same | same | 233 + 幾米 圖文 | 「隔在我們之間的種種」25分 | 一 改寫自、二 圖文改寫自 |
+
+The contract, run when a 國寫 batch is saved and again at finalize, requires: exactly two 大題;
+問題（一） printing `文長限80字以內（至多4行）` and `（占4分）` and pointing at 上文／甲、乙二文;
+問題（二） printing `文長限400字以內（至多19行）` and `（占21分）`; 第二大題 `（占25分）` with
+`請以「題目」為題` and an affective task (書寫／抒發／敘述／描述 experience, feeling, imagination);
+第一大題 material 280–700 CJK characters, 第二大題 material 180–520; at least one material with an
+inline attribution `（改寫自 作者《書名》／〈篇名〉）`; no 文言 material; no 自擬／命題所設 marker.
+The measured table is `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
 
 ## Empirical page and material calibration, 111–115
 
@@ -66137,7 +66520,7 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
         targets=profile_targets(path)
         target=targets.get(number,{})
         p=target.get('p_center')
-        minimum=required_decisions(p,number,slot['type'])
+        minimum=required_decisions(p,number,slot['type'],subject)
         metric='constructed_response' if slot['type']=='constructed_response' else (
             'score_rate' if slot['type']=='multiple_choice' else 'answer_rate')
         design.update(target_p_center=p,target_p_range=target.get('p_range'),
@@ -66177,6 +66560,8 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
             'target':None,'minimum_linked_decisions':None,
             'note':'Use this subject’s rules. No Math A/B P/D or decision minimum is inferred.'}
     question['item_spec']={'difficulty':{'label':None},'difficulty_design':design}
+    if subject in {'數學A','數學B'}:
+        question['item_spec'].update(scope_codes=[],scope_status=None,topic_family=None,context_class=None)
     return {'status':'pending-authoring','subject':subject,'question':question,
             'answer':{'question_id':slot['id'],'final_answer':None,'reasoning':[],
                       'difficulty_label':None},'requirements':requirements}
@@ -68963,6 +69348,8 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
             else:
                 errors.append('social: ' + str(row))
     elif subject == '國寫' and full:
+        from validate_writing_layout_contract import validate_exam as writing_form
+        errors.extend('writing-form: ' + e for e in writing_form(exam))
         from validate_writing_source_grounding import validate_exam as writing
         pool = (exam.get('metadata') or {}).get('writing_source_pool')
         if not isinstance(pool, dict):
@@ -69004,7 +69391,7 @@ def item_messages(errors, questions):
     found = {}
     for message in errors:
         body = message.split(': ', 1)[1] if ': ' in message else message
-        match = (re.match(r'(?:Q|英文第|國綜第|數學[AB]第|第)(\d+)(?:題)?', body)
+        match = (re.match(r'(?:Q|英文第|國綜第|國寫第|數學[AB]第|第)(\d+)(?:題)?', body)
                  or re.match(r'([A-Za-z0-9_-]+):', body))
         if match:
             for qid in numbers.get(match.group(1), []):
@@ -70295,11 +70682,24 @@ def authoring_requirements(subject):
                'the 文言 title; >= 30 attribution tokens; absolute-word options <= 12%; one ①②研判 single-choice item; '
                'stems quote 「…」 exactly as the material prints it; options one per line unless four options <= 16 chars'],
         '自然': ['five verified recent sources carrying eight items in both parts, two within 180 days, a Taiwan hazard, '
-               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item'],
+               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item',
+               'Q1-36: 12-19 多選 (應選2項 or 應選3項 only) in four nine-item discipline blocks; Q37-56..60: six 題組 of 3-6 '
+               'items, each with a 非選, 3-9 單選, 5-10 多選, 8-9 非選; metadata.natural_choice_form_contract records the '
+               'actual counts (official 111-115 bands, not the 115 mix alone)'],
+        '數學A': ['item_spec.scope_codes: 108 codes from templates/current-gsat-math-scope.json on every item (validate_math_context '
+                'fails without them); five options (1)-(5); stems without method hints or disclaimers'],
+        '數學B': ['item_spec.scope_codes: 108 codes (10年級 common core plus 11B) on every item, never 11A codes; every paper has '
+                'matrix, sphere/space, polynomial, line-circle, trigonometry, exp-log, counting, probability and data items; '
+                'sequence <= 2, counting <= 2, probability <= 3, no unit above 5 items; 3-10 items carry 11B codes'],
+        '國寫': ['two 大題: 一、 material 331-606 字 then 問題（一）文長限80字以內（至多4行）（占4分） and 問題（二）文長限400字以內'
+               '（至多19行）（占21分）; 二、 material 226-443 字 then 請以「題目」為題 (情意: 書寫經驗、感受、體悟或想像)（占25分）; '
+               'at least one material attributed inline（改寫自 作者《書名》）; no 文言, no 自擬'],
         '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
                'subject_innovation_audit per item; content codes only in curriculum_codes'],
         '英文': ['ten official headings with A-D labels; passage lengths in the official bands; two recent passages carrying six '
-               'items; composition prompt in Chinese with 提示/第一段/第二段; unpatterned answer keys'],
+               'items; composition prompt in Chinese with 提示/第一段/第二段 and a picture; unpatterned answer keys',
+               'vocabulary stems 13-24 words; reading 35-46 with 2-4 refer-to/closest-in-meaning items, one global item and at '
+               'most four is-true/NOT checks; mixed 47-50 = 4-point fill/short pair + 4-point 多選 + 2-point 簡答; 中譯英 18-28 字 each'],
     }
     return common + by_subject.get(subject, [])
 
@@ -73251,6 +73651,15 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTENT_CODE = re.compile(r"\b[A-Z][A-Za-z]{2}-Vc-\d\b")
 PERFORMANCE_CODE = re.compile(r"\b[a-z]{2}-Ⅴc-\d\b")
 CHINESE_CODES = {f"A{i}" for i in range(1, 7)} | {f"B{i}" for i in range(1, 6)}
+# 自然 form bands measured on the official 111–115 question booklets (2026-09-22).
+NATURAL_PROFILE_YEARS = {111, 112, 113, 114, 115}
+NATURAL_FIRST_PART_MULTIPLE = (12, 19)          # 多選 in Q1–36: 18, 15, 19, 18, 12
+NATURAL_MIXED_LAST = (56, 60)                   # last numbered item: 60, 60, 56, 57, 56
+NATURAL_MIXED_BANDS = {
+    "mixed_part_single_choice_count": (3, 9),        # 6, 9, 5, 3, 6
+    "mixed_part_multiple_choice_count": (5, 10),     # 10, 5, 7, 9, 6
+    "mixed_part_constructed_response_count": (8, 9), # 8, 8, 8, 9, 8
+}
 INNOVATION_TEXT_FIELDS = (
     "mechanism_family",
     "new_subject_mechanism",
@@ -73493,22 +73902,29 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
             if int(metadata.get("layout_contract_version") or 0) < 5:
                 errors.append("full natural paper requires layout_contract_version 5 for the cover scoring contract")
             choice_form = metadata.get("natural_choice_form_contract")
-            expected_choice_form = {
-                "profile_roc_year": 115,
-                "first_part_score": 72,
-                "first_part_item_score": 2,
-                "first_part_single_choice_count": 24,
-                "first_part_multiple_choice_count": 12,
-                "mixed_part_single_choice_count": 6,
-                "mixed_part_multiple_choice_count": 6,
-                "mixed_part_constructed_response_count": 8,
-            }
+            # Measured on the official 111–115 booklets: 第壹部分 多選 18/15/19/18/12 of 36
+            # (單選 18/21/17/18/24); 第貳部分 numbered items 24/22/20/21/20 with 單選 6/9/5/3/6,
+            # 多選 10/5/7/9/6 and 非選 8/8/8/9/8. 115 alone is not the form.
+            expected_choice_form = {"first_part_score": 72, "first_part_item_score": 2}
             if not isinstance(choice_form, dict):
                 errors.append("full natural paper requires natural_choice_form_contract")
             else:
                 for field, expected_value in expected_choice_form.items():
                     if choice_form.get(field) != expected_value:
                         errors.append(f"natural choice form {field} must be {expected_value}")
+                if choice_form.get("profile_roc_year") not in NATURAL_PROFILE_YEARS:
+                    errors.append("natural choice form profile_roc_year must be one of 111–115")
+                declared_multiple = choice_form.get("first_part_multiple_choice_count")
+                declared_single = choice_form.get("first_part_single_choice_count")
+                if not isinstance(declared_multiple, int) or not NATURAL_FIRST_PART_MULTIPLE[0] <= declared_multiple <= NATURAL_FIRST_PART_MULTIPLE[1]:
+                    errors.append(f"natural first-part multiple-choice count must be {NATURAL_FIRST_PART_MULTIPLE[0]}–{NATURAL_FIRST_PART_MULTIPLE[1]} "
+                                  f"(official 111–115: 18, 15, 19, 18, 12), got {declared_multiple}")
+                elif declared_single != 36 - declared_multiple:
+                    errors.append(f"natural first-part single-choice count must be {36 - declared_multiple} (36 minus the multiple-choice count)")
+                for field, (low, high) in NATURAL_MIXED_BANDS.items():
+                    value = choice_form.get(field)
+                    if not isinstance(value, int) or not low <= value <= high:
+                        errors.append(f"natural choice form {field} must be {low}–{high} (official 111–115 band), got {value}")
                 if choice_form.get("option_labels") != ["A", "B", "C", "D", "E"]:
                     errors.append("natural selected-response option labels must be A-E")
                 if choice_form.get("multiple_selection_cue") != "（應選n項）":
@@ -73523,8 +73939,13 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
                 errors.append("natural first part must contain every question from 1 through 36")
             else:
                 first_types = Counter(q.get("type") for q in first_questions)
-                if first_types != Counter({"single_choice": 24, "multiple_choice": 12}):
-                    errors.append(f"natural first-part 115 choice mix must be 24 single and 12 multiple, got {dict(first_types)}")
+                multiple = first_types.get("multiple_choice", 0)
+                if set(first_types) - {"single_choice", "multiple_choice"} or not NATURAL_FIRST_PART_MULTIPLE[0] <= multiple <= NATURAL_FIRST_PART_MULTIPLE[1]:
+                    errors.append(f"natural first part must be single- and multiple-choice only with {NATURAL_FIRST_PART_MULTIPLE[0]}–{NATURAL_FIRST_PART_MULTIPLE[1]} "
+                                  f"multiple-choice items (official 111–115: 18, 15, 19, 18, 12), got {dict(first_types)}")
+                if isinstance(choice_form, dict) and isinstance(choice_form.get("first_part_multiple_choice_count"), int) \
+                        and choice_form["first_part_multiple_choice_count"] != multiple:
+                    errors.append(f"natural_choice_form_contract declares {choice_form['first_part_multiple_choice_count']} first-part multiple-choice items but the paper has {multiple}")
                 first_score = sum(float(q.get("score") or 0) for q in first_questions)
                 if first_score != 72 or any(float(q.get("score") or 0) != 2 for q in first_questions):
                     errors.append("natural Questions 1-36 must each be 2 points and total 72 points")
@@ -73543,12 +73964,33 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
                         if normalized_print(printed_direction) != normalized_print("說明：第1題至第36題，含單選題及多選題，每題2分。"):
                             errors.append("natural first-part direction must state range, both choice types, and 2 points each")
 
-            mixed_questions = [numbered.get(number) for number in range(37, 57)]
-            if len(questions) == 56 and not any(q is None for q in mixed_questions):
-                mixed_types = Counter(q.get("type") for q in mixed_questions)
-                expected_mixed = Counter({"single_choice": 6, "multiple_choice": 6, "constructed_response": 8})
-                if mixed_types != expected_mixed:
-                    errors.append(f"natural mixed-part 115 response mix mismatch: {dict(mixed_types)}")
+            mixed_numbers = sorted(n for n in numbered if n >= 37)
+            if mixed_numbers:
+                last = mixed_numbers[-1]
+                if mixed_numbers != list(range(37, last + 1)) or not NATURAL_MIXED_LAST[0] <= last <= NATURAL_MIXED_LAST[1]:
+                    errors.append(f"natural mixed part must number 37 through 56–60 without gaps (official 111–115 end at 60, 60, 56, 57, 56), got 37–{last}")
+                mixed_types = Counter(numbered[n].get("type") for n in mixed_numbers)
+                for type_name, field in (("single_choice", "mixed_part_single_choice_count"),
+                                         ("multiple_choice", "mixed_part_multiple_choice_count"),
+                                         ("constructed_response", "mixed_part_constructed_response_count")):
+                    low, high = NATURAL_MIXED_BANDS[field]
+                    count = mixed_types.get(type_name, 0)
+                    if not low <= count <= high:
+                        errors.append(f"natural mixed part has {count} {type_name} items; official 111–115 band is {low}–{high}")
+                    if isinstance(choice_form, dict) and isinstance(choice_form.get(field), int) and choice_form[field] != count:
+                        errors.append(f"natural_choice_form_contract declares {field}={choice_form[field]} but the paper has {count}")
+                groups: dict[str, list[int]] = {}
+                for n in mixed_numbers:
+                    key = normalized_print(numbered[n].get("group_stimulus"))
+                    if key:
+                        groups.setdefault(key, []).append(n)
+                if groups and len(groups) != 6:
+                    errors.append(f"natural mixed part must print exactly 6 題組 (official 111–115 every year), found {len(groups)} shared stimuli")
+                for members in groups.values():
+                    if not 3 <= len(members) <= 6:
+                        errors.append(f"natural mixed 題組 {members[0]}–{members[-1]} has {len(members)} items; official groups carry 3–6")
+                    if not any(numbered[n].get("type") == "constructed_response" for n in members):
+                        errors.append(f"natural mixed 題組 {members[0]}–{members[-1]} has no 非選擇題; every official 111–115 group prints at least one")
 
             answer_by_id = {answer.get("question_id"): answer for answer in (exam.get("answers") or [])}
             for q in questions:
@@ -73565,8 +74007,8 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
                         errors.append(f"Q{number}: single-choice key must contain exactly one A-E label")
                 else:
                     required_count = q.get("required_selection_count")
-                    if not isinstance(required_count, int) or required_count < 2 or required_count > 4:
-                        errors.append(f"Q{number}: multiple-choice item requires required_selection_count from 2 to 4")
+                    if not isinstance(required_count, int) or required_count < 2 or required_count > 3:
+                        errors.append(f"Q{number}: multiple-choice item requires required_selection_count 2 or 3 (every official 111–115 多選 prints 應選2項 or 應選3項)")
                     if len(answer_labels) != required_count:
                         errors.append(f"Q{number}: （應選{required_count}項） cue disagrees with verified key {answer_labels}")
             block_order = (exam.get("metadata") or {}).get("natural_objective_block_order")
@@ -74328,6 +74770,14 @@ from pathlib import Path
 from typing import Any
 
 
+WORD = re.compile(r"[A-Za-z]+(?:[-'’][A-Za-z]+)*")
+VOCABULARY_STEM_WORDS = (12, 26)          # official 111–115: 13–24
+TRANSLATION_SENTENCE_CJK = (16, 32)       # official 111–115: 18–28
+COMPOSITION_PROMPT_CJK_MAX = 220          # official 111–115: 108–174
+READING_DETAIL_MAX = 4                    # official 111–115: 2–4 true/NOT detail checks
+REFERENCE_STEM = re.compile(r"refer to|refers to|closest in meaning|mean by|is used .{0,30}to refer|idiom|which words? .{0,20}(?:used|refer)", re.I)
+GLOBAL_STEM = re.compile(r"mainly about|main purpose|purpose of|what question|can we learn|be inferred|inferred|how does the author|conclude|develop the ideas|best title|field of study", re.I)
+DETAIL_STEM = re.compile(r"\b(?:is|are) (?:true|NOT|not)\b|\bNOT\b", re.I)
 OFFICIAL_HEADINGS = (
     "第壹部分、選擇題（占62分）", "一、詞彙題（占10分）", "二、綜合測驗（占10分）", "三、文意選填（占10分）",
     "四、篇章結構（占8分）", "五、閱讀測驗（占24分）", "第貳部分、混合題（占10分）",
@@ -74361,6 +74811,7 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             cursor = index + len(heading)
 
     by_number = {int(q.get("number")): q for q in exam.get("questions") or [] if isinstance(q.get("number"), int)}
+    word_re = WORD
     for number in range(1, 47):
         question = by_number.get(number) or {}
         labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
@@ -74386,13 +74837,21 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
     completion = str((by_number.get(21) or {}).get("group_stimulus") or "")
     if "(J)" not in completion or "(K)" in completion or "(L)" in completion:
         errors.append("115英文文意選填須為十空、十個A至J選項")
+    discourse = str((by_number.get(31) or {}).get("group_stimulus") or "")
+    if discourse and ("(D)" not in discourse or "(F)" in discourse):
+        errors.append("英文篇章結構須為四空配四或五個候選句(A)–(D)／(A)–(E)（111–114 四句、115 五句）")
+    for number in range(1, 11):
+        stem = str((by_number.get(number) or {}).get("prompt") or "")
+        words = len(word_re.findall(stem))
+        if stem and not VOCABULARY_STEM_WORDS[0] <= words <= VOCABULARY_STEM_WORDS[1]:
+            errors.append(f"英文第{number}題詞彙題幹 {words} 個單詞，官方 111–115 為 13–24 個（允許 {VOCABULARY_STEM_WORDS[0]}–{VOCABULARY_STEM_WORDS[1]}）")
+    errors.extend(reading_stem_errors(by_number))
+    errors.extend(mixed_section_errors(by_number))
     if not all((by_number.get(number) or {}).get("page") == 3 for number in range(11, 21)):
         errors.append("115英文兩組綜合測驗須依量測版型同置第3頁")
 
     # Empirical guardrails from the 111–115 official papers.  Count prose only,
     # excluding the option bank appended to inline-layout stimuli.
-    word_re = re.compile(r"[A-Za-z]+(?:[-'’][A-Za-z]+)*")
-
     def prose_word_count(number: int) -> int:
         question = by_number.get(number) or {}
         stimulus = str(question.get("group_stimulus") or "")
@@ -74447,6 +74906,10 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append("英文作文題幹須依官方格式以中文寫出「提示：…」並指明第一段與第二段的任務")
         if re.match(r"\s*[A-Za-z]", prompt):
             errors.append("英文作文題幹以英文句子開頭；官方提示全文為中文，只有主題詞可附英文")
+        if cjk_count > COMPOSITION_PROMPT_CJK_MAX:
+            errors.append(f"英文作文提示 {cjk_count} 字，官方 111–115 為 108–174 字；提示不是作文範本")
+        if not composition.get("visual_asset"):
+            errors.append("英文作文須附圖片（官方 111–115 每年皆為看圖寫作：兩張圖、表情符號、三張圖、對比圖、多張圖）")
         spec = composition.get("item_spec") if isinstance(composition.get("item_spec"), dict) else {}
         contract = spec.get("composition_contract") if isinstance(spec.get("composition_contract"), dict) else {}
         if contract.get("directions_language") != "zh-TW":
@@ -74481,6 +74944,53 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append(f"中譯英第{index}句須印為「{index}.」，不是「{label or '（無）'}」；「中譯英1」不是官方題號")
         if re.search(r"[A-Za-z]{3,}", str(question.get("prompt") or "")):
             errors.append(f"中譯英第{index}句題幹須為中文句子")
+        cjk = len(re.findall(r"[\u3400-\u9fff]", str(question.get("prompt") or "")))
+        if not TRANSLATION_SENTENCE_CJK[0] <= cjk <= TRANSLATION_SENTENCE_CJK[1]:
+            errors.append(f"中譯英第{index}句 {cjk} 字，官方 111–115 每句 18–28 字（允許 {TRANSLATION_SENTENCE_CJK[0]}–{TRANSLATION_SENTENCE_CJK[1]}）")
+    return errors
+
+
+def reading_stem_errors(by_number: dict[int, dict]) -> list[str]:
+    """閱讀測驗 35–46 stem mix measured on 111–115: 2–4 word/reference-in-context items,
+    at least one global item (main idea, purpose, inference, author's method) and never
+    more than four 'which statement is true / NOT' detail checks per booklet."""
+    stems = {n: str((by_number.get(n) or {}).get("prompt") or "") for n in range(35, 47)}
+    if not all(stems.values()):
+        return []
+    reference = [n for n, s in stems.items() if REFERENCE_STEM.search(s)]
+    global_items = [n for n, s in stems.items() if GLOBAL_STEM.search(s)]
+    detail = [n for n, s in stems.items() if DETAIL_STEM.search(s)]
+    errors = []
+    if len(reference) < 2:
+        errors.append(f"英文閱讀測驗須有至少 2 題字詞／指涉題（refer to、closest in meaning、mean by），目前 {len(reference)} 題；官方 111–115 每年 2–4 題")
+    if not global_items:
+        errors.append("英文閱讀測驗須有至少 1 題全文題（mainly about、purpose、what can we learn、inferred、how does the author）；官方 111–115 每年皆有")
+    if len(detail) > READING_DETAIL_MAX:
+        errors.append(f"英文閱讀測驗 {len(detail)} 題為「which is true／NOT」細節核對題（{detail}），官方 111–115 每年最多 4 題")
+    return errors
+
+
+def mixed_section_errors(by_number: dict[int, dict]) -> list[str]:
+    """混合題 47–50, identical in 111–115: a 4-point word-fill or short-answer pair (47–48),
+    one 4-point 多選 and one 2-point 簡答; never a 單選."""
+    items = {n: by_number.get(n) for n in range(47, 51)}
+    if any(q is None for q in items.values()):
+        return []
+    errors = []
+    types = {n: str(q.get("type") or "") for n, q in items.items()}
+    if any(t == "single_choice" for t in types.values()):
+        errors.append("英文混合題 47–50 不得有單選題；官方 111–115 為填充／簡答（4分）、多選（4分）、簡答（2分）")
+    multiples = [n for n, t in types.items() if t == "multiple_choice"]
+    if len(multiples) != 1:
+        errors.append(f"英文混合題須恰有 1 題多選題（4分），目前 {len(multiples)} 題")
+    scores = {n: q.get("score") for n, q in items.items()}
+    if all(isinstance(s, (int, float)) for s in scores.values()):
+        if sum(scores.values()) != 10:
+            errors.append(f"英文混合題配分須合計 10 分，目前 {scores}")
+        if multiples and scores.get(multiples[0]) != 4:
+            errors.append("英文混合題的多選題須為 4 分")
+        if 2 not in scores.values():
+            errors.append("英文混合題須有一題 2 分簡答題（官方 111–115 每年為第50題）")
     return errors
 
 
@@ -76023,7 +76533,13 @@ def _normalized(value) -> str:
     return "".join(text.split()).lower()
 
 
-def required_decisions(p_center: float | None, number: int, question_type: str) -> int:
+# The first two positions of each selected-response section plus the mixed-group single
+# choice may stay at two decisions in the 0.40–0.65 band. 數A sections open at 1, 7, 13, 18;
+# 數B at 1, 8, 13, 18 (單選 seven items, 多選 five).
+SECTION_OPENERS = {"數學A": {1, 2, 7, 8, 18}, "數學B": {1, 2, 8, 9, 18}}
+
+
+def required_decisions(p_center: float | None, number: int, question_type: str, subject: str = "數學A") -> int:
     if p_center is None:
         return 4 if number == 20 else 3
     if p_center < 0.20:
@@ -76031,7 +76547,7 @@ def required_decisions(p_center: float | None, number: int, question_type: str) 
     if p_center < 0.40:
         return 3
     if p_center < 0.65:
-        if question_type in {"single_choice", "multiple_choice"} and number not in {1, 2, 7, 8, 18}:
+        if question_type in {"single_choice", "multiple_choice"} and number not in SECTION_OPENERS.get(subject, SECTION_OPENERS["數學A"]):
             return 3
         return 2
     return 2
@@ -76083,7 +76599,7 @@ def validate_item(
         errors.append(f"{qid}: invalid metric_type")
 
     decisions = as_list(design.get("linked_decisions"))
-    minimum = required_decisions(float(p_center) if isinstance(p_center, (int, float)) else None, number, question_type)
+    minimum = required_decisions(float(p_center) if isinstance(p_center, (int, float)) else None, number, question_type, subject)
     if subject == "數學B" and design.get("band") in {"簡單", "中"}:
         minimum = max(minimum, 3)
     declared_minimum = design.get("minimum_linked_decisions")
@@ -76383,6 +76899,39 @@ STEM_MAX_CHARACTERS = 340
 STEM_MEDIAN_MAX = 150
 CONTEXT_REPEAT_ITEMS = 3
 OPTION_LABELS = ('1', '2', '3', '4', '5')
+# 數學B unit families by 108 scope code (templates/current-gsat-math-scope.json), and the
+# per-paper envelope hand-classified on the official 111–115 booklets (20 items each, the
+# 第貳部分 題組 counted as three): matrix 1/1/1/1/1, sphere or space 1/1/3/2/1,
+# perspective 1/3/0/1/1, conic 0/1/0/1/1, polynomial 2/2/2/2/2, line-circle 1/1/1/1/5,
+# trigonometry 3/2/1/2/2, exp-log 2/2/2/2/1, sequence 0/2/1/1/2, counting 2/1/1/1/1,
+# probability 2/1/2/2/2, data 1/1/2/1/1, vector 2/1/2/1/0, number 2/2/1/2/1. Items carrying
+# an 11B-only code: 7/8/6/8/8.
+MATH_B_FAMILIES = {
+    'number': ('N-10-1', 'N-10-2', 'N-10-5', 'N-10-7'),
+    'exp_log': ('N-10-3', 'N-10-4', 'F-11B-2'),
+    'polynomial': ('A-10-1', 'A-10-2', 'F-10-1', 'F-10-2', 'F-10-3'),
+    'line_circle': ('G-10-1', 'G-10-2', 'G-10-3', 'G-10-4'),
+    'trigonometry': ('G-10-5', 'G-10-6', 'G-10-7', 'N-11B-1', 'F-11B-1'),
+    'sequence': ('N-10-6',),
+    'counting': ('D-10-3',),
+    'probability': ('D-10-4', 'D-11B-1'),
+    'data': ('D-10-2', 'D-11B-2'),
+    'matrix': ('A-11B-1',),
+    'vector': ('G-11B-1', 'G-11B-2'),
+    'sphere_space': ('S-11B-1', 'G-11B-4'),
+    'perspective': ('G-11B-3',),
+    'conic': ('S-11B-2',),
+}
+MATH_B_FAMILY_LABELS = {'number': '數與式', 'exp_log': '指數與對數', 'polynomial': '多項式函數', 'line_circle': '直線與圓',
+                        'trigonometry': '三角', 'sequence': '數列與級數', 'counting': '排列組合', 'probability': '機率',
+                        'data': '數據分析', 'matrix': '矩陣', 'vector': '平面向量', 'sphere_space': '空間概念與球面',
+                        'perspective': '單點透視', 'conic': '圓錐曲線'}
+MATH_B_REQUIRED_FAMILIES = ('matrix', 'sphere_space', 'polynomial', 'line_circle', 'trigonometry', 'exp_log',
+                            'counting', 'probability', 'data')          # ≥1 item in every official year
+MATH_B_FAMILY_CAPS = {'sequence': 2, 'counting': 2, 'probability': 3, 'matrix': 2, 'sphere_space': 3}
+MATH_B_ANY_FAMILY_CAP = 5
+MATH_B_11B_ITEMS = (3, 10)
+MATH_A_ONLY_CODES = re.compile(r'^[A-Z]-11A-\d+$')
 
 
 def _compact(text: Any) -> str:
@@ -76401,6 +76950,8 @@ def validate_exam(exam: dict) -> list[str]:
     questions = [q for q in exam.get('questions') or [] if isinstance(q, dict)]
     errors: list[str] = []
     full = metadata.get('generation_mode') == 'full-paper' or len(questions) >= 20
+    if subject == '數學B':
+        errors.extend(math_b_scope_errors(questions, full))
 
     for question in questions:
         number = question.get('number') or question.get('id')
@@ -76446,6 +76997,55 @@ def validate_exam(exam: dict) -> list[str]:
         for items, gram in context_repeats(stems, labels)[:3]:
             errors.append(f'{subject}第{"、".join(items)}題共用同一情境「{gram}」：官方 111–115 從不在三題以上重複同一現實情境'
                           '（重複的只有坐標平面上、試選出正確的選項等套語），換成不同情境')
+    return errors
+
+
+def math_b_family(codes: list) -> str | None:
+    """Primary unit family of an item: the family of its first recognised scope code."""
+    for code in codes:
+        for family, members in MATH_B_FAMILIES.items():
+            if str(code) in members:
+                return family
+    return None
+
+
+def math_b_scope_errors(questions: list[dict], full: bool) -> list[str]:
+    """Per-item scope codes and the measured 111–115 unit envelope of a 數學B paper."""
+    errors: list[str] = []
+    families: Counter = Counter()
+    eleven_b = 0
+    for q in questions:
+        number = q.get('number')
+        spec = q.get('item_spec') if isinstance(q.get('item_spec'), dict) else {}
+        codes = [str(c) for c in (spec.get('scope_codes') or [])]
+        if not codes:
+            errors.append(f'數學B第{number}題缺 item_spec.scope_codes（108 課綱代碼，見 current-gsat-math-scope.md）')
+            continue
+        foreign = [c for c in codes if MATH_A_ONLY_CODES.match(c)]
+        if foreign:
+            errors.append(f'數學B第{number}題使用數A專屬代碼 {foreign}；數B不含空間向量、平面方程式、和角公式與一般對數律')
+        family = math_b_family(codes)
+        if family is None:
+            errors.append(f'數學B第{number}題的代碼 {codes} 不在數B範圍（10年級共同核心＋11B）')
+            continue
+        families[family] += 1
+        if any('11B' in c for c in codes):
+            eleven_b += 1
+    if not full or len(questions) < 20:
+        return errors
+    missing = [MATH_B_FAMILY_LABELS[f] for f in MATH_B_REQUIRED_FAMILIES if families[f] == 0]
+    if missing:
+        errors.append(f'數學B整卷缺 {"、".join(missing)}：官方 111–115 每卷都各有至少 1 題')
+    for family, cap in MATH_B_FAMILY_CAPS.items():
+        if families[family] > cap:
+            errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 有 {families[family]} 題，官方 111–115 每卷最多 {cap} 題')
+    for family, count in families.items():
+        if count > MATH_B_ANY_FAMILY_CAP:
+            errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 有 {count} 題，超過單一單元上限 {MATH_B_ANY_FAMILY_CAP}（官方最高為 115 直線與圓 5 題）')
+    low, high = MATH_B_11B_ITEMS
+    if not low <= eleven_b <= high:
+        errors.append(f'數學B 帶 11B 專屬代碼的題目 {eleven_b} 題，官方 111–115 為 6–8 題（允許 {low}–{high}）：'
+                      '矩陣、球面／空間、透視、圓錐曲線、正弦模型、平面向量、條件機率須有合理比重')
     return errors
 
 
@@ -77662,6 +78262,147 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_writing_layout_contract.py">
+#!/usr/bin/env python3
+"""Printed-form contract of the current GSAT 國寫 paper, measured on ROC 111–115.
+
+The five official booklets (text extracted from the question PDFs on disk) share
+one form that no earlier gate checked at save time:
+
+* two 大題 printed as 一、 and 二、 under 非選擇題（共二大題，占50分）;
+* 第一大題 (知性): one 白話 material of 331–606 CJK characters (two texts labelled
+  甲／乙 in 113), then 問題（一）… 文長限80字以內（至多4行）。（占4分） and
+  問題（二）… 文長限400字以內（至多19行）。（占21分）; 問題（一） always points back
+  at the material (上文／甲、乙二文);
+* 第二大題 (情意): one literary material of 226–443 CJK characters (essay, poem
+  excerpt, or 幾米 圖文), then 請以「題目」為題 … （占25分）, asking for lived
+  experience, feeling or imagination (書寫／抒發／敘述／描述／體悟／想像);
+* at least one material each year carries an inline attribution
+  （改寫自／節錄自 作者《書名》or〈篇名〉）; no material is 文言; nothing is 自擬.
+
+Structural passes are never editorial passes.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+import re
+import sys
+from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from validate_chinese_layout_contract import is_classical  # noqa: E402
+
+TASK_ONE_MATERIAL_CJK = (280, 700)      # official 331–606
+TASK_TWO_MATERIAL_CJK = (180, 520)      # official 226–443
+TASK_ONE_SHORT = re.compile(r'文長限\s*80\s*字以內（至多\s*4\s*行）')
+TASK_ONE_LONG = re.compile(r'文長限\s*400\s*字以內（至多\s*19\s*行）')
+SCORE = re.compile(r'（占\s*(\d+)\s*分）')
+TITLE = re.compile(r'請以「[^」]{2,30}」為題')
+MATERIAL_REFERENCE = re.compile(r'上文|上述|甲、乙|甲乙二文|二文|本文|依據.{0,4}文|根據.{0,4}文')
+AFFECTIVE_CUE = re.compile(r'書寫|抒發|敘述|描述|體悟|感思|感受|想像|經驗|見聞|省思|回應|看待')
+ATTRIBUTION = re.compile(r'[（(](?:圖文)?(?:改寫自|節錄自|摘錄自|摘自|譯自|取材自)[^）)]*[《〈][^）)]*[）)]')
+SELF_WRITTEN = re.compile(r'自擬|自撰|編者撰|命題所設|虛構案例|情境模擬|模型生成')
+TASK_SPLIT = re.compile(r'請分項回答下列問題|請回答下列問題|問題（一）')
+
+
+def _cjk(text: str) -> int:
+    return len(re.findall(r'[一-鿿]', text))
+
+
+def _material(prompt: str, stimulus: str) -> str:
+    """The printed reading material: group_stimulus, else the prompt before the task line."""
+    if stimulus.strip():
+        return stimulus
+    return TASK_SPLIT.split(prompt, maxsplit=1)[0]
+
+
+def validate_exam(exam: dict[str, Any]) -> list[str]:
+    metadata = exam.get('metadata') or {}
+    if (metadata.get('paper_subject') or metadata.get('subject')) != '國寫':
+        return []
+    questions = [q for q in exam.get('questions') or [] if isinstance(q, dict)]
+    errors: list[str] = []
+    by_number: dict[int, list[dict]] = {}
+    for q in questions:
+        if isinstance(q.get('number'), int):
+            by_number.setdefault(q['number'], []).append(q)
+    if sorted(by_number) != [1, 2]:
+        errors.append(f'國寫須恰有兩大題（一、二），目前題號 {sorted(by_number)}')
+        return errors
+    task_one = sorted(by_number[1], key=lambda q: str(q.get('subpart_id') or ''))
+    task_two = by_number[2]
+    text_one = '\n'.join(str(q.get('prompt') or '') for q in task_one)
+    text_two = '\n'.join(str(q.get('prompt') or '') for q in task_two)
+    material_one = _material(str(task_one[0].get('prompt') or ''), str(task_one[0].get('group_stimulus') or ''))
+    material_two = _material(str(task_two[0].get('prompt') or ''), str(task_two[0].get('group_stimulus') or ''))
+
+    # 第一大題: 80字/4分 + 400字/21分 in every official year.
+    if len(task_one) != 2:
+        errors.append(f'國寫第一大題須為問題（一）與問題（二）兩個子題（官方 111–115 每年如此），目前 {len(task_one)} 個')
+    if not TASK_ONE_SHORT.search(text_one):
+        errors.append('國寫問題（一）須印「文長限80字以內（至多4行）」（官方 111–115 逐字相同）')
+    if not TASK_ONE_LONG.search(text_one):
+        errors.append('國寫問題（二）須印「文長限400字以內（至多19行）」（官方 111–115 逐字相同）')
+    scores_one = [int(s) for s in SCORE.findall(text_one)]
+    if scores_one != [4, 21]:
+        errors.append(f'國寫第一大題配分須依序印（占4分）、（占21分），目前 {scores_one}')
+    declared = [q.get('score') for q in task_one]
+    if len(task_one) == 2 and declared != [4, 21]:
+        errors.append(f'國寫第一大題 score 須為 4 與 21，目前 {declared}')
+    first_prompt = re.split(r'問題（二）', text_one)[0]
+    first_task = first_prompt.split('問題（一）')[-1] if '問題（一）' in first_prompt else ''
+    if not MATERIAL_REFERENCE.search(first_task):
+        errors.append('國寫問題（一）須要求依據上文／甲、乙二文作答（閱讀統整，官方 111–115 每年如此）')
+    cjk_one = _cjk(material_one)
+    if not TASK_ONE_MATERIAL_CJK[0] <= cjk_one <= TASK_ONE_MATERIAL_CJK[1]:
+        errors.append(f'國寫第一大題材料 {cjk_one} 字，官方 111–115 為 331–606 字（允許 {TASK_ONE_MATERIAL_CJK[0]}–{TASK_ONE_MATERIAL_CJK[1]}）')
+
+    # 第二大題: 25分 titled 情意 essay.
+    if len(task_two) != 1:
+        errors.append(f'國寫第二大題須為單一題（占25分），目前 {len(task_two)} 個子題')
+    if SCORE.findall(text_two) not in ([], ['25']):
+        errors.append(f'國寫第二大題配分須為（占25分），目前 {SCORE.findall(text_two)}')
+    if task_two[0].get('score') != 25:
+        errors.append(f'國寫第二大題 score 須為 25，目前 {task_two[0].get("score")}')
+    if not TITLE.search(text_two):
+        errors.append('國寫第二大題須印「請以「題目」為題」（官方 111–115 每年皆有命題）')
+    task_two_prompt = text_two.split('請回答下列問題')[-1]
+    if not AFFECTIVE_CUE.search(task_two_prompt):
+        errors.append('國寫第二大題須為情意寫作：要求書寫經驗、感受、體悟或想像，不是第二篇知性論述')
+    cjk_two = _cjk(material_two)
+    if not TASK_TWO_MATERIAL_CJK[0] <= cjk_two <= TASK_TWO_MATERIAL_CJK[1]:
+        errors.append(f'國寫第二大題材料 {cjk_two} 字，官方 111–115 為 226–443 字（允許 {TASK_TWO_MATERIAL_CJK[0]}–{TASK_TWO_MATERIAL_CJK[1]}）')
+
+    # Materials: attributed, 白話, never self-written.
+    if not ATTRIBUTION.search(material_one) and not ATTRIBUTION.search(material_two):
+        errors.append('國寫兩大題材料至少一篇須緊接正文印出（改寫自 作者《書名》／〈篇名〉）；官方 111–115 每年如此')
+    for label, material in (('第一大題', material_one), ('第二大題', material_two)):
+        if is_classical(material):
+            errors.append(f'國寫{label}材料為文言；官方 111–115 國寫材料皆為白話（論述、報導、對話、散文、新詩、圖文）')
+        if SELF_WRITTEN.search(material):
+            errors.append(f'國寫{label}材料標示自擬／虛構；材料須改寫自可查證的已出版文本')
+    return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('exam_json', type=Path)
+    args = parser.parse_args()
+    exam = json.loads(args.exam_json.read_text(encoding='utf-8-sig'))
+    errors = validate_exam(exam)
+    for error in errors:
+        print(f'FAIL: {error}')
+    if not errors:
+        print('PASS: 國寫 printed-form contract (ROC 111–115)')
+    return 1 if errors else 0
+
+
+if __name__ == '__main__':
     raise SystemExit(main())
 </canonical-source>
 
