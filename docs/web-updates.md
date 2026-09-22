@@ -11,7 +11,7 @@ Claude 的 Skill 上傳器對 2026.09.22.3 ZIP 回「Zip contains too many files
 
 維護者提議把檔案整合。做法是把 ZIP 當成傳輸格式：倉庫原檔不動，`scripts/build_hosted_skill.py` 打包時把所有參考文件（41 個 .md）、schema、版面模板 JSON、exam_packs 資料等文字檔合併成 `resources/bundles/references.json` 與 `resources/bundles/data.json` 兩個成員（`scripts/hosted_bundles.py`，內容為「原路徑 → 原文」，位元組不變）；SKILL.md、LICENSE、NOTICE、AGENTS.md、`references/hosted-execution.md`、47 個 Python 腳本、23 個固定模板 PDF 與 14 個版型預覽仍是獨立檔案。`read_web_knowledge.py --source-dir` 讀取時展開並逐檔核對 PACKAGE_MANIFEST 的雜湊，再還原成原路徑，所以出卷時的參考目錄、各個腳本與階段閱讀視圖完全不變，模型也不必在數十個小檔之間切換；`scan_skill_release.py` 同樣先展開再核對與掃描。建置腳本現在會拒絕超過 200 個成員的 ZIP，並回報 `member_count`。
 
-新 ZIP（SHA-256 `4814bb222cfc78d8fac5d4860efcd528e151fb8fc1bae34174691245e61173c4`，6,781,592 位元組，94 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.4 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.4) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `4814bb222cfc78d8fac5d4860efcd528e151fb8fc1bae34174691245e61173c4`，6,781,592 位元組，94 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.4 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.4) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.3：checkpoint 即時回報過期閘門、refresh-evidence 草稿、check-figures 圖片自檢
 
