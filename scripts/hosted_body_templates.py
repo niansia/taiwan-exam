@@ -41,20 +41,46 @@ def snap_block_top(value):
 # MuPDF applies a cell's vertical-align to every inline run inside it: top-aligned
 # text cells flattened <sup> onto the baseline, so T<sup>2</sup> printed like a
 # subscript. Text cells align first baselines instead; figure cells stay on top.
-CSS = '''
+# Measured on the ROC 115 booklets (option-line pitch / item-to-item gap, pt):
+# 國綜 16-17 / 19-20, 英文 16-17 / 17-18, 社會 and 自然 17-18 / 20-21, 數學 20 / 31.
+# A generated 國綜 paper at the old uniform 1.65 leading printed 23 pt option
+# rows and 42 pt item gaps, 17 pages against the official 12. Prose subjects
+# therefore use the official leading; mathematics keeps room for scripts.
+TYPOGRAPHY = {'國綜': (1.5, 0, 3, 1, 4), '國寫': (1.5, 0, 3, 1, 4), '英文': (1.5, 0, 3, 1, 4),
+              '社會': (1.6, 0, 3, 1, 4), '自然': (1.6, 0, 3, 1, 4)}
+DEFAULT_TYPOGRAPHY = (1.65, 3, 5, 3, 12)  # line-height, cell padding, paragraph margin, options top, item gap
+CSS_TEMPLATE = '''
 @font-face {font-family:Body;src:url(body-font.ttf)}
-* {box-sizing:border-box} body {font-family:Body;font-size:11pt;line-height:1.65;margin:0;color:#000;background:transparent}
-p {margin:0 0 5pt} table {border-collapse:collapse;width:100%;margin:0} td {padding:0 4pt 3pt 0;vertical-align:baseline}
+* {box-sizing:border-box} body {font-family:Body;font-size:11pt;line-height:LINE_HEIGHT;margin:0;color:#000;background:transparent}
+p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;width:100%;margin:0} td {padding:0 4pt CELL_PADpt 0;vertical-align:baseline}
 td.figure {vertical-align:top}
 .direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
-sup,sub {font-size:70%} .options {margin-top:3pt}
+sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
+.optionlist {margin-left:28pt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
 .passage {font-family:Reading,Body} .english {font-family:Latin,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
 '''
+
+
+def typography(subject):
+    return TYPOGRAPHY.get(subject, DEFAULT_TYPOGRAPHY)
+
+
+def subject_css(subject):
+    line_height, cell_pad, p_margin, options_top, _ = typography(subject)
+    return (CSS_TEMPLATE.replace('LINE_HEIGHT', f'{line_height:g}').replace('CELL_PAD', f'{cell_pad:g}')
+            .replace('P_MARGIN', f'{p_margin:g}').replace('OPTIONS_TOP', f'{options_top:g}'))
+
+
+def item_gap_pt(subject):
+    return typography(subject)[4]
+
+
+CSS = subject_css(None)
 # Long text may continue on the next page at paragraph (or solution-step)
 # boundaries when a block opts in with split: paragraphs. The label/heading
 # stays with the first piece; options, bank, figure and score with the last.
@@ -271,6 +297,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         elif kind=='fill':
             stem=f'<p style="margin-left:28pt;text-indent:-28pt">{label}　{stem}</p><div class="figure">{image_box}</div>'
         else:stem+=f'<div class="figure">{image_box}</div>'
+    option_block=''
     if kind in {'choice','multiple'} and tail:
         options=block.get('options',[])
         if len(options)<2:raise ValueError('Choice block needs authored options')
@@ -284,8 +311,18 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             result=('<table class="options">'+''.join(f'<tr><td class="number">{label if n==0 else ""}</td>{row}</tr>'
                                                      for n,row in enumerate(rows))+'</table>')
             return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
-        cells=[f'<td style="width:{100/columns}%">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
-        stem+='<table class="options">'+''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table>'
+        # Never nest the option table inside the stem cell: MuPDF's HTML engine
+        # shrank that nested table to the stem's width in a hosted runtime, so a
+        # 國綜 booklet wrapped every option at 40% of the page. Options print as a
+        # sibling block: paragraphs for one column, a top-level table otherwise.
+        rows=[f'{html.escape(str(o["label"]))} {text(o["text"])}' for o in options]
+        if columns==1:
+            option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
+        else:
+            cell_width=(width-28-4*columns)/columns
+            cells=[f'<td style="width:{cell_width:g}pt">{row}</td>' for row in rows]
+            option_block=(f'<div class="optionlist"><table class="options" style="width:{width-28:g}pt">'
+                          +''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table></div>')
     if kind=='solution':
         result=(f'<div class="heading">{label}</div>' if head else '')+stem
     elif kind=='fill':
@@ -299,7 +336,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # as 英文作文 would stack one glyph per line, so it leads the text instead.
         if len(html.unescape(re.sub('<[^>]+>','',label)))>3:
             stem=f'<b>{label}</b>　'+stem;label=''
-        result=f'<table><tr><td class="number">{label}</td><td style="width:{width-28:g}pt">{stem}</td></tr></table>'
+        result=f'<table><tr><td class="number">{label}</td><td style="width:{width-28:g}pt">{stem}</td></tr></table>'+option_block
     return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
 
 
@@ -351,7 +388,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
     archive.add((pymupdf.Font('tiro').buffer,'latin-font.ttf'))
-    css=CSS+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
+    css=subject_css(spec['subject'])+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
     if reading_font:
         archive.add((reading_font.read_bytes(),'reading-font.ttf'))
         css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
@@ -430,7 +467,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     def paginate(tightness):
         """One pagination pass. Only the gaps between blocks scale with tightness."""
         def gap_after(block):
-            return (8 if block['kind']=='section' else 12)*tightness
+            return (8 if block['kind']=='section' else item_gap_pt(spec['subject']))*tightness
 
         work=list(blocks)
         parts=[];pages=[]

@@ -44,6 +44,22 @@ LANGUAGE_KNOWLEDGE = re.compile(r"「」內|畫底線|詞語|成語|用法|用�
 IDIOM = re.compile(r"成語|畫底線(?:處)?的詞語")
 GRAMMAR = re.compile(r"用法|用來修飾|「以」|「則」|量詞|條件|語意邏輯|平仄|音節|押韻")
 JUDGEMENT = re.compile(r"①.*②")
+# The official ①②研判題 is a single-choice item whose four options are drawn from
+# 皆符合／皆不符合／①符合，②不符合／①不符合，②無法判斷 (111 Q16, 113 Q12, 114 Q24,
+# 115 Q7 and Q12); a multiple-choice item whose options are pairs of statements is
+# a different, easier exercise.
+JUDGEMENT_OPTION = re.compile(r"皆(?:符合|不符合|適當|不適當)|①(?:符合|不符合|適當|不適當|無法判斷)")
+# Distractors written with absolute words (完全、必然、唯一、所有、只會…) can be
+# eliminated without reading. Measured on 111-115: 6-12% of all options, and at
+# most 36% of items carry one; a generated paper had 22% and 70%.
+ABSOLUTE_WORD = re.compile(r"完全|必然|必定|唯一|所有|任何|一律|全部|凡是|只要|只會|只能|從不|毫無|一切|絕不|皆|無關|不可能|永遠")
+ABSOLUTE_OPTION_SHARE = 0.12
+ABSOLUTE_ITEM_SHARE = 0.40
+# 改寫自／〈篇名〉／《書名》 across the whole booklet: official 43-68; generated 16.
+ATTRIBUTION_TOKEN = re.compile(r"改寫自|〈[^〈〉]{1,20}〉|《[^《》]{1,20}》")
+ATTRIBUTION_FLOOR = 30
+SELF_WRITTEN = re.compile(r"自擬|自撰|編者[^，。]{0,6}撰成?|本題情境|虛構|為本題設計")
+CHARACTER_FORM_MIN_CHARACTERS = 16
 CLASSICAL_VERSE = re.compile(r"詩|詞|曲|韻文|絕句|律詩|樂府")
 CHAR_LIMIT = re.compile(r"(\d+)\s*字以內")
 
@@ -89,6 +105,14 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         errors.append("國綜第1題須為字音題（下列「」內的字，讀音前後相同的是），111–115 每年皆同")
     elif first(1):
         errors.extend(pronunciation_pair_errors(first(1)))
+    for number in range(1, 25):
+        if first(number) and "排列順序" in prompt(number) and "古文" not in prompt(number):
+            errors.append(f"國綜第{number}題排序題須為文言（下列是一段古文，依據文意，甲、乙、丙、丁排列順序最適當的是），"
+                          "113、115 官方皆如此；白話句子重排不是本形式")
+    for text, numbers in groups.items():
+        if numbers[0] >= 6 and not SOURCE_ATTRIBUTION.search(text):
+            errors.append(f"國綜第{numbers[0]}至{numbers[-1]}題題組材料須摘錄真實作品並印出處（白話印「改寫自 作者〈篇名〉」，"
+                          "文言印篇名或書名），官方每卷 17–42 處出處；自撰材料難度與語感都達不到官方卷")
     for number in range(1, 25):
         question = first(number)
         # The passage is the shared stimulus, or the prompt's text after the stem's colon;
@@ -147,8 +171,15 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append("國綜每年有一題成語／畫底線詞語運用題（113–115 在多選第25至26題）；本卷沒有")
         if not any(GRAMMAR.search(p) for p in all_prompts):
             errors.append("國綜每年至少一題語法或虛詞題（「以」「則」用法、程度副詞、量詞、條件句）；本卷沒有")
-        if not any(JUDGEMENT.search(p) for p in all_prompts):
-            errors.append("國綜每年至少一題①②研判題（皆符合／皆不符合／①符合②不符合／無法判斷）；本卷沒有")
+        judgement_items = [q for q in questions if isinstance(q, dict) and q.get("type") == "single_choice"
+                           and JUDGEMENT.search(str(q.get("prompt") or "") + str(q.get("group_stimulus") or ""))
+                           and sum(1 for o in q.get("options") or [] if isinstance(o, dict)
+                                   and JUDGEMENT_OPTION.search(str(o.get("text") or ""))) >= 3]
+        if not judgement_items:
+            errors.append("國綜每年至少一題①②研判題：單選，題幹「關於①、②是否符合上文…最適當的研判是」，選項為"
+                          "①、②皆符合／皆不符合／①符合，②不符合／①不符合，②無法判斷（111 Q16、113 Q12、114 Q24、115 Q7）；"
+                          "本卷沒有此形式（多選題把①②寫成成對敘述不算）")
+        errors.extend(difficulty_signal_errors(questions))
         if not any(CLASSICAL_VERSE.search(p) for p in all_prompts) and not CLASSICAL_VERSE.search(all_text):
             errors.append("國綜每年至少一題古典詩詞曲材料；本卷沒有")
 
@@ -177,6 +208,57 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         stimuli = {stimulus(n) for n in part_two}
         if len(stimuli) != 1 or "" in stimuli:
             errors.append("國綜第貳部分五題須共用同一組多文本材料（甲乙丙，含文言或韻文）")
+    return errors
+
+
+def difficulty_signal_errors(questions: list[dict]) -> list[str]:
+    """Measured surface signals that separate the official papers from an easy imitation."""
+    errors = []
+    option_texts = []
+    absolute_items = 0
+    for question in questions:
+        if not isinstance(question, dict):
+            continue
+        texts = [str(o.get("text") or "") for o in question.get("options") or [] if isinstance(o, dict)]
+        if not texts:
+            continue
+        option_texts.extend(texts)
+        if any(ABSOLUTE_WORD.search(t) for t in texts):
+            absolute_items += 1
+    scored = [q for q in questions if isinstance(q, dict) and q.get("options")]
+    if option_texts:
+        share = sum(1 for t in option_texts if ABSOLUTE_WORD.search(t)) / len(option_texts)
+        if share > ABSOLUTE_OPTION_SHARE:
+            errors.append(f"國綜選項中含絕對化字眼（完全、必然、唯一、所有、只會…）的比例為 {share:.0%}，官方 111–115 為 6–12%："
+                          "不讀文本就能排除的選項太多，錯誤選項須是對文本的另一種可成立的誤讀，只錯在一個推論")
+        item_share = absolute_items / len(scored)
+        if item_share > ABSOLUTE_ITEM_SHARE:
+            errors.append(f"國綜 {absolute_items}/{len(scored)} 題有絕對化字眼的選項（{item_share:.0%}），官方最多 36%")
+    second = next((q for q in questions if isinstance(q, dict) and q.get("number") == 2), None)
+    if second and "錯別字" in str(second.get("prompt") or ""):
+        short = [str(o.get("text") or "") for o in second.get("options") or [] if isinstance(o, dict)
+                 and len(str(o.get("text") or "")) < CHARACTER_FORM_MIN_CHARACTERS]
+        if short:
+            errors.append(f"國綜第2題字形題每句須至少 {CHARACTER_FORM_MIN_CHARACTERS} 字（官方 18–23 字，錯字藏在成語或書面語中）；"
+                          f"過短：{'；'.join(short)}")
+    # A shared stimulus is printed once, so it is counted once.
+    stimuli = {str(q.get("group_stimulus") or "") for q in questions if isinstance(q, dict)}
+    everything = "\n".join(stimuli) + "\n" + "\n".join(
+        str(q.get("prompt") or "") + "\n" + "\n".join(str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict))
+        for q in questions if isinstance(q, dict))
+    if len(scored) >= 30:
+        found = len(ATTRIBUTION_TOKEN.findall(everything))
+        if found < ATTRIBUTION_FLOOR:
+            errors.append(f"國綜全卷出處與篇名標記（改寫自／〈篇名〉／《書名》）共 {found} 處，官方 111–115 為 43–68 處，"
+                          f"下限 {ATTRIBUTION_FLOOR}：材料與選項須大量取自真實作品")
+    for question in questions:
+        if isinstance(question, dict):
+            text = str(question.get("group_stimulus") or "") + str(question.get("prompt") or "")
+            hit = SELF_WRITTEN.search(text)
+            if hit:
+                errors.append(f"國綜第{question.get('number')}題材料印出「{hit.group(0)}」：學生卷不得出現自擬、自撰、編者撰成、"
+                              "本題情境等字樣，材料本身須是可印出處的真實作品")
+                break
     return errors
 
 

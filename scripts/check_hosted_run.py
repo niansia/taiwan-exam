@@ -11,11 +11,12 @@ import hashlib
 import json
 from pathlib import Path
 import pymupdf
-from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void
+from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void, narrow_wrap_samples
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary, workflow_events
 from hosted_blind_review import packet, review_errors, REVIEW_MODES
 from verify_fixed_template_pdf import verify_pdf
+from compose_hosted_pdf import COMPOSER
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
@@ -194,6 +195,9 @@ def check(state_path: Path) -> dict:
         with pymupdf.open(pdf) as actual:
             actual_count = len(actual)
             actual_issues = {}
+            need(actual.metadata.get('creator') == COMPOSER,
+                 f'{role}: PDF was not composed by compose_hosted_pdf (creator stamp missing); '
+                 'a body typeset by another route is not deliverable')
             for number, actual_page in enumerate(actual, 1):
                 collisions = rail_collision_samples(actual_page)
                 need(not collisions,
@@ -212,6 +216,8 @@ def check(state_path: Path) -> dict:
                          for line in b.get('lines', []) for s in line['spans']]
                 need(all(rect.contains(pymupdf.Rect(s['bbox'])) for s in spans),
                      f'{role}/page-{number}: actual PDF text-outside-page')
+                need(len(narrow_wrap_samples(actual_page, pymupdf.Rect(64, 87, rect.width - 64, 775))) < 2,
+                     f'{role}/page-{number}: actual PDF narrow-wrap-column (text set in a column far narrower than the body)')
                 actual_issues[number] = set()
                 if bottom_void(actual_page) > .32:
                     actual_issues[number].add('large-bottom-void-review')

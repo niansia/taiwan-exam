@@ -20,7 +20,57 @@ from validate_math_context import source_note_samples, production_caption_sample
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
                  "answer-rail-content-collision", "printed-math-source-note", "answer-rail-format",
-                 "printed-math-production-caption"}
+                 "printed-math-production-caption", "narrow-wrap-column"}
+# A wrapped line that leaves this share of the body width unused, with nothing
+# printed to its right, was set in a column the page never asked for.
+NARROW_WRAP_UNUSED_SHARE = 0.25
+LIST_MARKER = re.compile(r"^(?:\([A-Ea-e1-9]\)|[A-Ea-e1-9][.、．)]|\d{1,2}[.．、(（]|[甲乙丙丁戊己庚辛壬癸][、.．]|[①②③④⑤⑥⑦⑧⑨⑩]|[（(][甲乙丙丁戊己庚辛壬癸一二三四五六七八九十0-9]+[）)]|[□■☐☑✓•‧・※◎○●▲△-]|[ivx]+[.)])")
+LINE_END_PUNCTUATION = "。．！？：；，、」』）)】〕〉》…—.!?:;,"
+
+
+def narrow_wrap_samples(page, body):
+    """Lines that wrap far short of the body's right edge with nothing beside them.
+
+    A hosted 國綜 booklet printed every option in a column as wide as its stem
+    (options wrapping at 40% of the page); reviewers saw it only after delivery.
+    Two-abreast options, tables, figures beside text, poem lines and 甲乙丙丁 lists
+    are excluded: they have a neighbour, a drawing, punctuation or a marker.
+    """
+    lines = []
+    for block in page.get_text("dict")["blocks"]:
+        for line in block.get("lines", []):
+            text = "".join(span["text"] for span in line["spans"]).strip()
+            if text:
+                lines.append((pymupdf.Rect(line["bbox"]), text))
+    lines.sort(key=lambda item: (round(item[0].y0), item[0].x0))
+    obstacles = [pymupdf.Rect(info["bbox"]) for info in page.get_image_info()]
+    # Fixed templates paint white page-size rectangles; only stroked or
+    # non-white drawings inside the body (tables, rules, figures) count.
+    obstacles += [d["rect"] for d in page.get_drawings()
+                  if d["rect"].width < 0.9 * body.width and (d.get("color") is not None or d.get("fill") is not None)]
+    samples = []
+    for index, (rect, text) in enumerate(lines):
+        if not body.contains(rect) or len(text) < 6 or text[-1] in LINE_END_PUNCTUATION:
+            continue
+        unused = body.x1 - rect.x1
+        if unused < NARROW_WRAP_UNUSED_SHARE * body.width:
+            continue
+        continuation = next((other for other, later in lines[index + 1:index + 4]
+                             if other.y0 > rect.y0 + 2 and other.y0 - rect.y0 < 1.4 * rect.height + 2
+                             and abs(other.x0 - rect.x0) < 1.5 and not LIST_MARKER.match(later)), None)
+        if continuation is None:
+            continue
+        # Anything else on the same row (a second column, a separately drawn
+        # label, a figure or table) means the line was never meant to be full width.
+        row = pymupdf.Rect(body.x0, rect.y0 + 1, body.x1, rect.y1 - 1)
+        if any(other is not rect and other.intersects(row) for other, _ in lines) or any(o.intersects(row) for o in obstacles):
+            continue
+        # A wrapped line's continuation stays inside the same narrow column; a
+        # heading followed by a longer description does not.
+        if continuation.x1 > rect.x1 + 6:
+            continue
+        samples.append(text[:40])
+    return samples
 
 
 def rail_format_samples(page):
@@ -163,6 +213,9 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                 issues.append('answer-rail-format')
             if table_collisions:
                 issues.append("table-grid-text-collision-review")
+            narrow_wraps = narrow_wrap_samples(page, body)
+            if len(narrow_wraps) >= 2:
+                issues.append("narrow-wrap-column")
             for span in spans:
                 if not rect.contains(pymupdf.Rect(span["bbox"])):
                     issues.append("text-outside-page")
@@ -195,6 +248,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "body_raster_sha256": hashlib.sha256(body_pixels.samples).hexdigest(),
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
+                          "narrow_wrap_samples": narrow_wraps,
                           "rail_collision_samples": rail_collisions,
                           "rail_format_samples": rail_formats,
                           "bottom_void_ratio": void,
