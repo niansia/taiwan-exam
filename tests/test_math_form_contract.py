@@ -154,6 +154,8 @@ def test_math_b_official_115_unit_envelope_passes_and_gaps_are_named():
     assert any('帶 11B 專屬代碼的題目 0 題' in e for e in errors)
     codes = {**MATH_B_CODES_115, 5: 'N-10-6', 12: 'N-10-6', 16: 'N-10-6'}
     assert any('數列與級數 有 3 題，官方 111–115 每卷最多 2 題' in e for e in math_form(_math_b_paper(codes)))
+    sets_first = _math_b_paper({**MATH_B_CODES_115, 14: 'D-10-1'})
+    assert not any('不在數B範圍' in e for e in math_form(sets_first))
     foreign = _math_b_paper({**MATH_B_CODES_115, 4: 'G-11A-5'})
     assert any("使用數A專屬代碼 ['G-11A-5']" in e for e in math_form(foreign))
     missing = _math_b_paper()

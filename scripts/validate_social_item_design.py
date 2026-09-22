@@ -163,7 +163,23 @@ def form_band_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
     metadata = exam.get("metadata") or {}
     if len(sections) < 2 and metadata.get("generation_mode") != "full-paper":
         return []
-    questions = [q for q in exam.get("questions", []) if isinstance(q, dict) and isinstance(q.get("number"), int)]
+    records = [q for q in exam.get("questions", []) if isinstance(q, dict) and isinstance(q.get("number"), int)]
+    # One printed number may carry several scored records (115: 44, 46 and 52 each
+    # print a checkbox and a reason); the form is counted per number, and a number
+    # is constructed-response when any of its records is.
+    by_number: dict[int, list[dict[str, Any]]] = {}
+    for record in records:
+        by_number.setdefault(record["number"], []).append(record)
+    questions = []
+    for number, members in sorted(by_number.items()):
+        merged = dict(members[0])
+        types = {str(m.get("type") or "") for m in members}
+        if "constructed_response" in types:
+            merged["type"] = "constructed_response"
+        elif "multiple_choice" in types:
+            merged["type"] = "multiple_choice"
+        merged["_records"] = members
+        questions.append(merged)
     first_id = sections[0].get("id") if sections else None
     first = [q for q in questions if q.get("section_id") == first_id] if first_id else []
     second = [q for q in questions if q not in first]
@@ -190,9 +206,10 @@ def form_band_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
                            "detail": "官方 111-115 社會全卷沒有多選題；選擇題一律四選一 (A)-(D)。"})
         if q in first and q.get("type") not in {"single_choice", None}:
             errors.append({"code": "social_first_part_item_not_single_choice", "question_id": qid, "type": q.get("type")})
-        labels = [str(o.get("label") or "").strip("()（）") for o in (q.get("options") or []) if isinstance(o, dict)]
-        if labels and labels != ["A", "B", "C", "D"]:
-            errors.append({"code": "social_option_labels_not_a_to_d", "question_id": qid, "labels": labels})
+        for record in q["_records"]:
+            labels = [str(o.get("label") or "").strip("()（）") for o in (record.get("options") or []) if isinstance(o, dict)]
+            if labels and labels != ["A", "B", "C", "D"]:
+                errors.append({"code": "social_option_labels_not_a_to_d", "question_id": str(record.get("id") or qid), "labels": labels})
         if q in first and q.get("score") not in (None, 2):
             errors.append({"code": "social_first_part_item_score_not_two", "question_id": qid, "score": q.get("score")})
     return errors
@@ -204,9 +221,12 @@ def curriculum_breadth_errors(questions: list[dict[str, Any]]) -> list[dict[str,
     for q in questions:
         spec = q.get("item_spec") if isinstance(q.get("item_spec"), dict) else {}
         domain = str(spec.get("domain") or q.get("domain") or "")
+        prefix = {"歷史": "歷", "地理": "地", "公民與社會": "公"}.get(domain)
         for raw in (spec.get("curriculum_codes") or q.get("curriculum_codes") or []):
             code = canonical_content_code(raw)
-            if code in ALL_CONTENT_CODES and domain in letters and len(code) > 1 and code[0] in "歷地公":
+            # Only the item's own discipline's code names its 主題; a 跨科 item may list
+            # another discipline's code first without moving the count.
+            if prefix and code in ALL_CONTENT_CODES and len(code) > 1 and code[0] == prefix:
                 letters[domain][code[1]] += 1
                 break  # one primary 主題 per item
     errors: list[dict[str, Any]] = []
