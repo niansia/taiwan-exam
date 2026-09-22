@@ -54,7 +54,7 @@ def test_batch_with_print_defects_is_refused_listing_every_issue(run):
     (run / 'q1.png').write_bytes(b'not the registered bytes')
     question = {'id': 'q1', 'number': 1, 'section_id': 's', 'type': 'single_choice',
                 'prompt': r'若 $f(x)=x^2$，則 f(2) \times 3 為何？{{asset:area}}',
-                'options': [{'label': '1', 'text': '12'}, {'label': '2', 'text': 'x<sup>2'}],
+                'options': [{'label': '1', 'text': '12'}, {'label': '2', 'text': 'x<sup>2'}, {'label': '3', 'text': '3'}, {'label': '4', 'text': '4'}, {'label': '5', 'text': '5'}],
                 'inline_assets': {'q1': {'path': 'q1.png', 'sha256': '0' * 64, 'width_pt': 40}}}
     answer = {'question_id': 'q1', 'final_answer': '1', 'reasoning': [r'f(2)=4，4 \cdot 3=12。']}
     with pytest.raises(ValueError) as caught:
@@ -76,7 +76,7 @@ def inline_item(run, width_pt=60, name='q1.png'):
     image = formula_image(run, name)
     question = {'id': 'q1', 'number': 1, 'section_id': 's', 'type': 'single_choice',
                 'prompt': '已知 {{asset:f}} 且 x² = 4，求 x。',
-                'options': [{'label': '1', 'text': '2'}, {'label': '2', 'text': '−2'}],
+                'options': [{'label': '1', 'text': '2'}, {'label': '2', 'text': '−2'}, {'label': '3', 'text': '3'}, {'label': '4', 'text': '4'}, {'label': '5', 'text': '5'}],
                 'inline_assets': {'f': {'path': name, 'sha256': hashlib.sha256(image.read_bytes()).hexdigest(),
                                         'width_pt': width_pt}}}
     return question, {'question_id': 'q1', 'final_answer': '1', 'reasoning': ['由 x² = 4 得 x = ±2。']}
@@ -113,7 +113,7 @@ def test_figure_wider_than_its_column_prints_at_column_width(tmp_path):
                       '<rect x="1" y="1" width="398" height="98" fill="none" stroke="black"/></svg>', encoding='utf-8')
     block = {'kind': 'choice', 'id': 'q1', 'number': 1, 'text': '合成題幹', 'figure': 'fig', 'figure_position': 'below',
              'assets': {'fig': {'path': 'wide.svg', 'sha256': hashlib.sha256(figure.read_bytes()).hexdigest(), 'width_pt': 460}},
-             'options': [{'label': '(1)', 'text': '甲'}, {'label': '(2)', 'text': '乙'}]}
+             'options': [{'label': '(1)', 'text': '甲'}, {'label': '(2)', 'text': '乙'}, {'label': '(3)', 'text': '丙'}, {'label': '(4)', 'text': '丁'}, {'label': '(5)', 'text': '戊'}]}
     layout = templates.render({'subject': '數學A', 'blocks': [block]}, tmp_path / 'body.pdf', tmp_path / 'layout.json',
                               body_font(tmp_path), asset_root=tmp_path)
     [scaled] = layout['scaled_assets']

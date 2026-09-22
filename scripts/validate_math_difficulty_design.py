@@ -16,6 +16,14 @@ def as_list(value: Any) -> list[Any]:
     return value if isinstance(value, list) else []
 
 
+FULLWIDTH = str.maketrans("０１２３４５６７８９＋－＝（）／．，", "0123456789+-=()/.,")
+
+
+def _normalized(value) -> str:
+    text = str(value or "").translate(FULLWIDTH).replace("−", "-").replace("×", "*")
+    return "".join(text.split()).lower()
+
+
 def required_decisions(p_center: float | None, number: int, question_type: str) -> int:
     if p_center is None:
         return 4 if number == 20 else 3
@@ -120,6 +128,19 @@ def validate_item(
         if not isinstance(row, dict) or not row.get("predicted_outcome"):
             errors.append(f"{qid}: every misconception path needs a predicted_outcome")
             break
+    # Official distractors are the outcomes of specific errors. A hosted 數A paper
+    # listed misconceptions whose outcomes matched none of its printed options, so
+    # the distractors could be dismissed at a glance; require at least two printed
+    # non-key options to be exactly the predicted outcomes.
+    options = [o for o in item.get("options") or [] if isinstance(o, dict)]
+    if question_type in {"single_choice", "multiple_choice"} and options and paths:
+        printed = {_normalized(o.get("text")) for o in options}
+        outcomes = [_normalized(row.get("predicted_outcome")) for row in paths if isinstance(row, dict)]
+        realised = {o for o in outcomes if o and (o in printed or any(o in text for text in printed if len(text) <= 24))}
+        if len(realised) < 2:
+            errors.append(f"{qid}: only {len(realised)} misconception outcome(s) appear among the printed options; "
+                          "at least two distractors must be the predicted outcomes of the listed misconceptions "
+                          "(write the outcome exactly as the option prints it)")
 
     discrimination = design.get("discrimination_design") if isinstance(design.get("discrimination_design"), dict) else {}
     level = discrimination.get("level")

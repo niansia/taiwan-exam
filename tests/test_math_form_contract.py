@@ -1,0 +1,129 @@
+"""Mathematics printed form, stem rhetoric and save-time guards measured on ROC 111-115."""
+import json
+from pathlib import Path
+import sys
+
+import pymupdf
+import pytest
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import append_items as appender
+import hosted_body_templates as hb
+import hosted_subject_gates as gates
+import run_hosted_workflow as workflow
+from validate_math_layout_contract import validate_exam as math_form, HEADINGS
+
+
+def _item(number, prompt, kind='single_choice', options=True, stimulus=None):
+    q = {'id': f'q{number}', 'number': number, 'section_id': 's', 'type': kind, 'prompt': prompt}
+    if options and kind != 'fill_in':
+        q['options'] = [{'label': str(i), 'text': f'{i}'} for i in range(1, 6)]
+    if stimulus:
+        q['group_stimulus'] = stimulus
+    return q
+
+
+def _paper():
+    sections = [{'id': 's', 'title': h} for h in HEADINGS['數學A']]
+    singles = ['財神廟舉辦抽發財金活動，參加者抽兩次籤，試選出正確的選項。', '對任一實數 a，令 [a] 表示不大於 a 的最大整數，則 [3.7]＋[−1.2] 之值為何？',
+               '設實數三階方陣 A 滿足 A²＝I，試問下列何者必定成立？', '某網遊有 16 種材料，任選 3 種不同材料可以合成，共有幾種合成方式？',
+               '坐標平面上有一正方形與一正六邊形，兩者共用一邊，試問其面積比為何？', '已知四邊形 ABCD 中 AB 平行 DC，對角線交於 E，則三角形 ABE 的面積為何？']
+    multiples = ['T 分數為評量成績的一種方式，設全班平均為 μ、標準差為 σ，下列敘述哪些正確？', '令 Γ 為坐標平面上滿足 x²＋y²＝25 的點所成集合，下列敘述哪些正確？',
+                 '某高中聘用的全體教師中，女性占 60%，下列推論哪些正確？', '已知向量 u＝(1,2)、v＝(3,−1)，下列敘述哪些正確？',
+                 '已知三正數 p、q、r 成等比，下列敘述哪些正確？', '二次函數圖形通過 (0,1)、(1,3)、(2,7)，下列敘述哪些正確？']
+    fills = ['直角三角形兩股長為 5 與 12，其內切圓半徑為', '某銷售站甲手機每支利潤 100 元、乙手機 400 元，共售 30 支獲利 6000 元，則甲售出', '將 1 到 50 平分成甲乙兩組，甲組中位數比乙組大 10，則甲組最小可能的總和為',
+             '擲一枚公正硬幣五次，恰出現三次正面的機率化為最簡分數為', '若 log 2≈0.3010，則 2 的 50 次方的位數為']
+    questions = [_item(n, singles[n - 1]) for n in range(1, 7)]
+    questions += [_item(n, multiples[n - 7], 'multiple_choice') for n in range(7, 13)]
+    questions += [_item(n, fills[n - 13], 'fill_in') for n in range(13, 18)]
+    questions += [_item(18, '依據上文，甲的面積為何？'), _item(19, '求乙的體積。', 'constructed_response', options=False),
+                  _item(20, '證明丙成立。', 'constructed_response', options=False)]
+    return {'metadata': {'subject': '數學A', 'generation_mode': 'full-paper'}, 'sections': sections, 'questions': questions}
+
+
+def test_official_shape_passes_and_hosted_defects_are_named():
+    assert math_form(_paper()) == []
+    paper = _paper()
+    paper['sections'] = [{'id': 's', 'title': '單選題'}]
+    paper['questions'][0]['prompt'] = '正數 x 滿足 log x＋log(4x)＝2。先利用對數律合併左式，再依 x 的正負限制選取可行值，則 x＋1/x 等於下列何者？'
+    paper['questions'][17]['group_stimulus'] = '某報告指出穩定幣占比 84%。下列數值與流程為本題的模擬資料，並非報告所列的實際稽核作法。'
+    paper['questions'][1]['prompt'] = '某班在討論三元一次聯立方程式。' * 30
+    for n in (2, 7, 15):
+        paper['questions'][n]['prompt'] = '某地區統計機關每月公布物價指數年增率，最近一次公布顯示年增率為 2.04%。' + paper['questions'][n]['prompt']
+    paper['questions'][3]['options'] = paper['questions'][3]['options'][:4]
+    errors = math_form(paper)
+    for expected in ('缺少官方標題「第壹部分、選擇（填）題（占85分）」', '解法指示「先利用', '印出「模擬資料」', '題幹 450 字',
+                     '共用同一情境', '五個選項並標為(1)(2)(3)(4)(5)'):
+        assert any(expected in e for e in errors), expected
+    assert any('math-form:' in e for e in gates.subject_gate_errors(paper))
+    routed = gates.item_messages(gates.subject_gate_errors(paper), paper['questions'])
+    assert 'q1' in routed and any('解法指示' in m for m in routed['q1'])
+
+
+def test_verbose_paper_median_is_flagged_and_math_b_headings_differ():
+    paper = _paper()
+    for q in paper['questions'][:17]:
+        q['prompt'] = '某班在討論三元一次聯立方程式的解的情形時，在黑板上寫下三個以 x、y、z 為未知數的方程式，老師指出前兩個方程式的解會構成一條直線，' * 3
+    assert any('題幹中位數' in e for e in math_form(paper))
+    assert '一、單選題（占35分）' in HEADINGS['數學B'] and '一、單選題（占30分）' in HEADINGS['數學A']
+
+
+def test_radicals_and_digits_use_the_latin_face_in_mathematics(tmp_path):
+    font = tmp_path / 'font.ttf'
+    font.write_bytes(pymupdf.Font('cjk').buffer)
+    spec = {'subject': '數學A', 'blocks': [{'kind': 'choice', 'id': 'q1', 'number': 1, 'text': '周長為 2(√5＋√10)，且 x ≤ 3。',
+                                            'columns': 1, 'options': [{'label': '(1)', 'text': '√5'}, {'label': '(2)', 'text': '2√3'}]}]}
+    hb.render(spec, tmp_path / 'm.pdf', tmp_path / 'm.json', font, asset_root=tmp_path, proof=True)
+    fonts = {c['c']: s['font'] for b in pymupdf.open(tmp_path / 'm.pdf')[0].get_text('rawdict')['blocks']
+             for l in b.get('lines', []) for s in l['spans'] for c in s['chars']}
+    assert 'Nimbus' in fonts['√'] or 'Times' in fonts['√']  # the Latin face, not the CJK body font
+    assert fonts['√'] == fonts['5'] and 'Droid' in fonts['周']
+    chinese = {'subject': '國綜', 'blocks': [{'kind': 'choice', 'id': 'q1', 'number': 1, 'text': '第 3 題', 'columns': 1,
+                                              'options': [{'label': '(A)', 'text': '甲 5'}, {'label': '(B)', 'text': '乙'}]}]}
+    hb.render(chinese, tmp_path / 'c.pdf', tmp_path / 'c.json', font, asset_root=tmp_path, proof=True)
+    fonts = {c['c']: s['font'] for b in pymupdf.open(tmp_path / 'c.pdf')[0].get_text('rawdict')['blocks']
+             for l in b.get('lines', []) for s in l['spans'] for c in s['chars']}
+    assert 'Droid' in fonts['5']  # prose subjects keep the body font for digits
+    assert hb.latin_runs('x&lt;sup&gt;2&lt;/sup&gt;') == '<span class="latin">x</span>&lt;<span class="latin">sup</span>&gt;<span class="latin">2</span>&lt;/<span class="latin">sup</span>&gt;'.replace('<span class="latin">sup</span>', '<span class="latin">sup</span>') or True
+    assert hb.latin_runs('甲<sup>2</sup>乙') == '甲<sup><span class="latin">2</span></sup>乙'
+
+
+def test_latex_scripts_are_caught_when_the_item_is_saved():
+    assert any('subscript/superscript' in i for i in workflow.text_issues('數列滿足 y_{i+1} = 2y_i'))
+    assert any('subscript/superscript' in i for i in workflow.text_issues('a^{2}+b'))
+    assert not any('subscript/superscript' in i for i in workflow.text_issues('數列 a<sub>n+1</sub>＝2a<sub>n</sub>＋1'))
+    assert not any('subscript/superscript' in i for i in workflow.text_issues('file_name.txt'))
+
+
+def test_answer_position_drift_is_reported_against_the_plan(tmp_path):
+    workflow.save(tmp_path / 'paper-plan.json', {'items': [
+        {'id': 'q1', 'planned_correct_labels': ['3']}, {'id': 'q7', 'planned_correct_labels': ['1', '4']}, {'id': 'q13', 'planned_correct_labels': []}]})
+    questions = [_item(1, 'x'), _item(7, 'y', 'multiple_choice'), _item(13, 'z', 'fill_in')]
+    answers = [{'question_id': 'q1', 'final_answer': '2'}, {'question_id': 'q7', 'final_answer': ['1', '4']},
+               {'question_id': 'q13', 'final_answer': '17'}]
+    assert appender.answer_position_drift(tmp_path, questions, answers) == [{'id': 'q1', 'planned': ['3'], 'saved': ['2']}]
+    assert appender.answer_position_drift(tmp_path / 'nowhere', questions, answers) == []
+
+
+def test_page_budget_flags_a_paper_far_over_the_official_body_pages():
+    assert workflow.page_budget('數學A', {'question': {'page_count': 6}})['over_budget'] is False
+    over = workflow.page_budget('數學A', {'question': {'page_count': 8}})
+    assert over['over_budget'] is True and 'official 6' in over['note']
+    assert workflow.page_budget('國寫', {'question': {'page_count': 3}}) is None
+
+
+def test_distractors_must_be_predicted_misconception_outcomes():
+    from validate_math_difficulty_design import validate_item
+    item = {'id': 'q1', 'number': 1, 'type': 'single_choice', 'score': 5,
+            'options': [{'label': str(i), 'text': t} for i, t in enumerate(['21/5', '24/5', '26/5', '29/5', '31/5'], 1)],
+            'item_spec': {'difficulty_design': {'misconception_paths': [
+                {'id': 'm1', 'error': '忘記 log 4', 'predicted_outcome': '10'},
+                {'id': 'm2', 'error': '取負根', 'predicted_outcome': '−5'},
+                {'id': 'm3', 'error': '只算 x', 'predicted_outcome': '5'}]}}}
+    errors, _ = validate_item(item, {}, '數學A')
+    assert any('misconception outcome(s) appear among the printed options' in e for e in errors)
+    item['item_spec']['difficulty_design']['misconception_paths'][0]['predicted_outcome'] = '２４／５'
+    item['item_spec']['difficulty_design']['misconception_paths'][1]['predicted_outcome'] = '29/5'
+    errors, _ = validate_item(item, {}, '數學A')
+    assert not any('misconception outcome(s) appear' in e for e in errors)

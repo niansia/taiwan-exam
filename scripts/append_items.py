@@ -206,6 +206,30 @@ def inherit_audits(questions, existing):
     return inherited
 
 
+def answer_position_drift(root, questions, answers):
+    """Saved keys that differ from the positions planned in run/paper-plan.json."""
+    plan_path = root / 'paper-plan.json'
+    if not plan_path.is_file():
+        return []
+    try:
+        plan = read(plan_path)
+    except ValueError:
+        return []
+    planned = {item.get('id'): item for item in plan.get('items') or [] if isinstance(item, dict)}
+    by_answer = {a.get('question_id'): a for a in answers}
+    drift = []
+    for question in questions:
+        item = planned.get(question.get('id'))
+        expected = [str(v).strip('()（）') for v in (item or {}).get('planned_correct_labels') or []]
+        if not expected or question.get('type') not in {'single_choice', 'multiple_choice'}:
+            continue
+        final = by_answer.get(question['id'], {}).get('final_answer')
+        actual = sorted(str(v).strip('()（）') for v in (final if isinstance(final, list) else [final]) if v is not None)
+        if actual != sorted(expected):
+            drift.append({'id': question['id'], 'planned': sorted(expected), 'saved': actual})
+    return drift
+
+
 def append(run_dir, batch, *, state=None, plan=None, replace=False):
     root = Path(run_dir).resolve()
     preflight = read(root / 'preflight.json')
@@ -223,6 +247,15 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         existing_state = {}
     supplied = read(batch)
     questions, answers = validate_batch(supplied)
+    # A hosted run saved a choice item with its five options missing and learned it
+    # from a render failure two phases later.
+    for question in questions:
+        if question.get('type') in {'single_choice', 'multiple_choice'}:
+            options = question.get('options') or []
+            if len(options) < 2:
+                raise ValueError(f'{question["id"]}: a {question["type"]} item needs its authored options in the same batch')
+            if preflight.get('subject') in {'數學A', '數學B'} and len(options) != 5:
+                raise ValueError(f'{question["id"]}: 數學 choice items print exactly five options (1)-(5); found {len(options)}')
     exam_path = root / 'exam.json'
     if exam_path.exists():
         exam = read(exam_path)
@@ -257,6 +290,13 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
               for key, value in [('title', s.get('title')), *[('instructions', v) for v in s.get('instructions') or []]]
               for issue in text_issues(value)]
     issues += authoring_issues(questions, answers, root=root)
+    # A figure taller than 60% of the body cannot share a page with its own stem;
+    # a hosted run drew one 312 pt tall, paginated the whole paper around it,
+    # then threw the plan away. Size it now.
+    for risk in figure_pagination_risks(questions, answers, root=root, subject=preflight.get('subject')):
+        share = re.search(r'\((\d+)% of the body\)', risk)
+        if share and int(share.group(1)) >= 60:
+            issues.append(risk + ' [blocking: resize before saving]')
     if issues:
         raise ValueError(f'Fix {len(issues)} print issue(s), then save the batch again: ' + ' | '.join(issues))
     current_questions, current_answers = exam.get('questions', []), exam.get('answers', [])
@@ -328,6 +368,12 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
                                                 'note': 'Whole-paper floors (headings, section lengths, counts) are '
                                                         'expected to fail until the paper is complete; the final checker '
                                                         'runs the same validators.'}
+    drift = answer_position_drift(root, questions, answers)
+    if drift:
+        report['answer_position_drift'] = drift
+        report['answer_position_note'] = ('These keys differ from the positions planned in paper-plan.json. Permute the '
+                                          'already valid options now (then re-solve dependent records) or update the plan; '
+                                          'the whole-paper key check runs at finalize.')
     context = context_progress(exam)
     if context:
         report['current_context_progress'] = context

@@ -79,6 +79,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "validate_current_context.py")
     paths.append(root / "scripts" / "hosted_item_triage.py")
     paths.append(root / "scripts" / "hosted_evidence_refresh.py")
+    paths.append(root / "scripts" / "validate_math_layout_contract.py")
     paths.append(root / "scripts" / "hosted_bundles.py")
     paths.append(root / "scripts" / "hosted_subject_gates.py")
     paths.append(root / "scripts" / "answer_key_patterns.py")

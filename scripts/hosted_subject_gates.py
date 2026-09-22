@@ -151,6 +151,9 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
         from pathlib import Path
         from validate_visual_item_contract import validate_exam as visuals
         errors.extend('visuals: ' + str(e) for e in visuals(exam, Path(root)).get('errors', []))
+    if subject in {'數學A', '數學B'}:
+        from validate_math_layout_contract import validate_exam as math_layout
+        errors.extend('math-form: ' + e for e in math_layout(exam))
     if subject in {'國綜', '自然'}:
         from validate_source_grounding import item_errors as grounding_item_errors
         registry = (exam.get('metadata') or {}).get('source_registry') or {}
@@ -179,7 +182,8 @@ def item_messages(errors, questions):
     found = {}
     for message in errors:
         body = message.split(': ', 1)[1] if ': ' in message else message
-        match = re.match(r'(?:Q|英文第|第)(\d+)(?:題)?', body) or re.match(r'([A-Za-z0-9_-]+):', body)
+        match = (re.match(r'(?:Q|英文第|國綜第|數學[AB]第|第)(\d+)(?:題)?', body)
+                 or re.match(r'([A-Za-z0-9_-]+):', body))
         if match:
             for qid in numbers.get(match.group(1), []):
                 found.setdefault(qid, []).append(message)

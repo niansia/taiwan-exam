@@ -59,7 +59,7 @@ td.figure {vertical-align:top}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
 sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
 .optionlist {margin-left:28pt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
-.passage {font-family:Reading,Body} .english {font-family:Latin,Body}
+.passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
@@ -109,15 +109,38 @@ class RichText(HTMLParser):
     def handle_data(self, data): self.output.append(html.escape(data))
 
 
+# Official mathematics booklets set digits, Latin letters and the radical sign in a
+# proportional Latin face; the CJK body font draws √ one em wide, so 「√5」
+# printed with a visible gap and a hosted run rewrote every radical by hand.
+MATH_SUBJECTS = {'數學A', '數學B'}
+LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
+_latin_runs_enabled = False
+
+
+def latin_runs(markup):
+    """Wrap Latin/digit/radical runs of already-escaped markup in the Latin font, leaving tags alone."""
+    parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)  # tags, entities and {{tokens}} stay untouched
+    for index, part in enumerate(parts):
+        if not part or part.startswith(('<', '&', '{{')):
+            continue
+        # Escaped markup printed literally (&lt;script&gt;) stays one visible token.
+        if (index and parts[index - 1] == '&lt;') or (index + 1 < len(parts) and parts[index + 1] == '&gt;'):
+            continue
+        parts[index] = LATIN_RUN.sub(lambda m: f'<span class="latin">{m.group(0)}</span>', part)
+    return ''.join(parts)
+
+
 def text(value):
     if isinstance(value, dict) and set(value) == {'rich'}:
         parser = RichText(); parser.feed(value['rich']); parser.close()
         if parser.stack: raise ValueError('Unclosed rich-text tag')
-        return ''.join(parser.output)
+        result = ''.join(parser.output)
+        return latin_runs(result) if _latin_runs_enabled else result
     if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
     if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
         raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
-    return html.escape(value).replace('\n','<br>')
+    result = html.escape(value).replace('\n','<br>')
+    return latin_runs(result) if _latin_runs_enabled else result
 
 
 def rail_image(number, rows):
@@ -384,6 +407,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         raise ValueError('Placeholder gallery IDs cannot become production questions')
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
+    global _latin_runs_enabled
+    _latin_runs_enabled = spec['subject'] in MATH_SUBJECTS
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
