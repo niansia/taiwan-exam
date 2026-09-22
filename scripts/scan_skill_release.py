@@ -6,6 +6,7 @@ Attachment Services may quarantine its disposable copy. Existing Defender cloud
 policy remains unchanged. Passing is not vendor clearance or browser acceptance.
 """
 from __future__ import annotations
+from hosted_bundles import expand
 
 import argparse
 from datetime import datetime, timezone
@@ -49,6 +50,9 @@ def inspect_archive(archive, destination):
                 raise ValueError('Retired proof tool must not be distributed')
             files[rel] = zipped.read(member)
         manifest = json.loads(files.pop('PACKAGE_MANIFEST.json'))
+        # Bundled text sources are expanded first, so the manifest coverage
+        # check, the digests and the antivirus scan all see the original files.
+        files = expand(files, manifest)
         if manifest.get('format') == 'native-multi-file-hosted-skill':
             # This tests our portable ZIP naming policy separately from malware
             # scanning; neither result proves acceptance by Claude's uploader.

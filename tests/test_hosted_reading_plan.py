@@ -120,10 +120,14 @@ def test_native_skill_reads_without_aggregate_and_preserves_runtime(subject, tmp
     read_chunks(tmp_path,result)
     assert not (native_skill / 'taiwan-exam-web-knowledge.md').exists()
     manifest=json.loads((native_skill/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
+    from hosted_bundles import expand
+    files={str(p.relative_to(native_skill)).replace('\\','/'):p.read_bytes()
+           for p in native_skill.rglob('*') if p.is_file() and p.name!='PACKAGE_MANIFEST.json'}
+    files=expand(files,manifest)
     for row in manifest['files']:
         path=row.get('runtime_path', row['path'])
         if (tmp_path/path).is_file():
-            assert (tmp_path/path).read_bytes() == (native_skill/row['path']).read_bytes()
+            assert (tmp_path/path).read_bytes() == files[row['path']]
     assert (tmp_path/'exam_packs/學測/metadata/official-current-web-sources.json').is_file()
     assert not (native_skill/'exam_packs/學測').exists()
     assert reading_plan_from_directory(native_skill, subject, tmp_path) == result
@@ -147,6 +151,7 @@ def test_native_reader_rejects_changed_mapped_data_before_writing(tmp_path, nati
     manifest=json.loads((native_skill/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
     row=next(row for row in manifest['files']
              if row.get('runtime_path')=='exam_packs/學測/metadata/official-current-web-sources.json')
+    row={k:v for k,v in row.items() if k!='bundle'}  # a loose copy: the digest check is the same either way
     source=tmp_path/'tampered'
     file=source/row['path']
     file.parent.mkdir(parents=True)

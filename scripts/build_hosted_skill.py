@@ -17,6 +17,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 from build_web_knowledge import ROOT, source_paths
 from compose_hosted_pdf import merge_duplicate_fonts
 from fetch_hosted_template_assets import DEFAULT_MAP, ROOT as TEMPLATE_ROOT, production_records
+from hosted_bundles import pack, bundle_records, MAX_MEMBERS
 from read_web_knowledge import LAYOUT_PREVIEWS, LAYOUT_SLUGS
 from validate_attribution import validate as validate_attribution
 
@@ -100,9 +101,8 @@ Project body specs from saved items with `run_hosted_workflow.py specs`, review
 each batch's item crops with `proof`, and record findings with `record-review`.
 Deliver separate question and full-solution PDFs only after the final checks.
 
-The full source manual is preserved in
-[references/full-skill.md](references/full-skill.md) for applicable detailed rules;
-its original relative paths are rooted at this Skill directory. It is not an
+The reader materializes the full source manual as
+`references/full-skill.md` for applicable detailed rules. It is not an
 initial reading requirement. The hosted execution route controls hosted
 scheduling; local repository maintenance and source rebuilding are separate.
 Preserve LICENSE, NOTICE, ORIGIN.json and attribution records when packaging.
@@ -261,6 +261,15 @@ def build(version, output, *, root=ROOT, bundle_wheels=False):
                         'transform': 'duplicate font copies merged; pages render identically'})
     if len({p.casefold() for p in members}) != len(members):
         raise ValueError('Case-colliding hosted archive paths')
+    # Text sources travel in a few bundle members: the uploader counts every
+    # member against its limit, and a paper's helpers read the expanded copies.
+    loose, bundles, placement = pack(members)
+    for row in records:
+        if row['path'] in placement:
+            row['bundle'] = placement[row['path']]
+    member_count = len(loose) + len(bundles) + 1
+    if member_count > MAX_MEMBERS:
+        raise ValueError(f'{member_count} archive members exceed the uploader limit of {MAX_MEMBERS}')
     manifest = {'schema_version': 2, 'name': 'taiwan-exam-generator', 'version': version,
                 'distribution_status': 'internal-review-not-published',
                 'format': 'native-multi-file-hosted-skill', 'origin': attribution['origin'],
@@ -279,19 +288,21 @@ def build(version, output, *, root=ROOT, bundle_wheels=False):
                                    'note': 'The PyMuPDF wheel is normally a separate Release asset the user uploads when a runtime lacks PyMuPDF; see the README troubleshooting entry.',
                                    'files': [dict(metadata, path=target, sha256=sha(data))
                                              for target, (_, data, metadata) in sorted(wheels.items())]},
+                'bundles': bundle_records(bundles), 'member_count': member_count, 'member_limit': MAX_MEMBERS,
                 'file_count': len(records), 'files': sorted(records, key=lambda row: row['path'])}
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix('.zip.partial')
     if temporary.exists():
         raise ValueError('Preserve existing partial candidate; select another output path')
     with ZipFile(temporary, 'w', compression=ZIP_DEFLATED, compresslevel=9) as zipped:
-        for relative, data in sorted(members.items()):
+        for relative, data in sorted({**loose, **bundles}.items()):
             write_member(zipped, relative, data)
         write_member(zipped, 'PACKAGE_MANIFEST.json',
                      (json.dumps(manifest, ensure_ascii=False, indent=2) + '\n').encode('utf-8'))
     temporary.replace(output)
     return {'archive': str(output), 'version': version, 'sha256': sha(output.read_bytes()),
             'bytes': output.stat().st_size, 'file_count': len(records),
+            'member_count': member_count, 'member_limit': MAX_MEMBERS, 'bundles': sorted(bundles),
             'entry_bytes': len(members['SKILL.md']), 'distribution_status': manifest['distribution_status'],
             'security_acceptance': manifest['security_acceptance'],
             'bundled_wheels': manifest['bundled_wheels']['count'],

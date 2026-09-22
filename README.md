@@ -22,8 +22,8 @@
 
 | 你用的 AI | 下載這個檔案 | 接著看 |
 | --- | --- | --- |
-| **Claude**（claude.ai） | [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip) | [Claude](#claude) |
-| **ChatGPT**，左側欄有 **Plugins**，裡面有 **Skills** 分頁 | [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip) | [ChatGPT](#chatgpt) |
+| **Claude**（claude.ai） | [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip) | [Claude](#claude) |
+| **ChatGPT**，左側欄有 **Plugins**，裡面有 **Skills** 分頁 | [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip) | [ChatGPT](#chatgpt) |
 | **ChatGPT**，找不到 Skills | [直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html) | [ChatGPT](#chatgpt) 的「沒有 Skills」 |
 | **Gemini** | [直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html) | [Gemini](#gemini) |
 | Codex、Claude Code、Gemini CLI | 不用下載 | [進階：本機版](#進階本機版) |
@@ -34,9 +34,9 @@
 
 ### Claude
 
-1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip)，不要解壓縮。
+1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip)，不要解壓縮。
 2. 開啟 [Claude](https://claude.ai/)，依序點 **Customize → Skills → ＋ → Create skill → Upload a skill**。
-3. 選剛下載的 `taiwan-exam-hosted-2026.09.22.3.zip`，按 **Save**。
+3. 選剛下載的 `taiwan-exam-hosted-2026.09.22.4.zip`，按 **Save**。
 4. 確認技能清單出現 `taiwan-exam-generator`，而且已開啟。
 5. 到 **Settings → Capabilities**，確認 **Code execution and file creation** 已開啟。學校或公司帳號可能由管理員控制。
 
@@ -66,7 +66,7 @@
 
 依 [OpenAI 官方說明](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)，Skills 目前開放給 Business、Enterprise、Healthcare、Edu 帳號，工作區管理員也可能關閉上傳。一般 Free、Plus、Pro 帳號請看下面的「沒有 Skills」。
 
-1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip)，不要解壓縮。
+1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip)，不要解壓縮。
 2. 開啟 [ChatGPT](https://chatgpt.com/)，在左側欄點 **Plugins**，再點上方的 **Skills** 分頁。
 3. 點 **Create → Upload from your computer**，選剛下載的 ZIP。
 4. 等 ChatGPT 掃描完成，技能清單出現 `taiwan-exam-generator` 就完成了。
@@ -242,9 +242,9 @@
 </details>
 
 <details>
-<summary>上傳 ZIP 時出現「Zip file contains path with invalid characters」</summary>
+<summary>上傳 ZIP 時出現「Zip contains too many files (maximum 200)」或「Zip file contains path with invalid characters」</summary>
 
-這是舊版 `2026.09.14.1` ZIP 的問題。請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip) 再上傳，不需要自己解壓或修改。看到技能出現在清單中才算安裝完成；若新版仍被拒收，請保留錯誤文字並[回報問題](https://github.com/niansia/taiwan-exam/issues)。
+「too many files」是 2026.09.22.1～2026.09.22.3 ZIP 的問題（檔案數超過 Claude 的 200 個上限；2026.09.22.4 起把參考文件與資料合併成兩個 JSON 成員，約 100 個檔案）；「invalid characters」是更舊的 `2026.09.14.1` ZIP 的問題。請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip) 再上傳，不需要自己解壓或修改。看到技能出現在清單中才算安裝完成；若新版仍被拒收，請保留錯誤文字並[回報問題](https://github.com/niansia/taiwan-exam/issues)。
 
 </details>
 
@@ -273,7 +273,7 @@
 <details>
 <summary>進階：讓專案或 Gem 的對話直接使用 ZIP 裡的工具</summary>
 
-如果出卷對話能執行 Python、讀寫檔案，可以額外附上 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip)，並加上這段：
+如果出卷對話能執行 Python、讀寫檔案，可以額外附上 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip)，並加上這段：
 
 ```text
 我已附上 Taiwan Exam 網頁工具 ZIP，請解壓到本次工作目錄，依內附 hosted-execution 流程執行。
@@ -287,7 +287,7 @@
 
 ## 更新到新版
 
-**目前版本：知識檔與 Skill ZIP 皆為 2026.09.22.3（ZIP 內建七科模板與版型）；七科版型 2026.09.22.1。** [看更新紀錄](docs/web-updates.md)
+**目前版本：知識檔與 Skill ZIP 皆為 2026.09.22.4（ZIP 內建七科模板與版型）；七科版型 2026.09.22.1。** [看更新紀錄](docs/web-updates.md)
 
 GitHub 有新版時，你帳號裡已經放好的檔案**不會自動更新**，要自己換：
 

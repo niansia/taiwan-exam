@@ -26,7 +26,11 @@ When a native Skill already exposes its scripts and references, use
 SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Its package manifest is
 checked before the selected runtime files are copied. ZIP filenames are portable
 ASCII names; `runtime_path` in the manifest restores original canonical paths in
-VERSIONED_REFS with unchanged file bytes. Run subsequent helpers from
+VERSIONED_REFS with unchanged file bytes. The references, schemas, layout
+templates and exam-pack data travel inside two `resources/bundles/*.json`
+members (the uploader allows at most 200 files); the reader expands them and
+verifies every restored file against its own manifest digest, so VERSIONED_REFS
+holds ordinary files and no helper or reading step ever opens a bundle. Run subsequent helpers from
 VERSIONED_REFS, not the installed ZIP directory. This one local copy is scoped to
 the selected subject; it requires no aggregate Markdown, reinstallation or
 repository download. Reuse that reference directory on continuation. Its result
