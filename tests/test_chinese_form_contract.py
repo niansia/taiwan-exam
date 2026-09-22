@@ -1,4 +1,5 @@
 """The 國綜 printed-form contract measured on ROC 111-115; fixtures are synthetic."""
+import json
 from pathlib import Path
 import sys
 
@@ -29,6 +30,9 @@ def chinese_paper():
         q = {'id': f'q{n}', 'number': n, 'section_id': 'single' if n <= 24 else 'multi', 'type': kind,
              'prompt': prompts.get(n, f'依據上文，敘述最適當的是（第{n}題）：'),
              'options': [{'label': l, 'text': f'選項{n}{l}'} for l in labels]}
+        if n == 1:  # the official shape: two different look-alike characters, one per phrase
+            q['options'] = [{'label': 'A', 'text': '既瘖且「痺」／彈箏搏「髀」'}, {'label': 'B', 'text': '不「忮」不求／「庋」藏字畫'},
+                            {'label': 'C', 'text': '「攢」蹙累積／踰牆「鑽」穴'}, {'label': 'D', 'text': '「剜」肉補瘡／壯士斷「腕」'}]
         if n in groups:
             q['group_stimulus'] = groups[n]
         questions.append(q)
@@ -68,17 +72,63 @@ def test_official_shape_passes_and_gpt_style_defects_are_named():
     paper['questions'][1].update(prompt='若另增一句說明，何者最符合？', group_stimulus='文物館木箱')
     for q in paper['questions'][:10]:
         q['options'] = [{'label': str(i), 'text': f'w{i}'} for i in range(1, 5)]
-        q['option_layout'] = 'grid-2'
+        q['option_layout'] = 'row-4'
     for q in paper['questions'][24:31]:
         q['prompt'] = '關於甲、乙二文，下列敘述哪些適當？（應選3項）'
         q['group_stimulus'] = '甲乙二文'
     errors = chinese_layout(paper)
     for expected in ('第壹部分、選擇題（占76分）', '第1題須為字音題', '第2題須為字形題', '不得與其他題共用題組材料',
-                     '選項標記須為(A)(B)(C)(D)', '逐項直排', '不得印「應選n項」', '須為獨立多選題', '文言字義題',
+                     '選項標記須為(A)(B)(C)(D)', '最多並排兩欄', '不得印「應選n項」', '須為獨立多選題', '文言字義題',
                      '至少2題語文知識題'):
         assert any(expected in e for e in errors), expected
     assert any('chinese-layout' in e for e in gates.subject_gate_errors(paper))
-    assert workflow.option_columns({'options': [{'label': 'A', 'text': '甲'}] * 4}, '國綜') == 1
+
+
+def test_blank_fill_items_quote_a_real_source_and_interleave_two_candidates_per_slot():
+    paper = chinese_paper()
+    generated = paper['questions'][2]
+    generated.update(prompt='下列文句□中，最適合依序填入的選項是：「面對積累多年的檔案，整理者最需要的並不是一次□□的清掃，'
+                            '而是願意在細節上反覆□□的耐性；否則看似整齊的目錄，只會把真正重要的線索□□在相似的名稱之下。」',
+                     options=[{'label': 'A', 'text': '輕率／斟酌／保留'}, {'label': 'B', 'text': '全面／揣度／標示'},
+                              {'label': 'C', 'text': '草率／琢磨／凸顯'}, {'label': 'D', 'text': '徹底／推敲／掩蓋'}])
+    errors = chinese_layout(paper)
+    assert any('須摘錄真實作品並印出處' in e for e in errors)
+    assert any('第1格須恰有兩個候選詞' in e for e in errors)
+    official = chinese_paper()
+    official['questions'][2].update(
+        prompt='依據下文，□□內最適合填入的詞語依序是：',
+        group_stimulus='月亮從大大小小的雲朵裡照下來，就像是從厚薄不勻的□□□中滲出來的，滴到柏油路上，濃一塊，淡一塊，'
+                       '成了深深淺淺的□□。□□的城市。街上的人都那麼匆匆地趕路，各找各的營養。（聶華苓〈月光•枯井•三腳貓〉）',
+        options=[{'label': 'A', 'text': '破海綿／皎潔／貪婪'}, {'label': 'B', 'text': '破海綿／青蒼／貧血'},
+                 {'label': 'C', 'text': '舊報紙／青蒼／貪婪'}, {'label': 'D', 'text': '舊報紙／皎潔／貧血'}])
+    assert chinese_layout(official) == []
+    assert workflow.option_columns(official['questions'][2], '國綜') == 2
+    near = json.loads(json.dumps(official))
+    near['questions'][2]['options'][1]['text'] = '破海綿／皎潔／貧血'  # differs from A in one slot only
+    assert any('只差一格' in e or '須恰有兩個候選詞' in e for e in chinese_layout(near))
+
+
+def test_item_one_pairs_two_different_lookalike_characters_and_short_options_share_rows():
+    paper = chinese_paper()
+    # A generated paper tested one character's two readings; the official item never does.
+    paper['questions'][0]['options'] = [{'label': 'A', 'text': '舉酒「屬」客／有良田美池桑竹之「屬」'},
+                                        {'label': 'B', 'text': '陟罰臧「否」／「否」則前功盡棄'},
+                                        {'label': 'C', 'text': '不「復」出焉／「復」興舊業'},
+                                        {'label': 'D', 'text': '惑而不「從」師／舉止「從」容'}]
+    errors = chinese_layout(paper)
+    assert sum('引號內兩字相同' in e for e in errors) == 4
+    assert any('三至六字' in e for e in errors)  # 有良田美池桑竹之「屬」 is a nine-character half
+    paper['questions'][0]['options'][0]['text'] = '既瘖且痺／彈箏搏髀'
+    assert any('每邊各引一個字' in e for e in chinese_layout(paper))
+    # Column rule measured on 111-115: four options of at most 16 characters share rows two abreast.
+    short = [{'label': l, 'text': '既瘖且「痺」／彈箏搏「髀」'} for l in 'ABCD']
+    assert workflow.option_columns({'options': short}, '國綜') == 2
+    assert workflow.option_columns({'options': [{'label': l, 'text': '這是一個超過十六個字的長選項，官方會讓它自成一行印出'} for l in 'ABCD']}, '國綜') == 1
+    assert workflow.option_columns({'options': [{'label': l, 'text': '短選項'} for l in 'ABCDE']}, '國綜') == 1
+    long_grid = chinese_paper()
+    long_grid['questions'][2]['options'] = [{'label': l, 'text': '這是一個超過十六個字的長選項，官方會讓它自成一行印出'} for l in 'ABCD']
+    long_grid['questions'][2]['option_layout'] = 'grid-2'
+    assert any('選項過長或為五選項' in e for e in chinese_layout(long_grid))
 
 
 def test_yearly_fixtures_and_part_two_shape_are_required():

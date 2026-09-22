@@ -65,12 +65,37 @@ Every official booklet prints these headings, in order, each with one bordered
 | 二、多選題（占28分） | 說明：第25題至第31題，每題4分。 | 25–31 |
 | 第貳部分、混合題或非選擇題（占24分） | 說明：本部分共有1題組，選擇題每題2分，非選擇題配分標於題末。… | 32–36 (32–37 in 111–112) |
 
+Option columns, measured on every (A)–(E) line of the five booklets: a four-option
+item whose options are at most 16 characters (19 with the label) prints them two
+abreast at x = 82 pt and 298–303 pt (152 such lines; item 1 and short 填詞 items
+every year); longer options and every five-option item print one per line. The
+renderer's `option_columns` applies exactly this rule for 國綜; `grid-2` is the only
+multi-column layout the contract accepts, and only within that length.
+
 The item-by-item reading of all five papers is recorded in
 `exam_packs/學測/shared-data/chinese-item-type-envelope.json`. What holds every
 year (111–115), and is therefore enforced:
 
-- Item 1 is 字音 (`下列「」內的字，讀音前後相同的是：`), item 2 is 字形
-  (`下列文句，完全沒有錯別字的是：`). Items 1–5 stand alone (詞語運用, 填詞, 文言排序,
+- Item 1 is 字音 (`下列「」內的字，讀音前後相同的是：`): every option pairs two
+  **different** characters that share a component or phonetic, each quoted inside
+  its own classical four-character phrase and joined by ／ (111 痺／髀, 忮／庋, 攢／鑽,
+  剜／腕; 112 笳／袈, 鬩／睨, 踣／掊, 吁／迂; 113 闥／撻, 篙／蒿, 棹／踔, 逡／悛; 114 舁／臾,
+  啗／諂, 迤／弛, 畛／殄; 115 攲／旖, 諳／喑, 枇／毗, 遏／謁). Obscure characters are the
+  norm and the phrases come from 文言 or 成語. Testing one character's two readings
+  (「屬」客／桑竹之「屬」) is a different exercise that never appears as item 1;
+  `validate_chinese_layout_contract.py` rejects identical quoted characters, halves
+  without one quoted character each, and halves outside three to six characters.
+  Item 2 is 字形 (`下列文句，完全沒有錯別字的是：`).
+- 詞語填空 (111 Q6, 112 Q6, 114 Q3; none in 113 and 115) always quotes a real work
+  with its printed attribution: 杜甫〈灩澦〉and〈絕句漫興九首〉(`依據詩意與格律`),
+  〈補江總白猿傳〉(文言), 聶華苓〈月光•枯井•三腳貓〉(現代散文). Three □ slots of two to
+  four characters; the four options use exactly **two** candidate words per slot,
+  each appearing in two options, so any two options differ in at least two slots
+  (破海綿／舊報紙, 皎潔／青蒼, 貪婪／貧血). The difficulty is the near-synonym pair
+  judged from context or 格律, not vocabulary breadth. A self-written sentence
+  with four unrelated words per slot (輕率／全面／草率／徹底) is eliminated slot by
+  slot and is not the form; the contract rejects a missing attribution, a slot
+  with more or fewer than two candidates, and options differing in one slot. Items 1–5 stand alone (詞語運用, 填詞, 文言排序,
   稱謂, a boxed table, a 70–200-character passage); shared-stimulus 題組 start at
   item 6 (9 and 8 in 111–112) and carry items 6–24 in 6–8 groups of two or three
   (one group of 4 or 5 at most).
