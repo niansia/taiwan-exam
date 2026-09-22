@@ -16,6 +16,19 @@ DOMAIN_CODE = {
     "地理": "地Ab-Ⅴ-2",
     "公民與社會": "公Ac-Ⅴ-3",
 }
+# Rotating content codes so a 60-item fixture spreads over the 主題 bands the
+# validator now requires (臺灣史／中國與東亞／世界史, 地理技能／系統／視野, 公民 A-D).
+DOMAIN_CODES = {
+    "歷史": ["歷Db-Ⅴ-3", "歷Ga-Ⅴ-1", "歷K-Ⅴ-1", "歷A-Ⅴ-1"],
+    "地理": ["地Ab-Ⅴ-2", "地Ba-Ⅴ-1", "地Ca-Ⅴ-1", "地Bb-Ⅴ-1"],
+    "公民與社會": ["公Ac-Ⅴ-3", "公Bb-Ⅴ-1", "公Ca-Ⅴ-1", "公Da-Ⅴ-1", "公Bc-Ⅴ-1"],
+}
+assert all(code in MODULE.ALL_CONTENT_CODES for codes in DOMAIN_CODES.values() for code in codes)
+
+
+def _rotating_code(domain, qid):
+    digits = "".join(ch for ch in str(qid) if ch.isdigit())
+    return DOMAIN_CODES[domain][int(digits or 0) % len(DOMAIN_CODES[domain])]
 DOMAIN_TARGET = {"歷史": "H3", "地理": "G3", "公民與社會": "C3"}
 
 
@@ -31,8 +44,8 @@ def _scope_contract():
     }
 
 
-def _scope_fields(domain):
-    code = DOMAIN_CODE[domain]
+def _scope_fields(domain, code=None):
+    code = code or DOMAIN_CODE[domain]
     return {
         "curriculum_codes": [code],
         "ceec_assessment_targets": [DOMAIN_TARGET[domain]],
@@ -71,12 +84,13 @@ def _paper_innovation_review():
 
 
 def _basic(qid, domain, number=None, section_id=None):
+    code = _rotating_code(domain, qid)
     question = {
         "id": qid, "score": 2, "domain": domain,
-        "curriculum_codes": [DOMAIN_CODE[domain]],
+        "curriculum_codes": [code],
         "item_spec": {
             "orientation": "basic", "domain": domain,
-            **_scope_fields(domain),
+            **_scope_fields(domain, code),
         },
     }
     if number is not None:
@@ -87,14 +101,15 @@ def _basic(qid, domain, number=None, section_id=None):
 
 
 def _competence(qid, domain, family, freshness="evergreen"):
+    code = _rotating_code(domain, qid)
     return {
         "id": qid,
         "score": 2,
         "domain": domain,
-        "curriculum_codes": [DOMAIN_CODE[domain]],
+        "curriculum_codes": [code],
         "item_spec": {
             "domain": domain,
-            **_scope_fields(domain),
+            **_scope_fields(domain, code),
             "orientation": "competence",
             "source_family": family,
             "source_ids": [qid + "-s"],
@@ -458,3 +473,64 @@ def test_declared_medium_band_needs_a_third_reasoning_operation():
     )
     codes = {e["code"] for e in MODULE.validate_exam(exam)["errors"]}
     assert "linked_reasoning_operations_too_few" not in codes
+
+
+def _printed_full_paper():
+    """The 115 printed shape: 38 單選 in 第壹部分, 27 items in 11 題組 of 第貳部分."""
+    exam = _full_paper_with_recent_items(6)
+    questions = exam["questions"]
+    for q in questions:
+        q["type"] = "single_choice"
+    extra = []
+    for index in range(60, 65):
+        q = _basic(f"q{index}", ["歷史", "地理", "公民與社會"][index % 3], index + 1, "mixed")
+        q["type"] = "single_choice"
+        extra.append(q)
+    questions.extend(extra)
+    objective = [q for q in questions if q["section_id"] == "objective"][:38]
+    for q in questions:
+        if q["section_id"] == "objective" and q not in objective:
+            q["section_id"] = "mixed"
+    mixed = [q for q in questions if q["section_id"] == "mixed"]
+    for number, q in enumerate(objective, 1):
+        q["number"] = number
+    for offset, q in enumerate(mixed):
+        q["number"] = 39 + offset
+        q["group_stimulus"] = f"第貳部分共用材料 {offset % 11}：" + "某地方政府公布基準期與政策後資料，研究者提醒分母不同不能只看單一數字。" * 6
+        if offset % 3 == 2 and q["type"] == "single_choice":
+            q["type"] = "constructed_response"
+            q["score"] = 3
+            q.pop("options", None)
+    exam["sections"] = [{"id": "objective", "title": "第壹部分、選擇題（占76分）"},
+                        {"id": "mixed", "title": "第貳部分、混合題或非選擇題（占68分）"}]
+    return exam
+
+
+def test_printed_form_bands_measured_on_111_115_pass_and_deviations_are_named():
+    exam = _printed_full_paper()
+    report = MODULE.validate_exam(exam)
+    codes = {e["code"] for e in report["errors"]}
+    assert not any(c.startswith("social_first_part") or c.startswith("social_second_part") or c.startswith("social_total") for c in codes), report["errors"]
+    assert "social_curriculum_band_underrepresented" not in codes and "social_civics_themes_too_narrow" not in codes
+    exam["questions"][0]["type"] = "multiple_choice"
+    exam["questions"][1]["options"] = [{"label": str(i), "text": "x"} for i in range(1, 5)]
+    for q in exam["questions"]:
+        if q["section_id"] == "mixed" and q["type"] == "constructed_response":
+            q["type"] = "single_choice"
+    report = MODULE.validate_exam(exam)
+    codes = {e["code"] for e in report["errors"]}
+    assert {"social_multiple_choice_not_in_official_form", "social_option_labels_not_a_to_d",
+            "social_second_part_constructed_outside_band", "social_second_part_single_choice_outside_band"} <= codes
+
+
+def test_curriculum_breadth_requires_every_history_period_and_geography_theme():
+    exam = _printed_full_paper()
+    for q in exam["questions"]:
+        if q["item_spec"]["domain"] == "歷史":
+            q["item_spec"]["curriculum_codes"] = ["歷Db-Ⅴ-3"]
+            q["curriculum_codes"] = ["歷Db-Ⅴ-3"]
+        if q["item_spec"]["domain"] == "地理":
+            q["item_spec"]["curriculum_codes"] = ["地Ab-Ⅴ-2"]
+            q["curriculum_codes"] = ["地Ab-Ⅴ-2"]
+    errors = [e for e in MODULE.validate_exam(exam)["errors"] if e["code"] == "social_curriculum_band_underrepresented"]
+    assert {(e["domain"], e["band"]) for e in errors} == {("歷史", "中國與東亞"), ("歷史", "世界史"), ("地理", "地理系統"), ("地理", "地理視野")}

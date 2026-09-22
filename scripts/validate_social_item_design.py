@@ -49,6 +49,25 @@ ASSESSMENT_TARGETS_BY_DOMAIN = {
 }
 ALL_ASSESSMENT_TARGETS = set().union(*ASSESSMENT_TARGETS_BY_DOMAIN.values())
 PERFORMANCE_CODE_RE = re.compile(r"^[歷地公]\d[a-z]-[ⅤV]-\d+$")
+# Printed form measured on the official ROC 111-115 booklets (2026-09-22):
+# 第壹部分 單選 46/45/35/42/38 items (2 points each, 92/90/70/84/76), 第貳部分 numbered
+# 21/21/29/22/27 with 單選 11/11/19/12/16 and 非選 10/10/10/10/11 in 9/8/9/8/11 題組;
+# 64-67 numbered items; four options (A)-(D); no 多選 anywhere.
+SOCIAL_FORM_BANDS = {
+    "first_part_items": (35, 46), "second_part_items": (21, 29), "second_part_single": (11, 19),
+    "second_part_constructed": (9, 11), "second_part_groups": (8, 11), "total_items": (64, 67),
+}
+# 命題範圍 breadth by 108 content-code 主題 letter. 歷史 主題 run 臺灣史 (A-F, F = 歷史考察一),
+# 中國與東亞 (G-J), 世界 (K-O); 地理 A = 地理技能, B = 地理系統, C = 地理視野; 公民 A-D =
+# 公民身分／社會制度／社會運作與治理／民主溝通. Measured 111-115 (maintainer's reading):
+# 臺灣史 8/9/8/7/10, 中國與東亞 5/7/7/6/8, 世界史 7/6/10/9/5 items; 地理技能 6/3/1/3/5,
+# 自然 3/4/4/1/3, 人文 5-8, 區域／地緣 2/1/3/4/4; 公民 政治 3-5, 法律 4-7, 經濟 5-7, 社會文化 4-5.
+SOCIAL_BREADTH = {
+    "歷史": {"臺灣史": ("ABCDEF", 2), "中國與東亞": ("GHIJ", 2), "世界史": ("KLMNO", 2)},
+    "地理": {"地理技能": ("A", 1), "地理系統": ("B", 3), "地理視野": ("C", 2)},
+    "公民與社會": {"社會生活的組織及制度": ("B", 4)},
+}
+SOCIAL_CIVICS_DISTINCT_THEMES = 3
 
 
 def canonical_content_code(value: Any) -> str:
@@ -131,6 +150,77 @@ def _scope_contract_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
             "code": "social_specification_sections_not_reviewed",
             "missing": sorted(required_sections - sections),
         })
+    return errors
+
+
+def form_band_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
+    """Part sizes, response types and option labels inside the measured 111-115 bands.
+
+    Runs only for a paper that prints two sections (or declares full-paper mode);
+    metadata-only fixtures without sections are not held to the printed form.
+    """
+    sections = [s for s in (exam.get("sections") or []) if isinstance(s, dict)]
+    metadata = exam.get("metadata") or {}
+    if len(sections) < 2 and metadata.get("generation_mode") != "full-paper":
+        return []
+    questions = [q for q in exam.get("questions", []) if isinstance(q, dict) and isinstance(q.get("number"), int)]
+    first_id = sections[0].get("id") if sections else None
+    first = [q for q in questions if q.get("section_id") == first_id] if first_id else []
+    second = [q for q in questions if q not in first]
+    errors: list[dict[str, Any]] = []
+
+    def band(code, value, key, **extra):
+        low, high = SOCIAL_FORM_BANDS[key]
+        if not low <= value <= high:
+            errors.append({"code": code, "found": value, "band": [low, high], "official_111_115": extra.get("official")})
+
+    band("social_first_part_count_outside_band", len(first), "first_part_items", official="46, 45, 35, 42, 38")
+    band("social_second_part_count_outside_band", len(second), "second_part_items", official="21, 21, 29, 22, 27")
+    band("social_total_count_outside_band", len(questions), "total_items", official="67, 66, 64, 64, 65")
+    kinds = Counter(str(q.get("type") or "") for q in second)
+    band("social_second_part_single_choice_outside_band", kinds.get("single_choice", 0), "second_part_single", official="11, 11, 19, 12, 16")
+    band("social_second_part_constructed_outside_band", kinds.get("constructed_response", 0), "second_part_constructed", official="10, 10, 10, 10, 11")
+    groups = {str(q.get("group_stimulus") or "").strip() for q in second if str(q.get("group_stimulus") or "").strip()}
+    if groups:
+        band("social_second_part_group_count_outside_band", len(groups), "second_part_groups", official="9, 8, 9, 8, 11")
+    for q in questions:
+        qid = str(q.get("id") or q.get("number"))
+        if q.get("type") == "multiple_choice":
+            errors.append({"code": "social_multiple_choice_not_in_official_form", "question_id": qid,
+                           "detail": "官方 111-115 社會全卷沒有多選題；選擇題一律四選一 (A)-(D)。"})
+        if q in first and q.get("type") not in {"single_choice", None}:
+            errors.append({"code": "social_first_part_item_not_single_choice", "question_id": qid, "type": q.get("type")})
+        labels = [str(o.get("label") or "").strip("()（）") for o in (q.get("options") or []) if isinstance(o, dict)]
+        if labels and labels != ["A", "B", "C", "D"]:
+            errors.append({"code": "social_option_labels_not_a_to_d", "question_id": qid, "labels": labels})
+        if q in first and q.get("score") not in (None, 2):
+            errors.append({"code": "social_first_part_item_score_not_two", "question_id": qid, "score": q.get("score")})
+    return errors
+
+
+def curriculum_breadth_errors(questions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Every discipline must spread across its 108 主題 letter bands (see SOCIAL_BREADTH)."""
+    letters: dict[str, Counter] = {domain: Counter() for domain in VALID_DOMAINS}
+    for q in questions:
+        spec = q.get("item_spec") if isinstance(q.get("item_spec"), dict) else {}
+        domain = str(spec.get("domain") or q.get("domain") or "")
+        for raw in (spec.get("curriculum_codes") or q.get("curriculum_codes") or []):
+            code = canonical_content_code(raw)
+            if code in ALL_CONTENT_CODES and domain in letters and len(code) > 1 and code[0] in "歷地公":
+                letters[domain][code[1]] += 1
+                break  # one primary 主題 per item
+    errors: list[dict[str, Any]] = []
+    for domain, bands in SOCIAL_BREADTH.items():
+        for name, (band, minimum) in bands.items():
+            found = sum(count for letter, count in letters[domain].items() if letter in band)
+            if found < minimum:
+                errors.append({"code": "social_curriculum_band_underrepresented", "domain": domain, "band": name,
+                               "letters": band, "found": found, "minimum": minimum,
+                               "detail": "官方 111-115 每年三個歷史時空範圍、地理技能／系統／視野與公民各主題都有題目。"})
+    civics_themes = len([letter for letter in letters["公民與社會"] if letter in "ABCD"])
+    if civics_themes < SOCIAL_CIVICS_DISTINCT_THEMES:
+        errors.append({"code": "social_civics_themes_too_narrow", "found": civics_themes,
+                       "minimum": SOCIAL_CIVICS_DISTINCT_THEMES})
     return errors
 
 
@@ -449,6 +539,8 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
     if current_items and basic_items == 0:
         errors.append({"code": "paper_is_all_topical_no_basic_anchor"})
     if full_current_paper:
+        errors.extend(form_band_errors(exam))
+        errors.extend(curriculum_breadth_errors(questions))
         errors.extend(_paper_innovation_errors(exam))
         nearest_differences = [
             str((((q.get("item_spec") or {}).get("subject_innovation_audit") or {}).get("nearest_neighbor_difference") or "")).strip()

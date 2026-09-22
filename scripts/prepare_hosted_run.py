@@ -172,7 +172,8 @@ def authoring_requirements(subject):
                'stems quote 「…」 exactly as the material prints it; options one per line unless four options <= 16 chars'],
         '自然': ['five verified recent sources carrying eight items in both parts, two within 180 days, a Taiwan hazard, '
                'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item',
-               'Q1-36: 12-19 多選 (應選2項 or 應選3項 only) in four nine-item discipline blocks; Q37-56..60: six 題組 of 3-6 '
+               'each discipline spreads over at least three 108 主題 letters (official 4-7 chapters a year) and no chapter '
+               'above six items; Q1-36: 12-19 多選 (應選2項 or 應選3項 only) in four nine-item discipline blocks; Q37-56..60: six 題組 of 3-6 '
                'items, each with a 非選, 3-9 單選, 5-10 多選, 8-9 非選; metadata.natural_choice_form_contract records the '
                'actual counts (official 111-115 bands, not the 115 mix alone)'],
         '數學A': ['item_spec.scope_codes: 108 codes from templates/current-gsat-math-scope.json on every item (validate_math_context '
@@ -184,7 +185,10 @@ def authoring_requirements(subject):
                '（至多19行）（占21分）; 二、 material 226-443 字 then 請以「題目」為題 (情意: 書寫經驗、感受、體悟或想像)（占25分）; '
                'at least one material attributed inline（改寫自 作者《書名》）; no 文言, no 自擬'],
         '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
-               'subject_innovation_audit per item; content codes only in curriculum_codes'],
+               'subject_innovation_audit per item; content codes only in curriculum_codes',
+               'printed form (official 111-115 bands): 第壹部分 35-46 單選 of 2 points with (A)-(D), 第貳部分 21-29 numbered items '
+               'in 8-11 題組 with 11-19 單選 and 9-11 非選, 64-67 items, no 多選; curriculum codes spread over 臺灣史／中國與東亞／'
+               '世界史 (歷A-F／G-J／K-O), 地理技能／系統／視野 (地A／B／C) and at least three 公民 主題 with four 公B items'],
         '英文': ['ten official headings with A-D labels; passage lengths in the official bands; two recent passages carrying six '
                'items; composition prompt in Chinese with 提示/第一段/第二段 and a picture; unpatterned answer keys',
                'vocabulary stems 13-24 words; reading 35-46 with 2-4 refer-to/closest-in-meaning items, one global item and at '

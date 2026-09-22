@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.11
+# Taiwan Exam Web Knowledge v2026.09.22.12
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -183,10 +183,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "exam_packs/學測/shared-data/subject-form-envelopes-111-115.json",
-    "bytes": 5439,
-    "sha256": "203e89bac80b7fff20f820caf7915b038fc913b0b63ee204b00de7cc92f47644",
-    "embedded_bytes": 5439,
-    "embedded_sha256": "203e89bac80b7fff20f820caf7915b038fc913b0b63ee204b00de7cc92f47644"
+    "bytes": 11004,
+    "sha256": "8de309559b47b38da7d9aad762b6ffae6ede51a99fbfcdb161f639f756454233",
+    "embedded_bytes": 10314,
+    "embedded_sha256": "8849c64b8e1ae1f80e4093e96d372bfbd4448c1de5ca7e661ddeb4e49e0479c4"
   },
   {
     "path": "exam_packs/學測/source-pack-manifest.json",
@@ -512,10 +512,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 41414,
-    "sha256": "75f85d27f4233cda46393e44f8eabae4d204fd962e1806eafa4fb8b710bbff6e",
-    "embedded_bytes": 41090,
-    "embedded_sha256": "4162f6268bfd7a1ed436ce657d55e6eb2ca67baa4626d9363cfbc707b3fa507a"
+    "bytes": 42618,
+    "sha256": "bccb900497c77e23dbe09a1fcfefe054410a4157103923a38384a038de230b72",
+    "embedded_bytes": 42281,
+    "embedded_sha256": "952e47e2090fb58a255704322f8c62a6297095f52659168925355514a2603ffd"
   },
   {
     "path": "references/current-gsat-english-form.md",
@@ -540,10 +540,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-social-form.md",
-    "bytes": 33228,
-    "sha256": "ade1418b6419360a3619dbdfc2b697a26a1bcc088f0b630a7317533429a2d1e7",
-    "embedded_bytes": 33228,
-    "embedded_sha256": "ade1418b6419360a3619dbdfc2b697a26a1bcc088f0b630a7317533429a2d1e7"
+    "bytes": 34768,
+    "sha256": "994f212aa407aad0da6b461c9876533d8b0fca1c468655f7690c86a8da045262",
+    "embedded_bytes": 34768,
+    "embedded_sha256": "994f212aa407aad0da6b461c9876533d8b0fca1c468655f7690c86a8da045262"
   },
   {
     "path": "references/current-gsat-writing-form.md",
@@ -1016,10 +1016,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 29973,
-    "sha256": "555e9e35668bdd819656c5bedd80ab73a4e806df6f0bc22f17d6194e4e75727d",
-    "embedded_bytes": 29973,
-    "embedded_sha256": "555e9e35668bdd819656c5bedd80ab73a4e806df6f0bc22f17d6194e4e75727d"
+    "bytes": 30561,
+    "sha256": "4a742b8be39c66578ed41d84844dc8436132fdbe13b5219335e04d4f59f6f5dd",
+    "embedded_bytes": 30561,
+    "embedded_sha256": "4a742b8be39c66578ed41d84844dc8436132fdbe13b5219335e04d4f59f6f5dd"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1051,10 +1051,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_chinese_natural_scope.py",
-    "bytes": 31496,
-    "sha256": "96843d13a238b8e43005e1c97c39bc9477b51bc8399d4b0aabaac5d77c293237",
-    "embedded_bytes": 31496,
-    "embedded_sha256": "96843d13a238b8e43005e1c97c39bc9477b51bc8399d4b0aabaac5d77c293237"
+    "bytes": 33063,
+    "sha256": "fdd9bbef28500e925d4dbbc1646262d157c58399311f80c7ca019f0640155b89",
+    "embedded_bytes": 33063,
+    "embedded_sha256": "fdd9bbef28500e925d4dbbc1646262d157c58399311f80c7ca019f0640155b89"
   },
   {
     "path": "scripts/validate_current_context.py",
@@ -1156,10 +1156,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_social_item_design.py",
-    "bytes": 28991,
-    "sha256": "c9a84bd47f26663f1185189b3ac4f3d1b332d8fdb5fa581115feb2838c55c577",
-    "embedded_bytes": 28991,
-    "embedded_sha256": "c9a84bd47f26663f1185189b3ac4f3d1b332d8fdb5fa581115feb2838c55c577"
+    "bytes": 35363,
+    "sha256": "b78ceb3a6c3c0efe6640e73a6974281158cfcb4bc87f570d9d9445d38baad3da",
+    "embedded_bytes": 35363,
+    "embedded_sha256": "b78ceb3a6c3c0efe6640e73a6974281158cfcb4bc87f570d9d9445d38baad3da"
   },
   {
     "path": "scripts/validate_source_grounding.py",
@@ -13540,7 +13540,211 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
    3
   ],
   "discipline_blocks": "four uninterrupted nine-item blocks in Q1-36 every year; order varies (111 物化生地, 112 地生化物, 113 生化物地, 114 生地物化, 115 地物化生)",
-  "rule": "validate_chinese_natural_scope.py: bands above replace the 115-only 24/12 and 6/6/8 counts; metadata.natural_choice_form_contract records the paper's actual counts."
+  "rule": "validate_chinese_natural_scope.py: bands above replace the 115-only 24/12 and 6/6/8 counts; metadata.natural_choice_form_contract records the paper's actual counts.",
+  "chapters_first_part": {
+   "basis": "Maintainer's chapter reading of every Q1-36 item in the official 111-115 booklets (2026-09-22); items per chapter 111/112/113/114/115",
+   "物理": {
+    "運動與力、能量": [
+     4,
+     2,
+     2,
+     2,
+     3
+    ],
+    "電與磁": [
+     1,
+     0,
+     0,
+     1,
+     2
+    ],
+    "波與光": [
+     0,
+     4,
+     1,
+     2,
+     0
+    ],
+    "熱學": [
+     2,
+     2,
+     2,
+     1,
+     1
+    ],
+    "近代物理（原子、核、量子）": [
+     0,
+     0,
+     3,
+     2,
+     2
+    ],
+    "基本交互作用與科學史": [
+     2,
+     1,
+     1,
+     1,
+     0
+    ],
+    "天體物理": [
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   "化學": {
+    "原子與週期表": [
+     2,
+     1,
+     1,
+     0,
+     1
+    ],
+    "化學鍵與結構": [
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    "溶液、物質狀態與分離": [
+     2,
+     1,
+     1,
+     2,
+     1
+    ],
+    "酸鹼": [
+     1,
+     1,
+     0,
+     0,
+     2
+    ],
+    "反應與計量": [
+     1,
+     3,
+     2,
+     2,
+     1
+    ],
+    "有機、材料與生活化學": [
+     1,
+     1,
+     3,
+     3,
+     0
+    ],
+    "實驗與分析": [
+     0,
+     0,
+     1,
+     1,
+     3
+    ]
+   },
+   "生物": {
+    "細胞與能量": [
+     3,
+     2,
+     2,
+     2,
+     3
+    ],
+    "遺傳與分子生物": [
+     3,
+     2,
+     3,
+     3,
+     2
+    ],
+    "演化與分類": [
+     2,
+     2,
+     3,
+     2,
+     3
+    ],
+    "生理、免疫與生態": [
+     1,
+     3,
+     1,
+     2,
+     1
+    ]
+   },
+   "地科": {
+    "天文": [
+     5,
+     1,
+     0,
+     4,
+     3
+    ],
+    "大氣": [
+     2,
+     4,
+     3,
+     0,
+     2
+    ],
+    "海洋": [
+     2,
+     3,
+     2,
+     1,
+     0
+    ],
+    "固體地球": [
+     0,
+     1,
+     2,
+     3,
+     2
+    ],
+    "地球歷史與環境變遷": [
+     0,
+     0,
+     2,
+     1,
+     2
+    ]
+   },
+   "distinct_chapters_per_discipline": {
+    "物理": [
+     4,
+     4,
+     5,
+     7,
+     6
+    ],
+    "化學": [
+     6,
+     6,
+     6,
+     4,
+     6
+    ],
+    "生物": [
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "地科": [
+     3,
+     4,
+     4,
+     4,
+     4
+    ]
+   },
+   "max_items_in_one_chapter": 5,
+   "rule": "validate_chinese_natural_scope.py: each discipline's items span >= 3 distinct 108 主題 letters (second character of the content code) and no 主題 carries more than 6 items."
+  }
  },
  "數學B": {
   "families_per_paper": {
@@ -13771,6 +13975,182 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
   },
   "classical_material": false,
   "rule": "validate_writing_layout_contract.py (hosted save time and finalize)."
+ },
+ "社會": {
+  "first_part_single_choice": {
+   "111": 46,
+   "112": 45,
+   "113": 35,
+   "114": 42,
+   "115": 38,
+   "band": [
+    35,
+    46
+   ],
+   "score_each": 2
+  },
+  "first_part_groups": {
+   "111": 10,
+   "112": 10,
+   "113": 6,
+   "114": 6,
+   "115": 5
+  },
+  "second_part_items": {
+   "111": 21,
+   "112": 21,
+   "113": 29,
+   "114": 22,
+   "115": 27,
+   "band": [
+    21,
+    29
+   ]
+  },
+  "second_part_single_choice": {
+   "111": 11,
+   "112": 11,
+   "113": 19,
+   "114": 12,
+   "115": 16,
+   "band": [
+    11,
+    19
+   ]
+  },
+  "second_part_constructed": {
+   "111": 10,
+   "112": 10,
+   "113": 10,
+   "114": 10,
+   "115": 11,
+   "band": [
+    9,
+    11
+   ]
+  },
+  "second_part_groups": {
+   "111": 9,
+   "112": 8,
+   "113": 9,
+   "114": 8,
+   "115": 11,
+   "band": [
+    8,
+    11
+   ]
+  },
+  "total_items": {
+   "111": 67,
+   "112": 66,
+   "113": 64,
+   "114": 64,
+   "115": 65
+  },
+  "total_score": 144,
+  "options": "four, (A)-(D), single_choice only; no 多選 in any year",
+  "subdomains_per_year": {
+   "basis": "Maintainer's reading of every item head in the official 111-115 booklets (2026-09-22); counts 111/112/113/114/115",
+   "歷史": {
+    "臺灣史": [
+     8,
+     9,
+     8,
+     7,
+     10
+    ],
+    "中國與東亞史": [
+     5,
+     7,
+     7,
+     6,
+     8
+    ],
+    "世界史": [
+     7,
+     6,
+     10,
+     9,
+     5
+    ],
+    "史料判讀題": ">=1 every year"
+   },
+   "地理": {
+    "地理技能（地圖、GIS、遙測、等高線）": [
+     6,
+     3,
+     1,
+     3,
+     5
+    ],
+    "自然地理": [
+     3,
+     4,
+     4,
+     1,
+     3
+    ],
+    "人口與都市": [
+     1,
+     4,
+     1,
+     2,
+     1
+    ],
+    "產業與經濟地理": [
+     3,
+     3,
+     4,
+     5,
+     5
+    ],
+    "區域互賴與地緣": [
+     2,
+     1,
+     3,
+     4,
+     4
+    ],
+    "文化地理": [
+     1,
+     2,
+     1,
+     1,
+     1
+    ]
+   },
+   "公民與社會": {
+    "政治": [
+     5,
+     4,
+     3,
+     4,
+     3
+    ],
+    "法律": [
+     4,
+     5,
+     5,
+     5,
+     7
+    ],
+    "經濟": [
+     7,
+     6,
+     5,
+     6,
+     6
+    ],
+    "社會與文化": [
+     4,
+     4,
+     5,
+     5,
+     4
+    ]
+   }
+  },
+  "rule": "validate_social_item_design.form_band_errors (part sizes, types, (A)-(D)) and curriculum_breadth_errors (歷A-F／G-J／K-O >= 2 each, 地A >= 1, 地B >= 3, 地C >= 2, 公B >= 4 and >= 3 公民 主題)."
  }
 }
 </canonical-source>
@@ -57146,6 +57526,19 @@ laboratory, does not qualify.
 Run `scripts/validate_literacy_load.py generated-exam.json --subject 自然` before
 layout. See [current-form-literacy-load.md](current-form-literacy-load.md).
 
+### 命題範圍 by chapter, ROC 111–115 (maintainer's reading of every Q1–36 item)
+
+Items per chapter, 111/112/113/114/115. 物理: 運動與力、能量 4/2/2/2/3, 電與磁 1/0/0/1/2,
+波與光 0/4/1/2/0, 熱學 2/2/2/1/1, 近代物理 0/0/3/2/2, 基本交互作用與科學史 2/1/1/1/0, 天體物理
+0/0/0/0/1. 化學: 原子與週期表 2/1/1/0/1, 化學鍵與結構 2/2/1/1/1, 溶液、物質狀態與分離 2/1/1/2/1,
+酸鹼 1/1/0/0/2, 反應與計量 1/3/2/2/1, 有機、材料與生活化學 1/1/3/3/0, 實驗與分析 0/0/1/1/3.
+生物: 細胞與能量 3/2/2/2/3, 遺傳與分子生物 3/2/3/3/2, 演化與分類 2/2/3/2/3, 生理、免疫與生態
+1/3/1/2/1. 地科: 天文 5/1/0/4/3, 大氣 2/4/3/0/2, 海洋 2/3/2/1/0, 固體地球 0/1/2/3/2, 地球歷史與
+環境變遷 0/0/2/1/2. Each discipline spreads over 4–7 chapters a year and no chapter carries more
+than 5 items; 細胞, 遺傳 and 演化 appear every year, as do 運動與力 and 熱學. The scope
+validator checks breadth on the 108 content code's 主題 letter: every discipline ≥ 3 distinct
+主題 and no 主題 above 6 items. Table: `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
+
 ### Discipline order and reasoning floor
 
 - The first-part contract is visible, not metadata-only: print `第壹部分、選擇題（占72分）`, followed by the bordered direction `說明：第1題至第36題，含單選題及多選題，每題2分。` Questions 1–36 therefore total 72 points and contain both single- and multiple-choice items. Measured on the five official booklets the multiple-choice share of Q1–36 is 18, 15, 19, 18 and 12 items (111–115); the contract accepts 12–19 多選 (單選 = 36 − 多選) and `metadata.natural_choice_form_contract` must record the paper's actual counts—115 alone is not the form, and 36 generic or single-choice items are rejected. Every official 多選 prints 應選2項 or 應選3項, never 4.
@@ -57892,6 +58285,25 @@ Every profile is 110 minutes and 144 points. Select one verified year before wri
 - **共用材料的選擇題組不受單題分科連續限制**；整組保持連續、完整，不能為湊科別區塊拆散題組，也不能替互不相關的單題掛同一組名來規避排序。
 - **第二部分混合題／非選擇題完全不受上述分科連續限制**，包括其中的單選小題。判別依所在部分及共用材料，不是看到 `single_choice` 就一律搬到第一部分分科排序。
 - `sections` 按正式印刷順序記錄兩大部分；題目以 `section_id` 歸屬、`number` 排序。同組小題使用相同的非空 `group_stimulus`；只有一題引用的材料仍屬單題。出卷前用 `validate_social_item_design.py` 檢查獨立單題是否回頭交錯科別、是否出現在題組後、共用題組是否被拆開。所選年度的精確區塊題數及跨科組合，另外與 `exam_packs` 參考架構人工核對，程式通過不等於已完成這項比對。
+
+### Measured 111–115 form bands and 命題範圍 (enforced since 2026.09.22.12)
+
+Text extracted from the five official booklets on disk, 111/112/113/114/115:
+第壹部分 單選 46/45/35/42/38 items (2 points each), 第貳部分 21/21/29/22/27 numbered items
+in 9/8/9/8/11 題組 with 11/11/19/12/16 單選 and 10/10/10/10/11 非選; 64–67 numbered items;
+every selected response is four options (A)–(D) and no year prints a 多選.
+`validate_social_item_design.form_band_errors` enforces the bands (35–46 / 21–29 / 11–19 /
+9–11 / 8–11 / 64–67) on a paper that prints two sections.
+
+命題範圍 (maintainer's item-by-item reading, counts 111/112/113/114/115): 歷史 臺灣史
+8/9/8/7/10, 中國與東亞史 5/7/7/6/8, 世界史 7/6/10/9/5, with at least one 史料判讀 item every
+year; 地理 技能 (地圖、GIS、遙測、等高線) 6/3/1/3/5, 自然地理 3/4/4/1/3, 人口與都市 1/4/1/2/1,
+產業與經濟 3/3/4/5/5, 區域互賴與地緣 2/1/3/4/4, 文化 1/2/1/1/1; 公民 政治 5/4/3/4/3, 法律
+4/5/5/5/7, 經濟 7/6/5/6/6, 社會與文化 4/4/5/5/4. `curriculum_breadth_errors` checks the
+108 content-code 主題 letters: 歷A–F (臺灣史 and 歷史考察一), 歷G–J (中國與東亞) and 歷K–O
+(世界) at least 2 items each; 地A (技能) ≥ 1, 地B (系統) ≥ 3, 地C (視野) ≥ 2; 公B (社會生活的
+組織及制度: 政治、法律、經濟) ≥ 4 and at least three of the four 公民 主題. The full table is
+`exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
 
 ### 混合題的跨科素養與新穎性
 
@@ -70683,7 +71095,8 @@ def authoring_requirements(subject):
                'stems quote 「…」 exactly as the material prints it; options one per line unless four options <= 16 chars'],
         '自然': ['five verified recent sources carrying eight items in both parts, two within 180 days, a Taiwan hazard, '
                'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item',
-               'Q1-36: 12-19 多選 (應選2項 or 應選3項 only) in four nine-item discipline blocks; Q37-56..60: six 題組 of 3-6 '
+               'each discipline spreads over at least three 108 主題 letters (official 4-7 chapters a year) and no chapter '
+               'above six items; Q1-36: 12-19 多選 (應選2項 or 應選3項 only) in four nine-item discipline blocks; Q37-56..60: six 題組 of 3-6 '
                'items, each with a 非選, 3-9 單選, 5-10 多選, 8-9 非選; metadata.natural_choice_form_contract records the '
                'actual counts (official 111-115 bands, not the 115 mix alone)'],
         '數學A': ['item_spec.scope_codes: 108 codes from templates/current-gsat-math-scope.json on every item (validate_math_context '
@@ -70695,7 +71108,10 @@ def authoring_requirements(subject):
                '（至多19行）（占21分）; 二、 material 226-443 字 then 請以「題目」為題 (情意: 書寫經驗、感受、體悟或想像)（占25分）; '
                'at least one material attributed inline（改寫自 作者《書名》）; no 文言, no 自擬'],
         '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
-               'subject_innovation_audit per item; content codes only in curriculum_codes'],
+               'subject_innovation_audit per item; content codes only in curriculum_codes',
+               'printed form (official 111-115 bands): 第壹部分 35-46 單選 of 2 points with (A)-(D), 第貳部分 21-29 numbered items '
+               'in 8-11 題組 with 11-19 單選 and 9-11 非選, 64-67 items, no 多選; curriculum codes spread over 臺灣史／中國與東亞／'
+               '世界史 (歷A-F／G-J／K-O), 地理技能／系統／視野 (地A／B／C) and at least three 公民 主題 with four 公B items'],
         '英文': ['ten official headings with A-D labels; passage lengths in the official bands; two recent passages carrying six '
                'items; composition prompt in Chinese with 提示/第一段/第二段 and a picture; unpatterned answer keys',
                'vocabulary stems 13-24 words; reading 35-46 with 2-4 refer-to/closest-in-meaning items, one global item and at '
@@ -73653,6 +74069,8 @@ PERFORMANCE_CODE = re.compile(r"\b[a-z]{2}-Ⅴc-\d\b")
 CHINESE_CODES = {f"A{i}" for i in range(1, 7)} | {f"B{i}" for i in range(1, 6)}
 # 自然 form bands measured on the official 111–115 question booklets (2026-09-22).
 NATURAL_PROFILE_YEARS = {111, 112, 113, 114, 115}
+NATURAL_THEMES_MIN = 3          # distinct 主題 letters per discipline; official chapters per discipline 4-7
+NATURAL_THEME_MAX_ITEMS = 6     # official maximum in one chapter: 5 (111 天文)
 NATURAL_FIRST_PART_MULTIPLE = (12, 19)          # 多選 in Q1–36: 18, 15, 19, 18, 12
 NATURAL_MIXED_LAST = (56, 60)                   # last numbered item: 60, 60, 56, 57, 56
 NATURAL_MIXED_BANDS = {
@@ -73826,6 +74244,7 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
             valid_content = valid_performance = None
             warnings.append("official 自然 specification not supplied: code membership unchecked, code form still required")
         normalized_domains: dict[int, str] = {}
+        themes_by_domain: dict[str, Counter] = {name: Counter() for name in ("物理", "化學", "生物", "地科")}
         for q in questions:
             spec = q.get("item_spec") or {}
             errors.extend(innovation_errors(q, "自然"))
@@ -73846,6 +74265,9 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
             if head:
                 domain_counts[head] += 1
                 domain_scores[head] += float(q.get("score") or 0)
+                content = [str(c) for c in codes if CONTENT_CODE.fullmatch(str(c))]
+                if content:
+                    themes_by_domain[head][content[0][1]] += 1
                 if isinstance(q.get("number"), int):
                     normalized_domains[int(q["number"])] = head
             else:
@@ -73885,6 +74307,18 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
                 "natural discipline score shares differ by more than 8 percentage points: "
                 + ", ".join(f"{name}={score_shares[name]:.3f}" for name in ("物理", "化學", "生物", "地科"))
             )
+        if len(questions) >= 50:
+            # 命題範圍 breadth measured on the official 111-115 booklets (chapter reading of every
+            # item, see subject-form-envelopes-111-115.json): each discipline's items spread over
+            # 4-7 chapters a year and no chapter carries more than 5 items. The 108 content code's
+            # second character is the 主題 letter, so breadth is checked on it.
+            for name, themes in themes_by_domain.items():
+                if domain_counts[name] and len(themes) < NATURAL_THEMES_MIN:
+                    errors.append(f"{name} items cover only {len(themes)} 108 主題 (codes {sorted(themes)}); official 111-115 spread each "
+                                  f"discipline over at least {NATURAL_THEMES_MIN} 主題 every year (4-7 chapters)")
+                for theme, count in themes.items():
+                    if count > NATURAL_THEME_MAX_ITEMS:
+                        errors.append(f"{name} 主題 {theme} carries {count} items; official 111-115 never exceed {NATURAL_THEME_MAX_ITEMS} items in one chapter")
         inquiry = sum(any(PERFORMANCE_CODE.fullmatch(c) for c in ((q.get("item_spec") or {}).get("curriculum_codes") or [])) for q in questions)
         if inquiry < 14:
             errors.append(f"inquiry/practice coverage below 14 items: {inquiry}")
@@ -77341,6 +77775,25 @@ ASSESSMENT_TARGETS_BY_DOMAIN = {
 }
 ALL_ASSESSMENT_TARGETS = set().union(*ASSESSMENT_TARGETS_BY_DOMAIN.values())
 PERFORMANCE_CODE_RE = re.compile(r"^[歷地公]\d[a-z]-[ⅤV]-\d+$")
+# Printed form measured on the official ROC 111-115 booklets (2026-09-22):
+# 第壹部分 單選 46/45/35/42/38 items (2 points each, 92/90/70/84/76), 第貳部分 numbered
+# 21/21/29/22/27 with 單選 11/11/19/12/16 and 非選 10/10/10/10/11 in 9/8/9/8/11 題組;
+# 64-67 numbered items; four options (A)-(D); no 多選 anywhere.
+SOCIAL_FORM_BANDS = {
+    "first_part_items": (35, 46), "second_part_items": (21, 29), "second_part_single": (11, 19),
+    "second_part_constructed": (9, 11), "second_part_groups": (8, 11), "total_items": (64, 67),
+}
+# 命題範圍 breadth by 108 content-code 主題 letter. 歷史 主題 run 臺灣史 (A-F, F = 歷史考察一),
+# 中國與東亞 (G-J), 世界 (K-O); 地理 A = 地理技能, B = 地理系統, C = 地理視野; 公民 A-D =
+# 公民身分／社會制度／社會運作與治理／民主溝通. Measured 111-115 (maintainer's reading):
+# 臺灣史 8/9/8/7/10, 中國與東亞 5/7/7/6/8, 世界史 7/6/10/9/5 items; 地理技能 6/3/1/3/5,
+# 自然 3/4/4/1/3, 人文 5-8, 區域／地緣 2/1/3/4/4; 公民 政治 3-5, 法律 4-7, 經濟 5-7, 社會文化 4-5.
+SOCIAL_BREADTH = {
+    "歷史": {"臺灣史": ("ABCDEF", 2), "中國與東亞": ("GHIJ", 2), "世界史": ("KLMNO", 2)},
+    "地理": {"地理技能": ("A", 1), "地理系統": ("B", 3), "地理視野": ("C", 2)},
+    "公民與社會": {"社會生活的組織及制度": ("B", 4)},
+}
+SOCIAL_CIVICS_DISTINCT_THEMES = 3
 
 
 def canonical_content_code(value: Any) -> str:
@@ -77423,6 +77876,77 @@ def _scope_contract_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
             "code": "social_specification_sections_not_reviewed",
             "missing": sorted(required_sections - sections),
         })
+    return errors
+
+
+def form_band_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
+    """Part sizes, response types and option labels inside the measured 111-115 bands.
+
+    Runs only for a paper that prints two sections (or declares full-paper mode);
+    metadata-only fixtures without sections are not held to the printed form.
+    """
+    sections = [s for s in (exam.get("sections") or []) if isinstance(s, dict)]
+    metadata = exam.get("metadata") or {}
+    if len(sections) < 2 and metadata.get("generation_mode") != "full-paper":
+        return []
+    questions = [q for q in exam.get("questions", []) if isinstance(q, dict) and isinstance(q.get("number"), int)]
+    first_id = sections[0].get("id") if sections else None
+    first = [q for q in questions if q.get("section_id") == first_id] if first_id else []
+    second = [q for q in questions if q not in first]
+    errors: list[dict[str, Any]] = []
+
+    def band(code, value, key, **extra):
+        low, high = SOCIAL_FORM_BANDS[key]
+        if not low <= value <= high:
+            errors.append({"code": code, "found": value, "band": [low, high], "official_111_115": extra.get("official")})
+
+    band("social_first_part_count_outside_band", len(first), "first_part_items", official="46, 45, 35, 42, 38")
+    band("social_second_part_count_outside_band", len(second), "second_part_items", official="21, 21, 29, 22, 27")
+    band("social_total_count_outside_band", len(questions), "total_items", official="67, 66, 64, 64, 65")
+    kinds = Counter(str(q.get("type") or "") for q in second)
+    band("social_second_part_single_choice_outside_band", kinds.get("single_choice", 0), "second_part_single", official="11, 11, 19, 12, 16")
+    band("social_second_part_constructed_outside_band", kinds.get("constructed_response", 0), "second_part_constructed", official="10, 10, 10, 10, 11")
+    groups = {str(q.get("group_stimulus") or "").strip() for q in second if str(q.get("group_stimulus") or "").strip()}
+    if groups:
+        band("social_second_part_group_count_outside_band", len(groups), "second_part_groups", official="9, 8, 9, 8, 11")
+    for q in questions:
+        qid = str(q.get("id") or q.get("number"))
+        if q.get("type") == "multiple_choice":
+            errors.append({"code": "social_multiple_choice_not_in_official_form", "question_id": qid,
+                           "detail": "官方 111-115 社會全卷沒有多選題；選擇題一律四選一 (A)-(D)。"})
+        if q in first and q.get("type") not in {"single_choice", None}:
+            errors.append({"code": "social_first_part_item_not_single_choice", "question_id": qid, "type": q.get("type")})
+        labels = [str(o.get("label") or "").strip("()（）") for o in (q.get("options") or []) if isinstance(o, dict)]
+        if labels and labels != ["A", "B", "C", "D"]:
+            errors.append({"code": "social_option_labels_not_a_to_d", "question_id": qid, "labels": labels})
+        if q in first and q.get("score") not in (None, 2):
+            errors.append({"code": "social_first_part_item_score_not_two", "question_id": qid, "score": q.get("score")})
+    return errors
+
+
+def curriculum_breadth_errors(questions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Every discipline must spread across its 108 主題 letter bands (see SOCIAL_BREADTH)."""
+    letters: dict[str, Counter] = {domain: Counter() for domain in VALID_DOMAINS}
+    for q in questions:
+        spec = q.get("item_spec") if isinstance(q.get("item_spec"), dict) else {}
+        domain = str(spec.get("domain") or q.get("domain") or "")
+        for raw in (spec.get("curriculum_codes") or q.get("curriculum_codes") or []):
+            code = canonical_content_code(raw)
+            if code in ALL_CONTENT_CODES and domain in letters and len(code) > 1 and code[0] in "歷地公":
+                letters[domain][code[1]] += 1
+                break  # one primary 主題 per item
+    errors: list[dict[str, Any]] = []
+    for domain, bands in SOCIAL_BREADTH.items():
+        for name, (band, minimum) in bands.items():
+            found = sum(count for letter, count in letters[domain].items() if letter in band)
+            if found < minimum:
+                errors.append({"code": "social_curriculum_band_underrepresented", "domain": domain, "band": name,
+                               "letters": band, "found": found, "minimum": minimum,
+                               "detail": "官方 111-115 每年三個歷史時空範圍、地理技能／系統／視野與公民各主題都有題目。"})
+    civics_themes = len([letter for letter in letters["公民與社會"] if letter in "ABCD"])
+    if civics_themes < SOCIAL_CIVICS_DISTINCT_THEMES:
+        errors.append({"code": "social_civics_themes_too_narrow", "found": civics_themes,
+                       "minimum": SOCIAL_CIVICS_DISTINCT_THEMES})
     return errors
 
 
@@ -77741,6 +78265,8 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
     if current_items and basic_items == 0:
         errors.append({"code": "paper_is_all_topical_no_basic_anchor"})
     if full_current_paper:
+        errors.extend(form_band_errors(exam))
+        errors.extend(curriculum_breadth_errors(questions))
         errors.extend(_paper_innovation_errors(exam))
         nearest_differences = [
             str((((q.get("item_spec") or {}).get("subject_innovation_audit") or {}).get("nearest_neighbor_difference") or "")).strip()
