@@ -5,6 +5,7 @@ No network, installation, question generation or PDF rendering occurs here.
 Without --output-dir, list the selected paths and sizes without dumping content.
 """
 from __future__ import annotations
+from hosted_bundles import BUNDLE_DIR, parse as parse_bundle, safe_path
 
 import argparse
 import hashlib
@@ -221,6 +222,29 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
     source_root = source_dir.resolve()
     manifest = json.loads((source_root / 'PACKAGE_MANIFEST.json').read_text(encoding='utf-8-sig'))
     entries, verified, seen, runtime_seen = {}, [], set(), set()
+    bundles = {}
+
+    def bundled_bytes(row, stored_path):
+        # Text sources travel inside a few bundle members; each restored file is
+        # still verified against its own manifest digest below.
+        bundle = row['bundle']
+        if bundle not in bundles:
+            if not safe_path(bundle) or not bundle.startswith(BUNDLE_DIR):
+                raise ValueError('Unsafe bundle path: ' + str(bundle))
+            source = (source_root / bundle).resolve()
+            if not source.is_relative_to(source_root) or not source.is_file():
+                raise ValueError('Missing or external package bundle: ' + bundle)
+            data = source.read_bytes()
+            record = (manifest.get('bundles') or {}).get(bundle)
+            if (not isinstance(record, dict) or len(data) != record.get('bytes')
+                    or hashlib.sha256(data).hexdigest() != record.get('sha256')):
+                raise ValueError('Bundle digest mismatch: ' + bundle)
+            bundles[bundle] = parse_bundle(data)
+        text = bundles[bundle].get(stored_path)
+        if text is None:
+            raise ValueError('Missing or external package file: ' + stored_path)
+        return text.encode('utf-8')
+
     for row in manifest['files']:
         stored_path = row['path']
         path = row.get('runtime_path', stored_path)
@@ -234,14 +258,21 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
         if not relevant(path, subject):
             continue
         source = (source_root / stored_path).resolve()
-        if not source.is_relative_to(source_root) or not source.is_file():
+        if not source.is_relative_to(source_root):
             raise ValueError('Missing or external package file: ' + path)
-        raw = source.read_bytes()
+        if row.get('bundle') and not source.is_file():
+            # An installed ZIP keeps the bundle; a scanner-extracted copy already
+            # holds the loose file. Both are verified against the row's digest.
+            raw = bundled_bytes(row, stored_path)
+        elif source.is_file():
+            raw = source.read_bytes()
+        else:
+            raise ValueError('Missing or external package file: ' + path)
         if len(raw) != row['bytes'] or hashlib.sha256(raw).hexdigest() != row['sha256']:
             raise ValueError('Package checksum mismatch: ' + path)
         # Native packages preserve source bytes. Views normalize text exactly as
         # the web builder does; copied runtime files keep the package's bytes.
-        if source.suffix in {'.md', '.json', '.py', '.txt', '.yaml', '.yml', ''}:
+        if Path(stored_path).suffix in {'.md', '.json', '.py', '.txt', '.yaml', '.yml', ''}:
             payload = (raw.decode('utf-8-sig').replace('\r\n', '\n').replace('\r', '\n').rstrip() + '\n').encode('utf-8')
             record = dict(row, path=path, embedded_bytes=len(payload),
                           embedded_sha256=hashlib.sha256(payload).hexdigest())

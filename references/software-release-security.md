@@ -16,6 +16,20 @@ Exam generation, rendering and required content/layout validators stay in the
 Skill. This separation reduces unnecessary distribution content; it is NOT
 evidence that any maintainer script caused the antivirus detection.
 
+## Archive shape the uploader accepts
+
+Claude's Skill uploader rejects a ZIP with more than 200 members ("Zip contains
+too many files (maximum 200)"; it refused the 222-member 2026.09.22.3 archive)
+and any member path outside ASCII letters, digits, `.`, `_`, `-` and `/`. The
+builder therefore keeps only the entry, licence files, `AGENTS.md`,
+`references/hosted-execution.md`, `scripts/*.py`, the fixed template PDFs and the
+layout previews as separate members and packs every other text source into
+`resources/bundles/references.json` and `resources/bundles/data.json`
+(`scripts/hosted_bundles.py`). `build_hosted_skill.py` refuses to write an
+archive over the limit and reports `member_count`; the scanner and the reader
+expand the bundles and verify each file's digest, so the security scan, the
+tests and the run directory see the original files.
+
 ## Open incident and release checks
 
 The current renderer hardening and reproducible checker-environment fix are

@@ -29,6 +29,33 @@ def scan(path, callback=lambda _: {'returncode': 0, 'output': 'fixture scan'}):
         attachment_fn=lambda path, url: {'status': 'pass', 'hresult': 0, 'archive_sha256': security.digest(path), 'source_url': url})
 
 
+def test_text_bundles_expand_and_a_tampered_bundle_blocks(tmp_path):
+    from hosted_bundles import pack, bundle_records
+    body = b'# fixture reference' + bytes([10])
+    loose, bundles, placement = pack({'references/x.md': body, 'SKILL.md': b'fixture'})
+    assert set(bundles) == {'resources/bundles/references.json'} and placement == {'references/x.md': 'resources/bundles/references.json'}
+    records = [{'path': 'SKILL.md', 'bytes': 7, 'sha256': hashlib.sha256(b'fixture').hexdigest()},
+               {'path': 'references/x.md', 'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest(),
+                'bundle': 'resources/bundles/references.json'}]
+    for tamper in (False, True):
+        path = tmp_path / ('tampered.zip' if tamper else 'good.zip')
+        with ZipFile(path, 'w') as zipped:
+            zipped.writestr('taiwan-exam-generator/SKILL.md', b'fixture')
+            data = bundles['resources/bundles/references.json']
+            zipped.writestr('taiwan-exam-generator/resources/bundles/references.json',
+                            data.replace(b'fixture reference', b'altered reference') if tamper else data)
+            zipped.writestr('taiwan-exam-generator/PACKAGE_MANIFEST.json', json.dumps({
+                'format': 'native-multi-file-hosted-skill', 'files': records, 'bundles': bundle_records(bundles)}))
+        if tamper:
+            with pytest.raises(ValueError, match='Bundle digest mismatch'):
+                security.inspect_archive(path, tmp_path / 'out-tampered')
+            assert not (tmp_path / 'out-tampered' / 'references').exists()
+        else:
+            security.inspect_archive(path, tmp_path / 'out')
+            assert (tmp_path / 'out' / 'references/x.md').read_bytes() == body
+            assert not (tmp_path / 'out' / 'resources').exists()
+
+
 def test_scans_archive_and_extracted_members(tmp_path):
     report = scan(archive(tmp_path))
     assert report['status'] == 'pass'

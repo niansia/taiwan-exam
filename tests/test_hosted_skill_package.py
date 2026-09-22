@@ -14,6 +14,7 @@ import yaml
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from build_hosted_skill import build, archive_path, validate_member_path
+from hosted_bundles import expand, MAX_MEMBERS, BUNDLE_DIR
 from build_web_knowledge import source_paths
 from package_skill import should_include
 from fetch_hosted_template_assets import production_records
@@ -29,6 +30,14 @@ def native(tmp_path_factory):
     return directory,archive,result,directory/'installed/taiwan-exam-generator'
 
 
+def expanded_files(archive):
+    """Every logical file of the archive, with the text bundles opened."""
+    with ZipFile(archive) as zipped:
+        files={name.split('/',1)[1]:zipped.read(name) for name in zipped.namelist() if not name.endswith('/')}
+    manifest=json.loads(files.pop('PACKAGE_MANIFEST.json'))
+    return expand(files,manifest),manifest
+
+
 def test_short_entry_is_separate_from_exact_canonical_sources(native):
     _,archive,result,installed=native
     entry=(installed/'SKILL.md').read_bytes()
@@ -38,11 +47,12 @@ def test_short_entry_is_separate_from_exact_canonical_sources(native):
     assert 0<len(metadata['description'])<=200
     assert b'references/hosted-execution.md' in entry
     assert b'not an\ninitial reading requirement' in entry
-    assert (installed/'references/full-skill.md').read_bytes()==(ROOT/'SKILL.md').read_bytes()
+    files,_=expanded_files(archive)
+    assert files['references/full-skill.md']==(ROOT/'SKILL.md').read_bytes()
     for source in source_paths():
         relative=source.relative_to(ROOT)
         destination='references/full-skill.md' if relative.as_posix()=='SKILL.md' else relative
-        assert (installed/archive_path(str(destination).replace('\\', '/'))).read_bytes()==source.read_bytes()
+        assert files[archive_path(str(destination).replace('\\', '/'))]==source.read_bytes()
     with ZipFile(archive) as zipped:
         names=zipped.namelist()
         assert len(names)==len(set(names))
@@ -70,13 +80,36 @@ def test_short_entry_is_separate_from_exact_canonical_sources(native):
     for row in previews:
         assert hashlib.sha256((ROOT/row['source']).read_bytes()).hexdigest()==row['source_sha256']
     for row in manifest['files']:
-        data=(installed/row['path']).read_bytes()
+        data=files[row['path']]
         assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256']
+        assert (installed/row['path']).is_file()==(row.get('bundle') is None)
     # The wheel installer always ships; the PyMuPDF wheel itself is a separate Release asset by default.
     assert (installed/'scripts/ensure_pymupdf.py').is_file()
     assert not any(name.endswith('.whl') for name in names)
     assert manifest['bundled_wheels']['count']==0==result['bundled_wheels']
     assert manifest['bundled_wheels']['installer']=='scripts/ensure_pymupdf.py'
+
+
+def test_text_sources_travel_in_few_members_under_the_upload_limit(native):
+    _,archive,result,installed=native
+    with ZipFile(archive) as zipped:
+        names=[n for n in zipped.namelist() if not n.endswith('/')]
+    files,manifest=expanded_files(archive)
+    # Claude rejected a 222-member ZIP ("Zip contains too many files (maximum 200)").
+    assert len(names)==manifest['member_count']==result['member_count']<=MAX_MEMBERS==manifest['member_limit']
+    assert len(names)<=120, len(names)
+    assert set(manifest['bundles'])==set(result['bundles'])=={BUNDLE_DIR+'references.json',BUNDLE_DIR+'data.json'}
+    loose={n.split('/',1)[1] for n in names}
+    assert {'SKILL.md','LICENSE','NOTICE','ORIGIN.json','AGENTS.md','references/hosted-execution.md'}<=loose
+    assert all(n.startswith('scripts/') or n.endswith('.pdf') or n in {'SKILL.md','LICENSE','NOTICE','ORIGIN.json',
+               'AGENTS.md','references/hosted-execution.md','PACKAGE_MANIFEST.json'} or n.startswith(BUNDLE_DIR)
+               for n in loose), sorted(loose)
+    bundled=[row for row in manifest['files'] if row.get('bundle')]
+    assert bundled and all(row['path'].rsplit('.',1)[-1] in {'md','json','svg','csv'} for row in bundled)
+    assert not any(row['path'].startswith('scripts/') or row['path'].endswith('.pdf') for row in bundled)
+    assert manifest['file_count']==len(manifest['files'])==len(files)
+    # The installed directory holds only loose members; the reader restores the rest.
+    assert not (installed/'references/full-skill.md').exists()
 
 
 def test_wheel_bundling_is_opt_in(tmp_path):

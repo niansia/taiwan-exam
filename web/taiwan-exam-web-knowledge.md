@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.3
+# Taiwan Exam Web Knowledge v2026.09.22.4
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -645,10 +645,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 36677,
-    "sha256": "b100c7aa03490fd07ddb6d029d7539acc5fc37fa046e2446d96b0469e50d6f95",
-    "embedded_bytes": 36677,
-    "embedded_sha256": "b100c7aa03490fd07ddb6d029d7539acc5fc37fa046e2446d96b0469e50d6f95"
+    "bytes": 37012,
+    "sha256": "24a04d9e2891d7e39134672085efeba514409619fd8e5b64a40086ecb560647e",
+    "embedded_bytes": 37012,
+    "embedded_sha256": "24a04d9e2891d7e39134672085efeba514409619fd8e5b64a40086ecb560647e"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -924,6 +924,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "82b87196bf7dbfd6426ec20289114de3b8210abddd8657efa409c7902a12c84f"
   },
   {
+    "path": "scripts/hosted_bundles.py",
+    "bytes": 5492,
+    "sha256": "462c160ff3fc6e5d425e31c301c5ffc1cfa6510cda1b71a8c3ce875676652bd3",
+    "embedded_bytes": 5492,
+    "embedded_sha256": "462c160ff3fc6e5d425e31c301c5ffc1cfa6510cda1b71a8c3ce875676652bd3"
+  },
+  {
     "path": "scripts/hosted_calibration.py",
     "bytes": 5405,
     "sha256": "f7374fc5a0113a632292ff9b252263adaa1333344c302ff538766ac58f235bcc",
@@ -1002,10 +1009,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 25814,
-    "sha256": "c8848c1cebc6b6593cb532bbc0c496c523fc2ab093e34898655299df4058f422",
-    "embedded_bytes": 25814,
-    "embedded_sha256": "c8848c1cebc6b6593cb532bbc0c496c523fc2ab093e34898655299df4058f422"
+    "bytes": 27470,
+    "sha256": "282cc25d1257cca1bb8840167cb3419836bd52483660d3174100a214c0745990",
+    "embedded_bytes": 27470,
+    "embedded_sha256": "282cc25d1257cca1bb8840167cb3419836bd52483660d3174100a214c0745990"
   },
   {
     "path": "scripts/run_hosted_workflow.py",
@@ -58712,7 +58719,11 @@ When a native Skill already exposes its scripts and references, use
 SUBJECT --output-dir VERSIONED_REFS --reading-plan`. Its package manifest is
 checked before the selected runtime files are copied. ZIP filenames are portable
 ASCII names; `runtime_path` in the manifest restores original canonical paths in
-VERSIONED_REFS with unchanged file bytes. Run subsequent helpers from
+VERSIONED_REFS with unchanged file bytes. The references, schemas, layout
+templates and exam-pack data travel inside two `resources/bundles/*.json`
+members (the uploader allows at most 200 files); the reader expands them and
+verifies every restored file against its own manifest digest, so VERSIONED_REFS
+holds ordinary files and no helper or reading step ever opens a bundle. Run subsequent helpers from
 VERSIONED_REFS, not the installed ZIP directory. This one local copy is scoped to
 the selected subject; it requires no aggregate Markdown, reinstallation or
 repository download. Reuse that reference directory on continuation. Its result
@@ -66729,6 +66740,129 @@ if __name__=='__main__':
     print(json.dumps({'body_pdf':str(args.output),'layout':str(args.layout),'elapsed_seconds':result['elapsed_seconds']}))
 </canonical-source>
 
+<canonical-source path="scripts/hosted_bundles.py">
+#!/usr/bin/env python3
+"""Transport bundles: many small text sources travel as a few JSON members.
+
+Claude's Skill uploader accepts at most 200 files in one ZIP; it rejected the
+2026.09.22.3 archive (222 members) with "Zip contains too many files". The
+Python helpers, the entry, the licence files, the first reference and the fixed
+template PDFs stay separate members. Every other text source (references,
+schemas, layout templates, exam-pack data) travels inside
+`resources/bundles/*.json` as {archive path: exact UTF-8 text}.
+
+The reader (`read_web_knowledge.py --source-dir`) and the release scanner
+expand a bundle back to its files and verify every file against the package
+manifest, so the run directory, the helpers and the security scan see the
+original files. A bundle is transport only; it changes no bytes.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import PurePosixPath
+import re
+
+BUNDLE_DIR = 'resources/bundles/'
+BUNDLE_KIND = 'hosted-text-bundle'
+BUNDLE_FORMAT = 1
+# The uploader's limit, counted over every member of the ZIP.
+MAX_MEMBERS = 200
+LOOSE_FILES = {'SKILL.md', 'LICENSE', 'NOTICE', 'ORIGIN.json', 'AGENTS.md',
+               'references/hosted-execution.md', 'PACKAGE_MANIFEST.json'}
+LOOSE_PREFIXES = ('scripts/',)
+TEXT_SUFFIXES = {'.md', '.json', '.svg', '.csv', '.txt', '.yaml', '.yml'}
+SAFE_PATH = re.compile(r'[A-Za-z0-9_./-]+')
+
+
+def safe_path(path):
+    return (isinstance(path, str) and bool(SAFE_PATH.fullmatch(path))
+            and not any(part in {'', '.', '..'} for part in path.split('/')))
+
+
+def bundle_for(path):
+    """The bundle a member travels in, or None when it stays a separate file."""
+    if path in LOOSE_FILES or path.startswith(LOOSE_PREFIXES):
+        return None
+    if PurePosixPath(path).suffix not in TEXT_SUFFIXES:
+        return None
+    return BUNDLE_DIR + ('references.json' if path.endswith('.md') else 'data.json')
+
+
+def pack(members):
+    """Split {path: bytes} into loose members, bundle members and each bundled path's bundle."""
+    loose, groups, placement = {}, {}, {}
+    for path, data in members.items():
+        target = bundle_for(path)
+        if target is None:
+            loose[path] = data
+            continue
+        try:
+            text = data.decode('utf-8')
+        except UnicodeDecodeError as exc:
+            raise ValueError(f'Bundled text member is not UTF-8: {path}: {exc}') from None
+        if text.encode('utf-8') != data:
+            raise ValueError('Bundled text member does not round-trip through UTF-8: ' + path)
+        groups.setdefault(target, {})[path] = text
+        placement[path] = target
+    bundles = {}
+    for target, files in sorted(groups.items()):
+        payload = {'kind': BUNDLE_KIND, 'format': BUNDLE_FORMAT, 'file_count': len(files),
+                   'files': dict(sorted(files.items()))}
+        bundles[target] = (json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=True) + '\n').encode('utf-8')
+    return loose, bundles, placement
+
+
+def parse(data):
+    """{path: text} from bundle bytes, refusing anything but the documented shape."""
+    try:
+        payload = json.loads(data.decode('utf-8'))
+    except (UnicodeDecodeError, ValueError) as exc:
+        raise ValueError(f'Bundle is not valid UTF-8 JSON: {exc}') from None
+    if (not isinstance(payload, dict) or payload.get('kind') != BUNDLE_KIND
+            or payload.get('format') != BUNDLE_FORMAT or not isinstance(payload.get('files'), dict)):
+        raise ValueError('Unexpected bundle shape')
+    files = payload['files']
+    if payload.get('file_count') != len(files):
+        raise ValueError('Bundle file count disagrees with its contents')
+    for path, text in files.items():
+        if not safe_path(path) or bundle_for(path) is None or not isinstance(text, str):
+            raise ValueError('Unsafe or misplaced bundled path: ' + str(path))
+    return files
+
+
+def bundle_records(bundles):
+    """Manifest entries for the bundle members themselves."""
+    return {path: {'kind': BUNDLE_KIND, 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest(),
+                   'file_count': len(parse(data))}
+            for path, data in sorted(bundles.items())}
+
+
+def expand(files, manifest):
+    """Replace bundle members in {path: bytes} by the files they carry, verifying the manifest's digests."""
+    declared = manifest.get('bundles') or {}
+    if not isinstance(declared, dict):
+        raise ValueError('Manifest bundles must be an object')
+    expanded = dict(files)
+    for bundle_path, record in declared.items():
+        if not safe_path(bundle_path) or not bundle_path.startswith(BUNDLE_DIR):
+            raise ValueError('Unsafe bundle path: ' + str(bundle_path))
+        data = expanded.pop(bundle_path, None)
+        if data is None:
+            raise ValueError('Missing bundle member: ' + bundle_path)
+        if (not isinstance(record, dict) or len(data) != record.get('bytes')
+                or hashlib.sha256(data).hexdigest() != record.get('sha256')):
+            raise ValueError('Bundle digest mismatch: ' + bundle_path)
+        for path, text in parse(data).items():
+            if path in expanded:
+                raise ValueError('Bundled file collides with a separate member: ' + path)
+            expanded[path] = text.encode('utf-8')
+    stray = sorted(path for path in expanded if path.startswith(BUNDLE_DIR))
+    if stray:
+        raise ValueError('Undeclared bundle member: ' + ', '.join(stray))
+    return expanded
+</canonical-source>
+
 <canonical-source path="scripts/hosted_calibration.py">
 #!/usr/bin/env python3
 """Offline aggregate calibration; never represent an unseen original as viewed."""
@@ -69469,6 +69603,7 @@ No network, installation, question generation or PDF rendering occurs here.
 Without --output-dir, list the selected paths and sizes without dumping content.
 """
 from __future__ import annotations
+from hosted_bundles import BUNDLE_DIR, parse as parse_bundle, safe_path
 
 import argparse
 import hashlib
@@ -69685,6 +69820,29 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
     source_root = source_dir.resolve()
     manifest = json.loads((source_root / 'PACKAGE_MANIFEST.json').read_text(encoding='utf-8-sig'))
     entries, verified, seen, runtime_seen = {}, [], set(), set()
+    bundles = {}
+
+    def bundled_bytes(row, stored_path):
+        # Text sources travel inside a few bundle members; each restored file is
+        # still verified against its own manifest digest below.
+        bundle = row['bundle']
+        if bundle not in bundles:
+            if not safe_path(bundle) or not bundle.startswith(BUNDLE_DIR):
+                raise ValueError('Unsafe bundle path: ' + str(bundle))
+            source = (source_root / bundle).resolve()
+            if not source.is_relative_to(source_root) or not source.is_file():
+                raise ValueError('Missing or external package bundle: ' + bundle)
+            data = source.read_bytes()
+            record = (manifest.get('bundles') or {}).get(bundle)
+            if (not isinstance(record, dict) or len(data) != record.get('bytes')
+                    or hashlib.sha256(data).hexdigest() != record.get('sha256')):
+                raise ValueError('Bundle digest mismatch: ' + bundle)
+            bundles[bundle] = parse_bundle(data)
+        text = bundles[bundle].get(stored_path)
+        if text is None:
+            raise ValueError('Missing or external package file: ' + stored_path)
+        return text.encode('utf-8')
+
     for row in manifest['files']:
         stored_path = row['path']
         path = row.get('runtime_path', stored_path)
@@ -69698,14 +69856,21 @@ def reading_plan_from_directory(source_dir: Path, subject: str, output_dir: Path
         if not relevant(path, subject):
             continue
         source = (source_root / stored_path).resolve()
-        if not source.is_relative_to(source_root) or not source.is_file():
+        if not source.is_relative_to(source_root):
             raise ValueError('Missing or external package file: ' + path)
-        raw = source.read_bytes()
+        if row.get('bundle') and not source.is_file():
+            # An installed ZIP keeps the bundle; a scanner-extracted copy already
+            # holds the loose file. Both are verified against the row's digest.
+            raw = bundled_bytes(row, stored_path)
+        elif source.is_file():
+            raw = source.read_bytes()
+        else:
+            raise ValueError('Missing or external package file: ' + path)
         if len(raw) != row['bytes'] or hashlib.sha256(raw).hexdigest() != row['sha256']:
             raise ValueError('Package checksum mismatch: ' + path)
         # Native packages preserve source bytes. Views normalize text exactly as
         # the web builder does; copied runtime files keep the package's bytes.
-        if source.suffix in {'.md', '.json', '.py', '.txt', '.yaml', '.yml', ''}:
+        if Path(stored_path).suffix in {'.md', '.json', '.py', '.txt', '.yaml', '.yml', ''}:
             payload = (raw.decode('utf-8-sig').replace('\r\n', '\n').replace('\r', '\n').rstrip() + '\n').encode('utf-8')
             record = dict(row, path=path, embedded_bytes=len(payload),
                           embedded_sha256=hashlib.sha256(payload).hexdigest())

@@ -5,13 +5,21 @@
 以下是修正摘要；目前執行規則以 [SKILL.md](../SKILL.md) 與最新版知識檔為準。
 更新 GitHub 不會自動替換帳號內已儲存的附件，請更新原本的 Skill／Project／Gem。
 
+## 2026.09.22.4：ZIP 檔案數壓到 100 個以下，Claude 上傳恢復
+
+Claude 的 Skill 上傳器對 2026.09.22.3 ZIP 回「Zip contains too many files (maximum 200)」：該版 222 個檔案，2026.09.22.1、2026.09.22.2 也分別為 208、221 個，皆超過 200；ChatGPT 沒有這個限制。因此前兩版更新紀錄裡的「Claude 上傳成功」對應的是上傳器尚未套用此限制或紀錄有誤，以本版為準。
+
+維護者提議把檔案整合。做法是把 ZIP 當成傳輸格式：倉庫原檔不動，`scripts/build_hosted_skill.py` 打包時把所有參考文件（41 個 .md）、schema、版面模板 JSON、exam_packs 資料等文字檔合併成 `resources/bundles/references.json` 與 `resources/bundles/data.json` 兩個成員（`scripts/hosted_bundles.py`，內容為「原路徑 → 原文」，位元組不變）；SKILL.md、LICENSE、NOTICE、AGENTS.md、`references/hosted-execution.md`、47 個 Python 腳本、23 個固定模板 PDF 與 14 個版型預覽仍是獨立檔案。`read_web_knowledge.py --source-dir` 讀取時展開並逐檔核對 PACKAGE_MANIFEST 的雜湊，再還原成原路徑，所以出卷時的參考目錄、各個腳本與階段閱讀視圖完全不變，模型也不必在數十個小檔之間切換；`scan_skill_release.py` 同樣先展開再核對與掃描。建置腳本現在會拒絕超過 200 個成員的 ZIP，並回報 `member_count`。
+
+新 ZIP（SHA-256 `4814bb222cfc78d8fac5d4860efcd528e151fb8fc1bae34174691245e61173c4`，6,781,592 位元組，94 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.4 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.4/taiwan-exam-hosted-2026.09.22.4.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.4) 頁面。已安裝的舊 Skill 請重新下載替換。
+
 ## 2026.09.22.3：checkpoint 即時回報過期閘門、refresh-evidence 草稿、check-figures 圖片自檢
 
 接續 2026.09.22.2，補上三份模型自我分析提到但上一版只以文件說明的三項：finalize 才發現閘門報告過期（自然卷失敗 5 次）、內容一改九份報告全部作廢得重寫、圖片缺字／標籤壓線／只靠顏色區分要等出完整本 PDF 才用眼睛發現。
 
 新增 `scripts/hosted_evidence_refresh.py`：`checkpoint` 每次回傳 `evidence_ready` 與 `evidence_attention`，用最終檢查器同一套用語列出九個閘門哪些缺、哪些過期（含該次審閱後改了哪幾題）、哪些格式不完整（狀態非 pass、觀察空白、題列缺漏或 pending、盲審包不符）；並寫入 `exam-history.json` 記錄每次存檔的逐題摘要。新子指令 `refresh-evidence --state`：重新登錄機械紀錄，並為每份過期報告寫 `<gate>.draft.json`，未改動題目的列照抄原審閱、改動或新增題目與整卷狀態設 pending、難度盲審包重新產生；審閱者補完 pending 後另存為 `<gate>.json`。檢查器不讀草稿，整份照抄也會因 pending 列被退。新子指令 `check-figures --state`：出 PDF 前打開每張引用圖片，回報檔案遺失或改名、雜湊與存檔紀錄不符、0 位元組、被擋下載後存成圖片名的 HTML、無法開啟、替代字元，以及警告：上下標字元（CJK 字型會印成方框）、帶顏色像素比例、標籤壓在筆劃上、同一內容存成多個路徑。虛線是否看得出、圖例是否對得上仍由 proof 裁切用眼確認。
 
-新 ZIP（SHA-256 `f275dabcaaedf8ee46f38a1ee8add4bf6ace1cf2d511976f88d18c7bf3ec0f6b`，6,854,173 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.3 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.3) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `f275dabcaaedf8ee46f38a1ee8add4bf6ace1cf2d511976f88d18c7bf3ec0f6b`，6,854,173 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者確認 Chrome 下載正常並在 ChatGPT 上傳成功，但 Claude 上傳器以「Zip contains too many files (maximum 200)」拒收（222 個檔案），由 2026.09.22.4 修正。[下載 2026.09.22.3 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.3) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.2：鎖定後才能 build、回合預算、社會圖片與五科時事門檻再提高
 
