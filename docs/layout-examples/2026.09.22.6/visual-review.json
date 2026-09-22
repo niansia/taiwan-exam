@@ -1,0 +1,286 @@
+{
+ "scope": "Seven-subject placeholder layout previews only; not authored exam content, difficulty, full-paper density or exam acceptance. Rebuilt with the 2026.09.22.6 renderer: options as a sibling block under the stem, per-subject leading (prose 1.5/1.6, mathematics 1.65).",
+ "reviewer": "Claude (Claude Code session), actual rendered page inspection of the pages marked inspected; covers verified by class against the fixed template; other pages carry mechanical checks only",
+ "date": "2026-09-22",
+ "page_count": 27,
+ "records": [
+  {
+   "file": "chinese-questions.pdf",
+   "pdf_sha256": "326fd4cb2a0dab0c29b988ff9641139268f20cdc2df921d29fe05ea61bcc23d5",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "f34990e4c8feb3bcfc3dd8437585c4cf4528d48fce9ba68def9ae6da7778d47e",
+     "raster_scale": 1.1,
+     "status": "inspected-by-class",
+     "observation": "固定封面層：與模板資源 PDF 逐位元相同（verify_pdf pass-fixed-template），僅年度、考試名與科目欄位不同。"
+    },
+    {
+     "page": 2,
+     "raster_sha256": "cf04204153d7026f967f5de59733bcc8267679cdac1ebe64b06141b7bd54f3ff",
+     "raster_scale": 1.1,
+     "status": "inspected",
+     "observation": "國綜正文頁：選項為題幹下方獨立區塊、佈滿正文寬度；選項行距約 16.5 pt、題距約 20 pt；標題、說明框、題組標記、混合題表格皆對齊，無重疊、無截斷。"
+    }
+   ]
+  },
+  {
+   "file": "chinese-solutions.pdf",
+   "pdf_sha256": "a108e254e7cf589b3c0e0aaba801f5d82272b2e523978fff138a4253a28a8c9e",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "c25f29d4f6220e45cf4c6ce1292783e8298694ef8738f9fb5a80a371cdf1803c",
+     "raster_scale": 1.1,
+     "status": "inspected",
+     "observation": "國綜詳解：第 1～3 題標題與要點逐行、短答評分表三欄邊框完整；行距收緊後無重疊。"
+    }
+   ]
+  },
+  {
+   "file": "english-questions.pdf",
+   "pdf_sha256": "1027d461d8af597ad1b26848f3bd506aa178e67d5b0ca58308c07440efb1571a",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "248ab7087ffb5f8080a64c782928e4432294c69fd9e8c292e7d000344a20908d",
+     "raster_scale": 1.1,
+     "status": "inspected-by-class",
+     "observation": "固定封面層：與模板資源 PDF 逐位元相同（verify_pdf pass-fixed-template），僅年度、考試名與科目欄位不同。"
+    },
+    {
+     "page": 2,
+     "raster_sha256": "bfd33c12bcf00e89413c5fccea6acb11bcbc205688a2690964ca069dae335a1b",
+     "raster_scale": 1.1,
+     "status": "inspected",
+     "observation": "英文第 1 頁：詞彙題四選項逐行、綜合測驗底線空格與題號同列、文意選填 A–J 一列五欄；頁尾留白為節與節之間換頁所致。"
+    },
+    {
+     "page": 3,
+     "raster_sha256": "fe038f3198746e06a284acb23dd3d30c45127faba37ad993a55d5abbba107229",
+     "raster_scale": 1.1,
+     "status": "inspected",
+     "observation": "英文第 2 頁：篇章結構 (A)–(E) 逐行、閱讀測驗、混合題右側灰色占位圖與文字並排不相撞、中譯英（一）（二）標籤置於題幹前。"
+    },
+    {
+     "page": 4,
+     "raster_sha256": "a9a59f75e616af0a6956af6a1ab09048ea1e7c5aa6ca39357c6a263b99c8d61b",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  },
+  {
+   "file": "english-solutions.pdf",
+   "pdf_sha256": "eb1419dd8a934ec18ca1e98f2f0ad0c9ff3533d5558aedd283eb2b79cf82b891",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "4c94e7e980c894fc7407ade4e8c76a945aaeab341ceff7b20bdb9ce02a40bd50",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  },
+  {
+   "file": "math-a-questions.pdf",
+   "pdf_sha256": "23865b544d7b91516bba40e91eaa981ef702c456c1db14eb9e94d3f28bf1e22f",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "32d497c6a196f9157003d8081c42146cf290f43b2d263b968b55cf94ae262e8f",
+     "raster_scale": 1.1,
+     "status": "inspected-by-class",
+     "observation": "固定封面層：與模板資源 PDF 逐位元相同（verify_pdf pass-fixed-template），僅年度、考試名與科目欄位不同。"
+    },
+    {
+     "page": 2,
+     "raster_sha256": "23cfd8b76f98f337119815d5a223c5d481bbaeee7e60fd8e2d6aa2066a02ba29",
+     "raster_scale": 1.1,
+     "status": "inspected",
+     "observation": "數A：五選項逐行、行距維持 1.65；選填題圓圈答題格與底線位置正確，數學版面未受散文科行距調整影響。"
+    },
+    {
+     "page": 3,
+     "raster_sha256": "1be3599a6c2d551287065a58f9981e614ee50ca2415a50ab172a446b8a78ed8f",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    },
+    {
+     "page": 4,
+     "raster_sha256": "a29d822676b6b9e9126400e64e6a1aa04fec21e2e98a2201378b5456ee7ee064",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  },
+  {
+   "file": "math-a-solutions.pdf",
+   "pdf_sha256": "7e884144998ff1d375b370bf94bed2f632bc57967cc525f545f58dc8e44d5f96",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "2106676c748408961d68f51a9e5ae231532e405579731d087695366976048abd",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  },
+  {
+   "file": "math-b-questions.pdf",
+   "pdf_sha256": "fae67a9f31da3be1c7fc4f849390d1406f7b328921c70c5cbe82454082979e14",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "fe8e3019cbd2feb6ce9ec967389274a2f5abad317ecabb9ad00bc22384cc6b17",
+     "raster_scale": 1.1,
+     "status": "inspected-by-class",
+     "observation": "固定封面層：與模板資源 PDF 逐位元相同（verify_pdf pass-fixed-template），僅年度、考試名與科目欄位不同。"
+    },
+    {
+     "page": 2,
+     "raster_sha256": "d0d2bda0c425b00b6f5de848c93ae3a9eb8a032330dc46e24063e81fd7d9d113",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    },
+    {
+     "page": 3,
+     "raster_sha256": "0cc2fa3ad507df46b06486c971bf1401c759b98c19aa2e9cc5bf998be90b1b32",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    },
+    {
+     "page": 4,
+     "raster_sha256": "1556038869d6a24a32b75bf3a8df067610c9623182c6d53e768aad99883bea75",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  },
+  {
+   "file": "math-b-solutions.pdf",
+   "pdf_sha256": "00ea3951d60c21aefcb2c3218e88955edf2fee8a7c13a9c3514ae53e6830b23a",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "02c8f9ca012f832c6a8f3eebfda11386952f14c3ccf1ee63fac6c534003677c1",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  },
+  {
+   "file": "science-questions.pdf",
+   "pdf_sha256": "4ccff7fc3cd1c205d17261fb15a7f4123643a1f732685236d5cf5791b7083c7a",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "0dcc26110195a5e7d0633931b8c0691dba65f52ab280f632ae3736c4ba459ed1",
+     "raster_scale": 1.1,
+     "status": "inspected-by-class",
+     "observation": "固定封面層：與模板資源 PDF 逐位元相同（verify_pdf pass-fixed-template），僅年度、考試名與科目欄位不同。"
+    },
+    {
+     "page": 2,
+     "raster_sha256": "02c46f1b05df232841a3cc66a3b58fecc3912b959ca4964b06b95d918f504892",
+     "raster_scale": 1.1,
+     "status": "inspected",
+     "observation": "自然：第壹部分五選項逐行、多選「（應選2項）」在題幹尾；第貳部分資料表格三欄對齊、右側占位圖與說明文字並排。"
+    }
+   ]
+  },
+  {
+   "file": "science-solutions.pdf",
+   "pdf_sha256": "17d37bb0d1224a6bbdd0b7024d0de5fdcf17492706e0105d19cd7248db43dc5c",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "5ccba67e12eea1bab22c53287e07453162c868f49fb3601ed96c2ea19bc71d8c",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  },
+  {
+   "file": "social-questions.pdf",
+   "pdf_sha256": "6711243aff4ef356ae46d6fea76ddb61bc30f25af6ce2861ea31b59c7e423e44",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "bce2969d73c51f82d7e6c5e658e7256363ec7e5bf71a0d58f6d462a3fbaf2336",
+     "raster_scale": 1.1,
+     "status": "inspected-by-class",
+     "observation": "固定封面層：與模板資源 PDF 逐位元相同（verify_pdf pass-fixed-template），僅年度、考試名與科目欄位不同。"
+    },
+    {
+     "page": 2,
+     "raster_sha256": "bf12e5aee4464650ae045b0602216ab93579aa49faa7f66bc97c89ce38441457",
+     "raster_scale": 1.1,
+     "status": "inspected",
+     "observation": "社會：題組甲乙材料標記、四選項逐行、占位圖與說明並排、跨材料比較表三欄；頁面密度合理。"
+    }
+   ]
+  },
+  {
+   "file": "social-solutions.pdf",
+   "pdf_sha256": "04c48af905349885a079a1898f22e37619b0593fda8ccf771921b64f75805e10",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "6b4e2151b76339ee0df1998338dee97943e83fc3c9afcf420200328301081ed7",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  },
+  {
+   "file": "writing-questions.pdf",
+   "pdf_sha256": "f84f848d6bd1bae1021b095e5d591e0b5829d6b37b0e9260bde12191fa04d758",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "3dbd1f4abfb4ebeab24f5c5a3c1de23eb1b26e627e69ac9a0c3506aae59f01d2",
+     "raster_scale": 1.1,
+     "status": "inspected-by-class",
+     "observation": "固定封面層：與模板資源 PDF 逐位元相同（verify_pdf pass-fixed-template），僅年度、考試名與科目欄位不同。"
+    },
+    {
+     "page": 2,
+     "raster_sha256": "0a96feca89cfcd433ea14a18ebd7174ae6c8a993a193b7685fccbf131c72abd3",
+     "raster_scale": 1.1,
+     "status": "inspected",
+     "observation": "國寫：非選擇題說明框、一、二兩大題與（一）（二）子題標籤、配分置於題末；無截斷。"
+    }
+   ]
+  },
+  {
+   "file": "writing-solutions.pdf",
+   "pdf_sha256": "7de62bb4597d62c183ea78f01d3069eae88b0a7ab814ebcb7b048d95464286ee",
+   "pages": [
+    {
+     "page": 1,
+     "raster_sha256": "2243bd193764faf22424a3aae602f4d7513800746ed58c63a00bf91970a8418c",
+     "raster_scale": 1.1,
+     "status": "mechanical-only",
+     "observation": "未逐頁目視；僅有 inspect_hosted_pdf 機械檢查（無 narrow-wrap-column、無溢頁、無替代字元）。"
+    }
+   ]
+  }
+ ],
+ "font_subset_verification": "compact_fonts compared every page at 2 px/pt (pixels and extracted text) before and after dropping unused glyphs of the Noto Serif TC body font; all 14 booklets identical. Fixed PDF assets were not edited.",
+ "download_bytes": {
+  "before_font_subset": 151652917,
+  "after_font_subset": 4132496
+ }
+}

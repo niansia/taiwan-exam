@@ -45,6 +45,15 @@ class TemplateUnavailable(ValueError):
 
 
 BUILTIN_FONT = 'pymupdf-builtin-droid-sans-fallback'
+# Hosted runtimes rarely carry a Traditional Chinese serif face, and official
+# booklets are set in 明體. The same fixed-URL route as the PyMuPDF wheel
+# fetches a static Noto Serif TC Regular (SIL OFL 1.1) before falling back to
+# the built-in sans-serif; the download is verified against a pinned digest.
+SERIF_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-noto-serif-tc-1/'
+                  'NotoSerifTC-Regular.ttf')
+SERIF_FONT_SHA256 = '08cfd4736956f3edd4270e86f009c049cce3a44a9a297b13a66dbec96a66fda8'
+SERIF_FONT_BYTES = 10001820
+SERIF_FONT_TIMEOUT = 40
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
 # Hosted images usually install Noto/Source Han CJK as one collection file whose
@@ -146,16 +155,53 @@ def body_font(run_dir, requested=None):
         path, record, note = supplied_font(Path(requested), run_dir)
         if path is not None:
             return path, record
+    serif, serif_note = downloaded_serif_font(run_dir)
+    if serif is not None:
+        path, record = serif
+        if note:
+            record['replaced'] = note
+        return path, record
     target = run_dir / 'fonts' / 'builtin-cjk.ttf'
     if not target.is_file():
         target.parent.mkdir(exist_ok=True)
         target.write_bytes(pymupdf.Font('cjk').buffer)
     record = {'path': target.relative_to(run_dir).as_posix(), 'source': BUILTIN_FONT, 'sha256': digest(target),
               'style': 'sans-serif CJK; keep going and mention it in the delivery message; '
-                       'use a Traditional Chinese serif font file if the user supplies one'}
+                       'use a Traditional Chinese serif font file if the user supplies one',
+              'serif_download': serif_note}
     if note:
         record['replaced'] = note
     return target, record
+
+
+def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOUT):
+    """((path, record), None) for the pinned Noto Serif TC body font, or (None, why not)."""
+    target = run_dir / 'fonts' / 'NotoSerifTC-Regular.ttf'
+    if os.environ.get('TAIWAN_EXAM_NO_FONT_DOWNLOAD') and not target.is_file():
+        return None, 'serif font download disabled by TAIWAN_EXAM_NO_FONT_DOWNLOAD; the built-in sans-serif face was used'
+    if not (target.is_file() and digest(target) == SERIF_FONT_SHA256):
+        import urllib.request
+        try:
+            request = urllib.request.Request(url, headers={'User-Agent': 'taiwan-exam-generator'})
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                data = response.read(SERIF_FONT_BYTES + 1)
+        except Exception as exc:  # blocked network, DNS, TLS or HTTP failure: fall back, say why
+            return None, f'serif font download failed ({type(exc).__name__}: {exc}); the built-in sans-serif face was used'
+        if len(data) != SERIF_FONT_BYTES or hashlib.sha256(data).hexdigest() != SERIF_FONT_SHA256:
+            return None, 'serif font download did not match the pinned digest; the built-in sans-serif face was used'
+        target.parent.mkdir(exist_ok=True)
+        target.write_bytes(data)
+    try:
+        font = pymupdf.Font(fontfile=str(target))
+        if any(not font.has_glyph(ord(c)) for c in FIELD_TEXT):
+            return None, 'downloaded serif font lacks field glyphs; the built-in sans-serif face was used'
+    except Exception as exc:  # MuPDF raises its own error types
+        return None, f'downloaded serif font unusable ({exc}); the built-in sans-serif face was used'
+    record = {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-noto-serif-tc',
+              'sha256': SERIF_FONT_SHA256, 'url': url,
+              'style': 'serif Traditional Chinese (Noto Serif TC Regular, SIL Open Font License 1.1), '
+                       'the same family as the published layout previews'}
+    return (target, record), None
 
 
 def digest(path):

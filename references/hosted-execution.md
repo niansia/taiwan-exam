@@ -383,9 +383,25 @@ re-open every page.
 
 ### Renderer rules worth knowing before the first plan
 
-- Option tables take the stem's width; the column count follows the longest
-  option (國綜: four options of at most 16 characters print two abreast, anything longer or a five-option item one per line). A stem indented by a long
-  task label narrows every option below it.
+- Options print as their own full-width block under the numbered stem, never
+  inside the stem's table cell: a hosted run's MuPDF shrank such a nested
+  table to the stem's width and wrapped every 國綜 option at 40% of the page.
+  The column count follows the longest option (國綜: four options of at most 16
+  characters print two abreast, anything longer or a five-option item one per
+  line). The inspector's `narrow-wrap-column` hard failure and the final
+  checker catch any body whose wrapped lines leave a quarter of the width
+  unused with nothing beside them, however the body was produced.
+- Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
+  (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
+  社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs
+  far past the official 12 pages is a layout defect, not extra content.
+- Every composed booklet carries the creator stamp `taiwan-exam-generator/
+  compose_hosted_pdf`; `check_hosted_run.py` refuses a PDF without it, so a
+  body typeset by any other tool cannot be delivered.
+- The preflight downloads a Traditional Chinese serif body font (Noto Serif TC
+  Regular, OFL 1.1, pinned digest) from this project's GitHub Release when the
+  runtime has none, and only then falls back to the built-in sans-serif; the
+  font record says which happened.
 - A task label longer than three characters (`中譯英`, `英文作文`, `第一段`)
   leads the text; only plain numbers and `(1)`-style subparts sit in the number
   column. Give each subpart its own `number_display`/`answer_label`; `specs`

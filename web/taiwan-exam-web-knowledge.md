@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.5
+# Taiwan Exam Web Knowledge v2026.09.22.6
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -505,10 +505,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 37437,
-    "sha256": "9dba3a9b77604754ee9c847c9cd40fa95d4d41675dacca59b1bc5ae65d509de4",
-    "embedded_bytes": 37437,
-    "embedded_sha256": "9dba3a9b77604754ee9c847c9cd40fa95d4d41675dacca59b1bc5ae65d509de4"
+    "bytes": 39064,
+    "sha256": "b4edbdcacb3ed06bb037dfbb72db54e3ec6c507b989fa513960fc5422482b0f1",
+    "embedded_bytes": 39064,
+    "embedded_sha256": "b4edbdcacb3ed06bb037dfbb72db54e3ec6c507b989fa513960fc5422482b0f1"
   },
   {
     "path": "references/current-gsat-english-form.md",
@@ -639,16 +639,16 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/hosted-body-workflow.md",
     "bytes": 16400,
-    "sha256": "378c1af45851bd1f8225916db5cb87c58aa26c58d24b6ab7b30b9fbe3ce48d7a",
+    "sha256": "8ca1f9cd094469906717ad35bf685a3b702096bb038216fdac14a905f357fed6",
     "embedded_bytes": 16400,
-    "embedded_sha256": "378c1af45851bd1f8225916db5cb87c58aa26c58d24b6ab7b30b9fbe3ce48d7a"
+    "embedded_sha256": "8ca1f9cd094469906717ad35bf685a3b702096bb038216fdac14a905f357fed6"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 37086,
-    "sha256": "3ad0ff6ca7d9d7bcaf0f845e87f8147fe741d79a3c7592e94ce17de63aef7dfa",
-    "embedded_bytes": 37086,
-    "embedded_sha256": "3ad0ff6ca7d9d7bcaf0f845e87f8147fe741d79a3c7592e94ce17de63aef7dfa"
+    "bytes": 38217,
+    "sha256": "5bfd37991a40c229024adcc3830b4f00c0a682d242f63e59909b82b8deeb48e8",
+    "embedded_bytes": 38217,
+    "embedded_sha256": "5bfd37991a40c229024adcc3830b4f00c0a682d242f63e59909b82b8deeb48e8"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -869,10 +869,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 22695,
-    "sha256": "902ce19fb8f7270a0206ea61ccef40941504018e22d1229356e5c5a2fc4fd53c",
-    "embedded_bytes": 22695,
-    "embedded_sha256": "902ce19fb8f7270a0206ea61ccef40941504018e22d1229356e5c5a2fc4fd53c"
+    "bytes": 23220,
+    "sha256": "14fbdc0fa6859ef19b2782b0fc44dddced95418e1febc6e1601b196121c374ec",
+    "embedded_bytes": 23220,
+    "embedded_sha256": "14fbdc0fa6859ef19b2782b0fc44dddced95418e1febc6e1601b196121c374ec"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -883,10 +883,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
-    "bytes": 14572,
-    "sha256": "2fa53a104f22f4eb1e887c1bcc4c748e91b0b35d33408e99ee598a25101fa3ea",
-    "embedded_bytes": 14572,
-    "embedded_sha256": "2fa53a104f22f4eb1e887c1bcc4c748e91b0b35d33408e99ee598a25101fa3ea"
+    "bytes": 15035,
+    "sha256": "acb9a06e398d5f7f8160ea6630e8e74c40fd3743de0575cc135f5b92e3644b85",
+    "embedded_bytes": 15035,
+    "embedded_sha256": "acb9a06e398d5f7f8160ea6630e8e74c40fd3743de0575cc135f5b92e3644b85"
   },
   {
     "path": "scripts/emit_item_skeleton.py",
@@ -918,10 +918,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 35087,
-    "sha256": "82b87196bf7dbfd6426ec20289114de3b8210abddd8657efa409c7902a12c84f",
-    "embedded_bytes": 35087,
-    "embedded_sha256": "82b87196bf7dbfd6426ec20289114de3b8210abddd8657efa409c7902a12c84f"
+    "bytes": 37150,
+    "sha256": "4e16fba65eef04635f6342c0faca20e308942caeb6fdd6ce381c8a1d0f5a7d45",
+    "embedded_bytes": 37150,
+    "embedded_sha256": "4e16fba65eef04635f6342c0faca20e308942caeb6fdd6ce381c8a1d0f5a7d45"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -974,10 +974,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
-    "bytes": 12526,
-    "sha256": "0cda0920960ab0b5c7ccb194b5bad1ec8b7ee1250aa071d1afba1d2a1aea453c",
-    "embedded_bytes": 12526,
-    "embedded_sha256": "0cda0920960ab0b5c7ccb194b5bad1ec8b7ee1250aa071d1afba1d2a1aea453c"
+    "bytes": 15795,
+    "sha256": "a27fda5c454ce796fb85175ceb5b7100646f240ed9cd2a2fcdb9178109fded8d",
+    "embedded_bytes": 15795,
+    "embedded_sha256": "a27fda5c454ce796fb85175ceb5b7100646f240ed9cd2a2fcdb9178109fded8d"
   },
   {
     "path": "scripts/normalize_figure_asset.py",
@@ -1002,10 +1002,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 21677,
-    "sha256": "550f9512d8d9fc26f6d5058432b332256a5902eeb7bc0097da60dd24ea8d67c5",
-    "embedded_bytes": 21677,
-    "embedded_sha256": "550f9512d8d9fc26f6d5058432b332256a5902eeb7bc0097da60dd24ea8d67c5"
+    "bytes": 24579,
+    "sha256": "0a567cb955df9d5e3e674412e31b61fbb583d44efc18444f5222fc39182997b2",
+    "embedded_bytes": 24579,
+    "embedded_sha256": "0a567cb955df9d5e3e674412e31b61fbb583d44efc18444f5222fc39182997b2"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1030,10 +1030,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_chinese_layout_contract.py",
-    "bytes": 16099,
-    "sha256": "526c1dcccdd12d0b5c7811ef5a607fee0ffeb4905a13ffa879c98883b3fbcb17",
-    "embedded_bytes": 16099,
-    "embedded_sha256": "526c1dcccdd12d0b5c7811ef5a607fee0ffeb4905a13ffa879c98883b3fbcb17"
+    "bytes": 22176,
+    "sha256": "d5abf6a2ebab0ef21236e397b2222bae3dc772f40d7e8eea16aad31f7b68912b",
+    "embedded_bytes": 22176,
+    "embedded_sha256": "d5abf6a2ebab0ef21236e397b2222bae3dc772f40d7e8eea16aad31f7b68912b"
   },
   {
     "path": "scripts/validate_chinese_natural_scope.py",
@@ -56608,6 +56608,25 @@ year (111–115), and is therefore enforced:
   `validate_chinese_layout_contract.py` rejects identical quoted characters, halves
   without one quoted character each, and halves outside three to six characters.
   Item 2 is 字形 (`下列文句，完全沒有錯別字的是：`).
+- Every 題組 (items 6–24, 30–31, 32–36) prints its material's source: modern prose
+  as `（改寫自 作者〈篇名〉）`, 文言 as `（〈篇名〉）` or `（《書名》）`; the five official
+  papers carry 17–42 such attributions each. A generated paper with three
+  attributions and six self-written expository passages read markedly easier than
+  any official year: the contract now rejects a group without an attribution.
+- 排序題 is 文言 when it appears (113 Q5 `下列是一段古文`, 115 Q5 with 甲–戊); a
+  白話 sentence reorder is not the form and is rejected.
+- Difficulty signals measured on the five booklets and enforced by the contract:
+  options containing absolute words (完全、必然、唯一、所有、只會…) are 6–12% of all
+  options and appear in at most 36% of items; the generated paper had 22% and 70%,
+  so most distractors could be eliminated without reading. Official distractors are
+  plausible misreadings that fail on one inference (a wrong scope, a reversed
+  cause, a claim the text does not make); an option that is off-topic, absurd or
+  absolutist is not a distractor. 字形 sentences run 18–23 characters with the
+  錯別字 hidden in a 成語 or literary word. The ①②研判題 is a single-choice item
+  whose options are 皆符合／皆不符合／①符合，②不符合／①不符合，②無法判斷. The
+  booklet as a whole prints 43–68 source and title tokens (改寫自／〈篇名〉／《書名》);
+  the contract floor is 30. A student-facing material must never declare itself
+  自擬, 自撰, 編者撰成 or 本題情境.
 - 詞語填空 (111 Q6, 112 Q6, 114 Q3; none in 113 and 115) always quotes a real work
   with its printed attribution: 杜甫〈灩澦〉and〈絕句漫興九首〉(`依據詩意與格律`),
   〈補江總白猿傳〉(文言), 聶華苓〈月光•枯井•三腳貓〉(現代散文). Three □ slots of two to
@@ -58858,7 +58877,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.1/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.6/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -59455,9 +59474,25 @@ re-open every page.
 
 ### Renderer rules worth knowing before the first plan
 
-- Option tables take the stem's width; the column count follows the longest
-  option (國綜: four options of at most 16 characters print two abreast, anything longer or a five-option item one per line). A stem indented by a long
-  task label narrows every option below it.
+- Options print as their own full-width block under the numbered stem, never
+  inside the stem's table cell: a hosted run's MuPDF shrank such a nested
+  table to the stem's width and wrapped every 國綜 option at 40% of the page.
+  The column count follows the longest option (國綜: four options of at most 16
+  characters print two abreast, anything longer or a five-option item one per
+  line). The inspector's `narrow-wrap-column` hard failure and the final
+  checker catch any body whose wrapped lines leave a quarter of the width
+  unused with nothing beside them, however the body was produced.
+- Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
+  (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
+  社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs
+  far past the official 12 pages is a layout defect, not extra content.
+- Every composed booklet carries the creator stamp `taiwan-exam-generator/
+  compose_hosted_pdf`; `check_hosted_run.py` refuses a PDF without it, so a
+  body typeset by any other tool cannot be delivered.
+- The preflight downloads a Traditional Chinese serif body font (Noto Serif TC
+  Regular, OFL 1.1, pinned digest) from this project's GitHub Release when the
+  runtime has none, and only then falls back to the built-in sans-serif; the
+  font record says which happened.
 - A task label longer than three characters (`中譯英`, `英文作文`, `第一段`)
   leads the text; only plain numbers and `(1)`-style subparts sit in the number
   column. Give each subpart its own `number_display`/`answer_label`; `specs`
@@ -65017,11 +65052,12 @@ import hashlib
 import json
 from pathlib import Path
 import pymupdf
-from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void
+from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void, narrow_wrap_samples
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary, workflow_events
 from hosted_blind_review import packet, review_errors, REVIEW_MODES
 from verify_fixed_template_pdf import verify_pdf
+from compose_hosted_pdf import COMPOSER
 from validate_math_difficulty_design import validate as math_design
 from validate_paper_difficulty_balance import validate as difficulty_balance
 from validate_math_context import validate as math_context_errors, source_note_samples, production_caption_samples
@@ -65200,6 +65236,9 @@ def check(state_path: Path) -> dict:
         with pymupdf.open(pdf) as actual:
             actual_count = len(actual)
             actual_issues = {}
+            need(actual.metadata.get('creator') == COMPOSER,
+                 f'{role}: PDF was not composed by compose_hosted_pdf (creator stamp missing); '
+                 'a body typeset by another route is not deliverable')
             for number, actual_page in enumerate(actual, 1):
                 collisions = rail_collision_samples(actual_page)
                 need(not collisions,
@@ -65218,6 +65257,8 @@ def check(state_path: Path) -> dict:
                          for line in b.get('lines', []) for s in line['spans']]
                 need(all(rect.contains(pymupdf.Rect(s['bbox'])) for s in spans),
                      f'{role}/page-{number}: actual PDF text-outside-page')
+                need(len(narrow_wrap_samples(actual_page, pymupdf.Rect(64, 87, rect.width - 64, 775))) < 2,
+                     f'{role}/page-{number}: actual PDF narrow-wrap-column (text set in a column far narrower than the body)')
                 actual_issues[number] = set()
                 if bottom_void(actual_page) > .32:
                     actual_issues[number].add('large-bottom-void-review')
@@ -65712,6 +65753,12 @@ def page_base(out, asset, source_page=0):
     return out[-1]
 
 
+# Every booklet this Skill composes carries this creator string. A body typeset
+# by some other route (a generated 國綜 paper had options wrapping at its stem
+# width, a geometry this renderer never produces) shows up as a missing stamp.
+COMPOSER = 'taiwan-exam-generator/compose_hosted_pdf'
+
+
 def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: str,
             title: str, running_name: str, font_path: Path, map_path: Path = DEFAULT_MAP,
             kind: str = "questions") -> dict:
@@ -65780,6 +65827,8 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                                "formula_component": "formula-blank" if formula else None,
                                "locked_pixels_match": True})
             output.parent.mkdir(parents=True, exist_ok=True)
+            out.set_metadata({'creator': COMPOSER, 'producer': COMPOSER + ' + PyMuPDF',
+                              'title': f'{title} {subject}', 'subject': kind})
             data = merge_duplicate_fonts(out.tobytes(garbage=4, deflate=True))
             output.write_bytes(data)
         saved_check = verify_pdf(output, subject, kind, asset_dir)
@@ -66561,20 +66610,46 @@ def snap_block_top(value):
 # MuPDF applies a cell's vertical-align to every inline run inside it: top-aligned
 # text cells flattened <sup> onto the baseline, so T<sup>2</sup> printed like a
 # subscript. Text cells align first baselines instead; figure cells stay on top.
-CSS = '''
+# Measured on the ROC 115 booklets (option-line pitch / item-to-item gap, pt):
+# 國綜 16-17 / 19-20, 英文 16-17 / 17-18, 社會 and 自然 17-18 / 20-21, 數學 20 / 31.
+# A generated 國綜 paper at the old uniform 1.65 leading printed 23 pt option
+# rows and 42 pt item gaps, 17 pages against the official 12. Prose subjects
+# therefore use the official leading; mathematics keeps room for scripts.
+TYPOGRAPHY = {'國綜': (1.5, 0, 3, 1, 4), '國寫': (1.5, 0, 3, 1, 4), '英文': (1.5, 0, 3, 1, 4),
+              '社會': (1.6, 0, 3, 1, 4), '自然': (1.6, 0, 3, 1, 4)}
+DEFAULT_TYPOGRAPHY = (1.65, 3, 5, 3, 12)  # line-height, cell padding, paragraph margin, options top, item gap
+CSS_TEMPLATE = '''
 @font-face {font-family:Body;src:url(body-font.ttf)}
-* {box-sizing:border-box} body {font-family:Body;font-size:11pt;line-height:1.65;margin:0;color:#000;background:transparent}
-p {margin:0 0 5pt} table {border-collapse:collapse;width:100%;margin:0} td {padding:0 4pt 3pt 0;vertical-align:baseline}
+* {box-sizing:border-box} body {font-family:Body;font-size:11pt;line-height:LINE_HEIGHT;margin:0;color:#000;background:transparent}
+p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;width:100%;margin:0} td {padding:0 4pt CELL_PADpt 0;vertical-align:baseline}
 td.figure {vertical-align:top}
 .direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
-sup,sub {font-size:70%} .options {margin-top:3pt}
+sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
+.optionlist {margin-left:28pt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
 .passage {font-family:Reading,Body} .english {font-family:Latin,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
 '''
+
+
+def typography(subject):
+    return TYPOGRAPHY.get(subject, DEFAULT_TYPOGRAPHY)
+
+
+def subject_css(subject):
+    line_height, cell_pad, p_margin, options_top, _ = typography(subject)
+    return (CSS_TEMPLATE.replace('LINE_HEIGHT', f'{line_height:g}').replace('CELL_PAD', f'{cell_pad:g}')
+            .replace('P_MARGIN', f'{p_margin:g}').replace('OPTIONS_TOP', f'{options_top:g}'))
+
+
+def item_gap_pt(subject):
+    return typography(subject)[4]
+
+
+CSS = subject_css(None)
 # Long text may continue on the next page at paragraph (or solution-step)
 # boundaries when a block opts in with split: paragraphs. The label/heading
 # stays with the first piece; options, bank, figure and score with the last.
@@ -66791,6 +66866,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         elif kind=='fill':
             stem=f'<p style="margin-left:28pt;text-indent:-28pt">{label}　{stem}</p><div class="figure">{image_box}</div>'
         else:stem+=f'<div class="figure">{image_box}</div>'
+    option_block=''
     if kind in {'choice','multiple'} and tail:
         options=block.get('options',[])
         if len(options)<2:raise ValueError('Choice block needs authored options')
@@ -66804,8 +66880,18 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             result=('<table class="options">'+''.join(f'<tr><td class="number">{label if n==0 else ""}</td>{row}</tr>'
                                                      for n,row in enumerate(rows))+'</table>')
             return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
-        cells=[f'<td style="width:{100/columns}%">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
-        stem+='<table class="options">'+''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table>'
+        # Never nest the option table inside the stem cell: MuPDF's HTML engine
+        # shrank that nested table to the stem's width in a hosted runtime, so a
+        # 國綜 booklet wrapped every option at 40% of the page. Options print as a
+        # sibling block: paragraphs for one column, a top-level table otherwise.
+        rows=[f'{html.escape(str(o["label"]))} {text(o["text"])}' for o in options]
+        if columns==1:
+            option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
+        else:
+            cell_width=(width-28-4*columns)/columns
+            cells=[f'<td style="width:{cell_width:g}pt">{row}</td>' for row in rows]
+            option_block=(f'<div class="optionlist"><table class="options" style="width:{width-28:g}pt">'
+                          +''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table></div>')
     if kind=='solution':
         result=(f'<div class="heading">{label}</div>' if head else '')+stem
     elif kind=='fill':
@@ -66819,7 +66905,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # as 英文作文 would stack one glyph per line, so it leads the text instead.
         if len(html.unescape(re.sub('<[^>]+>','',label)))>3:
             stem=f'<b>{label}</b>　'+stem;label=''
-        result=f'<table><tr><td class="number">{label}</td><td style="width:{width-28:g}pt">{stem}</td></tr></table>'
+        result=f'<table><tr><td class="number">{label}</td><td style="width:{width-28:g}pt">{stem}</td></tr></table>'+option_block
     return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
 
 
@@ -66871,7 +66957,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
     archive.add((pymupdf.Font('tiro').buffer,'latin-font.ttf'))
-    css=CSS+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
+    css=subject_css(spec['subject'])+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
     if reading_font:
         archive.add((reading_font.read_bytes(),'reading-font.ttf'))
         css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
@@ -66950,7 +67036,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     def paginate(tightness):
         """One pagination pass. Only the gaps between blocks scale with tightness."""
         def gap_after(block):
-            return (8 if block['kind']=='section' else 12)*tightness
+            return (8 if block['kind']=='section' else item_gap_pt(spec['subject']))*tightness
 
         work=list(blocks)
         parts=[];pages=[]
@@ -68556,7 +68642,57 @@ from validate_math_context import source_note_samples, production_caption_sample
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
                  "answer-rail-content-collision", "printed-math-source-note", "answer-rail-format",
-                 "printed-math-production-caption"}
+                 "printed-math-production-caption", "narrow-wrap-column"}
+# A wrapped line that leaves this share of the body width unused, with nothing
+# printed to its right, was set in a column the page never asked for.
+NARROW_WRAP_UNUSED_SHARE = 0.25
+LIST_MARKER = re.compile(r"^(?:\([A-Ea-e1-9]\)|[A-Ea-e1-9][.、．)]|\d{1,2}[.．、(（]|[甲乙丙丁戊己庚辛壬癸][、.．]|[①②③④⑤⑥⑦⑧⑨⑩]|[（(][甲乙丙丁戊己庚辛壬癸一二三四五六七八九十0-9]+[）)]|[□■☐☑✓•‧・※◎○●▲△-]|[ivx]+[.)])")
+LINE_END_PUNCTUATION = "。．！？：；，、」』）)】〕〉》…—.!?:;,"
+
+
+def narrow_wrap_samples(page, body):
+    """Lines that wrap far short of the body's right edge with nothing beside them.
+
+    A hosted 國綜 booklet printed every option in a column as wide as its stem
+    (options wrapping at 40% of the page); reviewers saw it only after delivery.
+    Two-abreast options, tables, figures beside text, poem lines and 甲乙丙丁 lists
+    are excluded: they have a neighbour, a drawing, punctuation or a marker.
+    """
+    lines = []
+    for block in page.get_text("dict")["blocks"]:
+        for line in block.get("lines", []):
+            text = "".join(span["text"] for span in line["spans"]).strip()
+            if text:
+                lines.append((pymupdf.Rect(line["bbox"]), text))
+    lines.sort(key=lambda item: (round(item[0].y0), item[0].x0))
+    obstacles = [pymupdf.Rect(info["bbox"]) for info in page.get_image_info()]
+    # Fixed templates paint white page-size rectangles; only stroked or
+    # non-white drawings inside the body (tables, rules, figures) count.
+    obstacles += [d["rect"] for d in page.get_drawings()
+                  if d["rect"].width < 0.9 * body.width and (d.get("color") is not None or d.get("fill") is not None)]
+    samples = []
+    for index, (rect, text) in enumerate(lines):
+        if not body.contains(rect) or len(text) < 6 or text[-1] in LINE_END_PUNCTUATION:
+            continue
+        unused = body.x1 - rect.x1
+        if unused < NARROW_WRAP_UNUSED_SHARE * body.width:
+            continue
+        continuation = next((other for other, later in lines[index + 1:index + 4]
+                             if other.y0 > rect.y0 + 2 and other.y0 - rect.y0 < 1.4 * rect.height + 2
+                             and abs(other.x0 - rect.x0) < 1.5 and not LIST_MARKER.match(later)), None)
+        if continuation is None:
+            continue
+        # Anything else on the same row (a second column, a separately drawn
+        # label, a figure or table) means the line was never meant to be full width.
+        row = pymupdf.Rect(body.x0, rect.y0 + 1, body.x1, rect.y1 - 1)
+        if any(other is not rect and other.intersects(row) for other, _ in lines) or any(o.intersects(row) for o in obstacles):
+            continue
+        # A wrapped line's continuation stays inside the same narrow column; a
+        # heading followed by a longer description does not.
+        if continuation.x1 > rect.x1 + 6:
+            continue
+        samples.append(text[:40])
+    return samples
 
 
 def rail_format_samples(page):
@@ -68699,6 +68835,9 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                 issues.append('answer-rail-format')
             if table_collisions:
                 issues.append("table-grid-text-collision-review")
+            narrow_wraps = narrow_wrap_samples(page, body)
+            if len(narrow_wraps) >= 2:
+                issues.append("narrow-wrap-column")
             for span in spans:
                 if not rect.contains(pymupdf.Rect(span["bbox"])):
                     issues.append("text-outside-page")
@@ -68731,6 +68870,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "body_raster_sha256": hashlib.sha256(body_pixels.samples).hexdigest(),
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
+                          "narrow_wrap_samples": narrow_wraps,
                           "rail_collision_samples": rail_collisions,
                           "rail_format_samples": rail_formats,
                           "bottom_void_ratio": void,
@@ -69625,6 +69765,15 @@ class TemplateUnavailable(ValueError):
 
 
 BUILTIN_FONT = 'pymupdf-builtin-droid-sans-fallback'
+# Hosted runtimes rarely carry a Traditional Chinese serif face, and official
+# booklets are set in 明體. The same fixed-URL route as the PyMuPDF wheel
+# fetches a static Noto Serif TC Regular (SIL OFL 1.1) before falling back to
+# the built-in sans-serif; the download is verified against a pinned digest.
+SERIF_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-noto-serif-tc-1/'
+                  'NotoSerifTC-Regular.ttf')
+SERIF_FONT_SHA256 = '08cfd4736956f3edd4270e86f009c049cce3a44a9a297b13a66dbec96a66fda8'
+SERIF_FONT_BYTES = 10001820
+SERIF_FONT_TIMEOUT = 40
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
 # Hosted images usually install Noto/Source Han CJK as one collection file whose
@@ -69726,16 +69875,53 @@ def body_font(run_dir, requested=None):
         path, record, note = supplied_font(Path(requested), run_dir)
         if path is not None:
             return path, record
+    serif, serif_note = downloaded_serif_font(run_dir)
+    if serif is not None:
+        path, record = serif
+        if note:
+            record['replaced'] = note
+        return path, record
     target = run_dir / 'fonts' / 'builtin-cjk.ttf'
     if not target.is_file():
         target.parent.mkdir(exist_ok=True)
         target.write_bytes(pymupdf.Font('cjk').buffer)
     record = {'path': target.relative_to(run_dir).as_posix(), 'source': BUILTIN_FONT, 'sha256': digest(target),
               'style': 'sans-serif CJK; keep going and mention it in the delivery message; '
-                       'use a Traditional Chinese serif font file if the user supplies one'}
+                       'use a Traditional Chinese serif font file if the user supplies one',
+              'serif_download': serif_note}
     if note:
         record['replaced'] = note
     return target, record
+
+
+def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOUT):
+    """((path, record), None) for the pinned Noto Serif TC body font, or (None, why not)."""
+    target = run_dir / 'fonts' / 'NotoSerifTC-Regular.ttf'
+    if os.environ.get('TAIWAN_EXAM_NO_FONT_DOWNLOAD') and not target.is_file():
+        return None, 'serif font download disabled by TAIWAN_EXAM_NO_FONT_DOWNLOAD; the built-in sans-serif face was used'
+    if not (target.is_file() and digest(target) == SERIF_FONT_SHA256):
+        import urllib.request
+        try:
+            request = urllib.request.Request(url, headers={'User-Agent': 'taiwan-exam-generator'})
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                data = response.read(SERIF_FONT_BYTES + 1)
+        except Exception as exc:  # blocked network, DNS, TLS or HTTP failure: fall back, say why
+            return None, f'serif font download failed ({type(exc).__name__}: {exc}); the built-in sans-serif face was used'
+        if len(data) != SERIF_FONT_BYTES or hashlib.sha256(data).hexdigest() != SERIF_FONT_SHA256:
+            return None, 'serif font download did not match the pinned digest; the built-in sans-serif face was used'
+        target.parent.mkdir(exist_ok=True)
+        target.write_bytes(data)
+    try:
+        font = pymupdf.Font(fontfile=str(target))
+        if any(not font.has_glyph(ord(c)) for c in FIELD_TEXT):
+            return None, 'downloaded serif font lacks field glyphs; the built-in sans-serif face was used'
+    except Exception as exc:  # MuPDF raises its own error types
+        return None, f'downloaded serif font unusable ({exc}); the built-in sans-serif face was used'
+    record = {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-noto-serif-tc',
+              'sha256': SERIF_FONT_SHA256, 'url': url,
+              'style': 'serif Traditional Chinese (Noto Serif TC Regular, SIL Open Font License 1.1), '
+                       'the same family as the published layout previews'}
+    return (target, record), None
 
 
 def digest(path):
@@ -72191,6 +72377,22 @@ LANGUAGE_KNOWLEDGE = re.compile(r"「」內|畫底線|詞語|成語|用法|用�
 IDIOM = re.compile(r"成語|畫底線(?:處)?的詞語")
 GRAMMAR = re.compile(r"用法|用來修飾|「以」|「則」|量詞|條件|語意邏輯|平仄|音節|押韻")
 JUDGEMENT = re.compile(r"①.*②")
+# The official ①②研判題 is a single-choice item whose four options are drawn from
+# 皆符合／皆不符合／①符合，②不符合／①不符合，②無法判斷 (111 Q16, 113 Q12, 114 Q24,
+# 115 Q7 and Q12); a multiple-choice item whose options are pairs of statements is
+# a different, easier exercise.
+JUDGEMENT_OPTION = re.compile(r"皆(?:符合|不符合|適當|不適當)|①(?:符合|不符合|適當|不適當|無法判斷)")
+# Distractors written with absolute words (完全、必然、唯一、所有、只會…) can be
+# eliminated without reading. Measured on 111-115: 6-12% of all options, and at
+# most 36% of items carry one; a generated paper had 22% and 70%.
+ABSOLUTE_WORD = re.compile(r"完全|必然|必定|唯一|所有|任何|一律|全部|凡是|只要|只會|只能|從不|毫無|一切|絕不|皆|無關|不可能|永遠")
+ABSOLUTE_OPTION_SHARE = 0.12
+ABSOLUTE_ITEM_SHARE = 0.40
+# 改寫自／〈篇名〉／《書名》 across the whole booklet: official 43-68; generated 16.
+ATTRIBUTION_TOKEN = re.compile(r"改寫自|〈[^〈〉]{1,20}〉|《[^《》]{1,20}》")
+ATTRIBUTION_FLOOR = 30
+SELF_WRITTEN = re.compile(r"自擬|自撰|編者[^，。]{0,6}撰成?|本題情境|虛構|為本題設計")
+CHARACTER_FORM_MIN_CHARACTERS = 16
 CLASSICAL_VERSE = re.compile(r"詩|詞|曲|韻文|絕句|律詩|樂府")
 CHAR_LIMIT = re.compile(r"(\d+)\s*字以內")
 
@@ -72236,6 +72438,14 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         errors.append("國綜第1題須為字音題（下列「」內的字，讀音前後相同的是），111–115 每年皆同")
     elif first(1):
         errors.extend(pronunciation_pair_errors(first(1)))
+    for number in range(1, 25):
+        if first(number) and "排列順序" in prompt(number) and "古文" not in prompt(number):
+            errors.append(f"國綜第{number}題排序題須為文言（下列是一段古文，依據文意，甲、乙、丙、丁排列順序最適當的是），"
+                          "113、115 官方皆如此；白話句子重排不是本形式")
+    for text, numbers in groups.items():
+        if numbers[0] >= 6 and not SOURCE_ATTRIBUTION.search(text):
+            errors.append(f"國綜第{numbers[0]}至{numbers[-1]}題題組材料須摘錄真實作品並印出處（白話印「改寫自 作者〈篇名〉」，"
+                          "文言印篇名或書名），官方每卷 17–42 處出處；自撰材料難度與語感都達不到官方卷")
     for number in range(1, 25):
         question = first(number)
         # The passage is the shared stimulus, or the prompt's text after the stem's colon;
@@ -72294,8 +72504,15 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append("國綜每年有一題成語／畫底線詞語運用題（113–115 在多選第25至26題）；本卷沒有")
         if not any(GRAMMAR.search(p) for p in all_prompts):
             errors.append("國綜每年至少一題語法或虛詞題（「以」「則」用法、程度副詞、量詞、條件句）；本卷沒有")
-        if not any(JUDGEMENT.search(p) for p in all_prompts):
-            errors.append("國綜每年至少一題①②研判題（皆符合／皆不符合／①符合②不符合／無法判斷）；本卷沒有")
+        judgement_items = [q for q in questions if isinstance(q, dict) and q.get("type") == "single_choice"
+                           and JUDGEMENT.search(str(q.get("prompt") or "") + str(q.get("group_stimulus") or ""))
+                           and sum(1 for o in q.get("options") or [] if isinstance(o, dict)
+                                   and JUDGEMENT_OPTION.search(str(o.get("text") or ""))) >= 3]
+        if not judgement_items:
+            errors.append("國綜每年至少一題①②研判題：單選，題幹「關於①、②是否符合上文…最適當的研判是」，選項為"
+                          "①、②皆符合／皆不符合／①符合，②不符合／①不符合，②無法判斷（111 Q16、113 Q12、114 Q24、115 Q7）；"
+                          "本卷沒有此形式（多選題把①②寫成成對敘述不算）")
+        errors.extend(difficulty_signal_errors(questions))
         if not any(CLASSICAL_VERSE.search(p) for p in all_prompts) and not CLASSICAL_VERSE.search(all_text):
             errors.append("國綜每年至少一題古典詩詞曲材料；本卷沒有")
 
@@ -72324,6 +72541,57 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         stimuli = {stimulus(n) for n in part_two}
         if len(stimuli) != 1 or "" in stimuli:
             errors.append("國綜第貳部分五題須共用同一組多文本材料（甲乙丙，含文言或韻文）")
+    return errors
+
+
+def difficulty_signal_errors(questions: list[dict]) -> list[str]:
+    """Measured surface signals that separate the official papers from an easy imitation."""
+    errors = []
+    option_texts = []
+    absolute_items = 0
+    for question in questions:
+        if not isinstance(question, dict):
+            continue
+        texts = [str(o.get("text") or "") for o in question.get("options") or [] if isinstance(o, dict)]
+        if not texts:
+            continue
+        option_texts.extend(texts)
+        if any(ABSOLUTE_WORD.search(t) for t in texts):
+            absolute_items += 1
+    scored = [q for q in questions if isinstance(q, dict) and q.get("options")]
+    if option_texts:
+        share = sum(1 for t in option_texts if ABSOLUTE_WORD.search(t)) / len(option_texts)
+        if share > ABSOLUTE_OPTION_SHARE:
+            errors.append(f"國綜選項中含絕對化字眼（完全、必然、唯一、所有、只會…）的比例為 {share:.0%}，官方 111–115 為 6–12%："
+                          "不讀文本就能排除的選項太多，錯誤選項須是對文本的另一種可成立的誤讀，只錯在一個推論")
+        item_share = absolute_items / len(scored)
+        if item_share > ABSOLUTE_ITEM_SHARE:
+            errors.append(f"國綜 {absolute_items}/{len(scored)} 題有絕對化字眼的選項（{item_share:.0%}），官方最多 36%")
+    second = next((q for q in questions if isinstance(q, dict) and q.get("number") == 2), None)
+    if second and "錯別字" in str(second.get("prompt") or ""):
+        short = [str(o.get("text") or "") for o in second.get("options") or [] if isinstance(o, dict)
+                 and len(str(o.get("text") or "")) < CHARACTER_FORM_MIN_CHARACTERS]
+        if short:
+            errors.append(f"國綜第2題字形題每句須至少 {CHARACTER_FORM_MIN_CHARACTERS} 字（官方 18–23 字，錯字藏在成語或書面語中）；"
+                          f"過短：{'；'.join(short)}")
+    # A shared stimulus is printed once, so it is counted once.
+    stimuli = {str(q.get("group_stimulus") or "") for q in questions if isinstance(q, dict)}
+    everything = "\n".join(stimuli) + "\n" + "\n".join(
+        str(q.get("prompt") or "") + "\n" + "\n".join(str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict))
+        for q in questions if isinstance(q, dict))
+    if len(scored) >= 30:
+        found = len(ATTRIBUTION_TOKEN.findall(everything))
+        if found < ATTRIBUTION_FLOOR:
+            errors.append(f"國綜全卷出處與篇名標記（改寫自／〈篇名〉／《書名》）共 {found} 處，官方 111–115 為 43–68 處，"
+                          f"下限 {ATTRIBUTION_FLOOR}：材料與選項須大量取自真實作品")
+    for question in questions:
+        if isinstance(question, dict):
+            text = str(question.get("group_stimulus") or "") + str(question.get("prompt") or "")
+            hit = SELF_WRITTEN.search(text)
+            if hit:
+                errors.append(f"國綜第{question.get('number')}題材料印出「{hit.group(0)}」：學生卷不得出現自擬、自撰、編者撰成、"
+                              "本題情境等字樣，材料本身須是可印出處的真實作品")
+                break
     return errors
 
 

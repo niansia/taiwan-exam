@@ -86,6 +86,25 @@ year (111–115), and is therefore enforced:
   `validate_chinese_layout_contract.py` rejects identical quoted characters, halves
   without one quoted character each, and halves outside three to six characters.
   Item 2 is 字形 (`下列文句，完全沒有錯別字的是：`).
+- Every 題組 (items 6–24, 30–31, 32–36) prints its material's source: modern prose
+  as `（改寫自 作者〈篇名〉）`, 文言 as `（〈篇名〉）` or `（《書名》）`; the five official
+  papers carry 17–42 such attributions each. A generated paper with three
+  attributions and six self-written expository passages read markedly easier than
+  any official year: the contract now rejects a group without an attribution.
+- 排序題 is 文言 when it appears (113 Q5 `下列是一段古文`, 115 Q5 with 甲–戊); a
+  白話 sentence reorder is not the form and is rejected.
+- Difficulty signals measured on the five booklets and enforced by the contract:
+  options containing absolute words (完全、必然、唯一、所有、只會…) are 6–12% of all
+  options and appear in at most 36% of items; the generated paper had 22% and 70%,
+  so most distractors could be eliminated without reading. Official distractors are
+  plausible misreadings that fail on one inference (a wrong scope, a reversed
+  cause, a claim the text does not make); an option that is off-topic, absurd or
+  absolutist is not a distractor. 字形 sentences run 18–23 characters with the
+  錯別字 hidden in a 成語 or literary word. The ①②研判題 is a single-choice item
+  whose options are 皆符合／皆不符合／①符合，②不符合／①不符合，②無法判斷. The
+  booklet as a whole prints 43–68 source and title tokens (改寫自／〈篇名〉／《書名》);
+  the contract floor is 30. A student-facing material must never declare itself
+  自擬, 自撰, 編者撰成 or 本題情境.
 - 詞語填空 (111 Q6, 112 Q6, 114 Q3; none in 113 and 115) always quotes a real work
   with its printed attribution: 杜甫〈灩澦〉and〈絕句漫興九首〉(`依據詩意與格律`),
   〈補江總白猿傳〉(文言), 聶華苓〈月光•枯井•三腳貓〉(現代散文). Three □ slots of two to

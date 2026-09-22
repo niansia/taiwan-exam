@@ -33,12 +33,17 @@ def chinese_paper():
         if n == 1:  # the official shape: two different look-alike characters, one per phrase
             q['options'] = [{'label': 'A', 'text': '既瘖且「痺」／彈箏搏「髀」'}, {'label': 'B', 'text': '不「忮」不求／「庋」藏字畫'},
                             {'label': 'C', 'text': '「攢」蹙累積／踰牆「鑽」穴'}, {'label': 'D', 'text': '「剜」肉補瘡／壯士斷「腕」'}]
-        if n in groups:
-            q['group_stimulus'] = groups[n]
+        if n in groups:  # official group material always prints its source
+            q['group_stimulus'] = groups[n] + '（改寫自某作者〈某篇〉；另見《某書》）'
+        if n == 2:  # 18-23 character sentences, one hidden 錯別字 each
+            q['options'] = [{'label': l, 'text': f'面對突如其來的質疑，他仍神色自若，逐一釐清原委{l}。'} for l in 'ABCD']
+        if n == 7:  # the official ①②研判 option set
+            q['options'] = [{'label': 'A', 'text': '①、②皆符合'}, {'label': 'B', 'text': '①符合，②不符合'},
+                            {'label': 'C', 'text': '①不符合，②無法判斷'}, {'label': 'D', 'text': '①無法判斷，②符合'}]
         questions.append(q)
         answers.append({'question_id': q['id'], 'final_answer': 'B' if kind == 'single_choice' else 'A、C',
                         'reasoning': [f'選項{n}B 依據第二段證據成立。']})
-    mixed = '甲、回憶文學論述；乙、琦君〈髻〉；丙、李煜〈浪淘沙〉'
+    mixed = '甲、回憶文學論述（改寫自某作者〈某篇〉）；乙、琦君〈髻〉；丙、李煜〈浪淘沙〉'
     for n, kind, score, text in ((32, 'constructed_response', 2, '（1）依甲文，乙文屬於哪一種回憶方式？（占2分，作答字數：10字以內。）'),
                                  (32, 'constructed_response', 4, '（2）回憶時會意識到哪些情況？（占4分，作答字數：30字以內。）'),
                                  (33, 'constructed_response', 4, '（1）（占4分，作答字數：40字以內。）'),
@@ -106,6 +111,32 @@ def test_blank_fill_items_quote_a_real_source_and_interleave_two_candidates_per_
     near = json.loads(json.dumps(official))
     near['questions'][2]['options'][1]['text'] = '破海綿／皎潔／貧血'  # differs from A in one slot only
     assert any('只差一格' in e or '須恰有兩個候選詞' in e for e in chinese_layout(near))
+
+
+def test_measured_difficulty_signals_reject_an_easy_imitation():
+    paper = chinese_paper()
+    assert chinese_layout(paper) == []
+    easy = json.loads(json.dumps(paper))
+    for q in easy['questions'][5:24]:  # nineteen reading items with absolutist distractors
+        q['options'] = [{'label': 'A', 'text': '這完全與文本無關'}, {'label': 'B', 'text': '作者必然反對一切改變'},
+                        {'label': 'C', 'text': '文本合理的一種讀法'}, {'label': 'D', 'text': '所有讀者都只能這樣理解'}]
+    errors = chinese_layout(easy)
+    assert any('絕對化字眼（完全、必然、唯一、所有、只會…）的比例' in e for e in errors)
+    assert any('官方最多 36%' in e for e in errors)
+    short = json.loads(json.dumps(paper))
+    short['questions'][1]['options'] = [{'label': l, 'text': '河道整治只求立杆見影。'} for l in 'ABCD']
+    assert any('字形題每句須至少 16 字' in e for e in chinese_layout(short))
+    paired = json.loads(json.dumps(paper))
+    paired['questions'][6]['options'] = [{'label': l, 'text': f'①敘述{l}；②敘述{l}'} for l in 'ABCD']
+    assert any('多選題把①②寫成成對敘述不算' in e for e in chinese_layout(paired))
+    unsourced = json.loads(json.dumps(paper))
+    for q in unsourced['questions']:
+        if q.get('group_stimulus'):
+            q['group_stimulus'] = q['group_stimulus'].replace('（改寫自某作者〈某篇〉；另見《某書》）', '')
+    assert any('全卷出處與篇名標記' in e for e in chinese_layout(unsourced))
+    declared = json.loads(json.dumps(paper))
+    declared['questions'][31]['group_stimulus'] += '（乙選自袁宏道〈滿井遊記〉；甲、丙、丁由編者依題組脈絡撰成。）'
+    assert any('編者依題組脈絡撰成' in e for e in chinese_layout(declared))
 
 
 def test_item_one_pairs_two_different_lookalike_characters_and_short_options_share_rows():

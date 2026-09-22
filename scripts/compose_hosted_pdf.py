@@ -170,6 +170,12 @@ def page_base(out, asset, source_page=0):
     return out[-1]
 
 
+# Every booklet this Skill composes carries this creator string. A body typeset
+# by some other route (a generated 國綜 paper had options wrapping at its stem
+# width, a geometry this renderer never produces) shows up as a missing stamp.
+COMPOSER = 'taiwan-exam-generator/compose_hosted_pdf'
+
+
 def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: str,
             title: str, running_name: str, font_path: Path, map_path: Path = DEFAULT_MAP,
             kind: str = "questions") -> dict:
@@ -238,6 +244,8 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                                "formula_component": "formula-blank" if formula else None,
                                "locked_pixels_match": True})
             output.parent.mkdir(parents=True, exist_ok=True)
+            out.set_metadata({'creator': COMPOSER, 'producer': COMPOSER + ' + PyMuPDF',
+                              'title': f'{title} {subject}', 'subject': kind})
             data = merge_duplicate_fonts(out.tobytes(garbage=4, deflate=True))
             output.write_bytes(data)
         saved_check = verify_pdf(output, subject, kind, asset_dir)
