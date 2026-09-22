@@ -192,7 +192,12 @@ def authoring_requirements(subject):
         '英文': ['ten official headings with A-D labels; passage lengths in the official bands; two recent passages carrying six '
                'items; composition prompt in Chinese with 提示/第一段/第二段 and a picture; unpatterned answer keys',
                'vocabulary stems 13-24 words; reading 35-46 with 2-4 refer-to/closest-in-meaning items, one global item and at '
-               'most four is-true/NOT checks; mixed 47-50 = 4-point fill/short pair + 4-point 多選 + 2-point 簡答; 中譯英 18-28 字 each'],
+               'most four is-true/NOT checks; mixed 47-50 = 4-point fill/short pair + 4-point 多選 + 2-point 簡答; 中譯英 18-28 字 each',
+               'CEEC 參考詞彙表 (shipped list): every 詞彙題 carries item_spec.lexical_scope (target_word, target_surface_form, '
+               'target_pos, option_pos x4, disambiguating_evidence >=2, three distractor_confusion_basis records, allowed_proper_nouns/'
+               'glossed_terms for names) and answers.lexical_explanation; targets 6-9 of 10 at levels 1-4 and 1-3 at levels 5-6, at most '
+               'one level-6 target; 文意選填 (A)-(J) from the list with 2-4 words at level 4+; items 1-34 at most 5% off-list and 7% '
+               'level-6 tokens (proper nouns, contractions and compounds excluded)'],
     }
     return common + by_subject.get(subject, [])
 

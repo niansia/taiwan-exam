@@ -474,7 +474,92 @@
    "global_present_every_year": true
   },
   "mixed_47_50": "填充／簡答 4分 (47-48) + 多選 4分 + 簡答 2分 every year; never a 單選",
-  "rule": "validate_english_layout_contract.py: vocabulary stem 12-26 words, 中譯英 16-32 字, composition prompt <=220 字 with a picture, reading mix (>=2 reference, >=1 global, <=4 detail checks), mixed section shape."
+  "rule": "validate_english_layout_contract.py: vocabulary stem 12-26 words, 中譯英 16-32 字, composition prompt <=220 字 with a picture, reading mix (>=2 reference, >=1 global, <=4 detail checks), mixed section shape.",
+  "vocabulary_list": {
+   "source": "https://www.ceec.edu.tw/SourceUse/ce37/4.pdf (高中英文參考詞彙表, sha256 8bcfc733…, 6,474 headwords, levels 1-6 ≈ 1,080 each), shipped as shared-data/ceec-english-vocabulary-list.json",
+   "vocabulary_answer_levels_111_115": {
+    "1": 1,
+    "2": 7,
+    "3": 11,
+    "4": 20,
+    "5": 6,
+    "6": 2,
+    "unresolved": 2
+   },
+   "vocabulary_answers_level_1_4_per_year": [
+    8,
+    9,
+    8,
+    8,
+    7
+   ],
+   "vocabulary_answers_level_5_6_per_year": [
+    2,
+    1,
+    1,
+    2,
+    3
+   ],
+   "level_6_answers": {
+    "113": "randomly",
+    "115": "consumption"
+   },
+   "unresolved_answers": {
+    "112": "supposedly",
+    "113": "compulsory"
+   },
+   "distractor_level_6_per_year": [
+    3,
+    5,
+    1,
+    6,
+    4
+   ],
+   "completion_bank_level_4_plus_per_year": [
+    4,
+    4,
+    2,
+    4,
+    3
+   ],
+   "completion_bank_unresolved_per_year": [
+    1,
+    1,
+    2,
+    0,
+    0
+   ],
+   "items_1_34_off_list_rate": [
+    0.031,
+    0.029,
+    0.022,
+    0.019,
+    0.023
+   ],
+   "items_1_34_level_6_rate": [
+    0.038,
+    0.039,
+    0.022,
+    0.054,
+    0.032
+   ],
+   "reading_35_50_off_list_rate": [
+    0.062,
+    0.073,
+    0.053,
+    0.045,
+    0.056
+   ],
+   "reading_35_50_level_6_rate": [
+    0.026,
+    0.021,
+    0.025,
+    0.045,
+    0.038
+   ],
+   "exclusions": "proper nouns (capitalised), contractions, hyphenated compounds, tokens of one or two letters; irregular and derived forms mapped to their headword",
+   "rule": "validate_english_vocabulary_scope.py at hosted save time: targets >=6 of 10 at levels 1-4 and >=1 at 5-6, at most one level-6 and one unresolved target; 文意選填 bank <=1 unresolved and >=2 at level 4+; items 1-34 off-list <=5% and level-6 <=7%; reading off-list >10% warns."
+  }
  },
  "國寫": {
   "task_one_material_cjk": {

@@ -108,6 +108,19 @@ def material_quote_errors(exam):
     return errors
 
 
+def english_vocabulary_errors(exam):
+    """CEEC 參考詞彙表 scope from the shipped list; a missing list is itself an error."""
+    from validate_english_vocabulary_scope import DEFAULT_REFERENCE, load_reference, validate_exam as vocabulary
+    if not DEFAULT_REFERENCE.is_file():
+        return [f'the CEEC vocabulary list is missing at {DEFAULT_REFERENCE.as_posix()}; 詞彙題 and 文意選填 scope cannot be checked']
+    out = []
+    for row in vocabulary(exam, load_reference(DEFAULT_REFERENCE))['errors']:
+        where = f"Q{row.get('question_id')}: " if row.get('question_id') else ''
+        extra = {k: v for k, v in row.items() if k not in {'code', 'question_id'}}
+        out.append(where + str(row.get('code')) + (f' {extra}' if extra else ''))
+    return out
+
+
 def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
     """All subject validators that can run from the exam record alone.
 
@@ -125,6 +138,7 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
         from validate_english_difficulty_design import validate_exam as english_design
         errors.extend('english-layout: ' + e for e in english_layout(exam))
         errors.extend('english-design: ' + e for e in english_design(exam)['errors'])
+        errors.extend('english-vocabulary: ' + e for e in english_vocabulary_errors(exam))
     elif subject in {'國綜', '自然'}:
         from validate_chinese_natural_scope import validate as scope
         errors.extend('scope: ' + e for e in scope(exam, science_spec)['errors'])

@@ -1,10 +1,25 @@
 #!/usr/bin/env python3
-"""Validate GSAT English lexical scope against the CEEC 111-onward list.
+"""Validate GSAT English lexical scope against the CEEC 高中英文參考詞彙表.
 
-The validator deliberately separates list membership from item quality.  It
-checks the former from the official PDF and requires explicit lexical-design
-metadata for vocabulary items so that a paper cannot pass merely by using easy
-words.
+The list ships with the Skill as
+exam_packs/學測/shared-data/ceec-english-vocabulary-list.json (parsed from
+https://www.ceec.edu.tw/SourceUse/ce37/4.pdf, 6,474 headwords in six levels), so the
+check runs when a hosted batch is saved, not only at the local release gate.
+
+Calibration on the official 111-115 booklets (2026-09-23), answers of the ten
+詞彙題 per year by level: 1:1, 2:7, 3:11, 4:20, 5:6, 6:2, unresolved 2 of 50
+(113 randomly and 115 consumption are level 6; 112 supposedly and 113 compulsory
+are not headwords). Distractors include 3-6 level-6 words a year. Items 1-34
+(詞彙, 綜合測驗, 文意選填, 篇章結構) carry 1.9-3.1% tokens outside the list and
+2.2-5.4% level-6 tokens once proper nouns, contractions, hyphenated compounds and
+inflected forms are excluded; the reading passages 4.5-7.3% and 2.1-4.5%. The
+former rules (no off-list or level-6 token outside reading, every target at most
+level 5, 70% of targets at levels 1-4) rejected every official year and are
+replaced by the rates below.
+
+The validator still separates list membership from item quality: vocabulary
+items must carry explicit lexical-design metadata so a paper cannot pass merely
+by using easy words.
 """
 
 from __future__ import annotations
@@ -18,6 +33,17 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_REFERENCE = ROOT / "exam_packs" / "學測" / "shared-data" / "ceec-english-vocabulary-list.json"
+NONREADING_OFF_LIST_RATE_MAX = 0.05     # official 1.9-3.1%
+NONREADING_LEVEL_6_RATE_MAX = 0.07      # official 2.2-5.4%
+READING_OFF_LIST_RATE_MAX = 0.10        # official 4.5-7.3% (warning)
+VOCAB_TARGET_LEVEL_6_MAX = 1            # official 0, 0, 1, 0, 1
+VOCAB_TARGET_OFF_LIST_MAX = 1           # official 0, 1, 1, 0, 0
+VOCAB_TARGETS_LEVEL_1_4_MIN = 6         # official 8, 9, 8, 8, 7 of 10
+VOCAB_TARGETS_LEVEL_5_6_MIN = 1         # official 2, 1, 1, 2, 3 of 10
+BANK_OFF_LIST_MAX = 1                   # 文意選填 (A)-(J): official 1, 1, 2, 0, 0 unresolved (risky, absorption, fateful)
+BANK_LEVEL_4_PLUS_MIN = 2               # official 4, 4, 2, 4, 3 words at level 4-6
 ENTRY_RE = re.compile(
     r"^(.+?)\s+((?:\(?[A-Za-z]+\.\)?/?)+)\s+([1-6])$"
 )
@@ -59,6 +85,376 @@ IRREGULAR_HEADWORDS = {
     "using": "use", "reader's": "read",
     "understood": "understand", "written": "write", "children": "child",
 }
+# Irregular forms, comparatives, compounds of pronouns and transparent derivations
+# met in the official 111-115 booklets; each maps to the CEEC headword it is read from.
+IRREGULAR_HEADWORDS.update({
+    "brought": "bring",
+    "seen": "see",
+    "men": "man",
+    "teeth": "tooth",
+    "lost": "lose",
+    "said": "say",
+    "paid": "pay",
+    "built": "build",
+    "met": "meet",
+    "rung": "ring",
+    "sprang": "spring",
+    "shown": "show",
+    "given": "give",
+    "goes": "go",
+    "going": "go",
+    "dying": "die",
+    "doing": "do",
+    "got": "get",
+    "fallen": "fall",
+    "meant": "mean",
+    "died": "die",
+    "women": "woman",
+    "children": "child",
+    "feet": "foot",
+    "taken": "take",
+    "made": "make",
+    "done": "do",
+    "known": "know",
+    "written": "write",
+    "thought": "think",
+    "bought": "buy",
+    "caught": "catch",
+    "taught": "teach",
+    "fought": "fight",
+    "sought": "seek",
+    "left": "leave",
+    "felt": "feel",
+    "kept": "keep",
+    "slept": "sleep",
+    "held": "hold",
+    "told": "tell",
+    "sold": "sell",
+    "stood": "stand",
+    "understood": "understand",
+    "found": "find",
+    "heard": "hear",
+    "led": "lead",
+    "ran": "run",
+    "began": "begin",
+    "begun": "begin",
+    "sang": "sing",
+    "sung": "sing",
+    "drank": "drink",
+    "drunk": "drink",
+    "swam": "swim",
+    "grew": "grow",
+    "grown": "grow",
+    "knew": "know",
+    "threw": "throw",
+    "thrown": "throw",
+    "flew": "fly",
+    "flown": "fly",
+    "drew": "draw",
+    "drawn": "draw",
+    "wore": "wear",
+    "worn": "wear",
+    "tore": "tear",
+    "torn": "tear",
+    "chose": "choose",
+    "chosen": "choose",
+    "spoke": "speak",
+    "spoken": "speak",
+    "broke": "break",
+    "broken": "break",
+    "woke": "wake",
+    "rose": "rise",
+    "risen": "rise",
+    "drove": "drive",
+    "driven": "drive",
+    "wrote": "write",
+    "rode": "ride",
+    "ridden": "ride",
+    "hid": "hide",
+    "hidden": "hide",
+    "bit": "bite",
+    "bitten": "bite",
+    "fed": "feed",
+    "bled": "bleed",
+    "sat": "sit",
+    "shot": "shoot",
+    "struck": "strike",
+    "stuck": "stick",
+    "swung": "swing",
+    "hung": "hang",
+    "dug": "dig",
+    "won": "win",
+    "spun": "spin",
+    "forgot": "forget",
+    "forgotten": "forget",
+    "became": "become",
+    "came": "come",
+    "gave": "give",
+    "saw": "see",
+    "went": "go",
+    "ate": "eat",
+    "eaten": "eat",
+    "fell": "fall",
+    "laid": "lay",
+    "lain": "lie",
+    "lit": "light",
+    "sent": "send",
+    "spent": "spend",
+    "lent": "lend",
+    "bent": "bend",
+    "dealt": "deal",
+    "dreamt": "dream",
+    "burnt": "burn",
+    "learnt": "learn",
+    "shook": "shake",
+    "shaken": "shake",
+    "froze": "freeze",
+    "frozen": "freeze",
+    "stole": "steal",
+    "stolen": "steal",
+    "beaten": "beat",
+    "forgave": "forgive",
+    "forgiven": "forgive",
+    "arose": "arise",
+    "arisen": "arise",
+    "awoke": "awake",
+    "bore": "bear",
+    "borne": "bear",
+    "born": "bear",
+    "bound": "bind",
+    "bred": "breed",
+    "clung": "cling",
+    "crept": "creep",
+    "fled": "flee",
+    "flung": "fling",
+    "forbade": "forbid",
+    "forbidden": "forbid",
+    "knelt": "kneel",
+    "leapt": "leap",
+    "mistook": "mistake",
+    "mistaken": "mistake",
+    "overcame": "overcome",
+    "shrank": "shrink",
+    "shrunk": "shrink",
+    "slid": "slide",
+    "sank": "sink",
+    "sunk": "sink",
+    "spat": "spit",
+    "sprung": "spring",
+    "stung": "sting",
+    "strove": "strive",
+    "swept": "sweep",
+    "swore": "swear",
+    "sworn": "swear",
+    "undertook": "undertake",
+    "undertaken": "undertake",
+    "withdrew": "withdraw",
+    "withdrawn": "withdraw",
+    "wept": "weep",
+    "woven": "weave",
+    "wove": "weave",
+    "mice": "mouse",
+    "geese": "goose",
+    "oxen": "ox",
+    "people": "person",
+    "best": "good",
+    "better": "good",
+    "worse": "bad",
+    "worst": "bad",
+    "less": "little",
+    "least": "little",
+    "more": "much",
+    "most": "much",
+    "farther": "far",
+    "further": "far",
+    "farthest": "far",
+    "furthest": "far",
+    "everything": "every",
+    "everywhere": "every",
+    "everyone": "every",
+    "everybody": "every",
+    "himself": "him",
+    "herself": "her",
+    "themselves": "them",
+    "myself": "my",
+    "yourself": "your",
+    "itself": "it",
+    "ourselves": "our",
+    "nobody": "no",
+    "nothing": "no",
+    "nowhere": "no",
+    "somebody": "some",
+    "someone": "some",
+    "something": "some",
+    "somewhere": "some",
+    "anybody": "any",
+    "anyone": "any",
+    "anything": "any",
+    "anywhere": "any",
+    "truly": "true",
+    "using": "use",
+    "gone": "go",
+    "lying": "lie",
+    "tying": "tie",
+    "paying": "pay",
+    "says": "say",
+    "has": "have",
+    "does": "do",
+    "cannot": "can",
+    "online": "line",
+    "probably": "probable",
+    "surprisingly": "surprising",
+    "specifically": "specific",
+    "understandably": "understand",
+    "periodically": "periodic",
+    "harmonically": "harmonic",
+    "legitimately": "legitimate",
+    "relevantly": "relevant",
+    "persistently": "persistent",
+    "genetically": "genetic",
+    "literally": "literal",
+    "alternatively": "alternative",
+    "ultimately": "ultimate",
+    "undoubtedly": "doubt",
+    "supposedly": "suppose",
+    "randomly": "random",
+    "verbally": "verbal",
+    "initially": "initial",
+    "potentially": "potential",
+    "eventually": "eventual",
+    "originally": "original",
+    "generally": "general",
+    "usually": "usual",
+    "finally": "final",
+    "especially": "especial",
+    "particularly": "particular",
+    "recently": "recent",
+    "immediately": "immediate",
+    "actually": "actual",
+    "totally": "total",
+    "hardly": "hard",
+    "nearly": "near",
+    "mostly": "most",
+    "entirely": "entire",
+    "happiness": "happy",
+    "friendliness": "friendly",
+    "cleanliness": "clean",
+    "timeliness": "timely",
+    "responsiveness": "responsive",
+    "weightlessness": "weight",
+    "stupidity": "stupid",
+    "consistency": "consistent",
+    "affordable": "afford",
+    "adjustable": "adjust",
+    "manageable": "manage",
+    "trustworthy": "trust",
+    "hurtful": "hurt",
+    "heartwarming": "heart",
+    "smelly": "smell",
+    "puffy": "puff",
+    "bumpy": "bump",
+    "risky": "risk",
+    "fateful": "fate",
+    "soulful": "soul",
+    "forceful": "force",
+    "eligibly": "eligible",
+    "misguided": "guide",
+    "unbiased": "bias",
+    "outdated": "date",
+    "reopened": "open",
+    "redistributed": "distribute",
+    "redistributing": "distribute",
+    "disrupted": "disrupt",
+    "outermost": "outer",
+    "northeastern": "northeast",
+    "hilltop": "hill",
+    "treetops": "tree",
+    "headaches": "headache",
+    "shoppers": "shopper",
+    "bookshop": "bookshop",
+    "bookshops": "bookshop",
+    "smartphones": "smartphone",
+    "newcomers": "newcomer",
+    "nappers": "nap",
+    "passersby": "passerby",
+    "shelves": "shelf",
+    "icons": "icon",
+    "delicacies": "delicacy",
+    "shootings": "shooting",
+    "manifestations": "manifestation",
+    "eyesores": "eyesore",
+    "lifelike": "life",
+    "masterful": "master",
+    "festive": "festival",
+    "filmmaking": "film",
+    "imagery": "image",
+    "keywords": "keyword",
+    "absorption": "absorb",
+    "provision": "provide",
+    "precedence": "precede",
+    "shrinkage": "shrink",
+    "contentment": "content",
+    "cognition": "cognitive",
+    "accompaniment": "accompany",
+    "restoration": "restore",
+    "photosynthesis": "photosynthesis",
+    "dementia": "dementia",
+    "pandemic": "pandemic",
+    "liability": "liable",
+    "siblings": "sibling",
+    "nausea": "nausea",
+    "syndrome": "syndrome",
+    "devastating": "devastate",
+    "agonizing": "agony",
+    "deceased": "decease",
+    "evoked": "evoke",
+    "intermix": "mix",
+    "jigsaw": "jigsaw",
+    "lactose": "lactose",
+    "hydrated": "hydrate",
+    "hydration": "hydrate",
+    "ideology": "ideology",
+    "swollen": "swell",
+    "perceptual": "perceive",
+    "blackout": "black",
+    "campfire": "camp",
+    "snooze": "snooze",
+    "poop": "poop",
+    "tendon": "tendon",
+    "checklist": "check",
+    "cutback": "cut",
+    "counterproductive": "productive",
+    "compulsory": "compulsory",
+    "deformation": "deform",
+    "disintegrating": "disintegrate",
+    "pressurization": "pressure",
+    "acrobatic": "acrobat",
+    "aesthetics": "aesthetic",
+    "antiquarian": "antique",
+    "altars": "altar",
+    "bonfire": "bonfire",
+    "eggplants": "eggplant",
+    "horseback": "horse",
+    "kimonos": "kimono",
+    "midair": "air",
+    "rams": "ram",
+    "breakage": "break",
+    "microgravity": "gravity",
+    "fiberglass": "fiber",
+    "coronations": "coronation",
+    "minimalist": "minimal",
+    "acoustic": "acoustic",
+    "claustrophobic": "claustrophobic",
+    "cued": "cue",
+    "dizziness": "dizzy",
+    "intricate": "intricate",
+    "seasonal": "season",
+    "brightening": "bright",
+    "culinary": "culinary",
+    "individualism": "individual",
+    "unsmiling": "smile",
+    "underlying": "underlie"
+})
 
 
 def _load_pymupdf() -> Any:
@@ -97,6 +493,33 @@ def _expand_word_expression(expression: str) -> set[str]:
         for inner in re.findall(r"\(([^)]*)\)", part):
             variants.update(token.lower() for token in TOKEN_RE.findall(inner))
     return variants
+
+
+def build_index(rows: Iterable[tuple[str, str, int]]) -> dict[str, list[dict[str, Any]]]:
+    index: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for expression, pos, level in rows:
+        record = {"entry": expression, "pos": pos, "level": int(level)}
+        for form in _expand_word_expression(expression):
+            if record not in index[form]:
+                index[form].append(record)
+    return dict(index)
+
+
+def load_reference(path: Path | None = None) -> dict[str, list[dict[str, Any]]]:
+    """The shipped JSON list (default) or the official PDF."""
+    path = Path(path) if path else DEFAULT_REFERENCE
+    if path.suffix.lower() == ".json":
+        data = json.loads(path.read_text(encoding="utf-8"))
+        rows = [(str(r[0]), str(r[1]), int(r[2])) for r in data.get("rows") or []]
+        if not 5000 <= len(rows) <= 7000:
+            raise ValueError(f"參考詞彙表解析筆數異常：{len(rows)}")
+        return build_index(rows)
+    return parse_reference_pdf(path)
+
+
+def _audit_skip(token: str) -> bool:
+    """Proper nouns, contractions, hyphenated compounds and one- or two-letter tokens are not scope evidence."""
+    return token[0].isupper() or "'" in token or "-" in token or len(token) <= 2
 
 
 def parse_reference_pdf(path: Path) -> dict[str, list[dict[str, Any]]]:
@@ -249,6 +672,12 @@ def validate_exam(exam: dict[str, Any], index: dict[str, list[dict[str, Any]]]) 
         if isinstance(answer, dict) and answer.get("question_id") is not None
     }
     vocabulary_question_count = 0
+    off_list: dict[str, list[dict[str, Any]]] = {"reading": [], "nonreading": []}
+    counted: Counter[str] = Counter()
+    level_6: dict[str, list[str]] = {"reading": [], "nonreading": []}
+    bank_words: list[str] = []
+    vocab_level_6_targets: list[str] = []
+    vocab_off_list_targets: list[str] = []
 
     for question in exam.get("questions", []):
         if not isinstance(question, dict):
@@ -265,28 +694,25 @@ def validate_exam(exam: dict[str, Any], index: dict[str, list[dict[str, Any]]]) 
             for word in (scope.get(key) or [])
         }
 
+        kind = "reading" if is_reading else "nonreading"
+        if "文意選填" in section_title and isinstance(question.get("group_stimulus"), str) and not bank_words:
+            bank_words = [word.strip() for _, word in re.findall(r"\(([A-J])\)\s*([A-Za-z][A-Za-z' -]*?)(?=\s*\(|\n|$)",
+                                                                   question["group_stimulus"].replace("’", "'"), flags=re.M)]
         for text in _question_texts(question):
             for token in _text_tokens(text):
                 audited_tokens += 1
                 lowered = token.lower().replace("’", "'")
-                if lowered in BASIC_FUNCTION_FORMS or len(lowered) == 1:
+                if lowered in BASIC_FUNCTION_FORMS or lowered in allowed or _audit_skip(token):
                     continue
-                if lowered in allowed:
-                    continue
+                counted[kind] += 1
                 resolved, records = resolve_token(lowered, index)
                 if not resolved:
-                    finding = {"question_id": qid, "section": section_title, "token": token}
-                    (warnings if is_reading else errors).append({"code": "off_list_token", **finding})
+                    off_list[kind].append({"question_id": qid, "section": section_title, "token": token})
                     continue
                 level = min(record["level"] for record in records)
                 token_levels[level] += 1
-                if not is_reading and level == 6 and lowered not in allowed:
-                    errors.append({
-                        "code": "unjustified_level_6_nonreading",
-                        "question_id": qid,
-                        "section": section_title,
-                        "token": token,
-                    })
+                if level == 6:
+                    level_6[kind].append(token)
 
         if not is_vocab:
             continue
@@ -308,12 +734,13 @@ def validate_exam(exam: dict[str, Any], index: dict[str, list[dict[str, Any]]]) 
         else:
             resolved, records = resolve_token(str(target_word), index)
             if not resolved:
-                errors.append({"code": "vocabulary_target_off_list", "question_id": qid, "token": target_word})
+                vocab_off_list_targets.append(str(target_word))
+                warnings.append({"code": "vocabulary_target_off_list", "question_id": qid, "token": target_word})
             else:
                 level = min(record["level"] for record in records)
                 vocab_target_levels[level] += 1
-                if level > 5:
-                    errors.append({"code": "vocabulary_target_above_level_5", "question_id": qid, "token": target_word})
+                if level == 6:
+                    vocab_level_6_targets.append(str(target_word))
         answer = answers_by_id.get(qid) or {}
         answer_label = str(answer.get("final_answer") or "")
         selected_surface = option_map.get(answer_label, "")
@@ -394,10 +821,53 @@ def validate_exam(exam: dict[str, Any], index: dict[str, list[dict[str, Any]]]) 
                     "selected_surface_form": selected_surface,
                 })
 
-    vocab_count = sum(vocab_target_levels.values())
-    if vocab_count and sum(count for level, count in vocab_target_levels.items() if level <= 4) / vocab_count < 0.7:
-        errors.append({"code": "vocabulary_target_level_mix_too_high", "detail": "至少 70% 標的詞應為第一至四級。"})
+    # Scope rates measured on the official 111-115 booklets (see module docstring).
+    for kind, rate_max, code in (("nonreading", NONREADING_OFF_LIST_RATE_MAX, "nonreading_off_list_rate_too_high"),
+                                 ("reading", READING_OFF_LIST_RATE_MAX, "reading_off_list_rate_high")):
+        warnings.extend({"code": "off_list_token", **finding} for finding in off_list[kind])
+        if counted[kind] >= 40:
+            rate = len(off_list[kind]) / counted[kind]
+            if rate > rate_max:
+                (errors if kind == "nonreading" else warnings).append({
+                    "code": code, "rate": round(rate, 4), "maximum": rate_max, "tokens": sorted({f["token"] for f in off_list[kind]}),
+                    "detail": "官方 111-115 第1-34題表外詞 1.9-3.1%、閱讀 4.5-7.3%（專有名詞、縮寫、連字號複合詞不計）；"
+                              "表外詞須在 item_spec.lexical_scope.allowed_proper_nouns／glossed_terms 說明或改用詞彙表用字。",
+                })
+    if counted["nonreading"] >= 40 and len(level_6["nonreading"]) / counted["nonreading"] > NONREADING_LEVEL_6_RATE_MAX:
+        errors.append({"code": "unjustified_level_6_nonreading", "rate": round(len(level_6["nonreading"]) / counted["nonreading"], 4),
+                       "maximum": NONREADING_LEVEL_6_RATE_MAX, "tokens": sorted(set(level_6["nonreading"])),
+                       "detail": "官方 111-115 第1-34題第六級詞 2.2-5.4%；第六級只能零星出現。"})
+    if counted["nonreading"] < 40 and level_6["nonreading"] and counted["nonreading"] and len(level_6["nonreading"]) / counted["nonreading"] > NONREADING_LEVEL_6_RATE_MAX:
+        errors.append({"code": "unjustified_level_6_nonreading", "tokens": sorted(set(level_6["nonreading"]))})
+    if bank_words:
+        bank_levels = []
+        for word in bank_words:
+            levels = []
+            for token in TOKEN_RE.findall(word):
+                resolved, records = resolve_token(token, index)
+                levels.append(min(r["level"] for r in records) if resolved else None)
+            bank_levels.append((word, max((l for l in levels if l is not None), default=None) if all(l is not None for l in levels) else None))
+        unresolved = [w for w, l in bank_levels if l is None]
+        if len(unresolved) > BANK_OFF_LIST_MAX:
+            errors.append({"code": "completion_bank_off_list", "words": unresolved, "maximum": BANK_OFF_LIST_MAX,
+                           "detail": "文意選填十個選項須為參考詞彙表用字（官方 111-115 每年至多 1-2 個非表內字）。"})
+        if len(bank_levels) >= 8 and sum(1 for _, l in bank_levels if l and l >= 4) < BANK_LEVEL_4_PLUS_MIN:
+            errors.append({"code": "completion_bank_too_easy", "levels": [l for _, l in bank_levels], "minimum_level_4_plus": BANK_LEVEL_4_PLUS_MIN,
+                           "detail": "官方 111-115 文意選填選項每年有 2-4 個第四級以上用字。"})
+    if len(vocab_level_6_targets) > VOCAB_TARGET_LEVEL_6_MAX:
+        errors.append({"code": "vocabulary_target_level_6_more_than_one", "tokens": vocab_level_6_targets,
+                       "detail": "官方 111-115 每卷至多一個第六級標的詞（113 randomly、115 consumption）。"})
+    if len(vocab_off_list_targets) > VOCAB_TARGET_OFF_LIST_MAX:
+        errors.append({"code": "vocabulary_target_off_list_more_than_one", "tokens": vocab_off_list_targets})
     if vocabulary_question_count == 10:
+        easy = sum(count for level, count in vocab_target_levels.items() if level <= 4)
+        demanding = sum(count for level, count in vocab_target_levels.items() if level >= 5)
+        if easy < VOCAB_TARGETS_LEVEL_1_4_MIN:
+            errors.append({"code": "vocabulary_target_level_mix_too_high", "found_level_1_4": easy, "minimum": VOCAB_TARGETS_LEVEL_1_4_MIN,
+                           "detail": "官方 111-115 十題標的詞第一至四級為 8、9、8、8、7 題。"})
+        if demanding < VOCAB_TARGETS_LEVEL_5_6_MIN:
+            errors.append({"code": "vocabulary_target_level_mix_too_low", "found_level_5_6": demanding, "minimum": VOCAB_TARGETS_LEVEL_5_6_MIN,
+                           "detail": "官方 111-115 每卷有 1-3 個第五、六級標的詞（potentially、quest、blurring、vacancy、assaulted…）。"})
         if not answer_positions_balanced(vocabulary_answer_positions):
             errors.append({
                 "code": "vocabulary_answer_positions_unbalanced",
@@ -449,11 +919,12 @@ def validate_exam(exam: dict[str, Any], index: dict[str, list[dict[str, Any]]]) 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("exam_json", type=Path)
-    parser.add_argument("reference_pdf", type=Path)
+    parser.add_argument("reference", type=Path, nargs="?", help="CEEC list JSON (default: the shipped list) or the official PDF")
     parser.add_argument("--report", type=Path)
     args = parser.parse_args()
     exam = json.loads(args.exam_json.read_text(encoding="utf-8-sig"))
-    index = parse_reference_pdf(args.reference_pdf)
+    reference = args.reference if args.reference and args.reference.is_file() else DEFAULT_REFERENCE
+    index = load_reference(reference)
     report = validate_exam(exam, index)
     rendered = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
     if args.report:
