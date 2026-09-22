@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.4
+# Taiwan Exam Web Knowledge v2026.09.22.5
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -134,10 +134,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "exam_packs/學測/shared-data/chinese-item-type-envelope.json",
-    "bytes": 4739,
-    "sha256": "c4c68c84fad1b51f10e277e306ffa70cd084eccbea4cd4cb6ed79ca4fee96281",
-    "embedded_bytes": 4739,
-    "embedded_sha256": "c4c68c84fad1b51f10e277e306ffa70cd084eccbea4cd4cb6ed79ca4fee96281"
+    "bytes": 8424,
+    "sha256": "825ce5696a06cd0de95bcd861b964721bd8eb26fd3f06bcb4ded0e0a8673430e",
+    "embedded_bytes": 8424,
+    "embedded_sha256": "825ce5696a06cd0de95bcd861b964721bd8eb26fd3f06bcb4ded0e0a8673430e"
   },
   {
     "path": "exam_packs/學測/shared-data/current-chinese-natural-density.json",
@@ -505,10 +505,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 35258,
-    "sha256": "d66959ad5942966b3008cec5b18ea1269a6b7ecddad655d9f343675f97219812",
-    "embedded_bytes": 35258,
-    "embedded_sha256": "d66959ad5942966b3008cec5b18ea1269a6b7ecddad655d9f343675f97219812"
+    "bytes": 37437,
+    "sha256": "9dba3a9b77604754ee9c847c9cd40fa95d4d41675dacca59b1bc5ae65d509de4",
+    "embedded_bytes": 37437,
+    "embedded_sha256": "9dba3a9b77604754ee9c847c9cd40fa95d4d41675dacca59b1bc5ae65d509de4"
   },
   {
     "path": "references/current-gsat-english-form.md",
@@ -645,10 +645,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 37012,
-    "sha256": "24a04d9e2891d7e39134672085efeba514409619fd8e5b64a40086ecb560647e",
-    "embedded_bytes": 37012,
-    "embedded_sha256": "24a04d9e2891d7e39134672085efeba514409619fd8e5b64a40086ecb560647e"
+    "bytes": 37086,
+    "sha256": "3ad0ff6ca7d9d7bcaf0f845e87f8147fe741d79a3c7592e94ce17de63aef7dfa",
+    "embedded_bytes": 37086,
+    "embedded_sha256": "3ad0ff6ca7d9d7bcaf0f845e87f8147fe741d79a3c7592e94ce17de63aef7dfa"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -1016,10 +1016,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 86437,
-    "sha256": "882041891f6ccf5714650484d6452423b3fa8530c0d1d67b850bd31e5272deca",
-    "embedded_bytes": 86437,
-    "embedded_sha256": "882041891f6ccf5714650484d6452423b3fa8530c0d1d67b850bd31e5272deca"
+    "bytes": 86625,
+    "sha256": "1de668304c33cc7e75fa139e837d37cab645bd7401f9e32feba84bbf4d0f08f4",
+    "embedded_bytes": 86625,
+    "embedded_sha256": "1de668304c33cc7e75fa139e837d37cab645bd7401f9e32feba84bbf4d0f08f4"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1030,10 +1030,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_chinese_layout_contract.py",
-    "bytes": 10414,
-    "sha256": "330df941a1ddecf60e5fc6c0b5afa1a00e2c140e4e114145a89a96b5d0c2ccc8",
-    "embedded_bytes": 10414,
-    "embedded_sha256": "330df941a1ddecf60e5fc6c0b5afa1a00e2c140e4e114145a89a96b5d0c2ccc8"
+    "bytes": 16099,
+    "sha256": "526c1dcccdd12d0b5c7811ef5a607fee0ffeb4905a13ffa879c98883b3fbcb17",
+    "embedded_bytes": 16099,
+    "embedded_sha256": "526c1dcccdd12d0b5c7811ef5a607fee0ffeb4905a13ffa879c98883b3fbcb17"
   },
   {
     "path": "scripts/validate_chinese_natural_scope.py",
@@ -11642,80 +11642,434 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
 
 <canonical-source path="exam_packs/學測/shared-data/chinese-item-type-envelope.json">
 {
-  "schema_version": 1,
-  "subject": "國綜",
-  "basis": "Maintainer item-by-item reading of the supplied CEEC 學測 ROC 111-115 國語文綜合能力測驗 booklets (2026-09-22). Each item was classified by 題型, standalone/group, text era and source kind; group stimulus lengths are approximate printed character counts.",
-  "status": "reviewed-manual-classification",
-  "caution": "Editorial reading for release calibration, not a CEEC annotation. 111-112 print 25 single-choice items, 7 multiple-choice and two 第貳部分 groups (22 points); 113-115 print 24, 7 and one group (24 points). The current form is 113-115.",
-  "structure": {
-    "111": {"single": "1-25", "multiple": "26-32", "part_2": "33-37", "part_1_points": 78, "part_2_points": 22, "part_2_groups": 2},
-    "112": {"single": "1-25", "multiple": "26-32", "part_2": "33-37", "part_1_points": 78, "part_2_points": 22, "part_2_groups": 2},
-    "113": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1},
-    "114": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1},
-    "115": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1}
+ "schema_version": 1,
+ "subject": "國綜",
+ "basis": "Maintainer item-by-item reading of the supplied CEEC 學測 ROC 111-115 國語文綜合能力測驗 booklets (2026-09-22). Each item was classified by 題型, standalone/group, text era and source kind; group stimulus lengths are approximate printed character counts.",
+ "status": "reviewed-manual-classification",
+ "caution": "Editorial reading for release calibration, not a CEEC annotation. 111-112 print 25 single-choice items, 7 multiple-choice and two 第貳部分 groups (22 points); 113-115 print 24, 7 and one group (24 points). The current form is 113-115.",
+ "structure": {
+  "111": {
+   "single": "1-25",
+   "multiple": "26-32",
+   "part_2": "33-37",
+   "part_1_points": 78,
+   "part_2_points": 22,
+   "part_2_groups": 2
   },
-  "single_choice_item_types": {
-    "years": [111, 112, 113, 114, 115],
-    "字音": [1, 1, 1, 1, 1],
-    "字形": [1, 1, 1, 1, 1],
-    "成語或詞語運用（白話）": [1, 1, 0, 1, 0],
-    "文言字義": [1, 0, 0, 0, 0],
-    "語法或修辭知識": [1, 0, 0, 0, 2],
-    "文言排序": [0, 0, 1, 0, 1],
-    "應用文或稱謂": [0, 0, 0, 0, 1],
-    "白話說明文閱讀": [1, 5, 15, 9, 14],
-    "白話文學閱讀": [2, 4, 1, 3, 0],
-    "文言閱讀": [9, 9, 4, 5, 0],
-    "古典韻文閱讀": [1, 0, 0, 0, 2],
-    "跨文本比較": [3, 3, 1, 1, 2],
-    "圖表或非連續文本": [4, 1, 0, 3, 0],
-    "standalone_items": ["1-8", "1-7", "1-5", "1-5", "1-5"],
-    "first_group_starts_at": [9, 8, 6, 6, 6],
-    "group_count": [6, 7, 8, 7, 7],
-    "group_sizes": {"111": [3, 2, 4, 2, 3, 3], "112": [2, 3, 2, 3, 3, 2, 3], "113": [3, 2, 2, 3, 2, 3, 2, 2], "114": [3, 2, 2, 2, 5, 2, 3], "115": [3, 2, 3, 2, 3, 3, 3]},
-    "group_stimulus_chars": "250-700 typical; standalone 文言 70-200; longest about 1050"
+  "112": {
+   "single": "1-25",
+   "multiple": "26-32",
+   "part_2": "33-37",
+   "part_1_points": 78,
+   "part_2_points": 22,
+   "part_2_groups": 2
   },
-  "multiple_choice_item_types": {
-    "years": [111, 112, 113, 114, 115],
-    "文言字義（「」內的詞，意義前後相同）": [1, 1, 1, 1, 1],
-    "成語運用": [0, 0, 1, 1, 1],
-    "語法或修辭知識": [1, 1, 1, 1, 0],
-    "文化或文學常識": [1, 0, 0, 0, 1],
-    "應用文或稱謂": [1, 0, 0, 0, 0],
-    "白話文學閱讀": [1, 1, 0, 0, 0],
-    "白話說明文閱讀": [0, 0, 1, 2, 0],
-    "新詩閱讀": [0, 1, 0, 0, 0],
-    "文言閱讀": [2, 1, 2, 0, 2],
-    "古典韻文閱讀": [0, 1, 0, 0, 0],
-    "圖表或非連續文本": [0, 0, 1, 0, 0],
-    "跨文本比較": [0, 1, 0, 2, 2],
-    "standalone_items": 5,
-    "closing_group": "last two multiple-choice items share one stimulus containing 文言 or 韻文",
-    "prints_required_selection_count": false,
-    "first_multiple_choice_item": "文言字義 with options drawn from 核心古文 in every year"
+  "113": {
+   "single": "1-24",
+   "multiple": "25-31",
+   "part_2": "32-36",
+   "part_1_points": 76,
+   "part_2_points": 24,
+   "part_2_groups": 1
   },
-  "part_2": {
-    "single_choice_subparts": 2,
-    "constructed_items": 3,
-    "constructed_subparts_each": 2,
-    "points_by_year": {"111": [2, 2, 6, 6, 6], "112": [6, 2, 6, 2, 6], "113": [6, 8, 2, 2, 6], "114": [2, 2, 6, 8, 6], "115": [6, 6, 8, 2, 2]},
-    "character_limits": {"2_points": "10-20 字以內", "4_points": "30-40 字以內 (or two parts of 10-15)"},
-    "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts"
+  "114": {
+   "single": "1-24",
+   "multiple": "25-31",
+   "part_2": "32-36",
+   "part_1_points": 76,
+   "part_2_points": 24,
+   "part_2_groups": 1
   },
-  "every_year": [
-    "Q1 字音, Q2 字形",
-    "first multiple-choice item is 文言字義 with 核心古文 options",
-    "5 standalone multiple-choice items plus a closing 2-item group",
-    "no multiple-choice stem prints 應選n項",
-    "one 成語/詞語運用 item (Q3 in 111-112, in the multiple-choice block since 113)",
-    "at least one 語法/虛詞 item",
-    "at least one ①②研判題 (皆符合／無法判斷 options); 2-3 a year since 113",
-    "at least one 古典詩詞曲 item",
-    "at least one Taiwan-themed group",
-    "at least three items whose options quote 核心古文 sentences",
-    "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words"
+  "115": {
+   "single": "1-24",
+   "multiple": "25-31",
+   "part_2": "32-36",
+   "part_1_points": 76,
+   "part_2_points": 24,
+   "part_2_groups": 1
+  }
+ },
+ "single_choice_item_types": {
+  "years": [
+   111,
+   112,
+   113,
+   114,
+   115
   ],
-  "trend": "Single-choice 文言閱讀 fell from 9 (111-112) to 0 (115) while 白話說明文閱讀 rose to 14-15; 核心古文 now appears mostly as option material or inside modern criticism rather than as standalone passages."
+  "字音": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "字形": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "成語或詞語運用（白話）": [
+   1,
+   1,
+   0,
+   1,
+   0
+  ],
+  "文言字義": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "語法或修辭知識": [
+   1,
+   0,
+   0,
+   0,
+   2
+  ],
+  "文言排序": [
+   0,
+   0,
+   1,
+   0,
+   1
+  ],
+  "應用文或稱謂": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "白話說明文閱讀": [
+   1,
+   5,
+   15,
+   9,
+   14
+  ],
+  "白話文學閱讀": [
+   2,
+   4,
+   1,
+   3,
+   0
+  ],
+  "文言閱讀": [
+   9,
+   9,
+   4,
+   5,
+   0
+  ],
+  "古典韻文閱讀": [
+   1,
+   0,
+   0,
+   0,
+   2
+  ],
+  "跨文本比較": [
+   3,
+   3,
+   1,
+   1,
+   2
+  ],
+  "圖表或非連續文本": [
+   4,
+   1,
+   0,
+   3,
+   0
+  ],
+  "standalone_items": [
+   "1-8",
+   "1-7",
+   "1-5",
+   "1-5",
+   "1-5"
+  ],
+  "first_group_starts_at": [
+   9,
+   8,
+   6,
+   6,
+   6
+  ],
+  "group_count": [
+   6,
+   7,
+   8,
+   7,
+   7
+  ],
+  "group_sizes": {
+   "111": [
+    3,
+    2,
+    4,
+    2,
+    3,
+    3
+   ],
+   "112": [
+    2,
+    3,
+    2,
+    3,
+    3,
+    2,
+    3
+   ],
+   "113": [
+    3,
+    2,
+    2,
+    3,
+    2,
+    3,
+    2,
+    2
+   ],
+   "114": [
+    3,
+    2,
+    2,
+    2,
+    5,
+    2,
+    3
+   ],
+   "115": [
+    3,
+    2,
+    3,
+    2,
+    3,
+    3,
+    3
+   ]
+  },
+  "group_stimulus_chars": "250-700 typical; standalone 文言 70-200; longest about 1050"
+ },
+ "multiple_choice_item_types": {
+  "years": [
+   111,
+   112,
+   113,
+   114,
+   115
+  ],
+  "文言字義（「」內的詞，意義前後相同）": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "成語運用": [
+   0,
+   0,
+   1,
+   1,
+   1
+  ],
+  "語法或修辭知識": [
+   1,
+   1,
+   1,
+   1,
+   0
+  ],
+  "文化或文學常識": [
+   1,
+   0,
+   0,
+   0,
+   1
+  ],
+  "應用文或稱謂": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "白話文學閱讀": [
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  "白話說明文閱讀": [
+   0,
+   0,
+   1,
+   2,
+   0
+  ],
+  "新詩閱讀": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "文言閱讀": [
+   2,
+   1,
+   2,
+   0,
+   2
+  ],
+  "古典韻文閱讀": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "圖表或非連續文本": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "跨文本比較": [
+   0,
+   1,
+   0,
+   2,
+   2
+  ],
+  "standalone_items": 5,
+  "closing_group": "last two multiple-choice items share one stimulus containing 文言 or 韻文",
+  "prints_required_selection_count": false,
+  "first_multiple_choice_item": "文言字義 with options drawn from 核心古文 in every year"
+ },
+ "part_2": {
+  "single_choice_subparts": 2,
+  "constructed_items": 3,
+  "constructed_subparts_each": 2,
+  "points_by_year": {
+   "111": [
+    2,
+    2,
+    6,
+    6,
+    6
+   ],
+   "112": [
+    6,
+    2,
+    6,
+    2,
+    6
+   ],
+   "113": [
+    6,
+    8,
+    2,
+    2,
+    6
+   ],
+   "114": [
+    2,
+    2,
+    6,
+    8,
+    6
+   ],
+   "115": [
+    6,
+    6,
+    8,
+    2,
+    2
+   ]
+  },
+  "character_limits": {
+   "2_points": "10-20 字以內",
+   "4_points": "30-40 字以內 (or two parts of 10-15)"
+  },
+  "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts"
+ },
+ "every_year": [
+  "Q1 字音, Q2 字形",
+  "Q1 pairs two different look-alike characters (痺／髀, 笳／袈, 闥／撻, 舁／臾, 攲／旖), each inside a four-character phrase; never one character with two readings",
+  "first multiple-choice item is 文言字義 with 核心古文 options",
+  "5 standalone multiple-choice items plus a closing 2-item group",
+  "no multiple-choice stem prints 應選n項",
+  "one 成語/詞語運用 item (Q3 in 111-112, in the multiple-choice block since 113)",
+  "at least one 語法/虛詞 item",
+  "at least one ①②研判題 (皆符合／無法判斷 options); 2-3 a year since 113",
+  "at least one 古典詩詞曲 item",
+  "at least one Taiwan-themed group",
+  "at least three items whose options quote 核心古文 sentences",
+  "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words"
+ ],
+ "trend": "Single-choice 文言閱讀 fell from 9 (111-112) to 0 (115) while 白話說明文閱讀 rose to 14-15; 核心古文 now appears mostly as option material or inside modern criticism rather than as standalone passages.",
+ "字音_item_form": {
+  "basis": "Text extracted from the five official booklets (2026-09-22): item 1 options, page 1.",
+  "rule": "Each option pairs two DIFFERENT characters that share a component or phonetic, each quoted inside its own classical four-character phrase, the halves joined by ／; obscure characters are normal. The same character with two readings never appears.",
+  "pairs": {
+   "111": [
+    "痺／髀",
+    "忮／庋",
+    "攢／鑽",
+    "剜／腕"
+   ],
+   "112": [
+    "笳／袈",
+    "鬩／睨",
+    "踣／掊",
+    "吁／迂"
+   ],
+   "113": [
+    "闥／撻",
+    "篙／蒿",
+    "棹／踔",
+    "逡／悛"
+   ],
+   "114": [
+    "舁／臾",
+    "啗／諂",
+    "迤／弛",
+    "畛／殄"
+   ],
+   "115": [
+    "攲／旖",
+    "諳／喑",
+    "枇／毗",
+    "遏／謁"
+   ]
+  },
+  "phrases": {
+   "111": "既瘖且「痺」／彈箏搏「髀」; 不「忮」不求／「庋」藏字畫; 「攢」蹙累積／踰牆「鑽」穴; 「剜」肉補瘡／壯士斷「腕」",
+   "115": "取枕「攲」臥／風光「旖」旎; 略「諳」水性／「喑」啞難言; 「枇」杷甘美／「毗」鄰而居; 燎原莫「遏」／登門拜「謁」"
+  }
+ },
+ "option_columns": {
+  "basis": "Line positions of every (A)-(E) option in the 111-115 booklets.",
+  "rule": "Four-option items whose options are at most 19 printed characters including the (A) label (16 without) print two abreast (x = 82 pt and 298-303 pt; 152 such lines); longer options and every five-option item print one per line. Items 1 and short 填詞 items are the usual two-column cases."
+ },
+ "詞語填空_item_form": {
+  "basis": "Text extracted from the five official booklets (2026-09-22); 113 and 115 have no 詞語填空 item.",
+  "items": {
+   "111": "Q6 杜甫〈灩澦〉+〈絕句漫興九首〉其八, 依據詩意與格律, slots 2/2/2: 漠漠／朗朗, 瑟瑟／時時, 亭亭／纖纖",
+   "112": "Q6 〈補江總白猿傳〉 文言, slots 4/2/2: 其來有自／尤所難免, 疑懼／倨傲, 迎候／伺守",
+   "114": "Q3 聶華苓〈月光•枯井•三腳貓〉 現代散文, slots 3/2/2: 破海綿／舊報紙, 皎潔／青蒼, 貪婪／貧血"
+  },
+  "rule": "A printed excerpt of a real work with its attribution (author〈title〉, 〈title〉 or 改寫自); three □ slots of two to four characters; exactly two candidate words per slot, each in two options, so that any two options differ in at least two slots; options two abreast. Near-synonym candidates (皎潔／青蒼) carry the difficulty; a self-written sentence with four unrelated words per slot is not the form."
+ }
 }
 </canonical-source>
 
@@ -56233,12 +56587,37 @@ Every official booklet prints these headings, in order, each with one bordered
 | 二、多選題（占28分） | 說明：第25題至第31題，每題4分。 | 25–31 |
 | 第貳部分、混合題或非選擇題（占24分） | 說明：本部分共有1題組，選擇題每題2分，非選擇題配分標於題末。… | 32–36 (32–37 in 111–112) |
 
+Option columns, measured on every (A)–(E) line of the five booklets: a four-option
+item whose options are at most 16 characters (19 with the label) prints them two
+abreast at x = 82 pt and 298–303 pt (152 such lines; item 1 and short 填詞 items
+every year); longer options and every five-option item print one per line. The
+renderer's `option_columns` applies exactly this rule for 國綜; `grid-2` is the only
+multi-column layout the contract accepts, and only within that length.
+
 The item-by-item reading of all five papers is recorded in
 `exam_packs/學測/shared-data/chinese-item-type-envelope.json`. What holds every
 year (111–115), and is therefore enforced:
 
-- Item 1 is 字音 (`下列「」內的字，讀音前後相同的是：`), item 2 is 字形
-  (`下列文句，完全沒有錯別字的是：`). Items 1–5 stand alone (詞語運用, 填詞, 文言排序,
+- Item 1 is 字音 (`下列「」內的字，讀音前後相同的是：`): every option pairs two
+  **different** characters that share a component or phonetic, each quoted inside
+  its own classical four-character phrase and joined by ／ (111 痺／髀, 忮／庋, 攢／鑽,
+  剜／腕; 112 笳／袈, 鬩／睨, 踣／掊, 吁／迂; 113 闥／撻, 篙／蒿, 棹／踔, 逡／悛; 114 舁／臾,
+  啗／諂, 迤／弛, 畛／殄; 115 攲／旖, 諳／喑, 枇／毗, 遏／謁). Obscure characters are the
+  norm and the phrases come from 文言 or 成語. Testing one character's two readings
+  (「屬」客／桑竹之「屬」) is a different exercise that never appears as item 1;
+  `validate_chinese_layout_contract.py` rejects identical quoted characters, halves
+  without one quoted character each, and halves outside three to six characters.
+  Item 2 is 字形 (`下列文句，完全沒有錯別字的是：`).
+- 詞語填空 (111 Q6, 112 Q6, 114 Q3; none in 113 and 115) always quotes a real work
+  with its printed attribution: 杜甫〈灩澦〉and〈絕句漫興九首〉(`依據詩意與格律`),
+  〈補江總白猿傳〉(文言), 聶華苓〈月光•枯井•三腳貓〉(現代散文). Three □ slots of two to
+  four characters; the four options use exactly **two** candidate words per slot,
+  each appearing in two options, so any two options differ in at least two slots
+  (破海綿／舊報紙, 皎潔／青蒼, 貪婪／貧血). The difficulty is the near-synonym pair
+  judged from context or 格律, not vocabulary breadth. A self-written sentence
+  with four unrelated words per slot (輕率／全面／草率／徹底) is eliminated slot by
+  slot and is not the form; the contract rejects a missing attribution, a slot
+  with more or fewer than two candidates, and options differing in one slot. Items 1–5 stand alone (詞語運用, 填詞, 文言排序,
   稱謂, a boxed table, a 70–200-character passage); shared-stimulus 題組 start at
   item 6 (9 and 8 in 111–112) and carry items 6–24 in 6–8 groups of two or three
   (one group of 4 or 5 at most).
@@ -59077,7 +59456,7 @@ re-open every page.
 ### Renderer rules worth knowing before the first plan
 
 - Option tables take the stem's width; the column count follows the longest
-  option (國綜 always prints options one per line). A stem indented by a long
+  option (國綜: four options of at most 16 characters print two abreast, anything longer or a five-option item one per line). A stem indented by a long
   task label narrows every option below it.
 - A task label longer than three characters (`中譯英`, `英文作文`, `第一段`)
   leads the text; only plain numbers and `(1)`-style subparts sit in the number
@@ -70838,9 +71217,12 @@ def option_columns(question, subject):
     if question.get('option_layout') in OPTION_LAYOUT_COLUMNS:
         return OPTION_LAYOUT_COLUMNS[question['option_layout']]
     options = question.get('options') or []
-    if subject == '國綜':
-        return 1  # every official 國綜 option prints on its own line
     longest = max((len(str(o.get('text', ''))) for o in options), default=0)
+    if subject == '國綜':
+        # Measured on 111-115: four short options (up to 16 characters each, 19 with
+        # the label) share rows two abreast; longer options and five-option items
+        # print one per line.
+        return 2 if len(options) == 4 and longest <= 16 else 1
     if longest > 52:
         return 1
     if longest > 23:
@@ -71789,6 +72171,22 @@ OFFICIAL_HEADINGS = (
     "第壹部分、選擇題（占76分）", "一、單選題（占48分）", "二、多選題（占28分）",
     "第貳部分、混合題或非選擇題（占24分）",
 )
+# Official 字音 options: two DIFFERENT characters that share a component, each
+# quoted inside a classical four-character phrase, the halves joined by ／
+# (111 痺／髀, 112 笳／袈, 113 闥／撻, 114 舁／臾, 115 攲／旖). One character with two
+# readings (「屬」／「屬」) is a different exercise and never the official item 1.
+QUOTED_CHARACTER = re.compile(r"「([^「」]+)」")
+# Official 詞語填空 (111 Q6 杜甫 two poems, 112 Q6 〈補江總白猿傳〉, 114 Q3 聶華苓): the
+# passage is a printed excerpt of a real work with its attribution, □ slots of two
+# to four characters, and the four options are built from exactly two candidate
+# words per slot so that any two options differ in at least two slots. A self-
+# written sentence with four unrelated words per slot is eliminated slot by slot.
+BLANK_RUN = re.compile(r"□+")
+SOURCE_ATTRIBUTION = re.compile(r"[（(][^（）()]*(?:〈[^〈〉]+〉|《[^《》]+》|改寫自)[^（）()]*[）)]")
+# Measured on the 111-115 booklets: options up to 19 printed characters including
+# the (A) label share a row two abreast (152 such lines); longer options and every
+# five-option item print one per line.
+TWO_COLUMN_MAX_CHARACTERS = 16
 LANGUAGE_KNOWLEDGE = re.compile(r"「」內|畫底線|詞語|成語|用法|用來修飾|文學|寫作特色|音節|平仄|押韻|字音|字形|讀音|錯別字|排列順序|填入|稱謂|量詞")
 IDIOM = re.compile(r"成語|畫底線(?:處)?的詞語")
 GRAMMAR = re.compile(r"用法|用來修飾|「以」|「則」|量詞|條件|語意邏輯|平仄|音節|押韻")
@@ -71836,6 +72234,15 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
 
     if first(1) and "讀音" not in prompt(1):
         errors.append("國綜第1題須為字音題（下列「」內的字，讀音前後相同的是），111–115 每年皆同")
+    elif first(1):
+        errors.extend(pronunciation_pair_errors(first(1)))
+    for number in range(1, 25):
+        question = first(number)
+        # The passage is the shared stimulus, or the prompt's text after the stem's colon;
+        # the stem's own 「□□內」 shorthand is not a slot.
+        passage = stimulus(number) or re.split(r"[：:]", prompt(number), maxsplit=1)[-1]
+        if question and "填入" in prompt(number) and "□" in passage and question.get("options"):
+            errors.extend(blank_fill_errors(number, question, passage))
     if first(2) and "錯別字" not in prompt(2):
         errors.append("國綜第2題須為字形題（下列文句，完全沒有錯別字的是），111–115 每年皆同")
     for number in range(1, 6):
@@ -71855,8 +72262,14 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
         if labels and labels != list("ABCDE")[: len(labels)]:
             errors.append(f"國綜第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}")
-        if question.get("options") and question.get("option_layout") not in (None, "stack"):
-            errors.append(f"國綜第{number}題選項須逐項直排（官方每個選項自成一行），不得用多欄版型")
+        layout = question.get("option_layout")
+        option_texts = [str(o.get("text") or "") for o in question.get("options") or [] if isinstance(o, dict)]
+        if option_texts and layout not in (None, "stack", "grid-2"):
+            errors.append(f"國綜第{number}題選項最多並排兩欄（官方短選項兩兩一行，長選項自成一行），不得用{layout}")
+        elif option_texts and layout == "grid-2" and (
+                len(option_texts) != 4 or max(len(t) for t in option_texts) > TWO_COLUMN_MAX_CHARACTERS):
+            errors.append(f"國綜第{number}題選項過長或為五選項，須逐項直排；官方僅四選項且每項不超過"
+                          f"{TWO_COLUMN_MAX_CHARACTERS}字時才兩兩並排")
     multiple = [n for n in range(25, 32) if first(n)]
     if first(25) and not ("「」內的詞" in prompt(25) and "意義" in prompt(25)):
         errors.append("國綜第25題（多選第一題）須為文言字義題「下列各組「」內的詞，意義前後相同的是」，選項取自核心古文，111–115 每年皆同")
@@ -71911,6 +72324,58 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         stimuli = {stimulus(n) for n in part_two}
         if len(stimuli) != 1 or "" in stimuli:
             errors.append("國綜第貳部分五題須共用同一組多文本材料（甲乙丙，含文言或韻文）")
+    return errors
+
+
+def pronunciation_pair_errors(question: dict) -> list[str]:
+    """Item 1 must pair two different look-alike characters, each in its own phrase."""
+    errors = []
+    for option in question.get("options") or []:
+        if not isinstance(option, dict):
+            continue
+        label = str(option.get("label") or "").strip("()（）")
+        text = str(option.get("text") or "")
+        halves = [h.strip() for h in re.split(r"[／/]", text) if h.strip()]
+        quoted = QUOTED_CHARACTER.findall(text)
+        if len(halves) != 2 or len(quoted) != 2 or any(len(q) != 1 for q in quoted):
+            errors.append(f"國綜第1題選項({label})須為「甲字所在短語／乙字所在短語」，每邊各引一個字：{text}")
+            continue
+        if quoted[0] == quoted[1]:
+            errors.append(f"國綜第1題選項({label})引號內兩字相同（「{quoted[0]}」／「{quoted[1]}」）：官方每年都是兩個不同的"
+                          "形近字（如「痺」／「髀」、「舁」／「臾」）比讀音，不是一字多音")
+        if any(not 3 <= len(h) <= 6 for h in halves):
+            errors.append(f"國綜第1題選項({label})每邊須為三至六字的文言或成語短語（官方多為四字）：{text}")
+    return errors
+
+
+def blank_fill_errors(number: int, question: dict, passage: str) -> list[str]:
+    """詞語填空 must quote a real attributed work and use two candidates per slot."""
+    errors = []
+    slots = BLANK_RUN.findall(passage)
+    if not SOURCE_ATTRIBUTION.search(passage):
+        errors.append(f"國綜第{number}題填詞題須摘錄真實作品並印出處（作者〈篇名〉、〈篇名〉或（改寫自…）），"
+                      "官方 111 杜甫詩、112〈補江總白猿傳〉、114 聶華苓皆如此；不得自撰句子挖空")
+    if not 2 <= len(slots) <= 4:
+        errors.append(f"國綜第{number}題填詞題須有二至四個□格（官方皆為三格）；現有{len(slots)}格")
+    options = [str(o.get("text") or "") for o in question.get("options") or [] if isinstance(o, dict)]
+    parts = [[part.strip() for part in re.split(r"[／/]", text)] for text in options]
+    if slots and any(len(p) != len(slots) for p in parts):
+        errors.append(f"國綜第{number}題填詞題每個選項的詞數須等於□格數（{len(slots)}），以／分隔")
+        return errors
+    if len(options) == 4 and slots:
+        for index in range(len(slots)):
+            column = [p[index] for p in parts]
+            distinct = sorted(set(column))
+            if len(distinct) != 2 or any(column.count(word) != 2 for word in distinct):
+                errors.append(f"國綜第{number}題填詞題第{index + 1}格須恰有兩個候選詞、各出現在兩個選項（官方每年如此，"
+                              f"如 破海綿／舊報紙、皎潔／青蒼）；現有{'、'.join(distinct)}。四個選項各用不同的詞會被逐格排除，太容易")
+                break
+        else:
+            for i in range(4):
+                for j in range(i + 1, 4):
+                    if sum(a != b for a, b in zip(parts[i], parts[j])) < 2:
+                        errors.append(f"國綜第{number}題填詞題選項{'ABCD'[i]}與{'ABCD'[j]}只差一格；官方任兩選項至少兩格不同")
+                        break
     return errors
 
 

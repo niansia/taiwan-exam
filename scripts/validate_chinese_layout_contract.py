@@ -24,6 +24,22 @@ OFFICIAL_HEADINGS = (
     "第壹部分、選擇題（占76分）", "一、單選題（占48分）", "二、多選題（占28分）",
     "第貳部分、混合題或非選擇題（占24分）",
 )
+# Official 字音 options: two DIFFERENT characters that share a component, each
+# quoted inside a classical four-character phrase, the halves joined by ／
+# (111 痺／髀, 112 笳／袈, 113 闥／撻, 114 舁／臾, 115 攲／旖). One character with two
+# readings (「屬」／「屬」) is a different exercise and never the official item 1.
+QUOTED_CHARACTER = re.compile(r"「([^「」]+)」")
+# Official 詞語填空 (111 Q6 杜甫 two poems, 112 Q6 〈補江總白猿傳〉, 114 Q3 聶華苓): the
+# passage is a printed excerpt of a real work with its attribution, □ slots of two
+# to four characters, and the four options are built from exactly two candidate
+# words per slot so that any two options differ in at least two slots. A self-
+# written sentence with four unrelated words per slot is eliminated slot by slot.
+BLANK_RUN = re.compile(r"□+")
+SOURCE_ATTRIBUTION = re.compile(r"[（(][^（）()]*(?:〈[^〈〉]+〉|《[^《》]+》|改寫自)[^（）()]*[）)]")
+# Measured on the 111-115 booklets: options up to 19 printed characters including
+# the (A) label share a row two abreast (152 such lines); longer options and every
+# five-option item print one per line.
+TWO_COLUMN_MAX_CHARACTERS = 16
 LANGUAGE_KNOWLEDGE = re.compile(r"「」內|畫底線|詞語|成語|用法|用來修飾|文學|寫作特色|音節|平仄|押韻|字音|字形|讀音|錯別字|排列順序|填入|稱謂|量詞")
 IDIOM = re.compile(r"成語|畫底線(?:處)?的詞語")
 GRAMMAR = re.compile(r"用法|用來修飾|「以」|「則」|量詞|條件|語意邏輯|平仄|音節|押韻")
@@ -71,6 +87,15 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
 
     if first(1) and "讀音" not in prompt(1):
         errors.append("國綜第1題須為字音題（下列「」內的字，讀音前後相同的是），111–115 每年皆同")
+    elif first(1):
+        errors.extend(pronunciation_pair_errors(first(1)))
+    for number in range(1, 25):
+        question = first(number)
+        # The passage is the shared stimulus, or the prompt's text after the stem's colon;
+        # the stem's own 「□□內」 shorthand is not a slot.
+        passage = stimulus(number) or re.split(r"[：:]", prompt(number), maxsplit=1)[-1]
+        if question and "填入" in prompt(number) and "□" in passage and question.get("options"):
+            errors.extend(blank_fill_errors(number, question, passage))
     if first(2) and "錯別字" not in prompt(2):
         errors.append("國綜第2題須為字形題（下列文句，完全沒有錯別字的是），111–115 每年皆同")
     for number in range(1, 6):
@@ -90,8 +115,14 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
         if labels and labels != list("ABCDE")[: len(labels)]:
             errors.append(f"國綜第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}")
-        if question.get("options") and question.get("option_layout") not in (None, "stack"):
-            errors.append(f"國綜第{number}題選項須逐項直排（官方每個選項自成一行），不得用多欄版型")
+        layout = question.get("option_layout")
+        option_texts = [str(o.get("text") or "") for o in question.get("options") or [] if isinstance(o, dict)]
+        if option_texts and layout not in (None, "stack", "grid-2"):
+            errors.append(f"國綜第{number}題選項最多並排兩欄（官方短選項兩兩一行，長選項自成一行），不得用{layout}")
+        elif option_texts and layout == "grid-2" and (
+                len(option_texts) != 4 or max(len(t) for t in option_texts) > TWO_COLUMN_MAX_CHARACTERS):
+            errors.append(f"國綜第{number}題選項過長或為五選項，須逐項直排；官方僅四選項且每項不超過"
+                          f"{TWO_COLUMN_MAX_CHARACTERS}字時才兩兩並排")
     multiple = [n for n in range(25, 32) if first(n)]
     if first(25) and not ("「」內的詞" in prompt(25) and "意義" in prompt(25)):
         errors.append("國綜第25題（多選第一題）須為文言字義題「下列各組「」內的詞，意義前後相同的是」，選項取自核心古文，111–115 每年皆同")
@@ -146,6 +177,58 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         stimuli = {stimulus(n) for n in part_two}
         if len(stimuli) != 1 or "" in stimuli:
             errors.append("國綜第貳部分五題須共用同一組多文本材料（甲乙丙，含文言或韻文）")
+    return errors
+
+
+def pronunciation_pair_errors(question: dict) -> list[str]:
+    """Item 1 must pair two different look-alike characters, each in its own phrase."""
+    errors = []
+    for option in question.get("options") or []:
+        if not isinstance(option, dict):
+            continue
+        label = str(option.get("label") or "").strip("()（）")
+        text = str(option.get("text") or "")
+        halves = [h.strip() for h in re.split(r"[／/]", text) if h.strip()]
+        quoted = QUOTED_CHARACTER.findall(text)
+        if len(halves) != 2 or len(quoted) != 2 or any(len(q) != 1 for q in quoted):
+            errors.append(f"國綜第1題選項({label})須為「甲字所在短語／乙字所在短語」，每邊各引一個字：{text}")
+            continue
+        if quoted[0] == quoted[1]:
+            errors.append(f"國綜第1題選項({label})引號內兩字相同（「{quoted[0]}」／「{quoted[1]}」）：官方每年都是兩個不同的"
+                          "形近字（如「痺」／「髀」、「舁」／「臾」）比讀音，不是一字多音")
+        if any(not 3 <= len(h) <= 6 for h in halves):
+            errors.append(f"國綜第1題選項({label})每邊須為三至六字的文言或成語短語（官方多為四字）：{text}")
+    return errors
+
+
+def blank_fill_errors(number: int, question: dict, passage: str) -> list[str]:
+    """詞語填空 must quote a real attributed work and use two candidates per slot."""
+    errors = []
+    slots = BLANK_RUN.findall(passage)
+    if not SOURCE_ATTRIBUTION.search(passage):
+        errors.append(f"國綜第{number}題填詞題須摘錄真實作品並印出處（作者〈篇名〉、〈篇名〉或（改寫自…）），"
+                      "官方 111 杜甫詩、112〈補江總白猿傳〉、114 聶華苓皆如此；不得自撰句子挖空")
+    if not 2 <= len(slots) <= 4:
+        errors.append(f"國綜第{number}題填詞題須有二至四個□格（官方皆為三格）；現有{len(slots)}格")
+    options = [str(o.get("text") or "") for o in question.get("options") or [] if isinstance(o, dict)]
+    parts = [[part.strip() for part in re.split(r"[／/]", text)] for text in options]
+    if slots and any(len(p) != len(slots) for p in parts):
+        errors.append(f"國綜第{number}題填詞題每個選項的詞數須等於□格數（{len(slots)}），以／分隔")
+        return errors
+    if len(options) == 4 and slots:
+        for index in range(len(slots)):
+            column = [p[index] for p in parts]
+            distinct = sorted(set(column))
+            if len(distinct) != 2 or any(column.count(word) != 2 for word in distinct):
+                errors.append(f"國綜第{number}題填詞題第{index + 1}格須恰有兩個候選詞、各出現在兩個選項（官方每年如此，"
+                              f"如 破海綿／舊報紙、皎潔／青蒼）；現有{'、'.join(distinct)}。四個選項各用不同的詞會被逐格排除，太容易")
+                break
+        else:
+            for i in range(4):
+                for j in range(i + 1, 4):
+                    if sum(a != b for a, b in zip(parts[i], parts[j])) < 2:
+                        errors.append(f"國綜第{number}題填詞題選項{'ABCD'[i]}與{'ABCD'[j]}只差一格；官方任兩選項至少兩格不同")
+                        break
     return errors
 
 

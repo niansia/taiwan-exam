@@ -1,76 +1,430 @@
 {
-  "schema_version": 1,
-  "subject": "國綜",
-  "basis": "Maintainer item-by-item reading of the supplied CEEC 學測 ROC 111-115 國語文綜合能力測驗 booklets (2026-09-22). Each item was classified by 題型, standalone/group, text era and source kind; group stimulus lengths are approximate printed character counts.",
-  "status": "reviewed-manual-classification",
-  "caution": "Editorial reading for release calibration, not a CEEC annotation. 111-112 print 25 single-choice items, 7 multiple-choice and two 第貳部分 groups (22 points); 113-115 print 24, 7 and one group (24 points). The current form is 113-115.",
-  "structure": {
-    "111": {"single": "1-25", "multiple": "26-32", "part_2": "33-37", "part_1_points": 78, "part_2_points": 22, "part_2_groups": 2},
-    "112": {"single": "1-25", "multiple": "26-32", "part_2": "33-37", "part_1_points": 78, "part_2_points": 22, "part_2_groups": 2},
-    "113": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1},
-    "114": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1},
-    "115": {"single": "1-24", "multiple": "25-31", "part_2": "32-36", "part_1_points": 76, "part_2_points": 24, "part_2_groups": 1}
+ "schema_version": 1,
+ "subject": "國綜",
+ "basis": "Maintainer item-by-item reading of the supplied CEEC 學測 ROC 111-115 國語文綜合能力測驗 booklets (2026-09-22). Each item was classified by 題型, standalone/group, text era and source kind; group stimulus lengths are approximate printed character counts.",
+ "status": "reviewed-manual-classification",
+ "caution": "Editorial reading for release calibration, not a CEEC annotation. 111-112 print 25 single-choice items, 7 multiple-choice and two 第貳部分 groups (22 points); 113-115 print 24, 7 and one group (24 points). The current form is 113-115.",
+ "structure": {
+  "111": {
+   "single": "1-25",
+   "multiple": "26-32",
+   "part_2": "33-37",
+   "part_1_points": 78,
+   "part_2_points": 22,
+   "part_2_groups": 2
   },
-  "single_choice_item_types": {
-    "years": [111, 112, 113, 114, 115],
-    "字音": [1, 1, 1, 1, 1],
-    "字形": [1, 1, 1, 1, 1],
-    "成語或詞語運用（白話）": [1, 1, 0, 1, 0],
-    "文言字義": [1, 0, 0, 0, 0],
-    "語法或修辭知識": [1, 0, 0, 0, 2],
-    "文言排序": [0, 0, 1, 0, 1],
-    "應用文或稱謂": [0, 0, 0, 0, 1],
-    "白話說明文閱讀": [1, 5, 15, 9, 14],
-    "白話文學閱讀": [2, 4, 1, 3, 0],
-    "文言閱讀": [9, 9, 4, 5, 0],
-    "古典韻文閱讀": [1, 0, 0, 0, 2],
-    "跨文本比較": [3, 3, 1, 1, 2],
-    "圖表或非連續文本": [4, 1, 0, 3, 0],
-    "standalone_items": ["1-8", "1-7", "1-5", "1-5", "1-5"],
-    "first_group_starts_at": [9, 8, 6, 6, 6],
-    "group_count": [6, 7, 8, 7, 7],
-    "group_sizes": {"111": [3, 2, 4, 2, 3, 3], "112": [2, 3, 2, 3, 3, 2, 3], "113": [3, 2, 2, 3, 2, 3, 2, 2], "114": [3, 2, 2, 2, 5, 2, 3], "115": [3, 2, 3, 2, 3, 3, 3]},
-    "group_stimulus_chars": "250-700 typical; standalone 文言 70-200; longest about 1050"
+  "112": {
+   "single": "1-25",
+   "multiple": "26-32",
+   "part_2": "33-37",
+   "part_1_points": 78,
+   "part_2_points": 22,
+   "part_2_groups": 2
   },
-  "multiple_choice_item_types": {
-    "years": [111, 112, 113, 114, 115],
-    "文言字義（「」內的詞，意義前後相同）": [1, 1, 1, 1, 1],
-    "成語運用": [0, 0, 1, 1, 1],
-    "語法或修辭知識": [1, 1, 1, 1, 0],
-    "文化或文學常識": [1, 0, 0, 0, 1],
-    "應用文或稱謂": [1, 0, 0, 0, 0],
-    "白話文學閱讀": [1, 1, 0, 0, 0],
-    "白話說明文閱讀": [0, 0, 1, 2, 0],
-    "新詩閱讀": [0, 1, 0, 0, 0],
-    "文言閱讀": [2, 1, 2, 0, 2],
-    "古典韻文閱讀": [0, 1, 0, 0, 0],
-    "圖表或非連續文本": [0, 0, 1, 0, 0],
-    "跨文本比較": [0, 1, 0, 2, 2],
-    "standalone_items": 5,
-    "closing_group": "last two multiple-choice items share one stimulus containing 文言 or 韻文",
-    "prints_required_selection_count": false,
-    "first_multiple_choice_item": "文言字義 with options drawn from 核心古文 in every year"
+  "113": {
+   "single": "1-24",
+   "multiple": "25-31",
+   "part_2": "32-36",
+   "part_1_points": 76,
+   "part_2_points": 24,
+   "part_2_groups": 1
   },
-  "part_2": {
-    "single_choice_subparts": 2,
-    "constructed_items": 3,
-    "constructed_subparts_each": 2,
-    "points_by_year": {"111": [2, 2, 6, 6, 6], "112": [6, 2, 6, 2, 6], "113": [6, 8, 2, 2, 6], "114": [2, 2, 6, 8, 6], "115": [6, 6, 8, 2, 2]},
-    "character_limits": {"2_points": "10-20 字以內", "4_points": "30-40 字以內 (or two parts of 10-15)"},
-    "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts"
+  "114": {
+   "single": "1-24",
+   "multiple": "25-31",
+   "part_2": "32-36",
+   "part_1_points": 76,
+   "part_2_points": 24,
+   "part_2_groups": 1
   },
-  "every_year": [
-    "Q1 字音, Q2 字形",
-    "first multiple-choice item is 文言字義 with 核心古文 options",
-    "5 standalone multiple-choice items plus a closing 2-item group",
-    "no multiple-choice stem prints 應選n項",
-    "one 成語/詞語運用 item (Q3 in 111-112, in the multiple-choice block since 113)",
-    "at least one 語法/虛詞 item",
-    "at least one ①②研判題 (皆符合／無法判斷 options); 2-3 a year since 113",
-    "at least one 古典詩詞曲 item",
-    "at least one Taiwan-themed group",
-    "at least three items whose options quote 核心古文 sentences",
-    "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words"
+  "115": {
+   "single": "1-24",
+   "multiple": "25-31",
+   "part_2": "32-36",
+   "part_1_points": 76,
+   "part_2_points": 24,
+   "part_2_groups": 1
+  }
+ },
+ "single_choice_item_types": {
+  "years": [
+   111,
+   112,
+   113,
+   114,
+   115
   ],
-  "trend": "Single-choice 文言閱讀 fell from 9 (111-112) to 0 (115) while 白話說明文閱讀 rose to 14-15; 核心古文 now appears mostly as option material or inside modern criticism rather than as standalone passages."
+  "字音": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "字形": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "成語或詞語運用（白話）": [
+   1,
+   1,
+   0,
+   1,
+   0
+  ],
+  "文言字義": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "語法或修辭知識": [
+   1,
+   0,
+   0,
+   0,
+   2
+  ],
+  "文言排序": [
+   0,
+   0,
+   1,
+   0,
+   1
+  ],
+  "應用文或稱謂": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "白話說明文閱讀": [
+   1,
+   5,
+   15,
+   9,
+   14
+  ],
+  "白話文學閱讀": [
+   2,
+   4,
+   1,
+   3,
+   0
+  ],
+  "文言閱讀": [
+   9,
+   9,
+   4,
+   5,
+   0
+  ],
+  "古典韻文閱讀": [
+   1,
+   0,
+   0,
+   0,
+   2
+  ],
+  "跨文本比較": [
+   3,
+   3,
+   1,
+   1,
+   2
+  ],
+  "圖表或非連續文本": [
+   4,
+   1,
+   0,
+   3,
+   0
+  ],
+  "standalone_items": [
+   "1-8",
+   "1-7",
+   "1-5",
+   "1-5",
+   "1-5"
+  ],
+  "first_group_starts_at": [
+   9,
+   8,
+   6,
+   6,
+   6
+  ],
+  "group_count": [
+   6,
+   7,
+   8,
+   7,
+   7
+  ],
+  "group_sizes": {
+   "111": [
+    3,
+    2,
+    4,
+    2,
+    3,
+    3
+   ],
+   "112": [
+    2,
+    3,
+    2,
+    3,
+    3,
+    2,
+    3
+   ],
+   "113": [
+    3,
+    2,
+    2,
+    3,
+    2,
+    3,
+    2,
+    2
+   ],
+   "114": [
+    3,
+    2,
+    2,
+    2,
+    5,
+    2,
+    3
+   ],
+   "115": [
+    3,
+    2,
+    3,
+    2,
+    3,
+    3,
+    3
+   ]
+  },
+  "group_stimulus_chars": "250-700 typical; standalone 文言 70-200; longest about 1050"
+ },
+ "multiple_choice_item_types": {
+  "years": [
+   111,
+   112,
+   113,
+   114,
+   115
+  ],
+  "文言字義（「」內的詞，意義前後相同）": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "成語運用": [
+   0,
+   0,
+   1,
+   1,
+   1
+  ],
+  "語法或修辭知識": [
+   1,
+   1,
+   1,
+   1,
+   0
+  ],
+  "文化或文學常識": [
+   1,
+   0,
+   0,
+   0,
+   1
+  ],
+  "應用文或稱謂": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "白話文學閱讀": [
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  "白話說明文閱讀": [
+   0,
+   0,
+   1,
+   2,
+   0
+  ],
+  "新詩閱讀": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "文言閱讀": [
+   2,
+   1,
+   2,
+   0,
+   2
+  ],
+  "古典韻文閱讀": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "圖表或非連續文本": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "跨文本比較": [
+   0,
+   1,
+   0,
+   2,
+   2
+  ],
+  "standalone_items": 5,
+  "closing_group": "last two multiple-choice items share one stimulus containing 文言 or 韻文",
+  "prints_required_selection_count": false,
+  "first_multiple_choice_item": "文言字義 with options drawn from 核心古文 in every year"
+ },
+ "part_2": {
+  "single_choice_subparts": 2,
+  "constructed_items": 3,
+  "constructed_subparts_each": 2,
+  "points_by_year": {
+   "111": [
+    2,
+    2,
+    6,
+    6,
+    6
+   ],
+   "112": [
+    6,
+    2,
+    6,
+    2,
+    6
+   ],
+   "113": [
+    6,
+    8,
+    2,
+    2,
+    6
+   ],
+   "114": [
+    2,
+    2,
+    6,
+    8,
+    6
+   ],
+   "115": [
+    6,
+    6,
+    8,
+    2,
+    2
+   ]
+  },
+  "character_limits": {
+   "2_points": "10-20 字以內",
+   "4_points": "30-40 字以內 (or two parts of 10-15)"
+  },
+  "materials": "three or four related texts 甲乙丙(丁), always including 文言 or 韻文, with one abstract framing text applied to case texts"
+ },
+ "every_year": [
+  "Q1 字音, Q2 字形",
+  "Q1 pairs two different look-alike characters (痺／髀, 笳／袈, 闥／撻, 舁／臾, 攲／旖), each inside a four-character phrase; never one character with two readings",
+  "first multiple-choice item is 文言字義 with 核心古文 options",
+  "5 standalone multiple-choice items plus a closing 2-item group",
+  "no multiple-choice stem prints 應選n項",
+  "one 成語/詞語運用 item (Q3 in 111-112, in the multiple-choice block since 113)",
+  "at least one 語法/虛詞 item",
+  "at least one ①②研判題 (皆符合／無法判斷 options); 2-3 a year since 113",
+  "at least one 古典詩詞曲 item",
+  "at least one Taiwan-themed group",
+  "at least three items whose options quote 核心古文 sentences",
+  "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words"
+ ],
+ "trend": "Single-choice 文言閱讀 fell from 9 (111-112) to 0 (115) while 白話說明文閱讀 rose to 14-15; 核心古文 now appears mostly as option material or inside modern criticism rather than as standalone passages.",
+ "字音_item_form": {
+  "basis": "Text extracted from the five official booklets (2026-09-22): item 1 options, page 1.",
+  "rule": "Each option pairs two DIFFERENT characters that share a component or phonetic, each quoted inside its own classical four-character phrase, the halves joined by ／; obscure characters are normal. The same character with two readings never appears.",
+  "pairs": {
+   "111": [
+    "痺／髀",
+    "忮／庋",
+    "攢／鑽",
+    "剜／腕"
+   ],
+   "112": [
+    "笳／袈",
+    "鬩／睨",
+    "踣／掊",
+    "吁／迂"
+   ],
+   "113": [
+    "闥／撻",
+    "篙／蒿",
+    "棹／踔",
+    "逡／悛"
+   ],
+   "114": [
+    "舁／臾",
+    "啗／諂",
+    "迤／弛",
+    "畛／殄"
+   ],
+   "115": [
+    "攲／旖",
+    "諳／喑",
+    "枇／毗",
+    "遏／謁"
+   ]
+  },
+  "phrases": {
+   "111": "既瘖且「痺」／彈箏搏「髀」; 不「忮」不求／「庋」藏字畫; 「攢」蹙累積／踰牆「鑽」穴; 「剜」肉補瘡／壯士斷「腕」",
+   "115": "取枕「攲」臥／風光「旖」旎; 略「諳」水性／「喑」啞難言; 「枇」杷甘美／「毗」鄰而居; 燎原莫「遏」／登門拜「謁」"
+  }
+ },
+ "option_columns": {
+  "basis": "Line positions of every (A)-(E) option in the 111-115 booklets.",
+  "rule": "Four-option items whose options are at most 19 printed characters including the (A) label (16 without) print two abreast (x = 82 pt and 298-303 pt; 152 such lines); longer options and every five-option item print one per line. Items 1 and short 填詞 items are the usual two-column cases."
+ },
+ "詞語填空_item_form": {
+  "basis": "Text extracted from the five official booklets (2026-09-22); 113 and 115 have no 詞語填空 item.",
+  "items": {
+   "111": "Q6 杜甫〈灩澦〉+〈絕句漫興九首〉其八, 依據詩意與格律, slots 2/2/2: 漠漠／朗朗, 瑟瑟／時時, 亭亭／纖纖",
+   "112": "Q6 〈補江總白猿傳〉 文言, slots 4/2/2: 其來有自／尤所難免, 疑懼／倨傲, 迎候／伺守",
+   "114": "Q3 聶華苓〈月光•枯井•三腳貓〉 現代散文, slots 3/2/2: 破海綿／舊報紙, 皎潔／青蒼, 貪婪／貧血"
+  },
+  "rule": "A printed excerpt of a real work with its attribution (author〈title〉, 〈title〉 or 改寫自); three □ slots of two to four characters; exactly two candidate words per slot, each in two options, so that any two options differ in at least two slots; options two abreast. Near-synonym candidates (皎潔／青蒼) carry the difficulty; a self-written sentence with four unrelated words per slot is not the form."
+ }
 }

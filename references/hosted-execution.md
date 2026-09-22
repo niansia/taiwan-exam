@@ -384,7 +384,7 @@ re-open every page.
 ### Renderer rules worth knowing before the first plan
 
 - Option tables take the stem's width; the column count follows the longest
-  option (國綜 always prints options one per line). A stem indented by a long
+  option (國綜: four options of at most 16 characters print two abreast, anything longer or a five-option item one per line). A stem indented by a long
   task label narrows every option below it.
 - A task label longer than three characters (`中譯英`, `英文作文`, `第一段`)
   leads the text; only plain numbers and `(1)`-style subparts sit in the number
