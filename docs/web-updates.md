@@ -5,6 +5,14 @@
 以下是修正摘要；目前執行規則以 [SKILL.md](../SKILL.md) 與最新版知識檔為準。
 更新 GitHub 不會自動替換帳號內已儲存的附件，請更新原本的 Skill／Project／Gem。
 
+## 2026.09.22.3：checkpoint 即時回報過期閘門、refresh-evidence 草稿、check-figures 圖片自檢
+
+接續 2026.09.22.2，補上三份模型自我分析提到但上一版只以文件說明的三項：finalize 才發現閘門報告過期（自然卷失敗 5 次）、內容一改九份報告全部作廢得重寫、圖片缺字／標籤壓線／只靠顏色區分要等出完整本 PDF 才用眼睛發現。
+
+新增 `scripts/hosted_evidence_refresh.py`：`checkpoint` 每次回傳 `evidence_ready` 與 `evidence_attention`，用最終檢查器同一套用語列出九個閘門哪些缺、哪些過期（含該次審閱後改了哪幾題）、哪些格式不完整（狀態非 pass、觀察空白、題列缺漏或 pending、盲審包不符）；並寫入 `exam-history.json` 記錄每次存檔的逐題摘要。新子指令 `refresh-evidence --state`：重新登錄機械紀錄，並為每份過期報告寫 `<gate>.draft.json`，未改動題目的列照抄原審閱、改動或新增題目與整卷狀態設 pending、難度盲審包重新產生；審閱者補完 pending 後另存為 `<gate>.json`。檢查器不讀草稿，整份照抄也會因 pending 列被退。新子指令 `check-figures --state`：出 PDF 前打開每張引用圖片，回報檔案遺失或改名、雜湊與存檔紀錄不符、0 位元組、被擋下載後存成圖片名的 HTML、無法開啟、替代字元，以及警告：上下標字元（CJK 字型會印成方框）、帶顏色像素比例、標籤壓在筆劃上、同一內容存成多個路徑。虛線是否看得出、圖例是否對得上仍由 proof 裁切用眼確認。
+
+新 ZIP（SHA-256 `f275dabcaaedf8ee46f38a1ee8add4bf6ace1cf2d511976f88d18c7bf3ec0f6b`，6,854,173 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.3 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.3) 頁面。已安裝的舊 Skill 請重新下載替換。
+
 ## 2026.09.22.2：鎖定後才能 build、回合預算、社會圖片與五科時事門檻再提高
 
 使用者以 Claude 出完 116 自然（2 小時 26 分）與社會（2 小時 04 分）模擬卷，並附三份模型自我分析：時間主要耗在重複的 proof／plan／build（自然 24 次 plan、11 次 build、18 次 proof；社會 20 次 proof、7 次 plan、3 次 build；國綜 9 次 plan、6 輪 proof），且都在鎖定內容前就 build，一改題目整本作廢；社會卷圖片題把「最少 2 張照片」當成剛好 2 張；近一年、近幾個月的時事仍偏少；5 題詳解引用改序前的選項編號；finalize 因過期閘門報告失敗 5 次；頁尾總頁數一變就讓全部頁面重審；references 提到的 50 個腳本不在 ZIP 內。
