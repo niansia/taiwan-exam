@@ -28,8 +28,8 @@ Apply the same full-paper stability gate to the other visual-rich subjects. Pend
 | Subject | Required visual items | Sections | Distinct kinds | Minimum sourced real images | Additional spread |
 |---|---:|---:|---:|---:|---|
 | Mathematics A/B | 4 | 3 | 2 | 0 | include an item before the mixed section |
-| Natural Science | 8 | 2 | 4 | 2 | physics, chemistry, biology, and earth science |
-| Social Studies | 6 | 2 | 3 | 2 | history, geography, and civics |
+| Natural Science | 16 | 2 | 4 | 3 | physics, chemistry, biology, and earth science (official 111–115: 21–36 labelled figures a year) |
+| Social Studies | 10 | 2 | 4 | 4 | history, geography, and civics (official 111–115: 8–17 labelled figures, 照片 mentioned 3–7 times a year) |
 | English | 3 | 2 | 2 | 1 | include noncontinuous mixed evidence and the selected composition form when visual |
 
 These are provisional product floors, not CEEC frequency claims. The sourced-image column is a **minimum, never a target or ceiling**. Natural Science and Social Studies have no photo-count upper bound: after the floor is met, keep adding or retaining independently sourced photographs whenever each additional image supplies a distinct answer-bearing observation and improves section, source-family, evidence-role, or discipline coverage without damaging rights compliance, grayscale evidence survival, page density, or the official solving-time envelope. Do not stop at two just because the minimum passed, and do not pad a paper with ornamental photos to chase a larger number. A sourced real image means a camera photograph, archival photograph, microscope image, satellite observation, or comparable instrument observation with a traceable reusable source; generated photorealism and screenshots do not count. A completely annotated selected profile may require more. Run `scripts/validate_visual_item_contract.py`; it counts only evidence or required-for-solution visuals that have a completed visual-removal test. If a paper misses the envelope, delete and replace the failed item with a new visual reasoning mechanism. Adding an unrelated illustration to an unchanged text question does not count.

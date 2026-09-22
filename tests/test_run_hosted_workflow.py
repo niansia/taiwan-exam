@@ -24,6 +24,7 @@ def test_both_fixed_booklets_and_resume_without_repeating_work(subject, tmp_path
     exam = {'metadata': {'paper_id': 'synthetic', 'subject': subject}, 'questions': [{'id': '1'}]}
     workflow.save(tmp_path/'exam.json', exam)
     workflow.checkpoint(tmp_path, 'authoring')
+    workflow.content_lock(tmp_path/'run-state.json')
     for role, kind in [('question', 'stimulus'), ('solution', 'solution')]:
         workflow.save(tmp_path/(role+'.json'), {'subject': subject, 'blocks': [
             {'kind': kind, 'id': '1', 'number': 1, 'text': 'Synthetic layout fixture only.',
@@ -167,6 +168,7 @@ def asset_build(tmp_path):
     workflow.save(tmp_path/'exam.json', {'metadata': {'paper_id': 'asset-test', 'subject': '英文'},
                                        'questions': [{'id': '1'}]})
     workflow.checkpoint(tmp_path, 'authoring')
+    workflow.content_lock(tmp_path/'run-state.json')
     asset = tmp_path/'diagram.svg'
     asset.write_bytes(b'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="30"><path d="M5 15 L95 15" stroke="black"/></svg>')
     for role, kind in [('question', 'stimulus'), ('solution', 'solution')]:

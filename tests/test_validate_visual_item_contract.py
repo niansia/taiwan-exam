@@ -141,9 +141,12 @@ def test_social_photo_floor_has_no_upper_bound(tmp_path):
         {"metadata": {"subject": "社會", "generation_mode": "full-paper"}, "questions": questions},
         tmp_path,
     )
-    assert report["status"] == "pass"
+    # Four real photos satisfy the raised photo floor; the six visuals still miss the
+    # ten-visual floor measured on official 社會 papers (8-17 labelled figures a year).
+    assert not any("real-photo" in error for error in report["errors"])
+    assert any("required visuals, minimum is 10" in error for error in report["errors"])
     assert report["sourced_photo_count"] == 4
-    assert report["sourced_photo_minimum"] == 2
+    assert report["sourced_photo_minimum"] == 4
     assert report["sourced_photo_upper_bound"] is None
 
 

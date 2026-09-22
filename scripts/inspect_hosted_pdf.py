@@ -187,8 +187,12 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             raster_scale=2.5 if needs_full_resolution else 1.5
             raster = target / f"page-{number:03}.png"
             page.get_pixmap(matrix=pymupdf.Matrix(raster_scale, raster_scale), alpha=False).save(raster)
+            # The body-only raster ignores the running header/footer, so a page-count
+            # change (共 22 頁 → 共 21 頁) does not invalidate every page review.
+            body_pixels = page.get_pixmap(matrix=pymupdf.Matrix(2, 2), clip=body, alpha=False)
             pages.append({"page": number, "raster_path": str(raster),
                           "raster_sha256": hashlib.sha256(raster.read_bytes()).hexdigest(),
+                          "body_raster_sha256": hashlib.sha256(body_pixels.samples).hexdigest(),
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
                           "rail_collision_samples": rail_collisions,

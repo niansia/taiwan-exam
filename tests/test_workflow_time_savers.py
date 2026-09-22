@@ -184,11 +184,15 @@ def test_plan_paginates_both_bodies_without_pdfs_rasters_or_review_state(paper):
     with pytest.raises(ValueError, match='exists'):
         workflow.plan(root/'run-state.json', root/'q.json', root/'s.json', font, root/'plan-01')
     workflow.content_lock(root/'run-state.json')
-    assert workflow.plan(root/'run-state.json', root/'q.json', root/'s.json', font, root/'plan-02')['content_lock'] == 'matches'
+    second = workflow.plan(root/'run-state.json', root/'q.json', root/'s.json', font, root/'plan-02', compare=root/'plan-01')
+    assert second['content_lock'] == 'matches'
+    assert second['compared_with_previous']['question']['bottom_void_delta']
+    assert second['iteration_budget'] == {'kind': 'plan', 'count': 2, 'budget': 3, 'over_budget': False, 'note': 'within budget'}
     started = time.perf_counter()
     build = workflow.build(root/'run-state.json', root/'q.json', root/'s.json', font, root/'build-v1', year=116)
     build_seconds = time.perf_counter() - started
     assert build['status'] == 'review-pending' and 'pause' in build['clock_reminder']
+    assert build['iteration_budget']['count'] == 1
     assert workflow.read(Path(build['page_plan']))['booklets']['question']['plan']['page_count'] == result['page_counts']['question']
     print(json.dumps({'plan_seconds': round(plan_seconds, 2), 'build_seconds': round(build_seconds, 2)}))
     assert plan_seconds < build_seconds
@@ -217,6 +221,7 @@ def test_text_only_crops_are_read_on_their_page_and_settle_with_it(paper):
                                                  options=[{'label': l, 'text': f'選項 {l}'} for l in 'ABCDE'])]))
     appender.append(root, root/'batch.json')
     workflow.specs(root/'run-state.json', root/'q2.json', root/'s2.json')
+    workflow.content_lock(root/'run-state.json')
     built = workflow.build(root/'run-state.json', root/'q2.json', root/'s2.json', font, root/'build-v2', year=116)
     state = workflow.read(Path(built['state']))
     items = workflow.read(root/state['pdfs']['question']['item_review']['path'])['parts']

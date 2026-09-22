@@ -195,6 +195,7 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
     source_families: Counter[str] = Counter()
     current_items = 0
     within_year_items = 0
+    fresh_items = 0  # event or substantive update within 180 days before the lock
     editorial_lock_dates: set[date] = set()
     current_score = 0.0
     current_clusters: set[tuple[str, ...]] = set()
@@ -419,6 +420,8 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
                         errors.append({"code": "current_event_after_lock", "question_id": qid})
                     elif published <= lock and year_start <= happened and spec.get("fact_check_status") == "verified":
                         within_year_items += 1
+                        if (lock - happened).days <= 180:
+                            fresh_items += 1
                 else:
                     warnings.append({"code": "current_event_date_missing_not_counted_within_year", "question_id": qid})
             except (ValueError, TypeError):
@@ -475,8 +478,13 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
                 "shares": {name: round(score_shares[name], 4) for name in sorted(score_shares)},
                 "maximum_allowed_gap": 0.08,
             })
-        if within_year_items < 3:
-            errors.append({"code": "within_year_current_context_items_too_few", "found": within_year_items, "minimum": 3})
+        # Official 111-115 papers carry 6-10 strictly datable within-two-year items; the
+        # maintainer wants recency above the weakest year, so six within one year and two
+        # within 180 days of the lock are the floors (see current-form-topicality.md).
+        if within_year_items < 6:
+            errors.append({"code": "within_year_current_context_items_too_few", "found": within_year_items, "minimum": 6})
+        if fresh_items < 2:
+            errors.append({"code": "fresh_current_context_items_too_few", "found": fresh_items, "minimum": 2, "window_days": 180})
         if len(editorial_lock_dates) > 1:
             errors.append({"code": "inconsistent_editorial_lock_dates"})
 
@@ -513,7 +521,7 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
             "完整卷每題另須通過社會科創新命題稽核；新地名、年份、政策名稱、圖片或來源不能替代新的證據與推理結構。",
             "社會完整卷另以內部反短材料門檻檢查可見證據量與獨立材料中位長度；這些值是退件下限，不是要求逐題灌字或冒充大考中心統計。",
             "時事只提供證據情境；題目不得要求考生事先知道新聞。",
-            "完整卷預設只要求至少 3 題依賴截稿日前一年內的事件或實質更新；其餘選材不設新鮮度、時事配分或分區配額。日期計數仍須來源及內容複核。",
+            "完整卷預設至少 6 題依賴截稿日前一年內的事件或實質更新，其中至少 2 題在 180 天內；其餘選材不設新鮮度、時事配分或分區配額。日期計數仍須來源及內容複核。",
         ],
     }
 

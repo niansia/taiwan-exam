@@ -151,7 +151,7 @@ def test_full_paper_requires_a_few_within_year_items_not_large_topical_quotas():
     }
 
 
-def _full_paper_with_recent_items(count=3):
+def _full_paper_with_recent_items(count=6):
     """Metadata fixture only; no generated exam content or educational acceptance."""
     questions = []
     for index in range(60):
@@ -187,8 +187,9 @@ def _full_paper_with_recent_items(count=3):
         }
         spec["subject_innovation_audit"] = _innovation(domain, index)
         if index < count:
+            # Two of the recent items fall inside the 180-day freshness window.
             spec.update({
-                "freshness_class": "current_event", "event_date": "2026-01-01",
+                "freshness_class": "current_event", "event_date": "2026-08-01" if index < 2 else "2026-01-01",
                 "published_at": "2026-01-02", "editorial_lock_date": "2026-09-10",
                 "source_relation_review": {
                     "evidence_location": "row 1", "curriculum_bridge": "compare evidence",
@@ -284,7 +285,7 @@ def test_full_paper_integration_checks_the_printed_numbers_not_array_order():
     assert "social_standalone_domain_interleaved" in {e["code"] for e in MODULE.validate_exam(exam)["errors"]}
 
 
-@pytest.mark.parametrize("count", [3, 5, 8])
+@pytest.mark.parametrize("count", [6, 8, 10])
 def test_small_year_old_allocation_passes_without_score_cluster_or_section_quota(count):
     report = MODULE.validate_exam(_full_paper_with_recent_items(count))
     assert report["status"] == "pass", report["errors"]
@@ -294,7 +295,11 @@ def test_small_year_old_allocation_passes_without_score_cluster_or_section_quota
 
 def test_two_recent_items_do_not_meet_default_few_item_floor():
     report = MODULE.validate_exam(_full_paper_with_recent_items(2))
-    assert {"code": "within_year_current_context_items_too_few", "found": 2, "minimum": 3} in report["errors"]
+    assert {"code": "within_year_current_context_items_too_few", "found": 2, "minimum": 6} in report["errors"]
+    aged = _full_paper_with_recent_items(6)
+    for question in aged["questions"][:6]:
+        question["item_spec"]["event_date"] = "2026-01-01"
+    assert {"code": "fresh_current_context_items_too_few", "found": 0, "minimum": 2, "window_days": 180} in MODULE.validate_exam(aged)["errors"]
 
 
 @pytest.mark.parametrize("event_date,accepted", [
@@ -304,16 +309,16 @@ def test_two_recent_items_do_not_meet_default_few_item_floor():
 ])
 def test_recent_event_dates_use_calendar_year_inclusive_bounds(event_date, accepted):
     exam = _full_paper_with_recent_items()
-    for question in exam["questions"][:3]:
+    for question in exam["questions"][2:6]:
         question["item_spec"].update({"event_date": event_date, "published_at": "2026-09-10"})
     report = MODULE.validate_exam(exam)
     assert (report["status"] == "pass") is accepted, report["errors"]
-    assert report["within_year_current_context_item_count"] == (3 if accepted else 0)
+    assert report["within_year_current_context_item_count"] == (6 if accepted else 2)
 
 
 def test_verified_substantive_update_can_renew_an_older_event():
     exam = _full_paper_with_recent_items()
-    for question in exam["questions"][:3]:
+    for question in exam["questions"][2:6]:
         question["item_spec"].update({
             "event_date": "2020-01-01", "substantive_update_date": "2026-01-01",
         })
@@ -335,9 +340,9 @@ def test_future_source_mixed_cutoffs_and_unverified_facts_fail(mutation, error_c
 
 def test_leap_day_cutoff_uses_previous_february_28():
     exam = _full_paper_with_recent_items()
-    for question in exam["questions"][:3]:
+    for index, question in enumerate(exam["questions"][:6]):
         question["item_spec"].update({
-            "event_date": "2023-02-28", "published_at": "2023-03-01",
+            "event_date": "2024-02-20" if index < 2 else "2023-02-28", "published_at": "2024-02-21" if index < 2 else "2023-03-01",
             "editorial_lock_date": "2024-02-29",
         })
     report = MODULE.validate_exam(exam)

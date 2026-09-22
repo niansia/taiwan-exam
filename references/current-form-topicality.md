@@ -65,21 +65,25 @@ them explicitly for a themed or historical simulation.
 
 | Subject | Floor | Official years failing it |
 |---|---|---|
-| 自然 | ≥ 4 verified recent sources carrying ≥ 6 scored items, in both 第壹部分 and 第貳部分; ≥ 1 source within 120 days of the lock; ≥ 1 Taiwan hazard item (颱風／地震／豪雨／寒害 tagged `taiwan` plus the hazard); ≥ 4 items tagged `climate_energy`; ≥ 3 tagged `taiwan` | 113 and 115 (recency); none for the theme tags |
-| 英文 | ≥ 1 verified recent source carrying ≥ 3 items (a passage, not a vocabulary sentence); the composition prompt declares a verified `current_trend` | 112, 113, 115 (recency); 111 (composition) |
-| 國綜 | ≥ 1 verified recent source carrying ≥ 2 items; ≥ 2 passages tagged `taiwan` | none |
+| 自然 | ≥ 5 verified recent sources carrying ≥ 8 scored items, in both 第壹部分 and 第貳部分; ≥ 2 sources within 180 days of the lock; ≥ 1 Taiwan hazard item (颱風／地震／豪雨／寒害 tagged `taiwan` plus the hazard); ≥ 4 items tagged `climate_energy`; ≥ 3 tagged `taiwan` | every official year on recency (111 and 112 reach 4–5 contexts, none reaches 5 sources with 8 items); none for the theme tags |
+| 英文 | ≥ 2 verified recent sources carrying ≥ 6 items (passages, not vocabulary sentences); the composition prompt declares a verified `current_trend` | every official year on recency (no year has two recent passages); 111 (composition) |
+| 國綜 | ≥ 2 verified recent sources carrying ≥ 4 items; ≥ 2 passages tagged `taiwan` | every official year (each has exactly one recent group) |
 | 國寫 | ≥ 1 task tied to a verified `current_trend` source | 112 |
-| 社會 | unchanged: ≥ 3 items within the year, per its own validator | — |
+| 社會 | ≥ 6 items within the year, ≥ 2 of them within 180 days, per `validate_social_item_design.py` | every official year (about 12% strict recent items, few within six months) |
 
-Targets above the floor: 自然 3–5 contexts with 7–12 items (the 111–112 shape); 英文 2
-recent passages; 國綜 1–2 groups. Do not exceed the official share by turning the paper
+These floors were raised on 2026-09-22 after the maintainer judged the 2026-09-21 floors
+(自然 4/6/120 days, 英文 1/3, 國綜 1/2, 社會 3) still too thin: the generated 自然 and 社會
+papers stopped exactly at the minimum. Every floor now sits above the official range, so a
+paper meeting it is deliberately more topical than any official year; the reference
+disclosure above is the honest statement of that gap. Targets above the floor: 自然 6–7
+contexts with 9–12 items; 英文 2–3 recent passages; 國綜 2 groups; 社會 8–10 items. Do not exceed the official share by turning the paper
 into a news quiz: every recent item still passes the source-relation and removal tests in
 [current-source-transformation.md](current-source-transformation.md), and the discipline,
 difficulty and reading-load balances are unchanged.
 
 "Recent" is measured from the editorial lock: event date **and** publication date within
 365 days before it (`current_event`, `recent_context`), or within 730 days for a social
-trend (`current_trend`). Use Asia/Taipei calendar dates. A refreshed page date, an
+trend (`current_trend`). "Fresh" means within 180 days of the lock (`FRESH_DAYS`). Use Asia/Taipei calendar dates. A refreshed page date, an
 anniversary retelling or a forecast of an unresolved outcome does not qualify. When the
 simulated exam is dated (for example 116 學測, January 2027) but the lock is today,
 today's lock still governs; never backfill later news into an earlier lock.

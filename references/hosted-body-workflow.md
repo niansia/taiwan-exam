@@ -143,6 +143,17 @@ when reviewing all dependent items. Real image/text
 bounds and the compositor's outside-body check supplement the HTML measurement.
 They are not a general proof of collision-free layout or sufficient page density.
 
+## Lock before layout, plan before build
+
+`build` requires `content-lock.json`. Measured runs that built before the lock
+threw the build away when a solving pass changed one item, together with every
+page review of that build. Use `plan` (and `plan --compare`) for pagination
+questions, `proof` for the few figure items the batch result recommends, and
+`build` only after the lock. Each result's `iteration_budget` counts this run's
+plans (budget 3), proofs (4) and builds (2); an overrun is a signal to fix the
+cause once, not to keep trying hints. See the mandatory order in
+hosted-execution.md.
+
 ## Reserve review time before the last minutes
 
 For a web conversation observed to stop around 25 minutes, plan to reach final

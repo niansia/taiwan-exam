@@ -404,11 +404,17 @@ def prepare(state_path, pairs, output, *, render_identity=None):
                                           old_visual.get('paper_print_sha256')==paper_hash)
                         else:
                             same_content=same_exam
+                        whole_same=old.get('raster_sha256')==seen.get('raster_sha256')==fresh['raster_sha256']
+                        body_same=(bool(seen.get('body_raster_sha256')) and
+                                   seen.get('body_raster_sha256')==mechanical.get('body_raster_sha256'))
                         if (same_content and old.get('status')=='pass' and old.get('observations') and
-                            old.get('raster_sha256')==seen.get('raster_sha256')==fresh['raster_sha256'] and
-                            seen.get('issues')==mechanical['issues']):
-                            kept={k:copy.deepcopy(v) for k,v in old.items() if k not in {'density_evidence','content_items'}}
-                            fresh.update(kept);fresh['review_basis']='unchanged page pixels and authored content; retained actual prior review'
+                            (whole_same or body_same) and seen.get('issues')==mechanical['issues']):
+                            kept={k:copy.deepcopy(v) for k,v in old.items()
+                                  if k not in {'density_evidence','content_items','raster_sha256'}}
+                            fresh.update(kept)
+                            fresh['review_basis']=('unchanged page pixels and authored content; retained actual prior review'
+                                                   if whole_same else
+                                                   'unchanged body pixels and authored content (only the running page count changed); retained actual prior review')
                             reused['pages']+=1
                 if old_items and same_exam:
                     legacy_parts={(p['id'],p['page'],tuple(p['bbox']),p['raster_sha256']):p
