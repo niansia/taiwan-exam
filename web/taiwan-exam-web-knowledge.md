@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.8
+# Taiwan Exam Web Knowledge v2026.09.22.9
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 86682,
-    "sha256": "98e8e9eefd8d643bd6914dd5bb7391f07dadcb31afeec949571fe3f923640557",
-    "embedded_bytes": 86682,
-    "embedded_sha256": "98e8e9eefd8d643bd6914dd5bb7391f07dadcb31afeec949571fe3f923640557"
+    "bytes": 86748,
+    "sha256": "c810e1dffad180266612c77e07fdb3ffbd8335b3b3aeb4eacd47ac24e821f3f5",
+    "embedded_bytes": 86748,
+    "embedded_sha256": "c810e1dffad180266612c77e07fdb3ffbd8335b3b3aeb4eacd47ac24e821f3f5"
   },
   {
     "path": "core/taxonomy.json",
@@ -134,10 +134,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "exam_packs/學測/shared-data/chinese-item-type-envelope.json",
-    "bytes": 8424,
-    "sha256": "825ce5696a06cd0de95bcd861b964721bd8eb26fd3f06bcb4ded0e0a8673430e",
-    "embedded_bytes": 8424,
-    "embedded_sha256": "825ce5696a06cd0de95bcd861b964721bd8eb26fd3f06bcb4ded0e0a8673430e"
+    "bytes": 9545,
+    "sha256": "f31031ed53a6d28d51ed543b28b852be74fc23193731db52835c522eb7f2ad71",
+    "embedded_bytes": 9545,
+    "embedded_sha256": "f31031ed53a6d28d51ed543b28b852be74fc23193731db52835c522eb7f2ad71"
   },
   {
     "path": "exam_packs/學測/shared-data/current-chinese-natural-density.json",
@@ -505,10 +505,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 39064,
-    "sha256": "b4edbdcacb3ed06bb037dfbb72db54e3ec6c507b989fa513960fc5422482b0f1",
-    "embedded_bytes": 39064,
-    "embedded_sha256": "b4edbdcacb3ed06bb037dfbb72db54e3ec6c507b989fa513960fc5422482b0f1"
+    "bytes": 40003,
+    "sha256": "4babfdf1e08b112a9fd1ddee25151b8258550b93c1ef448f279583c08dbe7963",
+    "embedded_bytes": 40003,
+    "embedded_sha256": "4babfdf1e08b112a9fd1ddee25151b8258550b93c1ef448f279583c08dbe7963"
   },
   {
     "path": "references/current-gsat-english-form.md",
@@ -645,10 +645,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 39761,
-    "sha256": "907fed843654314a3f52b0cfdf14935983edc50937272451ef8290251a5bff2e",
-    "embedded_bytes": 39761,
-    "embedded_sha256": "907fed843654314a3f52b0cfdf14935983edc50937272451ef8290251a5bff2e"
+    "bytes": 40677,
+    "sha256": "5dd561b089ddc4b4a4f5ffb669c4985e2c5c622f447774cae4f4f40fd844ea7d",
+    "embedded_bytes": 40677,
+    "embedded_sha256": "5dd561b089ddc4b4a4f5ffb669c4985e2c5c622f447774cae4f4f40fd844ea7d"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -659,10 +659,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 17192,
-    "sha256": "8919a50f61565b74442525868b62011afcb18d54ccadf7f30e43d38bb54ccf04",
-    "embedded_bytes": 17192,
-    "embedded_sha256": "8919a50f61565b74442525868b62011afcb18d54ccadf7f30e43d38bb54ccf04"
+    "bytes": 17335,
+    "sha256": "20e100b5e568e2fd644d2d5676ad4051baf9771ab1f47e6815fae76172d7a926",
+    "embedded_bytes": 17335,
+    "embedded_sha256": "20e100b5e568e2fd644d2d5676ad4051baf9771ab1f47e6815fae76172d7a926"
   },
   {
     "path": "references/hosted-run-evidence.md",
@@ -869,10 +869,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 23220,
-    "sha256": "14fbdc0fa6859ef19b2782b0fc44dddced95418e1febc6e1601b196121c374ec",
-    "embedded_bytes": 23220,
-    "embedded_sha256": "14fbdc0fa6859ef19b2782b0fc44dddced95418e1febc6e1601b196121c374ec"
+    "bytes": 23926,
+    "sha256": "730313e09baa00d05f1f726590f32d0f79ce999963e337634df19c086aaed7c6",
+    "embedded_bytes": 23926,
+    "embedded_sha256": "730313e09baa00d05f1f726590f32d0f79ce999963e337634df19c086aaed7c6"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -918,10 +918,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 38532,
-    "sha256": "7c186c622d85a0f48a1978c9647f0153bdf3cf11d134af61bda785cc1e3395a5",
-    "embedded_bytes": 38532,
-    "embedded_sha256": "7c186c622d85a0f48a1978c9647f0153bdf3cf11d134af61bda785cc1e3395a5"
+    "bytes": 40683,
+    "sha256": "64db4f1bccf15b3a4ac2010935c08b05e8fb5d52ecd5cdd3a0227e1e7cbd7549",
+    "embedded_bytes": 40683,
+    "embedded_sha256": "64db4f1bccf15b3a4ac2010935c08b05e8fb5d52ecd5cdd3a0227e1e7cbd7549"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -936,6 +936,13 @@ attachments; extract only the selected subject's components.
     "sha256": "f7374fc5a0113a632292ff9b252263adaa1333344c302ff538766ac58f235bcc",
     "embedded_bytes": 5405,
     "embedded_sha256": "f7374fc5a0113a632292ff9b252263adaa1333344c302ff538766ac58f235bcc"
+  },
+  {
+    "path": "scripts/hosted_density.py",
+    "bytes": 3467,
+    "sha256": "3921b3862d43373e54730ad1f6ddf5fceb90659c3efbf13ad0ed59874c6a906d",
+    "embedded_bytes": 3467,
+    "embedded_sha256": "3921b3862d43373e54730ad1f6ddf5fceb90659c3efbf13ad0ed59874c6a906d"
   },
   {
     "path": "scripts/hosted_evidence_refresh.py",
@@ -974,10 +981,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
-    "bytes": 15795,
-    "sha256": "a27fda5c454ce796fb85175ceb5b7100646f240ed9cd2a2fcdb9178109fded8d",
-    "embedded_bytes": 15795,
-    "embedded_sha256": "a27fda5c454ce796fb85175ceb5b7100646f240ed9cd2a2fcdb9178109fded8d"
+    "bytes": 16206,
+    "sha256": "748b6640acb469bd01b6b942c02bd6c029e11fdcc7117a403ba78e0dd10c19e4",
+    "embedded_bytes": 16206,
+    "embedded_sha256": "748b6640acb469bd01b6b942c02bd6c029e11fdcc7117a403ba78e0dd10c19e4"
   },
   {
     "path": "scripts/normalize_figure_asset.py",
@@ -995,17 +1002,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_review.py",
-    "bytes": 28190,
-    "sha256": "7755f0c38ed17b7618e16941914440a7a506eee6ee524cb797099ea17153c5ec",
-    "embedded_bytes": 28190,
-    "embedded_sha256": "7755f0c38ed17b7618e16941914440a7a506eee6ee524cb797099ea17153c5ec"
+    "bytes": 28768,
+    "sha256": "106a169b2db5710e6d94f4e45a3acc7e2215080fec3daa811e4b2f0434b9a678",
+    "embedded_bytes": 28768,
+    "embedded_sha256": "106a169b2db5710e6d94f4e45a3acc7e2215080fec3daa811e4b2f0434b9a678"
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 27789,
-    "sha256": "61fd76d940ea10da3373a567b97abf6d69a34646ab0381363781c3817028f9fc",
-    "embedded_bytes": 27789,
-    "embedded_sha256": "61fd76d940ea10da3373a567b97abf6d69a34646ab0381363781c3817028f9fc"
+    "bytes": 28251,
+    "sha256": "a59abff9fe4664a8679b4ce8b0d2d619e4fa920714bfd7d1dc8d37c5d155156e",
+    "embedded_bytes": 28251,
+    "embedded_sha256": "a59abff9fe4664a8679b4ce8b0d2d619e4fa920714bfd7d1dc8d37c5d155156e"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1016,10 +1023,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 88182,
-    "sha256": "4a4dab81e89b26729c144f1b3aae92943ec11f9393e07e6b72410e4253b67624",
-    "embedded_bytes": 88182,
-    "embedded_sha256": "4a4dab81e89b26729c144f1b3aae92943ec11f9393e07e6b72410e4253b67624"
+    "bytes": 88512,
+    "sha256": "edbe8846bbd117dc942ec6c17efa77b4a39291242c33e295533bdf520b7c1129",
+    "embedded_bytes": 88512,
+    "embedded_sha256": "edbe8846bbd117dc942ec6c17efa77b4a39291242c33e295533bdf520b7c1129"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1030,10 +1037,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_chinese_layout_contract.py",
-    "bytes": 22176,
-    "sha256": "d5abf6a2ebab0ef21236e397b2222bae3dc772f40d7e8eea16aad31f7b68912b",
-    "embedded_bytes": 22176,
-    "embedded_sha256": "d5abf6a2ebab0ef21236e397b2222bae3dc772f40d7e8eea16aad31f7b68912b"
+    "bytes": 26141,
+    "sha256": "7a4e2cc1c57747ca24948a088502806327641d0200a3a1391490a849dbd84716",
+    "embedded_bytes": 26141,
+    "embedded_sha256": "7a4e2cc1c57747ca24948a088502806327641d0200a3a1391490a849dbd84716"
   },
   {
     "path": "scripts/validate_chinese_natural_scope.py",
@@ -1677,7 +1684,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
    For every answer-bearing photograph or raster figure, require `grayscale_evidence_survival` and `color_independence` in its Visual Spec and inspect the final rasterized page at print scale. Schema compliance alone is not a visual pass. Newness means a new information mechanism, solution graph, semantic data, and visual topology—not an unusual topic, grayscale filter, crop, rotation, relabeling, or artistic restyle. Precise diagrams, axes, boundaries, scales, labels, state regions, maps, and measured values must be deterministic; image models may supply only non-exact context beneath a deterministic answer-bearing overlay.
    Keep photo rights and credit in the internal provenance ledger. Do not print optional photo-source lines in the student booklet unless the selected official Layout Profile explicitly includes them; textual material/source lines remain subject to their own official-form rule. If a license requires visible attribution incompatible with the form, replace the source or obtain suitable permission; internal metadata never substitutes for required visible credit.
 8. Keep student paper and answer material separate. Produce structured `exam.json`; for fixed-page proofs, render HTML and pass `scripts/validate_fixed_page_html.py` before PDF export. The gate must cover horizontal and vertical overflow plus containment inside bordered instruction boxes, tables, response examples, and the printable page frame. Then rasterize the PDF and inspect every page at readable scale before a formal claim. Page count, extracted-text density, font inventory, or a contact sheet alone cannot establish that nothing is clipped. A minimum-height box is not printed content: compare actual text/figure endings and distributed working space with the selected reference. Verify function powers and log bases by their actual raised/lowered positions, not merely smaller digits or valid-looking tags. After shared renderer changes, regenerate affected PDFs and withdraw stale visual passes until the new pages are reviewed. For current Math A/B mixed-response items, do not print workbook-style answer lines in the question booklet unless the controlling official Layout Profile explicitly contains them.
-   For 國綜 and 自然, also compare every rendered content page with the ROC 111–115 density envelope by running `scripts/validate_current_form_density.py`. In this project the explicit anti-blank-page floor is 78% of the printable body for every question page, including the final page; a low historical outlier may be reported but must not weaken the gate. The candidate's complete-paper extractable text volume must also reach at least 80% of the controlling official paper (or the lowest recent official total when no year controls). This is an anti-padding floor, not a target or permission to copy. CSS minimum height, enlarged spacing, blank answer rules, decorative labels, and figure bounding boxes do not count as substantive material. Do not repair under-filled pages by shrinking the page count, enlarging type, or adding decorative filler; rebalance substantive source excerpts, item blocks, reference-supported answer space, exact figures, and page transitions while preserving readability. Do not auto-append `來源補充`, add answer-revealing commentary, inflate figures, or over-allocate response lines to pass this metric. Apply the role-specific typography and SVG text/stroke checks in `references/current-gsat-chinese-natural-form.md`; preserve failed full-form status when a corrected proof exposes inadequate substantive length. A matching total page count with half-empty pages is not layout fidelity.
+   For 國綜 and 自然, also compare every rendered content page with the ROC 111–115 density envelope by running `scripts/validate_current_form_density.py`. In this project page density is one fixed rule (`scripts/hosted_density.py`, shared by plan, inspector and final check): a body page leaves at most 32% of the printable body blank (英文 42%), the last body page at most 60%, and nothing waives a page over the limit. The candidate's complete-paper extractable text volume must also reach at least 80% of the controlling official paper (or the lowest recent official total when no year controls). This is an anti-padding floor, not a target or permission to copy. CSS minimum height, enlarged spacing, blank answer rules, decorative labels, and figure bounding boxes do not count as substantive material. Do not repair under-filled pages by shrinking the page count, enlarging type, or adding decorative filler; rebalance substantive source excerpts, item blocks, reference-supported answer space, exact figures, and page transitions while preserving readability. Do not auto-append `來源補充`, add answer-revealing commentary, inflate figures, or over-allocate response lines to pass this metric. Apply the role-specific typography and SVG text/stroke checks in `references/current-gsat-chinese-natural-form.md`; preserve failed full-form status when a corrected proof exposes inadequate substantive length. A matching total page count with half-empty pages is not layout fidelity.
    For every current-form subject, run the applicable PDF density comparison after export: `validate_reference_page_density.py` for a selected official booklet and `validate_current_form_density.py` for the maintained 國綜／自然 multi-year envelope. Compare matching page roles and require at least 80% of the official reference's substantive text volume unless a reviewed answer-bearing visual replaces prose. A page that passes overflow checks but ends materially earlier than its official counterpart, or a paper whose containers reach the bottom while its text volume is short, is still a release failure. Repair it by restoring authentic source passages, necessary context, complete item blocks, noncontinuous evidence, or natural page flow. Page-count difference alone is not a release failure; record it and review the resulting page roles. For 國寫, explicitly compare each printed source packet's prose length and rhetorical function with the corresponding official task; a short prompt plus oversized response area is not a full-form writing task. Never create one large terminal void, and never disguise one by shrinking or inflating type, changing verified margins/line pitch, enlarging answer space or figures, or adding irrelevant prose. Small distributed spacing between complete items is acceptable only after the substantive content-length contract is satisfied.
 
 The output must say which pack, subject, curriculum/regime, blueprint fingerprint, and calibration level it used.
@@ -12021,7 +12028,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
   "at least one 古典詩詞曲 item",
   "at least one Taiwan-themed group",
   "at least three items whose options quote 核心古文 sentences",
-  "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words"
+  "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words",
+  "Group material is authored literary, critical or expository prose or 文言, never a run of regulations, manuals and dictionary entries"
  ],
  "trend": "Single-choice 文言閱讀 fell from 9 (111-112) to 0 (115) while 白話說明文閱讀 rose to 14-15; 核心古文 now appears mostly as option material or inside modern criticism rather than as standalone passages.",
  "字音_item_form": {
@@ -12076,6 +12084,12 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
    "114": "Q3 聶華苓〈月光•枯井•三腳貓〉 現代散文, slots 3/2/2: 破海綿／舊報紙, 皎潔／青蒼, 貪婪／貧血"
   },
   "rule": "A printed excerpt of a real work with its attribution (author〈title〉, 〈title〉 or 改寫自); three □ slots of two to four characters; exactly two candidate words per slot, each in two options, so that any two options differ in at least two slots; options two abreast. Near-synonym candidates (皎潔／青蒼) carry the difficulty; a self-written sentence with four unrelated words per slot is not the form."
+ },
+ "material_source_kinds": {
+  "basis": "Group material of the five booklets classified by kind (2026-09-22); a generated paper (GZ116A) built six of nine groups from regulations, manuals and dictionary entries.",
+  "official": "白話 groups are essays, science and culture writing, criticism and literary prose with 改寫自 attributions; 文言 groups are 核心古文, 文言小說 and 古典韻文; charts and tables 0-4 items; regulations, manuals, dictionary entries, notices and application forms at most one group a year (111 and 113 one each).",
+  "rule": "At most one 題組 may draw on 法條、辦法、手冊、辭典條目、公告、公所說明 or 簡章; reading material is literature, essays, criticism and 文言.",
+  "classical_share_detector": "Items 1-31 whose material is 文言/古典 by character statistics: 111 11, 112 9, 113 9, 114 4, 115 4. Floor 10, target 12-14 at the maintainer's request (文言 is the curriculum weight); GZ116A scored 8."
  }
 }
 </canonical-source>
@@ -56622,6 +56636,16 @@ year (111–115), and is therefore enforced:
   any official year: the contract now rejects a group without an attribution.
 - 排序題 is 文言 when it appears (113 Q5 `下列是一段古文`, 115 Q5 with 甲–戊); a
   白話 sentence reorder is not the form and is rejected.
+- Material kinds: official 白話 groups are essays, science and culture writing,
+  criticism and literary prose; 文言 groups are 核心古文, 文言小說 and 古典韻文; at most
+  one group a year comes from a regulation, manual, dictionary entry, notice or
+  application form (法條、辦法、手冊、辭典條目、公告、公所說明、簡章). A generated paper
+  built six of nine groups from such documents (著作權法第65條, 標點符號手冊, 台語辭典
+  用字原則, 區公所調解說明, 徵文辦法) and read like a civics test; the contract caps
+  those groups at one. 文言／古典 material (detected from character statistics) covers
+  11, 9, 9, 4 and 4 of items 1–31 in 111–115; the maintainer set the floor at 10 with a
+  target of 12–14 because 文言 is the curriculum's weight, so a paper meeting it is more
+  classical than 113–115. Judgement items print ①②, never ➀➁ dingbats.
 - Difficulty signals measured on the five booklets and enforced by the contract:
   options containing absolute words (完全、必然、唯一、所有、只會…) are 6–12% of all
   options and appear in at most 36% of items; the generated paper had 22% and 70%,
@@ -59537,6 +59561,11 @@ re-open every page.
   a mathematics choice item is refused without its five options, a figure taller
   than 60% of the body is refused until resized, and a key that differs from the
   planned position in `paper-plan.json` is listed as `answer_position_drift`.
+- Typography is fixed for all seven subjects (國綜、國寫、英文、數學A、數學B、社會、自然), as in the official booklets: CJK in the
+  pinned Traditional Chinese serif (明體-style Noto Serif TC, downloaded by the
+  preflight; a supplied font is used only when that download fails, the built-in
+  sans-serif is the last resort) and digits, Latin letters and √ in the Times-like
+  Latin face. Authors never choose fonts.
 - Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
   (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
   社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs
@@ -59630,14 +59659,20 @@ pages needing priority magnification; those rasters are prepared at higher
 resolution. Every page and required crop still needs review. A false flag does
 not prove visual quality; zoom any uncertain page regardless of the heuristic.
 
-For each `large-bottom-void-review` the build attaches `density_evidence`: the
-page role and the comparable same-role embedded official measurements.
-`reflow_before_review` lists pages that no comparable measurement can justify;
-reflow those before spending review time on them. For a genuinely comparable
-page, record `{"decision": "justified", "reason": "...", "embedded_reference": N}`
-under that page's `issue_dispositions`; the helper copies the measurement's
-identity and the final checker remeasures both. Prose cannot waive a collision
-or an unjustified terminal void.
+Page density has one fixed rule, shared by `plan`, the inspector and the final
+checker (`hosted_density.py`): a body page may leave at most 32% of the
+printable body blank (英文 42%, where official section breaks reach 40%), the
+last body page at most 60%; the cover and the mathematics formula page are
+fixed layers and are never measured. `plan` lists pages over their limit under
+`bottom_void_attention` with the limit that applies, the inspector flags them
+as `large-bottom-void-review`, and `finalize` fails them; no disposition,
+reference PDF or prose waives a page over the limit. `density_evidence` still
+attaches the comparable embedded official measurements, as reference only.
+`reflow_before_review` lists the pages to fix before spending review time. The
+renderer paginates for these limits: after the greedy pass it re-flows the same
+content evenly across the same number of pages when any page would exceed its
+limit, so an over-limit page in a plan means a figure or block is too tall for
+its position, not a threshold to argue about.
 
 Repair the saved item (`append_items.py --replace --state LATEST_REVIEW_STATE`)
 or the layout hints, rerun `specs` with that state, and build to a new output
@@ -60023,11 +60058,13 @@ Alternatively retain an already available same-subject official 111–115 PDF an
 use `reference_pdf: {path, sha256}`, reference_page, page_role and decision/reason.
 This legacy route verifies its source hash and remeasures both PDFs. Choose the
 route at preflight, never start downloading originals during final QA.
-Candidate bottom void cannot exceed reference by over 10 percentage points.
+Page density is a fixed limit shared by plan, inspector and checker (body 0.32,
+英文 0.42, last body page 0.60; see `hosted_density.py`); embedded official
+measurements are reference material only.
 This conservative review threshold is project policy, not an official exam rule.
 The build precomputes each flagged page's `density_evidence`: its role and up to
 three same-role embedded measurements within that limit, or
-`exceeds-all-embedded-references` when none qualifies (reflow first). Selecting
+`exceeds-fixed-limit` when the page is over its limit (reflow first; nothing waives it). Selecting
 one with `embedded_reference` in record-review copies its identity; the reviewer
 still confirms the page is genuinely comparable and writes the reason.
 Editorial review must verify role compatibility: never compare an interior page
@@ -65209,6 +65246,7 @@ from validate_current_context import validate as current_context_errors
 from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from hosted_subject_gates import subject_gate_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
+from hosted_density import booklet_limits
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -65380,6 +65418,8 @@ def check(state_path: Path) -> dict:
         with pymupdf.open(pdf) as actual:
             actual_count = len(actual)
             actual_issues = {}
+            void_limits = booklet_limits([(n, p.get_text()) for n, p in enumerate(actual, 1)],
+                                         exam['metadata'].get('subject'), solutions=role == 'solution')
             need(actual.metadata.get('creator') == COMPOSER,
                  f'{role}: PDF was not composed by compose_hosted_pdf (creator stamp missing); '
                  'a body typeset by another route is not deliverable')
@@ -65404,8 +65444,13 @@ def check(state_path: Path) -> dict:
                 need(len(narrow_wrap_samples(actual_page, pymupdf.Rect(64, 87, rect.width - 64, 775))) < 2,
                      f'{role}/page-{number}: actual PDF narrow-wrap-column (text set in a column far narrower than the body)')
                 actual_issues[number] = set()
-                if bottom_void(actual_page) > .32:
+                page_role_name, void_limit = void_limits[number]
+                actual_void = bottom_void(actual_page)
+                if void_limit is not None and actual_void > void_limit:
                     actual_issues[number].add('large-bottom-void-review')
+                    # Fixed limit shared with plan and the inspector; no disposition waives it.
+                    need(False, f'{role}/page-{number}: bottom void {actual_void:.3f} exceeds the fixed limit {void_limit} '
+                                f'for a {page_role_name} page; reflow the layout (hosted_density.py)')
             item_path = file(bundle.get('item_review'), f'{role}/item_review')
             if item_path:
                 item_review = json.loads(item_path.read_text(encoding='utf-8-sig'))
@@ -66755,6 +66800,7 @@ import time
 
 import pymupdf
 from fetch_hosted_template_assets import DEFAULT_MAP
+from hosted_density import page_void_limit
 from hosted_item_layout import draw_rail
 
 HTML_OPTIONS = {'_scale_word_width':False} if '_scale_word_width' in inspect.signature(pymupdf.Page.insert_htmlbox).parameters else {}
@@ -66847,9 +66893,9 @@ class RichText(HTMLParser):
     def handle_data(self, data): self.output.append(html.escape(data))
 
 
-# Official mathematics booklets set digits, Latin letters and the radical sign in a
-# proportional Latin face; the CJK body font draws √ one em wide, so 「√5」
-# printed with a visible gap and a hosted run rewrote every radical by hand.
+# Official booklets set digits, Latin letters and the radical sign in Times for every
+# subject; the CJK body font draws √ one em wide, so 「√5」 printed with a visible
+# gap and a hosted run rewrote every radical by hand.
 MATH_SUBJECTS = {'數學A', '數學B'}
 LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
 _latin_runs_enabled = False
@@ -67146,7 +67192,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
     global _latin_runs_enabled
-    _latin_runs_enabled = spec['subject'] in MATH_SUBJECTS
+    # Official booklets set digits and Latin letters in Times for every subject
+    # (國綜, 社會, 自然, 英文 and 數學 all measured); the CJK face keeps the CJK glyphs.
+    _latin_runs_enabled = True
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
@@ -67227,8 +67275,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 return [first,_chunk(block,key,units[count:],False,True)]
         return None
 
-    def paginate(tightness):
-        """One pagination pass. Only the gaps between blocks scale with tightness."""
+    def paginate(tightness,capacity=None):
+        """One pagination pass. Gaps scale with tightness; `capacity` breaks pages early to spread content evenly."""
         def gap_after(block):
             return (8 if block['kind']=='section' else item_gap_pt(spec['subject']))*tightness
 
@@ -67248,14 +67296,17 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 heights=[prepare(block)[2] for block in chain]
                 # A kept block may start up to one grid step lower.
                 required=sum(heights)+sum(gap_after(block)+BLOCK_GRID_PT for block in chain[:-1])
-                if y+required>body.y1:
+                # Even-fill passes stop at the capacity line unless the page is still
+                # empty; a block that fits the real page is never pushed off it.
+                bound=body.y1 if capacity is None or fresh_page else min(body.y1,top+capacity)
+                if y+required>bound:
                     # Fill this page with leading paragraphs of the first block in
                     # the kept chain that allows continuation, instead of leaving
                     # a terminal void or failing on an over-long block.
                     offset=0;split=None
                     for position,block in enumerate(chain):
                         if _units(block)[1]:
-                            split=split_to_fit(block,body.y1-y-offset)
+                            split=split_to_fit(block,bound-y-offset)
                             if split:
                                 work[i+position:i+position+1]=split
                             break
@@ -67309,17 +67360,41 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
             last=max(row['bbox'][3] for row in pages if row['page']==len(doc))
             return doc.tobytes(garbage=4,deflate=True),parts,pages,len(doc),(last-top)/body.height
 
+    def voids(pages_,count_):
+        return [round((body.y1-max(row['bbox'][3] for row in pages_ if row['page']==n))/body.height,3) for n in range(1,count_+1)]
+
+    def over_limit(voids_):
+        limits=[page_void_limit(spec['subject'],'solutions' if spec.get('booklet_role')=='solutions' else 'body',n==len(voids_))
+                for n in range(1,len(voids_)+1)]
+        return sum(1 for v,l in zip(voids_,limits) if l is not None and v>l),max(voids_) if voids_ else 0
+
     try:
         raw,parts,pages,count,fill=paginate(1)
-        tightness=1
+        tightness=1;pagination='greedy'
         if balance_last_page and count>1 and fill<TRAILING_PAGE_FILL:
             # A last page holding a line or two fails the density check and costs
             # a rewrite; closer block spacing may pull it back onto earlier pages.
             for trial in TIGHTER_GAPS:
                 attempt=paginate(trial)
                 if attempt[3]<count:
-                    raw,parts,pages,count,fill=attempt;tightness=trial
+                    raw,parts,pages,count,fill=attempt;tightness=trial;pagination='tighter-gaps'
                     break
+        best_voids=voids(pages,count)
+        if balance_last_page and count>1 and over_limit(best_voids)[0]:
+            # Greedy filling piles every remainder onto the last page and leaves a
+            # tall block's page half empty. Spread the same content evenly across
+            # the same number of pages and keep the pass with the fewest pages
+            # over the fixed limit, then the smallest worst void.
+            used=sum(row['measured_height_pt'] for row in pages)+sum(
+                (8 if row['kind']=='section' else item_gap_pt(spec['subject']))*tightness for row in pages)
+            best=(over_limit(best_voids),count)
+            for slack in (1.02,1.05,1.08,1.12):
+                attempt=paginate(tightness,capacity=used/count*slack)
+                if attempt[3]>count:continue
+                candidate=(over_limit(voids(attempt[2],attempt[3])),attempt[3])
+                if candidate<best:
+                    raw,parts,pages,count,fill=attempt;best=candidate;pagination=f'balanced-{slack:g}'
+                    best_voids=voids(pages,count)
         output.parent.mkdir(parents=True,exist_ok=True)
         output.write_bytes(raw)
     finally:
@@ -67331,7 +67406,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                              p['id'] for p in parts if p['page']==n)),
                              'bottom_safety_pt':round(body.y1-max(b['bbox'][3] for b in pages if b['page']==n),3)}
                              for n in range(1,count+1)]},
-            'gap_scale':tightness,'scaled_assets':[scaled[key] for key in sorted(scaled)],
+            'gap_scale':tightness,'pagination':pagination,'bottom_void_ratios':best_voids,
+            'scaled_assets':[scaled[key] for key in sorted(scaled)],
             'scope':'Body layout only; compose onto original fixed PDFs and perform actual QA',
             'elapsed_seconds':round(time.monotonic()-started,3)}
     layout_path.parent.mkdir(parents=True,exist_ok=True)
@@ -67629,6 +67705,82 @@ def density_limit(calibration, finding, expected_role):
     if len(matches) != 1 or matches[0]['page_role'] != expected_role or finding.get('page_role') != expected_role:
         raise ValueError('Offline density reference must match subject and actual page role')
     return matches[0]['bottom_void'] + .10
+</canonical-source>
+
+<canonical-source path="scripts/hosted_density.py">
+#!/usr/bin/env python3
+"""One fixed page-density rule shared by plan, inspector, review preparation and the final checker.
+
+Until 2026.09.22.8 three thresholds disagreed: `plan` warned above 0.28 and
+ignored the last page, the inspector flagged above 0.32 on every page, and the
+final checker recomputed a calibration-derived limit (largest embedded official
+void + 0.10, about 0.23 for 國綜) that this renderer could not reach. A run could
+iterate `plan` to green, watch `build` flag both booklets, and fail `finalize` a
+third way. A hosted 國綜 paper was abandoned on exactly that.
+
+The limits below are fixed and measured on the ROC 111–115 question booklets
+(bottom void = blank share of the printable body, measured on pixels):
+
+* body pages between the first and the last: 國綜 ≤ 0.13, 社會 ≤ 0.26, 自然 ≤ 0.22,
+  數學A ≤ 0.26, 英文 ≤ 0.40 (section breaks) → limit 0.32, 英文 0.42;
+* the last body page: 0.0–0.69 across subjects (自然 112 0.688, 社會 112 0.567,
+  國綜 111 0.50) → limit 0.60;
+* the cover and the mathematics formula page are fixed template layers and are
+  never measured.
+
+The embedded official page metrics stay in the review evidence as reference
+material; they no longer set the threshold, and no disposition can waive a page
+over the limit. The renderer's balanced pagination keeps ordinary papers well
+inside these numbers, so an over-limit page is a layout defect to fix, not a
+value to argue about.
+"""
+from __future__ import annotations
+
+MAX_BODY_VOID = {'default': 0.32, '英文': 0.42}
+MAX_LAST_PAGE_VOID = 0.60
+MATH_SUBJECTS = {'數學A', '數學B'}
+COVER_MARKERS = ('作答注意事項', '請於考試開始鈴響起')
+FORMULA_MARKERS = ('參考公式', '可能用到的數值')
+
+
+def body_void_limit(subject) -> float:
+    return MAX_BODY_VOID.get(subject, MAX_BODY_VOID['default'])
+
+
+def page_role(page_text: str, number: int, count: int, subject=None, *, solutions=False) -> str:
+    """cover / formula / body / solutions for one page of a composed booklet."""
+    text = page_text or ''
+    if number == 1 and any(marker in text for marker in COVER_MARKERS):
+        return 'cover'
+    if (subject in MATH_SUBJECTS or subject is None) and number == count and any(m in text for m in FORMULA_MARKERS):
+        return 'formula'
+    return 'solutions' if solutions else 'body'
+
+
+def last_body_page(number: int, count: int, roles: dict) -> bool:
+    """True when no later page of the booklet is a body/solutions page."""
+    return all(roles.get(n) in {'cover', 'formula'} for n in range(number + 1, count + 1))
+
+
+def page_void_limit(subject, role: str, is_last_body_page: bool):
+    """The fixed limit for this page, or None when the page is a fixed template layer."""
+    if role in {'cover', 'formula'}:
+        return None
+    if is_last_body_page:
+        return MAX_LAST_PAGE_VOID
+    return body_void_limit(subject)
+
+
+def booklet_limits(pages, subject=None, *, solutions=False):
+    """{page number: (role, limit)} for a sequence of (number, text) pairs."""
+    count = len(pages)
+    roles = {n: page_role(text, n, count, subject, solutions=solutions) for n, text in pages}
+    return {n: (roles[n], page_void_limit(subject, roles[n], last_body_page(n, count, roles))) for n, _ in pages}
+
+
+def verdict(void: float, limit) -> dict:
+    return {'bottom_void_ratio': round(float(void), 3), 'bottom_void_limit': limit,
+            'over_limit': limit is not None and float(void) > limit}
 </canonical-source>
 
 <canonical-source path="scripts/hosted_evidence_refresh.py">
@@ -68872,6 +69024,7 @@ from pathlib import Path
 import re
 
 import pymupdf
+from hosted_density import booklet_limits
 from validate_math_context import source_note_samples, production_caption_samples
 
 
@@ -69038,13 +69191,16 @@ def table_collision_samples(page) -> list[dict]:
     return findings[:20]
 
 
-def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> dict:
+def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False, subject=None,
+          solutions: bool = False) -> dict:
     data = pdf.read_bytes()
     digest = hashlib.sha256(data).hexdigest()
     target = raster_dir / digest[:16]
     target.mkdir(parents=True, exist_ok=True)
     pages = []
     with pymupdf.open(stream=data, filetype="pdf") as doc:
+        limits = booklet_limits([(n, p.get_text()) for n, p in enumerate(doc, 1)],
+                                subject or ('數學A' if math else None), solutions=solutions)
         for number, page in enumerate(doc, 1):
             issues = []
             rect = page.rect
@@ -69082,7 +69238,8 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
             # include white page-size rectangles that are NOT printed content.
             # The same applies to white image margins and clipped Form XObjects.
             void = bottom_void(page, body)
-            if void > .32:
+            role_name, void_limit = limits[number]
+            if void_limit is not None and void > void_limit:
                 issues.append("large-bottom-void-review")
             risk_reasons=list(issues)
             if page.get_image_info():risk_reasons.append('embedded-image-or-answer-rail')
@@ -69109,7 +69266,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False) -> 
                           "narrow_wrap_samples": narrow_wraps,
                           "rail_collision_samples": rail_collisions,
                           "rail_format_samples": rail_formats,
-                          "bottom_void_ratio": void,
+                          "bottom_void_ratio": void, "bottom_void_limit": void_limit, "page_role": role_name,
                           "needs_full_resolution_review":needs_full_resolution,
                           "full_resolution_reasons":sorted(set(risk_reasons)),
                           "raster_scale":raster_scale,
@@ -69469,6 +69626,7 @@ from pathlib import Path
 import time
 
 import pymupdf
+from hosted_density import page_void_limit
 from hosted_calibration import snapshot
 from hosted_item_layout import crop_items, crop_bytes, geometry_errors, render_signature, equivalent_render
 from hosted_item_triage import crop_required_ids, part_reviewed_on_page
@@ -69627,21 +69785,26 @@ def bind_layout(body, final, layout, offset):
     return result
 
 
-def density_evidence(subject, role, page_number, page_count, void):
-    """Numeric same-role comparison inputs; the reviewer still decides and explains."""
+def density_evidence(subject, role, page_number, page_count, void, limit=None):
+    """The fixed limit verdict plus same-role embedded official measurements as reference."""
     try:
         calibration = snapshot(subject)
     except (OSError, ValueError, KeyError, StopIteration):
         return None
     expected = ('solutions' if role == 'solution' else 'cover' if page_number == 1 else
                 'formula' if page_number == page_count and subject in {'數學A', '數學B'} else 'body')
+    if limit is None:
+        limit = page_void_limit(subject, expected, page_number == page_count or
+                                (subject in {'數學A', '數學B'} and role != 'solution' and page_number == page_count - 1))
     metrics = [m for m in calibration['page_metrics'] if m['page_role'] == expected]
     qualifying = sorted((m for m in metrics if void <= m['bottom_void'] + .10),
                         key=lambda m: (-m['bottom_void'], m['source_sha256'], m['page']))
-    return {'candidate_bottom_void': void, 'page_role': expected,
-            'rule': 'candidate bottom void may exceed a comparable embedded official page by at most 0.10',
-            'status': 'within-embedded-reference-limit' if qualifying else 'exceeds-all-embedded-references',
-            'largest_limit': round(max(m['bottom_void'] for m in metrics) + .10, 3) if metrics else None,
+    over = limit is not None and void > limit
+    return {'candidate_bottom_void': void, 'page_role': expected, 'limit': limit,
+            'rule': ('fixed limit shared by plan, inspector and final checker (hosted_density.py): body pages 0.32 '
+                     '(英文 0.42), last body page 0.60; embedded official measurements are reference only'),
+            'status': 'exceeds-fixed-limit' if over else 'within-fixed-limit',
+            'largest_embedded_reference': round(max(m['bottom_void'] for m in metrics), 3) if metrics else None,
             'embedded_references': [{'kind': 'embedded-page-metric', 'source_sha256': m['source_sha256'],
                                      'reference_page': m['page'], 'page_role': expected,
                                      'reference_bottom_void': m['bottom_void'],
@@ -69806,7 +69969,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
         for role,(pdf,body,layout_path) in pairs.items():
             layout=bind_layout(body,pdf,json.loads(layout_path.read_text(encoding='utf-8')),1 if role=='question' else 0)
             items=crop_items(pdf,layout,output/role/'items')
-            scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'})
+            scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'},subject=subject,solutions=role=='solution')
             relative_rasters(items['parts']);relative_rasters(scan['pages'])
             annotate_parts(items['parts'],hashes)
             page_read[role]=mark_page_reviewed_parts(items['parts'],exam)
@@ -69824,12 +69987,12 @@ def prepare(state_path, pairs, output, *, render_identity=None):
                 if all(part['item_sha256'] for part in bound):
                     row['content_items']=[[part['id'],part['ordinal'],part['item_sha256']] for part in bound]
                 if 'large-bottom-void-review' in p['issues'] and subject:
-                    evidence=density_evidence(subject,role,p['page'],scan['page_count'],p['bottom_void_ratio'])
+                    evidence=density_evidence(subject,role,p['page'],scan['page_count'],p['bottom_void_ratio'],p.get('bottom_void_limit'))
                     if evidence:
                         row['density_evidence']=evidence
                         density_flags.append({'role':role,'page':p['page'],'bottom_void':p['bottom_void_ratio'],
                                               'page_role':evidence['page_role'],'status':evidence['status'],
-                                              'largest_limit':evidence['largest_limit']})
+                                              'limit':evidence['limit'],'largest_embedded_reference':evidence['largest_embedded_reference']})
                 visual['pages'].append(row)
             prior=state['pdfs'].get(role,{})
             same_exam=prior.get('exam_sha256')==state['exam']['sha256']
@@ -69923,7 +70086,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     index_path=output/'index.html';index_path.write_text('\n'.join(index),encoding='utf-8')
     template_path=output/'observations-template.json'
     template_path.write_text(json.dumps(template,ensure_ascii=False,indent=2),encoding='utf-8')
-    blocked=[flag for flag in density_flags if flag['status']=='exceeds-all-embedded-references']
+    blocked=[flag for flag in density_flags if flag['status']=='exceeds-fixed-limit']
     return {'status':'review-pending','state':str(candidate),'index':str(index_path),
             'retained_actual_reviews':reused,'retention_basis':basis,
             'items_read_on_pages':page_read,
@@ -69931,8 +70094,8 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             'density_flags':density_flags,
             'reflow_before_review':blocked,
             'elapsed_seconds':round(time.monotonic()-started,3),
-            'next':('Reflow pages listed in reflow_before_review first: no comparable embedded official page can justify them. '
-                    if blocked else '')+
+            'next':('Reflow pages listed in reflow_before_review first: they exceed the fixed density limit and no '
+                    'disposition can justify them. ' if blocked else '')+
                    'Open every image in review_batches at readable scale. Fill status and observations in a copy of '
                    'observations_template (keys match record_as), record them with one run_hosted_workflow.py '
                    'record-review call, then finalize.'}
@@ -70143,17 +70306,22 @@ def body_font(run_dir, requested=None):
     install one. PyMuPDF, already required here, ships Droid Sans Fallback with
     full CJK coverage, so a missing or incomplete font never stops a paper.
     """
+    # Fixed typography for every subject: the pinned Traditional Chinese serif
+    # (明體-style Noto Serif TC) for CJK and Times for digits and Latin letters,
+    # as in the official booklets. A supplied font is used only when the pinned
+    # serif cannot be obtained; the built-in sans-serif is the last resort.
     note = None
-    if requested:
-        path, record, note = supplied_font(Path(requested), run_dir)
-        if path is not None:
-            return path, record
     serif, serif_note = downloaded_serif_font(run_dir)
     if serif is not None:
         path, record = serif
-        if note:
-            record['replaced'] = note
+        if requested:
+            record['supplied_font_ignored'] = f'{Path(requested).name}: the pinned serif body font is fixed for every subject'
         return path, record
+    if requested:
+        path, record, note = supplied_font(Path(requested), run_dir)
+        if path is not None:
+            record['serif_download'] = serif_note
+            return path, record
     target = run_dir / 'fonts' / 'builtin-cjk.ttf'
     if not target.is_file():
         target.parent.mkdir(exist_ok=True)
@@ -70939,6 +71107,7 @@ from prepare_hosted_review import (prepare, item_hashes, annotate_parts, project
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from hosted_evidence_refresh import record_history, evidence_gaps, refresh as refresh_drafts, figure_selfcheck
 from fetch_hosted_template_assets import DEFAULT_MAP
+from hosted_density import page_void_limit
 
 SPEC_GENERATOR = 'run_hosted_workflow.py specs'
 
@@ -71380,12 +71549,15 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
         page_plan = layout['page_plan']
         body_height = page_plan['body_bbox'][3] - page_plan['body_bbox'][1]
         pages = []
+        plan_subject = read(spec_path).get('subject')
         for row in page_plan['pages']:
             void = round(row['bottom_safety_pt'] / body_height, 3)
-            pages.append({**row, 'bottom_void_ratio': void})
             last = row['page'] == page_plan['page_count']
-            if void >= BOTTOM_VOID_ATTENTION and not last:
-                attention.append({'role': role, 'page': row['page'], 'bottom_void_ratio': void,
+            # The same fixed limit the inspector and the final checker apply, last page included.
+            void_limit = page_void_limit(plan_subject, 'solutions' if role == 'solution' else 'body', last)
+            pages.append({**row, 'bottom_void_ratio': void, 'bottom_void_limit': void_limit})
+            if void_limit is not None and void > void_limit:
+                attention.append({'role': role, 'page': row['page'], 'bottom_void_ratio': void, 'limit': void_limit,
                                   'question_ids': row['question_ids']})
         booklets[role] = {'page_count': page_plan['page_count'], 'gap_scale': layout.get('gap_scale'),
                           'scaled_assets': layout.get('scaled_assets', []), 'pages': pages,
@@ -71420,7 +71592,6 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
 
 # The final inspector flags a body page whose bottom void exceeds 0.32 of the
 # body; the plan names such pages (with a small margin) before any raster.
-BOTTOM_VOID_ATTENTION = 0.28
 
 
 def render_identity(font, reading_font=None):
@@ -72689,6 +72860,23 @@ ATTRIBUTION_TOKEN = re.compile(r"改寫自|〈[^〈〉]{1,20}〉|《[^《》]{1,
 ATTRIBUTION_FLOOR = 30
 SELF_WRITTEN = re.compile(r"自擬|自撰|編者[^，。]{0,6}撰成?|本題情境|虛構|為本題設計")
 CHARACTER_FORM_MIN_CHARACTERS = 16
+# Material drawn from regulations, manuals, dictionaries or notices (法條、辦法、手冊、
+# 辭典條目、公告、公所說明、簡章). Official 111-115 papers carry at most one such
+# group a year; a generated paper built six of its nine groups from them and read
+# like a civics test. Literary prose, essays, criticism and 文言 are the form.
+REGULATORY_MATERIAL = re.compile(r'第[一二三四五六七八九十百零\d]+條|辦法|手冊|辭典|條文|簡章|章程|須知|公告|公所|規定如下|法第|'
+                                 r'施行細則|作業要點|規範|徵文辦法|投稿辦法')
+REGULATORY_GROUPS_MAX = 1
+# 文言／古典 material, detected from character statistics: classical function
+# characters (之乎者也矣焉哉於而以其曰…) at 6% or more of the CJK text with almost no
+# modern particles (的了們這那…). Detector counts on the official booklets: 111 11,
+# 112 9, 113 9, 114 4, 115 4 of items 1-31. The maintainer asked for a share above
+# the recent official years because 文言 is the curriculum's weight, so the floor
+# is 10 and the target 12-14; a generated paper reached 8.
+CLASSICAL_CHARACTERS = set('之乎者也矣焉哉兮於而以其曰乃夫則故所為與若何遂')
+MODERN_PARTICLES = set('的了們這那嗎吧呢著把很就是被')
+CLASSICAL_ITEMS_FLOOR = 10
+CIRCLED_DINGBATS = re.compile(r'[➀➁➂➃➄➅➆➇➈➉❶❷❸❹❺]')
 CLASSICAL_VERSE = re.compile(r"詩|詞|曲|韻文|絕句|律詩|樂府")
 CHAR_LIMIT = re.compile(r"(\d+)\s*字以內")
 
@@ -72738,6 +72926,29 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         if first(number) and "排列順序" in prompt(number) and "古文" not in prompt(number):
             errors.append(f"國綜第{number}題排序題須為文言（下列是一段古文，依據文意，甲、乙、丙、丁排列順序最適當的是），"
                           "113、115 官方皆如此；白話句子重排不是本形式")
+    regulatory = [numbers for text, numbers in groups.items() if REGULATORY_MATERIAL.search(text)]
+    regulatory += [[q["number"]] for q in questions if isinstance(q, dict) and isinstance(q.get("number"), int)
+                   and not q.get("group_stimulus") and REGULATORY_MATERIAL.search(str(q.get("prompt") or ""))
+                   and len(_compact_text(q.get("prompt"))) >= 120]
+    if len(regulatory) > REGULATORY_GROUPS_MAX:
+        listed = "；".join(f"第{n[0]}至{n[-1]}題" if len(n) > 1 else f"第{n[0]}題" for n in regulatory)
+        errors.append(f"國綜有 {len(regulatory)} 組材料取自法條、辦法、手冊、辭典條目、公告或公所說明（{listed}）；官方 111–115 每卷最多 1 組，"
+                      "閱讀材料應為文學、散文、評論與文言文本，法規與辭典條目不是命題主體")
+    if len(by_number) >= 30:
+        classical = [n for n in sorted(by_number) if n <= 31 and any(
+            is_classical(str(q.get("group_stimulus") or "")) or
+            is_classical(str(q.get("prompt") or "") + " " + " ".join(str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict)))
+            for q in by_number[n])]
+        if len(classical) < CLASSICAL_ITEMS_FLOOR:
+            errors.append(f"國綜第1至31題中以文言／古典材料命題者僅 {len(classical)} 題（{classical}），下限 {CLASSICAL_ITEMS_FLOOR}、目標 12–14："
+                          "文言是課綱重點，官方 111 有 11 題；請以核心古文、古典詩詞曲與文言小說增加題組")
+    for q in questions:
+        if isinstance(q, dict):
+            printed = str(q.get("prompt") or "") + str(q.get("group_stimulus") or "") + " ".join(
+                str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict))
+            if CIRCLED_DINGBATS.search(printed):
+                errors.append(f"國綜第{q.get('number')}題使用 ➀➁ 等 dingbat 圈號；官方研判題與清單一律用 ①②③")
+                break
     for text, numbers in groups.items():
         if numbers[0] >= 6 and not SOURCE_ATTRIBUTION.search(text):
             errors.append(f"國綜第{numbers[0]}至{numbers[-1]}題題組材料須摘錄真實作品並印出處（白話印「改寫自 作者〈篇名〉」，"
@@ -72889,6 +73100,20 @@ def difficulty_signal_errors(questions: list[dict]) -> list[str]:
                               "本題情境等字樣，材料本身須是可印出處的真實作品")
                 break
     return errors
+
+
+def _compact_text(value) -> str:
+    return re.sub(r"\s+", "", str(value or ""))
+
+
+def is_classical(text: str) -> bool:
+    """文言／古典 by character statistics; short fragments never qualify."""
+    cjk = [c for c in str(text or "") if "\u4e00" <= c <= "\u9fff"]
+    if len(cjk) < 20:
+        return False
+    classical = sum(c in CLASSICAL_CHARACTERS for c in cjk) / len(cjk)
+    modern = sum(c in MODERN_PARTICLES for c in cjk) / len(cjk)
+    return classical >= 0.06 and modern <= 0.02
 
 
 def pronunciation_pair_errors(question: dict) -> list[str]:

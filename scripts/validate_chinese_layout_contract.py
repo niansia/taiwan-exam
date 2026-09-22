@@ -60,6 +60,23 @@ ATTRIBUTION_TOKEN = re.compile(r"改寫自|〈[^〈〉]{1,20}〉|《[^《》]{1,
 ATTRIBUTION_FLOOR = 30
 SELF_WRITTEN = re.compile(r"自擬|自撰|編者[^，。]{0,6}撰成?|本題情境|虛構|為本題設計")
 CHARACTER_FORM_MIN_CHARACTERS = 16
+# Material drawn from regulations, manuals, dictionaries or notices (法條、辦法、手冊、
+# 辭典條目、公告、公所說明、簡章). Official 111-115 papers carry at most one such
+# group a year; a generated paper built six of its nine groups from them and read
+# like a civics test. Literary prose, essays, criticism and 文言 are the form.
+REGULATORY_MATERIAL = re.compile(r'第[一二三四五六七八九十百零\d]+條|辦法|手冊|辭典|條文|簡章|章程|須知|公告|公所|規定如下|法第|'
+                                 r'施行細則|作業要點|規範|徵文辦法|投稿辦法')
+REGULATORY_GROUPS_MAX = 1
+# 文言／古典 material, detected from character statistics: classical function
+# characters (之乎者也矣焉哉於而以其曰…) at 6% or more of the CJK text with almost no
+# modern particles (的了們這那…). Detector counts on the official booklets: 111 11,
+# 112 9, 113 9, 114 4, 115 4 of items 1-31. The maintainer asked for a share above
+# the recent official years because 文言 is the curriculum's weight, so the floor
+# is 10 and the target 12-14; a generated paper reached 8.
+CLASSICAL_CHARACTERS = set('之乎者也矣焉哉兮於而以其曰乃夫則故所為與若何遂')
+MODERN_PARTICLES = set('的了們這那嗎吧呢著把很就是被')
+CLASSICAL_ITEMS_FLOOR = 10
+CIRCLED_DINGBATS = re.compile(r'[➀➁➂➃➄➅➆➇➈➉❶❷❸❹❺]')
 CLASSICAL_VERSE = re.compile(r"詩|詞|曲|韻文|絕句|律詩|樂府")
 CHAR_LIMIT = re.compile(r"(\d+)\s*字以內")
 
@@ -109,6 +126,29 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         if first(number) and "排列順序" in prompt(number) and "古文" not in prompt(number):
             errors.append(f"國綜第{number}題排序題須為文言（下列是一段古文，依據文意，甲、乙、丙、丁排列順序最適當的是），"
                           "113、115 官方皆如此；白話句子重排不是本形式")
+    regulatory = [numbers for text, numbers in groups.items() if REGULATORY_MATERIAL.search(text)]
+    regulatory += [[q["number"]] for q in questions if isinstance(q, dict) and isinstance(q.get("number"), int)
+                   and not q.get("group_stimulus") and REGULATORY_MATERIAL.search(str(q.get("prompt") or ""))
+                   and len(_compact_text(q.get("prompt"))) >= 120]
+    if len(regulatory) > REGULATORY_GROUPS_MAX:
+        listed = "；".join(f"第{n[0]}至{n[-1]}題" if len(n) > 1 else f"第{n[0]}題" for n in regulatory)
+        errors.append(f"國綜有 {len(regulatory)} 組材料取自法條、辦法、手冊、辭典條目、公告或公所說明（{listed}）；官方 111–115 每卷最多 1 組，"
+                      "閱讀材料應為文學、散文、評論與文言文本，法規與辭典條目不是命題主體")
+    if len(by_number) >= 30:
+        classical = [n for n in sorted(by_number) if n <= 31 and any(
+            is_classical(str(q.get("group_stimulus") or "")) or
+            is_classical(str(q.get("prompt") or "") + " " + " ".join(str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict)))
+            for q in by_number[n])]
+        if len(classical) < CLASSICAL_ITEMS_FLOOR:
+            errors.append(f"國綜第1至31題中以文言／古典材料命題者僅 {len(classical)} 題（{classical}），下限 {CLASSICAL_ITEMS_FLOOR}、目標 12–14："
+                          "文言是課綱重點，官方 111 有 11 題；請以核心古文、古典詩詞曲與文言小說增加題組")
+    for q in questions:
+        if isinstance(q, dict):
+            printed = str(q.get("prompt") or "") + str(q.get("group_stimulus") or "") + " ".join(
+                str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict))
+            if CIRCLED_DINGBATS.search(printed):
+                errors.append(f"國綜第{q.get('number')}題使用 ➀➁ 等 dingbat 圈號；官方研判題與清單一律用 ①②③")
+                break
     for text, numbers in groups.items():
         if numbers[0] >= 6 and not SOURCE_ATTRIBUTION.search(text):
             errors.append(f"國綜第{numbers[0]}至{numbers[-1]}題題組材料須摘錄真實作品並印出處（白話印「改寫自 作者〈篇名〉」，"
@@ -260,6 +300,20 @@ def difficulty_signal_errors(questions: list[dict]) -> list[str]:
                               "本題情境等字樣，材料本身須是可印出處的真實作品")
                 break
     return errors
+
+
+def _compact_text(value) -> str:
+    return re.sub(r"\s+", "", str(value or ""))
+
+
+def is_classical(text: str) -> bool:
+    """文言／古典 by character statistics; short fragments never qualify."""
+    cjk = [c for c in str(text or "") if "\u4e00" <= c <= "\u9fff"]
+    if len(cjk) < 20:
+        return False
+    classical = sum(c in CLASSICAL_CHARACTERS for c in cjk) / len(cjk)
+    modern = sum(c in MODERN_PARTICLES for c in cjk) / len(cjk)
+    return classical >= 0.06 and modern <= 0.02
 
 
 def pronunciation_pair_errors(question: dict) -> list[str]:

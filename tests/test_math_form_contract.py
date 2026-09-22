@@ -84,7 +84,7 @@ def test_radicals_and_digits_use_the_latin_face_in_mathematics(tmp_path):
     hb.render(chinese, tmp_path / 'c.pdf', tmp_path / 'c.json', font, asset_root=tmp_path, proof=True)
     fonts = {c['c']: s['font'] for b in pymupdf.open(tmp_path / 'c.pdf')[0].get_text('rawdict')['blocks']
              for l in b.get('lines', []) for s in l['spans'] for c in s['chars']}
-    assert 'Droid' in fonts['5']  # prose subjects keep the body font for digits
+    assert 'Nimbus' in fonts['5'] or 'Times' in fonts['5']  # every subject prints digits in the Latin face
     assert hb.latin_runs('x&lt;sup&gt;2&lt;/sup&gt;') == '<span class="latin">x</span>&lt;<span class="latin">sup</span>&gt;<span class="latin">2</span>&lt;/<span class="latin">sup</span>&gt;'.replace('<span class="latin">sup</span>', '<span class="latin">sup</span>') or True
     assert hb.latin_runs('甲<sup>2</sup>乙') == '甲<sup><span class="latin">2</span></sup>乙'
 

@@ -11,6 +11,7 @@ from pathlib import Path
 import time
 
 import pymupdf
+from hosted_density import page_void_limit
 from hosted_calibration import snapshot
 from hosted_item_layout import crop_items, crop_bytes, geometry_errors, render_signature, equivalent_render
 from hosted_item_triage import crop_required_ids, part_reviewed_on_page
@@ -169,21 +170,26 @@ def bind_layout(body, final, layout, offset):
     return result
 
 
-def density_evidence(subject, role, page_number, page_count, void):
-    """Numeric same-role comparison inputs; the reviewer still decides and explains."""
+def density_evidence(subject, role, page_number, page_count, void, limit=None):
+    """The fixed limit verdict plus same-role embedded official measurements as reference."""
     try:
         calibration = snapshot(subject)
     except (OSError, ValueError, KeyError, StopIteration):
         return None
     expected = ('solutions' if role == 'solution' else 'cover' if page_number == 1 else
                 'formula' if page_number == page_count and subject in {'數學A', '數學B'} else 'body')
+    if limit is None:
+        limit = page_void_limit(subject, expected, page_number == page_count or
+                                (subject in {'數學A', '數學B'} and role != 'solution' and page_number == page_count - 1))
     metrics = [m for m in calibration['page_metrics'] if m['page_role'] == expected]
     qualifying = sorted((m for m in metrics if void <= m['bottom_void'] + .10),
                         key=lambda m: (-m['bottom_void'], m['source_sha256'], m['page']))
-    return {'candidate_bottom_void': void, 'page_role': expected,
-            'rule': 'candidate bottom void may exceed a comparable embedded official page by at most 0.10',
-            'status': 'within-embedded-reference-limit' if qualifying else 'exceeds-all-embedded-references',
-            'largest_limit': round(max(m['bottom_void'] for m in metrics) + .10, 3) if metrics else None,
+    over = limit is not None and void > limit
+    return {'candidate_bottom_void': void, 'page_role': expected, 'limit': limit,
+            'rule': ('fixed limit shared by plan, inspector and final checker (hosted_density.py): body pages 0.32 '
+                     '(英文 0.42), last body page 0.60; embedded official measurements are reference only'),
+            'status': 'exceeds-fixed-limit' if over else 'within-fixed-limit',
+            'largest_embedded_reference': round(max(m['bottom_void'] for m in metrics), 3) if metrics else None,
             'embedded_references': [{'kind': 'embedded-page-metric', 'source_sha256': m['source_sha256'],
                                      'reference_page': m['page'], 'page_role': expected,
                                      'reference_bottom_void': m['bottom_void'],
@@ -348,7 +354,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
         for role,(pdf,body,layout_path) in pairs.items():
             layout=bind_layout(body,pdf,json.loads(layout_path.read_text(encoding='utf-8')),1 if role=='question' else 0)
             items=crop_items(pdf,layout,output/role/'items')
-            scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'})
+            scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'},subject=subject,solutions=role=='solution')
             relative_rasters(items['parts']);relative_rasters(scan['pages'])
             annotate_parts(items['parts'],hashes)
             page_read[role]=mark_page_reviewed_parts(items['parts'],exam)
@@ -366,12 +372,12 @@ def prepare(state_path, pairs, output, *, render_identity=None):
                 if all(part['item_sha256'] for part in bound):
                     row['content_items']=[[part['id'],part['ordinal'],part['item_sha256']] for part in bound]
                 if 'large-bottom-void-review' in p['issues'] and subject:
-                    evidence=density_evidence(subject,role,p['page'],scan['page_count'],p['bottom_void_ratio'])
+                    evidence=density_evidence(subject,role,p['page'],scan['page_count'],p['bottom_void_ratio'],p.get('bottom_void_limit'))
                     if evidence:
                         row['density_evidence']=evidence
                         density_flags.append({'role':role,'page':p['page'],'bottom_void':p['bottom_void_ratio'],
                                               'page_role':evidence['page_role'],'status':evidence['status'],
-                                              'largest_limit':evidence['largest_limit']})
+                                              'limit':evidence['limit'],'largest_embedded_reference':evidence['largest_embedded_reference']})
                 visual['pages'].append(row)
             prior=state['pdfs'].get(role,{})
             same_exam=prior.get('exam_sha256')==state['exam']['sha256']
@@ -465,7 +471,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     index_path=output/'index.html';index_path.write_text('\n'.join(index),encoding='utf-8')
     template_path=output/'observations-template.json'
     template_path.write_text(json.dumps(template,ensure_ascii=False,indent=2),encoding='utf-8')
-    blocked=[flag for flag in density_flags if flag['status']=='exceeds-all-embedded-references']
+    blocked=[flag for flag in density_flags if flag['status']=='exceeds-fixed-limit']
     return {'status':'review-pending','state':str(candidate),'index':str(index_path),
             'retained_actual_reviews':reused,'retention_basis':basis,
             'items_read_on_pages':page_read,
@@ -473,8 +479,8 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             'density_flags':density_flags,
             'reflow_before_review':blocked,
             'elapsed_seconds':round(time.monotonic()-started,3),
-            'next':('Reflow pages listed in reflow_before_review first: no comparable embedded official page can justify them. '
-                    if blocked else '')+
+            'next':('Reflow pages listed in reflow_before_review first: they exceed the fixed density limit and no '
+                    'disposition can justify them. ' if blocked else '')+
                    'Open every image in review_batches at readable scale. Fill status and observations in a copy of '
                    'observations_template (keys match record_as), record them with one run_hosted_workflow.py '
                    'record-review call, then finalize.'}

@@ -30,6 +30,7 @@ from prepare_hosted_review import (prepare, item_hashes, annotate_parts, project
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from hosted_evidence_refresh import record_history, evidence_gaps, refresh as refresh_drafts, figure_selfcheck
 from fetch_hosted_template_assets import DEFAULT_MAP
+from hosted_density import page_void_limit
 
 SPEC_GENERATOR = 'run_hosted_workflow.py specs'
 
@@ -471,12 +472,15 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
         page_plan = layout['page_plan']
         body_height = page_plan['body_bbox'][3] - page_plan['body_bbox'][1]
         pages = []
+        plan_subject = read(spec_path).get('subject')
         for row in page_plan['pages']:
             void = round(row['bottom_safety_pt'] / body_height, 3)
-            pages.append({**row, 'bottom_void_ratio': void})
             last = row['page'] == page_plan['page_count']
-            if void >= BOTTOM_VOID_ATTENTION and not last:
-                attention.append({'role': role, 'page': row['page'], 'bottom_void_ratio': void,
+            # The same fixed limit the inspector and the final checker apply, last page included.
+            void_limit = page_void_limit(plan_subject, 'solutions' if role == 'solution' else 'body', last)
+            pages.append({**row, 'bottom_void_ratio': void, 'bottom_void_limit': void_limit})
+            if void_limit is not None and void > void_limit:
+                attention.append({'role': role, 'page': row['page'], 'bottom_void_ratio': void, 'limit': void_limit,
                                   'question_ids': row['question_ids']})
         booklets[role] = {'page_count': page_plan['page_count'], 'gap_scale': layout.get('gap_scale'),
                           'scaled_assets': layout.get('scaled_assets', []), 'pages': pages,
@@ -511,7 +515,6 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
 
 # The final inspector flags a body page whose bottom void exceeds 0.32 of the
 # body; the plan names such pages (with a small margin) before any raster.
-BOTTOM_VOID_ATTENTION = 0.28
 
 
 def render_identity(font, reading_font=None):

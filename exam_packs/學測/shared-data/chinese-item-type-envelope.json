@@ -371,7 +371,8 @@
   "at least one 古典詩詞曲 item",
   "at least one Taiwan-themed group",
   "at least three items whose options quote 核心古文 sentences",
-  "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words"
+  "modern non-fiction prints 改寫自 with author and title; 文言 prints its source; side notes gloss rare words",
+  "Group material is authored literary, critical or expository prose or 文言, never a run of regulations, manuals and dictionary entries"
  ],
  "trend": "Single-choice 文言閱讀 fell from 9 (111-112) to 0 (115) while 白話說明文閱讀 rose to 14-15; 核心古文 now appears mostly as option material or inside modern criticism rather than as standalone passages.",
  "字音_item_form": {
@@ -426,5 +427,11 @@
    "114": "Q3 聶華苓〈月光•枯井•三腳貓〉 現代散文, slots 3/2/2: 破海綿／舊報紙, 皎潔／青蒼, 貪婪／貧血"
   },
   "rule": "A printed excerpt of a real work with its attribution (author〈title〉, 〈title〉 or 改寫自); three □ slots of two to four characters; exactly two candidate words per slot, each in two options, so that any two options differ in at least two slots; options two abreast. Near-synonym candidates (皎潔／青蒼) carry the difficulty; a self-written sentence with four unrelated words per slot is not the form."
+ },
+ "material_source_kinds": {
+  "basis": "Group material of the five booklets classified by kind (2026-09-22); a generated paper (GZ116A) built six of nine groups from regulations, manuals and dictionary entries.",
+  "official": "白話 groups are essays, science and culture writing, criticism and literary prose with 改寫自 attributions; 文言 groups are 核心古文, 文言小說 and 古典韻文; charts and tables 0-4 items; regulations, manuals, dictionary entries, notices and application forms at most one group a year (111 and 113 one each).",
+  "rule": "At most one 題組 may draw on 法條、辦法、手冊、辭典條目、公告、公所說明 or 簡章; reading material is literature, essays, criticism and 文言.",
+  "classical_share_detector": "Items 1-31 whose material is 文言/古典 by character statistics: 111 11, 112 9, 113 9, 114 4, 115 4. Floor 10, target 12-14 at the maintainer's request (文言 is the curriculum weight); GZ116A scored 8."
  }
 }
