@@ -11,7 +11,7 @@
 
 拿官方 111～115 五卷對照詞彙表後發現原規則會把每一年官方卷都退件：五十個詞彙題答案的等級是 1 級 1、2 級 7、3 級 11、4 級 20、5 級 6、6 級 2（113 randomly、115 consumption），另有 supposedly、compulsory 兩個衍生字不在表內；錯項每年有 1～6 個第六級字；第 1～34 題扣掉專有名詞、縮寫、連字號複合詞後表外字 1.9～3.1%、第六級字 2.2～5.4%，閱讀測驗 4.5～7.3%、2.1～4.5%。改為：十題標的詞至少 6 題在 1～4 級、至少 1 題在 5～6 級、第六級與表外衍生字各至多 1 個；文意選填 (A)–(J) 表外字至多 1 個、第四級以上至少 2 個；第 1～34 題表外字上限 5%、第六級上限 7%，每個表外字列出供審閱並可在 lexical_scope 宣告為專有名詞或已註解字；閱讀表外字超過 10% 提示。另補 366 個不規則、比較級、複合代名詞與衍生形的對照，避免 brought、teeth、happiness 這類字被當表外字。
 
-新 ZIP（SHA-256 `b609c59511806027f74a8af1657501e733bbe0483b776656fad255ea5911da5e`，6,870,943 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.13 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.13/taiwan-exam-hosted-2026.09.22.13.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.13) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `b609c59511806027f74a8af1657501e733bbe0483b776656fad255ea5911da5e`，6,870,943 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.13 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.13/taiwan-exam-hosted-2026.09.22.13.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.13) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.12：社會依官方 111～115 校正形式與命題範圍，自然、社會補章節分布規則
 
