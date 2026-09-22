@@ -267,10 +267,11 @@ def check_content_lock(root, state):
 
 
 def build(state_path, question_spec, solution_spec, font, output, *, year,
-          title='學科能力測驗模擬試題', running_name='學測', reading_font=None):
+          title='學科能力測驗模擬試題', running_name='學測', reading_font=None, kai_font=None):
     started = time.time()
     state_path = Path(state_path).resolve()
     root = state_path.parent
+    kai_font = Path(kai_font) if kai_font else recorded_kai_font(state_path)
     state = read(state_path)
     if not (root / 'content-lock.json').exists():
         raise ValueError('Lock content first (run_hosted_workflow.py lock-content --state <latest-state>): a booklet '
@@ -355,7 +356,7 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
         layout = output / (role + '-layout.json')
         pdf = output / (role + '.pdf')
         render(read(spec_path), body, layout, Path(font), asset_root=spec_path.parent,
-               reading_font=Path(reading_font) if reading_font else None)
+               reading_font=Path(reading_font) if reading_font else None, kai_font=kai_font)
         compose(subject, body, assets, pdf, year=str(year), title=title,
                 running_name=running_name, font_path=Path(font),
                 kind='questions' if role == 'question' else 'answers')
@@ -366,7 +367,7 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
         'booklets': {role: {'plan': read(layout)['page_plan'], 'blocks': read(layout)['blocks']}
                      for role, (_, _, layout) in pairs.items()}})
     result = prepare(state_path, pairs, review_output,
-                     render_identity=render_identity(Path(font), Path(reading_font) if reading_font else None))
+                     render_identity=render_identity(Path(font), Path(reading_font) if reading_font else None, kai_font))
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
     reviewed = read(candidate)
     reviewed['timing'] = record(root, root / 'generation-timing.json')
@@ -424,7 +425,7 @@ def iteration_budget(root, kind, output):
                      'fix the figure size or split the block once, then run one more') if over else 'within budget'}
 
 
-def plan(state_path, question_spec, solution_spec, font, output, *, reading_font=None, compare=None):
+def plan(state_path, question_spec, solution_spec, font, output, *, reading_font=None, compare=None, kai_font=None):
     """Paginate both bodies without composing, rasterizing or preparing review.
 
     A build spends most of its time on fixed-template composition, page rasters
@@ -468,7 +469,8 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
     for role, spec_path in specs.items():
         layout = render(read(spec_path), output / (role + '-body.pdf'), output / (role + '-layout.json'),
                         Path(font), asset_root=spec_path.parent,
-                        reading_font=Path(reading_font) if reading_font else None)
+                        reading_font=Path(reading_font) if reading_font else None,
+                        kai_font=Path(kai_font) if kai_font else recorded_kai_font(state_path))
         page_plan = layout['page_plan']
         body_height = page_plan['body_bbox'][3] - page_plan['body_bbox'][1]
         pages = []
@@ -517,10 +519,11 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
 # body; the plan names such pages (with a small margin) before any raster.
 
 
-def render_identity(font, reading_font=None):
+def render_identity(font, reading_font=None, kai_font=None):
     """Fonts and painting code behind a crop; a changed identity never inherits a review."""
     scripts = Path(__file__).resolve().parent
     return {'font': digest(font), 'reading_font': digest(reading_font) if reading_font else None,
+            'kai_font': digest(Path(kai_font)) if kai_font else None,
             'pymupdf': pymupdf.VersionBind,
             'helpers': {name: digest(scripts / name) for name in
                         ('hosted_body_templates.py', 'compose_hosted_pdf.py', 'hosted_item_layout.py')}}
@@ -1187,7 +1190,7 @@ def specs(state_path, question_output=None, solution_output=None, hints=None):
             'next': 'Render new items with proof (or both booklets with build) and review the actual images.'}
 
 
-def proof(state_path, question_spec, solution_spec, items, font, output, *, reading_font=None):
+def proof(state_path, question_spec, solution_spec, items, font, output, *, reading_font=None, kai_font=None):
     """Render selected saved items alone for early crop review; never a deliverable.
 
     Uses the production renderer and the fixed-page transform, so an unchanged
@@ -1215,7 +1218,8 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
     with pymupdf.open(assets / 'inner-odd-blank.pdf') as template:
         page_size = [template[0].rect.width, template[0].rect.height]
     hashes = item_hashes(exam)
-    identity = render_identity(Path(font), Path(reading_font) if reading_font else None)
+    kai_font = Path(kai_font) if kai_font else recorded_kai_font(state_path)
+    identity = render_identity(Path(font), Path(reading_font) if reading_font else None, kai_font)
     loaded = []
     for role, spec_path in (('question', question_spec), ('solution', solution_spec)):
         spec_path = inside(root, spec_path)
@@ -1237,7 +1241,8 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
         body = output / (role + '-body.pdf')
         # Item proofs review crops, not page count: skip the last-page spacing retry.
         layout = render(spec, body, output / (role + '-layout.json'), Path(font), asset_root=spec_path.parent,
-                        reading_font=Path(reading_font) if reading_font else None, balance_last_page=False)
+                        reading_font=Path(reading_font) if reading_font else None, balance_last_page=False,
+                        kai_font=kai_font)
         crops = output / role / 'items'
         crops.mkdir(parents=True)
         parts = []
@@ -1450,6 +1455,19 @@ def finalize(state_path, output):
     return result
 
 
+def recorded_kai_font(state_path):
+    """The kai face the preflight downloaded for 說明 boxes and 國寫 materials, if any."""
+    root = Path(state_path).resolve().parent
+    preflight = root / 'preflight.json'
+    if not preflight.is_file():
+        return None
+    recorded = (read(preflight).get('kai_font') or {}).get('path')
+    if not recorded:
+        return None
+    path = Path(recorded) if Path(recorded).is_absolute() else root / recorded
+    return path if path.is_file() else None
+
+
 def recorded_font(state_path):
     """The body font prepare_hosted_run.py chose for this run."""
     root = Path(state_path).resolve().parent
@@ -1528,11 +1546,13 @@ def main():
     build_parser.add_argument('--title', default='學科能力測驗模擬試題')
     build_parser.add_argument('--running-name', default='學測')
     build_parser.add_argument('--reading-font', type=Path)
+    build_parser.add_argument('--kai-font', type=Path, help='Defaults to the kai face recorded by the preflight')
     plan_parser = commands.add_parser('plan', help='Paginate both bodies in seconds; no PDFs, rasters or review state')
     for name in ('state', 'question-spec', 'solution-spec', 'output'):
         plan_parser.add_argument('--' + name, type=Path, required=True)
     plan_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
     plan_parser.add_argument('--reading-font', type=Path)
+    plan_parser.add_argument('--kai-font', type=Path, help='Defaults to the kai face recorded by the preflight')
     plan_parser.add_argument('--compare', type=Path, help='A previous plan directory: report per-page bottom-void deltas')
     spec_parser = commands.add_parser('specs', help='Project saved items into both body layout specs')
     spec_parser.add_argument('--state', type=Path, required=True)
@@ -1545,6 +1565,7 @@ def main():
     proof_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
     proof_parser.add_argument('--items', required=True, help='Comma-separated saved question ids')
     proof_parser.add_argument('--reading-font', type=Path)
+    proof_parser.add_argument('--kai-font', type=Path, help='Defaults to the kai face recorded by the preflight')
     notes = commands.add_parser('record-review', help="Write the reviewer's actual page/crop findings")
     notes.add_argument('--observations', type=Path, required=True)
     target = notes.add_mutually_exclusive_group(required=True)

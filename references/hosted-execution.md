@@ -416,7 +416,13 @@ re-open every page.
   pinned Traditional Chinese serif (明體-style Noto Serif TC, downloaded by the
   preflight; a supplied font is used only when that download fails, the built-in
   sans-serif is the last resort) and digits, Latin letters and √ in the Times-like
-  Latin face. Authors never choose fonts.
+  Latin face. The bordered 說明 box of every subject and the 國寫 reading materials
+  print in the pinned 楷體 face (LXGW WenKai TC, the preflight's second download,
+  recorded as `kai_font`; the official booklets set them in 標楷體), falling back
+  to the serif when that download fails. Authors never choose fonts.
+- 國寫 prints 12 pt on a 20 pt line (111–115 measured): 「一、」「二、」 on their own
+  line, materials indented two characters, 「請分項回答下列問題：」 at the margin,
+  問題（一）／（二） with a six-character hanging indent, and no number column.
 - Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
   (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
   社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs

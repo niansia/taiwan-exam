@@ -40,6 +40,11 @@ AFFECTIVE_CUE = re.compile(r'書寫|抒發|敘述|描述|體悟|感思|感受|�
 ATTRIBUTION = re.compile(r'[（(](?:圖文)?(?:改寫自|節錄自|摘錄自|摘自|譯自|取材自)[^）)]*[《〈][^）)]*[）)]')
 SELF_WRITTEN = re.compile(r'自擬|自撰|編者撰|命題所設|虛構案例|情境模擬|模型生成')
 TASK_SPLIT = re.compile(r'請分項回答下列問題|請回答下列問題|問題（一）')
+# The bordered 說明 of the official 115 booklet, verbatim (the 111-114 wording differs
+# only in punctuation and the omitted 「各題配分標於題末」).
+OFFICIAL_DIRECTION = ('說明：本部分共有二大題，各題配分標於題末。請依各題指示作答，答案必須寫在「答題卷」上。第一大題限作答於答題卷「正面」，'
+                      '第二大題限作答於答題卷「背面」。作答使用筆尖較粗之黑色墨水的筆書寫，且不得使用鉛筆。若因字跡潦草、未標示題號、'
+                      '標錯題號等原因，致評閱人員無法清楚辨識者，恐將影響成績。')
 
 
 def _cjk(text: str) -> int:
@@ -109,6 +114,15 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
     cjk_two = _cjk(material_two)
     if not TASK_TWO_MATERIAL_CJK[0] <= cjk_two <= TASK_TWO_MATERIAL_CJK[1]:
         errors.append(f'國寫第二大題材料 {cjk_two} 字，官方 111–115 為 226–443 字（允許 {TASK_TWO_MATERIAL_CJK[0]}–{TASK_TWO_MATERIAL_CJK[1]}）')
+
+    # The printed 說明 and the two ask lines (all five official years).
+    directions = ''.join(str(v) for s in (exam.get('sections') or []) if isinstance(s, dict) for v in (s.get('instructions') or []))
+    if exam.get('sections') is not None and _cjk(directions) and re.sub(r'\s+', '', OFFICIAL_DIRECTION) not in re.sub(r'\s+', '', directions):
+        errors.append('國寫說明框須印官方 115 全文（含答題卷正面／背面、黑色墨水筆、不得使用鉛筆、字跡潦草恐影響成績），不得只印前半')
+    if '請分項回答下列問題' not in text_one:
+        errors.append('國寫第一大題材料後須印「請分項回答下列問題：」再列問題（一）（二）（官方 111–115 每年如此）')
+    if '請回答下列問題' not in text_two:
+        errors.append('國寫第二大題材料後須印「請回答下列問題：」再寫題目（官方 111–115 每年如此）')
 
     # Materials: attributed, 白話, never self-written.
     if not ATTRIBUTION.search(material_one) and not ATTRIBUTION.search(material_two):

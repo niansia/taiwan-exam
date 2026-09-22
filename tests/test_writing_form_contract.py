@@ -5,7 +5,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import hosted_subject_gates as gates
-from validate_writing_layout_contract import validate_exam as writing_form
+from validate_writing_layout_contract import OFFICIAL_DIRECTION, validate_exam as writing_form
 
 SENTENCE = '人們習慣使用標籤將複雜的事物簡化、分類，再附上標記，然而有時我們也將標籤使用在人的身上，形成刻板印象。'
 LITERARY = '夏天暑熱的午後，廟埕後有一棵巨大的龍眼樹，我從小學翻牆出來，背著書包爬上樹，躲在密密的枝葉裡，聽見蟬聲淹沒了母親的呼喚。'
@@ -23,7 +23,18 @@ def paper():
          'prompt': material_two + '\n\n請回答下列問題：\n氣味透過嗅覺喚起記憶和感受。請以「花草樹木的氣味記憶」為題，寫一篇文章，書寫你熟悉的花草樹木的氣味，及其所召喚的記憶和感受。（占25分）'},
     ]
     return {'metadata': {'subject': '國寫', 'paper_subject': '國寫', 'generation_mode': 'full-paper'}, 'questions': questions,
+            'sections': [{'id': 'w', 'title': '非選擇題（共二大題，占50分）', 'instructions': [OFFICIAL_DIRECTION]}],
             'answers': [{'question_id': q['id'], 'final_answer': '評分說明', 'reasoning': [f'{q["id"]} 評分要點']} for q in questions]}
+
+
+def test_direction_box_and_ask_lines_follow_the_official_booklets():
+    p = paper()
+    p['sections'][0]['instructions'] = ['說明：本部分共有二大題，各題配分標於題末。請依各題指示作答，答案必須寫在「答題卷」上。第一大題限作答於答題卷「正面」，第二大題限作答於答題卷「背面」。']
+    p['questions'][0]['prompt'] = p['questions'][0]['prompt'].replace('請分項回答下列問題：\n', '')
+    p['questions'][2]['prompt'] = p['questions'][2]['prompt'].replace('請回答下列問題：\n', '')
+    errors = writing_form(p)
+    assert any('說明框須印官方 115 全文' in e for e in errors)
+    assert any('請分項回答下列問題' in e for e in errors) and any('請回答下列問題' in e for e in errors)
 
 
 def test_official_shape_passes():
