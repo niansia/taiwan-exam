@@ -9,7 +9,7 @@
 
 逐年查官方 111～115 第貳部分：每年都是一篇白話論述或評論文本統攝文言／韻文案例（113 為回憶文學論述、記憶科普配琦君〈髻〉與李煜詞；115 為歸有光自述框架、柯慶明評論配〈出師表〉、〈陳損益表〉）。使用者的 116 卷第貳部分是〈師說〉、〈學記〉、《顏氏家訓》三篇全文言，變成純文言閱讀。契約新增 `part_two_material_errors`：甲乙丙（丁）須分別標示，至少一篇文言或韻文，至少一篇 60 字以上的白話文本；純文言或純白話皆退件。另依使用者判斷，「最長選項即答案」只是巧合，不加規則。文言偵測補上古典韻文（短句、無白話助詞），官方偵測值改為 111 18、112 12、113 12、114 8、115 13，下限由 10 改為 15、目標 16～18。
 
-新 ZIP（SHA-256 `3b4aee6feaaca1ff561662d7d05c54210b81ce8e5e65496f1da051764cbda508`，6,811,006 位元組，96 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.10 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.10/taiwan-exam-hosted-2026.09.22.10.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.10) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `3b4aee6feaaca1ff561662d7d05c54210b81ce8e5e65496f1da051764cbda508`，6,811,006 位元組，96 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.10 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.10/taiwan-exam-hosted-2026.09.22.10.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.10) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.9：密度門檻寫死並三處共用、分頁平均、字型全科寫死明體＋Times、國綜材料種類與文言下限
 
