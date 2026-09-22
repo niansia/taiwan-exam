@@ -42,9 +42,16 @@ def validate_exam(exam: dict[str, Any], source_pool: dict[str, Any]) -> list[str
         for record in source_pool.get("sources", [])
         if record.get("source_id")
     }
-    questions = exam.get("questions", [])
-    if len(questions) != 2:
-        errors.append("當代國寫完整卷必須有兩大題")
+    questions = [q for q in exam.get("questions", []) if isinstance(q, dict)]
+    # A 大題 is one printed number. The current form stores 第一大題 as two records
+    # (問題（一） 4 分 and 問題（二） 21 分 share number 1) and 第二大題 as one, so the
+    # paper is graded per 大題, not per record; a record without a number counts alone.
+    tasks: dict[Any, list[dict[str, Any]]] = {}
+    for question in questions:
+        key = question["number"] if isinstance(question.get("number"), int) else question.get("id")
+        tasks.setdefault(key, []).append(question)
+    if len(tasks) != 2:
+        errors.append(f"當代國寫完整卷必須有兩大題（以題號計），目前 {len(tasks)} 大題")
 
     if exam.get("metadata", {}).get("generation_mode") == "full-paper":
         policy = source_pool.get("selection_policy") or {}
@@ -75,19 +82,33 @@ def validate_exam(exam: dict[str, Any], source_pool: dict[str, Any]) -> list[str
                     f"完整國寫卷的候選池由「{publisher}」占過半，且未記錄外部可得性理由"
                 )
 
-    for question in questions:
+    for key, subparts in tasks.items():
+        question = subparts[0]
         qid = question.get("id") or f"question-{question.get('number', '?')}"
-        prompt = str(question.get("prompt") or "")
-        continuation_text = "\n\n".join(
-            str(value) for _, value in sorted(
-                (question.get("continuation_pages") or {}).items(),
-                key=lambda item: int(item[0]),
-            )
-        )
-        material_text = "\n\n".join(part for part in (prompt, continuation_text) if part)
-        spec = question.get("item_spec") or {}
-        source_ids = spec.get("source_ids") or []
-        mappings = spec.get("material_source_map") or []
+        parts = []
+        for subpart in subparts:
+            parts.append(str(subpart.get("prompt") or ""))
+            parts.append("\n\n".join(
+                str(value) for _, value in sorted(
+                    (subpart.get("continuation_pages") or {}).items(),
+                    key=lambda item: int(item[0]),
+                )
+            ))
+        material_text = "\n\n".join(part for part in parts if part)
+        # Grounding metadata may sit on any subpart of the 大題 (normally the first,
+        # which prints the material); merge them so 問題（二） needs no duplicate record.
+        source_ids: list[str] = []
+        mappings: list[dict[str, Any]] = []
+        spec: dict[str, Any] = {}
+        for subpart in subparts:
+            sub_spec = subpart.get("item_spec") or {}
+            for source_id in sub_spec.get("source_ids") or []:
+                if source_id not in source_ids:
+                    source_ids.append(source_id)
+            mappings.extend(sub_spec.get("material_source_map") or [])
+            for field in ("writing_task_role",):
+                if sub_spec.get(field) and not spec.get(field):
+                    spec[field] = sub_spec[field]
 
         if not source_ids:
             errors.append(f"{qid}: 缺少 source_ids")

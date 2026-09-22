@@ -43,6 +43,19 @@ def test_grounded_two_task_paper_passes():
     assert validate_exam(exam, {"sources": [source()]}) == []
 
 
+def test_first_task_split_into_two_printed_subparts_is_still_one_大題():
+    """The current form stores 問題（一）/問題（二） as two records sharing number 1."""
+    first = question()
+    first.update({"number": 1, "subpart_id": "1", "score": 4})
+    second = {"id": "q1-2", "number": 1, "subpart_id": "2", "score": 21, "prompt": "問題（二）：請寫一篇短文。（占21分）", "item_spec": {}}
+    affective = question("q2", "affective_expression")
+    affective["number"] = 2
+    exam = {"metadata": {"paper_subject": "國寫"}, "questions": [first, second, affective]}
+    assert validate_exam(exam, {"sources": [source()]}) == []
+    exam["questions"].append({"id": "q3", "number": 3, "prompt": "第三大題。（改寫自某篇）", "item_spec": {"source_ids": ["s1"], "material_source_map": [{"material_id": "x", "source_ids": ["s1"], "supported_claims": ["c"]}]}})
+    assert any("必須有兩大題（以題號計），目前 3 大題" in e for e in validate_exam(exam, {"sources": [source()]}))
+
+
 def test_invented_case_marker_and_values_fail():
     q1 = question()
     q1["prompt"] += "；校園案例為命題所設"

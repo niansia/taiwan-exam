@@ -5,6 +5,14 @@
 以下是修正摘要；目前執行規則以 [SKILL.md](../SKILL.md) 與最新版知識檔為準。
 更新 GitHub 不會自動替換帳號內已儲存的附件，請更新原本的 Skill／Project／Gem。
 
+## 2026.09.22.14：修正國寫兩支檢查互相矛盾（大題數 vs 題目筆數）
+
+hosted Claude 出 116 國寫（W116M1）時在命題前停下：.11 新增的 `validate_writing_layout_contract` 要求第一大題拆成問題（一）（4 分）與問題（二）（21 分）兩筆紀錄，整卷三筆；而舊的 `validate_writing_source_grounding` 第 46 行仍寫 `len(questions) != 2`，三筆就報「當代國寫完整卷必須有兩大題」，兩筆又被前者退件，最終檢查不可能通過。來源驗證改為以題號計大題：同題號的子題合併材料與來源對應（問題（二）不必重複來源紀錄），大題數須恰為 2。新增兩個回歸測試：三筆紀錄同時通過兩支檢查、第三大題仍退件。
+
+同類問題順便清查其他科：社會 .12 的形式區間也是按「紀錄」計數，而 115 剖面把第 44、46、52 題各存成勾選＋說明兩筆，官方形狀本身會被算成第貳部分 30 題、非選 14 題而退件，改為按題號計數（同題號有任一非選紀錄即算非選）；社會主題廣度改為只計該科自己的內容碼（跨科題先列他科代碼不再誤計）；數B 單元對照補上 D-10-1（集合與文氏圖），先列該碼的題目不再被判「不在數B範圍」，本機發布用的課綱驗證單元上限與 hosted 一致改為 5。自然 .11 的區間本來就按題號計、英文混合題 47–50 與 115 剖面（填充 2＋2、多選 4、簡答 2）相符，不用改。
+
+新 ZIP（SHA-256 `8cca22bde4cdb3d5c52aaa7f4eda8a48b06a6d836d95ab9a1e825dca1ffa73d6`，6,871,838 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.14 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.14/taiwan-exam-hosted-2026.09.22.14.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.14) 頁面。已安裝的舊 Skill 請重新下載替換。
+
 ## 2026.09.22.13：內建大考中心高中英文參考詞彙表，詞彙題與文意選填用字依官方 111～115 校準
 
 使用者指出英文詞彙題與文意選填的用字大多來自大考中心的[高中英文參考詞彙表](https://www.ceec.edu.tw/SourceUse/ce37/4.pdf)。原本 `validate_english_vocabulary_scope.py` 需要這份 PDF 卻從未放進硬碟，hosted 端因此完全沒有查過單字等級。這版把 PDF 解析成 6,474 個詞條（六級各約 1,080）隨 ZIP 內建，存批時就檢查。

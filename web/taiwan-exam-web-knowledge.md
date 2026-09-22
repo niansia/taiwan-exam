@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.13
+# Taiwan Exam Web Knowledge v2026.09.22.14
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -1128,10 +1128,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_curriculum.py",
-    "bytes": 11093,
-    "sha256": "9dd96e79e40f5bfe7b1b55f67632e27c978db68678a8385fec13176b02471c5d",
-    "embedded_bytes": 11093,
-    "embedded_sha256": "9dd96e79e40f5bfe7b1b55f67632e27c978db68678a8385fec13176b02471c5d"
+    "bytes": 11259,
+    "sha256": "af516d5da0d32d5f7d672b4a2f7bd74491579776ed82bec1228a4db104b9a495",
+    "embedded_bytes": 11259,
+    "embedded_sha256": "af516d5da0d32d5f7d672b4a2f7bd74491579776ed82bec1228a4db104b9a495"
   },
   {
     "path": "scripts/validate_math_difficulty_design.py",
@@ -1142,10 +1142,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_layout_contract.py",
-    "bytes": 13615,
-    "sha256": "36b1f3dcef770d4657819b445d2e6cc06d29c3d3a803c4275690bcaf665907bb",
-    "embedded_bytes": 13398,
-    "embedded_sha256": "4c4ec3ec1f0c2ed77c3fa59605160f323313f2fc20c0e4f71b925d2c81b3111a"
+    "bytes": 13624,
+    "sha256": "f9ebdbf96959923d7dfac4d4df0cdf0493b3759defab7c94ca0a40c65aa010c0",
+    "embedded_bytes": 13407,
+    "embedded_sha256": "450414596111574c3e0c340b04d34abea6ee4dd4f0e7455296db3e80ad18fd04"
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
@@ -1163,10 +1163,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_social_item_design.py",
-    "bytes": 35363,
-    "sha256": "b78ceb3a6c3c0efe6640e73a6974281158cfcb4bc87f570d9d9445d38baad3da",
-    "embedded_bytes": 35363,
-    "embedded_sha256": "b78ceb3a6c3c0efe6640e73a6974281158cfcb4bc87f570d9d9445d38baad3da"
+    "bytes": 36469,
+    "sha256": "bae9243d90882b5a477f5ca30b50a5c748639b59ff33662d74324fedd8c16667",
+    "embedded_bytes": 36469,
+    "embedded_sha256": "bae9243d90882b5a477f5ca30b50a5c748639b59ff33662d74324fedd8c16667"
   },
   {
     "path": "scripts/validate_source_grounding.py",
@@ -1191,10 +1191,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_writing_source_grounding.py",
-    "bytes": 7839,
-    "sha256": "9851897b2aee4c87db9be0e3d9d2c487fb78984513f7b50ee3db7f6219c96a7a",
-    "embedded_bytes": 7839,
-    "embedded_sha256": "9851897b2aee4c87db9be0e3d9d2c487fb78984513f7b50ee3db7f6219c96a7a"
+    "bytes": 9150,
+    "sha256": "d6987b8e4721154c93b0b8f0db5ddee2e39aa81dfcba272a3d72df503fe6b8a7",
+    "embedded_bytes": 9150,
+    "embedded_sha256": "d6987b8e4721154c93b0b8f0db5ddee2e39aa81dfcba272a3d72df503fe6b8a7"
   },
   {
     "path": "scripts/verify_fixed_template_pdf.py",
@@ -77422,7 +77422,9 @@ def main() -> int:
             errors.append(f"paper: only {context_counts['pure-math']} pure-math items; require at least 4")
         if context_counts["neutral-application"] < 4:
             errors.append(f"paper: only {context_counts['neutral-application']} neutral-application items; require at least 4")
-        dominant = [(name, count) for name, count in topic_counts.items() if count > 4]
+        # 數B 115 prints five 直線與圓 items; the hosted contract caps a family at five for 數B.
+        family_cap = 5 if subject == "數學B" else 4
+        dominant = [(name, count) for name, count in topic_counts.items() if count > family_cap]
         if dominant:
             errors.append(f"paper: a topical family exceeds 20% of scored items: {dominant}")
         if topic_counts["combinatorics"] < 1:
@@ -77934,7 +77936,7 @@ MATH_B_FAMILIES = {
     'line_circle': ('G-10-1', 'G-10-2', 'G-10-3', 'G-10-4'),
     'trigonometry': ('G-10-5', 'G-10-6', 'G-10-7', 'N-11B-1', 'F-11B-1'),
     'sequence': ('N-10-6',),
-    'counting': ('D-10-3',),
+    'counting': ('D-10-1', 'D-10-3'),
     'probability': ('D-10-4', 'D-11B-1'),
     'data': ('D-10-2', 'D-11B-2'),
     'matrix': ('A-11B-1',),
@@ -78476,7 +78478,23 @@ def form_band_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
     metadata = exam.get("metadata") or {}
     if len(sections) < 2 and metadata.get("generation_mode") != "full-paper":
         return []
-    questions = [q for q in exam.get("questions", []) if isinstance(q, dict) and isinstance(q.get("number"), int)]
+    records = [q for q in exam.get("questions", []) if isinstance(q, dict) and isinstance(q.get("number"), int)]
+    # One printed number may carry several scored records (115: 44, 46 and 52 each
+    # print a checkbox and a reason); the form is counted per number, and a number
+    # is constructed-response when any of its records is.
+    by_number: dict[int, list[dict[str, Any]]] = {}
+    for record in records:
+        by_number.setdefault(record["number"], []).append(record)
+    questions = []
+    for number, members in sorted(by_number.items()):
+        merged = dict(members[0])
+        types = {str(m.get("type") or "") for m in members}
+        if "constructed_response" in types:
+            merged["type"] = "constructed_response"
+        elif "multiple_choice" in types:
+            merged["type"] = "multiple_choice"
+        merged["_records"] = members
+        questions.append(merged)
     first_id = sections[0].get("id") if sections else None
     first = [q for q in questions if q.get("section_id") == first_id] if first_id else []
     second = [q for q in questions if q not in first]
@@ -78503,9 +78521,10 @@ def form_band_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
                            "detail": "官方 111-115 社會全卷沒有多選題；選擇題一律四選一 (A)-(D)。"})
         if q in first and q.get("type") not in {"single_choice", None}:
             errors.append({"code": "social_first_part_item_not_single_choice", "question_id": qid, "type": q.get("type")})
-        labels = [str(o.get("label") or "").strip("()（）") for o in (q.get("options") or []) if isinstance(o, dict)]
-        if labels and labels != ["A", "B", "C", "D"]:
-            errors.append({"code": "social_option_labels_not_a_to_d", "question_id": qid, "labels": labels})
+        for record in q["_records"]:
+            labels = [str(o.get("label") or "").strip("()（）") for o in (record.get("options") or []) if isinstance(o, dict)]
+            if labels and labels != ["A", "B", "C", "D"]:
+                errors.append({"code": "social_option_labels_not_a_to_d", "question_id": str(record.get("id") or qid), "labels": labels})
         if q in first and q.get("score") not in (None, 2):
             errors.append({"code": "social_first_part_item_score_not_two", "question_id": qid, "score": q.get("score")})
     return errors
@@ -78517,9 +78536,12 @@ def curriculum_breadth_errors(questions: list[dict[str, Any]]) -> list[dict[str,
     for q in questions:
         spec = q.get("item_spec") if isinstance(q.get("item_spec"), dict) else {}
         domain = str(spec.get("domain") or q.get("domain") or "")
+        prefix = {"歷史": "歷", "地理": "地", "公民與社會": "公"}.get(domain)
         for raw in (spec.get("curriculum_codes") or q.get("curriculum_codes") or []):
             code = canonical_content_code(raw)
-            if code in ALL_CONTENT_CODES and domain in letters and len(code) > 1 and code[0] in "歷地公":
+            # Only the item's own discipline's code names its 主題; a 跨科 item may list
+            # another discipline's code first without moving the count.
+            if prefix and code in ALL_CONTENT_CODES and len(code) > 1 and code[0] == prefix:
                 letters[domain][code[1]] += 1
                 break  # one primary 主題 per item
     errors: list[dict[str, Any]] = []
@@ -79564,9 +79586,16 @@ def validate_exam(exam: dict[str, Any], source_pool: dict[str, Any]) -> list[str
         for record in source_pool.get("sources", [])
         if record.get("source_id")
     }
-    questions = exam.get("questions", [])
-    if len(questions) != 2:
-        errors.append("當代國寫完整卷必須有兩大題")
+    questions = [q for q in exam.get("questions", []) if isinstance(q, dict)]
+    # A 大題 is one printed number. The current form stores 第一大題 as two records
+    # (問題（一） 4 分 and 問題（二） 21 分 share number 1) and 第二大題 as one, so the
+    # paper is graded per 大題, not per record; a record without a number counts alone.
+    tasks: dict[Any, list[dict[str, Any]]] = {}
+    for question in questions:
+        key = question["number"] if isinstance(question.get("number"), int) else question.get("id")
+        tasks.setdefault(key, []).append(question)
+    if len(tasks) != 2:
+        errors.append(f"當代國寫完整卷必須有兩大題（以題號計），目前 {len(tasks)} 大題")
 
     if exam.get("metadata", {}).get("generation_mode") == "full-paper":
         policy = source_pool.get("selection_policy") or {}
@@ -79597,19 +79626,33 @@ def validate_exam(exam: dict[str, Any], source_pool: dict[str, Any]) -> list[str
                     f"完整國寫卷的候選池由「{publisher}」占過半，且未記錄外部可得性理由"
                 )
 
-    for question in questions:
+    for key, subparts in tasks.items():
+        question = subparts[0]
         qid = question.get("id") or f"question-{question.get('number', '?')}"
-        prompt = str(question.get("prompt") or "")
-        continuation_text = "\n\n".join(
-            str(value) for _, value in sorted(
-                (question.get("continuation_pages") or {}).items(),
-                key=lambda item: int(item[0]),
-            )
-        )
-        material_text = "\n\n".join(part for part in (prompt, continuation_text) if part)
-        spec = question.get("item_spec") or {}
-        source_ids = spec.get("source_ids") or []
-        mappings = spec.get("material_source_map") or []
+        parts = []
+        for subpart in subparts:
+            parts.append(str(subpart.get("prompt") or ""))
+            parts.append("\n\n".join(
+                str(value) for _, value in sorted(
+                    (subpart.get("continuation_pages") or {}).items(),
+                    key=lambda item: int(item[0]),
+                )
+            ))
+        material_text = "\n\n".join(part for part in parts if part)
+        # Grounding metadata may sit on any subpart of the 大題 (normally the first,
+        # which prints the material); merge them so 問題（二） needs no duplicate record.
+        source_ids: list[str] = []
+        mappings: list[dict[str, Any]] = []
+        spec: dict[str, Any] = {}
+        for subpart in subparts:
+            sub_spec = subpart.get("item_spec") or {}
+            for source_id in sub_spec.get("source_ids") or []:
+                if source_id not in source_ids:
+                    source_ids.append(source_id)
+            mappings.extend(sub_spec.get("material_source_map") or [])
+            for field in ("writing_task_role",):
+                if sub_spec.get(field) and not spec.get(field):
+                    spec[field] = sub_spec[field]
 
         if not source_ids:
             errors.append(f"{qid}: 缺少 source_ids")

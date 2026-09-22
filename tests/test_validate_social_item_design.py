@@ -508,6 +508,15 @@ def _printed_full_paper():
 
 def test_printed_form_bands_measured_on_111_115_pass_and_deviations_are_named():
     exam = _printed_full_paper()
+    # 115 stores 44, 46 and 52 as a checkbox record plus a reason record sharing the
+    # number; the bands count printed numbers, so the extra records must not push
+    # the second part or its constructed count out of band.
+    for number in (44, 46, 52):
+        base = next(q for q in exam["questions"] if q["number"] == number)
+        base["type"] = "constructed_response"
+        base.pop("options", None)
+        twin = dict(base, id=f"{base['id']}-reason", subpart_id="reason", score=2)
+        exam["questions"].append(twin)
     report = MODULE.validate_exam(exam)
     codes = {e["code"] for e in report["errors"]}
     assert not any(c.startswith("social_first_part") or c.startswith("social_second_part") or c.startswith("social_total") for c in codes), report["errors"]
@@ -534,3 +543,10 @@ def test_curriculum_breadth_requires_every_history_period_and_geography_theme():
             q["curriculum_codes"] = ["地Ab-Ⅴ-2"]
     errors = [e for e in MODULE.validate_exam(exam)["errors"] if e["code"] == "social_curriculum_band_underrepresented"]
     assert {(e["domain"], e["band"]) for e in errors} == {("歷史", "中國與東亞"), ("歷史", "世界史"), ("地理", "地理系統"), ("地理", "地理視野")}
+    # A 跨科 history item listing a geography code first still counts under its own discipline only.
+    exam = _printed_full_paper()
+    for q in exam["questions"]:
+        if q["item_spec"]["domain"] == "歷史":
+            q["item_spec"]["curriculum_codes"] = ["地Ab-Ⅴ-2"] + q["item_spec"]["curriculum_codes"]
+            q["curriculum_codes"] = q["item_spec"]["curriculum_codes"]
+    assert not [e for e in MODULE.validate_exam(exam)["errors"] if e["code"] == "social_curriculum_band_underrepresented"]

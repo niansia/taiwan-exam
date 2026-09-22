@@ -123,7 +123,9 @@ def main() -> int:
             errors.append(f"paper: only {context_counts['pure-math']} pure-math items; require at least 4")
         if context_counts["neutral-application"] < 4:
             errors.append(f"paper: only {context_counts['neutral-application']} neutral-application items; require at least 4")
-        dominant = [(name, count) for name, count in topic_counts.items() if count > 4]
+        # 數B 115 prints five 直線與圓 items; the hosted contract caps a family at five for 數B.
+        family_cap = 5 if subject == "數學B" else 4
+        dominant = [(name, count) for name, count in topic_counts.items() if count > family_cap]
         if dominant:
             errors.append(f"paper: a topical family exceeds 20% of scored items: {dominant}")
         if topic_counts["combinatorics"] < 1:

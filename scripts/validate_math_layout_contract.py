@@ -60,7 +60,7 @@ MATH_B_FAMILIES = {
     'line_circle': ('G-10-1', 'G-10-2', 'G-10-3', 'G-10-4'),
     'trigonometry': ('G-10-5', 'G-10-6', 'G-10-7', 'N-11B-1', 'F-11B-1'),
     'sequence': ('N-10-6',),
-    'counting': ('D-10-3',),
+    'counting': ('D-10-1', 'D-10-3'),
     'probability': ('D-10-4', 'D-11B-1'),
     'data': ('D-10-2', 'D-11B-2'),
     'matrix': ('A-11B-1',),

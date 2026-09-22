@@ -55,6 +55,23 @@ def test_material_length_attribution_and_classical_material_are_measured():
     assert any('自擬／虛構' in e for e in writing_form(p))
 
 
+def test_hosted_gate_accepts_the_three_record_shape_with_both_writing_validators():
+    """W116M1 stalled because the form contract wants 問題（一）/（二） records while the
+    grounding validator counted records instead of 大題; both now agree on the shape."""
+    p = paper()
+    p['metadata']['writing_source_pool'] = {
+        'selection_policy': {'publisher_neutral': True},
+        'sources': [{'source_id': f's{i}', 'source_voice': 'authored_literary_prose', 'source_language': 'zh-Hant',
+                     'publisher': f'出版者{i}', 'source_domain': f'領域{i}', 'invented_modelling_values': []} for i in range(1, 9)],
+    }
+    p['questions'][0]['item_spec'] = {'writing_task_role': 'intellectual_integration', 'source_ids': ['s1'],
+                                      'material_source_map': [{'material_id': '本文', 'source_ids': ['s1'], 'supported_claims': ['一項主張']}]}
+    p['questions'][2]['item_spec'] = {'writing_task_role': 'affective_expression', 'source_ids': ['s2'],
+                                      'material_source_map': [{'material_id': '本文', 'source_ids': ['s2'], 'supported_claims': ['一項主張']}]}
+    errors = gates.subject_gate_errors(p)
+    assert not any(e.startswith('writing-form: ') or e.startswith('writing: ') for e in errors), errors
+
+
 def test_hosted_gate_routes_the_writing_form_contract():
     p = paper()
     p['questions'][1]['prompt'] = '問題（二）：請寫一篇短文。（占21分）'
