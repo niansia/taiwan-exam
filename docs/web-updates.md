@@ -11,7 +11,7 @@
 
 這版的修正：`build` 沒有 `content-lock.json` 就拒絕執行，改用 `plan` 看分頁；`plan --compare <上次 plan>` 直接回報每頁底部留白差值與頁數變化；plan／proof／build 每次回傳 `iteration_budget`（預算 3／4／2，超出即提示「改一次圖或拆一次段，不要再憑眼調提示」）；`specs` 拒絕印出重複子題標籤；存題時退掉 U+2060／U+FEFF／U+200B 等隱形字元與題號欄內的全形空格；詳解引用不存在的「選項（X）」即退件；頁面審閱改比對「內文區像素」，頁尾「共 N 頁」變動不再作廢全部頁面審閱。門檻方面：社會圖片題下限由 6 張／3 類／2 張照片提高為 **10 張／4 類／4 張照片**（官方 111～115 每年 8～17 個標示圖，照片 3～7 處），自然為 16 張／3 張照片，並在 hosted 最終檢查執行 `validate_visual_item_contract.py`；社會一年內時事由 3 題提高為 **6 題，其中 2 題在 180 天內**；自然由 4 來源／6 題／1 個 120 天內提高為 **5 來源／8 題／2 個 180 天內**；英文 2 篇近事文章 6 題；國綜 2 個近事題組 4 題。ZIP 補齊 13 個 references 提到但未打包的驗證腳本。`references/hosted-execution.md` 新增強制順序（出題→解題審閱→鎖定→plan ≤3→build ≤2→審閱一次）、渲染器規則（選項表寬度隨題幹、欄數依最長選項、長標籤置於題幹前）與環境陷阱（圖片下載被擋、隱形字元、過期閘門報告）。所有門檻都高於任何一個官方年份，`references/current-form-topicality.md` 的表格已如實揭露。
 
-新 ZIP（SHA-256 `ae0facf30cd19dbc88169edb44e110658afa18ff699ce1c2ddd0e07352e4192f`，6,845,796 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.2 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.2/taiwan-exam-hosted-2026.09.22.2.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.2) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `ae0facf30cd19dbc88169edb44e110658afa18ff699ce1c2ddd0e07352e4192f`，6,845,796 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.2 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.2/taiwan-exam-hosted-2026.09.22.2.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.2) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.1：hosted 最終檢查改跑五科全部驗證器；英文題本形式目錄
 
