@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.2
+# Taiwan Exam Web Knowledge v2026.09.22.3
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 86492,
-    "sha256": "51de4ff39bea83fc540ebb0b726ca5121aea928aa07e11099db6050d4e4ef92e",
-    "embedded_bytes": 86492,
-    "embedded_sha256": "51de4ff39bea83fc540ebb0b726ca5121aea928aa07e11099db6050d4e4ef92e"
+    "bytes": 86682,
+    "sha256": "98e8e9eefd8d643bd6914dd5bb7391f07dadcb31afeec949571fe3f923640557",
+    "embedded_bytes": 86682,
+    "embedded_sha256": "98e8e9eefd8d643bd6914dd5bb7391f07dadcb31afeec949571fe3f923640557"
   },
   {
     "path": "core/taxonomy.json",
@@ -645,10 +645,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 35309,
-    "sha256": "e0baaab2e879b5110a235a422cd66e21a865e791344c343979153c82faa77942",
-    "embedded_bytes": 35309,
-    "embedded_sha256": "e0baaab2e879b5110a235a422cd66e21a865e791344c343979153c82faa77942"
+    "bytes": 36677,
+    "sha256": "b100c7aa03490fd07ddb6d029d7539acc5fc37fa046e2446d96b0469e50d6f95",
+    "embedded_bytes": 36677,
+    "embedded_sha256": "b100c7aa03490fd07ddb6d029d7539acc5fc37fa046e2446d96b0469e50d6f95"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -666,10 +666,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-run-evidence.md",
-    "bytes": 9233,
-    "sha256": "8e2ed179d5b4aa2647ca25acb4657dc86aa64a9d47ac2e2045f4c63146943ca5",
-    "embedded_bytes": 9233,
-    "embedded_sha256": "8e2ed179d5b4aa2647ca25acb4657dc86aa64a9d47ac2e2045f4c63146943ca5"
+    "bytes": 11190,
+    "sha256": "cbd03970d731dfca5a6046f5ca8174f32c7272cd561b0b33f927e80498135f27",
+    "embedded_bytes": 11190,
+    "embedded_sha256": "cbd03970d731dfca5a6046f5ca8174f32c7272cd561b0b33f927e80498135f27"
   },
   {
     "path": "references/layout-fidelity.md",
@@ -931,6 +931,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "f7374fc5a0113a632292ff9b252263adaa1333344c302ff538766ac58f235bcc"
   },
   {
+    "path": "scripts/hosted_evidence_refresh.py",
+    "bytes": 18672,
+    "sha256": "b452fc270be2331da92b2cec9c6f4a2c2899fe854e139c6418564c954af2ddf9",
+    "embedded_bytes": 18672,
+    "embedded_sha256": "b452fc270be2331da92b2cec9c6f4a2c2899fe854e139c6418564c954af2ddf9"
+  },
+  {
     "path": "scripts/hosted_item_layout.py",
     "bytes": 14447,
     "sha256": "43be9cdef43d018e2498085234abd3d27b92c01da1358c2995c3aacccb35afed",
@@ -1002,10 +1009,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 82767,
-    "sha256": "98d04cf0533617799165334f635302fd3de6a2a54845126deb2b4a6a170c6ae6",
-    "embedded_bytes": 82767,
-    "embedded_sha256": "98d04cf0533617799165334f635302fd3de6a2a54845126deb2b4a6a170c6ae6"
+    "bytes": 86437,
+    "sha256": "882041891f6ccf5714650484d6452423b3fa8530c0d1d67b850bd31e5272deca",
+    "embedded_bytes": 86437,
+    "embedded_sha256": "882041891f6ccf5714650484d6452423b3fa8530c0d1d67b850bd31e5272deca"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1382,9 +1389,11 @@ For hosted body layout, use [references/hosted-body-workflow.md](references/host
 
 Before full-booklet layout, finish content/answer/difficulty review and run
 `run_hosted_workflow.py lock-content --state <latest-state>`; `build` refuses to
-run before the lock. Check pagination with `plan` (at most three, using
-`--compare`), build at most twice and review once; every result reports its
-`iteration_budget`. Repair pagination through layout hints; a necessary content
+run before the lock. Run `check-figures` once the figures exist, read each
+checkpoint's `evidence_attention`, and after a content correction run
+`refresh-evidence` and complete its drafts from an actual review. Check
+pagination with `plan` (at most three, using `--compare`), build at most twice
+and review once; every result reports its `iteration_budget`. Repair pagination through layout hints; a necessary content
 correction requires renewed dependent reviews and an explicit re-lock with
 `--reason`. Continue every repair from the
 state returned by the last build/review, and inspect its pending `review_batches`.
@@ -59014,13 +59023,29 @@ content. The order below is not advice; the tools enforce the parts they can.
 
 1. **Author** in saved batches; read each batch's gate messages while the items
    are fresh. Fix every structural message before the next batch, never at the end.
+   Once the figures of a batch exist, run `check-figures --state <state>`: it opens
+   every referenced figure and reports missing or renamed files, HTML saved under
+   an image name, unreadable artwork, printed-size defects, colour-only pixels,
+   glyphs CJK-only fonts lack and labels sitting on strokes, before any PDF exists.
+   A measured 自然 run paid one full redraw–plan–build–review round per such defect.
 2. **Solve and review content** (`checkpoint --phase solving`, `difficulty_qa`).
    Fix stale option references here: after any option reorder, rewrite the
    explanation; the gate rejects an explanation citing a label the item no longer
-   prints.
+   prints. Every `checkpoint` result now carries `evidence_ready` and
+   `evidence_attention`: which gate reports are missing, stale (with the items
+   changed since that review) or structurally incomplete, in the final checker's
+   own terms. Read it; `finalize` must never be the first place a stale report is
+   discovered.
 3. **Lock** (`lock-content`). `build` refuses to run without `content-lock.json`.
    A booklet built before the lock is discarded the moment an item changes, and
-   every one of its page reviews with it.
+   every one of its page reviews with it. If content must change after reviews
+   exist, run `refresh-evidence --state <state>`: it re-registers the mechanical
+   records and writes `<gate>.draft.json` for every stale report, keeping the rows
+   of items whose authored record is unchanged, leaving changed or new items and
+   the paper-level status `pending`, and regenerating the difficulty blind packet.
+   Complete the pending rows from an actual review, save the file as `<gate>.json`,
+   checkpoint, then re-lock with `--reason`. The checker never reads a draft and no
+   draft is a pass.
 4. **Plan** at most three times (`plan`, then `plan --compare <previous plan dir>`
    which reports each page's `bottom_void_delta` and the page-count change).
    If the third plan is still not acceptable, stop adjusting hints by eye: shrink
@@ -59065,7 +59090,8 @@ re-open every page.
   from disk, so a missing artifact fails the final check honestly. Rebuild from
   the saved state instead of hand-editing the state file.
 - A gate report older than the exam hash it names is stale; the checker rejects
-  it. Re-run the gate with the current state instead of touching the report.
+  it. `checkpoint` reports it under `evidence_attention` and `refresh-evidence`
+  drafts the replacement; never edit the hash inside an existing report.
 - Fifty scripts referenced by the references were missing from ZIPs before
   2026.09.22.2; if a documented command is absent in an older ZIP, report it as
   a packaging defect and continue with the documented hosted-equivalent check.
@@ -59815,6 +59841,36 @@ unresolved page findings. `evidence-complete` certifies completeness/freshness
 of recorded evidence only; it cannot independently certify truthful reviews,
 mathematical correctness, difficulty, global novelty or fidelity to an unseen
 source. Formal completion still requires actual editorial judgment under Skill.
+
+## Freshness before finalize
+
+`checkpoint` writes `exam-history.json` (each checkpointed exam hash with a digest
+per authored item) and returns `evidence_ready` plus `evidence_attention`: for each
+of the nine gates, `missing`, `stale` (with `reviewed_exam_sha256` and the items
+`changed`/`added`/`removed` since), `incomplete` (the checker's own complaints:
+status not pass, empty observations, rows missing or pending, blind packet no
+longer matching, comparison scope undisclosed) or `current`. `current` means fresh
+and well-formed, not that the review was real.
+
+After a content correction, `run_hosted_workflow.py refresh-evidence --state
+<state>` re-records timing, re-registers reviews and writes `<gate>.draft.json`
+for every stale report. A draft copies the earlier review's rows for items whose
+authored record is unchanged, sets changed and new items to `pending` with empty
+observations, moves the paper-level observations to `previous_observations`, sets
+`status` to `pending`, and for `difficulty` regenerates the blind packet as
+`blind-packet-<hash>.json`. Complete the pending rows and the paper-level status
+from an actual review and save the result as `<gate>.json`; the checker ignores
+draft files, and a draft copied wholesale fails on its pending rows. The result's
+`content_lock` says whether the lock still matches; a changed lock needs
+`lock-content --reason` after the reviews are complete.
+
+`check-figures --state <state>` opens every figure the saved exam references and
+reports, per figure, errors (missing or renamed file, hash differing from the saved
+record, empty file, HTML saved under an image name, unreadable artwork, replacement
+glyphs, printed-size defects) and warnings (superscript/subscript glyphs that
+CJK-only fonts lack, colour-carrying pixels, labels crossing strokes, identical
+bytes under several paths). Dashed-versus-solid legibility, legend truth and label
+correctness remain eye checks on the proof crop.
 
 ## Avoid repeated mechanisms
 
@@ -66782,6 +66838,397 @@ def density_limit(calibration, finding, expected_role):
     return matches[0]['bottom_void'] + .10
 </canonical-source>
 
+<canonical-source path="scripts/hosted_evidence_refresh.py">
+#!/usr/bin/env python3
+"""Evidence freshness at checkpoint time, drafts after a content change, and a figure self-check.
+
+Three measured hosted runs (2026-09-22) learned about stale gate reports only
+from `finalize`, up to five times in one paper; every content correction
+silently orphaned nine reports, and figure defects (missing glyphs, labels on
+strokes, colour-only distinctions) were found by eye on a full build, one
+rebuild per defect.
+
+This module gives the workflow three mechanical helpers:
+
+* `evidence_gaps` says at every checkpoint which gate reports are missing,
+  stale (with the items that changed since that review) or structurally
+  incomplete, in the same terms the final checker uses.
+* `refresh` writes `<gate>.draft.json` files after a content change: rows for
+  items whose authored record is unchanged are copied from the earlier actual
+  review, changed or new items are `pending`, the paper-level status is
+  `pending`, and the difficulty blind packet is regenerated. The reviewer
+  completes the pending rows and saves the result as `<gate>.json`; the checker
+  never reads a draft, and nothing here writes a `pass`.
+* `figure_selfcheck` opens every figure the exam references and reports what a
+  machine can see before any PDF exists: missing or renamed files, HTML saved
+  as an image, unreadable artwork, printed-size defects, colour-only pixels,
+  glyphs that CJK-only fonts lack, and labels sitting on strokes.
+
+Structural passes are never editorial passes.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+import re
+
+import pymupdf
+
+from check_hosted_run import ITEM_GATES, PAPER_GATES
+from hosted_blind_review import packet, REVIEW_MODES
+
+HISTORY = 'exam-history.json'
+ORIGINALITY_SCOPES = {'available-history', 'no-history-available'}
+HTML_MAGIC = (b'<!doctype', b'<html', b'<head', b'<body')
+# Superscript/subscript digits and signs: matplotlib's DejaVu draws them, CJK-only
+# fonts and several system fonts print boxes.
+RISKY_GLYPHS = re.compile('[⁰-₟−]')
+MISSING_GLYPH = re.compile('[�□⬚]')
+COLOUR_SPREAD = 48
+COLOUR_SHARE_WARN = 0.01
+RASTER_MAX_WIDTH = 600
+
+
+def _read(path):
+    return json.loads(Path(path).read_text(encoding='utf-8-sig'))
+
+
+def _write(path, value):
+    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=1) + '\n', encoding='utf-8', newline='\n')
+    return {'path': Path(path).name, 'sha256': hashlib.sha256(Path(path).read_bytes()).hexdigest()}
+
+
+def _digest_value(value):
+    return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()
+
+
+def item_digests(exam):
+    """{item id: digest of its authored question and answer records}, in exam order."""
+    answers = {a.get('question_id'): a for a in exam.get('answers') or [] if isinstance(a, dict)}
+    return {str(q.get('id')): _digest_value({'question': q, 'answer': answers.get(q.get('id'))})
+            for q in exam.get('questions') or [] if isinstance(q, dict)}
+
+
+def record_history(root, exam_sha, exam):
+    """Remember which items each checkpointed exam contained, so a stale report can name what changed."""
+    path = Path(root) / HISTORY
+    history = _read(path) if path.exists() else {'kind': 'hosted-exam-history', 'exams': {}}
+    if exam_sha not in history['exams']:
+        history['exams'][exam_sha] = item_digests(exam)
+        _write(path, history)
+    return history
+
+
+def item_changes(history, old_sha, current):
+    old = ((history or {}).get('exams') or {}).get(old_sha)
+    if old is None:
+        return None
+    return {'changed': sorted(i for i in current if i in old and old[i] != current[i]),
+            'added': sorted(i for i in current if i not in old),
+            'removed': sorted(i for i in old if i not in current)}
+
+
+def _gate_path(root, state, gate):
+    registered = ((state.get('checks') or {}).get(gate) or {}).get('path')
+    return Path(root) / (registered or gate + '.json')
+
+
+def evidence_gaps(root, state, exam):
+    """Missing, stale and structurally incomplete gate reports, in the checker's terms.
+
+    Freshness and shape only: a `current` report still had to be a real review.
+    """
+    root = Path(root)
+    exam_sha = state['exam']['sha256']
+    current = item_digests(exam)
+    expected = set(current)
+    history_path = root / HISTORY
+    history = _read(history_path) if history_path.exists() else {}
+    gates = {}
+    for gate in ITEM_GATES + PAPER_GATES:
+        path = _gate_path(root, state, gate)
+        if not path.is_file():
+            gates[gate] = {'status': 'missing', 'action': f'save the actual {gate} review as {gate}.json'}
+            continue
+        try:
+            report = _read(path)
+        except ValueError:
+            gates[gate] = {'status': 'unreadable', 'action': f'{path.name} is not valid JSON'}
+            continue
+        if not isinstance(report, dict):
+            gates[gate] = {'status': 'unreadable', 'action': f'{path.name} must be one JSON object'}
+            continue
+        if report.get('exam_sha256') != exam_sha:
+            entry = {'status': 'stale', 'reviewed_exam_sha256': report.get('exam_sha256'),
+                     'action': 'run refresh-evidence: it drafts the report with unchanged rows retained; '
+                               're-review the pending rows and save the result as ' + gate + '.json'}
+            changes = item_changes(history, report.get('exam_sha256'), current)
+            if changes is not None:
+                entry['items'] = changes
+            gates[gate] = entry
+            continue
+        problems = []
+        if report.get('status') != 'pass':
+            problems.append(f"status is {report.get('status')!r}, not 'pass'")
+        if not report.get('observations'):
+            problems.append('observations are empty')
+        if gate in ITEM_GATES:
+            rows = [r for r in report.get('items') or [] if isinstance(r, dict)]
+            ids = [str(r.get('id')) for r in rows]
+            missing = sorted(expected - set(ids))
+            extra = sorted(set(ids) - expected)
+            if missing:
+                problems.append('items without a review row: ' + ', '.join(missing))
+            if extra:
+                problems.append('rows for items no longer in the exam: ' + ', '.join(extra))
+            if len(ids) != len(set(ids)):
+                problems.append('duplicate item rows')
+            allowed = {'pass', 'not_applicable'} if gate == 'visuals' else {'pass'}
+            pending = sorted(str(r.get('id')) for r in rows if r.get('status') not in allowed or not r.get('observations'))
+            if pending:
+                problems.append('rows pending or without observations: ' + ', '.join(pending))
+        if gate == 'difficulty':
+            blind = report.get('blind_packet') or {}
+            blind_path = root / str(blind.get('path') or '')
+            if not blind or not blind_path.is_file():
+                problems.append('blind_packet is missing')
+            else:
+                mode = report.get('review_mode', 'independent-context')
+                if mode in REVIEW_MODES:
+                    try:
+                        if _read(blind_path) != packet(exam, mode):
+                            problems.append('blind packet no longer matches the exam')
+                    except ValueError:
+                        problems.append('blind packet is not valid JSON')
+            if not report.get('author_context'):
+                problems.append('author_context is missing')
+        if gate == 'originality' and report.get('comparison_scope') not in ORIGINALITY_SCOPES:
+            problems.append('comparison_scope must disclose available-history or no-history-available')
+        gates[gate] = {'status': 'incomplete', 'problems': problems} if problems else {'status': 'current'}
+    ready = all(g['status'] == 'current' for g in gates.values())
+    return {'ready': ready, 'gates': gates,
+            'attention': sorted(g for g, v in gates.items() if v['status'] != 'current'),
+            'note': 'Freshness and structure only; a current report still had to be an actual review.'}
+
+
+def refresh(root, state, exam):
+    """Draft every stale gate report against the current exam; never write <gate>.json."""
+    root = Path(root)
+    exam_sha = state['exam']['sha256']
+    record_history(root, exam_sha, exam)
+    gaps = evidence_gaps(root, state, exam)
+    current = item_digests(exam)
+    drafts = {}
+    for gate, gap in gaps['gates'].items():
+        if gap['status'] != 'stale':
+            continue
+        old = _read(_gate_path(root, state, gate))
+        changes = gap.get('items')
+        draft = dict(old)
+        draft.update(exam_sha256=exam_sha, status='pending', observations='',
+                     previous_observations=old.get('observations'))
+        retained, pending = [], []
+        if gate in ITEM_GATES:
+            rows = {str(r.get('id')): r for r in old.get('items') or [] if isinstance(r, dict)}
+            new_rows = []
+            for qid in current:
+                row = rows.get(qid)
+                unchanged = (changes is not None and row is not None
+                             and qid not in changes['changed'] and qid not in changes['added'])
+                if unchanged:
+                    new_rows.append(row)
+                    retained.append(qid)
+                else:
+                    new_rows.append({'id': qid, 'status': 'pending', 'observations': ''})
+                    pending.append(qid)
+            draft['items'] = new_rows
+        if gate == 'difficulty':
+            mode = old.get('review_mode', 'independent-context')
+            if mode in REVIEW_MODES:
+                draft['blind_packet'] = _write(root / f'blind-packet-{exam_sha[:12]}.json', packet(exam, mode))
+        draft['refresh'] = {
+            'from_exam_sha256': old.get('exam_sha256'), 'retained_rows': retained, 'pending_rows': pending,
+            'history_known': changes is not None,
+            'note': ('Draft written by refresh-evidence. Rows for items whose authored record is unchanged are '
+                     'copied from the earlier actual review; pending rows and the paper-level status and '
+                     'observations need the reviewer. Save the completed review as ' + gate + '.json; the '
+                     'checker never reads this draft and no draft is a pass.')}
+        target = root / f'{gate}.draft.json'
+        _write(target, draft)
+        drafts[gate] = {'path': str(target), 'retained_rows': len(retained), 'pending_rows': len(pending),
+                        'paper_level': 'pending'}
+    return {'status': 'evidence-current' if gaps['ready'] else 'review-pending', 'evidence': gaps,
+            'drafts': drafts, 'reviews_approved_by_tool': False}
+
+
+def referenced_figures(exam):
+    """Every asset record the exam references: (label, record, inline?)."""
+    found = []
+
+    def visit(value, label, inline):
+        if isinstance(value, dict):
+            if isinstance(value.get('path'), str) and value.get('sha256'):
+                found.append((label, value, inline))
+                return
+            for key, child in value.items():
+                visit(child, f'{label}.{key}', inline or key == 'inline_assets')
+        elif isinstance(value, list):
+            for index, child in enumerate(value):
+                visit(child, f'{label}[{index}]', inline)
+
+    answers = {a.get('question_id'): a for a in exam.get('answers') or [] if isinstance(a, dict)}
+    for question in exam.get('questions') or []:
+        if not isinstance(question, dict):
+            continue
+        qid = str(question.get('id'))
+        visit(question, f'item {qid}', False)
+        answer = answers.get(question.get('id'))
+        if isinstance(answer, dict):
+            visit(answer, f'item {qid} answer', False)
+    return found
+
+
+def _colour_share(page):
+    box = page.rect
+    scale = min(1.0, RASTER_MAX_WIDTH / box.width) if box.width else 1.0
+    pixmap = page.get_pixmap(matrix=pymupdf.Matrix(scale, scale), alpha=False, colorspace=pymupdf.csRGB)
+    samples = pixmap.samples
+    total = pixmap.width * pixmap.height
+    if not total:
+        return 0.0
+    coloured = 0
+    for offset in range(0, len(samples), 3):
+        r, g, b = samples[offset], samples[offset + 1], samples[offset + 2]
+        if max(r, g, b) - min(r, g, b) > COLOUR_SPREAD:
+            coloured += 1
+    return coloured / total
+
+
+def _label_collisions(page):
+    """Text spans whose box a drawn stroke crosses (frames that contain the label do not count)."""
+    spans = []
+    for block in page.get_text('dict').get('blocks', []):
+        for line in block.get('lines', []):
+            for span in line.get('spans', []):
+                text = (span.get('text') or '').strip()
+                if text:
+                    spans.append((text, pymupdf.Rect(span['bbox'])))
+    if not spans:
+        return []
+    strokes = []
+    for drawing in page.get_drawings():
+        for item in drawing.get('items', []):
+            if item[0] == 'l':
+                strokes.append(pymupdf.Rect(item[1], item[2]).normalize())
+            elif item[0] in {'c', 'qu', 're'}:
+                rect = drawing.get('rect')
+                if rect is not None:
+                    strokes.append(pymupdf.Rect(rect))
+    hits = []
+    for text, box in spans:
+        inner = pymupdf.Rect(box.x0 + 0.5, box.y0 + 0.5, box.x1 - 0.5, box.y1 - 0.5)
+        if inner.is_empty:
+            continue
+        for stroke in strokes:
+            probe = pymupdf.Rect(stroke)
+            if probe.width < 0.6:
+                probe.x0 -= 0.3
+                probe.x1 += 0.3
+            if probe.height < 0.6:
+                probe.y0 -= 0.3
+                probe.y1 += 0.3
+            if probe.intersects(inner) and not probe.contains(inner):
+                hits.append(text)
+                break
+    return hits
+
+
+def figure_selfcheck(root, exam, *, asset_issues=None):
+    """Open every referenced figure and report what a machine can see before a build."""
+    root = Path(root)
+    figures = []
+    seen_hashes = {}
+    for label, asset, inline in referenced_figures(exam):
+        entry = {'referenced_by': label, 'path': asset['path'], 'errors': [], 'warnings': []}
+        figures.append(entry)
+        path = (root / asset['path']).resolve()
+        try:
+            path.relative_to(root.resolve())
+        except ValueError:
+            entry['errors'].append('path leaves the run directory')
+            continue
+        if not path.is_file():
+            entry['errors'].append('file is missing; the item references a figure that was never saved or was renamed')
+            continue
+        data = path.read_bytes()
+        actual = hashlib.sha256(data).hexdigest()
+        if actual != asset['sha256']:
+            entry['errors'].append('sha256 differs from the saved record: the figure was redrawn after the item was saved; '
+                                   'save the item again with the new hash')
+        if not data:
+            entry['errors'].append('file is empty (0 bytes)')
+            continue
+        head = data[:256].lstrip().lower()
+        if head.startswith(HTML_MAGIC):
+            entry['errors'].append('file is an HTML page saved under an image name (a blocked download); '
+                                   'use a bundled asset or draw the figure from verified data')
+            continue
+        seen_hashes.setdefault(actual, []).append(asset['path'])
+        try:
+            document = pymupdf.open(path)
+        except Exception as exc:  # MuPDF raises its own error types for unreadable artwork
+            entry['errors'].append(f'cannot be opened as a figure: {exc}')
+            continue
+        with document:
+            if not len(document):
+                entry['errors'].append('figure has no pages')
+                continue
+            page = document[0]
+            if not page.rect.width or not page.rect.height:
+                entry['errors'].append('figure has no size')
+                continue
+            if asset_issues is not None:
+                entry['errors'].extend(asset_issues(path, asset, inline=inline))
+            text = page.get_text() or ''
+            missing = sorted(set(MISSING_GLYPH.findall(text)))
+            if missing:
+                entry['errors'].append('contains replacement or box glyphs (' + ', '.join(f'U+{ord(c):04X}' for c in missing)
+                                       + '): a character the figure font lacks was drawn as a box')
+            risky = sorted(set(RISKY_GLYPHS.findall(text)))
+            if risky:
+                entry['warnings'].append('uses ' + ', '.join(f'U+{ord(c):04X}' for c in risky) +
+                                         ': confirm the figure font draws these superscript/subscript glyphs '
+                                         '(DejaVu does; CJK-only fonts print boxes) or write them with mathtext')
+            try:
+                share = _colour_share(page)
+            except Exception:  # very large or odd colour spaces: leave the eye to judge
+                share = None
+            if share is not None and share > COLOUR_SHARE_WARN:
+                entry['warnings'].append(f'{share:.0%} of pixels carry colour: the paper prints in grayscale, so the '
+                                         'answer-bearing distinction must also be carried by labels, patterns, '
+                                         'markers or line styles')
+            try:
+                hits = _label_collisions(page)
+            except Exception:
+                hits = []
+            if hits:
+                entry['warnings'].append('labels sit on strokes: ' + ', '.join(hits[:6]) +
+                                         ('…' if len(hits) > 6 else '') + '; move the labels or shorten the strokes')
+    for digest_, paths in seen_hashes.items():
+        if len(set(paths)) > 1:
+            for entry in figures:
+                if entry['path'] in paths:
+                    entry['warnings'].append('identical bytes are saved under several paths: ' + ', '.join(sorted(set(paths))))
+    errors = sum(len(f['errors']) for f in figures)
+    warnings = sum(len(f['warnings']) for f in figures)
+    return {'status': 'pass' if not errors else 'pending', 'figures': figures, 'figure_count': len(figures),
+            'errors': errors, 'warnings': warnings,
+            'note': ('Mechanical checks only. Whether a dashed line reads as dashed at print size, whether the '
+                     'legend matches the drawn series and whether the labels are true still needs the eye on the '
+                     'proof crop; a pass here removes the redraw round trips, not the review.')}
+</canonical-source>
+
 <canonical-source path="scripts/hosted_item_layout.py">
 #!/usr/bin/env python3
 """Measured item blocks, flow rails and readable final-PDF crops (no questions)."""
@@ -69486,6 +69933,7 @@ from prepare_hosted_review import (prepare, item_hashes, annotate_parts, project
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note,
                                    propagate_page_reviews)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
+from hosted_evidence_refresh import record_history, evidence_gaps, refresh as refresh_drafts, figure_selfcheck
 from fetch_hosted_template_assets import DEFAULT_MAP
 
 SPEC_GENERATOR = 'run_hosted_workflow.py specs'
@@ -69594,13 +70042,76 @@ def checkpoint(run_dir, phase=None, review_bundle=None, state=None):
                 raise ValueError('Preserve earlier review; update its recorded file explicitly: ' + gate)
         for gate, report in supplied.items():
             save(root / (gate + '.json'), report)
+    evidence = None
     if state.get('exam'):
         register_reviews(root, state)
+        # Say now, not at finalize, which gate reports are missing, stale or incomplete.
+        saved_exam = read(exam)
+        record_history(root, state['exam']['sha256'], saved_exam)
+        evidence = evidence_gaps(root, state, saved_exam)
     save(state_path, state)
     event(root, 'checkpoint', started, phase=phase)
     return {'status': 'checkpoint-saved', 'state': str(state_path),
             'exam_saved': bool(state.get('exam')), 'registered_reviews': sorted(state['checks']),
+            'evidence_ready': None if evidence is None else evidence['ready'],
+            'evidence_attention': None if evidence is None else {g: evidence['gates'][g] for g in evidence['attention']},
             'reviews_approved_by_tool': False}
+
+
+def refresh_evidence(state_path):
+    """After a content change: re-register mechanical records and draft every stale gate report.
+
+    Drafts keep the rows of unchanged items from the earlier actual review and
+    leave changed items and the paper-level status pending; the reviewer
+    completes them and saves `<gate>.json`. Nothing here writes a pass.
+    """
+    started = time.time()
+    state_path = Path(state_path).resolve()
+    root = state_path.parent
+    state = read(state_path)
+    if not state.get('exam'):
+        raise ValueError('Checkpoint the exam before refreshing evidence')
+    exam_path = inside(root, root / state['exam']['path'])
+    if record(root, exam_path) != state['exam']:
+        raise ValueError('Save a checkpoint for the current exam before refreshing evidence')
+    exam = read(exam_path)
+    problems = []
+    lock = root / 'content-lock.json'
+    if lock.exists():
+        try:
+            lock_status = 'matches' if read(lock)['identity'] == content_identity(root, state) else 'changed'
+        except ValueError as exc:
+            lock_status = 'broken'
+            problems.append(str(exc))
+    else:
+        lock_status = 'absent'
+    timing = root / 'generation-timing.json'
+    if timing.exists():
+        state['timing'] = record(root, timing)
+    register_reviews(root, state)
+    save(state_path, state)
+    result = refresh_drafts(root, state, exam)
+    result.update(state=str(state_path), content_lock=lock_status, problems=problems,
+                  next_action=('finalize' if result['status'] == 'evidence-current' and lock_status == 'matches'
+                               else 'complete the pending rows of each draft, save it as <gate>.json, checkpoint, '
+                                    'then lock-content --reason and build once'))
+    event(root, 'refresh-evidence', started, drafts=sorted(result['drafts']))
+    return result
+
+
+def check_figures(state_path):
+    """Open every figure the saved exam references and report machine-visible defects before any build."""
+    started = time.time()
+    state_path = Path(state_path).resolve()
+    root = state_path.parent
+    state = read(state_path)
+    if not state.get('exam'):
+        raise ValueError('Checkpoint the exam before checking figures')
+    exam = read(inside(root, root / state['exam']['path']))
+    result = figure_selfcheck(root, exam, asset_issues=asset_issues)
+    result['state'] = str(state_path)
+    event(root, 'check-figures', started, errors=result['errors'], warnings=result['warnings'])
+    return result
 
 
 def clock(state_path, operation, *, phase=None, question_ids=None, page_numbers=None, revision_id=None):
@@ -70919,6 +71430,11 @@ def main():
     finish = commands.add_parser('finalize')
     finish.add_argument('--state', type=Path, required=True)
     finish.add_argument('--output', type=Path, required=True)
+    refresh_parser = commands.add_parser('refresh-evidence',
+                                         help='After a content change: draft stale gate reports with unchanged rows retained')
+    refresh_parser.add_argument('--state', type=Path, required=True)
+    figures_parser = commands.add_parser('check-figures', help='Open every referenced figure and report defects before a build')
+    figures_parser.add_argument('--state', type=Path, required=True)
     args = vars(parser.parse_args())
     action = args.pop('action')
     try:
@@ -70931,7 +71447,8 @@ def main():
             if action in {'build', 'proof', 'plan'} and args['font'] is None:
                 args['font'] = recorded_font(args['state_path'])
             result = {'build': build, 'specs': specs, 'proof': proof, 'plan': plan, 'finalize': finalize,
-                      'clock': clock, 'lock-content': content_lock}[action](**args)
+                      'clock': clock, 'lock-content': content_lock, 'refresh-evidence': refresh_evidence,
+                      'check-figures': check_figures}[action](**args)
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print(json.dumps({'status': 'pending', 'errors': [str(exc)]}, ensure_ascii=False))
         return 2

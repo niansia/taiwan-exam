@@ -337,13 +337,29 @@ content. The order below is not advice; the tools enforce the parts they can.
 
 1. **Author** in saved batches; read each batch's gate messages while the items
    are fresh. Fix every structural message before the next batch, never at the end.
+   Once the figures of a batch exist, run `check-figures --state <state>`: it opens
+   every referenced figure and reports missing or renamed files, HTML saved under
+   an image name, unreadable artwork, printed-size defects, colour-only pixels,
+   glyphs CJK-only fonts lack and labels sitting on strokes, before any PDF exists.
+   A measured 自然 run paid one full redraw–plan–build–review round per such defect.
 2. **Solve and review content** (`checkpoint --phase solving`, `difficulty_qa`).
    Fix stale option references here: after any option reorder, rewrite the
    explanation; the gate rejects an explanation citing a label the item no longer
-   prints.
+   prints. Every `checkpoint` result now carries `evidence_ready` and
+   `evidence_attention`: which gate reports are missing, stale (with the items
+   changed since that review) or structurally incomplete, in the final checker's
+   own terms. Read it; `finalize` must never be the first place a stale report is
+   discovered.
 3. **Lock** (`lock-content`). `build` refuses to run without `content-lock.json`.
    A booklet built before the lock is discarded the moment an item changes, and
-   every one of its page reviews with it.
+   every one of its page reviews with it. If content must change after reviews
+   exist, run `refresh-evidence --state <state>`: it re-registers the mechanical
+   records and writes `<gate>.draft.json` for every stale report, keeping the rows
+   of items whose authored record is unchanged, leaving changed or new items and
+   the paper-level status `pending`, and regenerating the difficulty blind packet.
+   Complete the pending rows from an actual review, save the file as `<gate>.json`,
+   checkpoint, then re-lock with `--reason`. The checker never reads a draft and no
+   draft is a pass.
 4. **Plan** at most three times (`plan`, then `plan --compare <previous plan dir>`
    which reports each page's `bottom_void_delta` and the page-count change).
    If the third plan is still not acceptable, stop adjusting hints by eye: shrink
@@ -388,7 +404,8 @@ re-open every page.
   from disk, so a missing artifact fails the final check honestly. Rebuild from
   the saved state instead of hand-editing the state file.
 - A gate report older than the exam hash it names is stale; the checker rejects
-  it. Re-run the gate with the current state instead of touching the report.
+  it. `checkpoint` reports it under `evidence_attention` and `refresh-evidence`
+  drafts the replacement; never edit the hash inside an existing report.
 - Fifty scripts referenced by the references were missing from ZIPs before
   2026.09.22.2; if a documented command is absent in an older ZIP, report it as
   a packaging defect and continue with the documented hosted-equivalent check.

@@ -28,6 +28,7 @@ from prepare_hosted_review import (prepare, item_hashes, annotate_parts, project
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note,
                                    propagate_page_reviews)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
+from hosted_evidence_refresh import record_history, evidence_gaps, refresh as refresh_drafts, figure_selfcheck
 from fetch_hosted_template_assets import DEFAULT_MAP
 
 SPEC_GENERATOR = 'run_hosted_workflow.py specs'
@@ -136,13 +137,76 @@ def checkpoint(run_dir, phase=None, review_bundle=None, state=None):
                 raise ValueError('Preserve earlier review; update its recorded file explicitly: ' + gate)
         for gate, report in supplied.items():
             save(root / (gate + '.json'), report)
+    evidence = None
     if state.get('exam'):
         register_reviews(root, state)
+        # Say now, not at finalize, which gate reports are missing, stale or incomplete.
+        saved_exam = read(exam)
+        record_history(root, state['exam']['sha256'], saved_exam)
+        evidence = evidence_gaps(root, state, saved_exam)
     save(state_path, state)
     event(root, 'checkpoint', started, phase=phase)
     return {'status': 'checkpoint-saved', 'state': str(state_path),
             'exam_saved': bool(state.get('exam')), 'registered_reviews': sorted(state['checks']),
+            'evidence_ready': None if evidence is None else evidence['ready'],
+            'evidence_attention': None if evidence is None else {g: evidence['gates'][g] for g in evidence['attention']},
             'reviews_approved_by_tool': False}
+
+
+def refresh_evidence(state_path):
+    """After a content change: re-register mechanical records and draft every stale gate report.
+
+    Drafts keep the rows of unchanged items from the earlier actual review and
+    leave changed items and the paper-level status pending; the reviewer
+    completes them and saves `<gate>.json`. Nothing here writes a pass.
+    """
+    started = time.time()
+    state_path = Path(state_path).resolve()
+    root = state_path.parent
+    state = read(state_path)
+    if not state.get('exam'):
+        raise ValueError('Checkpoint the exam before refreshing evidence')
+    exam_path = inside(root, root / state['exam']['path'])
+    if record(root, exam_path) != state['exam']:
+        raise ValueError('Save a checkpoint for the current exam before refreshing evidence')
+    exam = read(exam_path)
+    problems = []
+    lock = root / 'content-lock.json'
+    if lock.exists():
+        try:
+            lock_status = 'matches' if read(lock)['identity'] == content_identity(root, state) else 'changed'
+        except ValueError as exc:
+            lock_status = 'broken'
+            problems.append(str(exc))
+    else:
+        lock_status = 'absent'
+    timing = root / 'generation-timing.json'
+    if timing.exists():
+        state['timing'] = record(root, timing)
+    register_reviews(root, state)
+    save(state_path, state)
+    result = refresh_drafts(root, state, exam)
+    result.update(state=str(state_path), content_lock=lock_status, problems=problems,
+                  next_action=('finalize' if result['status'] == 'evidence-current' and lock_status == 'matches'
+                               else 'complete the pending rows of each draft, save it as <gate>.json, checkpoint, '
+                                    'then lock-content --reason and build once'))
+    event(root, 'refresh-evidence', started, drafts=sorted(result['drafts']))
+    return result
+
+
+def check_figures(state_path):
+    """Open every figure the saved exam references and report machine-visible defects before any build."""
+    started = time.time()
+    state_path = Path(state_path).resolve()
+    root = state_path.parent
+    state = read(state_path)
+    if not state.get('exam'):
+        raise ValueError('Checkpoint the exam before checking figures')
+    exam = read(inside(root, root / state['exam']['path']))
+    result = figure_selfcheck(root, exam, asset_issues=asset_issues)
+    result['state'] = str(state_path)
+    event(root, 'check-figures', started, errors=result['errors'], warnings=result['warnings'])
+    return result
 
 
 def clock(state_path, operation, *, phase=None, question_ids=None, page_numbers=None, revision_id=None):
@@ -1461,6 +1525,11 @@ def main():
     finish = commands.add_parser('finalize')
     finish.add_argument('--state', type=Path, required=True)
     finish.add_argument('--output', type=Path, required=True)
+    refresh_parser = commands.add_parser('refresh-evidence',
+                                         help='After a content change: draft stale gate reports with unchanged rows retained')
+    refresh_parser.add_argument('--state', type=Path, required=True)
+    figures_parser = commands.add_parser('check-figures', help='Open every referenced figure and report defects before a build')
+    figures_parser.add_argument('--state', type=Path, required=True)
     args = vars(parser.parse_args())
     action = args.pop('action')
     try:
@@ -1473,7 +1542,8 @@ def main():
             if action in {'build', 'proof', 'plan'} and args['font'] is None:
                 args['font'] = recorded_font(args['state_path'])
             result = {'build': build, 'specs': specs, 'proof': proof, 'plan': plan, 'finalize': finalize,
-                      'clock': clock, 'lock-content': content_lock}[action](**args)
+                      'clock': clock, 'lock-content': content_lock, 'refresh-evidence': refresh_evidence,
+                      'check-figures': check_figures}[action](**args)
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print(json.dumps({'status': 'pending', 'errors': [str(exc)]}, ensure_ascii=False))
         return 2

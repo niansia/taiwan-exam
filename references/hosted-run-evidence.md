@@ -124,6 +124,36 @@ of recorded evidence only; it cannot independently certify truthful reviews,
 mathematical correctness, difficulty, global novelty or fidelity to an unseen
 source. Formal completion still requires actual editorial judgment under Skill.
 
+## Freshness before finalize
+
+`checkpoint` writes `exam-history.json` (each checkpointed exam hash with a digest
+per authored item) and returns `evidence_ready` plus `evidence_attention`: for each
+of the nine gates, `missing`, `stale` (with `reviewed_exam_sha256` and the items
+`changed`/`added`/`removed` since), `incomplete` (the checker's own complaints:
+status not pass, empty observations, rows missing or pending, blind packet no
+longer matching, comparison scope undisclosed) or `current`. `current` means fresh
+and well-formed, not that the review was real.
+
+After a content correction, `run_hosted_workflow.py refresh-evidence --state
+<state>` re-records timing, re-registers reviews and writes `<gate>.draft.json`
+for every stale report. A draft copies the earlier review's rows for items whose
+authored record is unchanged, sets changed and new items to `pending` with empty
+observations, moves the paper-level observations to `previous_observations`, sets
+`status` to `pending`, and for `difficulty` regenerates the blind packet as
+`blind-packet-<hash>.json`. Complete the pending rows and the paper-level status
+from an actual review and save the result as `<gate>.json`; the checker ignores
+draft files, and a draft copied wholesale fails on its pending rows. The result's
+`content_lock` says whether the lock still matches; a changed lock needs
+`lock-content --reason` after the reviews are complete.
+
+`check-figures --state <state>` opens every figure the saved exam references and
+reports, per figure, errors (missing or renamed file, hash differing from the saved
+record, empty file, HTML saved under an image name, unreadable artwork, replacement
+glyphs, printed-size defects) and warnings (superscript/subscript glyphs that
+CJK-only fonts lack, colour-carrying pixels, labels crossing strokes, identical
+bytes under several paths). Dashed-versus-solid legibility, legend truth and label
+correctness remain eye checks on the proof crop.
+
 ## Avoid repeated mechanisms
 
 Before each new paper, read accessible prior-run originality reports and compare

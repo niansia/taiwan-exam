@@ -45,9 +45,11 @@ For hosted body layout, use [references/hosted-body-workflow.md](references/host
 
 Before full-booklet layout, finish content/answer/difficulty review and run
 `run_hosted_workflow.py lock-content --state <latest-state>`; `build` refuses to
-run before the lock. Check pagination with `plan` (at most three, using
-`--compare`), build at most twice and review once; every result reports its
-`iteration_budget`. Repair pagination through layout hints; a necessary content
+run before the lock. Run `check-figures` once the figures exist, read each
+checkpoint's `evidence_attention`, and after a content correction run
+`refresh-evidence` and complete its drafts from an actual review. Check
+pagination with `plan` (at most three, using `--compare`), build at most twice
+and review once; every result reports its `iteration_budget`. Repair pagination through layout hints; a necessary content
 correction requires renewed dependent reviews and an explicit re-lock with
 `--reason`. Continue every repair from the
 state returned by the last build/review, and inspect its pending `review_batches`.
