@@ -11,7 +11,7 @@
 
 新增 `scripts/hosted_evidence_refresh.py`：`checkpoint` 每次回傳 `evidence_ready` 與 `evidence_attention`，用最終檢查器同一套用語列出九個閘門哪些缺、哪些過期（含該次審閱後改了哪幾題）、哪些格式不完整（狀態非 pass、觀察空白、題列缺漏或 pending、盲審包不符）；並寫入 `exam-history.json` 記錄每次存檔的逐題摘要。新子指令 `refresh-evidence --state`：重新登錄機械紀錄，並為每份過期報告寫 `<gate>.draft.json`，未改動題目的列照抄原審閱、改動或新增題目與整卷狀態設 pending、難度盲審包重新產生；審閱者補完 pending 後另存為 `<gate>.json`。檢查器不讀草稿，整份照抄也會因 pending 列被退。新子指令 `check-figures --state`：出 PDF 前打開每張引用圖片，回報檔案遺失或改名、雜湊與存檔紀錄不符、0 位元組、被擋下載後存成圖片名的 HTML、無法開啟、替代字元，以及警告：上下標字元（CJK 字型會印成方框）、帶顏色像素比例、標籤壓在筆劃上、同一內容存成多個路徑。虛線是否看得出、圖例是否對得上仍由 proof 裁切用眼確認。
 
-新 ZIP（SHA-256 `f275dabcaaedf8ee46f38a1ee8add4bf6ace1cf2d511976f88d18c7bf3ec0f6b`，6,854,173 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.3 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.3) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `f275dabcaaedf8ee46f38a1ee8add4bf6ace1cf2d511976f88d18c7bf3ec0f6b`，6,854,173 位元組）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.3 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.3/taiwan-exam-hosted-2026.09.22.3.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.3) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.2：鎖定後才能 build、回合預算、社會圖片與五科時事門檻再提高
 
