@@ -56,6 +56,14 @@ SERIF_FONT_BYTES = 10001820
 SERIF_FONT_TIMEOUT = 40
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
+# The kai face for 說明 boxes (every subject) and 國寫 reading materials: LXGW WenKai TC
+# Regular, OFL 1.1, unmodified upstream release asset re-hosted with its licence notes.
+KAI_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-lxgw-wenkai-tc-1/'
+                'LXGWWenKaiTC-Regular.ttf')
+KAI_FONT_SHA256 = 'b1a0795862c1415bf3f393ea50b2a4ea6275012cf5bad3f94feeb1222f555731'
+KAI_FONT_BYTES = 15267616
+KAI_FONT_TIMEOUT = 60
+KAI_TEXT = '說明本部分共有二大題請依各題指示作答'
 # Hosted images usually install Noto/Source Han CJK as one collection file whose
 # FIRST face is Japanese. MuPDF loads that face, so a paper would print Japanese
 # glyph forms with every glyph present and no warning.
@@ -183,7 +191,10 @@ def authoring_requirements(subject):
                 'sequence <= 2, counting <= 2, probability <= 3, no unit above 5 items; 3-10 items carry 11B codes'],
         '國寫': ['two 大題: 一、 material 331-606 字 then 問題（一）文長限80字以內（至多4行）（占4分） and 問題（二）文長限400字以內'
                '（至多19行）（占21分）; 二、 material 226-443 字 then 請以「題目」為題 (情意: 書寫經驗、感受、體悟或想像)（占25分）; '
-               'at least one material attributed inline（改寫自 作者《書名》）; no 文言, no 自擬'],
+               'at least one material attributed inline（改寫自 作者《書名》）; no 文言, no 自擬; the section 說明 prints the '
+               'full official 115 wording (answer sheet front/back, black ink, no pencil, illegible handwriting); 一、 prints '
+               '「請分項回答下列問題：」 before 問題（一） and 二、 prints 「請回答下列問題：」; the renderer sets materials in 楷體 '
+               'with a two-character indent and 問題（一）／（二） with a six-character hanging indent'],
         '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
                'subject_innovation_audit per item; content codes only in curriculum_codes',
                'printed form (official 111-115 bands): 第壹部分 35-46 單選 of 2 points with (A)-(D), 第貳部分 21-29 numbered items '
@@ -266,6 +277,40 @@ def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOU
               'style': 'serif Traditional Chinese (Noto Serif TC Regular, SIL Open Font License 1.1), '
                        'the same family as the published layout previews'}
     return (target, record), None
+
+
+def kai_font_record(run_dir, url=KAI_FONT_URL, timeout=KAI_FONT_TIMEOUT):
+    """Record of the pinned kai face, or why the serif body face stands in for it."""
+    target = run_dir / 'fonts' / 'LXGWWenKaiTC-Regular.ttf'
+    fallback = 'the 說明 boxes and 國寫 materials print in the serif body face instead of 楷體'
+
+    def unavailable(note):
+        return {'unavailable': note + '; ' + fallback, 'url': url}
+
+    if os.environ.get('TAIWAN_EXAM_NO_FONT_DOWNLOAD') and not target.is_file():
+        return unavailable('kai font download disabled by TAIWAN_EXAM_NO_FONT_DOWNLOAD')
+    if not (target.is_file() and digest(target) == KAI_FONT_SHA256):
+        import urllib.request
+        try:
+            request = urllib.request.Request(url, headers={'User-Agent': 'taiwan-exam-generator'})
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                data = response.read(KAI_FONT_BYTES + 1)
+        except Exception as exc:  # blocked network, DNS, TLS or HTTP failure: fall back, say why
+            return unavailable(f'kai font download failed ({type(exc).__name__}: {exc})')
+        if len(data) != KAI_FONT_BYTES or hashlib.sha256(data).hexdigest() != KAI_FONT_SHA256:
+            return unavailable('kai font download did not match the pinned digest')
+        target.parent.mkdir(exist_ok=True)
+        target.write_bytes(data)
+    try:
+        font = pymupdf.Font(fontfile=str(target))
+        if any(not font.has_glyph(ord(c)) for c in KAI_TEXT):
+            return unavailable('downloaded kai font lacks 說明 glyphs')
+    except Exception as exc:  # MuPDF raises its own error types
+        return unavailable(f'downloaded kai font unusable ({exc})')
+    return {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-lxgw-wenkai-tc', 'sha256': KAI_FONT_SHA256,
+            'url': url, 'style': '楷體 Traditional Chinese (LXGW WenKai TC Regular, SIL Open Font License 1.1) for the '
+                                 'bordered 說明 boxes of every subject and the 國寫 reading materials, as the official '
+                                 'booklets set them in 標楷體'}
 
 
 def digest(path):
@@ -410,6 +455,7 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
             raise ValueError('Explicit independent review requirement needs an actual separate reviewer; resolve before authoring')
         calibration = snapshot(subject)
         font, report['body_font'] = body_font(run_dir, font)
+        report['kai_font'] = kai_font_record(run_dir)
         report['authoring_requirements'] = authoring_requirements(subject)
         if timing.is_file() and cached_ready(previous_preflight, report, run_dir, font, calibration):
             clock = json.loads(timing.read_text(encoding='utf-8-sig'))

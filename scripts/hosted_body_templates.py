@@ -47,15 +47,24 @@ def snap_block_top(value):
 # A generated 國綜 paper at the old uniform 1.65 leading printed 23 pt option
 # rows and 42 pt item gaps, 17 pages against the official 12. Prose subjects
 # therefore use the official leading; mathematics keeps room for scripts.
-TYPOGRAPHY = {'國綜': (1.5, 0, 3, 1, 4), '國寫': (1.5, 0, 3, 1, 4), '英文': (1.5, 0, 3, 1, 4),
+TYPOGRAPHY = {'國綜': (1.5, 0, 3, 1, 4), '國寫': (1.667, 0, 3, 1, 4), '英文': (1.5, 0, 3, 1, 4),
               '社會': (1.6, 0, 3, 1, 4), '自然': (1.6, 0, 3, 1, 4)}
 DEFAULT_TYPOGRAPHY = (1.65, 3, 5, 3, 12)  # line-height, cell padding, paragraph margin, options top, item gap
+# The official 國寫 booklet sets its body at 12 pt on a 20 pt line (111-115 measured);
+# every other subject prints 11 pt.
+BODY_SIZE_PT = {'國寫': 12}
+# Official booklets set the bordered 說明 box and the 國寫 reading materials in 標楷體
+# (DFKai-SB, 111-115 measured) while 問題（一）／（二）, 「請分項回答下列問題」, part labels
+# and every other subject's body stay in 明體. The Kai face is the preflight's pinned
+# download; without it these blocks fall back to the serif body face.
 CSS_TEMPLATE = '''
 @font-face {font-family:Body;src:url(body-font.ttf)}
-* {box-sizing:border-box} body {font-family:Body;font-size:11pt;line-height:LINE_HEIGHT;margin:0;color:#000;background:transparent}
+* {box-sizing:border-box} body {font-family:Body;font-size:BODY_SIZEpt;line-height:LINE_HEIGHT;margin:0;color:#000;background:transparent}
 p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;width:100%;margin:0} td {padding:0 4pt CELL_PADpt 0;vertical-align:baseline}
 td.figure {vertical-align:top}
-.direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3}
+.direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3;font-family:Kai,Body}
+.material {font-family:Kai,Body} p.hanging {padding-left:6em;text-indent:-6em;text-align:justify} p.plain {text-indent:0}
+p.part {font-size:13pt;margin-bottom:2pt}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
 sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
@@ -74,7 +83,8 @@ def typography(subject):
 def subject_css(subject):
     line_height, cell_pad, p_margin, options_top, _ = typography(subject)
     return (CSS_TEMPLATE.replace('LINE_HEIGHT', f'{line_height:g}').replace('CELL_PAD', f'{cell_pad:g}')
-            .replace('P_MARGIN', f'{p_margin:g}').replace('OPTIONS_TOP', f'{options_top:g}'))
+            .replace('P_MARGIN', f'{p_margin:g}').replace('OPTIONS_TOP', f'{options_top:g}')
+            .replace('BODY_SIZE', f'{BODY_SIZE_PT.get(subject, 11):g}'))
 
 
 def item_gap_pt(subject):
@@ -116,6 +126,41 @@ class RichText(HTMLParser):
 MATH_SUBJECTS = {'數學A', '數學B'}
 LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
 _latin_runs_enabled = False
+_writing_mode = False
+WRITING_TASK_LINE = re.compile(r'^\s*問題[（(]')
+WRITING_ASK_LINE = re.compile(r'^\s*請.{0,14}問題[：:]\s*$')
+WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
+
+
+def _writing_stem(block):
+    """國寫 paragraphs as the official booklets print them.
+
+    Reading material: 楷體, first line indented two characters; a lone 甲／乙 label
+    sits on its own unindented line. 「請分項回答下列問題：」 prints at the margin;
+    問題（一）／（二） hang six characters (the width of 「問題（一）：」) so their
+    continuation lines align under the text; the 第二大題 task paragraph is an
+    ordinary indented 明體 paragraph.
+    """
+    value = block.get('text', '')
+    if isinstance(value, dict):
+        pieces = [{'rich': p} for p in re.split(r'(?:<br>\s*){2,}', value['rich']) if p.strip()]
+        plains = [html.unescape(re.sub('<[^>]+>', '', p['rich'])) for p in pieces]
+    else:
+        pieces = [p for p in PARAGRAPH_BREAK.split(str(value)) if p.strip()]
+        plains = list(pieces)
+    out = []
+    for piece, plain in zip(pieces, plains):
+        plain = plain.strip()
+        if WRITING_MATERIAL_LABEL.match(plain) or WRITING_ASK_LINE.match(plain):
+            cls = 'plain'
+        elif WRITING_TASK_LINE.match(plain):
+            cls = 'hanging'
+        elif '為題' in plain or '（占' in plain or '文長' in plain:
+            cls = 'indent'
+        else:
+            cls = 'material indent'
+        out.append(f'<p class="{cls}">{text(piece)}</p>')
+    return ''.join(out)
 
 
 def latin_runs(markup):
@@ -272,6 +317,8 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if kind!='stimulus' and not numbered and not (kind in {'choice','multiple','constructed','solution'} and 'label' in block):
         raise ValueError('Supply a positive integer question number, or a printed label for an unnumbered task')
     stem=text(block.get('text',''))
+    if kind=='constructed' and _writing_mode:
+        stem=_writing_stem(block)
     if kind=='solution':
         steps=block.get('steps')
         if not steps:raise ValueError('Supply actual authored solution steps')
@@ -353,6 +400,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         result=stem if figure else f'<p style="margin-left:28pt;text-indent:-28pt">{label}　{stem}</p>'
     elif kind=='stimulus':
         result=_group_label(block)+stem
+    elif kind=='constructed' and _writing_mode:
+        # 國寫 prints no number column: 「一、」 stands on its own line above the material.
+        result=(f'<p class="part">{label}</p>' if label else '')+stem
     else:
         # An explicit stem width keeps option rows full width when the stem is
         # empty (English cloze option rows print only their number).
@@ -400,7 +450,7 @@ def _chunk(block,key,units,head,tail):
 
 
 def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_font=None,
-           balance_last_page=True, progress_path=None):
+           balance_last_page=True, progress_path=None, kai_font=None):
     started=time.monotonic()
     if output.exists() or layout_path.exists():raise ValueError('Use new output names; preserve previous reviewable bytes')
     if spec.get('purpose')=='layout-reference-only' and not proof:raise ValueError('Placeholder gallery cannot become a production exam')
@@ -408,10 +458,11 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         raise ValueError('Placeholder gallery IDs cannot become production questions')
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
-    global _latin_runs_enabled
+    global _latin_runs_enabled, _writing_mode
     # Official booklets set digits and Latin letters in Times for every subject
     # (國綜, 社會, 自然, 英文 and 數學 all measured); the CJK face keeps the CJK glyphs.
     _latin_runs_enabled = True
+    _writing_mode = spec['subject'] == '國寫'
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
     body=allowed+(4,4,-4,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
@@ -420,6 +471,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     if reading_font:
         archive.add((reading_font.read_bytes(),'reading-font.ttf'))
         css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
+    if kai_font:
+        archive.add((Path(kai_font).read_bytes(),'kai-font.ttf'))
+        css+='\n@font-face {font-family:Kai;src:url(kai-font.ttf)}'
     if not spec['blocks']:raise ValueError('No authored blocks')
     font_metric=pymupdf.Font(fontfile=str(font))
     blocks=[]
@@ -633,7 +687,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
 
 
 def guarded_render(spec, output, layout_path, font, *, asset_root, proof=False,
-                   reading_font=None, balance_last_page=True, timeout=20):
+                   reading_font=None, balance_last_page=True, timeout=20, kai_font=None):
     """Bound native renderer stalls in a disposable process, including on Windows.
 
     Each measured/placed block renews the deadline. Never shrink or certify a
@@ -653,6 +707,7 @@ def guarded_render(spec, output, layout_path, font, *, asset_root, proof=False,
                  '--progress',str(progress)]
         if proof:command.append('--proof')
         if reading_font:command.extend(['--reading-font',str(Path(reading_font).resolve())])
+        if kai_font:command.extend(['--kai-font',str(Path(kai_font).resolve())])
         if not balance_last_page:command.append('--no-balance')
         with (scratch/'worker.log').open('w+b') as log:
             worker=subprocess.Popen(command,stdout=log,stderr=log,
@@ -682,11 +737,13 @@ if __name__=='__main__':
     for name in ('output','layout','font'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--proof',action='store_true')
     p.add_argument('--reading-font',type=Path)
+    p.add_argument('--kai-font',type=Path)
     p.add_argument('--asset-root',type=Path)
     p.add_argument('--progress',type=Path)
     p.add_argument('--no-balance',action='store_true')
     args=p.parse_args()
     result=render(json.loads(args.spec.read_text(encoding='utf-8')),args.output,args.layout,args.font,
                   asset_root=args.asset_root or args.spec.resolve().parent,proof=args.proof,
-                  reading_font=args.reading_font,balance_last_page=not args.no_balance,progress_path=args.progress)
+                  reading_font=args.reading_font,balance_last_page=not args.no_balance,progress_path=args.progress,
+                  kai_font=args.kai_font)
     print(json.dumps({'body_pdf':str(args.output),'layout':str(args.layout),'elapsed_seconds':result['elapsed_seconds']}))

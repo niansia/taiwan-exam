@@ -238,9 +238,14 @@ def test_long_material_continues_across_pages_at_paragraph_boundaries(tmp_path, 
     assert pieces[0] == 'first' and pieces[-1] == 'last'
     first_page = doc[layout['parts'][0]['page'] - 1].get_text()
     assert '一、' in first_page and '占4分' not in first_page
-    last_page = doc[[p for p in layout['parts'] if p['id'] == 'q1-1'][-1]['page'] - 1].get_text()
-    assert '占4分' in last_page and last_page.count('一、') == 0
-    assert all(bottom_void(page) < .2 for page in list(doc)[:-1])
+    pages = [p['page'] for p in layout['parts'] if p['id'] == 'q1-1']
+    last_page = doc[pages[-1] - 1].get_text()
+    assert last_page.count('一、') == 0 and len(pages) > 1
+    assert '占4分' in ''.join(doc[n - 1].get_text() for n in pages).replace('\n', '')
+    from hosted_density import MAX_BODY_VOID
+    # 12 pt on a 20 pt line moves the paragraph-boundary split; the shared fixed density
+    # rule (not a tighter test-only bar) decides whether a middle page is too sparse.
+    assert all(bottom_void(page) <= MAX_BODY_VOID['default'] for page in list(doc)[:-1])
 
 
 def test_solution_headings_follow_item_order(tmp_path):

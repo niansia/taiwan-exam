@@ -34,12 +34,25 @@ Text extracted from the five official 國寫 booklets on disk:
 | 114 | 606 (泛科學 擬社會互動) | same | same | 226 (52 赫茲鯨魚) | 「關於52赫茲，我想說的是……」文長不限 | 一 改寫自 |
 | 115 | 575 (黃宗慧、黃宗潔) | same | same | 233 + 幾米 圖文 | 「隔在我們之間的種種」25分 | 一 改寫自、二 圖文改寫自 |
 
+Fonts and geometry measured on the same booklets: body 12 pt on a 20 pt line; the
+說明 box and the reading materials in 標楷體 (DFKai-SB) with Times digits, materials
+indented two characters (x 87.9 pt against the 63.9 pt margin) and a lone 甲／乙
+label on its own line; 「一、」「二、」 in 明體 12.96 pt on their own line; 「請分項回答
+下列問題：」 and 問題（一）／（二） in 明體 12 pt at the margin, continuation lines
+hanging at 135.9 pt (six characters); the 第二大題 task paragraph indented two
+characters. The renderer reproduces this (`hosted_body_templates._writing_stem`)
+with the pinned 楷體 download; a hosted paper printed the materials in 明體 11 pt,
+merged 「一、」 with the first line, indented 問題（一） and 問題（二） differently,
+dropped both ask lines and printed half of the 說明.
+
 The contract, run when a 國寫 batch is saved and again at finalize, requires: exactly two 大題;
 問題（一） printing `文長限80字以內（至多4行）` and `（占4分）` and pointing at 上文／甲、乙二文;
 問題（二） printing `文長限400字以內（至多19行）` and `（占21分）`; 第二大題 `（占25分）` with
 `請以「題目」為題` and an affective task (書寫／抒發／敘述／描述 experience, feeling, imagination);
 第一大題 material 280–700 CJK characters, 第二大題 material 180–520; at least one material with an
-inline attribution `（改寫自 作者《書名》／〈篇名〉）`; no 文言 material; no 自擬／命題所設 marker.
+inline attribution `（改寫自 作者《書名》／〈篇名〉）`; no 文言 material; no 自擬／命題所設 marker;
+the section 說明 printing the full official 115 wording; 「請分項回答下列問題：」 before 問題（一）
+and 「請回答下列問題：」 before the 第二大題 task.
 The measured table is `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
 
 ## Empirical page and material calibration, 111–115
