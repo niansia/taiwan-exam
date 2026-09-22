@@ -11,7 +11,7 @@
 
 修正：新增 `scripts/validate_math_layout_contract.py`（官方五個標題逐字、五個選項 (1)–(5)、題幹不得寫解法指示、不得印模擬資料等聲明、選擇（填）題題幹 ≤ 340 字且中位數 ≤ 150、同一現實情境不得出現於三題以上），hosted 存批與最終檢查都執行，官方十份卷 0 誤判；渲染器對數學科自動把數字、拉丁字母與 √ 改用拉丁字型（官方為 Times 系），`{{answer}}` 等符記不受影響。依 Claude 自己列的五項重工：`append_items` 現在拒收缺選項的選擇題（數學須恰五個）、拒收 `y_{i+1}`／`a^{2}` 等 LaTeX 上下標、拒收高於正文 60% 的圖（要求先縮）、回報與 `paper-plan.json` 規劃位置不同的答案（`answer_position_drift`）；`plan` 回報 `page_budget`（數A 官方 6 頁正文，僅提示不擋）。難度方面：數學難度驗證器新增「至少兩個錯誤選項必須恰為所列誤解路徑的預測結果」，讀一眼就能排除的選項不再過關。
 
-新 ZIP（SHA-256 `13deee72dca12d83391ef42683493e4c906fd580da755cd0944b07a6d63dc399`，6,803,344 位元組，95 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.8 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.8/taiwan-exam-hosted-2026.09.22.8.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.8) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `13deee72dca12d83391ef42683493e4c906fd580da755cd0944b07a6d63dc399`，6,803,344 位元組，95 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.8 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.8/taiwan-exam-hosted-2026.09.22.8.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.8) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.7：退件提前到存批、題組共用稽核紀錄、CLI 一致
 
