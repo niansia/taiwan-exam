@@ -16,6 +16,19 @@ SUBJECTS=('國綜','英文','數學A','數學B','自然','社會','國寫')
 SOURCE_MAP=ROOT/'exam_packs/學測/metadata/official-current-web-sources.json'
 
 
+CIRCLED='①②③④⑤⑥⑦⑧⑨'
+
+
+def subpart_label(subpart_id):
+    parts=[p for p in re.split(r'[-_.]',str(subpart_id)) if p]
+    if not parts or not parts[0].isdigit():
+        return None
+    label=f'({parts[0]})'
+    if len(parts)>1 and parts[1].isdigit() and 1<=int(parts[1])<=9:
+        label+=CIRCLED[int(parts[1])-1]
+    return label
+
+
 def skeleton(subject,number=None,subpart=None,slot_id=None):
     if subject not in SUBJECTS or (slot_id is None and (type(number) is not int or number<1)):
         raise ValueError('Choose a supported subject and a positive numbered slot')
@@ -40,6 +53,10 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
         ordinal=next(i for i,s in enumerate(siblings,1) if s['id']==slot['id'])
         sub=str(slot['subpart_id'])
         question['subpart_id']=sub if re.match(r'^(?:\d+|[a-z])(?:$|[-_.])',sub) else f'{ordinal}-{sub}'
+        # The printed label follows the official form: (1), (2), and (2)①/(2)② for
+        # a split second part. A hosted run rebuilt its part-two layout twice to
+        # discover this from a "duplicate label" refusal.
+        question['answer_label']=subpart_label(question['subpart_id'])
     if number is None:
         section=next(s for s in profile['sections'] if s['id']==slot['section_id'])
         question['number_display']=slot.get('printed_label') or section['title']

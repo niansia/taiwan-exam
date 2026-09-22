@@ -5,6 +5,14 @@
 以下是修正摘要；目前執行規則以 [SKILL.md](../SKILL.md) 與最新版知識檔為準。
 更新 GitHub 不會自動替換帳號內已儲存的附件，請更新原本的 Skill／Project／Gem。
 
+## 2026.09.22.7：退件提前到存批、題組共用稽核紀錄、CLI 一致
+
+使用者的 Claude 出題跑了 3.1 小時後中斷，模型自己讀 `generation-timing.json` 的結論：Skill 工具只跑了 78 秒，其餘都是「太晚才退件」造成的重工——30 題寫完才被來源綁定退件（52 分鐘重綁全部材料）、40 題全缺 curriculum_codes 到卷級才發現、第 32 題子題標籤撞到 specs 才知道官方是 (1)＋(2)①②、每題 3 個候選草圖＋8 組稽核欄位共約 1,600 欄、以及第 32 題問「乙、丙二文的『久』」而丙文根本沒有「久」字。
+
+修正：(1) 預檢回傳 `authoring_requirements`，把每題必備欄位與該科形式規則在第一批之前列出；(2) `append_items.py` 存批時逐題執行來源綁定規則（材料須有 `literacy.source_ids` 與 `source_grounding` verified／proposition_map／material_mode）與「引文須存在於材料」檢查（題幹引自甲乙丙上文的「…」必須是材料印出的文字），有任何訊息即回 `items-saved-fix-before-next-batch` 並要求先 `--replace` 再寫下一批；(3) 同一題組的題目可用 `item_spec.inherits_audit_from` 繼承組長的 originality_record、subject_innovation_audit、literacy、source_grounding（難度設計、課綱代碼、答案仍逐題），約省下三分之二的稽核欄位；(4) `emit_item_skeleton.py` 依官方 slot 直接寫好 (1)、(2)①、(2)② 的 `answer_label`；(5) `difficulty_balance_plan` 與 `paper_difficulty_plan` 兩個名字都被讀取，首批自動放 `mixed_group_originality_records` 空清單；(6) CLI：`check_paper_plan.py --plan`、`hosted_blind_review.py --exam/--output`、`run_hosted_workflow.py specs` 兩個輸出檔有預設名。「」後接全形標點的字距問題是 MuPDF 排版器的行為，這版沒有可調的開關，先不處理。
+
+新 ZIP（SHA-256 `1ca949534749236c4559722e4a7b842b5b5a1b3150237d3aba346b37f8fe3c64`，6,795,985 位元組，94 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.7 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.7/taiwan-exam-hosted-2026.09.22.7.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.7) 頁面。已安裝的舊 Skill 請重新下載替換。
+
 ## 2026.09.22.6：國綜選項寬度與行距修正、出處與古文排序規則、明體字型自動下載
 
 使用者以 ChatGPT 出的 116 國綜卷（上一版 Skill）版面明顯有誤：每題選項只用到題幹的寬度就換行（右側 40% 空白），選項行距 23 pt、題距 42 pt，全卷 17 頁對官方 12 頁；正文是內建無襯線字型。逐頁量測官方 111～115 後定案：官方選項行距 16～17 pt、題距 19～20 pt、每頁 45～55 行；短選項兩兩並排。

@@ -80,6 +80,34 @@ def answer_explanation_errors(exam):
     return errors
 
 
+QUOTED_FROM_MATERIAL = re.compile(r'(?:[甲乙丙丁戊己]文?|上文|本文|下文|原文|文中|詩中|詞中|文末|文首)[^「」]{0,10}「([^「」]{1,16})」')
+
+
+def material_quote_errors(exam):
+    """A stem that quotes 「…」 from 甲/乙/丙/上文 must quote text the material prints.
+
+    A hosted 國綜 item asked about the word 「久」 in 乙、丙 while 丙 contained no
+    such character; the defect was found by the second reviewer after the whole
+    paper was written. Checked on save instead.
+    """
+    errors = []
+    for question in exam.get('questions') or []:
+        if not isinstance(question, dict):
+            continue
+        material = re.sub(r'\s+', '', str(question.get('group_stimulus') or ''))
+        if not material:
+            continue
+        prompt = str(question.get('prompt') or '')
+        texts = [prompt] + [str(o.get('text') or '') for o in question.get('options') or [] if isinstance(o, dict)]
+        number = question.get('number') or question.get('id')
+        missing = sorted({quote for text in texts for quote in QUOTED_FROM_MATERIAL.findall(text)
+                          if re.sub(r'\s+', '', quote) not in material and not re.fullmatch(r'[甲乙丙丁戊己]', quote)})
+        if missing:
+            errors.append(f'Q{number}: quotes 「{"」「".join(missing)}」 as words of the material, but the printed material '
+                          'does not contain them; quote the text as printed or rewrite the stem')
+    return errors
+
+
 def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
     """All subject validators that can run from the exam record alone.
 
@@ -123,6 +151,16 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
         from pathlib import Path
         from validate_visual_item_contract import validate_exam as visuals
         errors.extend('visuals: ' + str(e) for e in visuals(exam, Path(root)).get('errors', []))
+    if subject in {'國綜', '自然'}:
+        from validate_source_grounding import item_errors as grounding_item_errors
+        registry = (exam.get('metadata') or {}).get('source_registry') or {}
+        sources = ({str(s.get('source_id')): s for s in registry.get('sources') or [] if isinstance(s, dict)}
+                   if isinstance(registry, dict) and registry.get('sources') else None)
+        for question in exam.get('questions') or []:
+            if isinstance(question, dict):
+                errors.extend('grounding: ' + e for e in grounding_item_errors(question, subject, sources))
+    if subject == '國綜':
+        errors.extend('quotes: ' + e for e in material_quote_errors(exam))
     if subject not in {'數學A', '數學B'}:
         errors.extend('answers: ' + e for e in answer_explanation_errors(exam))
     from answer_key_patterns import answer_pattern_errors

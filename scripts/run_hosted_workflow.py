@@ -1115,11 +1115,13 @@ def project_specs(exam, hints, body_width):
     return [{'subject': subject, 'blocks': blocks}, {'subject': subject, 'blocks': solutions}]
 
 
-def specs(state_path, question_output, solution_output, hints=None):
+def specs(state_path, question_output=None, solution_output=None, hints=None):
     """Write both body specs from the saved exam; never author or alter content."""
     started = time.time()
     state_path = Path(state_path).resolve()
     root = state_path.parent
+    question_output = question_output or root / 'questions-blocks.json'
+    solution_output = solution_output or root / 'solutions-blocks.json'
     state = read(state_path)
     exam_path = inside(root, root / state['exam']['path'])
     if record(root, exam_path) != state['exam']:
@@ -1511,8 +1513,8 @@ def main():
     plan_parser.add_argument('--compare', type=Path, help='A previous plan directory: report per-page bottom-void deltas')
     spec_parser = commands.add_parser('specs', help='Project saved items into both body layout specs')
     spec_parser.add_argument('--state', type=Path, required=True)
-    spec_parser.add_argument('--question-output', type=Path, required=True)
-    spec_parser.add_argument('--solution-output', type=Path, required=True)
+    spec_parser.add_argument('--question-output', type=Path, help='Default: questions-blocks.json beside the state')
+    spec_parser.add_argument('--solution-output', type=Path, help='Default: solutions-blocks.json beside the state')
     spec_parser.add_argument('--hints', type=Path, help='Layout-only choices and special-structure blocks')
     proof_parser = commands.add_parser('proof', help='Render selected saved items for early crop review')
     for name in ('state', 'question-spec', 'solution-spec', 'output'):

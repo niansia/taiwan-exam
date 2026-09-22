@@ -10,9 +10,14 @@ def content_hash(q):
         if q.get(key) is not None:
             content[key]=q.get(key)
     return hashlib.sha256(json.dumps(content,ensure_ascii=False,sort_keys=True).encode()).hexdigest()
+def difficulty_plan(metadata):
+    """The paper's four-band plan under either of its two historical keys."""
+    return metadata.get('difficulty_balance_plan') or metadata.get('paper_difficulty_plan') or {}
+
+
 def validate(d,asset_root=None):
     errors=[]; counts=collections.Counter(); points=collections.Counter();rows=[]; hard_evidence=collections.Counter()
-    plan=d.get('metadata',{}).get('difficulty_balance_plan',{})
+    plan=difficulty_plan(d.get('metadata',{}))
     answers={a['question_id']:a for a in d.get('answers',[])}
     for q in d.get('questions',[]):
         rec=q.get('item_spec',{}).get('difficulty_design',{});band=rec.get('band');n=q.get('number')

@@ -121,6 +121,22 @@ Inspect optional layout preview PDFs once, only for the selected subject pair.
 
 ## Author once, with small saved batches
 
+The preflight result lists `authoring_requirements`: every field a saved item
+must already carry (curriculum codes, difficulty design, originality record,
+innovation audit, source binding and grounding for any printed material,
+current-context records) and the subject's form rules. Read them before the
+first batch: a 3-hour hosted run learned each one from a later whole-paper gate
+and rebuilt the paper every time (52 minutes for source binding alone). Every
+message a batch save returns under `subject_gate_pending`, `design_fields_pending`
+or `absolute_claim_options` is a final-check failure; when any is present the
+save reports `items-saved-fix-before-next-batch`, and the next batch waits until
+`--replace` clears it. Items of one shared stimulus may set
+`item_spec.inherits_audit_from` to the group's first item: the saver copies its
+originality record, innovation audit, source binding and grounding; difficulty
+design, curriculum codes and the answer stay per item. A stem that quotes 「…」
+from 甲／乙／丙／上文 must quote the material as printed; the saver rejects a
+quotation the material does not contain.
+
 Read `reading/authoring.md` before creating content. Use the selected paper
 profile's actual scored slots, response forms, printed directions, score and
 duration. The generated paper uses `schemas/exam.schema.json`: questions contain

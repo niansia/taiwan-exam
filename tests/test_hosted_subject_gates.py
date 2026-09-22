@@ -102,7 +102,7 @@ def test_saving_a_batch_reports_the_subject_gate_messages_for_those_items(run):
         {'question_id': q['id'], 'final_answer': '2', 'reasoning': ['Choice 2 fits.'], 'verification_status': 'unverified'}
         for q in questions]})
     report = appender.append(run, run/'batch.json', plan=run/'plan.json')
-    assert report['status'] == 'items-saved'
+    assert report['status'] in {'items-saved', 'items-saved-fix-before-next-batch'}
     assert any('english-design' in m for m in report['subject_gate_pending']['q1'])
     assert report['subject_gate_paper_pending']['count'] >= 1
 

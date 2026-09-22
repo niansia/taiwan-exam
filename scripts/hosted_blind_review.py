@@ -97,7 +97,7 @@ def review_errors(exam, review):
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
                             if type(r.get('expected_minutes')) in (int,float))
-    shared = (exam.get('metadata', {}).get('difficulty_balance_plan') or {}).get('shared_reading_minutes', 0)
+    shared = (exam.get('metadata', {}).get('difficulty_balance_plan') or exam.get('metadata', {}).get('paper_difficulty_plan') or {}).get('shared_reading_minutes', 0)
     if type(duration) in (int,float) and type(shared) in (int,float) and independent_total + shared > duration:
         errors.append('difficulty: reviewed solving plus shared reading exceeds paper duration')
     if is_math and len(exam['questions']) == 20:
@@ -128,9 +128,15 @@ def review_errors(exam, review):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('exam', type=Path)
-    parser.add_argument('output', type=Path)
+    parser.add_argument('exam', type=Path, nargs='?')
+    parser.add_argument('output', type=Path, nargs='?')
+    parser.add_argument('--exam', dest='exam_option', type=Path, help='Same as the first positional argument')
+    parser.add_argument('--output', dest='output_option', type=Path, help='Same as the second positional argument')
     parser.add_argument('--review-mode', choices=REVIEW_MODES, default='independent-context')
     args = parser.parse_args()
+    args.exam = args.exam or args.exam_option
+    args.output = args.output or args.output_option
+    if not args.exam or not args.output:
+        parser.error('Give the exam and the output path (positionally or with --exam/--output)')
     args.output.write_text(json.dumps(packet(json.loads(args.exam.read_text(encoding='utf-8')), args.review_mode),
                                      ensure_ascii=False, indent=2), encoding='utf-8')

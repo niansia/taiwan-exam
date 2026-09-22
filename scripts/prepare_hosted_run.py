@@ -143,6 +143,43 @@ def supplied_font(path, run_dir):
     return chosen, record, None
 
 
+def authoring_requirements(subject):
+    """What every saved item must already carry, stated before the first batch.
+
+    A 3-hour hosted run learned each of these from a later gate and rebuilt the
+    paper each time; the batch saver now reports the same messages per item.
+    """
+    common = [
+        'item_spec.curriculum_codes: 108 課綱 codes for every item (scope validator fails per item without them)',
+        'item_spec.difficulty_design: band, basis, confidence, short_route, misconception, linked_decisions, bottleneck, '
+        'expected_minutes, content_sha256 (difficulty-field-contract.md)',
+        'item_spec.originality_record: candidate_count>=3, 3 mechanism families, novelty_dimensions>=3, skin_swap_test and '
+        'lexical_screen pass; items of one shared stimulus may set item_spec.inherits_audit_from to the group\'s first item',
+        'item_spec.subject_innovation_audit for 國綜/自然/社會 items (candidate_competition_linked, routine rejected, text fields)',
+        'any printed material (group_stimulus, long prompt, continuation pages): item_spec.literacy.source_ids naming a real '
+        'registered source plus item_spec.source_grounding {status: verified, proposition_map, material_mode/data_mode}; '
+        'never a self-written passage labelled 自擬/自撰/編者撰成',
+        'recent items: item_spec.current_context bound to metadata.current_context_plan (current-form-topicality.md floors)',
+        'answers: final_answer is a printed label; reasoning names the chosen option; explanations never cite a label that '
+        'was reordered away',
+        'metadata: difficulty_balance_plan (also read as paper_difficulty_plan), mixed_group_originality_records for every '
+        'shared stimulus, subject_innovation_review',
+    ]
+    by_subject = {
+        '國綜': ['Q1 pairs two different look-alike characters in four-character phrases; Q2 錯別字 sentences >= 16 characters; '
+               '排序 is 古文; 填詞 quotes an attributed work with two candidates per slot; every 題組 prints 改寫自 作者〈篇名〉 or '
+               'the 文言 title; >= 30 attribution tokens; absolute-word options <= 12%; one ①②研判 single-choice item; '
+               'stems quote 「…」 exactly as the material prints it; options one per line unless four options <= 16 chars'],
+        '自然': ['five verified recent sources carrying eight items in both parts, two within 180 days, a Taiwan hazard, '
+               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item'],
+        '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
+               'subject_innovation_audit per item; content codes only in curriculum_codes'],
+        '英文': ['ten official headings with A-D labels; passage lengths in the official bands; two recent passages carrying six '
+               'items; composition prompt in Chinese with 提示/第一段/第二段; unpatterned answer keys'],
+    }
+    return common + by_subject.get(subject, [])
+
+
 def body_font(run_dir, requested=None):
     """(path, record) of the run's body font.
 
@@ -346,6 +383,7 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
             raise ValueError('Explicit independent review requirement needs an actual separate reviewer; resolve before authoring')
         calibration = snapshot(subject)
         font, report['body_font'] = body_font(run_dir, font)
+        report['authoring_requirements'] = authoring_requirements(subject)
         if timing.is_file() and cached_ready(previous_preflight, report, run_dir, font, calibration):
             clock = json.loads(timing.read_text(encoding='utf-8-sig'))
             if clock.get('paper_id') != paper_id:
