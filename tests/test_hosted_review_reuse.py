@@ -169,6 +169,7 @@ def test_proof_reviews_carry_into_final_booklets_but_pages_still_need_review(run
     notes['question']['items']['q2'] = {'status': 'fail', 'observations': 'Synthetic defect finding'}
     workflow.save(root / 'proof-notes.json', notes)
     workflow.record_review(root / 'proof-notes.json', proof=root / 'proof-01')
+    workflow.content_lock(state)
     built = workflow.build(state, *specs, font, root / 'build-v1', year=116)
     assert built['reviews_approved_by_tool'] is False
     found = statuses(root, Path(built['state']))
@@ -184,6 +185,7 @@ def test_proof_reviews_carry_into_final_booklets_but_pages_still_need_review(run
 
 def test_reflow_after_repair_keeps_only_unchanged_item_reviews(run):
     root, font, specs, questions, answers = run
+    workflow.content_lock(root / 'run-state.json')
     built = workflow.build(root / 'run-state.json', *specs, font, root / 'build-v1', year=116)
     first_state = Path(built['state'])
     review_all(root, first_state)
@@ -192,6 +194,7 @@ def test_reflow_after_repair_keeps_only_unchanged_item_reviews(run):
     workflow.save(root / 'batch.json', {'questions': [longer], 'answers': [answers[0]]})
     append(root, root / 'batch.json', replace=True, state=first_state)
     workflow.specs(first_state, *specs)
+    workflow.content_lock(first_state, reason='test repair')
     repaired = workflow.build(first_state, *specs, font, root / 'build-v2', year=116)
     found = statuses(root, Path(repaired['state']))
     for role in ('question', 'solution'):
@@ -208,6 +211,7 @@ def test_reflow_after_repair_keeps_only_unchanged_item_reviews(run):
 
 def test_changed_item_record_is_not_retained_even_with_identical_pixels(run):
     root, font, specs, questions, answers = run
+    workflow.content_lock(root / 'run-state.json')
     built = workflow.build(root / 'run-state.json', *specs, font, root / 'build-v1', year=116)
     first_state = Path(built['state'])
     review_all(root, first_state)
@@ -222,6 +226,7 @@ def test_changed_item_record_is_not_retained_even_with_identical_pixels(run):
     revised['explanation_blocks'][0]['content'] = '修訂後的合成評分排版。'
     workflow.save(root / 'batch.json', {'questions': [questions[3]], 'answers': [revised]})
     append(root, root / 'batch.json', replace=True, state=first_state)
+    workflow.content_lock(first_state, reason='test repair')
     repaired = workflow.build(first_state, *specs, font, root / 'build-v2', year=116)
     found = statuses(root, Path(repaired['state']))
     assert found['question']['q4'] == 'pending' and found['solution']['q4'] == 'pending'
@@ -230,6 +235,7 @@ def test_changed_item_record_is_not_retained_even_with_identical_pixels(run):
 
 def test_record_review_needs_actual_findings_and_refreshes_bindings(run):
     root, font, specs, _, _ = run
+    workflow.content_lock(root / 'run-state.json')
     built = workflow.build(root / 'run-state.json', *specs, font, root / 'build-v1', year=116)
     state_path = Path(built['state'])
     for bad in ({'question': {'items': {'q1': {'status': 'pass', 'observations': ' '}}}},
@@ -259,6 +265,7 @@ def test_review_observations_may_be_a_list_of_lines():
 
 def test_review_list_opens_from_anywhere_and_its_template_records_in_one_call(run, monkeypatch, tmp_path_factory):
     root, font, specs, _, _ = run
+    workflow.content_lock(root / 'run-state.json')
     built = workflow.build(root / 'run-state.json', *specs, font, root / 'build-v1', year=116)
     monkeypatch.chdir(tmp_path_factory.mktemp('elsewhere'))  # the helper's cwd is not the run
     listed = set()

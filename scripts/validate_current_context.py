@@ -24,7 +24,7 @@ RECENT_CLASSES = {'current_event', 'recent_context'}
 TREND_CLASS = 'current_trend'
 RECENT_DAYS = 365
 TREND_DAYS = 730
-FRESH_DAYS = 120
+FRESH_DAYS = 180
 FULL_PAPER_ITEMS = {'自然': 50, '英文': 40, '國綜': 30, '國寫': 2}
 HAZARD_TAGS = {'typhoon', 'earthquake', 'weather_hazard'}
 KNOWN_TAGS = HAZARD_TAGS | {'climate_energy', 'epidemic', 'space', 'taiwan', 'technology', 'society_trend',
@@ -32,10 +32,10 @@ KNOWN_TAGS = HAZARD_TAGS | {'climate_energy', 'epidemic', 'space', 'taiwan', 'te
 # Floors are editorial targets above the weakest official year; the reference
 # states which official years would fail them.
 FLOORS = {
-    '自然': {'recent_sources': 4, 'recent_items': 6, 'fresh_sources': 1, 'both_parts': True,
+    '自然': {'recent_sources': 5, 'recent_items': 8, 'fresh_sources': 2, 'both_parts': True,
            'tags': {'taiwan_hazard': 1, 'climate_energy': 4, 'taiwan': 3}},
-    '英文': {'recent_sources': 1, 'recent_items': 3, 'composition_trend': True},
-    '國綜': {'recent_sources': 1, 'recent_items': 2, 'tags': {'taiwan': 2}},
+    '英文': {'recent_sources': 2, 'recent_items': 6, 'composition_trend': True},
+    '國綜': {'recent_sources': 2, 'recent_items': 4, 'tags': {'taiwan': 2}},
     '國寫': {'trend_tasks': 1},
 }
 SOURCE_FIELDS = ('publisher', 'title', 'rights_status', 'source_family')

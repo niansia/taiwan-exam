@@ -56,6 +56,13 @@ def answer_explanation_errors(exam):
         labels = {str(o.get('label')) for o in options if isinstance(o, dict)}
         key = answer.get('final_answer')
         number = question.get('number') or question.get('id')
+        if options and joined:
+            # A reordered option list leaves stale numbers in prose: 「選項（3）」 must exist.
+            cited = set(re.findall(r'選項\s*[（(]\s*([A-Za-z0-9]{1,2})\s*[）)]', joined))
+            stale = sorted(c for c in cited if c not in labels)
+            if stale:
+                errors.append(f'Q{number}: the explanation cites option(s) {", ".join(stale)} that are not printed labels '
+                              f'({", ".join(sorted(labels))}); options were reordered after the explanation was written')
         if options and question.get('type') == 'single_choice':
             if str(key) not in labels:
                 errors.append(f'Q{number}: single-choice key {key!r} is not a printed option label')
@@ -112,6 +119,10 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
             errors.append('writing: metadata.writing_source_pool (the publisher-neutral source pool) is required')
         else:
             errors.extend('writing: ' + e for e in writing(exam, pool))
+    if full and root is not None:
+        from pathlib import Path
+        from validate_visual_item_contract import validate_exam as visuals
+        errors.extend('visuals: ' + str(e) for e in visuals(exam, Path(root)).get('errors', []))
     if subject not in {'數學A', '數學B'}:
         errors.extend('answers: ' + e for e in answer_explanation_errors(exam))
     from answer_key_patterns import answer_pattern_errors

@@ -20,8 +20,11 @@ from typing import Any
 PROVISIONAL_FLOORS = {
     "數學A": {"count": 4, "sections": 3, "kinds": 2},
     "數學B": {"count": 4, "sections": 3, "kinds": 2},
-    "自然": {"count": 8, "sections": 2, "kinds": 4, "domains": 4, "sourced_photos": 2},
-    "社會": {"count": 6, "sections": 2, "kinds": 3, "domains": 3, "sourced_photos": 2},
+    # Official 111-115 booklets label 21-36 (自然) and 8-17 (社會) distinct figures/tables
+    # and mention photographs 3-7 times a year (社會); a paper at the old floor of 6-8
+    # visuals looked like a text worksheet. Floors sit below the weakest official year.
+    "自然": {"count": 16, "sections": 2, "kinds": 4, "domains": 4, "sourced_photos": 3},
+    "社會": {"count": 10, "sections": 2, "kinds": 4, "domains": 3, "sourced_photos": 4},
     "英文": {"count": 3, "sections": 2, "kinds": 2, "sourced_photos": 1},
 }
 

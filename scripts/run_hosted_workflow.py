@@ -207,6 +207,10 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
     state_path = Path(state_path).resolve()
     root = state_path.parent
     state = read(state_path)
+    if not (root / 'content-lock.json').exists():
+        raise ValueError('Lock content first (run_hosted_workflow.py lock-content --state <latest-state>): a booklet '
+                         'built before solving and content review is discarded as soon as an item changes. Use '
+                         '`plan` to check pagination before the lock.')
     check_content_lock(root, state)
     exam_path = inside(root, root / state['exam']['path'])
     if record(root, exam_path) != state['exam']:
@@ -308,7 +312,8 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
     immutable += list(review_output.rglob('*.png'))
     result.update(cache_hit=False, reviews_approved_by_tool=False,
                   page_plan=str(output / 'page-plan.json'),
-                  continue_from_state=str(candidate), clock_reminder=CLOCK_REMINDER)
+                  continue_from_state=str(candidate), clock_reminder=CLOCK_REMINDER,
+                  iteration_budget=iteration_budget(root, 'build', output))
     save(manifest_path, {'inputs': identity, 'artifacts': [record(root, p) for p in immutable], 'result': result})
     event(root, 'build', started, cache_hit=False)
     return result
@@ -318,7 +323,27 @@ CLOCK_REMINDER = ('Before yielding this turn run `clock --state <latest-state> -
                   'an unpaused gap is estimated as waiting only after the idle threshold.')
 
 
-def plan(state_path, question_spec, solution_spec, font, output, *, reading_font=None):
+ITERATION_BUDGET = {'plan': 3, 'proof': 4, 'build': 2}
+
+
+def iteration_budget(root, kind, output):
+    """How many runs of this kind exist and whether the budget is spent.
+
+    Measured runs spent 9-24 plans, 6-20 proofs and 3-8 builds on one paper, most
+    of them re-reading unchanged content. The budget is a warning, not a lock:
+    exceeding it means stop iterating layout by eye and fix the cause once.
+    """
+    marker = {'plan': 'page-plan.json', 'proof': 'proof-manifest.json', 'build': 'workflow-build.json'}[kind]
+    runs = sorted(p.name for p in root.iterdir() if p.is_dir() and (p / marker).is_file())
+    if Path(output).name not in runs:
+        runs.append(Path(output).name)
+    over = len(runs) > ITERATION_BUDGET[kind]
+    return {'kind': kind, 'count': len(runs), 'budget': ITERATION_BUDGET[kind], 'over_budget': over,
+            'note': (f'{len(runs)} {kind} runs exceed the budget of {ITERATION_BUDGET[kind]}: stop adjusting hints by eye; '
+                     'fix the figure size or split the block once, then run one more') if over else 'within budget'}
+
+
+def plan(state_path, question_spec, solution_spec, font, output, *, reading_font=None, compare=None):
     """Paginate both bodies without composing, rasterizing or preparing review.
 
     A build spends most of its time on fixed-template composition, page rasters
@@ -377,6 +402,17 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
                           'scaled_assets': layout.get('scaled_assets', []), 'pages': pages,
                           'blocks': layout['blocks'], 'render_seconds': layout.get('elapsed_seconds')}
     plan_path = output / 'page-plan.json'
+    comparison = None
+    if compare:
+        target = inside(root, Path(compare))
+        previous = read(target / 'page-plan.json' if target.is_dir() else target)
+        comparison = {}
+        for role, booklet in booklets.items():
+            earlier = previous.get('booklets', {}).get(role, {})
+            before = {row['page']: row['bottom_void_ratio'] for row in earlier.get('pages', []) if 'bottom_void_ratio' in row}
+            comparison[role] = {'page_count_before': earlier.get('page_count'), 'page_count_after': booklet['page_count'],
+                                'bottom_void_delta': {row['page']: round(row['bottom_void_ratio'] - before[row['page']], 3)
+                                                      for row in booklet['pages'] if row['page'] in before}}
     save(plan_path, {'kind': 'hosted-page-plan', 'exam': state['exam'], 'paper_id': state['paper_id'],
                      'specs': {role: record(root, path) for role, path in specs.items()},
                      'content_lock': lock_status, 'booklets': booklets,
@@ -385,6 +421,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
     return {'status': 'page-plan-only', 'plan': output.name, 'page_plan': str(plan_path),
             'page_counts': {role: b['page_count'] for role, b in booklets.items()},
             'bottom_void_attention': attention, 'content_lock': lock_status,
+            'compared_with_previous': comparison, 'iteration_budget': iteration_budget(root, 'plan', output),
             'reviews_approved_by_tool': False, 'deliverable': False,
             'next': ('Adjust layout hints and plan again while pages need attention; then lock content '
                      'and run one full build for actual page and crop review.'),
@@ -428,6 +465,9 @@ LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
 # A currency amount is the only printed dollar sign: $ directly before a digit.
 TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
 MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
+INVISIBLE_CHARS = re.compile('[⁠﻿​­‌‍]')
+# A leading U+3000 is the customary paragraph indent; one inside a sentence is not.
+FULL_WIDTH_SPACE_INSIDE = re.compile('(?<=[^\s　])　(?=[^\s　])')
 ASSET_TOKEN = re.compile(r'\{\{asset:([^{}]+)\}\}')
 # The body prints 11pt text on a 1.65 line box: a taller inline image overlaps
 # the line above it. Vector art prints at three times its size, so a raster
@@ -522,6 +562,13 @@ def text_issues(value):
                       'or a declared {{asset:NAME}} formula image')
     if TEX_DOLLAR.search(raw):
         issues.append('"$" prints literally: TeX math delimiters are not rendered')
+    invisible = INVISIBLE_CHARS.findall(raw)
+    if invisible:
+        issues.append('contains ' + ', '.join(sorted({f'U+{ord(c):04X}' for c in invisible})) +
+                      ': MuPDF prints word joiners, BOMs and zero-width spaces as visible gaps; delete them')
+    if FULL_WIDTH_SPACE_INSIDE.search(raw):
+        issues.append('a full-width space (U+3000) inside prose is stretched by justification into a wide gap '
+                      'and breaks lines inside the number column; use punctuation or a plain space')
     depth = Counter()
     for closing, tag in MARKUP_TAG.findall(raw):
         depth[tag] += -1 if closing else 1
@@ -865,7 +912,11 @@ def project_specs(exam, hints, body_width):
             add({'kind': 'table', 'id': q['id'],
                  **({'text': printed(table['caption'], where + ' response table caption')} if table.get('caption') else {}),
                  'headers': [printed(table.get('heading') or '作答格式', where + ' response table heading')],
-                 'rows': [[printed(f'{row.get("label", "")}　{row.get("instruction", "")}'.strip(), where + ' response row')]
+                 # Lint the authored label and instruction separately: the U+3000 between
+                 # them is the renderer's own column gap, not authored prose.
+                 'rows': [['　'.join(part for part in (printed(str(row.get('label') or ''), where + ' response row label'),
+                                                          printed(str(row.get('instruction') or ''), where + ' response row'))
+                                          if part)]
                           for row in table['rows']]})
         for continuation in continuations:
             text_ = printed(continuation, where + ' continuation', english=english)
@@ -1018,6 +1069,12 @@ def specs(state_path, question_output, solution_output, hints=None):
     manifest = read(DEFAULT_MAP)
     body = next(s for s in manifest['subjects'] if s['subject'] == exam['metadata']['subject'])['overlay_geometry_pt']['body']
     projections = project_specs(exam, hint_data, body[2] - body[0] - 8)
+    for role, spec in zip(('question', 'solution'), projections):
+        printed = [str(b.get('label')).strip() for b in spec['blocks'] if b.get('kind') != 'section' and b.get('label')]
+        duplicates = sorted({label for label in printed if printed.count(label) > 1})
+        if duplicates:
+            raise ValueError(f'{role} spec prints the same subpart label more than once: {", ".join(duplicates)}; '
+                             'give each subpart its own number_display/answer_label before layout')
     outputs = []
     for path, spec in zip((question_output, solution_output), projections):
         path = inside(root, path)
@@ -1135,6 +1192,7 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
     if current['images']:
         batches.append(current)
     return {'status': 'proof-review-pending', 'proof': output.name, 'proof_dir': str(output),
+            'iteration_budget': iteration_budget(root, 'proof', output),
             'review_queue': queue,
             'review_batches': batches,
             'observations_template': str(output / 'observations-template.json'),
@@ -1383,6 +1441,7 @@ def main():
         plan_parser.add_argument('--' + name, type=Path, required=True)
     plan_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
     plan_parser.add_argument('--reading-font', type=Path)
+    plan_parser.add_argument('--compare', type=Path, help='A previous plan directory: report per-page bottom-void deltas')
     spec_parser = commands.add_parser('specs', help='Project saved items into both body layout specs')
     spec_parser.add_argument('--state', type=Path, required=True)
     spec_parser.add_argument('--question-output', type=Path, required=True)

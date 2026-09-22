@@ -28,9 +28,11 @@ def natural_paper():
     sources = [source('nobel-2025', event='2025-10-06', family='research'),
                source('typhoon-2026', event='2026-08-18'),
                source('mission-2026', event='2026-03-02', family='research', published='2026-03-05'),
-               source('energy-2026', event='2026-01-15', published='2026-02-01', family='news')]
+               source('energy-2026', event='2026-01-15', published='2026-02-01', family='news'),
+               source('quake-2026', event='2026-06-20', family='government_data')]
     questions = [{'id': f'q{n}', 'number': n, 'section_id': 'p1' if n <= 36 else 'p2', 'item_spec': {}} for n in range(1, 57)]
-    recent = {5: 'nobel-2025', 6: 'nobel-2025', 30: 'energy-2026', 44: 'typhoon-2026', 45: 'typhoon-2026', 50: 'mission-2026'}
+    recent = {5: 'nobel-2025', 6: 'nobel-2025', 30: 'energy-2026', 44: 'typhoon-2026', 45: 'typhoon-2026', 50: 'mission-2026',
+              52: 'quake-2026', 53: 'quake-2026'}
     for number, sid in recent.items():
         questions[number - 1]['item_spec']['current_context'] = context(sid)
     questions[43]['item_spec']['context_tags'] = ['typhoon', 'taiwan', 'weather_hazard']
@@ -40,14 +42,14 @@ def natural_paper():
     questions[8]['item_spec']['context_tags'] = ['taiwan', 'earthquake']
     return {'metadata': {'subject': '自然', 'generation_mode': 'full-paper',
                          'current_context_plan': {'editorial_lock_date': LOCK, 'sources': sources},
-                         'natural_source_ecology_plan': {'recent_item_numbers': [5, 6, 30, 44, 45, 50]}},
+                         'natural_source_ecology_plan': {'recent_item_numbers': [5, 6, 30, 44, 45, 50, 52, 53]}},
             'sections': [{'id': 'p1', 'title': '第壹部分'}, {'id': 'p2', 'title': '第貳部分'}], 'questions': questions}
 
 
 def test_a_natural_paper_shaped_like_the_official_form_passes():
     assert validate(natural_paper()) == []
     counts = progress(natural_paper())['counts']
-    assert counts['recent_sources'] == 4 and counts['recent_items'] == 6 and counts['fresh_sources'] == 1
+    assert counts['recent_sources'] == 5 and counts['recent_items'] == 8 and counts['fresh_sources'] == 2
     assert counts['tags'] == {'climate_energy': 4, 'taiwan': 3, 'taiwan_hazard': 3}
 
 
@@ -62,7 +64,7 @@ def test_other_subjects_and_partial_papers_are_left_alone():
 
 
 @pytest.mark.parametrize('mutation,expected', [
-    ('no_records', 'at least 4 verified recent source'),
+    ('no_records', 'at least 5 verified recent source'),
     ('old_event', '365 days'),
     ('republished_old_event', '365 days'),
     ('future_access', 'between publication and the lock'),
@@ -71,7 +73,7 @@ def test_other_subjects_and_partial_papers_are_left_alone():
     ('missing_relation', 'current_context.relation'),
     ('outside_knowledge', 'outside_knowledge_required'),
     ('unknown_source', 'no record'),
-    ('nothing_fresh', 'last 120 days'),
+    ('nothing_fresh', 'last 180 days'),
     ('one_part_only', 'both 第壹部分'),
     ('no_taiwan_hazard', 'Taiwan hazard'),
     ('few_climate', 'climate_energy'),
@@ -105,8 +107,9 @@ def test_each_floor_and_record_defect_is_named(mutation, expected):
         questions[43]['item_spec']['current_context']['source_id'] = 'ghost'
     elif mutation == 'nothing_fresh':
         plan['sources'][1]['event_date'] = plan['sources'][1]['published_at'] = '2026-03-01'
+        plan['sources'][4]['event_date'] = plan['sources'][4]['published_at'] = '2026-03-02'
     elif mutation == 'one_part_only':
-        for n in (44, 45, 50):
+        for n in (44, 45, 50, 52, 53):
             questions[n - 1]['number'] = n - 36
             questions[n - 37]['number'] = n
     elif mutation == 'no_taiwan_hazard':
@@ -133,9 +136,12 @@ def english_paper():
                   {'id': 'composition', 'number': None, 'number_display': '英文作文', 'section_id': 'nonselected', 'item_spec': {}}]
     for n in (47, 48, 49):
         questions[n - 1]['item_spec']['current_context'] = context('reopening-2026')
+    for n in (21, 22, 23):
+        questions[n - 1]['item_spec']['current_context'] = context('festival-2026')
     questions[-1]['item_spec']['current_context'] = context('pet-survey-2025', 'current_trend')
     return {'metadata': {'subject': '英文', 'generation_mode': 'full-paper', 'current_context_plan': {
                 'editorial_lock_date': LOCK, 'sources': [source('reopening-2026', event='2026-08-01', family='news'),
+                                                         source('festival-2026', event='2026-05-01', family='research'),
                                                          source('pet-survey-2025', event='2025-03-01', family='government_data')]}},
             'sections': [{'id': 'reading', 'title': '第壹部分'}, {'id': 'nonselected', 'title': '第貳部分、非選擇題'}],
             'questions': questions}
@@ -148,10 +154,10 @@ def test_english_needs_one_recent_passage_and_a_trend_tied_composition():
     assert any('composition' in e for e in validate(paper))
     paper = english_paper()
     paper['questions'][48]['item_spec'].pop('current_context')
-    assert any('at least 3 scored items' in e for e in validate(paper))
+    assert any('at least 6 scored items' in e for e in validate(paper))
     paper = english_paper()
-    paper['metadata']['current_context_plan']['sources'][1]['event_date'] = '2024-01-01'
-    paper['metadata']['current_context_plan']['sources'][1]['published_at'] = '2024-01-01'
+    paper['metadata']['current_context_plan']['sources'][2]['event_date'] = '2024-01-01'
+    paper['metadata']['current_context_plan']['sources'][2]['published_at'] = '2024-01-01'
     assert any('730 days' in e for e in validate(paper))
 
 
@@ -159,10 +165,13 @@ def test_chinese_paper_needs_one_recent_group_and_taiwan_passages():
     questions = [{'id': f'q{n}', 'number': n, 'section_id': 's', 'item_spec': {}} for n in range(1, 37)]
     for n in (13, 14, 15):
         questions[n - 1]['item_spec']['current_context'] = context('film-2026')
+    for n in (19, 20):
+        questions[n - 1]['item_spec']['current_context'] = context('museum-2026')
     questions[3]['item_spec']['context_tags'] = ['taiwan']
     questions[27]['item_spec']['context_tags'] = ['taiwan']
     paper = {'metadata': {'subject': '國綜', 'generation_mode': 'full-paper', 'current_context_plan': {
-                 'editorial_lock_date': LOCK, 'sources': [source('film-2026', event='2026-06-20', family='news')]}},
+                 'editorial_lock_date': LOCK, 'sources': [source('film-2026', event='2026-06-20', family='news'),
+                                                          source('museum-2026', event='2026-04-10', family='government_data')]}},
              'sections': [{'id': 's', 'title': '第壹部分'}], 'questions': questions}
     assert validate(paper) == []
     thin = copy.deepcopy(paper)

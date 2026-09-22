@@ -328,6 +328,71 @@ over-long groups early, and again after each layout-hint repair; run one full
 build only when the plan is acceptable. A measured 自然 run spent 16 of 17
 builds (about 25 minutes) on pagination that a plan would have shown.
 
+### Mandatory order and iteration budgets
+
+Three measured runs of 2026-09-22 (國綜 33 checkpoints with 9 plans and 6 proof
+rounds; 社會 2 h 04 with 20 proofs, 7 plans and 3 builds; 自然 2 h 26 with 24
+plans, 11 builds and 18 proofs) lost most of their time re-reading unchanged
+content. The order below is not advice; the tools enforce the parts they can.
+
+1. **Author** in saved batches; read each batch's gate messages while the items
+   are fresh. Fix every structural message before the next batch, never at the end.
+2. **Solve and review content** (`checkpoint --phase solving`, `difficulty_qa`).
+   Fix stale option references here: after any option reorder, rewrite the
+   explanation; the gate rejects an explanation citing a label the item no longer
+   prints.
+3. **Lock** (`lock-content`). `build` refuses to run without `content-lock.json`.
+   A booklet built before the lock is discarded the moment an item changes, and
+   every one of its page reviews with it.
+4. **Plan** at most three times (`plan`, then `plan --compare <previous plan dir>`
+   which reports each page's `bottom_void_delta` and the page-count change).
+   If the third plan is still not acceptable, stop adjusting hints by eye: shrink
+   the figure or split the block once, based on the measured heights.
+5. **Build** at most twice. The second build exists to fix defects the first
+   review found, not to try another layout hint.
+6. **Review once.** Every result carries `iteration_budget` (`count`, `budget`,
+   `over_budget`). Exceeding a budget is not blocked, but the note names the
+   cause to fix once; report the overrun in the delivery notes.
+
+Proof rounds follow the same rule: proof `proof_recommended` items once after
+they are written, then trust the retained reviews. Text-only items are reviewed on
+their page (`review_via: page`), not as crops. A page keeps its review when its
+**body** pixels and item content are unchanged even if the running header's page
+count changed (`共 22 頁` → `共 21 頁`), so a shorter final booklet does not
+re-open every page.
+
+### Renderer rules worth knowing before the first plan
+
+- Option tables take the stem's width; the column count follows the longest
+  option (國綜 always prints options one per line). A stem indented by a long
+  task label narrows every option below it.
+- A task label longer than three characters (`中譯英`, `英文作文`, `第一段`)
+  leads the text; only plain numbers and `(1)`-style subparts sit in the number
+  column. Give each subpart its own `number_display`/`answer_label`; `specs`
+  refuses a spec that would print the same label twice.
+- MuPDF prints U+2060, U+FEFF, U+200B and U+00AD as visible gaps and U+3000
+  (full-width space) inside a number column breaks the line. `text_issues`
+  rejects them at authoring time; do not paste text from a PDF or a web page
+  without normalising it.
+- Figures: one asset per figure, referenced by content hash; a redrawn figure
+  changes the hash and re-opens only its own crop. Figures wider than the text
+  column are scaled to the column and listed in `scaled_assets`, so plan the
+  figure at column width from the start.
+
+### Environment traps the hosted runtimes have shown
+
+- Image downloads are usually blocked or silently return an HTML error page.
+  Use bundled assets or draw the figure from verified data; never keep a
+  0-byte or text/html "image".
+- The runtime may lose `tmp/` between turns; `finalize` recomputes digests
+  from disk, so a missing artifact fails the final check honestly. Rebuild from
+  the saved state instead of hand-editing the state file.
+- A gate report older than the exam hash it names is stale; the checker rejects
+  it. Re-run the gate with the current state instead of touching the report.
+- Fifty scripts referenced by the references were missing from ZIPs before
+  2026.09.22.2; if a documented command is absent in an older ZIP, report it as
+  a packaging defect and continue with the documented hosted-equivalent check.
+
 ```text
 python scripts/run_hosted_workflow.py plan --state run/run-state.json --question-spec run/questions-blocks.json --solution-spec run/solutions-blocks.json --output run/plan-01
 ``` Rendering has a separate-process,
