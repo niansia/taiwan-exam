@@ -53,6 +53,51 @@ def printed_material(question: dict, subject: str) -> tuple[str, str]:
     return "\n".join(chunks), ",".join(locations)
 
 
+MATERIAL_MODES = {"licensed_quote", "public_domain_quote", "attributed_adaptation"}
+DATA_MODES = {"published_exact", "derived_from_published", "transparent_school_model"}
+
+
+def item_errors(question: dict, subject: str, sources: dict | None = None) -> list[str]:
+    """The per-item grounding rules, callable while a batch is being saved.
+
+    A hosted run learned these only from the whole-paper gate after thirty items
+    were written and spent 52 minutes rebinding every passage; the same messages
+    now come back with the batch that introduced the material.
+    """
+    number = question.get("number") or question.get("id")
+    errors: list[str] = []
+    printed = "\n".join(str(x or "") for x in (question.get("group_stimulus"), question.get("prompt")))
+    if FORBIDDEN_PRINT_LABELS.search(printed):
+        errors.append(f"Q{number}: forbidden invented-source label in student text")
+    spec = question.get("item_spec") or {}
+    literacy = spec.get("literacy") or {}
+    source_ids = [str(x) for x in literacy.get("source_ids") or []]
+    stimulus, material_location = printed_material(question, subject)
+    if stimulus:
+        if not source_ids:
+            errors.append(f"Q{number}: source-bearing {material_location} has no item_spec.literacy.source_ids "
+                          "(bind the material to a real registered source before saving)")
+        if sources is not None:
+            missing = [x for x in source_ids if x not in sources]
+            if missing:
+                errors.append(f"Q{number}: unknown source_ids {missing}")
+        grounding = spec.get("source_grounding") or {}
+        if grounding.get("status") != "verified":
+            errors.append(f"Q{number}: item_spec.source_grounding.status must be verified")
+        if not grounding.get("proposition_map"):
+            errors.append(f"Q{number}: missing source_grounding.proposition_map")
+        if subject == "國綜" and grounding.get("material_mode") not in MATERIAL_MODES:
+            errors.append(f"Q{number}: 國綜 source_grounding.material_mode must be one of {sorted(MATERIAL_MODES)}")
+        if subject == "自然" and grounding.get("data_mode") not in DATA_MODES:
+            errors.append(f"Q{number}: natural-science data must be published, transparently derived, or a declared school-level model")
+        if subject == "自然" and grounding.get("data_mode") == "transparent_school_model":
+            if not grounding.get("model_assumptions") or not grounding.get("derivation"):
+                errors.append(f"Q{number}: transparent school model requires assumptions and derivation")
+    elif source_ids:
+        errors.append(f"Q{number}: source_ids present without a source-bearing stimulus")
+    return errors
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("exam", type=Path)

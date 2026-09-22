@@ -172,6 +172,40 @@ def validate_batch(batch):
     return questions, answers
 
 
+INHERITABLE_AUDITS = ('originality_record', 'subject_innovation_audit', 'literacy', 'source_grounding')
+
+
+def inherit_audits(questions, existing):
+    """Copy a group leader's audit records into items that declare `item_spec.inherits_audit_from`.
+
+    A hosted run wrote three candidate sketches and eight audit fields for each of
+    forty items (about 1,600 fields) although the items of one 題組 share the same
+    material, sources and novelty argument. Items of the same shared stimulus may
+    now inherit those records from the group's first item; per-item fields
+    (difficulty_design, curriculum_codes, the answer) are never inherited.
+    """
+    pool = dict(existing)
+    pool.update({q['id']: q for q in questions})
+    inherited = []
+    for question in questions:
+        spec = question.get('item_spec')
+        leader_id = spec.get('inherits_audit_from') if isinstance(spec, dict) else None
+        if not leader_id:
+            continue
+        leader = pool.get(leader_id)
+        if leader is None or leader is question:
+            raise ValueError(f'{question["id"]}: inherits_audit_from names an unknown item {leader_id!r}')
+        if not question.get('group_stimulus') or leader.get('group_stimulus') != question.get('group_stimulus'):
+            raise ValueError(f'{question["id"]}: audits can be inherited only from an item sharing the same group_stimulus')
+        leader_spec = leader.get('item_spec') or {}
+        for key in INHERITABLE_AUDITS:
+            if key not in spec and key in leader_spec:
+                spec[key] = copy.deepcopy(leader_spec[key])
+        spec['audit_inherited_from'] = leader_id
+        inherited.append(question['id'])
+    return inherited
+
+
 def append(run_dir, batch, *, state=None, plan=None, replace=False):
     root = Path(run_dir).resolve()
     preflight = read(root / 'preflight.json')
@@ -209,6 +243,8 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         # They are not generated-exam schema fields or a source of questions.
         exam={key:exam[key] for key in ('metadata','instructions','sections')}
         exam['questions'], exam['answers'] = [], []
+        # Keys the final validators read; stubs make the shape visible from the first batch.
+        exam['metadata'].setdefault('mixed_group_originality_records', [])
     for name in ('paper_id', 'subject'):
         if exam.get('metadata', {}).get(name) != preflight.get(name):
             raise ValueError('Exam metadata belongs to another paper or subject')
@@ -228,6 +264,7 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         raise ValueError('Existing exam requires question and answer lists')
     first_batch = not current_questions
     by_id = {q['id']: q for q in current_questions}
+    inherited = inherit_audits(questions, by_id)
     by_answer = {a['question_id']: a for a in current_answers}
     if len(by_id) != len(current_questions) or len(by_answer) != len(current_answers):
         raise ValueError('Existing exam has duplicate IDs; resolve before appending')
@@ -275,10 +312,16 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         report['design_note'] = ('The final check requires these difficulty-design fields. They are not printed: '
                                  'complete them with --replace as the batch is solved and reviewed; page reviews stay valid.')
     report.update(proof_triage(questions, answers, first_batch=first_batch))
+    if inherited:
+        report['audits_inherited'] = inherited
     gate = subject_gate_errors(exam, root=root, authoring=True)
     per_item = item_messages(gate, questions)
     if per_item:
         report['subject_gate_pending'] = per_item
+        report['status'] = 'items-saved-fix-before-next-batch'
+        report['next_action'] = (f'{len(per_item)} saved item(s) carry messages the final check will fail on. Fix them with '
+                                 'append_items.py --replace before drafting the next batch; a defect fixed now costs one '
+                                 'item, the same defect found by the whole-paper gate cost a 52-minute rebuild.')
     paper_level = [m for m in gate if not any(m in rows for rows in per_item.values())]
     if paper_level:
         report['subject_gate_paper_pending'] = {'count': len(paper_level), 'sample': paper_level[:8],

@@ -81,7 +81,7 @@ def validate(plan, root=ROOT):
     if total!=official['total_score'] or meta.get('total_score')!=official['total_score']:
         errors.append('planned total score differs from the controlling official profile')
     if duration!=official['duration_minutes']:errors.append('duration differs from the controlling official profile')
-    difficulty=meta.get('paper_difficulty_plan') or {}
+    difficulty=meta.get('paper_difficulty_plan') or meta.get('difficulty_balance_plan') or {}
     counts=Counter(q.get('band') for q in items)
     points={b:sum(q['score'] for q in items if q.get('band')==b and number(q.get('score'))) for b in BANDS}
     for b in BANDS:
@@ -161,8 +161,10 @@ def validate(plan, root=ROOT):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('plan',type=Path,nargs='?');p.add_argument('--report',type=Path)
+    p.add_argument('--plan',dest='plan_option',type=Path,help='Same as the positional plan path')
     p.add_argument('--skeleton',action='store_true');p.add_argument('--subject');p.add_argument('--paper-id');p.add_argument('--year')
     a=p.parse_args()
+    a.plan=a.plan or a.plan_option
     if a.skeleton:
         if a.plan or not all((a.subject,a.paper_id,a.year,a.report)):
             p.error('--skeleton requires --subject, --paper-id, --year and a new --report path, without a plan input')

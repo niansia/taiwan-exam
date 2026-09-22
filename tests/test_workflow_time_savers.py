@@ -100,7 +100,7 @@ def test_profile_subpart_names_receive_their_printed_ordinal():
 def test_absolute_option_wording_is_listed_without_blocking_the_batch(run):
     report = append(run, [item('q1', 1, options=[{'label': 'A', 'text': '折射角與入射角無關'},
                                                  {'label': 'B', 'text': '折射角隨入射角增大'}])])
-    assert report['status'] == 'items-saved'
+    assert report['status'] in {'items-saved', 'items-saved-fix-before-next-batch'}
     assert report['absolute_claim_options'] == [{'id': 'q1', 'label': 'A', 'word': '無關', 'text': '折射角與入射角無關'}]
     assert 'condition' in report['absolute_claim_note']
 

@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.6
+# Taiwan Exam Web Knowledge v2026.09.22.7
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -645,10 +645,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 38217,
-    "sha256": "5bfd37991a40c229024adcc3830b4f00c0a682d242f63e59909b82b8deeb48e8",
-    "embedded_bytes": 38217,
-    "embedded_sha256": "5bfd37991a40c229024adcc3830b4f00c0a682d242f63e59909b82b8deeb48e8"
+    "bytes": 39352,
+    "sha256": "196ff51cc0a4e8f7c2d1bd20e8fc4f265ff2ce0abc4f87d2a350e43cb07e2318",
+    "embedded_bytes": 39352,
+    "embedded_sha256": "196ff51cc0a4e8f7c2d1bd20e8fc4f265ff2ce0abc4f87d2a350e43cb07e2318"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -848,10 +848,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/append_items.py",
-    "bytes": 19029,
-    "sha256": "f75ba16247bb16027237998472a152349a016ce4a576ce5a4d975d5cfc6901fd",
-    "embedded_bytes": 19029,
-    "embedded_sha256": "f75ba16247bb16027237998472a152349a016ce4a576ce5a4d975d5cfc6901fd"
+    "bytes": 21444,
+    "sha256": "b6c4bf6067dad79c24b8df8c190f6c318b8d0fa2886fdec88b78995bf2119035",
+    "embedded_bytes": 21444,
+    "embedded_sha256": "b6c4bf6067dad79c24b8df8c190f6c318b8d0fa2886fdec88b78995bf2119035"
   },
   {
     "path": "scripts/audit_item_originality.py",
@@ -876,10 +876,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_paper_plan.py",
-    "bytes": 12815,
-    "sha256": "7ee0441bbf8a573fc1c254abdea26a2e51fb1674e03f504df612708d2a3dec80",
-    "embedded_bytes": 12815,
-    "embedded_sha256": "7ee0441bbf8a573fc1c254abdea26a2e51fb1674e03f504df612708d2a3dec80"
+    "bytes": 12987,
+    "sha256": "22914ca4116e131a5578476a80123f2f153c0a08bdb9517d7088b16a8a6f9e55",
+    "embedded_bytes": 12987,
+    "embedded_sha256": "22914ca4116e131a5578476a80123f2f153c0a08bdb9517d7088b16a8a6f9e55"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -890,10 +890,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/emit_item_skeleton.py",
-    "bytes": 8214,
-    "sha256": "6a04572fe07d830f0d8d89294d38b15fc519868fc096062d9a6bcaa351df33dd",
-    "embedded_bytes": 8214,
-    "embedded_sha256": "6a04572fe07d830f0d8d89294d38b15fc519868fc096062d9a6bcaa351df33dd"
+    "bytes": 8862,
+    "sha256": "d43f5a1d670de41c81458e11e188b251f8abd13e679faf881c3ed3fbcfc14979",
+    "embedded_bytes": 8862,
+    "embedded_sha256": "d43f5a1d670de41c81458e11e188b251f8abd13e679faf881c3ed3fbcfc14979"
   },
   {
     "path": "scripts/ensure_pymupdf.py",
@@ -911,10 +911,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 9023,
-    "sha256": "7ce04a32e0fef27b241376834852ecf0a578b9071fbb69e972b4aa30c6a8dac7",
-    "embedded_bytes": 9023,
-    "embedded_sha256": "7ce04a32e0fef27b241376834852ecf0a578b9071fbb69e972b4aa30c6a8dac7"
+    "bytes": 9565,
+    "sha256": "9ce5e8d3bb00cc77feeeba994b444c621ace8350c88597b5c300158135e2d2ce",
+    "embedded_bytes": 9565,
+    "embedded_sha256": "9ce5e8d3bb00cc77feeeba994b444c621ace8350c88597b5c300158135e2d2ce"
   },
   {
     "path": "scripts/hosted_body_templates.py",
@@ -967,10 +967,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_subject_gates.py",
-    "bytes": 7944,
-    "sha256": "e65a988be6542ea406018fdffbcce601b4115cdbd903333dae11e4ae41fcf0bf",
-    "embedded_bytes": 7796,
-    "embedded_sha256": "288a1edad8501bea0c7d4c7220ba7f5f0b2a119d49a7ab35445198fb8f92dbda"
+    "bytes": 10193,
+    "sha256": "df61d2252a6f1041b646294ff215e0e42eb0d2626f7734162c9cbf7a83cb8b68",
+    "embedded_bytes": 10007,
+    "embedded_sha256": "97ea54cb70bfc38d14429507b051bf9af67efea7c83d8c5fd0d90c9b406d8c6d"
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
@@ -1002,10 +1002,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 24579,
-    "sha256": "0a567cb955df9d5e3e674412e31b61fbb583d44efc18444f5222fc39182997b2",
-    "embedded_bytes": 24579,
-    "embedded_sha256": "0a567cb955df9d5e3e674412e31b61fbb583d44efc18444f5222fc39182997b2"
+    "bytes": 27789,
+    "sha256": "61fd76d940ea10da3373a567b97abf6d69a34646ab0381363781c3817028f9fc",
+    "embedded_bytes": 27789,
+    "embedded_sha256": "61fd76d940ea10da3373a567b97abf6d69a34646ab0381363781c3817028f9fc"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1016,10 +1016,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 86625,
-    "sha256": "1de668304c33cc7e75fa139e837d37cab645bd7401f9e32feba84bbf4d0f08f4",
-    "embedded_bytes": 86625,
-    "embedded_sha256": "1de668304c33cc7e75fa139e837d37cab645bd7401f9e32feba84bbf4d0f08f4"
+    "bytes": 86861,
+    "sha256": "cea1a6220820f09a87aac14f3d1b54af48494f7f313b134821f0495a6009e798",
+    "embedded_bytes": 86861,
+    "embedded_sha256": "cea1a6220820f09a87aac14f3d1b54af48494f7f313b134821f0495a6009e798"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1121,10 +1121,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
-    "bytes": 5656,
-    "sha256": "708acc58ab5673fd2c3d5d921b5feb6f74aee87c97ae754db1bb290918dfb968",
-    "embedded_bytes": 5656,
-    "embedded_sha256": "708acc58ab5673fd2c3d5d921b5feb6f74aee87c97ae754db1bb290918dfb968"
+    "bytes": 5848,
+    "sha256": "72ea9a5b0143a8bb5f3e85341c70800ec0fadb3e509ef109511ada7f4f47739f",
+    "embedded_bytes": 5848,
+    "embedded_sha256": "72ea9a5b0143a8bb5f3e85341c70800ec0fadb3e509ef109511ada7f4f47739f"
   },
   {
     "path": "scripts/validate_reference_page_density.py",
@@ -1142,10 +1142,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_source_grounding.py",
-    "bytes": 5824,
-    "sha256": "c8232959880135b8ca675b33b87c9de975753d1bae4992c565c0c5cfa3c6852d",
-    "embedded_bytes": 5824,
-    "embedded_sha256": "c8232959880135b8ca675b33b87c9de975753d1bae4992c565c0c5cfa3c6852d"
+    "bytes": 8558,
+    "sha256": "c244405d0d86933faf03752495c9c70356d2b1a3024a20396c87ea15667c2c07",
+    "embedded_bytes": 8558,
+    "embedded_sha256": "c244405d0d86933faf03752495c9c70356d2b1a3024a20396c87ea15667c2c07"
   },
   {
     "path": "scripts/validate_visual_item_contract.py",
@@ -59212,6 +59212,22 @@ Inspect optional layout preview PDFs once, only for the selected subject pair.
 
 ## Author once, with small saved batches
 
+The preflight result lists `authoring_requirements`: every field a saved item
+must already carry (curriculum codes, difficulty design, originality record,
+innovation audit, source binding and grounding for any printed material,
+current-context records) and the subject's form rules. Read them before the
+first batch: a 3-hour hosted run learned each one from a later whole-paper gate
+and rebuilt the paper every time (52 minutes for source binding alone). Every
+message a batch save returns under `subject_gate_pending`, `design_fields_pending`
+or `absolute_claim_options` is a final-check failure; when any is present the
+save reports `items-saved-fix-before-next-batch`, and the next batch waits until
+`--replace` clears it. Items of one shared stimulus may set
+`item_spec.inherits_audit_from` to the group's first item: the saver copies its
+originality record, innovation audit, source binding and grounding; difficulty
+design, curriculum codes and the answer stay per item. A stem that quotes 「…」
+from 甲／乙／丙／上文 must quote the material as printed; the saver rejects a
+quotation the material does not contain.
+
 Read `reading/authoring.md` before creating content. Use the selected paper
 profile's actual scored slots, response forms, printed directions, score and
 duration. The generated paper uses `schemas/exam.schema.json`: questions contain
@@ -64580,6 +64596,40 @@ def validate_batch(batch):
     return questions, answers
 
 
+INHERITABLE_AUDITS = ('originality_record', 'subject_innovation_audit', 'literacy', 'source_grounding')
+
+
+def inherit_audits(questions, existing):
+    """Copy a group leader's audit records into items that declare `item_spec.inherits_audit_from`.
+
+    A hosted run wrote three candidate sketches and eight audit fields for each of
+    forty items (about 1,600 fields) although the items of one 題組 share the same
+    material, sources and novelty argument. Items of the same shared stimulus may
+    now inherit those records from the group's first item; per-item fields
+    (difficulty_design, curriculum_codes, the answer) are never inherited.
+    """
+    pool = dict(existing)
+    pool.update({q['id']: q for q in questions})
+    inherited = []
+    for question in questions:
+        spec = question.get('item_spec')
+        leader_id = spec.get('inherits_audit_from') if isinstance(spec, dict) else None
+        if not leader_id:
+            continue
+        leader = pool.get(leader_id)
+        if leader is None or leader is question:
+            raise ValueError(f'{question["id"]}: inherits_audit_from names an unknown item {leader_id!r}')
+        if not question.get('group_stimulus') or leader.get('group_stimulus') != question.get('group_stimulus'):
+            raise ValueError(f'{question["id"]}: audits can be inherited only from an item sharing the same group_stimulus')
+        leader_spec = leader.get('item_spec') or {}
+        for key in INHERITABLE_AUDITS:
+            if key not in spec and key in leader_spec:
+                spec[key] = copy.deepcopy(leader_spec[key])
+        spec['audit_inherited_from'] = leader_id
+        inherited.append(question['id'])
+    return inherited
+
+
 def append(run_dir, batch, *, state=None, plan=None, replace=False):
     root = Path(run_dir).resolve()
     preflight = read(root / 'preflight.json')
@@ -64617,6 +64667,8 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         # They are not generated-exam schema fields or a source of questions.
         exam={key:exam[key] for key in ('metadata','instructions','sections')}
         exam['questions'], exam['answers'] = [], []
+        # Keys the final validators read; stubs make the shape visible from the first batch.
+        exam['metadata'].setdefault('mixed_group_originality_records', [])
     for name in ('paper_id', 'subject'):
         if exam.get('metadata', {}).get(name) != preflight.get(name):
             raise ValueError('Exam metadata belongs to another paper or subject')
@@ -64636,6 +64688,7 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         raise ValueError('Existing exam requires question and answer lists')
     first_batch = not current_questions
     by_id = {q['id']: q for q in current_questions}
+    inherited = inherit_audits(questions, by_id)
     by_answer = {a['question_id']: a for a in current_answers}
     if len(by_id) != len(current_questions) or len(by_answer) != len(current_answers):
         raise ValueError('Existing exam has duplicate IDs; resolve before appending')
@@ -64683,10 +64736,16 @@ def append(run_dir, batch, *, state=None, plan=None, replace=False):
         report['design_note'] = ('The final check requires these difficulty-design fields. They are not printed: '
                                  'complete them with --replace as the batch is solved and reviewed; page reviews stay valid.')
     report.update(proof_triage(questions, answers, first_batch=first_batch))
+    if inherited:
+        report['audits_inherited'] = inherited
     gate = subject_gate_errors(exam, root=root, authoring=True)
     per_item = item_messages(gate, questions)
     if per_item:
         report['subject_gate_pending'] = per_item
+        report['status'] = 'items-saved-fix-before-next-batch'
+        report['next_action'] = (f'{len(per_item)} saved item(s) carry messages the final check will fail on. Fix them with '
+                                 'append_items.py --replace before drafting the next batch; a defect fixed now costs one '
+                                 'item, the same defect found by the whole-paper gate cost a 52-minute rebuild.')
     paper_level = [m for m in gate if not any(m in rows for rows in per_item.values())]
     if paper_level:
         report['subject_gate_paper_pending'] = {'count': len(paper_level), 'sample': paper_level[:8],
@@ -65480,7 +65539,7 @@ def validate(plan, root=ROOT):
     if total!=official['total_score'] or meta.get('total_score')!=official['total_score']:
         errors.append('planned total score differs from the controlling official profile')
     if duration!=official['duration_minutes']:errors.append('duration differs from the controlling official profile')
-    difficulty=meta.get('paper_difficulty_plan') or {}
+    difficulty=meta.get('paper_difficulty_plan') or meta.get('difficulty_balance_plan') or {}
     counts=Counter(q.get('band') for q in items)
     points={b:sum(q['score'] for q in items if q.get('band')==b and number(q.get('score'))) for b in BANDS}
     for b in BANDS:
@@ -65560,8 +65619,10 @@ def validate(plan, root=ROOT):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('plan',type=Path,nargs='?');p.add_argument('--report',type=Path)
+    p.add_argument('--plan',dest='plan_option',type=Path,help='Same as the positional plan path')
     p.add_argument('--skeleton',action='store_true');p.add_argument('--subject');p.add_argument('--paper-id');p.add_argument('--year')
     a=p.parse_args()
+    a.plan=a.plan or a.plan_option
     if a.skeleton:
         if a.plan or not all((a.subject,a.paper_id,a.year,a.report)):
             p.error('--skeleton requires --subject, --paper-id, --year and a new --report path, without a plan input')
@@ -65880,6 +65941,19 @@ SUBJECTS=('國綜','英文','數學A','數學B','自然','社會','國寫')
 SOURCE_MAP=ROOT/'exam_packs/學測/metadata/official-current-web-sources.json'
 
 
+CIRCLED='①②③④⑤⑥⑦⑧⑨'
+
+
+def subpart_label(subpart_id):
+    parts=[p for p in re.split(r'[-_.]',str(subpart_id)) if p]
+    if not parts or not parts[0].isdigit():
+        return None
+    label=f'({parts[0]})'
+    if len(parts)>1 and parts[1].isdigit() and 1<=int(parts[1])<=9:
+        label+=CIRCLED[int(parts[1])-1]
+    return label
+
+
 def skeleton(subject,number=None,subpart=None,slot_id=None):
     if subject not in SUBJECTS or (slot_id is None and (type(number) is not int or number<1)):
         raise ValueError('Choose a supported subject and a positive numbered slot')
@@ -65904,6 +65978,10 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
         ordinal=next(i for i,s in enumerate(siblings,1) if s['id']==slot['id'])
         sub=str(slot['subpart_id'])
         question['subpart_id']=sub if re.match(r'^(?:\d+|[a-z])(?:$|[-_.])',sub) else f'{ordinal}-{sub}'
+        # The printed label follows the official form: (1), (2), and (2)①/(2)② for
+        # a split second part. A hosted run rebuilt its part-two layout twice to
+        # discover this from a "duplicate label" refusal.
+        question['answer_label']=subpart_label(question['subpart_id'])
     if number is None:
         section=next(s for s in profile['sections'] if s['id']==slot['section_id'])
         question['number_display']=slot.get('printed_label') or section['title']
@@ -66527,7 +66605,7 @@ def review_errors(exam, review):
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
                             if type(r.get('expected_minutes')) in (int,float))
-    shared = (exam.get('metadata', {}).get('difficulty_balance_plan') or {}).get('shared_reading_minutes', 0)
+    shared = (exam.get('metadata', {}).get('difficulty_balance_plan') or exam.get('metadata', {}).get('paper_difficulty_plan') or {}).get('shared_reading_minutes', 0)
     if type(duration) in (int,float) and type(shared) in (int,float) and independent_total + shared > duration:
         errors.append('difficulty: reviewed solving plus shared reading exceeds paper duration')
     if is_math and len(exam['questions']) == 20:
@@ -66558,10 +66636,16 @@ def review_errors(exam, review):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('exam', type=Path)
-    parser.add_argument('output', type=Path)
+    parser.add_argument('exam', type=Path, nargs='?')
+    parser.add_argument('output', type=Path, nargs='?')
+    parser.add_argument('--exam', dest='exam_option', type=Path, help='Same as the first positional argument')
+    parser.add_argument('--output', dest='output_option', type=Path, help='Same as the second positional argument')
     parser.add_argument('--review-mode', choices=REVIEW_MODES, default='independent-context')
     args = parser.parse_args()
+    args.exam = args.exam or args.exam_option
+    args.output = args.output or args.output_option
+    if not args.exam or not args.output:
+        parser.error('Give the exam and the output path (positionally or with --exam/--output)')
     args.output.write_text(json.dumps(packet(json.loads(args.exam.read_text(encoding='utf-8')), args.review_mode),
                                      ensure_ascii=False, indent=2), encoding='utf-8')
 </canonical-source>
@@ -68551,6 +68635,34 @@ def answer_explanation_errors(exam):
     return errors
 
 
+QUOTED_FROM_MATERIAL = re.compile(r'(?:[甲乙丙丁戊己]文?|上文|本文|下文|原文|文中|詩中|詞中|文末|文首)[^「」]{0,10}「([^「」]{1,16})」')
+
+
+def material_quote_errors(exam):
+    """A stem that quotes 「…」 from 甲/乙/丙/上文 must quote text the material prints.
+
+    A hosted 國綜 item asked about the word 「久」 in 乙、丙 while 丙 contained no
+    such character; the defect was found by the second reviewer after the whole
+    paper was written. Checked on save instead.
+    """
+    errors = []
+    for question in exam.get('questions') or []:
+        if not isinstance(question, dict):
+            continue
+        material = re.sub(r'\s+', '', str(question.get('group_stimulus') or ''))
+        if not material:
+            continue
+        prompt = str(question.get('prompt') or '')
+        texts = [prompt] + [str(o.get('text') or '') for o in question.get('options') or [] if isinstance(o, dict)]
+        number = question.get('number') or question.get('id')
+        missing = sorted({quote for text in texts for quote in QUOTED_FROM_MATERIAL.findall(text)
+                          if re.sub(r'\s+', '', quote) not in material and not re.fullmatch(r'[甲乙丙丁戊己]', quote)})
+        if missing:
+            errors.append(f'Q{number}: quotes 「{"」「".join(missing)}」 as words of the material, but the printed material '
+                          'does not contain them; quote the text as printed or rewrite the stem')
+    return errors
+
+
 def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
     """All subject validators that can run from the exam record alone.
 
@@ -68594,6 +68706,16 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
         from pathlib import Path
         from validate_visual_item_contract import validate_exam as visuals
         errors.extend('visuals: ' + str(e) for e in visuals(exam, Path(root)).get('errors', []))
+    if subject in {'國綜', '自然'}:
+        from validate_source_grounding import item_errors as grounding_item_errors
+        registry = (exam.get('metadata') or {}).get('source_registry') or {}
+        sources = ({str(s.get('source_id')): s for s in registry.get('sources') or [] if isinstance(s, dict)}
+                   if isinstance(registry, dict) and registry.get('sources') else None)
+        for question in exam.get('questions') or []:
+            if isinstance(question, dict):
+                errors.extend('grounding: ' + e for e in grounding_item_errors(question, subject, sources))
+    if subject == '國綜':
+        errors.extend('quotes: ' + e for e in material_quote_errors(exam))
     if subject not in {'數學A', '數學B'}:
         errors.extend('answers: ' + e for e in answer_explanation_errors(exam))
     from answer_key_patterns import answer_pattern_errors
@@ -69863,6 +69985,43 @@ def supplied_font(path, run_dir):
     return chosen, record, None
 
 
+def authoring_requirements(subject):
+    """What every saved item must already carry, stated before the first batch.
+
+    A 3-hour hosted run learned each of these from a later gate and rebuilt the
+    paper each time; the batch saver now reports the same messages per item.
+    """
+    common = [
+        'item_spec.curriculum_codes: 108 課綱 codes for every item (scope validator fails per item without them)',
+        'item_spec.difficulty_design: band, basis, confidence, short_route, misconception, linked_decisions, bottleneck, '
+        'expected_minutes, content_sha256 (difficulty-field-contract.md)',
+        'item_spec.originality_record: candidate_count>=3, 3 mechanism families, novelty_dimensions>=3, skin_swap_test and '
+        'lexical_screen pass; items of one shared stimulus may set item_spec.inherits_audit_from to the group\'s first item',
+        'item_spec.subject_innovation_audit for 國綜/自然/社會 items (candidate_competition_linked, routine rejected, text fields)',
+        'any printed material (group_stimulus, long prompt, continuation pages): item_spec.literacy.source_ids naming a real '
+        'registered source plus item_spec.source_grounding {status: verified, proposition_map, material_mode/data_mode}; '
+        'never a self-written passage labelled 自擬/自撰/編者撰成',
+        'recent items: item_spec.current_context bound to metadata.current_context_plan (current-form-topicality.md floors)',
+        'answers: final_answer is a printed label; reasoning names the chosen option; explanations never cite a label that '
+        'was reordered away',
+        'metadata: difficulty_balance_plan (also read as paper_difficulty_plan), mixed_group_originality_records for every '
+        'shared stimulus, subject_innovation_review',
+    ]
+    by_subject = {
+        '國綜': ['Q1 pairs two different look-alike characters in four-character phrases; Q2 錯別字 sentences >= 16 characters; '
+               '排序 is 古文; 填詞 quotes an attributed work with two candidates per slot; every 題組 prints 改寫自 作者〈篇名〉 or '
+               'the 文言 title; >= 30 attribution tokens; absolute-word options <= 12%; one ①②研判 single-choice item; '
+               'stems quote 「…」 exactly as the material prints it; options one per line unless four options <= 16 chars'],
+        '自然': ['five verified recent sources carrying eight items in both parts, two within 180 days, a Taiwan hazard, '
+               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item'],
+        '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
+               'subject_innovation_audit per item; content codes only in curriculum_codes'],
+        '英文': ['ten official headings with A-D labels; passage lengths in the official bands; two recent passages carrying six '
+               'items; composition prompt in Chinese with 提示/第一段/第二段; unpatterned answer keys'],
+    }
+    return common + by_subject.get(subject, [])
+
+
 def body_font(run_dir, requested=None):
     """(path, record) of the run's body font.
 
@@ -70066,6 +70225,7 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
             raise ValueError('Explicit independent review requirement needs an actual separate reviewer; resolve before authoring')
         calibration = snapshot(subject)
         font, report['body_font'] = body_font(run_dir, font)
+        report['authoring_requirements'] = authoring_requirements(subject)
         if timing.is_file() and cached_ready(previous_preflight, report, run_dir, font, calibration):
             clock = json.loads(timing.read_text(encoding='utf-8-sig'))
             if clock.get('paper_id') != paper_id:
@@ -71750,11 +71910,13 @@ def project_specs(exam, hints, body_width):
     return [{'subject': subject, 'blocks': blocks}, {'subject': subject, 'blocks': solutions}]
 
 
-def specs(state_path, question_output, solution_output, hints=None):
+def specs(state_path, question_output=None, solution_output=None, hints=None):
     """Write both body specs from the saved exam; never author or alter content."""
     started = time.time()
     state_path = Path(state_path).resolve()
     root = state_path.parent
+    question_output = question_output or root / 'questions-blocks.json'
+    solution_output = solution_output or root / 'solutions-blocks.json'
     state = read(state_path)
     exam_path = inside(root, root / state['exam']['path'])
     if record(root, exam_path) != state['exam']:
@@ -72146,8 +72308,8 @@ def main():
     plan_parser.add_argument('--compare', type=Path, help='A previous plan directory: report per-page bottom-void deltas')
     spec_parser = commands.add_parser('specs', help='Project saved items into both body layout specs')
     spec_parser.add_argument('--state', type=Path, required=True)
-    spec_parser.add_argument('--question-output', type=Path, required=True)
-    spec_parser.add_argument('--solution-output', type=Path, required=True)
+    spec_parser.add_argument('--question-output', type=Path, help='Default: questions-blocks.json beside the state')
+    spec_parser.add_argument('--solution-output', type=Path, help='Default: solutions-blocks.json beside the state')
     spec_parser.add_argument('--hints', type=Path, help='Layout-only choices and special-structure blocks')
     proof_parser = commands.add_parser('proof', help='Render selected saved items for early crop review')
     for name in ('state', 'question-spec', 'solution-spec', 'output'):
@@ -75762,9 +75924,14 @@ def content_hash(q):
         if q.get(key) is not None:
             content[key]=q.get(key)
     return hashlib.sha256(json.dumps(content,ensure_ascii=False,sort_keys=True).encode()).hexdigest()
+def difficulty_plan(metadata):
+    """The paper's four-band plan under either of its two historical keys."""
+    return metadata.get('difficulty_balance_plan') or metadata.get('paper_difficulty_plan') or {}
+
+
 def validate(d,asset_root=None):
     errors=[]; counts=collections.Counter(); points=collections.Counter();rows=[]; hard_evidence=collections.Counter()
-    plan=d.get('metadata',{}).get('difficulty_balance_plan',{})
+    plan=difficulty_plan(d.get('metadata',{}))
     answers={a['question_id']:a for a in d.get('answers',[])}
     for q in d.get('questions',[]):
         rec=q.get('item_spec',{}).get('difficulty_design',{});band=rec.get('band');n=q.get('number')
@@ -76565,6 +76732,51 @@ def printed_material(question: dict, subject: str) -> tuple[str, str]:
         chunks.append(prompt)
         locations.append("prompt")
     return "\n".join(chunks), ",".join(locations)
+
+
+MATERIAL_MODES = {"licensed_quote", "public_domain_quote", "attributed_adaptation"}
+DATA_MODES = {"published_exact", "derived_from_published", "transparent_school_model"}
+
+
+def item_errors(question: dict, subject: str, sources: dict | None = None) -> list[str]:
+    """The per-item grounding rules, callable while a batch is being saved.
+
+    A hosted run learned these only from the whole-paper gate after thirty items
+    were written and spent 52 minutes rebinding every passage; the same messages
+    now come back with the batch that introduced the material.
+    """
+    number = question.get("number") or question.get("id")
+    errors: list[str] = []
+    printed = "\n".join(str(x or "") for x in (question.get("group_stimulus"), question.get("prompt")))
+    if FORBIDDEN_PRINT_LABELS.search(printed):
+        errors.append(f"Q{number}: forbidden invented-source label in student text")
+    spec = question.get("item_spec") or {}
+    literacy = spec.get("literacy") or {}
+    source_ids = [str(x) for x in literacy.get("source_ids") or []]
+    stimulus, material_location = printed_material(question, subject)
+    if stimulus:
+        if not source_ids:
+            errors.append(f"Q{number}: source-bearing {material_location} has no item_spec.literacy.source_ids "
+                          "(bind the material to a real registered source before saving)")
+        if sources is not None:
+            missing = [x for x in source_ids if x not in sources]
+            if missing:
+                errors.append(f"Q{number}: unknown source_ids {missing}")
+        grounding = spec.get("source_grounding") or {}
+        if grounding.get("status") != "verified":
+            errors.append(f"Q{number}: item_spec.source_grounding.status must be verified")
+        if not grounding.get("proposition_map"):
+            errors.append(f"Q{number}: missing source_grounding.proposition_map")
+        if subject == "國綜" and grounding.get("material_mode") not in MATERIAL_MODES:
+            errors.append(f"Q{number}: 國綜 source_grounding.material_mode must be one of {sorted(MATERIAL_MODES)}")
+        if subject == "自然" and grounding.get("data_mode") not in DATA_MODES:
+            errors.append(f"Q{number}: natural-science data must be published, transparently derived, or a declared school-level model")
+        if subject == "自然" and grounding.get("data_mode") == "transparent_school_model":
+            if not grounding.get("model_assumptions") or not grounding.get("derivation"):
+                errors.append(f"Q{number}: transparent school model requires assumptions and derivation")
+    elif source_ids:
+        errors.append(f"Q{number}: source_ids present without a source-bearing stimulus")
+    return errors
 
 
 def main() -> int:
