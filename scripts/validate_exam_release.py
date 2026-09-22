@@ -286,7 +286,8 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
                      ('validate_english_vocabulary_scope.py', [exam_path, base / contract.get('vocabulary_reference', '')]),
                      ('validate_english_difficulty_design.py', [exam_path])]
     elif subject == '國寫':
-        commands += [('validate_writing_source_grounding.py', [exam_path, source_path])]
+        commands += [('validate_writing_layout_contract.py', [exam_path]),
+                     ('validate_writing_source_grounding.py', [exam_path, source_path])]
     else:
         errors.append('no formal gate routing for this subject/combined booklet; do not silently skip it')
     if execute:

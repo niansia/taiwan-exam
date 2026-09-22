@@ -171,11 +171,24 @@ def authoring_requirements(subject):
                'the 文言 title; >= 30 attribution tokens; absolute-word options <= 12%; one ①②研判 single-choice item; '
                'stems quote 「…」 exactly as the material prints it; options one per line unless four options <= 16 chars'],
         '自然': ['five verified recent sources carrying eight items in both parts, two within 180 days, a Taiwan hazard, '
-               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item'],
+               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item',
+               'Q1-36: 12-19 多選 (應選2項 or 應選3項 only) in four nine-item discipline blocks; Q37-56..60: six 題組 of 3-6 '
+               'items, each with a 非選, 3-9 單選, 5-10 多選, 8-9 非選; metadata.natural_choice_form_contract records the '
+               'actual counts (official 111-115 bands, not the 115 mix alone)'],
+        '數學A': ['item_spec.scope_codes: 108 codes from templates/current-gsat-math-scope.json on every item (validate_math_context '
+                'fails without them); five options (1)-(5); stems without method hints or disclaimers'],
+        '數學B': ['item_spec.scope_codes: 108 codes (10年級 common core plus 11B) on every item, never 11A codes; every paper has '
+                'matrix, sphere/space, polynomial, line-circle, trigonometry, exp-log, counting, probability and data items; '
+                'sequence <= 2, counting <= 2, probability <= 3, no unit above 5 items; 3-10 items carry 11B codes'],
+        '國寫': ['two 大題: 一、 material 331-606 字 then 問題（一）文長限80字以內（至多4行）（占4分） and 問題（二）文長限400字以內'
+               '（至多19行）（占21分）; 二、 material 226-443 字 then 請以「題目」為題 (情意: 書寫經驗、感受、體悟或想像)（占25分）; '
+               'at least one material attributed inline（改寫自 作者《書名》）; no 文言, no 自擬'],
         '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
                'subject_innovation_audit per item; content codes only in curriculum_codes'],
         '英文': ['ten official headings with A-D labels; passage lengths in the official bands; two recent passages carrying six '
-               'items; composition prompt in Chinese with 提示/第一段/第二段; unpatterned answer keys'],
+               'items; composition prompt in Chinese with 提示/第一段/第二段 and a picture; unpatterned answer keys',
+               'vocabulary stems 13-24 words; reading 35-46 with 2-4 refer-to/closest-in-meaning items, one global item and at '
+               'most four is-true/NOT checks; mixed 47-50 = 4-point fill/short pair + 4-point 多選 + 2-point 簡答; 中譯英 18-28 字 each'],
     }
     return common + by_subject.get(subject, [])
 

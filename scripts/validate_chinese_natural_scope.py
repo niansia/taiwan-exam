@@ -17,6 +17,15 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTENT_CODE = re.compile(r"\b[A-Z][A-Za-z]{2}-Vc-\d\b")
 PERFORMANCE_CODE = re.compile(r"\b[a-z]{2}-Ⅴc-\d\b")
 CHINESE_CODES = {f"A{i}" for i in range(1, 7)} | {f"B{i}" for i in range(1, 6)}
+# 自然 form bands measured on the official 111–115 question booklets (2026-09-22).
+NATURAL_PROFILE_YEARS = {111, 112, 113, 114, 115}
+NATURAL_FIRST_PART_MULTIPLE = (12, 19)          # 多選 in Q1–36: 18, 15, 19, 18, 12
+NATURAL_MIXED_LAST = (56, 60)                   # last numbered item: 60, 60, 56, 57, 56
+NATURAL_MIXED_BANDS = {
+    "mixed_part_single_choice_count": (3, 9),        # 6, 9, 5, 3, 6
+    "mixed_part_multiple_choice_count": (5, 10),     # 10, 5, 7, 9, 6
+    "mixed_part_constructed_response_count": (8, 9), # 8, 8, 8, 9, 8
+}
 INNOVATION_TEXT_FIELDS = (
     "mechanism_family",
     "new_subject_mechanism",
@@ -259,22 +268,29 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
             if int(metadata.get("layout_contract_version") or 0) < 5:
                 errors.append("full natural paper requires layout_contract_version 5 for the cover scoring contract")
             choice_form = metadata.get("natural_choice_form_contract")
-            expected_choice_form = {
-                "profile_roc_year": 115,
-                "first_part_score": 72,
-                "first_part_item_score": 2,
-                "first_part_single_choice_count": 24,
-                "first_part_multiple_choice_count": 12,
-                "mixed_part_single_choice_count": 6,
-                "mixed_part_multiple_choice_count": 6,
-                "mixed_part_constructed_response_count": 8,
-            }
+            # Measured on the official 111–115 booklets: 第壹部分 多選 18/15/19/18/12 of 36
+            # (單選 18/21/17/18/24); 第貳部分 numbered items 24/22/20/21/20 with 單選 6/9/5/3/6,
+            # 多選 10/5/7/9/6 and 非選 8/8/8/9/8. 115 alone is not the form.
+            expected_choice_form = {"first_part_score": 72, "first_part_item_score": 2}
             if not isinstance(choice_form, dict):
                 errors.append("full natural paper requires natural_choice_form_contract")
             else:
                 for field, expected_value in expected_choice_form.items():
                     if choice_form.get(field) != expected_value:
                         errors.append(f"natural choice form {field} must be {expected_value}")
+                if choice_form.get("profile_roc_year") not in NATURAL_PROFILE_YEARS:
+                    errors.append("natural choice form profile_roc_year must be one of 111–115")
+                declared_multiple = choice_form.get("first_part_multiple_choice_count")
+                declared_single = choice_form.get("first_part_single_choice_count")
+                if not isinstance(declared_multiple, int) or not NATURAL_FIRST_PART_MULTIPLE[0] <= declared_multiple <= NATURAL_FIRST_PART_MULTIPLE[1]:
+                    errors.append(f"natural first-part multiple-choice count must be {NATURAL_FIRST_PART_MULTIPLE[0]}–{NATURAL_FIRST_PART_MULTIPLE[1]} "
+                                  f"(official 111–115: 18, 15, 19, 18, 12), got {declared_multiple}")
+                elif declared_single != 36 - declared_multiple:
+                    errors.append(f"natural first-part single-choice count must be {36 - declared_multiple} (36 minus the multiple-choice count)")
+                for field, (low, high) in NATURAL_MIXED_BANDS.items():
+                    value = choice_form.get(field)
+                    if not isinstance(value, int) or not low <= value <= high:
+                        errors.append(f"natural choice form {field} must be {low}–{high} (official 111–115 band), got {value}")
                 if choice_form.get("option_labels") != ["A", "B", "C", "D", "E"]:
                     errors.append("natural selected-response option labels must be A-E")
                 if choice_form.get("multiple_selection_cue") != "（應選n項）":
@@ -289,8 +305,13 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
                 errors.append("natural first part must contain every question from 1 through 36")
             else:
                 first_types = Counter(q.get("type") for q in first_questions)
-                if first_types != Counter({"single_choice": 24, "multiple_choice": 12}):
-                    errors.append(f"natural first-part 115 choice mix must be 24 single and 12 multiple, got {dict(first_types)}")
+                multiple = first_types.get("multiple_choice", 0)
+                if set(first_types) - {"single_choice", "multiple_choice"} or not NATURAL_FIRST_PART_MULTIPLE[0] <= multiple <= NATURAL_FIRST_PART_MULTIPLE[1]:
+                    errors.append(f"natural first part must be single- and multiple-choice only with {NATURAL_FIRST_PART_MULTIPLE[0]}–{NATURAL_FIRST_PART_MULTIPLE[1]} "
+                                  f"multiple-choice items (official 111–115: 18, 15, 19, 18, 12), got {dict(first_types)}")
+                if isinstance(choice_form, dict) and isinstance(choice_form.get("first_part_multiple_choice_count"), int) \
+                        and choice_form["first_part_multiple_choice_count"] != multiple:
+                    errors.append(f"natural_choice_form_contract declares {choice_form['first_part_multiple_choice_count']} first-part multiple-choice items but the paper has {multiple}")
                 first_score = sum(float(q.get("score") or 0) for q in first_questions)
                 if first_score != 72 or any(float(q.get("score") or 0) != 2 for q in first_questions):
                     errors.append("natural Questions 1-36 must each be 2 points and total 72 points")
@@ -309,12 +330,33 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
                         if normalized_print(printed_direction) != normalized_print("說明：第1題至第36題，含單選題及多選題，每題2分。"):
                             errors.append("natural first-part direction must state range, both choice types, and 2 points each")
 
-            mixed_questions = [numbered.get(number) for number in range(37, 57)]
-            if len(questions) == 56 and not any(q is None for q in mixed_questions):
-                mixed_types = Counter(q.get("type") for q in mixed_questions)
-                expected_mixed = Counter({"single_choice": 6, "multiple_choice": 6, "constructed_response": 8})
-                if mixed_types != expected_mixed:
-                    errors.append(f"natural mixed-part 115 response mix mismatch: {dict(mixed_types)}")
+            mixed_numbers = sorted(n for n in numbered if n >= 37)
+            if mixed_numbers:
+                last = mixed_numbers[-1]
+                if mixed_numbers != list(range(37, last + 1)) or not NATURAL_MIXED_LAST[0] <= last <= NATURAL_MIXED_LAST[1]:
+                    errors.append(f"natural mixed part must number 37 through 56–60 without gaps (official 111–115 end at 60, 60, 56, 57, 56), got 37–{last}")
+                mixed_types = Counter(numbered[n].get("type") for n in mixed_numbers)
+                for type_name, field in (("single_choice", "mixed_part_single_choice_count"),
+                                         ("multiple_choice", "mixed_part_multiple_choice_count"),
+                                         ("constructed_response", "mixed_part_constructed_response_count")):
+                    low, high = NATURAL_MIXED_BANDS[field]
+                    count = mixed_types.get(type_name, 0)
+                    if not low <= count <= high:
+                        errors.append(f"natural mixed part has {count} {type_name} items; official 111–115 band is {low}–{high}")
+                    if isinstance(choice_form, dict) and isinstance(choice_form.get(field), int) and choice_form[field] != count:
+                        errors.append(f"natural_choice_form_contract declares {field}={choice_form[field]} but the paper has {count}")
+                groups: dict[str, list[int]] = {}
+                for n in mixed_numbers:
+                    key = normalized_print(numbered[n].get("group_stimulus"))
+                    if key:
+                        groups.setdefault(key, []).append(n)
+                if groups and len(groups) != 6:
+                    errors.append(f"natural mixed part must print exactly 6 題組 (official 111–115 every year), found {len(groups)} shared stimuli")
+                for members in groups.values():
+                    if not 3 <= len(members) <= 6:
+                        errors.append(f"natural mixed 題組 {members[0]}–{members[-1]} has {len(members)} items; official groups carry 3–6")
+                    if not any(numbered[n].get("type") == "constructed_response" for n in members):
+                        errors.append(f"natural mixed 題組 {members[0]}–{members[-1]} has no 非選擇題; every official 111–115 group prints at least one")
 
             answer_by_id = {answer.get("question_id"): answer for answer in (exam.get("answers") or [])}
             for q in questions:
@@ -331,8 +373,8 @@ def validate(exam: dict, science_spec: Path | None = None) -> dict:
                         errors.append(f"Q{number}: single-choice key must contain exactly one A-E label")
                 else:
                     required_count = q.get("required_selection_count")
-                    if not isinstance(required_count, int) or required_count < 2 or required_count > 4:
-                        errors.append(f"Q{number}: multiple-choice item requires required_selection_count from 2 to 4")
+                    if not isinstance(required_count, int) or required_count < 2 or required_count > 3:
+                        errors.append(f"Q{number}: multiple-choice item requires required_selection_count 2 or 3 (every official 111–115 多選 prints 應選2項 or 應選3項)")
                     if len(answer_labels) != required_count:
                         errors.append(f"Q{number}: （應選{required_count}項） cue disagrees with verified key {answer_labels}")
             block_order = (exam.get("metadata") or {}).get("natural_objective_block_order")

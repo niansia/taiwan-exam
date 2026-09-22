@@ -127,3 +127,46 @@ def test_distractors_must_be_predicted_misconception_outcomes():
     item['item_spec']['difficulty_design']['misconception_paths'][1]['predicted_outcome'] = '29/5'
     errors, _ = validate_item(item, {}, '數學A')
     assert not any('misconception outcome(s) appear' in e for e in errors)
+
+
+MATH_B_CODES_115 = {1: 'N-10-5', 2: 'N-10-4', 3: 'A-11B-1', 4: 'S-11B-1', 5: 'N-10-6', 6: 'G-10-2', 7: 'D-11B-1', 8: 'F-11B-1',
+                    9: 'A-10-2', 10: 'D-10-2', 11: 'S-11B-2', 12: 'N-10-6', 13: 'G-10-6', 14: 'D-10-3', 15: 'D-11B-1', 16: 'F-10-1',
+                    17: 'G-11B-3', 18: 'G-10-3', 19: 'G-10-3', 20: 'G-10-3'}
+
+
+def _math_b_paper(codes=MATH_B_CODES_115):
+    paper = _paper()
+    paper['metadata']['subject'] = '數學B'
+    paper['sections'] = [{'id': 's', 'title': h} for h in HEADINGS['數學B']]
+    singles = paper['questions'][:6] + [paper['questions'][6]]
+    singles[6]['type'] = 'single_choice'
+    for q in paper['questions']:
+        q['item_spec'] = {'scope_codes': [codes[q['number']]]} if q['number'] in codes else {}
+    return paper
+
+
+def test_math_b_official_115_unit_envelope_passes_and_gaps_are_named():
+    assert math_form(_math_b_paper()) == []
+    flat = _math_b_paper({n: 'N-10-1' for n in range(1, 21)})
+    errors = math_form(flat)
+    assert any('整卷缺 矩陣、空間概念與球面' in e for e in errors)
+    assert any('數與式 有 20 題，超過單一單元上限 5' in e for e in errors)
+    assert any('帶 11B 專屬代碼的題目 0 題' in e for e in errors)
+    codes = {**MATH_B_CODES_115, 5: 'N-10-6', 12: 'N-10-6', 16: 'N-10-6'}
+    assert any('數列與級數 有 3 題，官方 111–115 每卷最多 2 題' in e for e in math_form(_math_b_paper(codes)))
+    foreign = _math_b_paper({**MATH_B_CODES_115, 4: 'G-11A-5'})
+    assert any("使用數A專屬代碼 ['G-11A-5']" in e for e in math_form(foreign))
+    missing = _math_b_paper()
+    missing['questions'][0]['item_spec'] = {}
+    errors = math_form(missing)
+    assert any('數學B第1題缺 item_spec.scope_codes' in e for e in errors)
+    assert 'q1' in gates.item_messages(['math-form: ' + e for e in errors], missing['questions'])
+
+
+def test_math_b_decision_floor_exempts_its_own_section_openers():
+    from validate_math_difficulty_design import required_decisions
+    assert required_decisions(0.5, 8, 'multiple_choice', '數學B') == 2
+    assert required_decisions(0.5, 8, 'multiple_choice', '數學A') == 2
+    assert required_decisions(0.5, 7, 'single_choice', '數學B') == 3
+    assert required_decisions(0.5, 7, 'multiple_choice', '數學A') == 2
+    assert required_decisions(0.5, 9, 'multiple_choice', '數學B') == 2

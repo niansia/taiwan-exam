@@ -22,6 +22,26 @@ https://www.ceec.edu.tw/files/file_pool/1/0J270523673716106563/111%E5%AD%B8%E5%B
 - Source eligibility is publisher-neutral. Do not maintain a whitelist, preferred outlet, or search shortcut that defaults to United Daily News or any other publisher, newspaper, magazine, platform, archive, or institution. A source wins because its transformed material fits the official length envelope, rhetorical role and evidence needs—not because its site is easy to search.
 - Meeting the material-length envelope is necessary, not sufficient. Traceability, rights and attribution safety, a concrete carrier, a semantic hinge, broad access, material dependence and task-role fit remain release gates.
 
+## Printed form measured on 111–115 (enforced by `validate_writing_layout_contract.py`)
+
+Text extracted from the five official 國寫 booklets on disk:
+
+| ROC | 一、material (CJK) | 問題（一） | 問題（二） | 二、material (CJK) | 二、task | attributed material |
+|---|---:|---|---|---:|---|---|
+| 111 | 331 (不老騎士／樂齡卡打車 reportage) | 80字/4行/4分 | 400字/19行/21分 | 277 (薛憶婷 poem + prose) | 「當我打開課本」25分 | 二 節錄自 |
+| 112 | 531 (福爾摩斯 dialogue) | same | same | 249 (蔣勳) | 「花草樹木的氣味記憶」25分 | 一、二 改寫自 |
+| 113 | 507 (甲、乙 two texts) | same, cites 甲、乙二文 | same | 443 (禹鐘榮) | 「縫隙的聯想」25分 | 二 改寫自 |
+| 114 | 606 (泛科學 擬社會互動) | same | same | 226 (52 赫茲鯨魚) | 「關於52赫茲，我想說的是……」文長不限 | 一 改寫自 |
+| 115 | 575 (黃宗慧、黃宗潔) | same | same | 233 + 幾米 圖文 | 「隔在我們之間的種種」25分 | 一 改寫自、二 圖文改寫自 |
+
+The contract, run when a 國寫 batch is saved and again at finalize, requires: exactly two 大題;
+問題（一） printing `文長限80字以內（至多4行）` and `（占4分）` and pointing at 上文／甲、乙二文;
+問題（二） printing `文長限400字以內（至多19行）` and `（占21分）`; 第二大題 `（占25分）` with
+`請以「題目」為題` and an affective task (書寫／抒發／敘述／描述 experience, feeling, imagination);
+第一大題 material 280–700 CJK characters, 第二大題 material 180–520; at least one material with an
+inline attribution `（改寫自 作者《書名》／〈篇名〉）`; no 文言 material; no 自擬／命題所設 marker.
+The measured table is `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
+
 ## Empirical page and material calibration, 111–115
 
 The following figures are compact text-layer character counts from the official question pages. They include recurring directions and prompts, so they are layout-density evidence rather than an exact source-passage quota.

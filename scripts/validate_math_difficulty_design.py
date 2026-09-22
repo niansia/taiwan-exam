@@ -24,7 +24,13 @@ def _normalized(value) -> str:
     return "".join(text.split()).lower()
 
 
-def required_decisions(p_center: float | None, number: int, question_type: str) -> int:
+# The first two positions of each selected-response section plus the mixed-group single
+# choice may stay at two decisions in the 0.40–0.65 band. 數A sections open at 1, 7, 13, 18;
+# 數B at 1, 8, 13, 18 (單選 seven items, 多選 five).
+SECTION_OPENERS = {"數學A": {1, 2, 7, 8, 18}, "數學B": {1, 2, 8, 9, 18}}
+
+
+def required_decisions(p_center: float | None, number: int, question_type: str, subject: str = "數學A") -> int:
     if p_center is None:
         return 4 if number == 20 else 3
     if p_center < 0.20:
@@ -32,7 +38,7 @@ def required_decisions(p_center: float | None, number: int, question_type: str) 
     if p_center < 0.40:
         return 3
     if p_center < 0.65:
-        if question_type in {"single_choice", "multiple_choice"} and number not in {1, 2, 7, 8, 18}:
+        if question_type in {"single_choice", "multiple_choice"} and number not in SECTION_OPENERS.get(subject, SECTION_OPENERS["數學A"]):
             return 3
         return 2
     return 2
@@ -84,7 +90,7 @@ def validate_item(
         errors.append(f"{qid}: invalid metric_type")
 
     decisions = as_list(design.get("linked_decisions"))
-    minimum = required_decisions(float(p_center) if isinstance(p_center, (int, float)) else None, number, question_type)
+    minimum = required_decisions(float(p_center) if isinstance(p_center, (int, float)) else None, number, question_type, subject)
     if subject == "數學B" and design.get("band") in {"簡單", "中"}:
         minimum = max(minimum, 3)
     declared_minimum = design.get("minimum_linked_decisions")
