@@ -18,7 +18,7 @@
 
 仍有的字型差異只有一項：雲端無法使用新細明體、標楷體與 Times New Roman（授權不允許散布），改用同標準字形的全字庫字型與 Times 的開源同形字 Nimbus Roman。
 
-新 ZIP（SHA-256 `e5096a8269ef20e77661321c9c9be07093b7c79e0df357f74cb7967aaca5448a`，7,020,646 位元組，98 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.19 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.19/taiwan-exam-hosted-2026.09.22.19.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.19) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `e5096a8269ef20e77661321c9c9be07093b7c79e0df357f74cb7967aaca5448a`，7,020,646 位元組，98 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.19 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.19/taiwan-exam-hosted-2026.09.22.19.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.19) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.18：數A 選項欄位、第壹部分標題與題組體例依官方，已通過的審查鎖定不重看
 
