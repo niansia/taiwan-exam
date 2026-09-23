@@ -13,7 +13,7 @@
 
 仍與官方不同、本版未改：標題「非選擇題（共二大題，占50分）」官方是粗體加字距，這裡是一般明體；說明框官方在「說明：」後懸掛縮排；頁首官方用 11pt 明體，這裡是固定模板的 10pt 楷體。數字與英文用 Nimbus Roman（Times 的開源替代），不是 Times New Roman；標楷體、細明體、Times New Roman 都不能隨 ZIP 散布。
 
-新 ZIP（SHA-256 `64ea093abaef8aa6390eb420a344cdd0f633e105d897dda1b969f3691f98e778`，6,878,800 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.17 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.17/taiwan-exam-hosted-2026.09.22.17.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.17) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `64ea093abaef8aa6390eb420a344cdd0f633e105d897dda1b969f3691f98e778`，6,878,800 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.17 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.17/taiwan-exam-hosted-2026.09.22.17.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.17) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.16：國寫題號欄與詳解標題依官方、問題（二）可繼承稽核
 
