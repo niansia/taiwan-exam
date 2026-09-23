@@ -32,6 +32,36 @@ def masked_pixels(page, regions, *, alpha=False):
     return bytes(samples)
 
 
+SIGNATURE_REMINDER = '請記得在答題卷簽名欄位以正楷簽全名'
+
+
+def answers_template(document):
+    """The inner template as a solutions booklet prints it: without the grey signature
+    reminder, which speaks to candidates at an answer sheet. Two hosted 數B audits flagged
+    it on every page of the 詳解. Compose and verify both derive this same redacted copy."""
+    copy = pymupdf.open()
+    copy.insert_pdf(document, from_page=0, to_page=0)
+    page = copy[0]
+    boxes = page.search_for(SIGNATURE_REMINDER)
+    # The grey band behind it, not the page's white background.
+    boxes += [d['rect'] for d in page.get_drawings()
+              if d.get('fill') and tuple(d['fill']) != (1.0, 1.0, 1.0) and d['rect'].height < 30
+              and any(d['rect'].intersects(box) for box in boxes)]
+    if not boxes:
+        raise ValueError('inner template lacks the signature reminder it should carry')
+    for box in boxes:
+        page.add_redact_annot(pymupdf.Rect(box) + (-2, -2, 2, 2), fill=False)
+    # Only graphics inside the boxes: the templates' full-page white ground must stay, or a
+    # body drawn over it blends differently and the locked header pixels change.
+    page.apply_redactions(images=0, graphics=1, text=0)
+    # Balance the rewritten stream and re-parse it, so pages placed on it later draw the
+    # same after saving as they did in memory.
+    page.clean_contents()
+    data = copy.tobytes(garbage=3, deflate=True)
+    copy.close()
+    return pymupdf.open(stream=data, filetype='pdf')
+
+
 def streams(page):
     # Page content plus nested Form XObjects reachable from this page; document
     # attachments and unused objects elsewhere are not evidence of composition.
@@ -90,6 +120,10 @@ def verify_pdf(pdf: Path, subject: str, kind: str, asset_dir: Path | None = None
             data = path.read_bytes()
             verify(asset, data)
             assets[component] = pymupdf.open(stream=data, filetype='pdf')
+            if kind == 'answers' and component.startswith('inner-'):
+                original = assets[component]
+                assets[component] = answers_template(original)
+                original.close()
         data = pdf.read_bytes()
         report['pdf_sha256'] = hashlib.sha256(data).hexdigest()
         math_formula = subject in {'數學A', '數學B'} and kind == 'questions'

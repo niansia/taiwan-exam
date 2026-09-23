@@ -6,6 +6,15 @@ import math
 from pathlib import Path
 
 REVIEW_MODES = ('independent-context', 'single-context')
+# Math A/B reviewers estimate each item's 答對率 and the band follows from it (maintainer
+# decision 2026-09-24): 難 below 0.30 and 中偏難 below 0.50, the cutoffs at which the
+# official 115 數學B scores exactly 70 and 30 points, the project's floors. Without them
+# hosted reviewers placed the same item on either side of 0.50 in successive rounds.
+MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
+
+
+def band_for_p(p):
+    return next(band for edge, band in MATH_P_BANDS if p < edge)
 
 
 def packet(exam, review_mode='independent-context'):
@@ -82,6 +91,13 @@ def review_errors(exam, review):
             continue
         if row.get('difficulty_band') not in bands or row.get('unresolved') != []:
             errors.append(f'{prefix}: unresolved or missing reviewed judgment')
+        if is_math:
+            p = row.get('estimated_p')
+            if type(p) not in (int, float) or not 0 <= p <= 1:
+                errors.append(f'{prefix}: record estimated_p, the reviewer estimate of the 答對率 (0-1); the band follows from it')
+            elif row.get('difficulty_band') in bands and band_for_p(p) != row['difficulty_band']:
+                errors.append(f'{prefix}: estimated_p {p:g} is band {band_for_p(p)} (難 <0.30, 中偏難 0.30-0.50, '
+                              f'中 0.50-0.70, 簡單 >=0.70), not {row["difficulty_band"]}')
         declared = question.get('expected_minutes')
         if type(declared) in (int,float) and declared > minutes * 1.5:
             errors.append(f'{prefix}: author time exceeds reviewed estimate by over 50%; revise and rebalance')

@@ -291,6 +291,11 @@ count. Preserve the actual subject's instruction and response geometry.
 
 For Math A/B the current project profile requires easy score **below 10**,
 medium-hard plus hard score **at least 70**, and hard score **at least 30**.
+The bands follow the reviewer's predicted 答對率 (`estimated_p`, recorded on every
+difficulty row): 難 below 0.30, 中偏難 0.30–0.50, 中 0.50–0.70, 簡單 0.70 and above.
+Under these cutoffs the official 115 數學B paper scores exactly 70 and 30 points, so the
+profile asks for the hardest recent year, not beyond it. The gate derives the band from
+`estimated_p`; a row whose band disagrees is rejected at the checkpoint, not at finalize.
 Retain the reviewed 80–92 minute hand-solving target, at least 50 points with
 three necessary decisions, and the subject-specific stricter Math B rules.
 Routine-only work cannot be labelled hard and remains capped at 25 points.
@@ -310,6 +315,21 @@ Search for shorter routes and scaffolding supplied by earlier items. Estimate
 necessary decisions and time against the saved compatible calibration, then
 reconcile the paper's difficulty balance. Numerical/symbolic verification or
 another derivation supplements high-risk items; it does not establish difficulty.
+
+Solve from the printed item, not from the saved answer: before the content lock the
+answers reviewer re-derives each key from the proof crop alone. A condition the answer
+needs (AC = CV, 「B 高於 A」, a scale) must be printed in the text; the cover says every
+figure is a 示意圖, so a key that depends on reading a drawn length or position fails
+(two hosted 數B papers carried such items through two builds).
+
+Register the gate reports as soon as the first complete draft is reviewed, not at the
+end: only a registered review keeps its rows when a later correction runs
+`refresh-evidence`. After a change, give the same reviewer only the `pending` rows of
+each draft; unchanged items keep their rows (a hosted 數B run re-solved all 20 items in
+four blind rounds, and the unchanged items' estimates drifted by up to 0.10). Record page
+reviews as soon as a build's pages are read; unrecorded reviews cannot be retained.
+Difficulty labels, `item_spec` plans and review metadata are author-only: changing them
+neither breaks the content lock nor reopens any review.
 
 This same actual review may supply `answers`, `difficulty.answer_recheck` and
 the answer's review fields. Store the result once and reference or mechanically
@@ -380,12 +400,15 @@ content. The order below is not advice; the tools enforce the parts they can.
    Complete the pending rows from an actual review, save the file as `<gate>.json`,
    checkpoint, then re-lock with `--reason`. The checker never reads a draft and no
    draft is a pass.
-4. **Plan** at most three times (`plan`, then `plan --compare <previous plan dir>`
-   which reports each page's `bottom_void_delta` and the page-count change).
+4. **Plan** after each real change (`plan`, then `plan --compare <previous plan dir>`
+   which reports each page's `bottom_void_delta` and the page-count change); the
+   budget counts only plans of unchanged printed content (`repeats_of_unchanged`).
    If the third plan is still not acceptable, stop adjusting hints by eye: shrink
    the figure or split the block once, based on the measured heights.
-5. **Build** at most twice. The second build exists to fix defects the first
-   review found, not to try another layout hint.
+5. **Build** at most twice with different printed content (`distinct_printed`); a
+   rebuild after an author-only change prints the same pages and is not counted. The
+   second build exists to fix defects the first review found, not to try another
+   layout hint.
 6. **Review once.** Every result carries `iteration_budget` (`count`, `budget`,
    `over_budget`). Exceeding a budget is not blocked, but the note names the
    cause to fix once; report the overrun in the delivery notes.

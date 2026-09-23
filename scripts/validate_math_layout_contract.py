@@ -29,6 +29,7 @@ Structural passes are never editorial passes.
 from __future__ import annotations
 
 from collections import Counter
+import json
 import re
 from typing import Any
 
@@ -80,7 +81,11 @@ MATH_B_FAMILY_LABELS = {'number': '數與式', 'exp_log': '指數與對數', 'po
                         'perspective': '單點透視', 'conic': '圓錐曲線'}
 MATH_B_REQUIRED_FAMILIES = ('matrix', 'sphere_space', 'polynomial', 'line_circle', 'trigonometry', 'exp_log',
                             'counting', 'probability', 'data')          # ≥1 item in every official year
-MATH_B_FAMILY_CAPS = {'sequence': 2, 'counting': 2, 'probability': 3, 'matrix': 2, 'sphere_space': 3}
+MATH_B_FAMILY_CAPS = {'sequence': 2, 'counting': 2, 'probability': 3, 'matrix': 2, 'sphere_space': 3, 'data': 2}
+# Polynomial is 2 items in every official year; a hosted paper had 1 (and 4 data items,
+# a data 題組 the booklets never set).
+MATH_B_FAMILY_FLOORS = {'polynomial': 2}
+MATRIX_PRINTED = re.compile(r'矩陣|方陣|\[\s*-?\d')
 MATH_B_ANY_FAMILY_CAP = 5
 MATH_B_11B_ITEMS = (3, 10)
 MATH_A_ONLY_CODES = re.compile(r'^[A-Z]-11A-\d+$')
@@ -144,6 +149,16 @@ def validate_exam(exam: dict) -> list[str]:
         errors.extend(math_b_scope_errors(questions, full))
     if subject == '數學A':
         errors.extend(math_a_scope_errors(questions, full))
+    # CEEC publishes a 評分原則 for the written items every year (111–115): full marks and
+    # the partial credit per step. A hosted 數B paper's solutions gave neither for 19–20.
+    answers = {str(a.get('question_id')): a for a in exam.get('answers') or [] if isinstance(a, dict)}
+    for q in questions:
+        record = answers.get(str(q.get('id')))
+        if (record and isinstance(q.get('number'), int) and q['number'] >= 18
+                and q.get('type') not in {'single_choice', 'multiple_choice', 'fill_in'}
+                and '評分' not in json.dumps(record, ensure_ascii=False)):
+            errors.append(f'{subject}第{q["number"]}題（非選擇題）詳解須附評分原則：滿分條件與各步驟的部分給分'
+                          '（官方 111–115 每年公布）')
 
     for question in questions:
         number = question.get('number') or question.get('id')
@@ -200,6 +215,11 @@ def validate_exam(exam: dict) -> list[str]:
             if median > STEM_MEDIAN_MAX:
                 errors.append(f'{subject}選擇（填）題題幹中位數 {median} 字，官方 111–115 為 83–123 字：'
                               '整卷敘述過長會多出一頁，且把判斷寫成說明降低難度')
+        fills = [q for q in questions if isinstance(q.get('number'), int) and 13 <= q['number'] <= 17]
+        if len(fills) == 5 and not any((q.get('answer_format') or {}).get('kind') == 'fraction' for q in fills
+                                       if isinstance(q.get('answer_format'), dict)):
+            errors.append(f'{subject}選填題 13–17 沒有分數答案：官方 111–115 每年至少一題「（化為最簡分數）」'
+                          '（數A 1–4 題、數B 1–3 題），五題都填兩位整數的格式與官方不符')
         # A shared stimulus is one context however many items read it.
         contexts: dict[str, list] = {}
         for q in questions:
@@ -244,6 +264,10 @@ def math_b_scope_errors(questions: list[dict], full: bool) -> list[str]:
             errors.append(f'數學B第{number}題的代碼 {codes} 不在數B範圍（10年級共同核心＋11B）')
             continue
         families[family] += 1
+        printed = str(q.get('prompt') or '') + str(q.get('group_stimulus') or '')
+        if family == 'matrix' and not MATRIX_PRINTED.search(printed):
+            errors.append(f'數學B第{number}題歸為矩陣單元，題目卻沒有出現矩陣；官方 111–115 每年的矩陣題都直接以矩陣命題'
+                          '（一題只用線性變換文字描述、不見矩陣，矩陣單元形同缺席）')
         if any('11B' in c for c in codes):
             eleven_b += 1
     if not full or len(questions) < 20:
@@ -254,6 +278,9 @@ def math_b_scope_errors(questions: list[dict], full: bool) -> list[str]:
     for family, cap in MATH_B_FAMILY_CAPS.items():
         if families[family] > cap:
             errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 有 {families[family]} 題，官方 111–115 每卷最多 {cap} 題')
+    for family, floor in MATH_B_FAMILY_FLOORS.items():
+        if families[family] < floor:
+            errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 只有 {families[family]} 題，官方 111–115 每卷都是 {floor} 題')
     for family, count in families.items():
         if count > MATH_B_ANY_FAMILY_CAP:
             errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 有 {count} 題，超過單一單元上限 {MATH_B_ANY_FAMILY_CAP}（官方最高為 115 直線與圓 5 題）')

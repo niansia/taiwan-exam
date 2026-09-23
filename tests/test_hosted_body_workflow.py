@@ -129,7 +129,7 @@ def test_math_easy_ten_is_rejected_and_hard_points_are_required(subject):
     exam={'metadata':{'subject':subject},'questions':[{'id':str(i),'score':5} for i in range(20)]}
     r=review([row(i) for i in range(20)])
     bands=['easy']+['medium']*4+['hard']*8+['very_hard']*7
-    for item,band in zip(r['items'],bands):item['difficulty_band']=band
+    for item,band in zip(r['items'],bands):item.update(difficulty_band=band,estimated_p={'very_easy':.9,'easy':.78,'medium':.6,'hard':.4,'very_hard':.2}[band])
     assert not review_errors(exam,r)
     r['items'][1]['difficulty_band']='easy'
     assert any('below 10' in e for e in review_errors(exam,r))

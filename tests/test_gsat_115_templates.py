@@ -31,7 +31,9 @@ def test_blank_assets_really_leave_year_name_and_page_numbers_open():
     inner = BeautifulSoup(inner_markup("社會", parity="odd"), "html.parser")
     assert inner.select_one(".blank-year").get_text() == ""
     assert all(node.get_text() == "" for node in inner.select(".blank-number"))
-    assert "Taiwan Exam 模擬試題" in cover.get_text()
+    # The brand line names the project only; 「模擬試題」 closes the title line once.
+    assert cover.select_one(".tpl-brand").get_text() == "Taiwan Exam"
+    assert "—作答注意事項—" in cover.get_text()
 
 
 def test_fillable_fields_are_escaped_and_land_in_expected_roles():

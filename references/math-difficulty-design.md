@@ -12,7 +12,13 @@ too many. A feasible planning example under the current slot scores is
 example's implied sequence. These are project preferences, not observed
 official difficulty percentages, and do not change historical P/D records or
 other subjects' distributions. Both the author's four-band audit and the
-actual review's remapped bands enforce the floor. Retain the 80–92 minute
+actual review's remapped bands enforce the floor. The reviewer records a predicted
+答對率 `estimated_p` for every item and the band follows from it (maintainer decision,
+2026-09-24): 難 < 0.30, 中偏難 0.30–0.50, 中 0.50–0.70, 簡單 ≥ 0.70. Measured on the
+official 數學B items 1–17: 111 10/45, 112 20/50, 113 35/65, 114 25/60 and 115 30/70
+points below 0.30 / 0.50, so the 70/30 floor equals the hardest recent year. The
+repository's descriptive P bands (難 < 0.20, 中偏難 < 0.40) are for historical
+statistics only; under them no official paper reaches 70/30. Retain the 80–92 minute
 hand-solving target and curriculum boundary; increase reasoning demand, not
 arithmetic burden. An easy distance/volume substitution remains easy even in
 a late slot, and a method already supplied by an earlier item reduces demand.

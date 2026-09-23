@@ -100,6 +100,17 @@ COVER_CSS = r"""
 .gsat115-cover.cover-math .tpl-notice p,.gsat115-cover.cover-math .tpl-notice li { margin:0; }
 .gsat115-cover.cover-math .tpl-notice ul { margin:0; padding-left:24pt; }
 .cover-fill-example { margin:1pt 0 1pt 24pt; }
+.gsat115-cover .tnr { font-family:"Times New Roman",serif; }
+.gsat115-cover .dash { font-family:"Times New Roman",serif; }
+.gsat115-cover.cover-math .tpl-notice { font-size:12pt; line-height:15.6pt; }
+.gsat115-cover.cover-math .tpl-notice p { margin:0; white-space:nowrap; }
+.gsat115-cover.cover-math .tpl-notice p.b { padding-left:24pt; text-indent:-12pt; }
+.gsat115-cover.cover-math .tpl-notice p.b .dot { display:inline-block; width:12pt; text-indent:0; }
+.gsat115-cover.cover-math .tpl-notice p.ex { padding-left:48pt; text-indent:-24pt; margin:4pt 0 2pt; }
+.gsat115-cover .fill-format,.gsat115-cover .frac,.gsat115-cover .mark-mini { text-indent:0; letter-spacing:0; }
+.gsat115-cover .mark-mini { display:inline-flex; flex-direction:column; align-items:center; vertical-align:-1pt;
+  width:12pt; margin:0 1pt; font:7.98pt/8pt "Times New Roman",serif; text-indent:0; }
+.gsat115-cover .mark-mini b { display:block; width:9pt; height:4pt; border:.5pt solid #000; }
 .fill-format { display:inline-flex; align-items:center; vertical-align:middle; margin:0 2pt;
   white-space:nowrap; break-inside:avoid; line-height:1; }
 .fill-slots { display:inline-flex; align-items:center; justify-content:center; gap:1pt; }
@@ -147,20 +158,19 @@ html,body { margin:0; padding:0; background:#fff; color:#000; }
 .inner-footer .outer-right { grid-column:3; text-align:right; }
 .blank-number { display:inline-block; width:var(--page-gap); text-align:center; }
 .blank-year { display:inline-block; width:16.56pt; }
-.formula-sheet { color:#000; font:10.98pt/20pt "Times New Roman","PMingLiU",serif; }
-.formula-title { margin:0 0 23pt; font-weight:700; font-size:13.02pt; line-height:21pt; }
-.formula-block { display:grid; grid-template-columns:15pt 1fr; gap:3pt; margin:0; }
-.formula-block p { margin:0 0 3pt; }
-.formula-sheet math { display:inline-block; padding-block:3px; font-size:1em; font-family:"Cambria Math","Times New Roman",serif; }
-.formula-a .formula-block:nth-child(2) { min-height:90pt; }
-.formula-a .formula-block:nth-child(3) { min-height:102pt; }
-.formula-a .formula-block:nth-child(4) { min-height:70pt; }
-.formula-a .formula-block:nth-child(5) { min-height:128pt; }
-.formula-a .formula-block:nth-child(6) { min-height:133pt; }
-.formula-b .formula-block:nth-child(2) { min-height:100pt; }
-.formula-b .formula-block:nth-child(3) { min-height:78pt; }
-.formula-b .formula-block:nth-child(4) { min-height:139pt; }
-.formula-b .formula-block:nth-child(5) { min-height:143pt; }
+.formula-sheet { position:relative; color:#000; font:10.98pt "Times New Roman","PMingLiU",serif; }
+.formula-sheet .fl { position:absolute; left:0; white-space:nowrap; line-height:0; }
+.formula-sheet .fl > span { display:inline-block; line-height:normal; }
+.formula-sheet .num { position:absolute; left:0; }
+.formula-sheet .cjk { font-family:"PMingLiU",serif; letter-spacing:2.4pt; }
+.formula-title { font-family:"PMingLiU",serif; font-weight:700; font-size:12pt; letter-spacing:2.01pt; }
+.formula-sheet i { font-style:italic; }
+.formula-sheet .op { margin:0 .16em; }
+.formula-sheet .fr { display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; margin:0 .08em; line-height:1.05; }
+.formula-sheet .fr > span:first-child { border-bottom:.5pt solid #000; padding:0 1.5pt 1pt; }
+.formula-sheet .fr > span:last-child { padding:1pt 1.5pt 0; }
+.formula-sheet .rad { border-top:.5pt solid #000; padding:.6pt 1pt 0 .5pt; }
+.formula-sheet sup, .formula-sheet sub { font-size:65%; line-height:0; }
 """
 
 
@@ -205,13 +215,13 @@ def _standard_notice(subject: str, duration: int) -> str:
     scoring = _single_scoring()
     if subject in {"國綜", "英文", "自然"}:
         scoring += _multiple_scoring()
-    return (f'<div class="tpl-notice"><h1>－作答注意事項－</h1>'
+    return (f'<div class="tpl-notice"><h1><span class="dash">—</span>作答注意事項<span class="dash">—</span></h1>'
             f'<p>考試時間：{duration}分鐘</p><p>作答方式：</p><ul>{bullets}</ul>'
             f'<p class="scoring">選擇題計分方式：</p><ul>{scoring}</ul></div>')
 
 
 def _writing_notice() -> str:
-    return '''<div class="tpl-notice"><h1>－作答注意事項－</h1>
+    return '''<div class="tpl-notice"><h1><span class="dash">—</span>作答注意事項<span class="dash">—</span></h1>
 <p>考試時間：90分鐘。請妥善分配作答時間。</p>
 <p>題型題數：</p><ul><li>非選擇題共二大題</li></ul><p>作答方式：</p><ul>
 <li>限用中文書寫，違者該作答部分不予評閱計分，惟專有名詞或試題有特殊要求者不在此限。</li>
@@ -242,26 +252,66 @@ def _marking_rows(rows: tuple[tuple[str, str], ...]) -> str:
     return '<div class="mark-example">' + ''.join(rendered) + '</div>'
 
 
+def _times(text: str) -> str:
+    """Latin letters, digits and signs of a cover line in Times, as the booklets set them."""
+    parts = re.split(r"(&[a-z#0-9]+;)", _e(text))  # never wrap inside an entity (&lt;)
+    return "".join(part if part.startswith("&") else re.sub(
+        r"[A-Za-z0-9][A-Za-z0-9 .−-]*[A-Za-z0-9]|[A-Za-z0-9]", lambda m: f'<span class="tnr">{m.group(0)}</span>', part)
+        for part in parts)
+
+
+def _mark(symbol: str) -> str:
+    """The small answer-sheet cell the booklets print inline: the symbol above a box."""
+    return f'<span class="mark-mini"><span>{_e(symbol)}</span><b></b></span>'
+
+
+# The official 115 數學 cover notice, line by line (12 pt 標楷體 on a 15.6 pt pitch, 「․」 at
+# 75.8 pt, continuation lines at 87.8, example continuations at 111.8). A hosted audit
+# found 「成／績」 split and the list re-wrapped at 11.25 pt.
+MATH_NOTICE_BULLETS = (
+    ("選擇（填）題用 2B 鉛筆在「答題卷」上作答；更正時以橡皮擦擦拭，切勿使用", "修正帶（液）。"),
+    ("除題目另有規定外，非選擇題用筆尖較粗之黑色墨水的筆在「答題卷」上作答；更正時，", "可以使用修正帶（液）。"),
+    ("考生須依上述規定劃記或作答，若未依規定而導致答案難以辨識或評閱時，恐將影響", "成績。"),
+    ("答題卷每人一張，不得要求增補。",),
+    ("選填題考生必須依各題的格式填答，且每一個列號只能在一個格子劃記。請仔細閱讀", "下面的例子。"),
+)
+
+
+# Per-line character advance minus 12 pt, measured on the 115 cover: the booklet squeezes or
+# stretches a full line to the box instead of re-wrapping it.
+MATH_NOTICE_TRACKING = {"選擇（填）題用 2B": 0.45, "除題目另有規定外": -0.62, "EX18": -0.85, "EX19": -0.5,
+                        "單選題：每題有": -0.45, "多選題：每題有": -0.45, "選項均答對者": -0.5}
+
+
+def _tracked(markup: str, plain: str) -> str:
+    spacing = next((v for k, v in MATH_NOTICE_TRACKING.items() if plain.startswith(k)), 0)
+    return f'<span style="letter-spacing:{spacing}pt">{markup}</span>' if spacing else markup
+
+
 def _math_notice(duration: int) -> str:
-    bullets = list(COMMON_ANSWER_MODE)
-    bullets[0] = "選擇（填）題用 2B 鉛筆在「答題卷」上作答；更正時以橡皮擦擦拭，切勿使用修正帶（液）。"
-    bullets.append("選填題考生必須依各題的格式填答，且每一個列號只能在一個格子劃記。請仔細閱讀下面的例子。")
-    bullet_html = ''.join(f'<li>{_e(line)}</li>' for line in bullets)
+    def bullet(lines):
+        return ('<p class="b"><span class="dot">․</span>' + '<br>'.join(_tracked(_times(line), line) for line in lines)
+                + '</p>')
+
     frac18 = _fill_fraction("18", numerator=1, denominator=1)
     frac19 = _fill_fraction("19", numerator=2, fixed_denominator="50")
-    return f'''<div class="tpl-notice"><h1>－作答注意事項－</h1>
-<p>考試時間：{duration}分鐘</p><p>作答方式：</p><ul>{bullet_html}</ul>
-<div class="cover-fill-example">例：若答案格式是{frac18}，而依題意計算出來的答案是{_fraction("3", "8")}，則考生必須分別在答題卷上的第18-1列的3與第18-2列的8劃記，如：</div>
+    multiple = _fraction('n−2k', 'n')
+    return f'''<div class="tpl-notice"><h1><span class="dash">—</span>作答注意事項<span class="dash">—</span></h1>
+<p>考試時間：<span class="tnr">{duration}</span>分鐘</p><p>作答方式：</p>
+{''.join(bullet(lines) for lines in MATH_NOTICE_BULLETS)}
+<p class="ex">{_tracked('例：若答案格式是' + frac18 + '，而依題意計算出來的答案是' + _fraction("3", "8") + '，則考生必須分別在答題卷上', 'EX18')}<br>的第<span class="tnr">18-1</span>列的{_mark("3")}與第<span class="tnr">18-2</span>列的{_mark("8")}劃記，如：</p>
 {_marking_rows((("18-1", "3"), ("18-2", "8")))}
-<div class="cover-fill-example">例：若答案格式是{frac19}，而答案是{_fraction("−7", "50")}時，則考生必須分別在答題卷的第19-1列的−與第19-2列的7劃記，如：</div>
+<p class="ex">{_tracked('例：若答案格式是' + frac19 + '，而答案是' + _fraction("−7", "50") + '時，則考生必須分別在答題卷的第<span class="tnr">19-1</span>列', 'EX19')}<br>的{_mark("−")}與第<span class="tnr">19-2</span>列的{_mark("7")}劃記，如：</p>
 {_marking_rows((("19-1", "−"), ("19-2", "7")))}
-<p class="scoring">選擇（填）題計分方式：</p><ul>{_single_scoring()}{_multiple_scoring()}
-<li>選填題每題有 <span class="math-var">n</span> 個空格，須全部答對才給分，答錯不倒扣。</li></ul>
+<p class="scoring">選擇（填）題計分方式：</p>
+<p class="b"><span class="dot">․</span>{_tracked('單選題：每題有 <span class="math-var">n</span> 個選項，其中只有一個是正確或最適當的選項。各題答對者，得該題', '單選題：每題有')}<br>的分數；答錯、未作答或劃記多於一個選項者，該題以零分計算。</p>
+<p class="b"><span class="dot">․</span>{_tracked('多選題：每題有 <span class="math-var">n</span> 個選項，其中至少有一個是正確的選項。各題之選項獨立判定，所有', '多選題：每題有')}<br>{_tracked('選項均答對者，得該題全部的分數；答錯 <span class="math-var">k</span> 個選項者，得該題 ' + multiple + ' 的分數；但得分', '選項均答對者')}<br>低於零分或所有選項均未作答者，該題以零分計算。</p>
+<p class="b"><span class="dot">․</span>選填題每題有 <span class="math-var">n</span> 個空格，須全部答對才給分，答錯不倒扣。</p>
 <p>※試題中參考的附圖均為示意圖，試題後附有參考公式及數值。</p></div>'''
 
 
 def cover_markup(
-    subject: str, *, year: str = "", exam_name: str = "", organization: str = "Taiwan Exam 模擬試題",
+    subject: str, *, year: str = "", exam_name: str = "", organization: str = "Taiwan Exam",
     cover_title: str = "",
 ) -> str:
     """Return one locked, subject-specific cover with only named fields variable."""
@@ -275,7 +325,7 @@ def cover_markup(
     else:
         notice = _standard_notice(subject, config["duration"])
     return (f'<section class="sheet cover gsat115-cover {kind} subject-{config["slug"]}">'
-            f'<div class="tpl-brand">{_e(organization)}</div><div class="tpl-title">{_e(title)}</div>'
+            f'<div class="tpl-brand">{_times(organization)}</div><div class="tpl-title">{_times(title)}</div>'
             f'<div class="tpl-subject">{_e(config["label"])}</div>'
             f'<div class="tpl-signature">{SIGNATURE_COVER}</div>{notice}</section>')
 
@@ -323,59 +373,150 @@ def inner_markup(
 
 FORMULA_GROUPS = {
     "數學A": (
-        (r"首項為 \(a\)，公差為 \(d\) 的等差數列前 \(n\) 項和為 \(S=\frac{n(2a+(n-1)d)}{2}\)",
-         r"首項為 \(a\)，公比為 \(r\;(r\ne1)\) 的等比數列前 \(n\) 項和為 \(S=\frac{a(1-r^n)}{1-r}\)"),
+        (r"首項為 \(a\)，公差為 \(d\) 的等差數列前 \(n\) 項之和為 \(S=\frac{n(2a+(n-1)d)}{2}\)",
+         r"首項為 \(a\)，公比為 \(r\;(r\ne1)\) 的等比數列前 \(n\) 項之和為 \(S=\frac{a(1-r^n)}{1-r}\)"),
         (r"三角函數的和角公式：\(\sin(A+B)=\sin A\cos B+\cos A\sin B\)",
          r"\(\cos(A+B)=\cos A\cos B-\sin A\sin B\)",
          r"\(\tan(A+B)=\frac{\tan A+\tan B}{1-\tan A\tan B}\)"),
-        (r"\(\triangle ABC\) 的正弦定理：\(\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R\)（\(R\) 為外接圓半徑）",
+        (r"\(\triangle ABC\) 的正弦定理：\(\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R\)（\(R\) 為 \(\triangle ABC\) 外接圓半徑）",
          r"\(\triangle ABC\) 的餘弦定理：\(c^2=a^2+b^2-2ab\cos C\)"),
         (r"一維數據 \(X:x_1,x_2,\ldots,x_n\)，", r"算術平均數 \(\mu_X=\frac{1}{n}(x_1+x_2+\cdots+x_n)\)",
-         r"標準差 \(\sigma_X=\sqrt{\frac{1}{n}[(x_1-\mu_X)^2+\cdots+(x_n-\mu_X)^2]}=\sqrt{\frac{1}{n}[(x_1^2+\cdots+x_n^2)-n\mu_X^2]}\)"),
+         r"標準差 \(\sigma_X=\sqrt{\frac{1}{n}[(x_1-\mu_X)^2+(x_2-\mu_X)^2+\cdots+(x_n-\mu_X)^2]}=\sqrt{\frac{1}{n}[(x_1^2+x_2^2+\cdots+x_n^2)-n\mu_X^2]}\)"),
         (r"二維數據 \((X,Y):(x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n)\)，",
-         r"相關係數 \(r_{XY}=\frac{(x_1-\mu_X)(y_1-\mu_Y)+\cdots+(x_n-\mu_X)(y_n-\mu_Y)}{n\sigma_X\sigma_Y}\)",
-         r"迴歸直線（最適合直線）方程式 \(y-\mu_Y=r_{XY}\frac{\sigma_Y}{\sigma_X}(x-\mu_X)\)"),
+         r"相關係數 \(r_{X,Y}=\frac{(x_1-\mu_X)(y_1-\mu_Y)+(x_2-\mu_X)(y_2-\mu_Y)+\cdots+(x_n-\mu_X)(y_n-\mu_Y)}{n\sigma_X\sigma_Y}\)",
+         r"迴歸直線（最適合直線）方程式 \(y-\mu_Y=r_{X,Y}\frac{\sigma_Y}{\sigma_X}(x-\mu_X)\)"),
         (r"參考數值：\(\sqrt{2}\approx1.414,\;\sqrt{3}\approx1.732,\;\sqrt{5}\approx2.236,\;\sqrt{6}\approx2.449,\;\pi\approx3.142\)",),
         (r"對數值：\(\log2\approx0.3010,\;\log3\approx0.4771,\;\log5\approx0.6990,\;\log7\approx0.8451\)",),
     ),
     "數學B": (
-        (r"首項為 \(a\)，公差為 \(d\) 的等差數列前 \(n\) 項和為 \(S=\frac{n(2a+(n-1)d)}{2}\)",
-         r"首項為 \(a\)，公比為 \(r\;(r\ne1)\) 的等比數列前 \(n\) 項和為 \(S=\frac{a(1-r^n)}{1-r}\)"),
-        (r"\(\triangle ABC\) 的正弦定理：\(\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R\)（\(R\) 為外接圓半徑）",
+        (r"首項為 \(a\)，公差為 \(d\) 的等差數列前 \(n\) 項之和為 \(S=\frac{n(2a+(n-1)d)}{2}\)",
+         r"首項為 \(a\)，公比為 \(r\;(r\ne1)\) 的等比數列前 \(n\) 項之和為 \(S=\frac{a(1-r^n)}{1-r}\)"),
+        (r"\(\triangle ABC\) 的正弦定理：\(\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R\)（\(R\) 為 \(\triangle ABC\) 外接圓半徑）",
          r"\(\triangle ABC\) 的餘弦定理：\(c^2=a^2+b^2-2ab\cos C\)"),
         (r"一維數據 \(X:x_1,x_2,\ldots,x_n\)，", r"算術平均數 \(\mu_X=\frac{1}{n}(x_1+x_2+\cdots+x_n)\)",
-         r"標準差 \(\sigma_X=\sqrt{\frac{1}{n}[(x_1-\mu_X)^2+\cdots+(x_n-\mu_X)^2]}=\sqrt{\frac{1}{n}[(x_1^2+\cdots+x_n^2)-n\mu_X^2]}\)"),
+         r"標準差 \(\sigma_X=\sqrt{\frac{1}{n}[(x_1-\mu_X)^2+(x_2-\mu_X)^2+\cdots+(x_n-\mu_X)^2]}=\sqrt{\frac{1}{n}[(x_1^2+x_2^2+\cdots+x_n^2)-n\mu_X^2]}\)"),
         (r"二維數據 \((X,Y):(x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n)\)，",
-         r"相關係數 \(r_{XY}=\frac{(x_1-\mu_X)(y_1-\mu_Y)+\cdots+(x_n-\mu_X)(y_n-\mu_Y)}{n\sigma_X\sigma_Y}\)",
-         r"迴歸直線（最適合直線）方程式 \(y-\mu_Y=r_{XY}\frac{\sigma_Y}{\sigma_X}(x-\mu_X)\)"),
+         r"相關係數 \(r_{X,Y}=\frac{(x_1-\mu_X)(y_1-\mu_Y)+(x_2-\mu_X)(y_2-\mu_Y)+\cdots+(x_n-\mu_X)(y_n-\mu_Y)}{n\sigma_X\sigma_Y}\)",
+         r"迴歸直線（最適合直線）方程式 \(y-\mu_Y=r_{X,Y}\frac{\sigma_Y}{\sigma_X}(x-\mu_X)\)"),
         (r"參考數值：\(\sqrt{2}\approx1.414,\;\sqrt{3}\approx1.732,\;\sqrt{5}\approx2.236,\;\sqrt{6}\approx2.449,\;\pi\approx3.142\)",),
         (r"對數值：\(\log2\approx0.3010,\;\log3\approx0.4771,\;\log5\approx0.6990,\;\log7\approx0.8451\)",),
     ),
 }
 
 
+# Baselines and left edges (pt on the page) of every line of the official 115 formula
+# sheets, measured from the booklets: the title at 96.48, group numbers at x 63.8 and
+# their text 18 pt later; 數A's cos/tan lines align under 「sin(」. The sheets set 細明體
+# 10.98 pt on a 13.38 pt advance and Times with italic variables and stacked fractions;
+# the earlier MathML rendering printed every symbol in Cambria Math.
+FORMULA_TITLE_BASELINE = 96.48
+FORMULA_LAYOUT = {
+    "數學B": ((138.3, 175.98), (234.78, 259.86), (305.52, 341.46, 379.26), (440.16, 475.98, 514.86), (579.96,), (627.0,)),
+    "數學A": ((138.48, 174.48), (228.48, 248.46, 271.38), (330.48, 354.48), (400.5, 430.68, 468.78),
+              (528.9, 559.02, 598.14), (662.28,), (710.28,)),
+}
+FORMULA_INDENT = {("數學A", 1, 1): 218.5, ("數學A", 1, 2): 218.8}
+BODY_TOP_PT = 85.04   # .inner-body top: 30 mm
+BODY_LEFT_PT = 63.8
+# Chrome sets a line's baseline below its box top by the line's own ascent, which a stacked
+# fraction enlarges; render_gsat_template_assets measures a first print and stores the
+# per-line correction here before the final print, so every baseline lands on 115's.
+FORMULA_BASELINE_FIX: dict[tuple[str, int], float] = {}
+
+
+def formula_rows(subject: str) -> list[tuple[float, float, str]]:
+    """(official baseline, left edge, markup) for every line of the sheet, title first."""
+    rows = [(FORMULA_TITLE_BASELINE, BODY_LEFT_PT, '<span class="formula-title">參考公式及可能用到的數值</span>')]
+    for index, (group, baselines) in enumerate(zip(FORMULA_GROUPS[subject], FORMULA_LAYOUT[subject])):
+        rows.append((baselines[0], BODY_LEFT_PT, f"{index + 1}."))
+        for number, (text, baseline) in enumerate(zip(group, baselines)):
+            rows.append((baseline, FORMULA_INDENT.get((subject, index, number), 81.8), _formula_text(text)))
+    return rows
+
+_TEX_SYMBOLS = {r"\triangle": "Δ", r"\ne": "≠", r"\approx": "≈", r"\ldots": "…", r"\cdots": "···",
+                r"\;": "\u00a0", r"\mu": "μ", r"\sigma": "σ", r"\pi": "π"}
+_TEX_FUNCTIONS = ("sin", "cos", "tan", "log")
+
+
+def _tex_group(tex: str, i: int) -> tuple[str, int]:
+    """The brace group (or single token) starting at tex[i]."""
+    if tex[i] != "{":
+        if tex[i] == "\\":
+            name = re.match(r"\\[A-Za-z]+|\\.", tex[i:]).group(0)
+            return name, i + len(name)
+        return tex[i], i + 1
+    depth = 0
+    for j in range(i, len(tex)):
+        depth += {"{": 1, "}": -1}.get(tex[j], 0)
+        if depth == 0:
+            return tex[i + 1:j], j + 1
+    raise ValueError("Unbalanced formula braces: " + tex)
+
+
+def tex_html(tex: str) -> str:
+    """The formula subset the sheets use, as HTML: italic Times letters, upright digits,
+    functions and Greek, stacked fractions and radicals with a vinculum."""
+    out, i = [], 0
+    while i < len(tex):
+        ch = tex[i]
+        if tex.startswith(r"\frac", i):
+            num, i = _tex_group(tex, i + 5)
+            den, i = _tex_group(tex, i)
+            out.append(f'<span class="fr"><span>{tex_html(num)}</span><span>{tex_html(den)}</span></span>')
+        elif tex.startswith(r"\sqrt", i):
+            body, i = _tex_group(tex, i + 5)
+            out.append(f'√<span class="rad">{tex_html(body)}</span>')
+        elif ch in "^_":
+            body, i = _tex_group(tex, i + 1)
+            tag = "sup" if ch == "^" else "sub"
+            out.append(f"<{tag}>{tex_html(body)}</{tag}>")
+        elif ch == "\\":
+            name = re.match(r"\\[A-Za-z]+|\\.", tex[i:]).group(0)
+            i += len(name)
+            if name[1:] in _TEX_FUNCTIONS:
+                out.append(name[1:])
+            elif name in _TEX_SYMBOLS:
+                symbol = _TEX_SYMBOLS[name]
+                out.append(f'<span class="op">{symbol}</span>' if symbol in "≠≈" else symbol)
+            else:
+                raise ValueError("Unsupported formula command: " + name)
+        elif ch in "{}":
+            i += 1
+        elif ch.isalpha():
+            out.append(f"<i>{ch}</i>")
+            i += 1
+        elif ch in "=+-":
+            out.append(f'<span class="op">{"−" if ch == "-" else ch}</span>')
+            i += 1
+        else:
+            out.append(_e(ch))
+            i += 1
+    return "".join(out)
+
+
 def _formula_text(value: str) -> str:
-    from latex2mathml.converter import convert
     out: list[str] = []
     cursor = 0
     for match in re.finditer(r"\\\((.+?)\\\)", value):
-        out.append(_e(value[cursor:match.start()]))
-        out.append(convert(match.group(1), display="inline"))
+        out.append(_cjk(value[cursor:match.start()]))
+        out.append(tex_html(match.group(1)))
         cursor = match.end()
-    out.append(_e(value[cursor:]))
-    return ''.join(out)
+    out.append(_cjk(value[cursor:]))
+    return "".join(out)
+
+
+def _cjk(text: str) -> str:
+    return re.sub(r"[\u3000-\u9fff\uff00-\uffef]+", lambda m: f'<span class="cjk">{m.group(0)}</span>', _e(text))
 
 
 def formula_markup(subject: str) -> str:
     if subject not in FORMULA_GROUPS:
         raise ValueError("只有數學A、數學B有115參考公式模板")
-    blocks = ''.join(
-        f'<div class="formula-block"><span>{index}.</span><div>' +
-        ''.join(f'<p>{_formula_text(line)}</p>' for line in group) + '</div></div>'
-        for index, group in enumerate(FORMULA_GROUPS[subject], 1)
-    )
-    variant = "formula-a" if subject == "數學A" else "formula-b"
-    return f'<div class="formula-sheet {variant}"><div class="formula-title">參考公式及可能用到的數值</div>{blocks}</div>'
+
+    lines = [f'<div class="fl" style="top:{baseline - BODY_TOP_PT + FORMULA_BASELINE_FIX.get((subject, row), 0):.2f}pt;'
+             f'left:{left - BODY_LEFT_PT:.2f}pt"><span>{markup}</span></div>'
+             for row, (baseline, left, markup) in enumerate(formula_rows(subject))]
+    return f'<div class="formula-sheet">{"".join(lines)}</div>'
 
 
 def document(markup: str, *, title: str) -> str:

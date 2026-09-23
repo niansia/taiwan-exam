@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.20
+# Taiwan Exam Web Knowledge v2026.09.22.21
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -435,10 +435,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "exam_packs/學測/templates/115/hosted-web-template-assets.json",
-    "bytes": 34428,
-    "sha256": "dcb5a9e9519ccae84553340555988a2542c692a987ef916f21f215c978fea0ac",
-    "embedded_bytes": 34428,
-    "embedded_sha256": "dcb5a9e9519ccae84553340555988a2542c692a987ef916f21f215c978fea0ac"
+    "bytes": 34445,
+    "sha256": "606a238a03d106a25ea91129cb4a5abbf2b5e3408c8053f0312ce8706a2f1839",
+    "embedded_bytes": 34445,
+    "embedded_sha256": "606a238a03d106a25ea91129cb4a5abbf2b5e3408c8053f0312ce8706a2f1839"
   },
   {
     "path": "exam_packs/學測/templates/115/template-pack.json",
@@ -533,10 +533,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-math-form.md",
-    "bytes": 26814,
-    "sha256": "1aa712642ca49177364446fd7b4acf4317ed47e2aecc88c9d1529bd4f35ac92a",
-    "embedded_bytes": 26814,
-    "embedded_sha256": "1aa712642ca49177364446fd7b4acf4317ed47e2aecc88c9d1529bd4f35ac92a"
+    "bytes": 28487,
+    "sha256": "f4f0f5d33f284bddae86595104f1be36421c0a38cf2daee0623d779e235c9e01",
+    "embedded_bytes": 28487,
+    "embedded_sha256": "f4f0f5d33f284bddae86595104f1be36421c0a38cf2daee0623d779e235c9e01"
   },
   {
     "path": "references/current-gsat-math-scope.md",
@@ -653,16 +653,16 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/hosted-body-workflow.md",
     "bytes": 16618,
-    "sha256": "7544f5377dc10d2bfadac4f5c1410869ed5355dc39332ccce16223eb6c2f9766",
+    "sha256": "75db3c040707b6067ebc684291c3dce83f2ee4ec8ee4de7260fb46cb21755f15",
     "embedded_bytes": 16618,
-    "embedded_sha256": "7544f5377dc10d2bfadac4f5c1410869ed5355dc39332ccce16223eb6c2f9766"
+    "embedded_sha256": "75db3c040707b6067ebc684291c3dce83f2ee4ec8ee4de7260fb46cb21755f15"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 44741,
-    "sha256": "662c249002eedaeae1cf2a1d66a0ee05f8f2e791bb45736d115bb635c555aff6",
-    "embedded_bytes": 44741,
-    "embedded_sha256": "662c249002eedaeae1cf2a1d66a0ee05f8f2e791bb45736d115bb635c555aff6"
+    "bytes": 46492,
+    "sha256": "da1b3008ffcda6377c2a78c4c302e574e4b79bc4508430ded77cf859ca90bd5d",
+    "embedded_bytes": 46492,
+    "embedded_sha256": "da1b3008ffcda6377c2a78c4c302e574e4b79bc4508430ded77cf859ca90bd5d"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -708,10 +708,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/math-difficulty-design.md",
-    "bytes": 17011,
-    "sha256": "c88c819d857aa905008df97c7ab5d00e8e1a7d69db3591b89bf787e5b843b96c",
-    "embedded_bytes": 17011,
-    "embedded_sha256": "c88c819d857aa905008df97c7ab5d00e8e1a7d69db3591b89bf787e5b843b96c"
+    "bytes": 17545,
+    "sha256": "1cf149f7fbb046fa9b71b698ab83b72109be026285128ea4fca444ca2ff477f5",
+    "embedded_bytes": 17545,
+    "embedded_sha256": "1cf149f7fbb046fa9b71b698ab83b72109be026285128ea4fca444ca2ff477f5"
   },
   {
     "path": "references/official-gsat-specifications.md",
@@ -897,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
-    "bytes": 15317,
-    "sha256": "c74a776b37a941efead3a82df9ad9268afd27422dc42d47c06f0abd2cd2862a0",
-    "embedded_bytes": 15317,
-    "embedded_sha256": "c74a776b37a941efead3a82df9ad9268afd27422dc42d47c06f0abd2cd2862a0"
+    "bytes": 16497,
+    "sha256": "643fe91147d7afdc393de32ac30c1d2f0497f8053c15630559d32fed464bc421",
+    "embedded_bytes": 16497,
+    "embedded_sha256": "643fe91147d7afdc393de32ac30c1d2f0497f8053c15630559d32fed464bc421"
   },
   {
     "path": "scripts/emit_item_skeleton.py",
@@ -925,17 +925,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 10280,
-    "sha256": "81af8bbd668c22b2c2b480fd71fda46a6aa2f2889344caf003a1b8eb3bf40ec4",
-    "embedded_bytes": 10280,
-    "embedded_sha256": "81af8bbd668c22b2c2b480fd71fda46a6aa2f2889344caf003a1b8eb3bf40ec4"
+    "bytes": 11401,
+    "sha256": "23a8e78e9cf1604ed0ede3e5c995664cf5bc22b6c0ee4f6e4ac3235ddc8efb16",
+    "embedded_bytes": 11401,
+    "embedded_sha256": "23a8e78e9cf1604ed0ede3e5c995664cf5bc22b6c0ee4f6e4ac3235ddc8efb16"
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 62092,
-    "sha256": "9be243666937f0b3a2047b970954335dacab222b457e528c7b8880b51fa77b1d",
-    "embedded_bytes": 62092,
-    "embedded_sha256": "9be243666937f0b3a2047b970954335dacab222b457e528c7b8880b51fa77b1d"
+    "bytes": 67467,
+    "sha256": "e37add2dfd8f4750abca902d0b486eabf70b73dffb3210f984f4cc009330a32b",
+    "embedded_bytes": 67467,
+    "embedded_sha256": "e37add2dfd8f4750abca902d0b486eabf70b73dffb3210f984f4cc009330a32b"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -960,10 +960,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_evidence_refresh.py",
-    "bytes": 19542,
-    "sha256": "7ac3aba1258446cd5c67f3ab5b50e9ce938ee041267c4bbc83f7ddbf3df88549",
-    "embedded_bytes": 19542,
-    "embedded_sha256": "7ac3aba1258446cd5c67f3ab5b50e9ce938ee041267c4bbc83f7ddbf3df88549"
+    "bytes": 20685,
+    "sha256": "eb0a526c3fd2d1c4d68728956130c0b87d5702d08e49ce63deb0451a4888f92b",
+    "embedded_bytes": 20685,
+    "embedded_sha256": "eb0a526c3fd2d1c4d68728956130c0b87d5702d08e49ce63deb0451a4888f92b"
   },
   {
     "path": "scripts/hosted_item_layout.py",
@@ -981,10 +981,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_math_typeset.py",
-    "bytes": 14109,
-    "sha256": "bba422271e3ad1b9fe95bf151210b220c4296b74527c455e0fc8589a895c9035",
-    "embedded_bytes": 14109,
-    "embedded_sha256": "bba422271e3ad1b9fe95bf151210b220c4296b74527c455e0fc8589a895c9035"
+    "bytes": 14731,
+    "sha256": "f5d624a9c699b7d07679b9bf61bebd9db38af1b2978c2b4e6af871a686c55dfc",
+    "embedded_bytes": 14731,
+    "embedded_sha256": "f5d624a9c699b7d07679b9bf61bebd9db38af1b2978c2b4e6af871a686c55dfc"
   },
   {
     "path": "scripts/hosted_run_timing.py",
@@ -1044,10 +1044,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 96201,
-    "sha256": "bc37bf65623c89e14991f0bd15eb9b6bb443f706bedb1c28a0c80342800fe0a0",
-    "embedded_bytes": 96201,
-    "embedded_sha256": "bc37bf65623c89e14991f0bd15eb9b6bb443f706bedb1c28a0c80342800fe0a0"
+    "bytes": 99497,
+    "sha256": "c7fa69287b7c9761924d928291a8c214179c434a2f0b5c651ffc4af298107646",
+    "embedded_bytes": 99497,
+    "embedded_sha256": "c7fa69287b7c9761924d928291a8c214179c434a2f0b5c651ffc4af298107646"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1149,10 +1149,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_layout_contract.py",
-    "bytes": 21304,
-    "sha256": "ae6c8f7a8c0189e43bec7c6907b1f2ca622e997b6f3d068c7ae9ce6bd6a8fe0c",
-    "embedded_bytes": 20980,
-    "embedded_sha256": "74037ce9bed7112f21fbae660f43ea0506736c1a9cccde7e50d1fcc9a7f51db2"
+    "bytes": 23617,
+    "sha256": "25c73a7b6c68666433740edd6240360b0f5b9025e140d56f96a4761ba6afe068",
+    "embedded_bytes": 23266,
+    "embedded_sha256": "5fabc7560b2150b04da6657707c8db14e296ec152cee481fe4c3b8619b13ccca"
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
@@ -1205,10 +1205,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/verify_fixed_template_pdf.py",
-    "bytes": 8449,
-    "sha256": "6655f17c994372966b3867e2d0cbb29b4e752f08acaff361bbca805f09d4028c",
-    "embedded_bytes": 8449,
-    "embedded_sha256": "6655f17c994372966b3867e2d0cbb29b4e752f08acaff361bbca805f09d4028c"
+    "bytes": 10188,
+    "sha256": "fe0de096a9a7666f4e9026751ebd4cd82f1511ccbd2018adfa2fd89fe3afeecc",
+    "embedded_bytes": 10188,
+    "embedded_sha256": "fe0de096a9a7666f4e9026751ebd4cd82f1511ccbd2018adfa2fd89fe3afeecc"
   },
   {
     "path": "templates/current-gsat-math-scope.json",
@@ -56058,8 +56058,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-comprehensive/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/blank-template.pdf",
-          "bytes": 253481,
-          "sha256": "a51bb1cbd2c9cf398cbe17e11cbbaf9c5aee5799e22bd8dfe088285cbecb772f",
+          "bytes": 258066,
+          "sha256": "ab967f3b56ccc555ba20b36b067c1717729c01c9ba35401a11e72ba7a9cc2dcc",
           "pages": 3
         },
         {
@@ -56067,8 +56067,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-comprehensive/cover-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/cover-blank.pdf",
-          "bytes": 234349,
-          "sha256": "767d6ceba1013a2ed37f84deab6af1a31b50d8a88480baf92e919d55825eca7c",
+          "bytes": 236717,
+          "sha256": "a04be058053a317b373e91981ee2c7d945ebd459eba9fee1dcaeb8bc07259e92",
           "pages": 1
         },
         {
@@ -56099,9 +56099,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "cover_title": [
           63.86,
-          114.0859375,
+          115.1435546875,
           534.31,
-          150.5
+          151.25
         ],
         "odd": {
           "current_page": [
@@ -56169,8 +56169,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-writing/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/blank-template.pdf",
-          "bytes": 242988,
-          "sha256": "3468835c24df28b824121ab8e230c51294a23f20b8cc68dd18fc68e0749e1c08",
+          "bytes": 248726,
+          "sha256": "6f98ac225d44a675829707616c8d1f01287ab876432c0c5211e06be68cac5fe9",
           "pages": 3
         },
         {
@@ -56178,8 +56178,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-writing/cover-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/cover-blank.pdf",
-          "bytes": 214045,
-          "sha256": "93bbb3a7aed43c47aaff0f97cfafec197e4c1c4b49e2a6f20154fcf307810acb",
+          "bytes": 228551,
+          "sha256": "86d6fad86b8606b762cf81041befd439551b2303e3cb4cff552a750d5647d0ec",
           "pages": 1
         },
         {
@@ -56210,9 +56210,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "cover_title": [
           63.86,
-          114.0859375,
+          115.1435546875,
           538.13,
-          150.125
+          150.875
         ],
         "odd": {
           "current_page": [
@@ -56280,8 +56280,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/english/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/blank-template.pdf",
-          "bytes": 136539,
-          "sha256": "b2fd03278c1a1801e3748a2ab78f09327bf4a775383328c8d54ec648fd77627d",
+          "bytes": 141183,
+          "sha256": "0b4b9a35c485efcf293cff12373a185f6ca217944ac90a80ddcbc0b7dc9f17b9",
           "pages": 3
         },
         {
@@ -56289,8 +56289,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/english/cover-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/cover-blank.pdf",
-          "bytes": 119616,
-          "sha256": "31a99f00f2787a4ca7c1dfeda99a11fe1804b824cd720999b0dcbc20d6cd4748",
+          "bytes": 123284,
+          "sha256": "c82bfcc35d543006043d3c08bf26046e42b9f3ffe326157906650b744613e3e1",
           "pages": 1
         },
         {
@@ -56321,9 +56321,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "cover_title": [
           63.82,
-          114.0859375,
+          115.1435546875,
           539.63,
-          151.0
+          151.75
         ],
         "odd": {
           "current_page": [
@@ -56391,8 +56391,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/blank-template.pdf",
-          "bytes": 357796,
-          "sha256": "24398523a76d927f3d9c1cd30eaa6cce638c24b9a81ba42e43e2a84902449a06",
+          "bytes": 322470,
+          "sha256": "06ce3c0ccff2ddfad4812807de8ef0e2f7c5f94be90b611ee0a5e7ffaf6cdd3c",
           "pages": 4
         },
         {
@@ -56400,8 +56400,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/cover-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/cover-blank.pdf",
-          "bytes": 160468,
-          "sha256": "022f4f33f2764758fb2f73caaaf3ed93ba5254c23eef54384495cf68f0e5a0d6",
+          "bytes": 178116,
+          "sha256": "275e6aa1e0d59da80fafba0827c4858f345a125ba88689af44793b3a19edd378",
           "pages": 1
         },
         {
@@ -56409,8 +56409,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/formula-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/formula-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/formula-blank.pdf",
-          "bytes": 151563,
-          "sha256": "cd4ccd71caab197a04126fafc4f48e2878fdb925648e48282ef422029450d020",
+          "bytes": 159762,
+          "sha256": "3482dc94cc687604e8707f52295792cf8218cb4df5e70bc578a5c82890d6d563",
           "pages": 1
         },
         {
@@ -56441,7 +56441,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "cover_title": [
           63.78,
-          100.23039245605469,
+          101.32184600830078,
           531.48,
           141.3340606689453
         ],
@@ -56511,8 +56511,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/blank-template.pdf",
-          "bytes": 344488,
-          "sha256": "cb60e13368095278e56088c47b1c1ec4b26f3211b57d62e0ceb2d2833093a966",
+          "bytes": 314545,
+          "sha256": "31166f28c4d84ba42af5ddaf787b19b14e15829a9dde89bbdd9d917f436f25c3",
           "pages": 4
         },
         {
@@ -56520,8 +56520,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/cover-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/cover-blank.pdf",
-          "bytes": 161139,
-          "sha256": "48086ef489124b1bb0b79ec36942f4417615f9832b9300fbe5c2afce07436323",
+          "bytes": 177756,
+          "sha256": "4ac87090b98de044061df0b4debca6cc5ce17e1d2c6d4b1c4e5fbf4ecf8f7a1d",
           "pages": 1
         },
         {
@@ -56529,8 +56529,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/formula-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/formula-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/formula-blank.pdf",
-          "bytes": 149809,
-          "sha256": "d44447a9be3aabf948e839b03b0a2efaa2844be73175031bfecf052d94668739",
+          "bytes": 157318,
+          "sha256": "1fb2f5ccf9674f6c64f85a9432b1b537462b9e957b880b9641888afcfde61791",
           "pages": 1
         },
         {
@@ -56561,7 +56561,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "cover_title": [
           63.78,
-          100.23039245605469,
+          101.32184600830078,
           542.15,
           141.36630249023438
         ],
@@ -56631,8 +56631,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/social/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/blank-template.pdf",
-          "bytes": 142613,
-          "sha256": "e751a6f93ef301592c307e099f9157f926d20a7efca81dba217980e5d00031a0",
+          "bytes": 148231,
+          "sha256": "53013c189f2e728b631f1c2081b32f4b6288dbd8e786788e404bb3517cb14257",
           "pages": 3
         },
         {
@@ -56640,8 +56640,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/social/cover-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/cover-blank.pdf",
-          "bytes": 116556,
-          "sha256": "7ec2b0f8ec0e729ccb5dbfd8339083e2e184df39ff9823c2c0d96dff6c5addce",
+          "bytes": 131081,
+          "sha256": "2662f26caa14d6a268d90dac47002fe55fb056d7c925536f3a79407516ba85be",
           "pages": 1
         },
         {
@@ -56672,9 +56672,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "cover_title": [
           62.52,
-          114.0859375,
+          115.1435546875,
           536.74,
-          151.1398162841797
+          151.8898162841797
         ],
         "odd": {
           "current_page": [
@@ -56742,8 +56742,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/science/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/blank-template.pdf",
-          "bytes": 141326,
-          "sha256": "4508d4216a5082a289bb3a9b21857426aae977c7f3957878d76c94328da7e617",
+          "bytes": 145924,
+          "sha256": "0e5c09af1d1e882e9a5a912d5e266ee163214c1ad1b043bfa46e91aee2eda1d3",
           "pages": 3
         },
         {
@@ -56751,8 +56751,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/science/cover-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/cover-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/cover-blank.pdf",
-          "bytes": 124448,
-          "sha256": "a2688d1fe7f75d8dfd098bf6b2d2cd508a9fbdcc0c192944ee849b30e4578e2c",
+          "bytes": 127964,
+          "sha256": "48b3d8fcf06edfa308f9929029d8e74733e09f2a49735dd3e66abbd1c99f73cc",
           "pages": 1
         },
         {
@@ -56783,9 +56783,9 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "cover_title": [
           63.77,
-          114.0859375,
+          115.1435546875,
           538.18,
-          150.8333282470703
+          151.5833282470703
         ],
         "odd": {
           "current_page": [
@@ -58170,6 +58170,26 @@ final check:
   label is the underlined 「18-20 題為題組」 (the spec builder prints it); item 18
   ends 「（單選題，3分）」 and items 19–20 「（非選擇題，N分）」, never a bare
   「（4分）」. A score group never breaks across lines.
+- 選填 formats: every official 數A and 數B paper has at least one 「（化為最簡分數）」 item
+  among 13–17 (數A 1–4, 數B 1–3; 113 數B also a sign cell); five two-digit integer
+  選填 are rejected.
+- 數B unit envelope additions (measured 111–115): data analysis 1–2 items (a data 題組
+  is never set; a hosted paper had four data items), polynomial exactly 2 every year
+  (floor 2), and an item classed as 矩陣 prints a matrix (「矩陣」「方陣」 or entries);
+  a linear map described in words left the unit nominally present.
+- Solutions stay inside the subject: a 數B solution does not use space vectors, plane
+  equations, sum formulas or general log laws (數A-only); use the plane or 11B route.
+- Figures are 示意圖 (the cover says so): an answer never depends on reading a drawn
+  length, angle or side; print the condition in the text. A table is printed with
+  Chinese headers in the language of the stem, never an English-labelled raster image;
+  a 題組 table or chart belongs to the 題組 text (write 「下表為…」 there and the builder
+  prints it after the text, before 18).
+- Typography: 「＝＋－＜＞」 print as half-width Times operators (the renderer converts
+  full-width input), a formula such as 「|x − 2| < 3」 or 「30p₁ + 60q₁ = 2700」 never
+  breaks across lines, a 選填 grid keeps the word before it and the 「。」 after it, a
+  stem never ends on a line of one or two characters, products of variables (「ab」)
+  are italic, and question pages share their leftover space between items as working
+  room (official median gap about 52 pt) instead of piling it at the page foot.
 - A part heading that owns no items (第壹部分) still prints: the spec builder emits
   it before its first section, and the final checker reads the booklet text for
   every heading. A hosted 116 數A listed 第壹部分 in `sections` and printed only
@@ -59958,7 +59978,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.20/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.21/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -60465,6 +60485,11 @@ count. Preserve the actual subject's instruction and response geometry.
 
 For Math A/B the current project profile requires easy score **below 10**,
 medium-hard plus hard score **at least 70**, and hard score **at least 30**.
+The bands follow the reviewer's predicted 答對率 (`estimated_p`, recorded on every
+difficulty row): 難 below 0.30, 中偏難 0.30–0.50, 中 0.50–0.70, 簡單 0.70 and above.
+Under these cutoffs the official 115 數學B paper scores exactly 70 and 30 points, so the
+profile asks for the hardest recent year, not beyond it. The gate derives the band from
+`estimated_p`; a row whose band disagrees is rejected at the checkpoint, not at finalize.
 Retain the reviewed 80–92 minute hand-solving target, at least 50 points with
 three necessary decisions, and the subject-specific stricter Math B rules.
 Routine-only work cannot be labelled hard and remains capped at 25 points.
@@ -60484,6 +60509,21 @@ Search for shorter routes and scaffolding supplied by earlier items. Estimate
 necessary decisions and time against the saved compatible calibration, then
 reconcile the paper's difficulty balance. Numerical/symbolic verification or
 another derivation supplements high-risk items; it does not establish difficulty.
+
+Solve from the printed item, not from the saved answer: before the content lock the
+answers reviewer re-derives each key from the proof crop alone. A condition the answer
+needs (AC = CV, 「B 高於 A」, a scale) must be printed in the text; the cover says every
+figure is a 示意圖, so a key that depends on reading a drawn length or position fails
+(two hosted 數B papers carried such items through two builds).
+
+Register the gate reports as soon as the first complete draft is reviewed, not at the
+end: only a registered review keeps its rows when a later correction runs
+`refresh-evidence`. After a change, give the same reviewer only the `pending` rows of
+each draft; unchanged items keep their rows (a hosted 數B run re-solved all 20 items in
+four blind rounds, and the unchanged items' estimates drifted by up to 0.10). Record page
+reviews as soon as a build's pages are read; unrecorded reviews cannot be retained.
+Difficulty labels, `item_spec` plans and review metadata are author-only: changing them
+neither breaks the content lock nor reopens any review.
 
 This same actual review may supply `answers`, `difficulty.answer_recheck` and
 the answer's review fields. Store the result once and reference or mechanically
@@ -60554,12 +60594,15 @@ content. The order below is not advice; the tools enforce the parts they can.
    Complete the pending rows from an actual review, save the file as `<gate>.json`,
    checkpoint, then re-lock with `--reason`. The checker never reads a draft and no
    draft is a pass.
-4. **Plan** at most three times (`plan`, then `plan --compare <previous plan dir>`
-   which reports each page's `bottom_void_delta` and the page-count change).
+4. **Plan** after each real change (`plan`, then `plan --compare <previous plan dir>`
+   which reports each page's `bottom_void_delta` and the page-count change); the
+   budget counts only plans of unchanged printed content (`repeats_of_unchanged`).
    If the third plan is still not acceptable, stop adjusting hints by eye: shrink
    the figure or split the block once, based on the measured heights.
-5. **Build** at most twice. The second build exists to fix defects the first
-   review found, not to try another layout hint.
+5. **Build** at most twice with different printed content (`distinct_printed`); a
+   rebuild after an author-only change prints the same pages and is not counted. The
+   second build exists to fix defects the first review found, not to try another
+   layout hint.
 6. **Review once.** Every result carries `iteration_budget` (`count`, `budget`,
    `over_budget`). Exceeding a budget is not blocked, but the note names the
    cause to fix once; report the overrun in the delivery notes.
@@ -61764,7 +61807,13 @@ too many. A feasible planning example under the current slot scores is
 example's implied sequence. These are project preferences, not observed
 official difficulty percentages, and do not change historical P/D records or
 other subjects' distributions. Both the author's four-band audit and the
-actual review's remapped bands enforce the floor. Retain the 80–92 minute
+actual review's remapped bands enforce the floor. The reviewer records a predicted
+答對率 `estimated_p` for every item and the band follows from it (maintainer decision,
+2026-09-24): 難 < 0.30, 中偏難 0.30–0.50, 中 0.50–0.70, 簡單 ≥ 0.70. Measured on the
+official 數學B items 1–17: 111 10/45, 112 20/50, 113 35/65, 114 25/60 and 115 30/70
+points below 0.30 / 0.50, so the 70/30 floor equals the hardest recent year. The
+repository's descriptive P bands (難 < 0.20, 中偏難 < 0.40) are for historical
+statistics only; under them no official paper reaches 70/30. Retain the 80–92 minute
 hand-solving target and curriculum boundary; increase reasoning demand, not
 arithmetic burden. An easy distance/volume substitution remains easy even in
 a late slot, and a method already supplied by an earlier item reduces demand.
@@ -66887,7 +66936,7 @@ import pymupdf
 
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, verify
 from inspect_hosted_pdf import rail_collision_samples
-from verify_fixed_template_pdf import verify_pdf, masked_pixels, field_size
+from verify_fixed_template_pdf import verify_pdf, masked_pixels, field_size, answers_template
 
 # Only whole CJK body fonts are this large; fixed-template fonts are small subsets.
 LARGE_FONT_PROGRAM = 1_000_000
@@ -67028,6 +67077,20 @@ def write_field(page, box, text: str, font, size: float, *, align: str = "center
         x += font.text_length(character, fontsize=size)
 
 
+def write_cover_title(page, box, text: str, kai, digits, size: float) -> None:
+    """The cover's second line as 115 sets it: 標楷體 with Times digits, centred."""
+    rect = pymupdf.Rect(box)
+    runs = [(run, digits if run[0].isascii() else kai) for run in re.findall(r'[0-9A-Za-z]+|[^0-9A-Za-z]+', text)]
+    width = sum(font.text_length(run, fontsize=size) for run, font in runs)
+    if width > rect.width:
+        raise ValueError(f"Dynamic field too long: {text!r}; supply a shorter test title")
+    left = rect.x0 + (rect.width - width) / 2
+    for run, font in runs:
+        span = pymupdf.Rect(left, rect.y0, left + font.text_length(run, fontsize=size) + .01, rect.y1)
+        write_field(page, span, run, font, size, align="left", resource=field_resource(font))
+        left = span.x1 - .01
+
+
 def field_resource(font):
     buffer = font.buffer
     return buffer, 'TEField' + sha(buffer)[:12]
@@ -67046,7 +67109,7 @@ COMPOSER = 'taiwan-exam-generator/compose_hosted_pdf'
 
 def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: str,
             title: str, running_name: str, font_path: Path, map_path: Path = DEFAULT_MAP,
-            kind: str = "questions") -> dict:
+            kind: str = "questions", kai_path: Path | None = None) -> dict:
     if kind not in {"questions", "answers"}:
         raise ValueError("Unknown paper kind")
     if output.exists():
@@ -67063,6 +67126,10 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 verify(record, data)
                 assets[record["component"]] = pymupdf.open(stream=data, filetype="pdf")
                 hashes[record["component"]] = sha(data)
+                if kind == "answers" and record["component"].startswith("inner-"):
+                    original = assets[record["component"]]
+                    assets[record["component"]] = answers_template(original)
+                    original.close()
         font = pymupdf.Font(fontfile=str(font_path))
         digits = pymupdf.Font("tiro")
         font_resource, digit_resource = field_resource(font), field_resource(digits)
@@ -67080,7 +67147,8 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
             if kind == "questions":
                 page = page_base(out, assets["cover-blank"])
                 box = geometry["cover_title"]
-                write_field(page, box, f"{year}學年度{title}", font, 19.98 if has_formula else 18, resource=font_resource)
+                kai = pymupdf.Font(fontfile=str(kai_path)) if kai_path else font
+                write_cover_title(page, box, f"{year}學年度{title}", kai, digits, 19.98 if has_formula else 18)
                 if masked_pixels(page, [box]) != masked_pixels(assets["cover-blank"][0], [box]):
                     raise ValueError("Cover title changed locked pixels")
                 proofs.append({"page": 1, "component": "cover-blank", "locked_pixels_match": True})
@@ -67753,6 +67821,15 @@ import math
 from pathlib import Path
 
 REVIEW_MODES = ('independent-context', 'single-context')
+# Math A/B reviewers estimate each item's 答對率 and the band follows from it (maintainer
+# decision 2026-09-24): 難 below 0.30 and 中偏難 below 0.50, the cutoffs at which the
+# official 115 數學B scores exactly 70 and 30 points, the project's floors. Without them
+# hosted reviewers placed the same item on either side of 0.50 in successive rounds.
+MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
+
+
+def band_for_p(p):
+    return next(band for edge, band in MATH_P_BANDS if p < edge)
 
 
 def packet(exam, review_mode='independent-context'):
@@ -67829,6 +67906,13 @@ def review_errors(exam, review):
             continue
         if row.get('difficulty_band') not in bands or row.get('unresolved') != []:
             errors.append(f'{prefix}: unresolved or missing reviewed judgment')
+        if is_math:
+            p = row.get('estimated_p')
+            if type(p) not in (int, float) or not 0 <= p <= 1:
+                errors.append(f'{prefix}: record estimated_p, the reviewer estimate of the 答對率 (0-1); the band follows from it')
+            elif row.get('difficulty_band') in bands and band_for_p(p) != row['difficulty_band']:
+                errors.append(f'{prefix}: estimated_p {p:g} is band {band_for_p(p)} (難 <0.30, 中偏難 0.30-0.50, '
+                              f'中 0.50-0.70, 簡單 >=0.70), not {row["difficulty_band"]}')
         declared = question.get('expected_minutes')
         if type(declared) in (int,float) and declared > minutes * 1.5:
             errors.append(f'{prefix}: author time exceeds reviewed estimate by over 50%; revise and rebalance')
@@ -68014,6 +68098,9 @@ DIRECTION_BOX_PT = {'國寫': (39.4, 34.8, 0)}   # padding-left, hanging indent,
 DIRECTION_BREAKS = re.compile(r'。(?=作答使用筆尖|選擇（填）題與|選擇題與「非選擇題|選擇題使用)')
 
 
+MATH_GAP_EXTRA_PT = 60
+
+
 def number_pitch(subject=None):
     return NUMBER_PITCH_PT.get(subject if subject is not None else _subject, 18.0)
 
@@ -68053,7 +68140,7 @@ class RichText(HTMLParser):
             raise ValueError('Unbalanced rich-text tags')
         self.output.append('</'+tag+'>')
 
-    def handle_data(self, data): self.output.append(html.escape(data))
+    def handle_data(self, data): self.output.append(html.escape(data.translate(FULLWIDTH_MATH) if _math_mode else data))
 
 
 # Official booklets set digits, Latin letters and the radical sign in Times for every
@@ -68076,6 +68163,38 @@ WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
 # 「（非選擇題，8分）」): hosted papers printed 「（占」 or 「（4」 at a line end and 「分）」
 # on the next. 115 國寫 does break 「（至多／19 行）」, so only scores are kept whole.
 SCORE_GROUP = re.compile(r'（(?:占|(?:單選題|多選題|選填題|非選擇題)，)?(?:\s|<[^>]+>|[0-9])+分）')
+
+
+def lstripped(value):
+    """A leading full-width space printed as a gap after the item number (「13.　」)."""
+    if isinstance(value, dict):
+        return {'rich': value['rich'].lstrip(' \u3000')}
+    return value.lstrip(' \u3000') if isinstance(value, str) else value
+
+
+def split_tail(markup, chars=2):
+    """(head, tail): tail is the last visible token, a whole top-level span or the last
+    few plain characters, so it can stay on one line with what follows."""
+    if markup.endswith('</span>'):
+        depth = 0
+        for match in reversed(list(re.finditer(r'<(/?)span\b[^>]*>', markup))):
+            depth += 1 if match.group(1) else -1
+            if depth == 0:
+                return markup[:match.start()], markup[match.start():]
+        return markup, ''
+    match = re.search(r'(?:&[a-z#0-9]+;|[^<>&\s]){1,%d}$' % chars, markup)
+    return (markup[:match.start()], match.group(0)) if match else (markup, '')
+
+
+def no_short_last_line(markup):
+    """The last three characters of a stem stay together: the booklets never end an item on
+    a line of one or two characters (hosted 數B papers printed 「個？」, 「的？」 and 「元？」)."""
+    if not markup or markup.endswith('</span>') or markup.endswith('>'):
+        return markup
+    head, tail = split_tail(markup, 3)
+    if not tail or '{' in tail or '}' in tail:  # never split an {{answer}} or {{gap}} token
+        return markup
+    return head + f'<span style="white-space:nowrap">{tail}</span>'
 
 
 def keep_scores_whole(markup):
@@ -68130,7 +68249,9 @@ LATIN_SPACED = rf'[ \u00a0]*(?:{LATIN_RUN.pattern})(?:[ \u00a0]+(?:{LATIN_RUN.pa
 TEXT_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)')
 # Mathematics also sets operators, brackets and Greek letters standing between CJK text
 # in Times, as the booklets do (the CJK face drew a full-width 「−」).
-MATH_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)|(?P<sym>{MATH_SYMBOL})')
+MATH_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)|(?P<sym>{MATH_SYMBOL}|&lt;|&gt;|[<>≤≥≠≈|])')
+FORMULA_TOKEN = rf'(?:{LATIN_SPACED}|{MATH_SYMBOL}|&lt;|&gt;|[<>≤≥≠≈|])'
+FORMULA_RUN = re.compile(rf'{FORMULA_TOKEN}(?:[ \u00a0]*{FORMULA_TOKEN})*')
 
 
 def unligated(markup):
@@ -68141,9 +68262,35 @@ def unligated(markup):
     return ''.join(part if part.startswith('<') else re.sub(r'f(?=[fil])', '<span>f</span>', part) for part in parts)
 
 
+# Official mathematics sets 「＝＋－＜＞」 as half-width Times/Symbol operators; hosted papers
+# typed the full-width forms, which the CJK face draws an em wide and which break lines.
+FULLWIDTH_MATH = str.maketrans({'＝': '=', '＋': '+', '－': '−', '＜': '<', '＞': '>'})
+FORMULA_OPERATOR = re.compile(r'[=+−<>≤≥≠≈×÷±]|&lt;|&gt;')
+FORMULA_MAX_CHARS = 40
+
+
+def keep_formulas_whole(part, wrap):
+    """Mathematics: a formula such as 「30p₁ + 60q₁ = 2700」 or 「|x − 2| &lt; 3」 stays on one
+    line, as in the booklets; hosted solutions broke about twenty of them at = + ≤ (."""
+    out, cursor = [], 0
+    for formula in FORMULA_RUN.finditer(part):
+        out.append(MATH_RUNS.sub(wrap(0), part[cursor:formula.start()]))
+        chunk = MATH_RUNS.sub(wrap(formula.start()), formula.group(0))
+        visible = len(re.sub(r'&[a-z#0-9]+;', '.', formula.group(0).strip()))
+        if FORMULA_OPERATOR.search(formula.group(0)) and visible <= FORMULA_MAX_CHARS:
+            chunk = f'<span style="white-space:nowrap">{chunk}</span>'
+        out.append(chunk)
+        cursor = formula.end()
+    out.append(MATH_RUNS.sub(wrap(0), part[cursor:]))
+    return ''.join(out)
+
+
 def latin_runs(markup):
     """Wrap Latin/digit/radical runs of already-escaped markup in the Latin font, leaving tags alone."""
-    parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)  # tags, entities and {{tokens}} stay untouched
+    # Tags, entities and {{tokens}} stay untouched; mathematics keeps &lt; and &gt; inside
+    # its formulas.
+    entity = r'&(?!lt;|gt;)[a-z#0-9]+;' if _math_mode else r'&[a-z#0-9]+;'
+    parts = re.split(rf'(<[^>]+>|{entity}|\{{\{{[^{{}}]*\}}\}})', markup)
     for index, part in enumerate(parts):
         if not part or part.startswith(('<', '&', '{{')):
             continue
@@ -68151,14 +68298,17 @@ def latin_runs(markup):
         if (index and parts[index - 1] == '&lt;') or (index + 1 < len(parts) and parts[index + 1] == '&gt;'):
             continue
 
-        def wrap(match, part=part):
+        def wrap(match, part=part, base=0):
             chunk = match.group(0)
             if match.lastgroup == 'run' and _math_mode:
                 # Variables print italic, as in every mathematics booklet; function
                 # names, words and acronyms stay upright.
-                chunk = identifier_markup(chunk, part, match.start())
+                chunk = identifier_markup(chunk, part, base + match.start())
             return f'<span class="latin">{unligated(chunk)}</span>'
-        parts[index] = (MATH_RUNS if _math_mode else TEXT_RUNS).sub(wrap, part)
+        if _math_mode:
+            parts[index] = keep_formulas_whole(part, lambda base, part=part: (lambda m: wrap(m, part, base)))
+        else:
+            parts[index] = TEXT_RUNS.sub(wrap, part)
     return ''.join(parts)
 
 
@@ -68172,7 +68322,7 @@ def text(value):
     if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
     if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
         raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
-    result = html.escape(value).replace('\n','<br>')
+    result = html.escape(value.translate(FULLWIDTH_MATH) if _math_mode else value).replace('\n','<br>')
     result = math_tokens(result) if _math_mode else result
     return kai_runs(latin_runs(result) if _latin_runs_enabled else result)
 
@@ -68433,7 +68583,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     numbered=type(block.get('number')) is int and block['number']>=1
     if kind!='stimulus' and not numbered and not (kind in {'choice','multiple','constructed','solution'} and 'label' in block):
         raise ValueError('Supply a positive integer question number, or a printed label for an unnumbered task')
-    stem=gap_markup(keep_scores_whole(text(block.get('text',''))))
+    stem=gap_markup(keep_scores_whole(text(lstripped(block.get('text','')))))
+    if kind in {'choice','multiple','constructed','fill'} and not _writing_mode:
+        stem=no_short_last_line(stem)
     if kind=='constructed' and _writing_mode:
         stem=_writing_stem(block)
     if kind=='solution':
@@ -68448,10 +68600,12 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # Use paragraph flow: MuPDF top-aligned table cells paint their inline
         # image below the text despite a valid non-colliding bounding box.
         rail=f'<img src="{name}" width="{w}" height="{h}" style="vertical-align:middle">'
-        prefix=re.search(r'([A-Za-zα-ωΑ-Ω][A-Za-z0-9_]*\s*[=＝]\s*)$',before)
-        if prefix:
-            stem=before[:prefix.start()]+f'<span style="white-space:nowrap">{prefix.group(0)}{rail}</span>'+after
-        else:stem=before+rail+after
+        # The grid never starts a line alone or leaves 「。」 for the next one: it keeps
+        # the token before it (「Q =」, 「為」) and the punctuation after it (hosted 數B
+        # papers dropped 13, 14 and 17's grids to a new line with a lone 「。」).
+        head,tail=split_tail(before)
+        lead=re.match(r'(?:[。，、．.；：）)！？]|<span class="latin">[.,;:)]+</span>)*',after).group(0)
+        stem=head+f'<span style="white-space:nowrap">{tail}{rail}{lead}</span>'+after[len(lead):]
     elif '{{answer}}' in stem: raise ValueError('Answer position token requires a fill block')
     if 'label' in block:
         label=text(block['label']) if head else ''
@@ -68765,13 +68919,70 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 return [first,_chunk(block,key,units[count:],False,True)]
         return None
 
+    # Official 數學 pages leave working room between items (111-115 median gap about 52 pt,
+    # upper quartile 72-83 pt); the renderer's 12 pt gap piled every blank at the page foot.
+    spread=spec['subject'] in {'數學A','數學B'} and not any(b.get('kind')=='solution' for b in spec['blocks'])
+
     def paginate(tightness,capacity=None):
         """One pagination pass. Gaps scale with tightness; `capacity` breaks pages early to spread content evenly."""
         def gap_after(block):
             return (8 if block['kind']=='section' else item_gap_pt(spec['subject']))*tightness
 
         work=list(blocks)
-        parts=[];pages=[]
+        parts=[];pages=[];pending=[]
+
+        def close_page():
+            """Place the page's measured blocks; mathematics question pages share their
+            leftover space among the item gaps, as the booklets leave working room."""
+            if not pending:
+                return
+            extras=[0.0]*len(pending)
+            bottom=pending[-1]['y']+pending[-1]['used']
+            void=(body.y1-bottom)/body.height
+            gaps=[n for n in range(len(pending)-1)
+                  if pending[n]['block']['kind']!='section' and not pending[n]['block'].get('keep_with_next')]
+            limit=page_void_limit(spec['subject'],'body',False)
+            if spread and gaps and (limit is None or void<=limit):
+                # Whole grid steps, so a moved block keeps the crop it had on the grid.
+                share=math.floor(min(MATH_GAP_EXTRA_PT,(body.y1-bottom)/len(gaps))/BLOCK_GRID_PT)*BLOCK_GRID_PT
+                for n in gaps:extras[n+1]=share
+            shift_total=0.0
+            for row,extra in zip(pending,extras):
+                shift_total+=extra
+                place(row['page'],row['block'],row['measured'],row['block_top'],row['used'],row['y']+shift_total,row['number'])
+            pending.clear()
+
+        def place(page,block,measured,block_top,used,y,number):
+            shift=y-body.y0
+            page.show_pdf_page(pymupdf.Rect(0,shift,595.28,841.89+shift),
+                               measured,0,keep_proportion=False)
+            # Crop edges on the same grid avoid partial-pixel clip noise.
+            box=[math.floor(allowed.x0/BLOCK_GRID_PT)*BLOCK_GRID_PT,
+                 math.floor((y+block_top)/BLOCK_GRID_PT+1e-9)*BLOCK_GRID_PT,
+                 math.ceil(allowed.x1/BLOCK_GRID_PT)*BLOCK_GRID_PT,
+                 snap_block_top(y+used)]
+            piece='whole' if block.get('_head',True) and block.get('_tail',True) else (
+                'first' if block.get('_head',True) else 'last' if block.get('_tail',True) else 'middle')
+            if block['kind']!='section':
+                owner=(block.get('ids') or [block['id']])[0]
+                covers=sorted(block.get('covers',[]))
+                previous=parts[-1] if parts else None
+                if (previous and pages and pages[-1]['kind']!='section' and previous['page']==number and
+                        previous['id']==owner and previous.get('covers',[])==covers):
+                    # One crop per owner per page: shared material and its
+                    # item, or paragraphs continued on the same page.
+                    previous['bbox']=[min(previous['bbox'][0],box[0]),min(previous['bbox'][1],box[1]),
+                                      max(previous['bbox'][2],box[2]),max(previous['bbox'][3],box[3])]
+                    previous['components'].append({'role':'flow-content','bbox':box})
+                else:
+                    part={'id':owner,'page':number,'bbox':box,'components':[{'role':'flow-content','bbox':box}]}
+                    if covers:part['covers']=covers
+                    parts.append(part)
+            pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':number,'bbox':box,
+                          'id':block.get('id'), 'measured_height_pt':used,
+                          'keep_with_next':bool(block.get('keep_with_next') or block['kind']=='section'),
+                          'remaining_height_pt':body.y1-(y+used)})
+
         with pymupdf.open() as doc:
             top=snap_block_top(body.y0)
             page=doc.new_page(width=595.28,height=841.89);y=top
@@ -68804,6 +69015,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                         offset+=heights[position]+gap_after(block)+BLOCK_GRID_PT
                     if split:continue
                     if not fresh_page:
+                        close_page()
                         page=doc.new_page(width=595.28,height=841.89);y=top;fresh_page=True
                         continue
                     if math.inf in heights:
@@ -68815,38 +69027,12 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                     progress_path.write_text(json.dumps({'block':block['_source'],'question_id':block.get('id'),
                         'operation':'place measured block','remaining_height_pt':body.y1-y,
                         'block_height_pt':used}),encoding='utf-8')
-                shift=y-body.y0
-                page.show_pdf_page(pymupdf.Rect(0,shift,595.28,841.89+shift),
-                                   measured,0,keep_proportion=False)
-                # Crop edges on the same grid avoid partial-pixel clip noise.
-                box=[math.floor(allowed.x0/BLOCK_GRID_PT)*BLOCK_GRID_PT,
-                     math.floor((y+block_top)/BLOCK_GRID_PT+1e-9)*BLOCK_GRID_PT,
-                     math.ceil(allowed.x1/BLOCK_GRID_PT)*BLOCK_GRID_PT,
-                     snap_block_top(y+used)]
-                piece='whole' if block.get('_head',True) and block.get('_tail',True) else (
-                    'first' if block.get('_head',True) else 'last' if block.get('_tail',True) else 'middle')
-                if block['kind']!='section':
-                    owner=(block.get('ids') or [block['id']])[0]
-                    covers=sorted(block.get('covers',[]))
-                    previous=parts[-1] if parts else None
-                    if (previous and pages and pages[-1]['kind']!='section' and previous['page']==len(doc) and
-                            previous['id']==owner and previous.get('covers',[])==covers):
-                        # One crop per owner per page: shared material and its
-                        # item, or paragraphs continued on the same page.
-                        previous['bbox']=[min(previous['bbox'][0],box[0]),min(previous['bbox'][1],box[1]),
-                                          max(previous['bbox'][2],box[2]),max(previous['bbox'][3],box[3])]
-                        previous['components'].append({'role':'flow-content','bbox':box})
-                    else:
-                        part={'id':owner,'page':len(doc),'bbox':box,'components':[{'role':'flow-content','bbox':box}]}
-                        if covers:part['covers']=covers
-                        parts.append(part)
-                pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':len(doc),'bbox':box,
-                              'id':block.get('id'), 'measured_height_pt':used,
-                              'keep_with_next':bool(block.get('keep_with_next') or block['kind']=='section'),
-                              'remaining_height_pt':body.y1-(y+used)})
+                pending.append({'page':page,'block':block,'measured':measured,'block_top':block_top,'used':used,
+                                'y':y,'number':len(doc)})
                 y+=used+gap_after(block)
                 fresh_page=False
                 i+=1
+            close_page()
             last=max(row['bbox'][3] for row in pages if row['page']==len(doc))
             return doc.tobytes(garbage=4,deflate=True),parts,pages,len(doc),(last-top)/body.height
 
@@ -69314,7 +69500,7 @@ import re
 import pymupdf
 
 from check_hosted_run import ITEM_GATES, PAPER_GATES
-from hosted_blind_review import packet, REVIEW_MODES
+from hosted_blind_review import packet, review_errors, REVIEW_MODES
 
 HISTORY = 'exam-history.json'
 ORIGINALITY_SCOPES = {'available-history', 'no-history-available'}
@@ -69341,10 +69527,21 @@ def _digest_value(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()
 
 
+# Author-only planning and review metadata: never printed and never shown to a gate's
+# reviewer. A hosted 數B run synced difficulty labels after review and every item gate
+# re-opened although no reviewed content changed.
+AUTHOR_ONLY_QUESTION_FIELDS = frozenset({'item_spec', 'expected_minutes', 'difficulty', 'difficulty_label'})
+AUTHOR_ONLY_ANSWER_FIELDS = frozenset({'independent_review', 'difficulty_label', 'verification_status',
+                                       'verification_notes'})
+
+
 def item_digests(exam):
-    """{item id: digest of its authored question and answer records}, in exam order."""
+    """{item id: digest of its reviewed question and answer records}, in exam order."""
     answers = {a.get('question_id'): a for a in exam.get('answers') or [] if isinstance(a, dict)}
-    return {str(q.get('id')): _digest_value({'question': q, 'answer': answers.get(q.get('id'))})
+    def reviewed(record, hidden):
+        return {k: v for k, v in record.items() if k not in hidden} if isinstance(record, dict) else record
+    return {str(q.get('id')): _digest_value({'question': reviewed(q, AUTHOR_ONLY_QUESTION_FIELDS),
+                                             'answer': reviewed(answers.get(q.get('id')), AUTHOR_ONLY_ANSWER_FIELDS)})
             for q in exam.get('questions') or [] if isinstance(q, dict)}
 
 
@@ -69441,6 +69638,10 @@ def evidence_gaps(root, state, exam):
                         problems.append('blind packet is not valid JSON')
             if not report.get('author_context'):
                 problems.append('author_context is missing')
+            # The final checker's own difficulty rules, now at every checkpoint: two hosted
+            # 數學 runs first learned at finalize that a row called routine was labelled 中偏難.
+            problems.extend(error.split(': ', 1)[-1] if error.startswith('difficulty: ') else error
+                            for error in review_errors(exam, report))
         if gate == 'originality' and report.get('comparison_scope') not in ORIGINALITY_SCOPES:
             problems.append('comparison_scope must disclose available-history or no-history-available')
         gates[gate] = {'status': 'incomplete', 'problems': problems} if problems else {'status': 'current'}
@@ -70394,19 +70595,30 @@ class Typesetter:
 _standalone_cache: dict = {}
 
 
+UNITS = frozenset({'cm', 'mm', 'km', 'kg', 'mg', 'ml', 'mL', 'am', 'pm', 'hr', 'min', 'sec'})
+
+
 def identifier_markup(run: str, context: str, start: int) -> str:
     """Italicise variable names inside one escaped Latin run of mathematics text."""
     # One scan per text, not per run: a long passage has thousands of runs.
     if _standalone_cache.get('context') is not context:
         _standalone_cache.update(context=context,
-                                 letters=set(re.findall(r'(?<![A-Za-z])([A-Z])(?![A-Za-z])', context)))
+                                 letters=set(re.findall(r'(?<![A-Za-z])([A-Z])(?![A-Za-z])', context)),
+                                 lower=set(re.findall(r'(?<![A-Za-z])([a-z])(?![A-Za-z])', context)))
     standalone = _standalone_cache['letters']
+    lower = _standalone_cache['lower']
     geometric = re.search(r'(?:三角形|四邊形|梯形|線段|直線|射線|平面|弧|△|∠|點|正方形|長方形|菱形|四面體|六面體|多邊形)\s*$',
                           context[max(0, start - 12):start])
 
     def letters(match):
         word = match.group(0)
-        if word in FUNCTIONS or (len(word) > 1 and not word.isupper()):
+        if word in FUNCTIONS or word in UNITS:
+            return word
+        if len(word) > 1 and word.islower() and len(word) <= 3 and all(c in lower for c in word):
+            # A product of variables used alone elsewhere (「a+b=7 與 ab=10」) is italic,
+            # as the booklets print it; other lowercase words (units, labels) stay upright.
+            return f'<span class="var">{word}</span>'
+        if len(word) > 1 and not word.isupper():
             return word
         if len(word) == 1 or (len(word) <= 4 and (all(c in standalone for c in word) or geometric)):
             return f'<span class="var">{word}</span>'
@@ -73127,6 +73339,7 @@ from hosted_run_timing import PHASES, transition
 from hosted_body_templates import guarded_render as render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
+from hosted_evidence_refresh import AUTHOR_ONLY_QUESTION_FIELDS, AUTHOR_ONLY_ANSWER_FIELDS
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note,
                                    propagate_page_reviews, retain_parts, review_sources, Renderings)
@@ -73326,6 +73539,10 @@ def clock(state_path, operation, *, phase=None, question_ids=None, page_numbers=
     return {'status': 'clock-' + operation, 'state': str(state_path)}
 
 
+AUTHOR_ONLY_METADATA_FIELDS = frozenset({'difficulty_balance_plan', 'paper_difficulty_plan', 'score_plan',
+                                         'subject_innovation_review', 'run_contract'})
+
+
 def content_identity(root, state):
     exam_path = inside(root, root / state['exam']['path'])
     if record(root, exam_path) != state['exam']:
@@ -73345,8 +73562,18 @@ def content_identity(root, state):
         elif isinstance(value, list):
             for child in value:
                 visit(child)
-    visit(read(exam_path))
-    return {'paper_id': state['paper_id'], 'exam': record(root, exam_path), 'assets': assets}
+    exam = read(exam_path)
+    visit(exam)
+    # The lock guards what is printed and answered. Difficulty labels, item_spec plans and
+    # review metadata are author-only: a hosted 數B run synced them after review, had to
+    # re-lock with a reason and rebuilt an identical booklet.
+    locked = {**exam, 'questions': [{k: v for k, v in q.items() if k not in AUTHOR_ONLY_QUESTION_FIELDS}
+                                    for q in exam.get('questions') or [] if isinstance(q, dict)],
+              'answers': [{k: v for k, v in a.items() if k not in AUTHOR_ONLY_ANSWER_FIELDS}
+                          for a in exam.get('answers') or [] if isinstance(a, dict)]}
+    locked['metadata'] = {k: v for k, v in (exam.get('metadata') or {}).items()
+                          if k not in AUTHOR_ONLY_METADATA_FIELDS}
+    return {'paper_id': state['paper_id'], 'exam_content_sha256': canonical_sha(locked), 'assets': assets}
 
 
 def content_lock(state_path, *, reason=None):
@@ -73461,11 +73688,11 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
         render(read(spec_path), body, layout, Path(font), asset_root=spec_path.parent,
                reading_font=Path(reading_font) if reading_font else None, kai_font=kai_font)
         compose(subject, body, assets, pdf, year=str(year), title=title,
-                running_name=running_name, font_path=Path(font),
+                running_name=running_name, font_path=Path(font), kai_path=kai_font,
                 kind='questions' if role == 'question' else 'answers')
         pairs[role] = (pdf, body, layout)
     save(output / 'page-plan.json', {
-        'exam': state['exam'], 'specs': identity['specs'],
+        'exam': state['exam'], 'specs': identity['specs'], 'printed_sha256': printed_digest(specs),
         'scope': 'Measured pagination and risk queue; not a density or visual approval',
         'booklets': {role: {'plan': read(layout)['page_plan'], 'blocks': read(layout)['blocks']}
                      for role, (_, _, layout) in pairs.items()}})
@@ -73525,10 +73752,44 @@ def iteration_budget(root, kind, output):
         runs.append(Path(output).name)
     if kind == 'proof':
         return proof_budget(root, runs)
-    over = len(runs) > ITERATION_BUDGET[kind]
-    return {'kind': kind, 'count': len(runs), 'budget': ITERATION_BUDGET[kind], 'over_budget': over,
-            'note': (f'{len(runs)} {kind} runs exceed the budget of {ITERATION_BUDGET[kind]}: stop adjusting hints by eye; '
-                     'fix the figure size or split the block once, then run one more') if over else 'within budget'}
+    return printed_budget(root, kind, runs)
+
+
+def printed_digest(specs):
+    """The printed blocks of both booklets: what a plan or build actually lays out."""
+    return canonical_sha({role: read(Path(path)).get('blocks') for role, path in sorted(specs.items())})
+
+
+def printed_budget(root, kind, runs):
+    """Builds count distinct printed content; plans count only repeats of unchanged content.
+
+    A hosted 數B run spent a third build on a change to difficulty labels (identical pages)
+    and twelve plans, most after real item edits; neither is the waste the budget targets.
+    """
+    seen, repeats, distinct = set(), [], []
+    stamped = []
+    for name in runs:
+        path = root / name / 'page-plan.json'
+        stamped.append(((path.stat().st_mtime if path.is_file() else float('inf')), name,
+                        read(path).get('printed_sha256') if path.is_file() else None))
+    for _, name, printed in sorted(stamped):
+        if printed and printed in seen:
+            repeats.append(name)
+        else:
+            distinct.append(name)
+            if printed:
+                seen.add(printed)
+    counted = len(distinct) if kind == 'build' else len(repeats)
+    limit = ITERATION_BUDGET[kind] if kind == 'build' else 1
+    over = counted > limit
+    return {'kind': kind, 'count': len(runs), 'distinct_printed': len(distinct), 'repeats_of_unchanged': repeats,
+            'budget': (f'{limit} builds of distinct printed content' if kind == 'build'
+                       else 'at most one plan of unchanged printed content'),
+            'over_budget': over,
+            'note': ((f'{counted} builds with different printed content exceed {limit}: fix every reviewed defect '
+                      'before the next build' if kind == 'build' else
+                      f'{counted} plans repeated unchanged content: change the item or its hint before planning again')
+                     if over else 'within budget')}
 
 
 def proof_budget(root, runs):
@@ -73633,6 +73894,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
                                                       for row in booklet['pages'] if row['page'] in before}}
     save(plan_path, {'kind': 'hosted-page-plan', 'exam': state['exam'], 'paper_id': state['paper_id'],
                      'specs': {role: record(root, path) for role, path in specs.items()},
+                     'printed_sha256': printed_digest(specs),
                      'content_lock': lock_status, 'booklets': booklets,
                      'scope': 'Measured pagination only: no composed booklet, raster, review state, density or visual approval'})
     event(root, 'plan', started, pages={role: b['page_count'] for role, b in booklets.items()})
@@ -74021,6 +74283,9 @@ def english_segment(owner, segment, members, where, layout):
 
 
 HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
+# Shared material that points at its own table or figure (「下表為…」); the figure then
+# belongs to the material, not to the group's first question.
+MATERIAL_VISUAL = re.compile(r'下表|下圖|附表|附圖|如表|如圖|右表|右圖|左表|左圖')
 RANGE_DISPLAY = re.compile(r'(\d{1,2})\s*[-–]\s*(\d{1,2})')
 
 
@@ -74250,9 +74515,12 @@ def project_specs(exam, hints, body_width):
                             if member.get('page') == page and not member.get('suppress_question_display'):
                                 emit_question(member)
                                 placed.add(member['id'])
-        if english and group and q.get('visual_asset') and 'group_blocks' not in hint:
+        material_visual = english or q.get('visual_placement') == 'stimulus' or bool(
+            group and MATERIAL_VISUAL.search(str(group)))
+        if material_visual and group and q.get('visual_asset') and 'group_blocks' not in hint:
             # The group's chart, table or map closes its material, above the questions;
-            # printed with item 47 it split 47 from 48 in a hosted paper.
+            # printed with item 47 it split 47 from 48 in a hosted 英文 paper, and two hosted
+            # 數B papers printed the 題組 table under item 18 instead of in the 題組 text.
             figure = {'kind': 'stimulus', 'id': q['id'], 'text': ''}
             attach_assets(figure, q, f'group of {q["id"]}', body_width, hint, figure_key='figure',
                           position='below', shown=shown)
@@ -79221,6 +79489,7 @@ Structural passes are never editorial passes.
 from __future__ import annotations
 
 from collections import Counter
+import json
 import re
 from typing import Any
 
@@ -79272,7 +79541,11 @@ MATH_B_FAMILY_LABELS = {'number': '數與式', 'exp_log': '指數與對數', 'po
                         'perspective': '單點透視', 'conic': '圓錐曲線'}
 MATH_B_REQUIRED_FAMILIES = ('matrix', 'sphere_space', 'polynomial', 'line_circle', 'trigonometry', 'exp_log',
                             'counting', 'probability', 'data')          # ≥1 item in every official year
-MATH_B_FAMILY_CAPS = {'sequence': 2, 'counting': 2, 'probability': 3, 'matrix': 2, 'sphere_space': 3}
+MATH_B_FAMILY_CAPS = {'sequence': 2, 'counting': 2, 'probability': 3, 'matrix': 2, 'sphere_space': 3, 'data': 2}
+# Polynomial is 2 items in every official year; a hosted paper had 1 (and 4 data items,
+# a data 題組 the booklets never set).
+MATH_B_FAMILY_FLOORS = {'polynomial': 2}
+MATRIX_PRINTED = re.compile(r'矩陣|方陣|\[\s*-?\d')
 MATH_B_ANY_FAMILY_CAP = 5
 MATH_B_11B_ITEMS = (3, 10)
 MATH_A_ONLY_CODES = re.compile(r'^[A-Z]-11A-\d+$')
@@ -79336,6 +79609,16 @@ def validate_exam(exam: dict) -> list[str]:
         errors.extend(math_b_scope_errors(questions, full))
     if subject == '數學A':
         errors.extend(math_a_scope_errors(questions, full))
+    # CEEC publishes a 評分原則 for the written items every year (111–115): full marks and
+    # the partial credit per step. A hosted 數B paper's solutions gave neither for 19–20.
+    answers = {str(a.get('question_id')): a for a in exam.get('answers') or [] if isinstance(a, dict)}
+    for q in questions:
+        record = answers.get(str(q.get('id')))
+        if (record and isinstance(q.get('number'), int) and q['number'] >= 18
+                and q.get('type') not in {'single_choice', 'multiple_choice', 'fill_in'}
+                and '評分' not in json.dumps(record, ensure_ascii=False)):
+            errors.append(f'{subject}第{q["number"]}題（非選擇題）詳解須附評分原則：滿分條件與各步驟的部分給分'
+                          '（官方 111–115 每年公布）')
 
     for question in questions:
         number = question.get('number') or question.get('id')
@@ -79392,6 +79675,11 @@ def validate_exam(exam: dict) -> list[str]:
             if median > STEM_MEDIAN_MAX:
                 errors.append(f'{subject}選擇（填）題題幹中位數 {median} 字，官方 111–115 為 83–123 字：'
                               '整卷敘述過長會多出一頁，且把判斷寫成說明降低難度')
+        fills = [q for q in questions if isinstance(q.get('number'), int) and 13 <= q['number'] <= 17]
+        if len(fills) == 5 and not any((q.get('answer_format') or {}).get('kind') == 'fraction' for q in fills
+                                       if isinstance(q.get('answer_format'), dict)):
+            errors.append(f'{subject}選填題 13–17 沒有分數答案：官方 111–115 每年至少一題「（化為最簡分數）」'
+                          '（數A 1–4 題、數B 1–3 題），五題都填兩位整數的格式與官方不符')
         # A shared stimulus is one context however many items read it.
         contexts: dict[str, list] = {}
         for q in questions:
@@ -79436,6 +79724,10 @@ def math_b_scope_errors(questions: list[dict], full: bool) -> list[str]:
             errors.append(f'數學B第{number}題的代碼 {codes} 不在數B範圍（10年級共同核心＋11B）')
             continue
         families[family] += 1
+        printed = str(q.get('prompt') or '') + str(q.get('group_stimulus') or '')
+        if family == 'matrix' and not MATRIX_PRINTED.search(printed):
+            errors.append(f'數學B第{number}題歸為矩陣單元，題目卻沒有出現矩陣；官方 111–115 每年的矩陣題都直接以矩陣命題'
+                          '（一題只用線性變換文字描述、不見矩陣，矩陣單元形同缺席）')
         if any('11B' in c for c in codes):
             eleven_b += 1
     if not full or len(questions) < 20:
@@ -79446,6 +79738,9 @@ def math_b_scope_errors(questions: list[dict], full: bool) -> list[str]:
     for family, cap in MATH_B_FAMILY_CAPS.items():
         if families[family] > cap:
             errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 有 {families[family]} 題，官方 111–115 每卷最多 {cap} 題')
+    for family, floor in MATH_B_FAMILY_FLOORS.items():
+        if families[family] < floor:
+            errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 只有 {families[family]} 題，官方 111–115 每卷都是 {floor} 題')
     for family, count in families.items():
         if count > MATH_B_ANY_FAMILY_CAP:
             errors.append(f'數學B {MATH_B_FAMILY_LABELS[family]} 有 {count} 題，超過單一單元上限 {MATH_B_ANY_FAMILY_CAP}（官方最高為 115 直線與圓 5 題）')
@@ -81243,6 +81538,36 @@ def masked_pixels(page, regions, *, alpha=False):
     return bytes(samples)
 
 
+SIGNATURE_REMINDER = '請記得在答題卷簽名欄位以正楷簽全名'
+
+
+def answers_template(document):
+    """The inner template as a solutions booklet prints it: without the grey signature
+    reminder, which speaks to candidates at an answer sheet. Two hosted 數B audits flagged
+    it on every page of the 詳解. Compose and verify both derive this same redacted copy."""
+    copy = pymupdf.open()
+    copy.insert_pdf(document, from_page=0, to_page=0)
+    page = copy[0]
+    boxes = page.search_for(SIGNATURE_REMINDER)
+    # The grey band behind it, not the page's white background.
+    boxes += [d['rect'] for d in page.get_drawings()
+              if d.get('fill') and tuple(d['fill']) != (1.0, 1.0, 1.0) and d['rect'].height < 30
+              and any(d['rect'].intersects(box) for box in boxes)]
+    if not boxes:
+        raise ValueError('inner template lacks the signature reminder it should carry')
+    for box in boxes:
+        page.add_redact_annot(pymupdf.Rect(box) + (-2, -2, 2, 2), fill=False)
+    # Only graphics inside the boxes: the templates' full-page white ground must stay, or a
+    # body drawn over it blends differently and the locked header pixels change.
+    page.apply_redactions(images=0, graphics=1, text=0)
+    # Balance the rewritten stream and re-parse it, so pages placed on it later draw the
+    # same after saving as they did in memory.
+    page.clean_contents()
+    data = copy.tobytes(garbage=3, deflate=True)
+    copy.close()
+    return pymupdf.open(stream=data, filetype='pdf')
+
+
 def streams(page):
     # Page content plus nested Form XObjects reachable from this page; document
     # attachments and unused objects elsewhere are not evidence of composition.
@@ -81301,6 +81626,10 @@ def verify_pdf(pdf: Path, subject: str, kind: str, asset_dir: Path | None = None
             data = path.read_bytes()
             verify(asset, data)
             assets[component] = pymupdf.open(stream=data, filetype='pdf')
+            if kind == 'answers' and component.startswith('inner-'):
+                original = assets[component]
+                assets[component] = answers_template(original)
+                original.close()
         data = pdf.read_bytes()
         report['pdf_sha256'] = hashlib.sha256(data).hexdigest()
         math_formula = subject in {'數學A', '數學B'} and kind == 'questions'
