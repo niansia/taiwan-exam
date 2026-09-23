@@ -19,7 +19,7 @@
 - **審查與計時**（依兩邊的計時回報）：題目截圖只綁題目內容，只改詳解時題目截圖不再重審；proof 次數上限只計「內容完全沒變又再 proof」的次數；超過 10 分鐘沒有紀錄的空檔標為「未觀測」，不再算成等待使用者；存圖時連續渲染兩次比對，不一致就先要求轉成平面 PNG；說明文件要求先用一題一種題型試排定稿，再開始逐題 proof，出卷中途不改渲染器。
 - 七科版型範例改用本版渲染器重出（2026.09.22.20），ZIP 內建的版型也從 2026.09.22.6 更新為這一版。
 
-新 ZIP（SHA-256 `8ce7f3cdea32e628dc738a9166bea4959386ca869af3f702e63d47a8ee765ccd`，8,610,056 位元組，98 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；Chrome 下載與 Claude、ChatGPT 上傳待維護者確認。[下載 2026.09.22.20 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.20/taiwan-exam-hosted-2026.09.22.20.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.20) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `8ce7f3cdea32e628dc738a9166bea4959386ca869af3f702e63d47a8ee765ccd`，8,610,056 位元組，98 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.20 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.20/taiwan-exam-hosted-2026.09.22.20.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.20) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.19：數學式、標題、說明框、頁首與字型全部依官方 111～115 排版
 
