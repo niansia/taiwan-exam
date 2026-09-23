@@ -11,7 +11,8 @@ import hashlib
 import json
 from pathlib import Path
 import pymupdf
-from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void, narrow_wrap_samples
+from inspect_hosted_pdf import (HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void,
+                                 narrow_wrap_samples, writing_font_role_samples)
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary, workflow_events
 from hosted_blind_review import packet, review_errors, REVIEW_MODES
@@ -201,6 +202,11 @@ def check(state_path: Path) -> dict:
             need(actual.metadata.get('creator') == COMPOSER,
                  f'{role}: PDF was not composed by compose_hosted_pdf (creator stamp missing); '
                  'a body typeset by another route is not deliverable')
+            if role == 'question' and exam.get('metadata', {}).get('subject') == '國寫':
+                for sample in writing_font_role_samples(actual):
+                    need(False, f'{role}/page-{sample["page"]}: 國寫 line 「{sample["text"]}」 is set in '
+                                f'{"/".join(sample["fonts"])}, not {sample["expected"]}; materials and the 說明 box '
+                                'print in the preflight kai face (--kai-font), 問題 and ask lines in the body face')
             for number, actual_page in enumerate(actual, 1):
                 collisions = rail_collision_samples(actual_page)
                 need(not collisions,

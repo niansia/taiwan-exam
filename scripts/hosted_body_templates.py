@@ -64,6 +64,7 @@ p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;width:100%;margin:0} t
 td.figure {vertical-align:top}
 .direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3;font-family:Kai,Body}
 .material {font-family:Kai,Body} p.hanging {padding-left:6em;text-indent:-6em;text-align:justify} p.plain {text-indent:0}
+table.material-label {width:18pt;margin:2pt 0 4pt} table.material-label td {border:0.6pt solid black;padding:0;text-align:center;line-height:1.4}
 p.part {font-size:13pt;margin-bottom:2pt}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
@@ -130,13 +131,17 @@ _writing_mode = False
 WRITING_TASK_LINE = re.compile(r'^\s*問題[（(]')
 WRITING_ASK_LINE = re.compile(r'^\s*請.{0,14}問題[：:]\s*$')
 WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
+# 「（占4分）」 never breaks inside (111 wraps the whole group); a hosted paper printed
+# 「（占」 at a line end and 「4分）」 on the next. 115 does break 「（至多／19 行）」.
+WRITING_UNBREAKABLE = re.compile(r'（占(?:<[^>]+>|[^（）<])*）')
 
 
 def _writing_stem(block):
     """國寫 paragraphs as the official booklets print them.
 
     Reading material: 楷體, first line indented two characters; a lone 甲／乙 label
-    sits on its own unindented line. 「請分項回答下列問題：」 prints at the margin;
+    sits on its own line in an 18 pt box (113 and 115 measured), and a source line
+    printed as its own paragraph stays at the margin. 「請分項回答下列問題：」 prints at the margin;
     問題（一）／（二） hang six characters (the width of 「問題（一）：」) so their
     continuation lines align under the text; the 第二大題 task paragraph is an
     ordinary indented 明體 paragraph.
@@ -148,19 +153,27 @@ def _writing_stem(block):
     else:
         pieces = [p for p in PARAGRAPH_BREAK.split(str(value)) if p.strip()]
         plains = list(pieces)
-    out = []
-    for piece, plain in zip(pieces, plains):
-        plain = plain.strip()
-        if WRITING_MATERIAL_LABEL.match(plain) or WRITING_ASK_LINE.match(plain):
-            cls = 'plain'
-        elif WRITING_TASK_LINE.match(plain):
-            cls = 'hanging'
-        elif '為題' in plain or '（占' in plain or '文長' in plain:
-            cls = 'indent'
-        else:
-            cls = 'material indent'
-        out.append(f'<p class="{cls}">{text(piece)}</p>')
-    return ''.join(out)
+    return ''.join(_writing_paragraph(piece, plain) for piece, plain in zip(pieces, plains))
+
+
+def _writing_paragraph(piece, plain):
+    plain = plain.strip()
+    if WRITING_MATERIAL_LABEL.match(plain):
+        return f'<table class="material-label"><tr><td>{text(piece)}</td></tr></table>'
+    if WRITING_ASK_LINE.match(plain):
+        cls = 'plain'
+    elif WRITING_TASK_LINE.match(plain):
+        cls = 'hanging'
+    elif '為題' in plain or '（占' in plain or '文長' in plain:
+        cls = 'indent'
+    elif re.match(r'[（(]', plain):
+        cls = 'material plain'
+    else:
+        cls = 'material indent'
+    markup = text(piece)
+    if 'material' not in cls:
+        markup = WRITING_UNBREAKABLE.sub(lambda m: f'<span style="white-space:nowrap">{m.group(0)}</span>', markup)
+    return f'<p class="{cls}">{markup}</p>'
 
 
 def latin_runs(markup):
@@ -286,16 +299,22 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if kind=='passage':
         paragraphs=block.get('paragraphs',[])
         if not paragraphs:raise ValueError('Passage needs actual paragraphs')
+        writing=_writing_mode and block.get('language')!='en'
         def paragraph(value):
             plain=value['rich'] if isinstance(value,dict) else value
+            if writing:
+                # 國寫 materials print in 楷體 whichever block carries them: a passage
+                # once fell back to the 明體 body face because only stems were classified.
+                return _writing_paragraph(value,html.unescape(re.sub('<[^>]+>','',str(plain))))
             # Source lines and option/bank rows are never first-line indented.
             indent=block.get('indent') and not re.match(r'\s*[(（]',str(plain))
             return ('<p class="indent">' if indent else '<p>')+text(value)+'</p>'
         content=''.join(paragraph(p) for p in paragraphs)
         content=re.sub(r'\{\{gap:(\d{1,2})\}\}',r'<u>　\1　</u>',content)
         if '{{gap:' in content:raise ValueError('Invalid passage gap number')
-        cls='english' if block.get('language')=='en' else 'passage'
+        cls='english' if block.get('language')=='en' else 'writing' if writing else 'passage'
         heading=f'<div class="heading">{text(block["heading"])}</div>' if block.get('heading') and head else ''
+        if writing and heading:heading=f'<p class="part">{text(block["heading"])}</p>'
         bank=block.get('bank',[]) if tail else []
         if bank:
             columns=block.get('columns',2)

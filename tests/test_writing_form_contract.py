@@ -99,3 +99,13 @@ def test_hosted_gate_routes_the_writing_form_contract():
     errors = gates.subject_gate_errors(p)
     assert any(e.startswith('writing-form: ') and '文長限400字以內' in e for e in errors)
     assert json.dumps(errors, ensure_ascii=False)
+
+
+def test_task_lines_keep_the_official_colon_and_full_stop():
+    """GW0923 printed 「問題（一）根據上文…（至多4行）（占4分）」."""
+    p = paper()
+    p['questions'][0]['prompt'] = p['questions'][0]['prompt'].replace('問題（一）：', '問題（一）').replace('（至多4行）。（占4分）', '（至多4行）（占4分）')
+    errors = writing_form(p)
+    assert any('「問題（一）：」' in e for e in errors)
+    assert any('問題（一）的字數限制與配分之間須印「。」' in e for e in errors)
+    assert not any('問題（二）' in e for e in errors)

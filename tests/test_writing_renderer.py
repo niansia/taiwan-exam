@@ -56,8 +56,13 @@ def test_writing_geometry_matches_the_official_booklets(tmp_path, fonts):
     assert abs(part[0] - margin) < 2, '「一、」 stands alone at the margin'
     material_first = next(x for _, x, _, t, _ in rows if t.startswith('人們習慣'))
     assert 22 <= material_first - margin <= 27, 'materials indent two characters at 12 pt'
-    label = next(x for _, x, _, t, _ in rows if t.strip() == '甲')
-    assert abs(label - margin) < 2, 'a lone 甲 label is not indented'
+    label = next((x, y) for _, x, y, t, _ in rows if t.strip() == '甲')
+    edges = [d['rect'] for d in doc[0].get_drawings() if abs(d['rect'].y0 - label[1]) < 8 and d['rect'].x1 < margin + 30]
+    box = pymupdf.Rect(edges[0])
+    for edge in edges[1:]:
+        box |= edge  # MuPDF draws each cell border as its own filled strip
+    assert 16 <= box.width <= 20 and 16 <= box.height <= 20 and abs(box.x0 - margin) < 2 and box.x0 < label[0] < box.x1, \
+        'a lone 甲 label sits in an 18 pt box at the margin (113 and 115 measured)'
     ask = next(x for _, x, _, t, _ in rows if t.startswith('請分項回答'))
     assert abs(ask - margin) < 2
     task = [(x, y) for _, x, y, t, _ in rows if t.startswith('問題（一）')]
@@ -83,7 +88,75 @@ def test_writing_geometry_matches_the_official_booklets(tmp_path, fonts):
 def test_writing_stem_classifies_paragraphs():
     html_out = hb._writing_stem({'text': spec()['blocks'][1]['text']})
     assert html_out.count('<p class="material indent">') == 2
-    assert '<p class="plain">甲</p>' in html_out and '<p class="plain">請分項回答下列問題：</p>' in html_out
+    assert '<table class="material-label"><tr><td>甲</td></tr></table>' in html_out
+    assert '<p class="plain">請分項回答下列問題：</p>' in html_out
     assert html_out.count('<p class="hanging">') == 1
     essay = hb._writing_stem({'text': spec()['blocks'][3]['text']})
     assert essay.count('<p class="indent">') == 1 and essay.count('<p class="material indent">') == 1
+
+
+def test_a_writing_passage_block_prints_as_kai_material(tmp_path, fonts):
+    """A hosted 國寫 paper carried its materials in passage blocks and printed them in 明體."""
+    body, kai = fonts
+    source = MATERIAL * 2 + '（改寫自某作者《某書》）'
+    passage = {'subject': '國寫', 'booklet_role': 'questions', 'blocks': [
+        {'kind': 'section', 'title': '非選擇題（共二大題，占50分）', 'directions': '說明：本部分共有二大題，各題配分標於題末。'},
+        {'kind': 'passage', 'id': 'p1', 'heading': '一、', 'paragraphs': ['甲', source, '乙', MATERIAL * 2, '（改寫自某機構〈某文〉）']},
+        {'kind': 'constructed', 'id': 'q1-1', 'number': 1, 'label': '', 'text': '請分項回答下列問題：\n\n' + TASK_ONE, 'score': 4, 'score_in_text': True},
+    ]}
+    markup = hb._fragment_html(passage['blocks'][1], None, 0, 470, None, {}, {})
+    assert markup.startswith('<p class="part">一、</p>') and 'class="passage"' not in markup
+    assert markup.count('<p class="material indent">') == 2 and markup.count('class="material-label"') == 2
+    assert '<p class="material plain">（改寫自某機構〈某文〉）</p>' in markup
+    render(passage, tmp_path / 'p.pdf', tmp_path / 'p.json', body, asset_root=tmp_path, kai_font=kai)
+    rows = lines(pymupdf.open(tmp_path / 'p.pdf'))
+    margin = min(x for _, x, _, _, _ in rows)
+    assert 22 <= next(x for _, x, _, t, _ in rows if t.startswith('人們習慣')) - margin <= 27
+    assert abs(next(x for _, x, _, t, _ in rows if t.startswith('（改寫自某機構')) - margin) < 2
+
+
+class _Page:
+    rect = pymupdf.Rect(0, 0, 595.28, 841.89)
+
+    def __init__(self, rows):
+        self.rows = rows
+
+    def get_text(self, kind):
+        return {'blocks': [{'lines': [{'bbox': (68, y, 520, y + 14), 'spans': [
+            {'text': text, 'font': font, 'size': size} for text, font, size in spans]} for y, spans in self.rows]}]}
+
+
+def _booklet(material_font, task_font='NotoSerifTC-Regular'):
+    return [_Page([]), _Page([
+        (90, [('非選擇題（共二大題，占', 'NotoSerifTC-Regular', 13), ('50', 'NimbusRoman-Regular', 13), ('分）', 'NotoSerifTC-Regular', 13)]),
+        (120, [('説明：本部分共有二大題。', 'LXGWWenKaiTC-Regular', 12)]),
+        (190, [('一、', 'NotoSerifTC-Regular', 13)]),
+        (215, [('甲', 'NotoSerifTC-Regular', 12)]),
+        (240, [('當搜尋引擎放入', material_font, 12), ('AI', 'NimbusRoman-Regular', 12), ('摘要', material_font, 12)]),
+        (300, [('我說什麼', 'NotoSerifTC-Regular', 11)]),
+        (330, [('請分項回答下列問題：', 'NotoSerifTC-Regular', 12)]),
+        (355, [('問題（一）：請說明兩項研究共同呈現的現象。', task_font, 12)]),
+    ])]
+
+
+def test_the_final_pdf_font_roles_are_read_from_embedded_fonts():
+    from inspect_hosted_pdf import writing_font_role_samples
+    assert writing_font_role_samples(_booklet('LXGWWenKaiTC-Regular')) == []
+    assert writing_font_role_samples(_booklet('TW-Kai-98_1')) == []
+    ming = writing_font_role_samples(_booklet('NotoSerifTC-Regular'))
+    assert [(s['page'], s['expected']) for s in ming] == [(2, '標楷體')]
+    kai_task = writing_font_role_samples(_booklet('DFKaiShu-SB-Estd-BF', task_font='LXGWWenKaiTC-Regular'))
+    assert [s['expected'] for s in kai_task] == ['明體']
+
+
+def test_score_and_line_limit_groups_never_break_inside():
+    """W116M1 printed 「（占」 at a line end and 「4分）」 on the next line."""
+    hb._latin_runs_enabled = True
+    try:
+        markup = hb._writing_paragraph('問題（一）：說明現象。文長限80字以內（至多4行）。（占4分）', '問題（一）：')
+    finally:
+        hb._latin_runs_enabled = False
+    assert markup.count('white-space:nowrap') == 1, '115 breaks inside （至多19行）; only the score group is kept whole'
+    assert '<span style="white-space:nowrap">（占<span class="latin">4</span>分）</span>' in markup
+    material = hb._writing_paragraph('他說（至多三次）就好。', '他說（至多三次）就好。')
+    assert 'nowrap' not in material

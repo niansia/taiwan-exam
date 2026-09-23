@@ -56,13 +56,15 @@ SERIF_FONT_BYTES = 10001820
 SERIF_FONT_TIMEOUT = 40
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
-# The kai face for 說明 boxes (every subject) and 國寫 reading materials: LXGW WenKai TC
-# Regular, OFL 1.1, unmodified upstream release asset re-hosted with its licence notes.
-KAI_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-lxgw-wenkai-tc-1/'
-                'LXGWWenKaiTC-Regular.ttf')
-KAI_FONT_SHA256 = 'b1a0795862c1415bf3f393ea50b2a4ea6275012cf5bad3f94feeb1222f555731'
-KAI_FONT_BYTES = 15267616
-KAI_FONT_TIMEOUT = 60
+# The kai face for 說明 boxes (every subject) and 國寫 reading materials: 全字庫正楷體
+# (TW-Kai, Ministry of Digital Affairs CNS11643 open data, OFL 1.1), unmodified and
+# re-hosted with its licence notes. It draws the Ministry of Education standard forms
+# of 標楷體; LXGW WenKai TC, used before, prints 為 in its inherited form 爲.
+KAI_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-tw-kai-1/'
+                'TW-Kai-98_1.ttf')
+KAI_FONT_SHA256 = 'd5e8d7d8743c5cf816bdeb393a443f65105a8130266a04c19560e1d3401b28f0'
+KAI_FONT_BYTES = 36925608
+KAI_FONT_TIMEOUT = 120
 KAI_TEXT = '說明本部分共有二大題請依各題指示作答'
 # Hosted images usually install Noto/Source Han CJK as one collection file whose
 # FIRST face is Japanese. MuPDF loads that face, so a paper would print Japanese
@@ -282,8 +284,9 @@ def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOU
 
 def kai_font_record(run_dir, url=KAI_FONT_URL, timeout=KAI_FONT_TIMEOUT):
     """Record of the pinned kai face, or why the serif body face stands in for it."""
-    target = run_dir / 'fonts' / 'LXGWWenKaiTC-Regular.ttf'
-    fallback = 'the 說明 boxes and 國寫 materials print in the serif body face instead of 楷體'
+    target = run_dir / 'fonts' / 'TW-Kai-98_1.ttf'
+    fallback = ('the 說明 boxes print in the serif body face instead of 楷體, and a 國寫 question booklet fails '
+                'the final writing-font-role check until a 楷體 TTF is passed as --kai-font')
 
     def unavailable(note):
         return {'unavailable': note + '; ' + fallback, 'url': url}
@@ -308,8 +311,8 @@ def kai_font_record(run_dir, url=KAI_FONT_URL, timeout=KAI_FONT_TIMEOUT):
             return unavailable('downloaded kai font lacks 說明 glyphs')
     except Exception as exc:  # MuPDF raises its own error types
         return unavailable(f'downloaded kai font unusable ({exc})')
-    return {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-lxgw-wenkai-tc', 'sha256': KAI_FONT_SHA256,
-            'url': url, 'style': '楷體 Traditional Chinese (LXGW WenKai TC Regular, SIL Open Font License 1.1) for the '
+    return {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-tw-kai', 'sha256': KAI_FONT_SHA256,
+            'url': url, 'style': '楷體 Traditional Chinese (全字庫正楷體 TW-Kai, Ministry of Digital Affairs, SIL Open Font License 1.1) for the '
                                  'bordered 說明 boxes of every subject and the 國寫 reading materials, as the official '
                                  'booklets set them in 標楷體'}
 

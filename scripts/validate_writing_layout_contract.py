@@ -85,6 +85,13 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         errors.append('國寫問題（一）須印「文長限80字以內（至多4行）」（官方 111–115 逐字相同）')
     if not TASK_ONE_LONG.search(text_one):
         errors.append('國寫問題（二）須印「文長限400字以內（至多19行）」（官方 111–115 逐字相同）')
+    # Every official year prints 「問題（一）：」 and closes the length limit with 「。」 before
+    # the score; a hosted paper printed 「問題（一）根據上文…（至多4行）（占4分）」.
+    for label, limit in (('問題（一）', TASK_ONE_SHORT), ('問題（二）', TASK_ONE_LONG)):
+        if label in text_one and not re.search(re.escape(label) + '：', text_one):
+            errors.append(f'國寫須印「{label}：」（全形冒號，官方 111–115 逐字相同）')
+        if limit.search(text_one) and not re.search(limit.pattern + r'。\s*（占', text_one):
+            errors.append(f'國寫{label}的字數限制與配分之間須印「。」：「……（至多N行）。（占N分）」（官方 111–115 逐字相同）')
     scores_one = [int(s) for s in SCORE.findall(text_one)]
     if scores_one != [4, 21]:
         errors.append(f'國寫第一大題配分須依序印（占4分）、（占21分），目前 {scores_one}')
