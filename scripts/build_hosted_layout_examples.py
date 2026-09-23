@@ -60,7 +60,8 @@ def build(output, work, font, reading_font=None, kai_font=None):
             asset_dir=ROOT/Path(asset_row['assets'][0]['repository_path']).parent
             pdf=output/(stem+'.pdf')
             composition=compose(row['subject'],body,asset_dir,pdf,year='116',title='版型示範',
-                                running_name='學測',font_path=font,kind='questions' if role=='questions' else 'answers')
+                                running_name='學測',font_path=font,kind='questions' if role=='questions' else 'answers',
+                                kai_path=kai_font)
             # Keep only the glyphs each preview prints, as delivered booklets do.
             pdf.write_bytes(compact_fonts(pdf.read_bytes())[0])
             final_layout=bind_layout(body,pdf,layout,1 if role=='questions' else 0)

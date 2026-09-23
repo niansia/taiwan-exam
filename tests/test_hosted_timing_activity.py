@@ -123,7 +123,14 @@ def test_content_lock_rejects_changed_answer_and_requires_explicit_revision(tmp_
     with pytest.raises(ValueError, match='re-solve/review'):
         workflow.content_lock(state_path)
     workflow.content_lock(state_path, reason='Recomputed q1; prior answer review must be renewed')
-    assert workflow.read(tmp_path / 'content-lock.json')['previous']['identity']['exam'] != state['exam']
+    lock = workflow.read(tmp_path / 'content-lock.json')
+    assert lock['previous']['identity']['exam_content_sha256'] != lock['identity']['exam_content_sha256']
+    workflow.check_content_lock(tmp_path, state)
+    # Author-only difficulty labels and review metadata never break the lock.
+    workflow.save(exam_path, {'answers': [{'question_id': 'q1', 'answer': 'B', 'difficulty_label': '難'}],
+                              'questions': [], 'metadata': {'paper_difficulty_plan': {'hard': 30}}})
+    state['exam'] = workflow.record(tmp_path, exam_path)
+    workflow.save(state_path, state)
     workflow.check_content_lock(tmp_path, state)
 
 

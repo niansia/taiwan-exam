@@ -114,6 +114,9 @@ DIRECTION_BOX_PT = {'國寫': (39.4, 34.8, 0)}   # padding-left, hanging indent,
 DIRECTION_BREAKS = re.compile(r'。(?=作答使用筆尖|選擇（填）題與|選擇題與「非選擇題|選擇題使用)')
 
 
+MATH_GAP_EXTRA_PT = 60
+
+
 def number_pitch(subject=None):
     return NUMBER_PITCH_PT.get(subject if subject is not None else _subject, 18.0)
 
@@ -153,7 +156,7 @@ class RichText(HTMLParser):
             raise ValueError('Unbalanced rich-text tags')
         self.output.append('</'+tag+'>')
 
-    def handle_data(self, data): self.output.append(html.escape(data))
+    def handle_data(self, data): self.output.append(html.escape(data.translate(FULLWIDTH_MATH) if _math_mode else data))
 
 
 # Official booklets set digits, Latin letters and the radical sign in Times for every
@@ -176,6 +179,38 @@ WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
 # 「（非選擇題，8分）」): hosted papers printed 「（占」 or 「（4」 at a line end and 「分）」
 # on the next. 115 國寫 does break 「（至多／19 行）」, so only scores are kept whole.
 SCORE_GROUP = re.compile(r'（(?:占|(?:單選題|多選題|選填題|非選擇題)，)?(?:\s|<[^>]+>|[0-9])+分）')
+
+
+def lstripped(value):
+    """A leading full-width space printed as a gap after the item number (「13.　」)."""
+    if isinstance(value, dict):
+        return {'rich': value['rich'].lstrip(' \u3000')}
+    return value.lstrip(' \u3000') if isinstance(value, str) else value
+
+
+def split_tail(markup, chars=2):
+    """(head, tail): tail is the last visible token, a whole top-level span or the last
+    few plain characters, so it can stay on one line with what follows."""
+    if markup.endswith('</span>'):
+        depth = 0
+        for match in reversed(list(re.finditer(r'<(/?)span\b[^>]*>', markup))):
+            depth += 1 if match.group(1) else -1
+            if depth == 0:
+                return markup[:match.start()], markup[match.start():]
+        return markup, ''
+    match = re.search(r'(?:&[a-z#0-9]+;|[^<>&\s]){1,%d}$' % chars, markup)
+    return (markup[:match.start()], match.group(0)) if match else (markup, '')
+
+
+def no_short_last_line(markup):
+    """The last three characters of a stem stay together: the booklets never end an item on
+    a line of one or two characters (hosted 數B papers printed 「個？」, 「的？」 and 「元？」)."""
+    if not markup or markup.endswith('</span>') or markup.endswith('>'):
+        return markup
+    head, tail = split_tail(markup, 3)
+    if not tail or '{' in tail or '}' in tail:  # never split an {{answer}} or {{gap}} token
+        return markup
+    return head + f'<span style="white-space:nowrap">{tail}</span>'
 
 
 def keep_scores_whole(markup):
@@ -230,7 +265,9 @@ LATIN_SPACED = rf'[ \u00a0]*(?:{LATIN_RUN.pattern})(?:[ \u00a0]+(?:{LATIN_RUN.pa
 TEXT_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)')
 # Mathematics also sets operators, brackets and Greek letters standing between CJK text
 # in Times, as the booklets do (the CJK face drew a full-width 「−」).
-MATH_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)|(?P<sym>{MATH_SYMBOL})')
+MATH_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)|(?P<sym>{MATH_SYMBOL}|&lt;|&gt;|[<>≤≥≠≈|])')
+FORMULA_TOKEN = rf'(?:{LATIN_SPACED}|{MATH_SYMBOL}|&lt;|&gt;|[<>≤≥≠≈|])'
+FORMULA_RUN = re.compile(rf'{FORMULA_TOKEN}(?:[ \u00a0]*{FORMULA_TOKEN})*')
 
 
 def unligated(markup):
@@ -241,9 +278,35 @@ def unligated(markup):
     return ''.join(part if part.startswith('<') else re.sub(r'f(?=[fil])', '<span>f</span>', part) for part in parts)
 
 
+# Official mathematics sets 「＝＋－＜＞」 as half-width Times/Symbol operators; hosted papers
+# typed the full-width forms, which the CJK face draws an em wide and which break lines.
+FULLWIDTH_MATH = str.maketrans({'＝': '=', '＋': '+', '－': '−', '＜': '<', '＞': '>'})
+FORMULA_OPERATOR = re.compile(r'[=+−<>≤≥≠≈×÷±]|&lt;|&gt;')
+FORMULA_MAX_CHARS = 40
+
+
+def keep_formulas_whole(part, wrap):
+    """Mathematics: a formula such as 「30p₁ + 60q₁ = 2700」 or 「|x − 2| &lt; 3」 stays on one
+    line, as in the booklets; hosted solutions broke about twenty of them at = + ≤ (."""
+    out, cursor = [], 0
+    for formula in FORMULA_RUN.finditer(part):
+        out.append(MATH_RUNS.sub(wrap(0), part[cursor:formula.start()]))
+        chunk = MATH_RUNS.sub(wrap(formula.start()), formula.group(0))
+        visible = len(re.sub(r'&[a-z#0-9]+;', '.', formula.group(0).strip()))
+        if FORMULA_OPERATOR.search(formula.group(0)) and visible <= FORMULA_MAX_CHARS:
+            chunk = f'<span style="white-space:nowrap">{chunk}</span>'
+        out.append(chunk)
+        cursor = formula.end()
+    out.append(MATH_RUNS.sub(wrap(0), part[cursor:]))
+    return ''.join(out)
+
+
 def latin_runs(markup):
     """Wrap Latin/digit/radical runs of already-escaped markup in the Latin font, leaving tags alone."""
-    parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)  # tags, entities and {{tokens}} stay untouched
+    # Tags, entities and {{tokens}} stay untouched; mathematics keeps &lt; and &gt; inside
+    # its formulas.
+    entity = r'&(?!lt;|gt;)[a-z#0-9]+;' if _math_mode else r'&[a-z#0-9]+;'
+    parts = re.split(rf'(<[^>]+>|{entity}|\{{\{{[^{{}}]*\}}\}})', markup)
     for index, part in enumerate(parts):
         if not part or part.startswith(('<', '&', '{{')):
             continue
@@ -251,14 +314,17 @@ def latin_runs(markup):
         if (index and parts[index - 1] == '&lt;') or (index + 1 < len(parts) and parts[index + 1] == '&gt;'):
             continue
 
-        def wrap(match, part=part):
+        def wrap(match, part=part, base=0):
             chunk = match.group(0)
             if match.lastgroup == 'run' and _math_mode:
                 # Variables print italic, as in every mathematics booklet; function
                 # names, words and acronyms stay upright.
-                chunk = identifier_markup(chunk, part, match.start())
+                chunk = identifier_markup(chunk, part, base + match.start())
             return f'<span class="latin">{unligated(chunk)}</span>'
-        parts[index] = (MATH_RUNS if _math_mode else TEXT_RUNS).sub(wrap, part)
+        if _math_mode:
+            parts[index] = keep_formulas_whole(part, lambda base, part=part: (lambda m: wrap(m, part, base)))
+        else:
+            parts[index] = TEXT_RUNS.sub(wrap, part)
     return ''.join(parts)
 
 
@@ -272,7 +338,7 @@ def text(value):
     if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
     if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
         raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
-    result = html.escape(value).replace('\n','<br>')
+    result = html.escape(value.translate(FULLWIDTH_MATH) if _math_mode else value).replace('\n','<br>')
     result = math_tokens(result) if _math_mode else result
     return kai_runs(latin_runs(result) if _latin_runs_enabled else result)
 
@@ -533,7 +599,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     numbered=type(block.get('number')) is int and block['number']>=1
     if kind!='stimulus' and not numbered and not (kind in {'choice','multiple','constructed','solution'} and 'label' in block):
         raise ValueError('Supply a positive integer question number, or a printed label for an unnumbered task')
-    stem=gap_markup(keep_scores_whole(text(block.get('text',''))))
+    stem=gap_markup(keep_scores_whole(text(lstripped(block.get('text','')))))
+    if kind in {'choice','multiple','constructed','fill'} and not _writing_mode:
+        stem=no_short_last_line(stem)
     if kind=='constructed' and _writing_mode:
         stem=_writing_stem(block)
     if kind=='solution':
@@ -548,10 +616,12 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # Use paragraph flow: MuPDF top-aligned table cells paint their inline
         # image below the text despite a valid non-colliding bounding box.
         rail=f'<img src="{name}" width="{w}" height="{h}" style="vertical-align:middle">'
-        prefix=re.search(r'([A-Za-zα-ωΑ-Ω][A-Za-z0-9_]*\s*[=＝]\s*)$',before)
-        if prefix:
-            stem=before[:prefix.start()]+f'<span style="white-space:nowrap">{prefix.group(0)}{rail}</span>'+after
-        else:stem=before+rail+after
+        # The grid never starts a line alone or leaves 「。」 for the next one: it keeps
+        # the token before it (「Q =」, 「為」) and the punctuation after it (hosted 數B
+        # papers dropped 13, 14 and 17's grids to a new line with a lone 「。」).
+        head,tail=split_tail(before)
+        lead=re.match(r'(?:[。，、．.；：）)！？]|<span class="latin">[.,;:)]+</span>)*',after).group(0)
+        stem=head+f'<span style="white-space:nowrap">{tail}{rail}{lead}</span>'+after[len(lead):]
     elif '{{answer}}' in stem: raise ValueError('Answer position token requires a fill block')
     if 'label' in block:
         label=text(block['label']) if head else ''
@@ -865,13 +935,70 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 return [first,_chunk(block,key,units[count:],False,True)]
         return None
 
+    # Official 數學 pages leave working room between items (111-115 median gap about 52 pt,
+    # upper quartile 72-83 pt); the renderer's 12 pt gap piled every blank at the page foot.
+    spread=spec['subject'] in {'數學A','數學B'} and not any(b.get('kind')=='solution' for b in spec['blocks'])
+
     def paginate(tightness,capacity=None):
         """One pagination pass. Gaps scale with tightness; `capacity` breaks pages early to spread content evenly."""
         def gap_after(block):
             return (8 if block['kind']=='section' else item_gap_pt(spec['subject']))*tightness
 
         work=list(blocks)
-        parts=[];pages=[]
+        parts=[];pages=[];pending=[]
+
+        def close_page():
+            """Place the page's measured blocks; mathematics question pages share their
+            leftover space among the item gaps, as the booklets leave working room."""
+            if not pending:
+                return
+            extras=[0.0]*len(pending)
+            bottom=pending[-1]['y']+pending[-1]['used']
+            void=(body.y1-bottom)/body.height
+            gaps=[n for n in range(len(pending)-1)
+                  if pending[n]['block']['kind']!='section' and not pending[n]['block'].get('keep_with_next')]
+            limit=page_void_limit(spec['subject'],'body',False)
+            if spread and gaps and (limit is None or void<=limit):
+                # Whole grid steps, so a moved block keeps the crop it had on the grid.
+                share=math.floor(min(MATH_GAP_EXTRA_PT,(body.y1-bottom)/len(gaps))/BLOCK_GRID_PT)*BLOCK_GRID_PT
+                for n in gaps:extras[n+1]=share
+            shift_total=0.0
+            for row,extra in zip(pending,extras):
+                shift_total+=extra
+                place(row['page'],row['block'],row['measured'],row['block_top'],row['used'],row['y']+shift_total,row['number'])
+            pending.clear()
+
+        def place(page,block,measured,block_top,used,y,number):
+            shift=y-body.y0
+            page.show_pdf_page(pymupdf.Rect(0,shift,595.28,841.89+shift),
+                               measured,0,keep_proportion=False)
+            # Crop edges on the same grid avoid partial-pixel clip noise.
+            box=[math.floor(allowed.x0/BLOCK_GRID_PT)*BLOCK_GRID_PT,
+                 math.floor((y+block_top)/BLOCK_GRID_PT+1e-9)*BLOCK_GRID_PT,
+                 math.ceil(allowed.x1/BLOCK_GRID_PT)*BLOCK_GRID_PT,
+                 snap_block_top(y+used)]
+            piece='whole' if block.get('_head',True) and block.get('_tail',True) else (
+                'first' if block.get('_head',True) else 'last' if block.get('_tail',True) else 'middle')
+            if block['kind']!='section':
+                owner=(block.get('ids') or [block['id']])[0]
+                covers=sorted(block.get('covers',[]))
+                previous=parts[-1] if parts else None
+                if (previous and pages and pages[-1]['kind']!='section' and previous['page']==number and
+                        previous['id']==owner and previous.get('covers',[])==covers):
+                    # One crop per owner per page: shared material and its
+                    # item, or paragraphs continued on the same page.
+                    previous['bbox']=[min(previous['bbox'][0],box[0]),min(previous['bbox'][1],box[1]),
+                                      max(previous['bbox'][2],box[2]),max(previous['bbox'][3],box[3])]
+                    previous['components'].append({'role':'flow-content','bbox':box})
+                else:
+                    part={'id':owner,'page':number,'bbox':box,'components':[{'role':'flow-content','bbox':box}]}
+                    if covers:part['covers']=covers
+                    parts.append(part)
+            pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':number,'bbox':box,
+                          'id':block.get('id'), 'measured_height_pt':used,
+                          'keep_with_next':bool(block.get('keep_with_next') or block['kind']=='section'),
+                          'remaining_height_pt':body.y1-(y+used)})
+
         with pymupdf.open() as doc:
             top=snap_block_top(body.y0)
             page=doc.new_page(width=595.28,height=841.89);y=top
@@ -904,6 +1031,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                         offset+=heights[position]+gap_after(block)+BLOCK_GRID_PT
                     if split:continue
                     if not fresh_page:
+                        close_page()
                         page=doc.new_page(width=595.28,height=841.89);y=top;fresh_page=True
                         continue
                     if math.inf in heights:
@@ -915,38 +1043,12 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                     progress_path.write_text(json.dumps({'block':block['_source'],'question_id':block.get('id'),
                         'operation':'place measured block','remaining_height_pt':body.y1-y,
                         'block_height_pt':used}),encoding='utf-8')
-                shift=y-body.y0
-                page.show_pdf_page(pymupdf.Rect(0,shift,595.28,841.89+shift),
-                                   measured,0,keep_proportion=False)
-                # Crop edges on the same grid avoid partial-pixel clip noise.
-                box=[math.floor(allowed.x0/BLOCK_GRID_PT)*BLOCK_GRID_PT,
-                     math.floor((y+block_top)/BLOCK_GRID_PT+1e-9)*BLOCK_GRID_PT,
-                     math.ceil(allowed.x1/BLOCK_GRID_PT)*BLOCK_GRID_PT,
-                     snap_block_top(y+used)]
-                piece='whole' if block.get('_head',True) and block.get('_tail',True) else (
-                    'first' if block.get('_head',True) else 'last' if block.get('_tail',True) else 'middle')
-                if block['kind']!='section':
-                    owner=(block.get('ids') or [block['id']])[0]
-                    covers=sorted(block.get('covers',[]))
-                    previous=parts[-1] if parts else None
-                    if (previous and pages and pages[-1]['kind']!='section' and previous['page']==len(doc) and
-                            previous['id']==owner and previous.get('covers',[])==covers):
-                        # One crop per owner per page: shared material and its
-                        # item, or paragraphs continued on the same page.
-                        previous['bbox']=[min(previous['bbox'][0],box[0]),min(previous['bbox'][1],box[1]),
-                                          max(previous['bbox'][2],box[2]),max(previous['bbox'][3],box[3])]
-                        previous['components'].append({'role':'flow-content','bbox':box})
-                    else:
-                        part={'id':owner,'page':len(doc),'bbox':box,'components':[{'role':'flow-content','bbox':box}]}
-                        if covers:part['covers']=covers
-                        parts.append(part)
-                pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':len(doc),'bbox':box,
-                              'id':block.get('id'), 'measured_height_pt':used,
-                              'keep_with_next':bool(block.get('keep_with_next') or block['kind']=='section'),
-                              'remaining_height_pt':body.y1-(y+used)})
+                pending.append({'page':page,'block':block,'measured':measured,'block_top':block_top,'used':used,
+                                'y':y,'number':len(doc)})
                 y+=used+gap_after(block)
                 fresh_page=False
                 i+=1
+            close_page()
             last=max(row['bbox'][3] for row in pages if row['page']==len(doc))
             return doc.tobytes(garbage=4,deflate=True),parts,pages,len(doc),(last-top)/body.height
 

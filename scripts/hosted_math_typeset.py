@@ -288,19 +288,30 @@ class Typesetter:
 _standalone_cache: dict = {}
 
 
+UNITS = frozenset({'cm', 'mm', 'km', 'kg', 'mg', 'ml', 'mL', 'am', 'pm', 'hr', 'min', 'sec'})
+
+
 def identifier_markup(run: str, context: str, start: int) -> str:
     """Italicise variable names inside one escaped Latin run of mathematics text."""
     # One scan per text, not per run: a long passage has thousands of runs.
     if _standalone_cache.get('context') is not context:
         _standalone_cache.update(context=context,
-                                 letters=set(re.findall(r'(?<![A-Za-z])([A-Z])(?![A-Za-z])', context)))
+                                 letters=set(re.findall(r'(?<![A-Za-z])([A-Z])(?![A-Za-z])', context)),
+                                 lower=set(re.findall(r'(?<![A-Za-z])([a-z])(?![A-Za-z])', context)))
     standalone = _standalone_cache['letters']
+    lower = _standalone_cache['lower']
     geometric = re.search(r'(?:三角形|四邊形|梯形|線段|直線|射線|平面|弧|△|∠|點|正方形|長方形|菱形|四面體|六面體|多邊形)\s*$',
                           context[max(0, start - 12):start])
 
     def letters(match):
         word = match.group(0)
-        if word in FUNCTIONS or (len(word) > 1 and not word.isupper()):
+        if word in FUNCTIONS or word in UNITS:
+            return word
+        if len(word) > 1 and word.islower() and len(word) <= 3 and all(c in lower for c in word):
+            # A product of variables used alone elsewhere (「a+b=7 與 ab=10」) is italic,
+            # as the booklets print it; other lowercase words (units, labels) stay upright.
+            return f'<span class="var">{word}</span>'
+        if len(word) > 1 and not word.isupper():
             return word
         if len(word) == 1 or (len(word) <= 4 and (all(c in standalone for c in word) or geometric)):
             return f'<span class="var">{word}</span>'

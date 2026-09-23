@@ -152,6 +152,26 @@ final check:
   label is the underlined 「18-20 題為題組」 (the spec builder prints it); item 18
   ends 「（單選題，3分）」 and items 19–20 「（非選擇題，N分）」, never a bare
   「（4分）」. A score group never breaks across lines.
+- 選填 formats: every official 數A and 數B paper has at least one 「（化為最簡分數）」 item
+  among 13–17 (數A 1–4, 數B 1–3; 113 數B also a sign cell); five two-digit integer
+  選填 are rejected.
+- 數B unit envelope additions (measured 111–115): data analysis 1–2 items (a data 題組
+  is never set; a hosted paper had four data items), polynomial exactly 2 every year
+  (floor 2), and an item classed as 矩陣 prints a matrix (「矩陣」「方陣」 or entries);
+  a linear map described in words left the unit nominally present.
+- Solutions stay inside the subject: a 數B solution does not use space vectors, plane
+  equations, sum formulas or general log laws (數A-only); use the plane or 11B route.
+- Figures are 示意圖 (the cover says so): an answer never depends on reading a drawn
+  length, angle or side; print the condition in the text. A table is printed with
+  Chinese headers in the language of the stem, never an English-labelled raster image;
+  a 題組 table or chart belongs to the 題組 text (write 「下表為…」 there and the builder
+  prints it after the text, before 18).
+- Typography: 「＝＋－＜＞」 print as half-width Times operators (the renderer converts
+  full-width input), a formula such as 「|x − 2| < 3」 or 「30p₁ + 60q₁ = 2700」 never
+  breaks across lines, a 選填 grid keeps the word before it and the 「。」 after it, a
+  stem never ends on a line of one or two characters, products of variables (「ab」)
+  are italic, and question pages share their leftover space between items as working
+  room (official median gap about 52 pt) instead of piling it at the page foot.
 - A part heading that owns no items (第壹部分) still prints: the spec builder emits
   it before its first section, and the final checker reads the booklet text for
   every heading. A hosted 116 數A listed 第壹部分 in `sections` and printed only

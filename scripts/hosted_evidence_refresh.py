@@ -35,7 +35,7 @@ import re
 import pymupdf
 
 from check_hosted_run import ITEM_GATES, PAPER_GATES
-from hosted_blind_review import packet, REVIEW_MODES
+from hosted_blind_review import packet, review_errors, REVIEW_MODES
 
 HISTORY = 'exam-history.json'
 ORIGINALITY_SCOPES = {'available-history', 'no-history-available'}
@@ -62,10 +62,21 @@ def _digest_value(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()
 
 
+# Author-only planning and review metadata: never printed and never shown to a gate's
+# reviewer. A hosted 數B run synced difficulty labels after review and every item gate
+# re-opened although no reviewed content changed.
+AUTHOR_ONLY_QUESTION_FIELDS = frozenset({'item_spec', 'expected_minutes', 'difficulty', 'difficulty_label'})
+AUTHOR_ONLY_ANSWER_FIELDS = frozenset({'independent_review', 'difficulty_label', 'verification_status',
+                                       'verification_notes'})
+
+
 def item_digests(exam):
-    """{item id: digest of its authored question and answer records}, in exam order."""
+    """{item id: digest of its reviewed question and answer records}, in exam order."""
     answers = {a.get('question_id'): a for a in exam.get('answers') or [] if isinstance(a, dict)}
-    return {str(q.get('id')): _digest_value({'question': q, 'answer': answers.get(q.get('id'))})
+    def reviewed(record, hidden):
+        return {k: v for k, v in record.items() if k not in hidden} if isinstance(record, dict) else record
+    return {str(q.get('id')): _digest_value({'question': reviewed(q, AUTHOR_ONLY_QUESTION_FIELDS),
+                                             'answer': reviewed(answers.get(q.get('id')), AUTHOR_ONLY_ANSWER_FIELDS)})
             for q in exam.get('questions') or [] if isinstance(q, dict)}
 
 
@@ -162,6 +173,10 @@ def evidence_gaps(root, state, exam):
                         problems.append('blind packet is not valid JSON')
             if not report.get('author_context'):
                 problems.append('author_context is missing')
+            # The final checker's own difficulty rules, now at every checkpoint: two hosted
+            # 數學 runs first learned at finalize that a row called routine was labelled 中偏難.
+            problems.extend(error.split(': ', 1)[-1] if error.startswith('difficulty: ') else error
+                            for error in review_errors(exam, report))
         if gate == 'originality' and report.get('comparison_scope') not in ORIGINALITY_SCOPES:
             problems.append('comparison_scope must disclose available-history or no-history-available')
         gates[gate] = {'status': 'incomplete', 'problems': problems} if problems else {'status': 'current'}

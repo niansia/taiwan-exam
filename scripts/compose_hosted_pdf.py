@@ -19,7 +19,7 @@ import pymupdf
 
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, verify
 from inspect_hosted_pdf import rail_collision_samples
-from verify_fixed_template_pdf import verify_pdf, masked_pixels, field_size
+from verify_fixed_template_pdf import verify_pdf, masked_pixels, field_size, answers_template
 
 # Only whole CJK body fonts are this large; fixed-template fonts are small subsets.
 LARGE_FONT_PROGRAM = 1_000_000
@@ -160,6 +160,20 @@ def write_field(page, box, text: str, font, size: float, *, align: str = "center
         x += font.text_length(character, fontsize=size)
 
 
+def write_cover_title(page, box, text: str, kai, digits, size: float) -> None:
+    """The cover's second line as 115 sets it: 標楷體 with Times digits, centred."""
+    rect = pymupdf.Rect(box)
+    runs = [(run, digits if run[0].isascii() else kai) for run in re.findall(r'[0-9A-Za-z]+|[^0-9A-Za-z]+', text)]
+    width = sum(font.text_length(run, fontsize=size) for run, font in runs)
+    if width > rect.width:
+        raise ValueError(f"Dynamic field too long: {text!r}; supply a shorter test title")
+    left = rect.x0 + (rect.width - width) / 2
+    for run, font in runs:
+        span = pymupdf.Rect(left, rect.y0, left + font.text_length(run, fontsize=size) + .01, rect.y1)
+        write_field(page, span, run, font, size, align="left", resource=field_resource(font))
+        left = span.x1 - .01
+
+
 def field_resource(font):
     buffer = font.buffer
     return buffer, 'TEField' + sha(buffer)[:12]
@@ -178,7 +192,7 @@ COMPOSER = 'taiwan-exam-generator/compose_hosted_pdf'
 
 def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: str,
             title: str, running_name: str, font_path: Path, map_path: Path = DEFAULT_MAP,
-            kind: str = "questions") -> dict:
+            kind: str = "questions", kai_path: Path | None = None) -> dict:
     if kind not in {"questions", "answers"}:
         raise ValueError("Unknown paper kind")
     if output.exists():
@@ -195,6 +209,10 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 verify(record, data)
                 assets[record["component"]] = pymupdf.open(stream=data, filetype="pdf")
                 hashes[record["component"]] = sha(data)
+                if kind == "answers" and record["component"].startswith("inner-"):
+                    original = assets[record["component"]]
+                    assets[record["component"]] = answers_template(original)
+                    original.close()
         font = pymupdf.Font(fontfile=str(font_path))
         digits = pymupdf.Font("tiro")
         font_resource, digit_resource = field_resource(font), field_resource(digits)
@@ -212,7 +230,8 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
             if kind == "questions":
                 page = page_base(out, assets["cover-blank"])
                 box = geometry["cover_title"]
-                write_field(page, box, f"{year}學年度{title}", font, 19.98 if has_formula else 18, resource=font_resource)
+                kai = pymupdf.Font(fontfile=str(kai_path)) if kai_path else font
+                write_cover_title(page, box, f"{year}學年度{title}", kai, digits, 19.98 if has_formula else 18)
                 if masked_pixels(page, [box]) != masked_pixels(assets["cover-blank"][0], [box]):
                     raise ValueError("Cover title changed locked pixels")
                 proofs.append({"page": 1, "component": "cover-blank", "locked_pixels_match": True})

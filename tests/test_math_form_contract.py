@@ -33,10 +33,11 @@ def _paper():
                  '某高中聘用的全體教師中，女性占 60%。試選出正確的選項。', '已知向量 u＝(1,2)、v＝(3,−1)。試選出正確的選項。',
                  '已知三正數 p、q、r 成等比。試選出正確的選項。', '二次函數圖形通過 (0,1)、(1,3)、(2,7)。試選出正確的選項。']
     fills = ['直角三角形兩股長為 5 與 12，其內切圓半徑為', '某銷售站甲手機每支利潤 100 元、乙手機 400 元，共售 30 支獲利 6000 元，則甲售出', '將 1 到 50 平分成甲乙兩組，甲組中位數比乙組大 10，則甲組最小可能的總和為',
-             '擲一枚公正硬幣五次，恰出現三次正面的機率化為最簡分數為', '若 log 2≈0.3010，則 2 的 50 次方的位數為']
+             '擲一枚公正硬幣五次，恰出現三次正面的機率為。（化為最簡分數）', '若 log 2≈0.3010，則 2 的 50 次方的位數為']
     questions = [_item(n, singles[n - 1]) for n in range(1, 7)]
     questions += [_item(n, multiples[n - 7], 'multiple_choice') for n in range(7, 13)]
     questions += [_item(n, fills[n - 13], 'fill_in') for n in range(13, 18)]
+    questions[15]['answer_format'] = {'kind': 'fraction', 'numerator_slots': 1, 'denominator_slots': 2}
     questions += [_item(18, '依據上文，甲的面積為何？（單選題，3分）'),
                   _item(19, '求乙的體積。（非選擇題，4分）', 'constructed_response', options=False),
                   _item(20, '證明丙成立。（非選擇題，8分）', 'constructed_response', options=False)]
@@ -268,3 +269,19 @@ def test_vectors_and_segments_use_typeset_tokens(tmp_path):
     assert italic and all('Italic' in f for f in italic)
     xs = sorted(round(w[0]) for w in page.get_text('words') if w[4] in {'(1)', '(2)', '(3)', '(4)', '(5)'})
     assert xs[0] - min(round(w[0]) for w in page.get_text('words')) == 18  # options start on the stem line
+
+
+def test_math_b_data_cap_polynomial_floor_fraction_fill_and_printed_matrix():
+    """Two hosted 116 數B papers: four data items and one polynomial (Claude), five
+    two-digit integer 選填 and a 'matrix' item with no matrix in it (ChatGPT)."""
+    codes = {**MATH_B_CODES_115, 9: 'D-10-2', 16: 'D-11B-2', 18: 'D-10-2', 19: 'D-10-2', 20: 'D-10-2'}
+    paper = _math_b_paper(codes)
+    paper['questions'][2]['prompt'] = '將平面上每一點依序作兩次線性變換，試問合成後的變換為何？'
+    paper['questions'][15].pop('answer_format')
+    errors = math_form(paper)
+    assert any('數據分析 有 6 題' in e for e in errors)
+    assert any('多項式函數 只有 0 題' in e for e in errors)
+    assert any('沒有分數答案' in e for e in errors)
+    assert any('歸為矩陣單元，題目卻沒有出現矩陣' in e for e in errors)
+    paper['answers'] = [{'question_id': 'q19', 'final_answer': '12', 'reasoning': ['體積為 12']}]
+    assert any('第19題（非選擇題）詳解須附評分原則' in e for e in math_form(paper))

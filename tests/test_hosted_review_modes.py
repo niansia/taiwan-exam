@@ -17,7 +17,7 @@ def row(number=1):
     return {'id': str(number), 'shortest_route': 'Synthetic independent derivation route',
             'decisive_steps': ['Compare constraints', 'Exclude alternative', 'Derive requested result'],
             'shortcut_search': 'Synthetic shortcut audit', 'anchor_comparison': 'Synthetic calibration comparison',
-            'expected_minutes': 4.25, 'difficulty_band': 'easy', 'unresolved': [],
+            'expected_minutes': 4.25, 'difficulty_band': 'easy', 'estimated_p': 0.78, 'unresolved': [],
             'routine_only': False, 'uses_prior_results': [], 'scaffolding_audit': 'No prior result in this fixture',
             'answer_recheck': 'Synthetic fresh calculation gives 8, matching saved answer'}
 
@@ -56,10 +56,10 @@ def test_fallback_cannot_pass_easy_routine_paper_by_relabeling(subject):
     exam = {'metadata': {'subject': subject}, 'questions': [{'id': str(i), 'score': 5} for i in range(1, 21)]}
     r = review([row(i) for i in range(1, 21)])
     for item, band in zip(r['items'], ['easy'] + ['medium']*4 + ['hard']*8 + ['very_hard']*7):
-        item['difficulty_band'] = band
+        item.update(difficulty_band=band, estimated_p={'very_easy':.9,'easy':.78,'medium':.6,'hard':.4,'very_hard':.2}[band])
     assert not review_errors(exam, r)
     for item in r['items']:
-        item.update(routine_only=True, difficulty_band='very_hard', expected_minutes=2)
+        item.update(routine_only=True, difficulty_band='very_hard', estimated_p=0.2, expected_minutes=2)
     errors = review_errors(exam, r)
     assert any('routine substitution' in e for e in errors)
     assert any('40 minutes' in e for e in errors)
@@ -117,3 +117,15 @@ def test_explicit_independence_fails_preflight_before_fetch_and_survives_resume(
     assert result['status'] == 'pending'
     assert result['require_independent_review'] is True
     assert 'actual separate reviewer' in result['errors'][0]
+
+
+def test_math_band_follows_the_estimated_answer_rate():
+    """Maintainer decision 2026-09-24: 難 < 0.30, 中偏難 0.30-0.50, 中 0.50-0.70, 簡單 >= 0.70."""
+    exam = {'metadata': {'subject': '數學B'}, 'questions': [{'id': '1', 'score': 5}]}
+    r = review([row(1)])
+    r['items'][0].update(difficulty_band='very_hard', estimated_p=0.42)
+    assert any('estimated_p 0.42 is band hard' in e for e in review_errors(exam, r))
+    r['items'][0].pop('estimated_p')
+    assert any('record estimated_p' in e for e in review_errors(exam, r))
+    r['items'][0].update(difficulty_band='very_hard', estimated_p=0.29)
+    assert not any('estimated_p' in e for e in review_errors(exam, r))

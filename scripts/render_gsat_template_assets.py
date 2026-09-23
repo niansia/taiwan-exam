@@ -141,11 +141,36 @@ def _validate_packet(path: Path, subject: str) -> None:
         raise ValueError(f"{subject}封面外框偏離115量測位置{error:.1f}pt")
 
 
+def calibrate_formula(browser: Path, subject: str, scratch: Path) -> dict:
+    """Print the formula sheet once, measure where each line's baseline fell and store the
+    correction that puts it on the official 115 baseline (a fraction raises a line's ascent)."""
+    import gsat_115_templates as templates
+    import pymupdf as fitz
+    templates.FORMULA_BASELINE_FIX.update({k: 0.0 for k in list(templates.FORMULA_BASELINE_FIX) if k[0] == subject})
+    rows = templates.formula_rows(subject)
+    _print_pdf(browser, component_markup(subject, "formula"), scratch)
+    with fitz.open(scratch) as document:
+        spans = [(s["chars"][0]["origin"][0], s["origin"][1]) for b in document[0].get_text("rawdict")["blocks"]
+                 for line in b.get("lines", []) for s in line["spans"]
+                 if s["chars"] and "".join(c["c"] for c in s["chars"]).strip()]
+    scratch.unlink()
+    fixes = {}
+    for row, (baseline, left, _) in enumerate(rows):
+        found = [y for x, y in spans if abs(x - left) < 2.5 and baseline - 3 < y < baseline + 30]
+        if not found:
+            raise ValueError(f"{subject}參考公式第{row}行找不到量測基線")
+        fixes[(subject, row)] = round(baseline - min(found), 2)
+    templates.FORMULA_BASELINE_FIX.update(fixes)
+    return fixes
+
+
 def build_all(browser: Path, output_root: Path = PACK_ROOT / "assets") -> list[Path]:
     """Use one browser print per subject, then split deterministic components."""
     outputs: list[Path] = []
     for subject in SUBJECT_ORDER:
         folder = output_root / SUBJECTS[subject]["slug"]
+        if subject in {"數學A", "數學B"}:
+            calibrate_formula(browser, subject, folder / "formula-calibration.pdf")
         packet = folder / "blank-template.pdf"
         _print_pdf(browser, _packet_markup(subject), packet)
         _validate_packet(packet, subject)

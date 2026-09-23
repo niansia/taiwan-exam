@@ -24,6 +24,7 @@ from hosted_run_timing import PHASES, transition
 from hosted_body_templates import guarded_render as render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
+from hosted_evidence_refresh import AUTHOR_ONLY_QUESTION_FIELDS, AUTHOR_ONLY_ANSWER_FIELDS
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note,
                                    propagate_page_reviews, retain_parts, review_sources, Renderings)
@@ -223,6 +224,10 @@ def clock(state_path, operation, *, phase=None, question_ids=None, page_numbers=
     return {'status': 'clock-' + operation, 'state': str(state_path)}
 
 
+AUTHOR_ONLY_METADATA_FIELDS = frozenset({'difficulty_balance_plan', 'paper_difficulty_plan', 'score_plan',
+                                         'subject_innovation_review', 'run_contract'})
+
+
 def content_identity(root, state):
     exam_path = inside(root, root / state['exam']['path'])
     if record(root, exam_path) != state['exam']:
@@ -242,8 +247,18 @@ def content_identity(root, state):
         elif isinstance(value, list):
             for child in value:
                 visit(child)
-    visit(read(exam_path))
-    return {'paper_id': state['paper_id'], 'exam': record(root, exam_path), 'assets': assets}
+    exam = read(exam_path)
+    visit(exam)
+    # The lock guards what is printed and answered. Difficulty labels, item_spec plans and
+    # review metadata are author-only: a hosted 數B run synced them after review, had to
+    # re-lock with a reason and rebuilt an identical booklet.
+    locked = {**exam, 'questions': [{k: v for k, v in q.items() if k not in AUTHOR_ONLY_QUESTION_FIELDS}
+                                    for q in exam.get('questions') or [] if isinstance(q, dict)],
+              'answers': [{k: v for k, v in a.items() if k not in AUTHOR_ONLY_ANSWER_FIELDS}
+                          for a in exam.get('answers') or [] if isinstance(a, dict)]}
+    locked['metadata'] = {k: v for k, v in (exam.get('metadata') or {}).items()
+                          if k not in AUTHOR_ONLY_METADATA_FIELDS}
+    return {'paper_id': state['paper_id'], 'exam_content_sha256': canonical_sha(locked), 'assets': assets}
 
 
 def content_lock(state_path, *, reason=None):
@@ -358,11 +373,11 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
         render(read(spec_path), body, layout, Path(font), asset_root=spec_path.parent,
                reading_font=Path(reading_font) if reading_font else None, kai_font=kai_font)
         compose(subject, body, assets, pdf, year=str(year), title=title,
-                running_name=running_name, font_path=Path(font),
+                running_name=running_name, font_path=Path(font), kai_path=kai_font,
                 kind='questions' if role == 'question' else 'answers')
         pairs[role] = (pdf, body, layout)
     save(output / 'page-plan.json', {
-        'exam': state['exam'], 'specs': identity['specs'],
+        'exam': state['exam'], 'specs': identity['specs'], 'printed_sha256': printed_digest(specs),
         'scope': 'Measured pagination and risk queue; not a density or visual approval',
         'booklets': {role: {'plan': read(layout)['page_plan'], 'blocks': read(layout)['blocks']}
                      for role, (_, _, layout) in pairs.items()}})
@@ -422,10 +437,44 @@ def iteration_budget(root, kind, output):
         runs.append(Path(output).name)
     if kind == 'proof':
         return proof_budget(root, runs)
-    over = len(runs) > ITERATION_BUDGET[kind]
-    return {'kind': kind, 'count': len(runs), 'budget': ITERATION_BUDGET[kind], 'over_budget': over,
-            'note': (f'{len(runs)} {kind} runs exceed the budget of {ITERATION_BUDGET[kind]}: stop adjusting hints by eye; '
-                     'fix the figure size or split the block once, then run one more') if over else 'within budget'}
+    return printed_budget(root, kind, runs)
+
+
+def printed_digest(specs):
+    """The printed blocks of both booklets: what a plan or build actually lays out."""
+    return canonical_sha({role: read(Path(path)).get('blocks') for role, path in sorted(specs.items())})
+
+
+def printed_budget(root, kind, runs):
+    """Builds count distinct printed content; plans count only repeats of unchanged content.
+
+    A hosted 數B run spent a third build on a change to difficulty labels (identical pages)
+    and twelve plans, most after real item edits; neither is the waste the budget targets.
+    """
+    seen, repeats, distinct = set(), [], []
+    stamped = []
+    for name in runs:
+        path = root / name / 'page-plan.json'
+        stamped.append(((path.stat().st_mtime if path.is_file() else float('inf')), name,
+                        read(path).get('printed_sha256') if path.is_file() else None))
+    for _, name, printed in sorted(stamped):
+        if printed and printed in seen:
+            repeats.append(name)
+        else:
+            distinct.append(name)
+            if printed:
+                seen.add(printed)
+    counted = len(distinct) if kind == 'build' else len(repeats)
+    limit = ITERATION_BUDGET[kind] if kind == 'build' else 1
+    over = counted > limit
+    return {'kind': kind, 'count': len(runs), 'distinct_printed': len(distinct), 'repeats_of_unchanged': repeats,
+            'budget': (f'{limit} builds of distinct printed content' if kind == 'build'
+                       else 'at most one plan of unchanged printed content'),
+            'over_budget': over,
+            'note': ((f'{counted} builds with different printed content exceed {limit}: fix every reviewed defect '
+                      'before the next build' if kind == 'build' else
+                      f'{counted} plans repeated unchanged content: change the item or its hint before planning again')
+                     if over else 'within budget')}
 
 
 def proof_budget(root, runs):
@@ -530,6 +579,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
                                                       for row in booklet['pages'] if row['page'] in before}}
     save(plan_path, {'kind': 'hosted-page-plan', 'exam': state['exam'], 'paper_id': state['paper_id'],
                      'specs': {role: record(root, path) for role, path in specs.items()},
+                     'printed_sha256': printed_digest(specs),
                      'content_lock': lock_status, 'booklets': booklets,
                      'scope': 'Measured pagination only: no composed booklet, raster, review state, density or visual approval'})
     event(root, 'plan', started, pages={role: b['page_count'] for role, b in booklets.items()})
@@ -918,6 +968,9 @@ def english_segment(owner, segment, members, where, layout):
 
 
 HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
+# Shared material that points at its own table or figure (「下表為…」); the figure then
+# belongs to the material, not to the group's first question.
+MATERIAL_VISUAL = re.compile(r'下表|下圖|附表|附圖|如表|如圖|右表|右圖|左表|左圖')
 RANGE_DISPLAY = re.compile(r'(\d{1,2})\s*[-–]\s*(\d{1,2})')
 
 
@@ -1147,9 +1200,12 @@ def project_specs(exam, hints, body_width):
                             if member.get('page') == page and not member.get('suppress_question_display'):
                                 emit_question(member)
                                 placed.add(member['id'])
-        if english and group and q.get('visual_asset') and 'group_blocks' not in hint:
+        material_visual = english or q.get('visual_placement') == 'stimulus' or bool(
+            group and MATERIAL_VISUAL.search(str(group)))
+        if material_visual and group and q.get('visual_asset') and 'group_blocks' not in hint:
             # The group's chart, table or map closes its material, above the questions;
-            # printed with item 47 it split 47 from 48 in a hosted paper.
+            # printed with item 47 it split 47 from 48 in a hosted 英文 paper, and two hosted
+            # 數B papers printed the 題組 table under item 18 instead of in the 題組 text.
             figure = {'kind': 'stimulus', 'id': q['id'], 'text': ''}
             attach_assets(figure, q, f'group of {q["id"]}', body_width, hint, figure_key='figure',
                           position='below', shown=shown)

@@ -55,16 +55,19 @@ def test_fill_fraction_rows_continue_from_numerator_to_denominator():
 
 def test_reference_formula_components_are_semantic_not_images():
     soup = BeautifulSoup(renderer._measured_math_formulas(), "html.parser")
-    assert len(soup.select(".formula-block")) == 7
-    assert soup.find("img") is None and soup.find("script") is None
-    assert len(soup.find_all("mfrac")) >= 10
-    assert len(soup.find_all("msqrt")) >= 6
+    numbers = [n.get_text() for n in soup.select(".fl > span") if n.get_text().rstrip(".").isdigit()]
+    assert numbers == [f"{i}." for i in range(1, 8)]
+    assert soup.find("img") is None and soup.find("script") is None and soup.find("math") is None
+    assert len(soup.select(".fr")) >= 10          # stacked fractions, as the 115 sheet prints them
+    assert len(soup.select(".rad")) >= 6          # radicals with a vinculum
+    assert soup.select("i")                       # italic Times variables
     prepare_html(str(soup))
 
 
 def test_math_b_reference_sheet_omits_math_a_angle_addition_block():
     soup = BeautifulSoup(renderer._measured_math_formulas("數學B"), "html.parser")
-    assert len(soup.select(".formula-block")) == 6
+    numbers = [n.get_text() for n in soup.select(".fl > span") if n.get_text().rstrip(".").isdigit()]
+    assert numbers == [f"{i}." for i in range(1, 7)]
     assert "和角公式" not in soup.get_text()
     assert "正弦定理" in soup.get_text()
 

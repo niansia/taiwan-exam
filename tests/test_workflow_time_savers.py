@@ -187,7 +187,7 @@ def test_plan_paginates_both_bodies_without_pdfs_rasters_or_review_state(paper):
     second = workflow.plan(root/'run-state.json', root/'q.json', root/'s.json', font, root/'plan-02', compare=root/'plan-01')
     assert second['content_lock'] == 'matches'
     assert second['compared_with_previous']['question']['bottom_void_delta']
-    assert second['iteration_budget'] == {'kind': 'plan', 'count': 2, 'budget': 3, 'over_budget': False, 'note': 'within budget'}
+    assert second['iteration_budget']['repeats_of_unchanged'] == ['plan-02'] and not second['iteration_budget']['over_budget']
     started = time.perf_counter()
     build = workflow.build(root/'run-state.json', root/'q.json', root/'s.json', font, root/'build-v1', year=116)
     build_seconds = time.perf_counter() - started
