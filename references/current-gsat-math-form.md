@@ -114,6 +114,26 @@ final check:
   wraps those runs automatically for 數學A／數學B, so authors write 「√5」 plainly.
 - `plan` reports `page_budget`: the official question booklet has 6 body pages;
   a plan above 7 is verbosity or figure size, not content.
+- Wording and score marks, identical in all ten booklets: every 多選題 asks
+  「試選出正確的選項。」 and no stem asks 「下列敘述哪些正確」 or 「以下何者正確」; a
+  fraction 選填 ends 「為 ___。（化為最簡分數）」 (not 「化為最簡分數後為」); the 題組
+  label is the underlined 「18-20 題為題組」 (the spec builder prints it); item 18
+  ends 「（單選題，3分）」 and items 19–20 「（非選擇題，N分）」, never a bare
+  「（4分）」. A score group never breaks across lines.
+- A part heading that owns no items (第壹部分) still prints: the spec builder emits
+  it before its first section, and the final checker reads the booklet text for
+  every heading. A hosted 116 數A listed 第壹部分 in `sections` and printed only
+  「一、單選題」.
+- 數A unit envelope (hand-classified on 111–115, checked on the full saved paper by
+  each item's first recognised scope code): every paper has at least one item of
+  指數與對數、多項式函數、直線與圓、三角（含正餘弦定理）、排列組合、機率、數據分析、
+  矩陣與線性變換、平面向量 and 空間向量／平面／直線; 機率 at most 3, 數據分析、排列
+  組合、數列 and 數與式 at most 2 each, any family at most 5; 6–14 items carry an
+  11A-only code (official 8–13). Two hosted 116 papers had no matrix, plane-vector
+  or 正餘弦定理 item and six probability/statistics items.
+- Items 17 and 20 close 選填 and the 題組 and must review hard or very_hard, as in
+  every official 111–115 paper (`hosted_blind_review.review_errors`); both hosted
+  116 papers ended them on textbook routines.
 
 ## Stem rhetoric contract
 
@@ -164,6 +184,10 @@ Apply the full record and release thresholds in [math-difficulty-design.md](math
 - Four short options: one horizontal row when they fit.
 - Long propositions or independent statements: stack vertically.
 - The renderer must receive an explicit `option_layout`; automatic browser wrapping is not an accepted layout decision.
+- Columns sit on a fixed pitch like the official tab stops (five abreast at 90 pt,
+  three at 150 pt). The pinned hosted PyMuPDF 1.26.0 ignores every table and cell
+  width, so the renderer measures each option in the running engine and pads it to
+  the pitch; two hosted 116 數A booklets printed 「(1) 6 (2) 8 (3) 9」 run together.
 
 ## Machine-marked answer rail contract
 

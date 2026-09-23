@@ -26,7 +26,7 @@ from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note,
-                                   propagate_page_reviews)
+                                   propagate_page_reviews, retain_parts, review_sources, Renderings)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from hosted_evidence_refresh import record_history, evidence_gaps, refresh as refresh_drafts, figure_selfcheck
 from fetch_hosted_template_assets import DEFAULT_MAP
@@ -886,6 +886,9 @@ def english_segment(owner, segment, members, where, layout):
     return blocks, emitted
 
 
+HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
+
+
 def project_specs(exam, hints, body_width):
     """Deterministic layout projection of saved items. It adds no printed content.
 
@@ -1017,6 +1020,8 @@ def project_specs(exam, hints, body_width):
                  **({'split': 'paragraphs'} if plain_length(text_) >= SPLIT_MIN_CHARACTERS else {})})
         number_owner[q.get('number')] = q['id']
 
+    used_sections = {q.get('section_id') for q in questions}
+    printed_headings = set()
     i = 0
     while i < len(questions):
         q = questions[i]
@@ -1024,6 +1029,15 @@ def project_specs(exam, hints, body_width):
             section = sections.get(q.get('section_id'))
             if section is None:
                 raise ValueError(f'item {q["id"]}: unknown section_id')
+            # A part heading owns no items (數學 「第壹部分、選擇（填）題（占85分）」): print
+            # it before the first section that follows it. A hosted 數A paper listed it and
+            # printed only 「一、單選題」 because headings used to print only with their items.
+            order = list(sections)
+            for earlier in order[:order.index(section['id'])]:
+                if earlier not in used_sections and earlier not in printed_headings:
+                    printed_headings.add(earlier)
+                    add({'kind': 'section', 'title': printed(sections[earlier]['title'], 'section ' + earlier)})
+            printed_headings.add(section['id'])
             notes = ' '.join(section.get('instructions') or [])
             add({'kind': 'section', 'title': printed(section['title'], 'section ' + section['id']),
                  **({'directions': printed(notes, 'section ' + section['id'] + ' instructions')} if notes.strip() else {})})
@@ -1042,7 +1056,10 @@ def project_specs(exam, hints, body_width):
             label = hint.get('group_label')
             if (label is None and len(everyone) > 1 and everyone[0].get('number') is not None and
                     everyone[-1].get('number') is not None and everyone[0]['number'] != everyone[-1]['number']):
-                label = f'第 {everyone[0]["number"]} 至 {everyone[-1]["number"]} 題為題組'
+                # 數學 and 自然 print the underlined 「18-20 題為題組」 (111-115 measured);
+                # 英文 prints 「第 11 至 15 題為題組」.
+                label = (f'{everyone[0]["number"]}-{everyone[-1]["number"]} 題為題組' if subject in HYPHEN_GROUP_SUBJECTS
+                         else f'第 {everyone[0]["number"]} 至 {everyone[-1]["number"]} 題為題組')
             splits = q.get('group_stimulus_page_splits') or {}
             segments = ([(int(page), text_) for page, text_ in sorted(splits.items(), key=lambda item: int(item[0]))]
                         if splits else [(None, group)])
@@ -1069,7 +1086,7 @@ def project_specs(exam, hints, body_width):
                                 block['split'] = 'paragraphs'
                     if position == 0 and label and segment_blocks:
                         segment_blocks[0]['group_label'] = printed(label, where + ' label')
-                        if english:
+                        if english or subject in HYPHEN_GROUP_SUBJECTS:
                             segment_blocks[0]['group_label_style'] = 'underline'
                     last_text = next((b for b in reversed(segment_blocks) if b['kind'] in {'passage', 'stimulus'}), None)
                     if last_text is not None and hint.get('group_keep_with_next', True) and last_text is segment_blocks[-1]:
@@ -1235,7 +1252,7 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             raise ValueError(f'{role} spec has no blocks for: ' + ', '.join(sorted(absent)))
         loaded.append((role, spec_path, {**spec, 'blocks': blocks}))
     output.mkdir()
-    queue, template = [], {}
+    queue, template, retained = [], {}, {}
     by_item = {qid: [] for qid in wanted}
     for role, spec_path, spec in loaded:
         body = output / (role + '-body.pdf')
@@ -1258,16 +1275,28 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
                 parts.append({**part, 'raster_path': path.relative_to(root).as_posix(),
                               'raster_sha256': hashlib.sha256(data).hexdigest(), 'status': 'pending', 'observations': ''})
         annotate_parts(parts, hashes)
+        source = {**record(root, body), 'projected': True, 'page_size': page_size}
+        # A crop that already passed in an earlier proof or build, for the same authored
+        # item and the same printed pixels or primitives, keeps that pass: it is locked,
+        # not queued again. Hosted runs re-viewed unchanged items in every later proof.
+        renderings = Renderings(root)
+        try:
+            counts = retain_parts(root, role, parts, source, identity, review_sources(root, state), renderings, {})
+        finally:
+            renderings.close()
+        retained[role] = counts
         save(output / (role + '-items.json'), {
             'kind': 'pre-pagination-item-proof', 'role': role, 'paper_id': state['paper_id'],
             'exam_sha256': state['exam']['sha256'], 'pdf_sha256': layout['pdf_sha256'],
             'render_identity': identity,
-            'source': {**record(root, body), 'projected': True, 'page_size': page_size},
+            'source': source,
             'parts': parts,
             'scope': 'Early crop review only; final booklets still need every page reviewed and fresh final crops.'})
         # Absolute paths: the helper's working directory is not the run.
         notes = template.setdefault(role, {'items': {}})
         for part, key in zip(parts, crop_keys(parts)):
+            if part.get('status') == 'pass':
+                continue
             image = str((root / part['raster_path']).resolve())
             queue.append(image)
             by_item.setdefault(part['id'], []).append((image, {'role': role, 'items': key}))
@@ -1280,6 +1309,8 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
     # together: separate native images, never stitched or downscaled.
     batches, current = [], {'items': [], 'images': [], 'record_as': []}
     for qid, rows in by_item.items():
+        if not rows:
+            continue  # every crop of this item kept its earlier pass
         if current['images'] and len(current['images']) + len(rows) > REVIEW_BATCH_IMAGES:
             batches.append(current)
             current = {'items': [], 'images': [], 'record_as': []}
@@ -1288,7 +1319,8 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
         current['record_as'] += [target for _, target in rows]
     if current['images']:
         batches.append(current)
-    return {'status': 'proof-review-pending', 'proof': output.name, 'proof_dir': str(output),
+    return {'status': 'proof-review-pending' if queue else 'proof-retained', 'proof': output.name, 'proof_dir': str(output),
+            'retained_reviews': retained,
             'iteration_budget': iteration_budget(root, 'proof', output),
             'review_queue': queue,
             'review_batches': batches,

@@ -26,6 +26,7 @@ from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from hosted_subject_gates import subject_gate_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
 from hosted_density import booklet_limits
+from validate_math_layout_contract import HEADINGS as MATH_HEADINGS
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -202,6 +203,11 @@ def check(state_path: Path) -> dict:
             need(actual.metadata.get('creator') == COMPOSER,
                  f'{role}: PDF was not composed by compose_hosted_pdf (creator stamp missing); '
                  'a body typeset by another route is not deliverable')
+            if role == 'question' and exam.get('metadata', {}).get('subject') in MATH_HEADINGS and len(items) == 20:
+                # The exam JSON listed 第壹部分 while the printed booklet began at 一、單選題.
+                printed_text = ''.join(''.join(page.get_text().split()) for page in actual)
+                for heading in MATH_HEADINGS[exam['metadata']['subject']]:
+                    need(heading in printed_text, f'{role}: the booklet does not print the official heading 「{heading}」')
             if role == 'question' and exam.get('metadata', {}).get('subject') == '國寫':
                 for sample in writing_font_role_samples(actual):
                     need(False, f'{role}/page-{sample["page"]}: 國寫 line 「{sample["text"]}」 is set in '

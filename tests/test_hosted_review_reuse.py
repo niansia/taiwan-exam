@@ -169,6 +169,11 @@ def test_proof_reviews_carry_into_final_booklets_but_pages_still_need_review(run
     notes['question']['items']['q2'] = {'status': 'fail', 'observations': 'Synthetic defect finding'}
     workflow.save(root / 'proof-notes.json', notes)
     workflow.record_review(root / 'proof-notes.json', proof=root / 'proof-01')
+    # A later proof of the same unchanged items re-queues only the crop with a recorded
+    # defect; every passed crop stays locked (hosted runs re-viewed them in each proof).
+    again = workflow.proof(state, *specs, ','.join(q['id'] for q in questions), font, root / 'proof-02')
+    assert len(again['review_queue']) == 1 and again['review_batches'][0]['items'] == ['q2']
+    assert sum(c['pixel-identical'] + c['vector-equivalent'] for c in again['retained_reviews'].values()) > 0
     workflow.content_lock(state)
     built = workflow.build(state, *specs, font, root / 'build-v1', year=116)
     assert built['reviews_approved_by_tool'] is False

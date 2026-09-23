@@ -109,6 +109,14 @@ def review_errors(exam, review):
             errors.append('difficulty: reviewed medium-hard/hard score must reach 70 points')
         if reviewed_points['very_hard'] < 30:
             errors.append('difficulty: reviewed hard score must reach 30 points')
+        # Official 111-115 close 選填 and the 題組 with their hardest items (115 16-17 and
+        # 20, 114 16-17 and 20, 113 17 and 20); two hosted 116 數A papers ended 選填 on a
+        # textbook maximum and the 題組 on completing a square.
+        for number in (17, 20):
+            closing = next((q for q in exam['questions'] if q.get('number') == number), None)
+            if closing and rows.get(closing['id'], {}).get('difficulty_band') not in {'hard', 'very_hard'}:
+                errors.append(f'difficulty/{closing["id"]}: item {number} closes its part and must review hard or very_hard, '
+                              'as every official 111-115 paper does; redesign it before rendering')
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
         if not 80 <= total <= 92:

@@ -16,6 +16,7 @@ from hosted_calibration import snapshot
 from hosted_item_layout import crop_items, crop_bytes, geometry_errors, render_signature, equivalent_render
 from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from inspect_hosted_pdf import audit
+from validate_paper_difficulty_balance import printable
 
 # Review and design metadata change while real reviews are recorded; they are
 # never printed. Printed question/answer fields stay in the item binding.
@@ -44,8 +45,9 @@ def item_hashes(exam):
         if isinstance(answer, dict):
             answers.setdefault(answer.get('question_id'), []).append(
                 {k: v for k, v in answer.items() if k not in REVIEW_ONLY_ANSWER_FIELDS})
-    records = {q.get('id'): {'question': {k: v for k, v in q.items() if k not in REVIEW_ONLY_QUESTION_FIELDS},
-                             'answers': answers.get(q.get('id'), [])} for q in questions}
+    # Asset paths are storage, not print: printable() keys a figure by its bytes.
+    records = {q.get('id'): printable({'question': {k: v for k, v in q.items() if k not in REVIEW_ONLY_QUESTION_FIELDS},
+                                       'answers': answers.get(q.get('id'), [])}) for q in questions}
     result = {}
     for question in questions:
         group = question.get('group_stimulus')

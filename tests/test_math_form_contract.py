@@ -29,16 +29,17 @@ def _paper():
     singles = ['財神廟舉辦抽發財金活動，參加者抽兩次籤，試選出正確的選項。', '對任一實數 a，令 [a] 表示不大於 a 的最大整數，則 [3.7]＋[−1.2] 之值為何？',
                '設實數三階方陣 A 滿足 A²＝I，試問下列何者必定成立？', '某網遊有 16 種材料，任選 3 種不同材料可以合成，共有幾種合成方式？',
                '坐標平面上有一正方形與一正六邊形，兩者共用一邊，試問其面積比為何？', '已知四邊形 ABCD 中 AB 平行 DC，對角線交於 E，則三角形 ABE 的面積為何？']
-    multiples = ['T 分數為評量成績的一種方式，設全班平均為 μ、標準差為 σ，下列敘述哪些正確？', '令 Γ 為坐標平面上滿足 x²＋y²＝25 的點所成集合，下列敘述哪些正確？',
-                 '某高中聘用的全體教師中，女性占 60%，下列推論哪些正確？', '已知向量 u＝(1,2)、v＝(3,−1)，下列敘述哪些正確？',
-                 '已知三正數 p、q、r 成等比，下列敘述哪些正確？', '二次函數圖形通過 (0,1)、(1,3)、(2,7)，下列敘述哪些正確？']
+    multiples = ['T 分數為評量成績的一種方式，設全班平均為 μ、標準差為 σ。試選出正確的選項。', '令 Γ 為坐標平面上滿足 x²＋y²＝25 的點所成集合。試選出正確的選項。',
+                 '某高中聘用的全體教師中，女性占 60%。試選出正確的選項。', '已知向量 u＝(1,2)、v＝(3,−1)。試選出正確的選項。',
+                 '已知三正數 p、q、r 成等比。試選出正確的選項。', '二次函數圖形通過 (0,1)、(1,3)、(2,7)。試選出正確的選項。']
     fills = ['直角三角形兩股長為 5 與 12，其內切圓半徑為', '某銷售站甲手機每支利潤 100 元、乙手機 400 元，共售 30 支獲利 6000 元，則甲售出', '將 1 到 50 平分成甲乙兩組，甲組中位數比乙組大 10，則甲組最小可能的總和為',
              '擲一枚公正硬幣五次，恰出現三次正面的機率化為最簡分數為', '若 log 2≈0.3010，則 2 的 50 次方的位數為']
     questions = [_item(n, singles[n - 1]) for n in range(1, 7)]
     questions += [_item(n, multiples[n - 7], 'multiple_choice') for n in range(7, 13)]
     questions += [_item(n, fills[n - 13], 'fill_in') for n in range(13, 18)]
-    questions += [_item(18, '依據上文，甲的面積為何？'), _item(19, '求乙的體積。', 'constructed_response', options=False),
-                  _item(20, '證明丙成立。', 'constructed_response', options=False)]
+    questions += [_item(18, '依據上文，甲的面積為何？（單選題，3分）'),
+                  _item(19, '求乙的體積。（非選擇題，4分）', 'constructed_response', options=False),
+                  _item(20, '證明丙成立。（非選擇題，8分）', 'constructed_response', options=False)]
     return {'metadata': {'subject': '數學A', 'generation_mode': 'full-paper'}, 'sections': sections, 'questions': questions}
 
 
@@ -172,3 +173,71 @@ def test_math_b_decision_floor_exempts_its_own_section_openers():
     assert required_decisions(0.5, 7, 'single_choice', '數學B') == 3
     assert required_decisions(0.5, 7, 'multiple_choice', '數學A') == 2
     assert required_decisions(0.5, 9, 'multiple_choice', '數學B') == 2
+
+
+def test_official_asks_scores_and_fraction_notes():
+    """116 hosted 數A papers asked 「下列敘述哪些正確」, marked 19–20 only 「（4分）」 and wrote
+    「化為最簡分數後為」; all ten official 111–115 booklets print the forms below."""
+    paper = _paper()
+    paper['questions'][6]['prompt'] = '已知向量 u＝(1,2)、v＝(3,−1)，下列敘述哪些正確？'
+    paper['questions'][1]['prompt'] = '一列數值由 f(n) 給出，以下何者正確？'
+    paper['questions'][17]['prompt'] = '依據上文，甲的面積為何？'
+    paper['questions'][18]['prompt'] = '求乙的體積。（4分）'
+    paper['questions'][14]['answer_format'] = {'kind': 'fraction', 'numerator_slots': 1, 'denominator_slots': 1}
+    paper['questions'][14]['prompt'] = '擲一枚公正硬幣兩次，恰一次正面的機率化為最簡分數後為{{answer}}。'
+    errors = math_form(paper)
+    for number, expected in ((7, '下列敘述哪些'), (7, '（多選）須以「試選出正確的選項。」'), (2, '以下何者'),
+                             (18, '（單選題，3分）'), (19, '（非選擇題，N分）'), (15, '（化為最簡分數）')):
+        assert any(f'第{number}題' in e and expected in e for e in errors), (number, expected)
+    paper['questions'][14]['prompt'] = '擲一枚公正硬幣兩次，恰一次正面的機率為{{answer}}。（化為最簡分數）'
+    assert not any('第15題' in e for e in math_form(paper))
+
+
+def test_part_heading_without_items_prints_and_group_label_is_official():
+    """A hosted 數A listed 第壹部分 as its own section and printed only 「一、單選題」."""
+    exam = {'metadata': {'subject': '數學A', 'paper_id': 'X'},
+            'sections': [{'id': 'p1', 'title': '第壹部分、選擇（填）題（占85分）'},
+                         {'id': 's1', 'title': '一、單選題（占30分）', 'instructions': ['說明：第1題至第6題，每題5分。']},
+                         {'id': 'p2', 'title': '第貳部分、混合題或非選擇題（占15分）'}],
+            'questions': [{'id': 'q1', 'number': 1, 'section_id': 's1', 'type': 'single_choice', 'prompt': '試問 1+1 之值為何？',
+                           'options': [{'label': str(i), 'text': str(i)} for i in range(1, 6)]},
+                          *[{'id': f'q{n}', 'number': n, 'section_id': 'p2', 'group_stimulus': '坐標空間中有一平行六面體。',
+                             'type': 'constructed_response', 'prompt': f'試求第{n}題。（非選擇題，6分）', 'score': 6} for n in (18, 19)]],
+            'answers': [{'question_id': q, 'final_answer': '2', 'reasoning': ['r']} for q in ('q1', 'q18', 'q19')]}
+    questions, _ = workflow.project_specs(exam, {}, 460)
+    titles = [b['title'] for b in questions['blocks'] if b['kind'] == 'section']
+    assert titles == ['第壹部分、選擇（填）題（占85分）', '一、單選題（占30分）', '第貳部分、混合題或非選擇題（占15分）']
+    group = next(b for b in questions['blocks'] if b.get('group_label'))
+    assert group['group_label'] == '18-19 題為題組' and group['group_label_style'] == 'underline'
+
+
+def test_five_options_sit_on_a_fixed_pitch(tmp_path):
+    """The pinned hosted PyMuPDF 1.26.0 ignored every cell width and printed 「(1) 6 (2) 8 (3) 9」 run together."""
+    body = tmp_path / 'body.ttf'
+    body.write_bytes(pymupdf.Font('cjk').buffer)
+    spec = {'subject': '數學A', 'booklet_role': 'questions', 'blocks': [
+        {'kind': 'choice', 'id': 'q1', 'number': 1, 'text': '數線上的點共有多少個？', 'columns': 5,
+         'options': [{'label': f'({i})', 'text': t} for i, t in enumerate(['6', '8', '9', '10', '13/2'], 1)]}]}
+    hb.render(spec, tmp_path / 'o.pdf', tmp_path / 'o.json', body, asset_root=tmp_path)
+    xs = [w[0] for w in pymupdf.open(tmp_path / 'o.pdf')[0].get_text('words') if w[4] in {'(1)', '(2)', '(3)', '(4)', '(5)'}]
+    gaps = [b - a for a, b in zip(xs, xs[1:])]
+    assert len(xs) == 5 and all(84 <= g <= 90 for g in gaps), gaps
+
+
+def test_math_a_unit_envelope_and_multiple_keys():
+    """Two hosted 116 數A papers had no matrix, plane-vector or 正餘弦定理 item."""
+    from validate_math_layout_contract import MATH_A_FAMILIES
+    paper = _paper()
+    families = ['exp_log', 'polynomial', 'line_circle', 'trigonometry', 'counting', 'probability', 'data', 'matrix',
+                'plane_vector', 'space', 'space', 'trigonometry', 'polynomial', 'line_circle', 'exp_log', 'probability',
+                'space', 'space', 'space', 'matrix']
+    for q, family in zip(paper['questions'], families):
+        code = next(c for c in MATH_A_FAMILIES[family] if '11A' in c) if family in {'matrix', 'plane_vector', 'space'}             else MATH_A_FAMILIES[family][0]
+        q['item_spec'] = {'scope_codes': [code]}
+    assert math_form(paper) == []
+    for q in paper['questions']:
+        if q['item_spec']['scope_codes'][0] in MATH_A_FAMILIES['matrix'] + MATH_A_FAMILIES['plane_vector']:
+            q['item_spec']['scope_codes'] = ['D-10-4']
+    errors = math_form(paper)
+    assert any('矩陣與線性變換' in e and '平面向量' in e for e in errors)
+    assert any('機率' in e and '上限 3' in e for e in errors)

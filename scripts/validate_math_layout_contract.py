@@ -18,6 +18,11 @@ Official facts this module enforces (text extracted from the ten booklets):
 * no student-facing disclaimer or invented-source label;
 * no real-world context repeated in three or more items (official four-character
   repeats are only generic phrases such as 坐標平面上 and 試選出正確的選項).
+* every 多選題 stem asks 「試選出正確的選項」 and no stem asks 「下列敘述哪些正確」 or
+  「以下何者正確」 (0 of 200 official items);
+* a fraction 選填 answer is announced after its rail as 「（化為最簡分數）」;
+* the 第貳部分 題組 marks its 單選題 「（單選題，N分）」 and each written item
+  「（非選擇題，N分）」 (every year in both subjects).
 
 Structural passes are never editorial passes.
 """
@@ -79,6 +84,41 @@ MATH_B_FAMILY_CAPS = {'sequence': 2, 'counting': 2, 'probability': 3, 'matrix': 
 MATH_B_ANY_FAMILY_CAP = 5
 MATH_B_11B_ITEMS = (3, 10)
 MATH_A_ONLY_CODES = re.compile(r'^[A-Z]-11A-\d+$')
+# 數學A unit families, hand-classified item by item on the official 111–115 booklets
+# (page images where extraction lost the math; 題組 counted as three). Per year:
+# number 1/0/0/0/1, exp_log 1/1/2/1/2, polynomial 2/1/2/2/2, line_circle 2/2/2/4/2,
+# trigonometry 4/4/3/3/2, sequence 1/2/0/1/0, counting 1/1/1/1/1, probability 2/1/1/2/2,
+# data 1/1/1/1/1, matrix 1/2/3/2/2, plane_vector 1/1/1/1/2, space 3/4/4/2/3. Items
+# needing an 11A-only code: 8/10/13/9/10. Two hosted 116 數A papers had no matrix,
+# plane-vector or 正餘弦定理 item.
+MATH_A_FAMILIES = {
+    'number': ('N-10-1', 'N-10-2', 'N-10-5', 'N-10-7'),
+    'exp_log': ('N-10-3', 'N-10-4', 'A-11A-4', 'F-11A-4'),
+    'polynomial': ('A-10-1', 'A-10-2', 'F-10-1', 'F-10-2', 'F-10-3'),
+    'line_circle': ('G-10-1', 'G-10-2', 'G-10-3', 'G-10-4'),
+    'trigonometry': ('G-10-5', 'G-10-6', 'G-10-7', 'N-11A-1', 'G-11A-5', 'F-11A-1', 'F-11A-2'),
+    'sequence': ('N-10-6',),
+    'counting': ('D-10-1', 'D-10-3'),
+    'probability': ('D-10-4', 'D-11A-1', 'D-11A-2', 'D-11A-3'),
+    'data': ('D-10-2',),
+    'matrix': ('A-11A-1', 'A-11A-2', 'A-11A-3', 'F-11A-3'),
+    'plane_vector': ('G-11A-1', 'G-11A-4', 'G-11A-6'),
+    'space': ('S-11A-1', 'G-11A-2', 'G-11A-3', 'G-11A-7', 'G-11A-8', 'G-11A-9', 'G-11A-10'),
+}
+MATH_A_FAMILY_LABELS = {'number': '數與式', 'exp_log': '指數與對數', 'polynomial': '多項式函數', 'line_circle': '直線與圓',
+                        'trigonometry': '三角（含正餘弦定理、和角、三角函數）', 'sequence': '數列與級數', 'counting': '排列組合',
+                        'probability': '機率（含條件機率、期望值）', 'data': '數據分析', 'matrix': '矩陣與線性變換',
+                        'plane_vector': '平面向量', 'space': '空間向量、平面與直線'}
+MATH_A_REQUIRED_FAMILIES = ('exp_log', 'polynomial', 'line_circle', 'trigonometry', 'counting', 'probability', 'data',
+                            'matrix', 'plane_vector', 'space')     # ≥1 item in every official year
+MATH_A_FAMILY_CAPS = {'number': 2, 'sequence': 2, 'counting': 2, 'probability': 3, 'data': 2}
+MATH_A_ANY_FAMILY_CAP = 5
+MATH_A_11A_ITEMS = (6, 14)
+UNOFFICIAL_ASK = re.compile(r'下列敘述.{0,4}(?:哪些|何者)|以下何者|下列哪些選項|哪些選項|敘述哪些正確')
+MULTIPLE_ASK = '試選出正確的選項'
+FRACTION_NOTE = re.compile(r'（化為最簡分數）\s*$')
+PART_TWO_SCORE = {'single_choice': re.compile(r'（單選題，\s*\d+\s*分）\s*$'),
+                  'written': re.compile(r'（非選擇題，\s*\d+\s*分）\s*$')}
 
 
 def _compact(text: Any) -> str:
@@ -99,6 +139,8 @@ def validate_exam(exam: dict) -> list[str]:
     full = metadata.get('generation_mode') == 'full-paper' or len(questions) >= 20
     if subject == '數學B':
         errors.extend(math_b_scope_errors(questions, full))
+    if subject == '數學A':
+        errors.extend(math_a_scope_errors(questions, full))
 
     for question in questions:
         number = question.get('number') or question.get('id')
@@ -119,6 +161,24 @@ def validate_exam(exam: dict) -> list[str]:
             labels = [_label(o) for o in question.get('options') or [] if isinstance(o, dict)]
             if tuple(labels) != OPTION_LABELS:
                 errors.append(f'{subject}第{number}題須有五個選項並標為(1)(2)(3)(4)(5)；現有 {labels}')
+        ask = UNOFFICIAL_ASK.search(stem)
+        if ask:
+            errors.append(f'{subject}第{number}題問「{ask.group(0)}」：官方 111–115 多選題一律寫「試選出正確的選項。」，'
+                          '單選題寫「試問…為何？」')
+        if question.get('type') == 'multiple_choice' and MULTIPLE_ASK not in stem:
+            errors.append(f'{subject}第{number}題（多選）須以「試選出正確的選項。」作答要求（官方 111–115 每題皆同）')
+        answer_format = question.get('answer_format') if isinstance(question.get('answer_format'), dict) else {}
+        raw = str(question.get('prompt') or '')
+        if answer_format.get('kind') == 'fraction' and not FRACTION_NOTE.search(raw):
+            errors.append(f'{subject}第{number}題是分數選填：官方在答案格之後印「。（化為最簡分數）」作結'
+                          '（不寫「化為最簡分數後為」）')
+        if isinstance(question.get('number'), int) and question['number'] >= 18:
+            role = 'single_choice' if question.get('type') == 'single_choice' else (
+                'written' if question.get('type') not in {'multiple_choice', 'fill_in'} else None)
+            if role and not PART_TWO_SCORE[role].search(raw):
+                label = '（單選題，3分）' if role == 'single_choice' else '（非選擇題，N分）'
+                errors.append(f'{subject}第{number}題（第貳部分題組）須以「{label}」作結（官方 111–115 每年如此），'
+                              '不是只寫「（4分）」或不標')
 
     if full:
         titles = [_compact(s.get('title')) for s in exam.get('sections') or [] if isinstance(s, dict)]
@@ -193,6 +253,45 @@ def math_b_scope_errors(questions: list[dict], full: bool) -> list[str]:
     if not low <= eleven_b <= high:
         errors.append(f'數學B 帶 11B 專屬代碼的題目 {eleven_b} 題，官方 111–115 為 6–8 題（允許 {low}–{high}）：'
                       '矩陣、球面／空間、透視、圓錐曲線、正弦模型、平面向量、條件機率須有合理比重')
+    return errors
+
+
+def _family(codes: list, table: dict) -> str | None:
+    for code in codes:
+        for family, members in table.items():
+            if str(code) in members:
+                return family
+    return None
+
+
+def math_a_scope_errors(questions: list[dict], full: bool) -> list[str]:
+    """The measured 111–115 unit envelope of a full 數學A paper (codes themselves are checked elsewhere)."""
+    coded = [q for q in questions if isinstance(q.get('item_spec'), dict) and q['item_spec'].get('scope_codes')]
+    if not full or len(questions) < 20 or len(coded) < len(questions):
+        return []  # validate_math_curriculum reports items without scope_codes
+    families: Counter = Counter()
+    eleven_a = 0
+    for q in questions:
+        spec = q.get('item_spec') if isinstance(q.get('item_spec'), dict) else {}
+        codes = [str(c) for c in (spec.get('scope_codes') or [])]
+        family = _family(codes, MATH_A_FAMILIES)
+        if family:
+            families[family] += 1
+        if any(MATH_A_ONLY_CODES.match(c) for c in codes):
+            eleven_a += 1
+    errors = []
+    missing = [MATH_A_FAMILY_LABELS[f] for f in MATH_A_REQUIRED_FAMILIES if families[f] == 0]
+    if missing:
+        errors.append(f'數學A整卷缺 {"、".join(missing)}：官方 111–115 每卷都各有至少 1 題（以各題 scope_codes 的第一個可辨識代碼歸類）')
+    for family, cap in MATH_A_FAMILY_CAPS.items():
+        if families[family] > cap:
+            errors.append(f'數學A {MATH_A_FAMILY_LABELS[family]} 有 {families[family]} 題，官方 111–115 每卷最多 {cap - 1}–{cap} 題（上限 {cap}）')
+    for family, count in families.items():
+        if count > MATH_A_ANY_FAMILY_CAP:
+            errors.append(f'數學A {MATH_A_FAMILY_LABELS[family]} 有 {count} 題，超過單一單元上限 {MATH_A_ANY_FAMILY_CAP}（官方最高 4 題）')
+    low, high = MATH_A_11A_ITEMS
+    if not low <= eleven_a <= high:
+        errors.append(f'數學A 帶 11A 專屬代碼的題目 {eleven_a} 題，官方 111–115 為 8–13 題（允許 {low}–{high}）')
     return errors
 
 
