@@ -94,6 +94,9 @@ def test_unknown_slot_is_not_guessed():
         skeleton('國寫',1)
     assert skeleton('國寫',1,'1')['question']['score']==4
     assert skeleton('國寫',1,'2')['question']['score']==21
+    first,second,essay=(skeleton('國寫',1,'1')['question'],skeleton('國寫',1,'2')['question'],skeleton('國寫',2)['question'])
+    assert (first['number_display'],second['number_display'],essay['number_display'])==('一、','','二、')
+    assert (first['answer_label'],second['answer_label'],essay['answer_label'])==('一、問題（一）','一、問題（二）','二、')
 
 
 @pytest.mark.parametrize('slot',['translation-1','translation-2','composition'])

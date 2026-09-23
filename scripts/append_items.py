@@ -195,8 +195,13 @@ def inherit_audits(questions, existing):
         leader = pool.get(leader_id)
         if leader is None or leader is question:
             raise ValueError(f'{question["id"]}: inherits_audit_from names an unknown item {leader_id!r}')
-        if not question.get('group_stimulus') or leader.get('group_stimulus') != question.get('group_stimulus'):
-            raise ValueError(f'{question["id"]}: audits can be inherited only from an item sharing the same group_stimulus')
+        same_stimulus = bool(question.get('group_stimulus')) and leader.get('group_stimulus') == question.get('group_stimulus')
+        # Subparts of one printed number (國寫 問題（二）, a 自然 (b) part) share the
+        # leader's material even when it lives in the leader's prompt, not a group_stimulus.
+        same_number = isinstance(question.get('number'), int) and leader.get('number') == question.get('number')
+        if not (same_stimulus or same_number):
+            raise ValueError(f'{question["id"]}: audits can be inherited only from an item sharing the same group_stimulus '
+                             'or the same printed number')
         leader_spec = leader.get('item_spec') or {}
         for key in INHERITABLE_AUDITS:
             if key not in spec and key in leader_spec:

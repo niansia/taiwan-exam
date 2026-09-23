@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.15
+# Taiwan Exam Web Knowledge v2026.09.22.16
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -659,10 +659,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 41243,
-    "sha256": "c79f84b8c758782b6356e6fa9db53dd09756e9ed42db986eb39e1d01e636eaba",
-    "embedded_bytes": 41243,
-    "embedded_sha256": "c79f84b8c758782b6356e6fa9db53dd09756e9ed42db986eb39e1d01e636eaba"
+    "bytes": 41621,
+    "sha256": "b04b605f49a5864639f315f90c3d565c90bf7f5e1bd71337095a12b070c66dd7",
+    "embedded_bytes": 41621,
+    "embedded_sha256": "b04b605f49a5864639f315f90c3d565c90bf7f5e1bd71337095a12b070c66dd7"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -862,10 +862,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/append_items.py",
-    "bytes": 24181,
-    "sha256": "768d495fee50ddc6e048ce1ff5af4c17a6c983397ecdd1d133da2188c49b199c",
-    "embedded_bytes": 24181,
-    "embedded_sha256": "768d495fee50ddc6e048ce1ff5af4c17a6c983397ecdd1d133da2188c49b199c"
+    "bytes": 24603,
+    "sha256": "e0fe73c52d209394af4f70244cfdcf50319965a82c8ad6ca95e5538dd1deaa7d",
+    "embedded_bytes": 24603,
+    "embedded_sha256": "e0fe73c52d209394af4f70244cfdcf50319965a82c8ad6ca95e5538dd1deaa7d"
   },
   {
     "path": "scripts/audit_item_originality.py",
@@ -904,10 +904,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/emit_item_skeleton.py",
-    "bytes": 9019,
-    "sha256": "412d624fe8b5aaa79f0b23ad469eec455b80e433cba8fd84aa9275aeb741c650",
-    "embedded_bytes": 9019,
-    "embedded_sha256": "412d624fe8b5aaa79f0b23ad469eec455b80e433cba8fd84aa9275aeb741c650"
+    "bytes": 9693,
+    "sha256": "46d9ee8c5b1e9f39740e4473a9b7b75e096252f4e776e759c26058910e701615",
+    "embedded_bytes": 9693,
+    "embedded_sha256": "46d9ee8c5b1e9f39740e4473a9b7b75e096252f4e776e759c26058910e701615"
   },
   {
     "path": "scripts/ensure_pymupdf.py",
@@ -1023,10 +1023,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 34367,
-    "sha256": "91861fb087692d0372db0591582768df019d11632c4f8c38fb6996fe8649838b",
-    "embedded_bytes": 34367,
-    "embedded_sha256": "91861fb087692d0372db0591582768df019d11632c4f8c38fb6996fe8649838b"
+    "bytes": 34432,
+    "sha256": "2ed15f2aa44194327e4d4cfe3d794035706a375df2aba1edc294b11afa752226",
+    "embedded_bytes": 34432,
+    "embedded_sha256": "2ed15f2aa44194327e4d4cfe3d794035706a375df2aba1edc294b11afa752226"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1184,10 +1184,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_writing_layout_contract.py",
-    "bytes": 9512,
-    "sha256": "47e281d5501ce2c678258f06d7736efd05592c4434616b67c74fc2c00dde2956",
-    "embedded_bytes": 9512,
-    "embedded_sha256": "47e281d5501ce2c678258f06d7736efd05592c4434616b67c74fc2c00dde2956"
+    "bytes": 10812,
+    "sha256": "6c7f63d2d9ac935c265086f9ddafa61c63fb48e9af8d89a4998d8e37d7bb824a",
+    "embedded_bytes": 10812,
+    "embedded_sha256": "6c7f63d2d9ac935c265086f9ddafa61c63fb48e9af8d89a4998d8e37d7bb824a"
   },
   {
     "path": "scripts/validate_writing_source_grounding.py",
@@ -60481,7 +60481,11 @@ re-open every page.
   to the serif when that download fails. Authors never choose fonts.
 - 國寫 prints 12 pt on a 20 pt line (111–115 measured): 「一、」「二、」 on their own
   line, materials indented two characters, 「請分項回答下列問題：」 at the margin,
-  問題（一）／（二） with a six-character hanging indent, and no number column.
+  問題（一）／（二） with a six-character hanging indent, and no number column. The
+  skeleton sets `number_display` 一、／''／二、 and solution labels 一、問題（一）／
+  一、問題（二）／二、; the contract refuses 「1.」「2.」 labels and a section title other
+  than 非選擇題（共二大題，占50分）. 問題（二） may inherit the leading record's audits
+  (`inherits_audit_from`) because it shares the printed number.
 - Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
   (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
   社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs
@@ -65611,8 +65615,13 @@ def inherit_audits(questions, existing):
         leader = pool.get(leader_id)
         if leader is None or leader is question:
             raise ValueError(f'{question["id"]}: inherits_audit_from names an unknown item {leader_id!r}')
-        if not question.get('group_stimulus') or leader.get('group_stimulus') != question.get('group_stimulus'):
-            raise ValueError(f'{question["id"]}: audits can be inherited only from an item sharing the same group_stimulus')
+        same_stimulus = bool(question.get('group_stimulus')) and leader.get('group_stimulus') == question.get('group_stimulus')
+        # Subparts of one printed number (國寫 問題（二）, a 自然 (b) part) share the
+        # leader's material even when it lives in the leader's prompt, not a group_stimulus.
+        same_number = isinstance(question.get('number'), int) and leader.get('number') == question.get('number')
+        if not (same_stimulus or same_number):
+            raise ValueError(f'{question["id"]}: audits can be inherited only from an item sharing the same group_stimulus '
+                             'or the same printed number')
         leader_spec = leader.get('item_spec') or {}
         for key in INHERITABLE_AUDITS:
             if key not in spec and key in leader_spec:
@@ -67031,6 +67040,17 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
     if number is None:
         section=next(s for s in profile['sections'] if s['id']==slot['section_id'])
         question['number_display']=slot.get('printed_label') or section['title']
+    if subject=='國寫':
+        # The official booklet prints 一、／二、 on their own line above each 大題 and no
+        # number column; 問題（二） carries no label. A hosted paper skeleton without these
+        # printed 「1.」「2.」 and headed its solutions 「(1)」「(2)」「第2題」.
+        numeral='一二三'[number-1]
+        if slot.get('subpart_id'):
+            question['number_display']=f'{numeral}、' if ordinal==1 else ''
+            question['answer_label']=f'{numeral}、問題（{"一二三"[ordinal-1]}）'
+        else:
+            question['number_display']=f'{numeral}、'
+            question['answer_label']=f'{numeral}、'
     question.update(prompt=None,group_stimulus=None,visual_asset=None,expected_minutes=None,
                     options=[{'label':str(i),'text':None} for i in range(1,slot.get('option_count',0)+1)])
     design={'band':None,'content_sha256':None,'basis':None,'confidence':None,
@@ -71272,7 +71292,8 @@ def authoring_requirements(subject):
         'item_spec.difficulty_design: band, basis, confidence, short_route, misconception, linked_decisions, bottleneck, '
         'expected_minutes, content_sha256 (difficulty-field-contract.md)',
         'item_spec.originality_record: candidate_count>=3, 3 mechanism families, novelty_dimensions>=3, skin_swap_test and '
-        'lexical_screen pass; items of one shared stimulus may set item_spec.inherits_audit_from to the group\'s first item',
+        'lexical_screen pass; items of one shared stimulus, or subparts of one printed number (國寫 問題（二）), may set '
+        'item_spec.inherits_audit_from to the leading item',
         'item_spec.subject_innovation_audit for 國綜/自然/社會 items (candidate_competition_linked, routine rejected, text fields)',
         'any printed material (group_stimulus, long prompt, continuation pages): item_spec.literacy.source_ids naming a real '
         'registered source plus item_spec.source_grounding {status: verified, proposition_map, material_mode/data_mode}; '
@@ -79660,6 +79681,18 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
     cjk_two = _cjk(material_two)
     if not TASK_TWO_MATERIAL_CJK[0] <= cjk_two <= TASK_TWO_MATERIAL_CJK[1]:
         errors.append(f'國寫第二大題材料 {cjk_two} 字，官方 111–115 為 226–443 字（允許 {TASK_TWO_MATERIAL_CJK[0]}–{TASK_TWO_MATERIAL_CJK[1]}）')
+
+    # Printed section title and part labels (all five official years): 非選擇題（共二大題，占50分）
+    # once, then 一、 and 二、 on their own line; never a 「1.」「2.」 number column.
+    sections = [s for s in (exam.get('sections') or []) if isinstance(s, dict)]
+    if sections and '非選擇題（共二大題，占50分）' not in re.sub(r'\s+', '', ''.join(str(s.get('title') or '') for s in sections)).replace('(', '（').replace(')', '）'):
+        errors.append('國寫題本標題須印「非選擇題（共二大題，占50分）」（官方 111–115 逐字相同），不是「國寫非選擇題」之類的自訂標題')
+    labels = [str(q.get('number_display') if q.get('number_display') is not None else '<missing>') for q in task_one] + \
+             [str(task_two[0].get('number_display') if task_two[0].get('number_display') is not None else '<missing>')]
+    expected = ['一、', ''] if len(task_one) == 2 else ['一、']
+    if labels[:len(expected)] != expected or labels[-1] != '二、':
+        errors.append(f'國寫 number_display 須為 一、（問題（一）紀錄）、空字串（問題（二）紀錄）、二、，目前 {labels}；'
+                      '官方以「一、」「二、」獨占一行，沒有「1.」「2.」題號欄')
 
     # The printed 說明 and the two ask lines (all five official years).
     directions = ''.join(str(v) for s in (exam.get('sections') or []) if isinstance(s, dict) for v in (s.get('instructions') or []))
