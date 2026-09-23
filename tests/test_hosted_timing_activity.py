@@ -30,7 +30,7 @@ def test_explicit_overnight_pause_and_resume(tmp_path, monkeypatch):
     assert result['wall_seconds'] == 14 * 3600 + 210
     assert result['agent_active_seconds'] == result['phase_seconds']['solving'] == 210
     assert result['waiting_seconds'] == 14 * 3600
-    assert result['estimated_waiting_seconds'] == 0
+    assert result['unobserved_seconds'] == 0
     assert result['target_met'] is False
     original = path.read_bytes()
     move(10)
@@ -44,7 +44,8 @@ def test_lost_turn_capped_at_last_heartbeat_plus_idle_threshold(tmp_path, monkey
     report = move(5 * 3600)
     result = timer.summary(report)
     assert result['agent_active_seconds'] == 900
-    assert result['estimated_waiting_seconds'] == 5 * 3600 - 600
+    assert result['unobserved_seconds'] == 5 * 3600 - 600
+    assert result['waiting_seconds'] == 0  # only an explicit pause is a wait
     assert result['wall_seconds'] == 5 * 3600 + 300
 
 
@@ -58,9 +59,9 @@ def test_recorded_tools_refresh_activity_without_polluting_state_hash(tmp_path, 
     result = timer.summary(report, events)
     assert result['wall_seconds'] == 5100
     assert result['agent_active_seconds'] == 2100
-    assert result['waiting_seconds'] == 3000
+    assert result['unobserved_seconds'] == 3000 and result['waiting_seconds'] == 0
     assert result['tool_seconds'] == 930
-    assert not any(r['start'] < 2400 and r['end'] > 1500 and r.get('state') == 'waiting'
+    assert not any(r['start'] < 2400 and r['end'] > 1500 and r.get('state') != 'active'
                    for r in report['intervals'])
 
 
@@ -138,3 +139,14 @@ def test_content_lock_binds_diagram_bytes(tmp_path):
     figure.write_text('<svg>changed</svg>', encoding='utf-8')
     with pytest.raises(ValueError, match='asset hash changed'):
         workflow.check_content_lock(tmp_path, state)
+
+
+def test_old_estimated_waiting_rows_count_as_unobserved():
+    report = {'paper_id': 'paper', 'active': None, 'started_at': 0, 'ended_at': 300, 'intervals': [
+        {'phase': 'authoring', 'start': 0, 'end': 100, 'state': 'active'},
+        {'phase': 'authoring', 'start': 100, 'end': 250, 'state': 'waiting', 'estimated': True},
+        {'phase': 'authoring', 'start': 250, 'end': 300, 'state': 'waiting', 'estimated': False}]}
+    result = timer.summary(report)
+    assert result['unobserved_seconds'] == 150 and result['waiting_seconds'] == 50
+    assert result['unobserved_by_phase'] == {'authoring': 150}
+    assert result['phase_seconds']['authoring'] == 100

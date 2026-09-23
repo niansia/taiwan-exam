@@ -386,7 +386,8 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
 
 
 CLOCK_REMINDER = ('Before yielding this turn run `clock --state <latest-state> --operation pause`; '
-                  'an unpaused gap is estimated as waiting only after the idle threshold.')
+                  'while writing or reading run `--operation touch` after each group or passage (at least every '
+                  'five minutes): a gap beyond the idle threshold is reported as unobserved, neither work nor waiting.')
 
 
 ITERATION_BUDGET = {'plan': 3, 'proof': 4, 'build': 2}
@@ -419,10 +420,38 @@ def iteration_budget(root, kind, output):
     runs = sorted(p.name for p in root.iterdir() if p.is_dir() and (p / marker).is_file())
     if Path(output).name not in runs:
         runs.append(Path(output).name)
+    if kind == 'proof':
+        return proof_budget(root, runs)
     over = len(runs) > ITERATION_BUDGET[kind]
     return {'kind': kind, 'count': len(runs), 'budget': ITERATION_BUDGET[kind], 'over_budget': over,
             'note': (f'{len(runs)} {kind} runs exceed the budget of {ITERATION_BUDGET[kind]}: stop adjusting hints by eye; '
                      'fix the figure size or split the block once, then run one more') if over else 'within budget'}
+
+
+def proof_budget(root, runs):
+    """Proofs are item batches: a 50-item paper normally needs many. What wastes time is a
+    proof whose every item is unchanged since an earlier proof (a hosted 英文 run counted 31
+    such re-appearances among 82 and read the 4-proof budget as spent). Passed unchanged
+    crops are retained anyway; a repeat proof only re-reads failures that were not fixed."""
+    manifests = []
+    for name in runs:
+        path = root / name / 'proof-manifest.json'
+        if path.is_file():
+            manifests.append((path.stat().st_mtime, name, read(path)))
+    seen, repeats, unchanged = set(), [], 0
+    for _, name, manifest in sorted(manifests):
+        bound = manifest.get('item_sha256') or {}
+        pairs = {(qid, bound.get(qid)) for qid in manifest.get('items') or []}
+        known = {pair for pair in pairs if pair[1] and pair in seen}
+        unchanged += len(known)
+        if pairs and known == pairs:
+            repeats.append(name)
+        seen |= pairs
+    over = len(repeats) > 1
+    return {'kind': 'proof', 'count': len(runs), 'repeat_proofs': repeats, 'unchanged_item_appearances': unchanged,
+            'budget': 'at most one proof of only unchanged items', 'over_budget': over,
+            'note': (f'{len(repeats)} proofs contained no new or changed item: change the item or its layout hint '
+                     'before proofing it again; passed unchanged crops stay passed') if over else 'within budget'}
 
 
 def plan(state_path, question_spec, solution_spec, font, output, *, reading_font=None, compare=None, kai_font=None):
@@ -540,7 +569,7 @@ def current_generated_spec(spec, state):
 
 
 OPTION_LAYOUT_COLUMNS = {'row-5': 5, 'row-4': 4, 'grid-3-2': 3, 'grid-2': 2, 'stack': 1}
-RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong)>|<br>')
+RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong|u)>|<br>')
 SUBSCRIPT = '₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎'
 SUPERSCRIPT = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱ'
 SCRIPT_RUN = re.compile(f'([{SUBSCRIPT}]+)|([{SUPERSCRIPT}]+)')
@@ -551,7 +580,7 @@ SPLIT_MIN_CHARACTERS = 260
 LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
 # A currency amount is the only printed dollar sign: $ directly before a digit.
 TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
-MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
+MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong|u)>')
 LATEX_SCRIPT = re.compile(r'[A-Za-z0-9)\]]_\{|\^\{|(?<![A-Za-z])[A-Za-z]_[A-Za-z0-9]')
 INVISIBLE_CHARS = re.compile('[⁠﻿​­‌‍]')
 # A leading U+3000 is the customary paragraph indent; one inside a sentence is not.
@@ -764,7 +793,7 @@ def printed(value, where, *, english=False, gaps=False):
     if not rich and not RICH_TAG.search(raw):
         converted = converted.replace('\n', '<br>')
     elif not rich:
-        converted = re.sub(r'<(?!/?(?:sup|sub|i|em|b|strong)>|br>)', '&lt;', converted).replace('\n', '<br>')
+        converted = re.sub(r'<(?!/?(?:sup|sub|i|em|b|strong|u)>|br>)', '&lt;', converted).replace('\n', '<br>')
     return {'rich': converted}
 
 
@@ -866,6 +895,8 @@ def english_segment(owner, segment, members, where, layout):
         expected = ' '.join(f'{option_label(o["label"])} {o["text"]}' for o in options)
         if row and options and re.sub(r'\s+', ' ', row.group(2)).strip() == re.sub(r'\s+', ' ', expected).strip():
             flush()
+            if blocks and blocks[-1]['kind'] == 'choice':
+                blocks[-1]['keep_with_next'] = True  # 16's options never part from 17-20's
             blocks.append({'kind': 'choice', 'id': member['id'], 'number': member['number'], 'text': '', 'language': 'en',
                            'options': [{'label': option_label(o['label']),
                                         'text': printed(o['text'], where + ' option', english=True)} for o in options],
@@ -887,6 +918,7 @@ def english_segment(owner, segment, members, where, layout):
 
 
 HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
+RANGE_DISPLAY = re.compile(r'(\d{1,2})\s*[-–]\s*(\d{1,2})')
 
 
 def project_specs(exam, hints, body_width):
@@ -964,9 +996,19 @@ def project_specs(exam, hints, body_width):
             prompt += f'（應選{count}項）'
         if kind == 'fill' and '{{answer}}' not in prompt:
             prompt = prompt.replace('______', '{{answer}}', 1) if '______' in prompt else prompt + '{{answer}}'
-        block = {'kind': kind, 'id': q['id'], 'text': printed(prompt, where + ' prompt', english=english)}
+        block = {'kind': kind, 'id': q['id'], 'text': printed(prompt, where + ' prompt', english=english, gaps=english)}
         if type(number) is int:
             block['number'] = number
+        title = str((sections.get(q.get('section_id')) or {}).get('title') or '')
+        if english and kind == 'constructed':
+            # 英文 111-115 print 中譯英 as 「1.」 plus a 楷體 sentence and 作文 as 「提示︰」,
+            # neither with a score; a hosted paper printed 「（4分）」 and 「（20分）」.
+            if q.get('section_id') == 'translation' or '中譯英' in title:
+                block['english_task'] = 'translation'
+            elif q.get('section_id') == 'composition' or q.get('type') == 'guided_writing' or '作文' in title:
+                block['english_task'] = 'composition'
+            elif q.get('type') == 'short_answer' and '混合' in title:
+                block['answer_line'] = True  # 簡答 50 (113-115) prints one ruled answer line
         label = hint.get('label', q.get('number_display', None if type(number) is int else q.get('answer_label')))
         if label is not None:
             block['label'] = printed(label, where + ' label') if str(label).strip() else ''
@@ -982,7 +1024,10 @@ def project_specs(exam, hints, body_width):
             block['rows'] = rows
         if kind == 'constructed':
             block['score'] = q.get('score')
-            for printed_score in dict.fromkeys([q.get('score'), totals.get(q.get('number'))]):
+            pair = RANGE_DISPLAY.fullmatch(str(q.get('number_display') or '').strip())
+            pair_total = (sum(totals.get(n, 0) for n in range(int(pair.group(1)), int(pair.group(2)) + 1))
+                          if pair else None)
+            for printed_score in dict.fromkeys([q.get('score'), totals.get(q.get('number')), pair_total]):
                 if type(printed_score) in (int, float) and re.search(rf'(?<![0-9.]){printed_score:g}\s*分', prompt):
                     block['score_in_text'] = True
                     if printed_score != q.get('score'):
@@ -1094,12 +1139,24 @@ def project_specs(exam, hints, body_width):
                     for block in segment_blocks:
                         add(block)
                     # With explicit page segments, the questions printed on a
-                    # segment's page follow that segment.
-                    if page is not None and position < len(segments) - 1:
+                    # segment's page follow that segment. English never interleaves:
+                    # every 111-115 group prints its whole material first (a hosted
+                    # paper printed 47-48 between the third and fourth paragraphs).
+                    if page is not None and position < len(segments) - 1 and not english:
                         for member in members:
                             if member.get('page') == page and not member.get('suppress_question_display'):
                                 emit_question(member)
                                 placed.add(member['id'])
+        if english and group and q.get('visual_asset') and 'group_blocks' not in hint:
+            # The group's chart, table or map closes its material, above the questions;
+            # printed with item 47 it split 47 from 48 in a hosted paper.
+            figure = {'kind': 'stimulus', 'id': q['id'], 'text': ''}
+            attach_assets(figure, q, f'group of {q["id"]}', body_width, hint, figure_key='figure',
+                          position='below', shown=shown)
+            if figure.get('figure'):
+                if blocks and blocks[-1]['kind'] in {'passage', 'stimulus'}:
+                    blocks[-1]['keep_with_next'] = True
+                add(figure)
         for member in members:
             if member['id'] in emitted or (group and member['id'] in placed):
                 continue
@@ -1234,7 +1291,7 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
     assets = inside(root, root / state['template_asset_dir'])
     with pymupdf.open(assets / 'inner-odd-blank.pdf') as template:
         page_size = [template[0].rect.width, template[0].rect.height]
-    hashes = item_hashes(exam)
+    hashes = {role: item_hashes(exam, role) for role in ('question', 'solution')}
     kai_font = Path(kai_font) if kai_font else recorded_kai_font(state_path)
     identity = render_identity(Path(font), Path(reading_font) if reading_font else None, kai_font)
     loaded = []
@@ -1274,7 +1331,7 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
                 path.write_bytes(data)
                 parts.append({**part, 'raster_path': path.relative_to(root).as_posix(),
                               'raster_sha256': hashlib.sha256(data).hexdigest(), 'status': 'pending', 'observations': ''})
-        annotate_parts(parts, hashes)
+        annotate_parts(parts, hashes[role])
         source = {**record(root, body), 'projected': True, 'page_size': page_size}
         # A crop that already passed in an earlier proof or build, for the same authored
         # item and the same printed pixels or primitives, keeps that pass: it is locked,
@@ -1301,7 +1358,10 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             queue.append(image)
             by_item.setdefault(part['id'], []).append((image, {'role': role, 'items': key}))
             notes['items'][key] = pending_note()
-    save(output / 'proof-manifest.json', {'kind': 'hosted-item-proof', 'paper_id': state['paper_id'], 'items': wanted})
+    save(output / 'proof-manifest.json', {'kind': 'hosted-item-proof', 'paper_id': state['paper_id'], 'items': wanted,
+                                          'item_sha256': {qid: canonical_sha([hashes['question'].get(qid),
+                                                                              hashes['solution'].get(qid)])
+                                                          for qid in wanted}})
     save(output / 'observations-template.json', template)
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
     event(root, 'proof', started, items=wanted)
@@ -1576,7 +1636,9 @@ def main():
     build_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
     build_parser.add_argument('--year', required=True)
     build_parser.add_argument('--title', default='學科能力測驗模擬試題')
-    build_parser.add_argument('--running-name', default='學測')
+    # Ignored: the locked 115 header prints 「年學測」 for every subject (a hosted 英文 run
+    # passed 英文 and printed 「116年英文」).
+    build_parser.add_argument('--running-name', default='學測', help=argparse.SUPPRESS)
     build_parser.add_argument('--reading-font', type=Path)
     build_parser.add_argument('--kai-font', type=Path, help='Defaults to the kai face recorded by the preflight')
     plan_parser = commands.add_parser('plan', help='Paginate both bodies in seconds; no PDFs, rasters or review state')

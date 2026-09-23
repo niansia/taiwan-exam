@@ -69,8 +69,11 @@ table.material-label {width:auto;margin:2pt 0 4pt} table.material-label td {bord
 p.part {font-size:13pt;margin-bottom:2pt}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .figure {text-align:center} .score {font-size:11pt}
+u {text-decoration:underline} .kai {font-family:Kai,Body}
+p.task {text-align:justify} p.hint {padding-left:28.6pt;text-indent:-28.6pt;text-align:justify}
+p.hang {padding-left:18pt;text-indent:-18pt}
 sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
-.optionlist {margin-left:NUMBER_PITCHpt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
+.optionlist {margin-left:NUMBER_PITCHpt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0;padding-left:18pt;text-indent:-18pt} .optionlist td {padding-bottom:0}
 .passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body} .var {font-family:LatinItalic,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
@@ -140,8 +143,8 @@ class RichText(HTMLParser):
         self.stack = []
 
     def handle_starttag(self, tag, attrs):
-        if tag not in {'sup','sub','i','em','b','strong','br'} or attrs:
-            raise ValueError('Use only sup/sub/i/em/b/strong/br without attributes in rich text')
+        if tag not in {'sup','sub','i','em','b','strong','u','br'} or attrs:
+            raise ValueError('Use only sup/sub/i/em/b/strong/u/br without attributes in rich text')
         self.output.append('<'+tag+'>')
         if tag != 'br': self.stack.append(tag)
 
@@ -160,6 +163,9 @@ MATH_SUBJECTS = {'數學A', '數學B'}
 LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
 _latin_runs_enabled = False
 _writing_mode = False
+# English booklets (111-115 measured) set every Chinese line inside an item in 標楷體:
+# the 47-48 and 49 directions, 「（多選題，4分）」, the translation sentences and 提示.
+_item_kai = False
 _measure_css = None  # the running booklet's CSS, for measuring option cells
 _math_mode = False
 _typesetter = None
@@ -227,6 +233,14 @@ TEXT_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)')
 MATH_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)|(?P<sym>{MATH_SYMBOL})')
 
 
+def unligated(markup):
+    """MuPDF joins f+f/i/l of the Times face into ﬀ ﬁ ﬂ glyphs; the booklets print them
+    apart (no ligature in any 111-115 English text layer), and a ligature breaks search
+    and copy. A lone 「f」 span ends the run the engine would ligate."""
+    parts = re.split(r'(<[^>]+>)', markup)
+    return ''.join(part if part.startswith('<') else re.sub(r'f(?=[fil])', '<span>f</span>', part) for part in parts)
+
+
 def latin_runs(markup):
     """Wrap Latin/digit/radical runs of already-escaped markup in the Latin font, leaving tags alone."""
     parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)  # tags, entities and {{tokens}} stay untouched
@@ -243,7 +257,7 @@ def latin_runs(markup):
                 # Variables print italic, as in every mathematics booklet; function
                 # names, words and acronyms stay upright.
                 chunk = identifier_markup(chunk, part, match.start())
-            return f'<span class="latin">{chunk}</span>'
+            return f'<span class="latin">{unligated(chunk)}</span>'
         parts[index] = (MATH_RUNS if _math_mode else TEXT_RUNS).sub(wrap, part)
     return ''.join(parts)
 
@@ -254,13 +268,37 @@ def text(value):
         if parser.stack: raise ValueError('Unclosed rich-text tag')
         result = ''.join(parser.output)
         result = math_tokens(result) if _math_mode else result
-        return latin_runs(result) if _latin_runs_enabled else result
+        return kai_runs(latin_runs(result) if _latin_runs_enabled else result)
     if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
     if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
         raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
     result = html.escape(value).replace('\n','<br>')
     result = math_tokens(result) if _math_mode else result
-    return latin_runs(result) if _latin_runs_enabled else result
+    return kai_runs(latin_runs(result) if _latin_runs_enabled else result)
+
+
+CJK_RUN = re.compile('[\u3000-\u303f\u3400-\u9fff\uf900-\ufaff\ufe10-\ufe4f\uff00-\uffef]+')
+# Western punctuation inside an English booklet's items stays in Times: the CJK face
+# draws “ ” ; ? ! and dashes full width.
+WESTERN_PUNCTUATION = re.compile('[\u2018\u2019\u201c\u201d;?!\u2013\u2014\u2026]+')
+
+
+def kai_runs(markup):
+    if not _item_kai:
+        return markup
+    parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)
+    for index, part in enumerate(parts):
+        if part and not part.startswith(('<', '&', '{{')):
+            part = CJK_RUN.sub(lambda m: f'<span class="kai">{m.group(0)}</span>', part)
+            parts[index] = WESTERN_PUNCTUATION.sub(lambda m: f'<span class="latin">{m.group(0)}</span>', part)
+    return ''.join(parts)
+
+
+def gap_markup(content):
+    """Numbered answer gaps: the number in Times inside a 33 pt underline (111-115)."""
+    content = re.sub(r'\{\{gap:(\d{1,2})\}\}', r'<u>　<span class="latin">\1</span>　</u>', content)
+    if '{{gap:' in content: raise ValueError('Invalid passage gap number')
+    return content
 
 
 def rail_image(number, rows):
@@ -424,13 +462,21 @@ def _group_label(block):
         return ''
     style = block.get('group_label_style', 'bold')
     if style not in {'bold', 'underline'}: raise ValueError('group_label_style must be bold or underline')
-    return f'<div class="group-label{" underline" if style=="underline" else ""}">{text(block["group_label"])}</div>'
+    global _item_kai
+    kai, _item_kai = _item_kai, False  # 「第 47 至 50 題為題組」 is 明體 (115 measured)
+    try:
+        label = text(block["group_label"])
+    finally:
+        _item_kai = kai
+    return f'<div class="group-label{" underline" if style=="underline" else ""}">{label}</div>'
 
 
 def _fragment_html(block, archive, index, width, font_metric, images, image_heights):
     kind=block.get('kind')
     if kind not in KINDS: raise ValueError('Unknown body block kind')
     head,tail=block.get('_head',True),block.get('_tail',True)
+    global _item_kai
+    _item_kai=_subject=='英文' and kind not in {'section','solution'}
     if kind=='section':
         heading=f'<div class="heading">{heading_markup(block["title"],archive)}</div>'
         # Answer booklets may print a plain part heading; question-booklet
@@ -453,10 +499,11 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
                 return _writing_paragraph(value,html.unescape(re.sub('<[^>]+>','',str(plain))))
             # Source lines and option/bank rows are never first-line indented.
             indent=block.get('indent') and not re.match(r'\s*[(（]',str(plain))
+            if re.match(r'\s*\([A-J]\)\s',str(plain)):
+                return '<p class="hang">'+text(value)+'</p>'  # a lettered candidate hangs under its text
             return ('<p class="indent">' if indent else '<p>')+text(value)+'</p>'
         content=''.join(paragraph(p) for p in paragraphs)
-        content=re.sub(r'\{\{gap:(\d{1,2})\}\}',r'<u>　\1　</u>',content)
-        if '{{gap:' in content:raise ValueError('Invalid passage gap number')
+        content=gap_markup(content)
         cls='english' if block.get('language')=='en' else 'writing' if writing else 'passage'
         heading=f'<div class="heading">{text(block["heading"])}</div>' if block.get('heading') and head else ''
         if writing and heading:heading=f'<p class="part">{heading_markup(block["heading"],archive,spacing=0)}</p>'
@@ -465,10 +512,16 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             columns=block.get('columns',2)
             if columns not in (1,2,5):raise ValueError('Unsupported option-bank columns')
             if columns==1:
-                content+=''.join('<p>'+text(o['label'])+' '+text(o['text'])+'</p>' for o in bank)
+                # Candidate sentences hang under their text when they wrap.
+                content+=''.join('<p class="hang">'+bank_entry(o)+'</p>' for o in bank)
             else:
-                cells=[f'<td style="width:{100/columns}%">{text(o["label"])} {text(o["text"])}</td>' for o in bank]
-                content+='<table>'+''.join('<tr>'+''.join(cells[i:i+columns])+'</tr>' for i in range(0,len(cells),columns))+'</table>'
+                # PyMuPDF 1.26 ignores cell widths: pad each cell to the official pitch
+                # (the 115 bank tabs every 96 pt from the margin, five abreast).
+                pitch=96 if columns==5 else width/columns
+                cells=[padded_cell(bank_entry(o),pitch,alt=width/columns,wrap='english' if block.get('language')=='en' else '',
+                                   mode='last' if (i+1)%columns==0 or i==len(bank)-1 else '') for i,o in enumerate(bank)]
+                content+=('<table class="options" style="width:auto">'
+                          +''.join('<tr>'+''.join(cells[i:i+columns])+'</tr>' for i in range(0,len(cells),columns))+'</table>')
         return _group_label(block)+heading+f'<div class="{cls}">{content}</div>'
     if kind=='table':
         headers=block.get('headers',[]);rows=block.get('rows',[])
@@ -480,7 +533,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     numbered=type(block.get('number')) is int and block['number']>=1
     if kind!='stimulus' and not numbered and not (kind in {'choice','multiple','constructed','solution'} and 'label' in block):
         raise ValueError('Supply a positive integer question number, or a printed label for an unnumbered task')
-    stem=keep_scores_whole(text(block.get('text','')))
+    stem=gap_markup(keep_scores_whole(text(block.get('text',''))))
     if kind=='constructed' and _writing_mode:
         stem=_writing_stem(block)
     if kind=='solution':
@@ -515,9 +568,15 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             printed_score=block.get('printed_score',score)
             if not block.get('_score_checked') and not re.search(rf'(?<![0-9.]){printed_score:g}\s*分',html.unescape(re.sub('<[^>]+>','',stem))):
                 raise ValueError('score_in_text requires the printed text to state the actual score')
-        elif tail:
+        elif tail and not block.get('english_task'):
             # The score closes the item text, before any figure or response area.
             stem+=f'<span class="score">（{score:g}分）</span>'
+        if block.get('english_task'):
+            stem=english_task_markup(block,label if head else '',stem)
+    if block.get('answer_line') and tail:
+        # 簡答 50 (113-115): one ruled line of Times underscores across the item column.
+        count=int((width-number_pitch()-8)/5.52)
+        stem+=f'<p style="margin:2pt 0 0 4pt"><span class="latin">{"_"*count}</span></p>'
     figure=block.get('figure') if tail else None
     column=kind in {'choice','multiple','constructed'}
     if figure:
@@ -542,9 +601,11 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             # Option-only rows (English cloze): the number shares the first
             # option row so both sit on one baseline.
             wrap='english' if block.get('language')=='en' else ''
+            inners=[f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}' for o in options]
+            columns=english_columns(inners,columns,archive,wrap,width)
             alt=(width-number_pitch())/columns
-            cells=[padded_cell(f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}',option_pitch(columns),alt=alt,wrap=wrap,
-                               mode='last' if (j+1)%columns==0 or j==len(options)-1 else '') for j,o in enumerate(options)]
+            cells=[padded_cell(inner,option_pitch(columns) if columns>2 else alt,alt=alt,wrap=wrap,
+                               mode='last' if (j+1)%columns==0 or j==len(options)-1 else '') for j,inner in enumerate(inners)]
             rows=[''.join(cells[j:j+columns]) for j in range(0,len(cells),columns)]
             result=('<table class="options" style="width:auto">'+''.join(
                 f'<tr>{padded_cell(label if n==0 else "",number_pitch(),wrap=wrap,mode="number")}{row}</tr>'
@@ -559,8 +620,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
         else:
             wrap='english' if block.get('language')=='en' else ''
+            columns=english_columns(rows,columns,archive,wrap,width)
             alt=(width-number_pitch())/columns
-            cells=[padded_cell(row,option_pitch(columns),alt=alt,wrap=wrap,
+            cells=[padded_cell(row,option_pitch(columns) if columns>2 or _subject!='英文' else alt,alt=alt,wrap=wrap,
                                mode='last' if (j+1)%columns==0 or j==len(rows)-1 else '') for j,row in enumerate(rows)]
             option_block=(f'<div class="optionlist"><table class="options" style="width:auto">'
                           +''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table></div>')
@@ -570,6 +632,8 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         result=stem if figure else numbered_row(label,stem,width)
     elif kind=='stimulus':
         result=_group_label(block)+stem
+    elif kind=='constructed' and block.get('english_task'):
+        result=stem
     elif kind=='constructed' and _writing_mode:
         # 國寫 prints no number column: 「一、」 stands on its own line above the material.
         result=(f'<p class="part">{heading_markup(html.unescape(re.sub("<[^>]+>","",label)),archive,spacing=0)}</p>' if label else '')+stem
@@ -578,7 +642,12 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # empty (English cloze option rows print only their number).
         # The 24 pt number column holds "12." or "（一）"; a longer label such
         # as 英文作文 would stack one glyph per line, so it leads the text instead.
-        if len(html.unescape(re.sub('<[^>]+>','',label)))>3:
+        plain_label=html.unescape(re.sub('<[^>]+>','',label))
+        if RANGE_LABEL.fullmatch(plain_label):
+            # 「47-48」 (英文 112-115) prints in Times at the margin; its text hangs 27.9 pt in.
+            result=numbered_row(f'<span class="latin">{html.escape(plain_label)}</span>',stem,width,pitch=27.9)+option_block
+            return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
+        if len(plain_label)>3:
             stem=f'<b>{label}</b>　'+stem;label=''
         result=numbered_row(label,stem,width)+option_block
     return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
@@ -594,12 +663,49 @@ def plain_text(value):
         _math_mode = mode
 
 
-def numbered_row(label, stem, width):
+def numbered_row(label, stem, width, pitch=None):
     """Number at the margin, text and options on the measured stem line (18 pt later)."""
+    pitch = pitch or number_pitch()
     if re.fullmatch(r'[\w.()（）]+', html.unescape(re.sub('<[^>]+>', '', label or ''))) and label.isascii():
         label = f'<span class="latin">{label}</span>'
-    return (f'<table><tr>{padded_cell(label, number_pitch(), mode="number")}'
-            f'<td style="width:{width-number_pitch():g}pt">{stem}</td></tr></table>')
+    return (f'<table><tr>{padded_cell(label, pitch, mode="number")}'
+            f'<td style="width:{width-pitch:g}pt">{stem}</td></tr></table>')
+
+
+RANGE_LABEL = re.compile(r'\d{1,2}\s*[-–]\s*\d{1,2}')
+HINT_LABEL = re.compile(r'^((?:<span class="kai">)?)提示[：︰]')
+
+
+def english_columns(inners, columns, archive, wrap, width):
+    """An English row of four whose longest choice overruns its 120 pt tab breaks into two
+    columns of two, as 115 prints 17 (had yet to develop) and 20 (an intimate romantic
+    dinner) with (B) and (D) at the half-width tab."""
+    if _subject != '英文' or columns < 3 or _measure_css is None:
+        return columns
+    widths = [_cell_advance(inner, archive, wrap) for inner in inners]
+    if any(w is None for w in widths):
+        return columns
+    pitch = option_pitch(columns)
+    last = width - number_pitch() - (columns - 1) * pitch  # the right column ends at the margin
+    if all(w <= (last if (j + 1) % columns == 0 else pitch) for j, w in enumerate(widths)):
+        return columns
+    return 2
+
+
+def bank_entry(option):
+    return f'<span class="latin">{html.escape(str(_plain(option["label"])))}\u00a0</span>{text(option["text"])}'
+
+
+def english_task_markup(block, label, stem):
+    """英文 中譯英 and 作文 as 111-115 print them: 「1.」 in Times followed by the 楷體
+    sentence, and 「提示︰」 at 9.96 pt with the prompt hanging under its text. Neither
+    prints a score or a number column."""
+    if block['english_task'] == 'composition':
+        body = HINT_LABEL.sub(lambda m: f'{m.group(1)}<span style="font-size:9.96pt">提示︰</span>', stem, count=1)
+        return f'<p class="hint">{body}</p>' if body != stem else f'<p class="task">{stem}</p>'
+    plain = html.unescape(re.sub('<[^>]+>', '', label or '')).strip()
+    number = f'<span class="latin">{html.escape(plain)}\u00a0</span>' if plain else ''
+    return f'<p class="task">{number}{stem}</p>'
 
 
 def _plain(value):

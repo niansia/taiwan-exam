@@ -396,7 +396,21 @@ later `proof` or `build` copies its pass automatically (`retained_reviews`,
 `status: proof-retained` when nothing is left) and queues only crops whose printed
 content changed or that carry a recorded defect; never open, re-judge or re-record a
 retained crop, and never put an unchanged item into a new proof just to look at it
-again. Moving a figure to another path is not a change: reviews and difficulty
+again. The proof `iteration_budget` counts only proofs whose every item was unchanged
+since an earlier proof (`repeat_proofs`); batch proofs of new or changed items are
+normal and never spend it. Question crops bind only the question record, so
+correcting a solution re-queues only that item's solution crops.
+
+**Settle typography before item proofs.** The first proof covers one item of each
+kind the paper uses (for 英文: one cloze group with its option rows, the 文意選填
+bank, one 篇章 passage, one reading item, the mixed group, translation and
+composition); decide gap underlines, quotation marks, dashes and figure format on
+it. A hosted 英文 run switched from straight to curly quotes and patched the
+renderer three times after item proofs began, which voided three proofs. Never
+edit renderer code during a paper run; if a rendering defect appears, finish with
+the shipped renderer and report the defect.
+
+Moving a figure to another path is not a change: reviews and difficulty
 records key a verified asset by its sha256, not its path. Text-only items are reviewed on
 their page (`review_via: page`), not as crops. A page keeps its review when its
 **body** pixels and item content are unchanged even if the running header's page
@@ -615,7 +629,10 @@ On continuation use `--operation resume`; during long reading, solving or
 inspection use `--operation touch` at least every five minutes. These are
 explicit agent steps, not automatic platform callbacks. Abrupt interruptions
 are detected on the next clock call: time beyond the last activity plus ten
-minutes is labelled **estimated waiting**. It may include unrecorded thought.
+minutes is labelled **unobserved**: unrecorded writing or reading and an
+unannounced wait look the same, so it counts as neither work nor waiting. Only an
+explicit `pause` is waiting. While writing passages or groups, `touch` after each
+one so authoring is not reported as unobserved.
 Keep total wall time, estimated activity, recorded tool duration and explicit/
 estimated waits separate. Legacy logs cannot supply exact active time.
 Always continue repairs from the latest returned review state, so unchanged

@@ -248,6 +248,15 @@ def referenced_figures(exam):
     return found
 
 
+def _stable_raster(path, dpi=150):
+    """Two fresh rasterizations of the figure's first page give the same pixels."""
+    digests = []
+    for _ in range(2):
+        with pymupdf.open(path) as document:
+            digests.append(hashlib.sha256(document[0].get_pixmap(dpi=dpi, alpha=False).samples).hexdigest())
+    return digests[0] == digests[1]
+
+
 def _colour_share(page):
     box = page.rect
     scale = min(1.0, RASTER_MAX_WIDTH / box.width) if box.width else 1.0
@@ -367,6 +376,12 @@ def figure_selfcheck(root, exam, *, asset_issues=None):
                 entry['warnings'].append(f'{share:.0%} of pixels carry colour: the paper prints in grayscale, so the '
                                          'answer-bearing distinction must also be carried by labels, patterns, '
                                          'markers or line styles')
+            if not _stable_raster(path):
+                # A hosted 英文 run learned this at the final check, after two builds:
+                # the booklet page carrying the figure rasterized differently each time,
+                # so its recorded page review could never bind.
+                entry['errors'].append('renders to different pixels on two consecutive rasterizations: re-export it '
+                                       'as a flat PNG (no transparency groups or soft masks) before the first proof')
             try:
                 hits = _label_collisions(page)
             except Exception:

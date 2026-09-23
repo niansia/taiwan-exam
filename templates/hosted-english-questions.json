@@ -11,7 +11,11 @@
     },
     {
       "kind": "section",
-      "title": "一、詞彙題",
+      "title": "第壹部分、選擇題（占62分）"
+    },
+    {
+      "kind": "section",
+      "title": "一、詞彙題（占10分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -40,7 +44,7 @@
     },
     {
       "kind": "section",
-      "title": "二、綜合測驗",
+      "title": "二、綜合測驗（占10分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -79,7 +83,7 @@
     },
     {
       "kind": "section",
-      "title": "三、文意選填",
+      "title": "三、文意選填（占10分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -137,7 +141,7 @@
     },
     {
       "kind": "section",
-      "title": "四、篇章結構",
+      "title": "四、篇章結構（占8分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -175,7 +179,7 @@
     },
     {
       "kind": "section",
-      "title": "五、閱讀測驗",
+      "title": "五、閱讀測驗（占24分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -213,13 +217,13 @@
     },
     {
       "kind": "section",
-      "title": "六、混合題",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+      "title": "第貳部分、混合題（占10分）",
+      "directions": "說明︰本部分共有1題組，每一子題配分標於題末。限在答題卷標示題號的作答區內作答，並以規定用筆作答。"
     },
     {
       "kind": "stimulus",
       "id": "layout-english-mixed",
-      "text": "〔本次新閱讀材料與必要圖表，不能沿用此灰色框〕",
+      "text": "〔本次新閱讀材料全文；表格、地圖或圖卡屬於材料，印在全部段落之後、題目之前〕",
       "assets": {
         "figure": {
           "path": "hosted-body-figure-placeholder.svg",
@@ -228,43 +232,97 @@
         }
       },
       "figure": "figure",
-      "figure_position": "right"
+      "figure_position": "below",
+      "group_label": "第 47 至 50 題為題組",
+      "group_label_style": "underline"
     },
     {
       "kind": "constructed",
       "id": "layout-english-response",
-      "number": 47,
-      "text": "〔依新材料進行轉換的填答要求〕",
-      "score": 2
+      "label": "47-48",
+      "score": 4,
+      "score_in_text": true,
+      "text": {
+        "rich": "〔中文作答說明：請從文章中找出兩個單詞，視句型結構需要做字形變化；<u>每格限填一個單詞</u>（word）〕（填充題，4分）<br><br>[A new one-sentence summary of the material with gap {{gap:47}} and gap {{gap:48}}.]"
+      }
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-english-multiple",
+      "number": 49,
+      "language": "en",
+      "columns": 1,
+      "text": "〔From (A) to (E), which ONES …? 不寫出應選數量〕（多選題，4分）",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(E)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-short",
+      "number": 50,
+      "score": 2,
+      "score_in_text": true,
+      "answer_line": true,
+      "text": "〔Which phrase in the material means “…”? 答案為文中的一個單詞或片語〕（簡答題，2分）"
     },
     {
       "kind": "section",
-      "title": "七、非選擇題：中譯英與英文作文",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+      "title": "第參部分、非選擇題（占28分）",
+      "directions": "說明︰本部分共有二大題，請依各題指示作答，答案必須寫在「答題卷」標示題號之作答區內，作答時不必抄題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、中譯英（占8分）",
+      "directions": "說明︰依題號將以下中文句子譯成正確、通順、達意的英文。每題4分，共8分。"
     },
     {
       "kind": "constructed",
       "id": "layout-english-translation",
-      "number": 1,
-      "text": "〔本次第一句中譯英題幹〕",
+      "label": "1.",
       "score": 4,
-      "label": "（一）"
+      "english_task": "translation",
+      "text": "〔本次第一句中譯英題幹：18–28 字的中文句子，不印配分〕"
     },
     {
       "kind": "constructed",
       "id": "layout-english-translation2",
-      "number": 2,
-      "text": "〔本次第二句中譯英題幹〕",
+      "label": "2.",
       "score": 4,
-      "label": "（二）"
+      "english_task": "translation",
+      "text": "〔本次第二句中譯英題幹：18–28 字的中文句子，不印配分〕"
+    },
+    {
+      "kind": "section",
+      "title": "二、英文作文（占20分）",
+      "directions": "說明︰依提示寫一篇英文作文，文長至少120個單詞（words）。"
     },
     {
       "kind": "constructed",
       "id": "layout-english-composition",
-      "number": 3,
-      "text": "〔本次作文材料、情境與任務，以繁體中文說明〕；文長至少120個英文單詞。於指定答題卷作答。",
+      "label": "",
       "score": 20,
-      "label": "作文"
+      "english_task": "composition",
+      "text": "提示︰〔本次作文情境與任務，以繁體中文說明，文分兩段；第一段描述圖片可見內容，第二段說明經驗或看法。不印配分〕"
     }
   ]
 }

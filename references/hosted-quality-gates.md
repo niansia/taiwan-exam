@@ -228,18 +228,19 @@ must not be presented as active solving or inspection. Before a turn ends use
 next turn use `--operation resume`. Every `build`, `proof` and `plan` result
 repeats this as `clock_reminder`. If a turn ends without the pause, the clock
 counts at most the idle threshold (ten minutes) after the last tool event as
-work and labels the rest estimated waiting; report phase time from
+work and labels the rest unobserved; report phase time from
 `phase_seconds` (active only), never by summing intervals that include
-waiting rows. During continuous work record `touch`
+waiting or unobserved rows. During continuous work record `touch`
 at least every five minutes, including reading/solving without file writes.
 These commands refresh the selected state's timing hash. Optional
 `--question-ids`, `--page-numbers`, and `--revision-id` identify repair scope.
 If a turn is abruptly lost, the next timing call labels the portion after the
-last activity plus ten minutes as **estimated waiting**, not known inactivity.
+last activity plus ten minutes as **unobserved**, neither work nor waiting.
 This is lazy detection, not a background monitor or a precise thinking clock.
 Old logs remain unclassified; do not retroactively subtract gaps from them.
 The report separates `wall_seconds`, estimated `agent_active_seconds`,
-`waiting_seconds`, `estimated_waiting_seconds`, `unclassified_seconds`, and
+`waiting_seconds` (explicit pauses only), `unobserved_seconds` (with
+`unobserved_by_phase`), `unclassified_seconds`, and
 `tool_seconds` (only recorded workflow commands, with overlaps counted once).
 No recorded tool time is `null`, not a claim that tools took zero seconds.
 Above 1200 seconds it reports target_met=false and continues QA; the benchmark

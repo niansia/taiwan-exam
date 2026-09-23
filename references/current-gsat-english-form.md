@@ -42,11 +42,42 @@ The broad 180–400-word specification is not a license to put every passage nea
   meaning, mean by, idiom), at least one global item (mainly about, purpose, what question, can we
   learn, inferred, how the author develops/concludes) and at most four "which statement is
   true / NOT" detail checks; a booklet of twelve detail checks is not the form.
-- 混合題 47–50 is the same shape every year: a 4-point word-fill or short-answer pair (47–48), one
-  4-point 多選 and one 2-point 簡答; never a 單選.
-- 中譯英 sentences are 18–28 CJK characters each (contract 16–32) on one shared theme.
+- 混合題 is the same shape in 112–115 (111 used the same three task types as 47/48/49):
+  - **「47-48」** is one printed item worth 4 points: a Chinese instruction (找出單詞、視句型結構需要
+    做適當的字形變化、<u>每格限填一個單詞</u>（word）) closed by 「（填充題，4分）」, then one English
+    summary sentence of the material holding the numbered gaps `[[47]]` and `[[48]]`. Save item 47
+    with `number_display: "47-48"`, both instructions and the summary sentence in its `prompt`, and
+    item 48 with `suppress_question_display: true`. Each answer is one word taken from the material,
+    usually with a form change (innovation, blended; 114 entertaining, kept). Not a table lookup.
+  - **49** is 「（多選題，4分）」: which of the lettered cards/posts/options satisfy a condition that
+    needs the whole material. The stem never states how many are right (「which ONES」, not
+    「Choose TWO」).
+  - **50** is 「（簡答題，2分）」 answered with a word or phrase printed in the material that matches
+    a given meaning (one of a kind, does the trick, fostering empathy); 113–115 print one ruled
+    answer line under it. Not an open sentence or explanation.
+  - Official scoring for each blank and 50: 完全正確 2 分；字形或拼字錯誤 1 分；空白或錯誤 0 分.
+  - The whole material prints first; a table, map or card set belongs to the material and prints
+    after its last paragraph, before 47-48. Never split the material with questions.
+  - Never a 單選.
+- 中譯英 sentences are 18–28 CJK characters each (contract 16–32) on one shared theme. They print
+  `1.` in Times and the sentence in 標楷體 at 11 pt, with no score (the 說明 box already says
+  每題4分). Official rubric: 每題4分，原則上每個錯誤扣0.5分，相同的錯誤只扣一次; list the target
+  words and structures, not invented 2+2 semantic-block points.
 - 英文作文 is picture-based every year (兩張圖, emoji, 三張圖, 對比圖, 多張圖); the 提示 is
-  108–174 CJK characters (contract ≤ 220) and the composition item carries `visual_asset`.
+  108–174 CJK characters (contract ≤ 220) and the composition item carries `visual_asset`. The
+  prompt starts with 「提示︰」 (the 說明 box above already says 依提示寫一篇英文作文…; do not add a
+  second 說明 line) and prints in 標楷體 with its lines hanging under the text, with no score. Let
+  the pictures carry the details: 「描述圖片中所呈現的現象」, not a sentence that already tells the
+  student what the two pictures differ in. Official rubric: 依內容、組織、文法句構、字彙拼字整體評分
+  (holistic score); 字數明顯不足扣總分1分，未分段亦扣總分1分 — not an invented 8/4/6/2 split.
+- Measured item-writing floors the contract enforces (111–115, 2026-09-23): at least five cloze
+  items a year offer phrases or structures (had yet to develop, as such, in that, what is more), so
+  a paper needs at least four; vocabulary keys mix nouns, verbs, adjectives and one adverb, so
+  declare `item_spec.target_part_of_speech` on 1–10 (at least three classes, none above five);
+  every word class in the 文意選填 bank has at least two members, so declare
+  `item_spec.bank_parts_of_speech` on item 21 (A–J → adjective, noun, verb-base, verb-past…);
+  the key of at most four reading items is the strictly longest option. Printed passages never
+  say "invented data" or point at "Question 39".
 
 The measured table is `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
 
@@ -130,7 +161,7 @@ The internal product profile intentionally keeps the opening section more demand
 - **Text completion:** ten options for ten gaps. Balance part of speech and semantic role so that early placements constrain later ones without reducing the task to suffix matching.
 - **Discourse structure:** each option must have a plausible local attachment; global topic flow, reference chains, chronology, contrast, or cause must resolve the four placements.
 - **Reading:** vary purpose, inference, reference, organization, attitude, vocabulary-in-context, evidence integration, and visual-text synthesis. Do not let every passage end in the same four question templates.
-- **Mixed:** combine at least two response modes and require transformation or synthesis, not sentence copying. Any supplied image, chart, notice, or map must be necessary evidence.
+- **Mixed:** combine at least two response modes and require transformation or synthesis, not sentence copying. Any supplied image, chart, notice, or map must be necessary evidence. The three synthesis items are 47 and 48 (a word from the material transformed to fit a new summary sentence) and 49 (conditions checked across the whole material); 50 locates a phrase by its meaning. None of them is answered by reading one table cell.
 - **Translation and composition:** use separate rubrics and recent official task forms. The composition prompt may use photos or other noncontinuous material; the question booklet does not become a ruled workbook. Student-facing composition directions are written in Traditional Chinese, including the minimum 120-word requirement. English may appear as authentic input, labels, names, or a quoted phrase, but not as a substitute for the Chinese task explanation.
 
 ### Whole-paper difficulty floor
@@ -273,7 +304,7 @@ Vocabulary and cloze choices are normally one four-column row. Reading-comprehen
 
 Render real paragraphs as paragraphs. Do not encode a blank source line between every paragraph and then preserve it with `white-space: pre-wrap`; that produces artificial vertical holes. Use one first-line indent, normal inter-paragraph spacing, and measured line height. A deliberate block document (notice, schedule, form, or table) may use compact block spacing without paragraph indentation.
 
-The mixed section may use bordered text cards or visual panels. Grayscale photos and illustrations must pass the evidence-preservation rules in [visual-generation.md](visual-generation.md). The final non-selected page contains translation and composition prompts; do not add answer lines unless the selected official profile shows them in the question booklet.
+The mixed section may use bordered text cards or visual panels. Grayscale photos and illustrations must pass the evidence-preservation rules in [visual-generation.md](visual-generation.md). The final non-selected page contains translation and composition prompts without answer lines; the only ruled line in the booklet is the one under 簡答 50, which the renderer prints for a `short_answer` item in the mixed part.
 
 Pending complete item-level annotation, a full internal English paper must contain at least three answer-bearing visuals across at least two sections and at least two visual kinds. Count the mixed noncontinuous material and a visual composition task only when the questions genuinely depend on them; include at least one further reading or evidence-synthesis visual when those two alone would make the paper visually predictable. All necessary English outside the reference vocabulary envelope must be locally supported. If the visual is removed and the same answer or writing task remains, replace the item rather than treating the picture as decoration.
 
@@ -284,7 +315,7 @@ For the verified 115 profile, the following section-level display rules are rele
 - Text completion prints the passage first with ten numbered underlined slots, then exactly ten lettered options for ten gaps. Each option is used once. Do not prepend a worksheet word bank, invent two unused options, or repeat ten `Blank (...)` rows.
 - Discourse structure prints one passage with four numbered underlined slots, followed by five candidate sentences. Do not print the options before the passage or repeat the gaps as standalone questions.
 - An underlined group label such as `第 11 至 15 題為題組` is printed once when the passage begins. Do not add an invented `（續）` label after a page break.
-- A long mixed stimulus should be split at a semantic boundary across the two verified mixed-section pages. Store the complete stimulus for content validation and explicit page segments for rendering; never print all material on the first page and leave only two short questions on the second.
+- A long mixed stimulus simply continues onto the next page at a paragraph boundary; 47-48, 49 and 50 follow the complete material (111–115 print them on the second mixed page). Do not use `group_stimulus_page_splits` to force questions between paragraphs: a hosted paper printed 47 and 48 between the third and fourth paragraphs, and another printed its chart between 47 and 48.
 - If a section heading and its bordered direction line are placed at the bottom of the preceding page in the selected profile, treat that placement as a page contract and do not repeat the heading on the next page.
 - Before release, visually compare every section start, inline blank, option block, underline, paragraph rhythm, passage word count, content-used height, and page transition with the selected official profile. Reject unexplained large lower-page voids; accept planned white space only when the corresponding official page role (large evidence graphic, mixed continuation, or final writing prompt) supports it. A globally plausible English layout is not enough.
 - After PDF export, run `scripts/validate_reference_page_density.py` against the verified official booklet. The mixed section must receive a genuinely useful map, chart, form, notice panel, or other noncontinuous evidence when the matching official page role depends on one; prose alone must not leave the first mixed page half empty.

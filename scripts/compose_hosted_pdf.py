@@ -232,8 +232,6 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 fields = geometry[parity]
                 # The template prints 「年學測」 in 細明體 as the booklets do; only the Times
                 # digits of the year, page and page count are dynamic (ROC 115 measured).
-                if running_name != '學測':
-                    raise ValueError('The locked 115 header prints 年學測; other running names need their own template')
                 write_field(page, fields["year_name"], str(year), digits, field_size(subject, 'year_name'),
                             align="right", resource=digit_resource)
                 write_field(page, fields["current_page"], str(number), digits, field_size(subject, 'current_page'), resource=digit_resource)
