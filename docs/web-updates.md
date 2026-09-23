@@ -11,7 +11,7 @@ ChatGPT 出的 116 國寫（GX7Q2M，最終 run 28 分，其中難度／原創�
 
 時間面：問題（二）與問題（一）同一題號、共用材料，但原本只有共用 group_stimulus 的題組可以繼承原創性等稽核紀錄，國寫第二筆必須重寫整套；改為同題號子題也可 `inherits_audit_from`。「題號重複」修正與詳解標題重排本版起不再發生。
 
-新 ZIP（SHA-256 `39b261045907c0ec118d237a528664f6e1db984b065868bf99cb98a5d4cecf97`，6,876,074 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.16 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.16/taiwan-exam-hosted-2026.09.22.16.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.16) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `39b261045907c0ec118d237a528664f6e1db984b065868bf99cb98a5d4cecf97`，6,876,074 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.16 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.16/taiwan-exam-hosted-2026.09.22.16.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.16) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.15：國寫版面依官方 111～115 重做：楷體材料、12pt／20pt 行距、問題懸掛縮排、說明全文
 
