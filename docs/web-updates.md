@@ -18,9 +18,9 @@
 - 已通過的審查鎖定：同一題內容與印出像素（或同一組字形、線條、圖）不變時，後續 `proof` 與 `build` 自動沿用先前通過的結果，不再排入人工佇列（`retained_reviews`，全部沿用時回報 `proof-retained`）；只移動圖檔路徑不算內容變更，審查與難度紀錄改以圖檔 SHA-256 比對。ChatGPT 那次第二版把四張圖改成相對路徑，就讓 8 頁、10 個裁圖重看一輪、難度紀錄全部失效。
 - 交付：交付檔須與檢查過的位元組相同，不得再用 PDF 程式另存、壓縮或改標題。
 
-未改：官方的分數一律上下疊排、變數用斜體、向量加箭號，本版仍是「2/3」式的斜線分數與正體字母；多選題正確選項數的 1～5 隨機政策（官方 111～115 從未出現五個全對）待維護者決定。
+未改：官方的分數一律上下疊排、變數用斜體、向量加箭號，本版仍是「2/3」式的斜線分數與正體字母；多選題正確選項數維持 1～5 隨機（維護者決定保留；官方 111～115 每題 1～4 個）。
 
-新 ZIP（SHA-256 `c133dab36dc0050f0f1c7d031747d5366d4701fc41b1e809235b0cc8d38afaf9`，6,883,800 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查。[下載 2026.09.22.18 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.18/taiwan-exam-hosted-2026.09.22.18.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.18) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `c133dab36dc0050f0f1c7d031747d5366d4701fc41b1e809235b0cc8d38afaf9`，6,883,800 位元組，97 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.18 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.18/taiwan-exam-hosted-2026.09.22.18.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.18) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.17：國寫材料字型改由 PDF 實際字型把關、楷體改用全字庫正楷體、甲乙加框
 
