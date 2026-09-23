@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.18
+# Taiwan Exam Web Knowledge v2026.09.22.19
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -435,10 +435,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "exam_packs/學測/templates/115/hosted-web-template-assets.json",
-    "bytes": 34334,
-    "sha256": "b1c7a0109f3067c3d2bbac2a3c98d333a7021b71997dba9aa7bb67fac3b7ea95",
-    "embedded_bytes": 34334,
-    "embedded_sha256": "b1c7a0109f3067c3d2bbac2a3c98d333a7021b71997dba9aa7bb67fac3b7ea95"
+    "bytes": 34428,
+    "sha256": "dcb5a9e9519ccae84553340555988a2542c692a987ef916f21f215c978fea0ac",
+    "embedded_bytes": 34428,
+    "embedded_sha256": "dcb5a9e9519ccae84553340555988a2542c692a987ef916f21f215c978fea0ac"
   },
   {
     "path": "exam_packs/學測/templates/115/template-pack.json",
@@ -533,10 +533,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-math-form.md",
-    "bytes": 24371,
-    "sha256": "7e2551c1703a93ed66959cd694e50d35ea2a01eecffbde7bc39c940187ad61a1",
-    "embedded_bytes": 24371,
-    "embedded_sha256": "7e2551c1703a93ed66959cd694e50d35ea2a01eecffbde7bc39c940187ad61a1"
+    "bytes": 26814,
+    "sha256": "1aa712642ca49177364446fd7b4acf4317ed47e2aecc88c9d1529bd4f35ac92a",
+    "embedded_bytes": 26814,
+    "embedded_sha256": "1aa712642ca49177364446fd7b4acf4317ed47e2aecc88c9d1529bd4f35ac92a"
   },
   {
     "path": "references/current-gsat-math-scope.md",
@@ -554,10 +554,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-writing-form.md",
-    "bytes": 19929,
-    "sha256": "e146b122bff1baaae184826ce20587c0bf4dbbbacd59a5001bf89ea96ddf3966",
-    "embedded_bytes": 19929,
-    "embedded_sha256": "e146b122bff1baaae184826ce20587c0bf4dbbbacd59a5001bf89ea96ddf3966"
+    "bytes": 19957,
+    "sha256": "7284aa29162dfe8893971d3059dc61f324015d6b851cd84418ccbdf1b393d94b",
+    "embedded_bytes": 19957,
+    "embedded_sha256": "7284aa29162dfe8893971d3059dc61f324015d6b851cd84418ccbdf1b393d94b"
   },
   {
     "path": "references/current-source-transformation.md",
@@ -652,17 +652,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-body-workflow.md",
-    "bytes": 16617,
-    "sha256": "a0050f7175f71d5c678f57e7fefd0aa74bda7f0b5bf0fa904e33834ddc15fe27",
-    "embedded_bytes": 16617,
-    "embedded_sha256": "a0050f7175f71d5c678f57e7fefd0aa74bda7f0b5bf0fa904e33834ddc15fe27"
+    "bytes": 16618,
+    "sha256": "dc0774b536f59233efe17d552e11f850b80fc3fba0657ddaac2658b320cbc820",
+    "embedded_bytes": 16618,
+    "embedded_sha256": "dc0774b536f59233efe17d552e11f850b80fc3fba0657ddaac2658b320cbc820"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 42717,
-    "sha256": "b757256b6c641441233f73852a5a96c24a1b0409168e3dcfd3007916c8d6a7c8",
-    "embedded_bytes": 42717,
-    "embedded_sha256": "b757256b6c641441233f73852a5a96c24a1b0409168e3dcfd3007916c8d6a7c8"
+    "bytes": 43616,
+    "sha256": "abedcc9e037d8a96ae8cc6e6f39e056ee27c0d82c5cdaaef37179b2d536713ce",
+    "embedded_bytes": 43616,
+    "embedded_sha256": "abedcc9e037d8a96ae8cc6e6f39e056ee27c0d82c5cdaaef37179b2d536713ce"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -897,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
-    "bytes": 15035,
-    "sha256": "acb9a06e398d5f7f8160ea6630e8e74c40fd3743de0575cc135f5b92e3644b85",
-    "embedded_bytes": 15035,
-    "embedded_sha256": "acb9a06e398d5f7f8160ea6630e8e74c40fd3743de0575cc135f5b92e3644b85"
+    "bytes": 15486,
+    "sha256": "87d123bf7b076ad952020704cc809b7d5bf1986d8571eb7f8910a8aca0e0e4bd",
+    "embedded_bytes": 15486,
+    "embedded_sha256": "87d123bf7b076ad952020704cc809b7d5bf1986d8571eb7f8910a8aca0e0e4bd"
   },
   {
     "path": "scripts/emit_item_skeleton.py",
@@ -932,10 +932,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 48187,
-    "sha256": "9e48664263647291512fba18a48d0c8cb8434da8cac208600427633842527355",
-    "embedded_bytes": 48187,
-    "embedded_sha256": "9e48664263647291512fba18a48d0c8cb8434da8cac208600427633842527355"
+    "bytes": 56279,
+    "sha256": "0566657a16f1a2df3f877fbeee63e63eefb58095286fcd76bf7cb77f64d43d55",
+    "embedded_bytes": 56279,
+    "embedded_sha256": "0566657a16f1a2df3f877fbeee63e63eefb58095286fcd76bf7cb77f64d43d55"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -980,6 +980,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "3e4fa36de72365630839d034cdd5030ffd8d00fd0ff561daae64d0b9fff81877"
   },
   {
+    "path": "scripts/hosted_math_typeset.py",
+    "bytes": 14109,
+    "sha256": "bba422271e3ad1b9fe95bf151210b220c4296b74527c455e0fc8589a895c9035",
+    "embedded_bytes": 14109,
+    "embedded_sha256": "bba422271e3ad1b9fe95bf151210b220c4296b74527c455e0fc8589a895c9035"
+  },
+  {
     "path": "scripts/hosted_run_timing.py",
     "bytes": 10823,
     "sha256": "61a086b6ec8a86783b120c032ce3225ca78367021389e6d2a89c8251f55b52ae",
@@ -995,10 +1002,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
-    "bytes": 18793,
-    "sha256": "b0820b5a6c7f461505124334f614cf06883970bc55ee14170a706eb182c2c226",
-    "embedded_bytes": 18793,
-    "embedded_sha256": "b0820b5a6c7f461505124334f614cf06883970bc55ee14170a706eb182c2c226"
+    "bytes": 18900,
+    "sha256": "96e9aec719a0d02e150d478a47ed4f0b308137c0e868d2a1ee90ee2e19c2ef4d",
+    "embedded_bytes": 18900,
+    "embedded_sha256": "96e9aec719a0d02e150d478a47ed4f0b308137c0e868d2a1ee90ee2e19c2ef4d"
   },
   {
     "path": "scripts/normalize_figure_asset.py",
@@ -1023,10 +1030,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 34714,
-    "sha256": "ac5d22f764e721b0c8debdabfd25dc8a3bab3763fada66ce353d11f9e00b7018",
-    "embedded_bytes": 34714,
-    "embedded_sha256": "ac5d22f764e721b0c8debdabfd25dc8a3bab3763fada66ce353d11f9e00b7018"
+    "bytes": 37413,
+    "sha256": "0dcb22bc0ac816d38a2e6ff030b9e276b9b51ae71413fc42a6b240f056915010",
+    "embedded_bytes": 37413,
+    "embedded_sha256": "0dcb22bc0ac816d38a2e6ff030b9e276b9b51ae71413fc42a6b240f056915010"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1142,10 +1149,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_layout_contract.py",
-    "bytes": 20527,
-    "sha256": "d17fd020e69484784f59edd896be932c53aa01895af09ec25ab2c6b4a431655e",
-    "embedded_bytes": 20211,
-    "embedded_sha256": "da1e9ed32ae0540ee153ea1d3e5689563108902414f4dedfb60d9475bc6c0f01"
+    "bytes": 21304,
+    "sha256": "ae6c8f7a8c0189e43bec7c6907b1f2ca622e997b6f3d068c7ae9ce6bd6a8fe0c",
+    "embedded_bytes": 20980,
+    "embedded_sha256": "74037ce9bed7112f21fbae660f43ea0506736c1a9cccde7e50d1fcc9a7f51db2"
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
@@ -1198,10 +1205,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/verify_fixed_template_pdf.py",
-    "bytes": 7995,
-    "sha256": "070632d69e20f21b9bae8678dd3210f3c3cc25af3a96a48f70e8ea6839ede26c",
-    "embedded_bytes": 7995,
-    "embedded_sha256": "070632d69e20f21b9bae8678dd3210f3c3cc25af3a96a48f70e8ea6839ede26c"
+    "bytes": 8449,
+    "sha256": "6655f17c994372966b3867e2d0cbb29b4e752f08acaff361bbca805f09d4028c",
+    "embedded_bytes": 8449,
+    "embedded_sha256": "6655f17c994372966b3867e2d0cbb29b4e752f08acaff361bbca805f09d4028c"
   },
   {
     "path": "templates/current-gsat-math-scope.json",
@@ -56051,8 +56058,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-comprehensive/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/blank-template.pdf",
-          "bytes": 247555,
-          "sha256": "c95e56642007c254a7e228e114ea2dbd3dcd35514ccc694fb9d310a6350db4d5",
+          "bytes": 253481,
+          "sha256": "a51bb1cbd2c9cf398cbe17e11cbbaf9c5aee5799e22bd8dfe088285cbecb772f",
           "pages": 3
         },
         {
@@ -56069,8 +56076,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-comprehensive/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/inner-even-blank.pdf",
-          "bytes": 63254,
-          "sha256": "3dcd4b96950d4d5a5e0a56cc7fdaa6fb27031712aab5ca3c3a213c55e5ff7987",
+          "bytes": 68865,
+          "sha256": "4c5432cd79189073d820dc44b9bb57f2f234186a5e221ed2fb3b442f1e256dd9",
           "pages": 1
         },
         {
@@ -56078,8 +56085,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-comprehensive/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-comprehensive/inner-odd-blank.pdf",
-          "bytes": 63252,
-          "sha256": "28e07026d6bfbe82a242dad9cd5677ab4b1fb110805e49228815c9f8fff88001",
+          "bytes": 68854,
+          "sha256": "b75fa298971d805ba3b8e3436b1515ef6e759b4e8942e1db9cd821e2baef0a7f",
           "pages": 1
         }
       ],
@@ -56088,7 +56095,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           63.86,
           85.03937007874016,
           534.31,
-          793.7007874015749
+          786.0
         ],
         "cover_title": [
           63.86,
@@ -56098,54 +56105,54 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "odd": {
           "current_page": [
-            74.85296630859375,
-            41.99419021606445,
-            103.85421752929688,
-            53.9916877746582
+            75.89546966552734,
+            40.98488029479981,
+            97.203125,
+            57.71223987102509
           ],
           "total_pages": [
-            74.85296630859375,
-            54.74419021606445,
-            103.85421752929688,
-            66.74169158935547
+            75.89546966552734,
+            55.23488029479981,
+            97.203125,
+            71.96223987102509
           ],
           "footer": [
-            67.38463897705078,
-            795.841064453125,
-            76.98218994140625,
-            806.9125366210938
+            67.41211242675782,
+            785.6357602691651,
+            77.09217529296875,
+            801.0824798822404
           ],
           "year_name": [
-            435.0974015748031,
-            40,
-            534.31,
-            54
+            479.546875,
+            40.98488029479981,
+            497.946875,
+            57.71223987102509
           ]
         },
         "even": {
           "current_page": [
-            494.13812255859375,
-            41.99419021606445,
-            523.1393432617188,
-            53.9916877746582
+            499.4462585449219,
+            40.98488029479981,
+            519.546875,
+            57.71223987102509
           ],
           "total_pages": [
-            494.13812255859375,
-            54.74419021606445,
-            523.1393432617188,
-            66.74169158935547
+            499.4462585449219,
+            55.23488029479981,
+            519.546875,
+            71.96223987102509
           ],
           "footer": [
-            521.0057250976563,
-            795.841064453125,
-            530.6032836914062,
-            806.9125366210938
+            518.5488159179688,
+            785.6357602691651,
+            528.2288940429687,
+            801.0824798822404
           ],
           "year_name": [
-            63.86,
-            40,
-            151.73401574803148,
-            54
+            61.9140625,
+            40.98488029479981,
+            80.3140625,
+            57.71223987102509
           ]
         }
       }
@@ -56162,8 +56169,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-writing/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/blank-template.pdf",
-          "bytes": 236163,
-          "sha256": "58261fb72db3abf92e3899d1b01847f59d2b3259da5c25d32f6fd1fb9f38f8b0",
+          "bytes": 242988,
+          "sha256": "3468835c24df28b824121ab8e230c51294a23f20b8cc68dd18fc68e0749e1c08",
           "pages": 3
         },
         {
@@ -56180,8 +56187,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-writing/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/inner-even-blank.pdf",
-          "bytes": 60437,
-          "sha256": "559061a01191b4d9b510433b72f75aab70b90fe9862baecf5ed1b3f70e005907",
+          "bytes": 66956,
+          "sha256": "2a1d07efcae8dbd1b6cf1bd418e2cffc92f37e2dee5b1d99192c565f70687979",
           "pages": 1
         },
         {
@@ -56189,8 +56196,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/chinese-writing/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/chinese-writing/inner-odd-blank.pdf",
-          "bytes": 60434,
-          "sha256": "32e206705869174cdb58091336b24fb005463e3b5db526294cf6f88f4af01911",
+          "bytes": 66944,
+          "sha256": "856b089fe85e63d6b647d9f1ffcee4682e2b765e2c862f372d1dec90bc3031c4",
           "pages": 1
         }
       ],
@@ -56199,7 +56206,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           63.86,
           85.03937007874016,
           538.13,
-          793.7007874015749
+          786.0
         ],
         "cover_title": [
           63.86,
@@ -56209,54 +56216,54 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "odd": {
           "current_page": [
-            74.85296630859375,
-            41.99419021606445,
-            103.85421752929688,
-            53.9916877746582
+            75.89546966552734,
+            40.98488029479981,
+            94.14453125,
+            57.71223987102509
           ],
           "total_pages": [
-            74.85296630859375,
-            54.74419021606445,
-            103.85421752929688,
-            66.74169158935547
+            75.89546966552734,
+            55.23488029479981,
+            94.14453125,
+            71.96223987102509
           ],
           "footer": [
-            67.38463897705078,
-            795.841064453125,
-            76.98218994140625,
-            806.9125366210938
+            67.73179168701172,
+            784.6248802947998,
+            78.37186126708984,
+            801.3522398710251
           ],
           "year_name": [
-            438.91740157480314,
-            40,
-            538.13,
-            54
+            479.546875,
+            40.98488029479981,
+            497.946875,
+            57.71223987102509
           ]
         },
         "even": {
           "current_page": [
-            498.07562255859375,
-            41.99419021606445,
-            527.0768432617188,
-            53.9916877746582
+            502.5048522949219,
+            40.98488029479981,
+            519.546875,
+            57.71223987102509
           ],
           "total_pages": [
-            498.07562255859375,
-            54.74419021606445,
-            527.0768432617188,
-            66.74169158935547
+            502.5048522949219,
+            55.23488029479981,
+            519.546875,
+            71.96223987102509
           ],
           "footer": [
-            524.9432250976563,
-            795.841064453125,
-            534.5407836914062,
-            806.9125366210938
+            517.2747680664063,
+            784.6248802947998,
+            527.9148071289062,
+            801.3522398710251
           ],
           "year_name": [
-            63.86,
-            40,
-            151.73401574803148,
-            54
+            61.9140625,
+            40.98488029479981,
+            80.3140625,
+            57.71223987102509
           ]
         }
       }
@@ -56273,8 +56280,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/english/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/blank-template.pdf",
-          "bytes": 131364,
-          "sha256": "282dfe943ac5e6fe4f34322baff71854904c642855453b8dc059c565bde2e7bb",
+          "bytes": 136539,
+          "sha256": "b2fd03278c1a1801e3748a2ab78f09327bf4a775383328c8d54ec648fd77627d",
           "pages": 3
         },
         {
@@ -56291,8 +56298,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/english/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/inner-even-blank.pdf",
-          "bytes": 61906,
-          "sha256": "d859f824ef870a44aaaa43472c1225fa84fabe2bbed39f38c0c74c9f92ac3b44",
+          "bytes": 66761,
+          "sha256": "2aebecde37f3cc89629d404b2479c7461d33b313f440382f89724002a3873cae",
           "pages": 1
         },
         {
@@ -56300,8 +56307,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/english/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/english/inner-odd-blank.pdf",
-          "bytes": 61903,
-          "sha256": "e686bafbe8f54cd05f8dea12fc66b1d39f4da80aed55483c04ba96fc9ff73268",
+          "bytes": 66755,
+          "sha256": "ee7b697d25e77b49650d2b611ca434cae3eaef03bfd49242622223735649f55f",
           "pages": 1
         }
       ],
@@ -56310,7 +56317,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           63.82,
           85.03937007874016,
           539.63,
-          793.7007874015749
+          786.0
         ],
         "cover_title": [
           63.82,
@@ -56320,54 +56327,54 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "odd": {
           "current_page": [
-            74.80609130859375,
-            41.99419021606445,
-            103.80734252929688,
-            53.9916877746582
+            75.84859466552734,
+            40.98488029479981,
+            94.09765625,
+            57.71223987102509
           ],
           "total_pages": [
-            74.80609130859375,
-            54.74419021606445,
-            103.80734252929688,
-            66.74169158935547
+            75.84859466552734,
+            55.23488029479981,
+            94.09765625,
+            71.96223987102509
           ],
           "footer": [
-            67.33776397705078,
-            795.841064453125,
-            76.93531494140625,
-            806.9125366210938
+            67.32527465820313,
+            785.7621202659607,
+            76.88534240722656,
+            801.0487598836422
           ],
           "year_name": [
-            440.41740157480314,
-            40,
-            539.63,
-            54
+            479.546875,
+            40.98488029479981,
+            497.946875,
+            57.71223987102509
           ]
         },
         "even": {
           "current_page": [
-            499.57562255859375,
-            41.99419021606445,
-            528.5768432617188,
-            53.9916877746582
+            502.5048522949219,
+            40.98488029479981,
+            519.546875,
+            57.71223987102509
           ],
           "total_pages": [
-            499.57562255859375,
-            54.74419021606445,
-            528.5768432617188,
-            66.74169158935547
+            502.5048522949219,
+            55.23488029479981,
+            519.546875,
+            71.96223987102509
           ],
           "footer": [
-            526.4432250976563,
-            795.841064453125,
-            536.0407836914062,
-            806.9125366210938
+            518.719775390625,
+            785.7621202659607,
+            528.2798583984375,
+            801.0487598836422
           ],
           "year_name": [
-            63.82,
-            40,
-            151.6940157480315,
-            54
+            61.8671875,
+            40.98488029479981,
+            80.2671875,
+            57.71223987102509
           ]
         }
       }
@@ -56384,8 +56391,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/blank-template.pdf",
-          "bytes": 355628,
-          "sha256": "11b3791d54b3211f794a9d41e378905d2ec209c760eff00f920e4d8e49c30ade",
+          "bytes": 357796,
+          "sha256": "24398523a76d927f3d9c1cd30eaa6cce638c24b9a81ba42e43e2a84902449a06",
           "pages": 4
         },
         {
@@ -56402,8 +56409,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/formula-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/formula-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/formula-blank.pdf",
-          "bytes": 149861,
-          "sha256": "8c41dac89dc19b224d9ae5dcaa52461600b11ac925a4707c037ec144bb39fb2b",
+          "bytes": 151563,
+          "sha256": "cd4ccd71caab197a04126fafc4f48e2878fdb925648e48282ef422029450d020",
           "pages": 1
         },
         {
@@ -56411,8 +56418,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/inner-even-blank.pdf",
-          "bytes": 70299,
-          "sha256": "dcb4e7ffa3351ee0f029e4c18c7e6dec25186fdc7ac0c8537ba022b415acd7ec",
+          "bytes": 90859,
+          "sha256": "ebb363a260f8d0a5ea8c0afd075a4803cbc938c19b2e02fcb326bb01cd12e6ff",
           "pages": 1
         },
         {
@@ -56420,8 +56427,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-a/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-a/inner-odd-blank.pdf",
-          "bytes": 70295,
-          "sha256": "16ec652c33bc56b37a461ced2905174f5a0a623e4cfe48858d6703b819c5db4e",
+          "bytes": 90848,
+          "sha256": "66f67f1b81d32b6350028e8bd1e444be7d0ab5a5dfdfac0305d299c1742506e0",
           "pages": 1
         }
       ],
@@ -56440,54 +56447,54 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "odd": {
           "current_page": [
-            74.77093505859375,
-            41.99419021606445,
-            103.77218627929688,
-            53.9916877746582
+            75.81343841552734,
+            40.98488029479981,
+            94.0625,
+            57.71223987102509
           ],
           "total_pages": [
-            74.77093505859375,
-            54.74419021606445,
-            103.77218627929688,
-            66.74169158935547
+            75.81343841552734,
+            55.23488029479981,
+            94.0625,
+            71.96223987102509
           ],
           "footer": [
-            67.30260772705078,
-            795.841064453125,
-            76.90015869140625,
-            806.9125366210938
+            67.31009979248047,
+            785.6989402675629,
+            76.93015747070312,
+            801.0656198829413
           ],
           "year_name": [
-            432.26740157480316,
-            40,
-            531.48,
-            54
+            479.546875,
+            40.98488029479981,
+            497.946875,
+            57.71223987102509
           ]
         },
         "even": {
           "current_page": [
-            491.52484130859375,
-            41.99419021606445,
-            520.5260620117188,
-            53.9916877746582
+            502.5048522949219,
+            40.98488029479981,
+            519.546875,
+            57.71223987102509
           ],
           "total_pages": [
-            491.52484130859375,
-            54.74419021606445,
-            520.5260620117188,
-            66.74169158935547
+            502.5048522949219,
+            55.23488029479981,
+            519.546875,
+            71.96223987102509
           ],
           "footer": [
-            518.3924438476563,
-            795.841064453125,
-            527.9900024414062,
-            806.9125366210938
+            518.634326171875,
+            785.6989402675629,
+            528.254345703125,
+            801.0656198829413
           ],
           "year_name": [
-            63.78,
-            40,
-            151.6540157480315,
-            54
+            61.83203125,
+            40.98488029479981,
+            80.23203125,
+            57.71223987102509
           ]
         }
       }
@@ -56504,8 +56511,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/blank-template.pdf",
-          "bytes": 342430,
-          "sha256": "570ef764f8cabc27fef564cd2a197a174a7309b4bd216d852448475cd7e29285",
+          "bytes": 344488,
+          "sha256": "cb60e13368095278e56088c47b1c1ec4b26f3211b57d62e0ceb2d2833093a966",
           "pages": 4
         },
         {
@@ -56522,8 +56529,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/formula-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/formula-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/formula-blank.pdf",
-          "bytes": 148210,
-          "sha256": "5f0187d2e94fbc157abbf66658ac1753e80507b1df5c8f512fd73d16a9a023cc",
+          "bytes": 149809,
+          "sha256": "d44447a9be3aabf948e839b03b0a2efaa2844be73175031bfecf052d94668739",
           "pages": 1
         },
         {
@@ -56531,8 +56538,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/inner-even-blank.pdf",
-          "bytes": 70219,
-          "sha256": "b4afd9ea435b87208f6ad374d9f538301067b69ece358fc586798aed00491bd4",
+          "bytes": 90271,
+          "sha256": "38b849725854f3c90b64a2133fa7c1d807b2457f14345aff669e8d637412b311",
           "pages": 1
         },
         {
@@ -56540,8 +56547,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/math-b/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/math-b/inner-odd-blank.pdf",
-          "bytes": 70214,
-          "sha256": "76ea05ad0d870bbaf7b25a59a34689c603370cd160e988544e3400fe3690848c",
+          "bytes": 90260,
+          "sha256": "6a185cef1573c40bf5cdb41a15f72019d312cb68637e81cc056d4317951cba6b",
           "pages": 1
         }
       ],
@@ -56550,7 +56557,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           63.78,
           85.03937007874016,
           542.15,
-          793.7007874015749
+          786.0
         ],
         "cover_title": [
           63.78,
@@ -56560,54 +56567,54 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "odd": {
           "current_page": [
-            74.77093505859375,
-            41.99419021606445,
-            103.77218627929688,
-            53.9916877746582
+            75.81343841552734,
+            40.98488029479981,
+            94.0625,
+            57.71223987102509
           ],
           "total_pages": [
-            74.77093505859375,
-            54.74419021606445,
-            103.77218627929688,
-            66.74169158935547
+            75.81343841552734,
+            55.23488029479981,
+            94.0625,
+            71.96223987102509
           ],
           "footer": [
-            67.30260772705078,
-            795.841064453125,
-            76.90015869140625,
-            806.9125366210938
+            67.31009979248047,
+            785.6989402675629,
+            76.93015747070312,
+            801.0656198829413
           ],
           "year_name": [
-            442.9374015748031,
-            40,
-            542.15,
-            54
+            479.546875,
+            40.98488029479981,
+            497.946875,
+            57.71223987102509
           ]
         },
         "even": {
           "current_page": [
-            502.20062255859375,
-            41.99419021606445,
-            531.2018432617188,
-            53.9916877746582
+            502.5048522949219,
+            40.98488029479981,
+            519.546875,
+            57.71223987102509
           ],
           "total_pages": [
-            502.20062255859375,
-            54.74419021606445,
-            531.2018432617188,
-            66.74169158935547
+            502.5048522949219,
+            55.23488029479981,
+            519.546875,
+            71.96223987102509
           ],
           "footer": [
-            529.0682250976563,
-            795.841064453125,
-            538.6657836914062,
-            806.9125366210938
+            518.634326171875,
+            785.6989402675629,
+            528.254345703125,
+            801.0656198829413
           ],
           "year_name": [
-            63.78,
-            40,
-            151.6540157480315,
-            54
+            61.83203125,
+            40.98488029479981,
+            80.23203125,
+            57.71223987102509
           ]
         }
       }
@@ -56624,8 +56631,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/social/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/blank-template.pdf",
-          "bytes": 137585,
-          "sha256": "c0f23bf0a970d013c637436affcfb2c317f5571f11a1d011518fddff80fea5a2",
+          "bytes": 142613,
+          "sha256": "e751a6f93ef301592c307e099f9157f926d20a7efca81dba217980e5d00031a0",
           "pages": 3
         },
         {
@@ -56642,8 +56649,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/social/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/inner-even-blank.pdf",
-          "bytes": 58375,
-          "sha256": "1b51d56a24f22e73cf843e5df3d5ba2299a4494167c2320fe921abd64a03adf1",
+          "bytes": 63089,
+          "sha256": "42dd0897eb6edfe10a957eb0d8c840244bcacf5e1697c9e090753fe80fa62089",
           "pages": 1
         },
         {
@@ -56651,8 +56658,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/social/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/social/inner-odd-blank.pdf",
-          "bytes": 58372,
-          "sha256": "cbe66dfa089957feabb41c4ef74f7c38ed5558b3c7c443af8422f8b08a845c1d",
+          "bytes": 63083,
+          "sha256": "42862dd61eb7bc48938aed7f58efe8d31d995a71eb6ac0f65346a78ada7e40e3",
           "pages": 1
         }
       ],
@@ -56661,7 +56668,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           62.52,
           85.03937007874016,
           536.74,
-          793.7007874015749
+          786.0
         ],
         "cover_title": [
           62.52,
@@ -56671,54 +56678,54 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "odd": {
           "current_page": [
-            73.51702880859375,
-            41.99419021606445,
-            102.51828002929688,
-            53.9916877746582
+            74.55953216552734,
+            40.98488029479981,
+            96.265625,
+            57.71223987102509
           ],
           "total_pages": [
-            73.51702880859375,
-            54.74419021606445,
-            102.51828002929688,
-            66.74169158935547
+            74.55953216552734,
+            55.23488029479981,
+            96.265625,
+            71.96223987102509
           ],
           "footer": [
-            66.04870147705078,
-            795.841064453125,
-            75.64625244140625,
-            806.9125366210938
+            66.03621215820313,
+            785.7621202659607,
+            75.59627990722656,
+            801.0487598836422
           ],
           "year_name": [
-            437.52740157480315,
-            40,
-            536.74,
-            54
+            479.546875,
+            40.98488029479981,
+            497.946875,
+            57.71223987102509
           ]
         },
         "even": {
           "current_page": [
-            496.69281005859375,
-            41.99419021606445,
-            525.6940307617188,
-            53.9916877746582
+            499.0478210449219,
+            40.98488029479981,
+            519.546875,
+            57.71223987102509
           ],
           "total_pages": [
-            496.69281005859375,
-            54.74419021606445,
-            525.6940307617188,
-            66.74169158935547
+            499.0478210449219,
+            55.23488029479981,
+            519.546875,
+            71.96223987102509
           ],
           "footer": [
-            523.5604125976563,
-            795.841064453125,
-            533.1579711914062,
-            806.9125366210938
+            518.719775390625,
+            785.7621202659607,
+            528.2798583984375,
+            801.0487598836422
           ],
           "year_name": [
-            62.52,
-            40,
-            150.3940157480315,
-            54
+            60.578125,
+            40.98488029479981,
+            78.978125,
+            57.71223987102509
           ]
         }
       }
@@ -56735,8 +56742,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/science/blank-template.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/blank-template.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/blank-template.pdf",
-          "bytes": 136160,
-          "sha256": "5d1001ed98839897425601a68f667f40043990a7aacb7f9ed67aa4a835b16ef4",
+          "bytes": 141326,
+          "sha256": "4508d4216a5082a289bb3a9b21857426aae977c7f3957878d76c94328da7e617",
           "pages": 3
         },
         {
@@ -56753,8 +56760,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/science/inner-even-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/inner-even-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/inner-even-blank.pdf",
-          "bytes": 62016,
-          "sha256": "fb4bfe2a60130e0f94939ba96ec242e79f1cfa45d8b4ea7e52f844edb2fd041b",
+          "bytes": 66862,
+          "sha256": "7678e1fd0dcd93c0d3900f02bf78d9187f359ba396392906c679bfa688ab28ef",
           "pages": 1
         },
         {
@@ -56762,8 +56769,8 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           "repository_path": "exam_packs/學測/templates/115/assets/science/inner-odd-blank.pdf",
           "download_url": "https://raw.githubusercontent.com/niansia/taiwan-exam/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/inner-odd-blank.pdf",
           "view_url": "https://github.com/niansia/taiwan-exam/blob/main/exam_packs/%E5%AD%B8%E6%B8%AC/templates/115/assets/science/inner-odd-blank.pdf",
-          "bytes": 62012,
-          "sha256": "c66f61e05dcaeaeb8498a830fd8991c7d95aee6a6ab8e07501fc381dc77acc0c",
+          "bytes": 66857,
+          "sha256": "542afb59c1ae4cdf408212bf943bfedaa133fb0761dc6b8bcce8de5fdb61cde1",
           "pages": 1
         }
       ],
@@ -56772,7 +56779,7 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
           63.77,
           85.03937007874016,
           538.18,
-          793.7007874015749
+          786.0
         ],
         "cover_title": [
           63.77,
@@ -56782,54 +56789,54 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
         ],
         "odd": {
           "current_page": [
-            74.75921630859375,
-            41.99419021606445,
-            103.76046752929688,
-            53.9916877746582
+            75.80171966552734,
+            40.98488029479981,
+            94.05078125,
+            57.71223987102509
           ],
           "total_pages": [
-            74.75921630859375,
-            54.74419021606445,
-            103.76046752929688,
-            66.74169158935547
+            75.80171966552734,
+            55.23488029479981,
+            94.05078125,
+            71.96223987102509
           ],
           "footer": [
-            67.29088897705078,
-            795.841064453125,
-            76.88843994140625,
-            806.9125366210938
+            67.61806030273438,
+            784.6880602931976,
+            78.19813995361328,
+            801.335379871726
           ],
           "year_name": [
-            438.9674015748031,
-            40,
-            538.18,
-            54
+            479.546875,
+            40.98488029479981,
+            497.946875,
+            57.71223987102509
           ]
         },
         "even": {
           "current_page": [
-            498.22796630859375,
-            41.99419021606445,
-            527.2291870117188,
-            53.9916877746582
+            502.5048522949219,
+            40.98488029479981,
+            519.546875,
+            57.71223987102509
           ],
           "total_pages": [
-            498.22796630859375,
-            54.74419021606445,
-            527.2291870117188,
-            66.74169158935547
+            502.5048522949219,
+            55.23488029479981,
+            519.546875,
+            71.96223987102509
           ],
           "footer": [
-            525.0955688476563,
-            795.841064453125,
-            534.6931274414062,
-            806.9125366210938
+            517.3602172851563,
+            784.6880602931976,
+            527.940380859375,
+            801.335379871726
           ],
           "year_name": [
-            63.77,
-            40,
-            151.6440157480315,
-            54
+            61.8203125,
+            40.98488029479981,
+            80.2203125,
+            57.71223987102509
           ]
         }
       }
@@ -58003,7 +58010,7 @@ Keep a separate **context-texture** audit from the curriculum-unit audit. A pape
   uses approximately 13.02 pt bold PMingLiU for section headings. Use the selected
   profile's role measurements, not a universal 12 pt heading assumption.
 - In the 115 cover specimen, the organization and year lines are approximately 19.98 pt DFKai, the subject title approximately 25.98 pt DFKai/Times, the signature warning 18 pt DFKai, and the notice heading approximately 16.02 pt. Treat these as profile measurements rather than visual guesses.
-- Do not substitute Noto Serif TC for a mathematics paper when the Windows fonts above are available. Its glyph width, punctuation position, and apparent density are visibly different.
+- The hosted preflight prints 新細明體／標楷體 wherever they are installed and substitutes 全字庫正宋體／正楷體 only where they are not; never Noto Serif TC, whose glyph width, punctuation position and apparent density are visibly different.
 - Never use Unicode presentation glyphs such as `₂` or `ⁿ` as the final formula representation. They carry font-specific miniature metrics and often look much smaller than the official notation. Store formula structure semantically and render subscripts/superscripts at the measured script ratio and baseline offset.
 - A renderer must check body text, inline formulas, display formulas, fractions, radicals, matrices, subscripts, superscripts, vectors, and cases separately. Matching the Chinese font does not imply that mathematical composition is correct.
 - The target is not merely the same nominal point size. Match apparent density, full-width Chinese punctuation, line spacing, formula axis, script baseline, and spacing around operators.
@@ -58021,6 +58028,38 @@ Keep a separate **context-texture** audit from the curriculum-unit audit. A pape
   within this frame. The final formula page is supplied by the maintained v4
   component; it is not a blank extra-content page.
 - Cover examples must remain completely inside the bordered instruction box at final print metrics. Allow explanatory prose to wrap inside its remaining column; do not force a long sentence into one unbreakable flex row or visually shrink the entire example to hide overflow.
+
+### Hosted body renderer: how official mathematics notation is produced
+
+The hosted renderer (`hosted_body_templates.py` with `hosted_math_typeset.py`)
+prints mathematics as the ROC 111–115 booklets do, under the pinned PyMuPDF 1.26.0
+and newer engines alike. Authors write plain text; nothing here is optional styling.
+
+- **Fractions stack.** Write `2/3`, `−13/21`, `2√2/3`, `π/3`, `(√3+1)/2`, `x/2`; a
+  slash between two operands (a number, a coefficient radical, a π multiple, a single
+  letter or one parenthesised group) prints as a stacked fraction with its bar on the
+  math axis, operands at 0.86 of the text size, the minus sign outside. Inside
+  `<sup>`/`<sub>` the fraction is set at the script size. Units such as km/h, whose
+  operands are words, stay slashed.
+- **Radicals carry a vinculum.** `√6`, `2√5`, `√(x+1)` draw the radical sign with
+  its bar over the whole radicand; the parentheses of a grouped radicand are dropped.
+- **Vectors and segments.** Write `{{vec:AB}}` for an arrow over the letters and
+  `{{seg:BC}}` for a segment bar; the contract rejects 「向量AB」 and combining marks.
+- **Variables are italic.** Single Latin letters (x, f, a, P, n), lower-case Greek
+  variables (α, β, θ) and capital point names that the stem introduces as points
+  (A、B、C then ABC, △ABC, ∠BAC) print in Times Italic; function names (sin, cos,
+  log), words, units and acronyms (CPI, AI, Google) stay upright. Instructions and
+  說明 boxes never italicise (「2B鉛筆」).
+- Each construct is reserved in the line as a transparent placeholder of its exact
+  size and then painted as real, searchable Times glyphs and rules; the placeholder
+  is removed before any check reads the page.
+- **Item geometry.** The item number sits on the body margin; stem and options start
+  18 pt later (自然 19.5); option columns tab at 90/120/150/180 pt for 5/4/3/2 abreast
+  (自然 2 pt narrower) and fall back to equal columns only when an option is wider.
+- **Headings and 說明.** Part headings print at 13 pt, letter-spaced (數 2.0 pt,
+  國綜 2.15, 自然 2.4, 國寫／英文／社會 4.56) and stroke-bold; the 說明 box hangs its
+  continuation lines under the text after 「說明：」 and starts a new line before
+  「選擇（填）題與」「作答使用筆尖」 and the other sentences the booklets break before.
 
 ## Avoid repeat mathematics proof repairs
 
@@ -58665,11 +58704,11 @@ checker and the inspector now read the embedded font names of the question PDF
 (`inspect_hosted_pdf.writing_font_role_samples`): a body-size ideograph of the 說明
 box or a material in a non-楷 face, or of an ask line or 問題 in a 楷 face, is the
 blocking `writing-font-role` failure. All four official 112–115 booklets pass it
-(111 embeds unnamed CID fonts). The hosted faces are licensed stand-ins, not the
-official ones: 全字庫正楷體 (TW-Kai, Ministry of Digital Affairs, OFL 1.1) for 標楷體,
-Noto Serif TC for 細明體 and Nimbus Roman (MuPDF's Times clone) for Times New Roman.
-DFKai-SB, MingLiU and Times New Roman cannot be redistributed in the Skill ZIP, and a
-hosted sandbox does not have them. TW-Kai draws the Ministry of Education standard
+(111 embeds unnamed CID fonts). A computer that has 新細明體 and 標楷體 prints them
+(the preflight copies the installed faces into the run; they are never
+redistributed). A hosted sandbox has neither, so it uses the Ministry of Digital
+Affairs' 全字庫正宋體 (TW-Sung) and 全字庫正楷體 (TW-Kai), both OFL 1.1 and drawn in the
+same standard forms; Latin text is Nimbus Roman, MuPDF's Times clone. TW-Kai draws the Ministry of Education standard
 forms, as 標楷體 does; LXGW WenKai TC, the kai face until 2026.09.22.17, follows
 inherited forms and printed 為 as 爲 (W116M1 「較爲」「改爲」). Its text layer also
 mapped shared glyphs to variant code points (説明、評閲、硏究), so the checker
@@ -59888,7 +59927,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.6/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.19/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -60523,17 +60562,27 @@ re-open every page.
   than 60% of the body is refused until resized, and a key that differs from the
   planned position in `paper-plan.json` is listed as `answer_position_drift`.
 - Typography is fixed for all seven subjects (國綜、國寫、英文、數學A、數學B、社會、自然), as in the official booklets: CJK in the
-  pinned Traditional Chinese serif (明體-style Noto Serif TC, downloaded by the
-  preflight; a supplied font is used only when that download fails, the built-in
-  sans-serif is the last resort) and digits, Latin letters and √ in the Times-like
-  Latin face. The bordered 說明 box of every subject and the 國寫 reading materials
-  print in the pinned 楷體 face (全字庫正楷體 TW-Kai, the preflight's second download,
-  recorded as `kai_font`; the official booklets set them in 標楷體), falling back
+  booklets' 新細明體 where the computer has it, otherwise the pinned 全字庫正宋體
+  (TW-Sung, downloaded by the preflight; a supplied font is used only when both are
+  unavailable, the built-in sans-serif is the last resort) and digits, Latin letters
+  and √ in the Times-like Latin face. The bordered 說明 box of every subject and the
+  國寫 reading materials print in 標楷體 where installed, otherwise the pinned 全字庫正楷體
+  (TW-Kai, the preflight's second download, recorded as `kai_font`), falling back
   to the serif when that download fails. A 國寫 question booklet cannot take that
   fallback: the final checker reads the embedded fonts and blocks materials or a
   說明 box set in 明體 (`writing-font-role`), whether the materials sit in a stem or
   a passage block. When the download is blocked, ask for a 楷體 TTF and pass it as
   `--kai-font`. Authors never choose fonts.
+- Official form is produced by the renderer, not by authors: the number on the body
+  margin with stem and options 18 pt later, options tabbed at the official 90/120/150/180
+  pt pitch, letter-spaced stroke-bold part headings, a hanging 說明 box with the
+  booklets' line breaks, and (數學A／數學B) stacked fractions, radicals with a vinculum,
+  italic variables and `{{vec:AB}}`／`{{seg:AB}}` accents from plain `2/3`, `√6`
+  (current-gsat-math-form.md). The pinned PyMuPDF 1.26.0 ignores every table width,
+  so cells are padded to measured widths; never add hand-tuned spaces or hint columns
+  to line things up. The fixed running header is the 115 one: 11 pt 細明體 with Times
+  digits, 「年學測」 locked in the template and only the year, page and page-count digits
+  filled in.
 - 國寫 prints 12 pt on a 20 pt line (111–115 measured): 「一、」「二、」 on their own
   line, materials indented two characters, 「請分項回答下列問題：」 at the margin,
   問題（一）／（二） with a six-character hanging indent, and no number column. The
@@ -60548,10 +60597,10 @@ re-open every page.
 - Every composed booklet carries the creator stamp `taiwan-exam-generator/
   compose_hosted_pdf`; `check_hosted_run.py` refuses a PDF without it, so a
   body typeset by any other tool cannot be delivered.
-- The preflight downloads a Traditional Chinese serif body font (Noto Serif TC
-  Regular, OFL 1.1, pinned digest) from this project's GitHub Release when the
-  runtime has none, and only then falls back to the built-in sans-serif; the
-  font record says which happened.
+- The preflight copies an installed 新細明體／標楷體 into the run, or downloads
+  全字庫正宋體／正楷體 (OFL 1.1, pinned digests) from this project's GitHub Releases, and
+  only then falls back to the built-in sans-serif; the font record says which
+  happened. Microsoft's faces are used only where installed, never redistributed.
 - A task label longer than three characters (`中譯英`, `英文作文`, `第一段`)
   leads the text; only plain numbers and `(1)`-style subparts sit in the number
   column. Give each subpart its own `number_display`/`answer_label`; `specs`
@@ -66789,7 +66838,7 @@ import pymupdf
 
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, verify
 from inspect_hosted_pdf import rail_collision_samples
-from verify_fixed_template_pdf import verify_pdf, masked_pixels
+from verify_fixed_template_pdf import verify_pdf, masked_pixels, field_size
 
 # Only whole CJK body fonts are this large; fixed-template fonts are small subsets.
 LARGE_FONT_PROGRAM = 1_000_000
@@ -67000,11 +67049,15 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 else:
                     page.show_pdf_page(page.rect, body_doc, index)
                 fields = geometry[parity]
-                write_field(page, fields["year_name"], f"{year}年{running_name}", font, 10,
-                            align="right" if parity == "odd" else "left", resource=font_resource)
-                write_field(page, fields["current_page"], str(number), digits, 10, resource=digit_resource)
-                write_field(page, fields["total_pages"], str(total), digits, 10, resource=digit_resource)
-                write_field(page, fields["footer"], str(number), digits, 8, resource=digit_resource)
+                # The template prints 「年學測」 in 細明體 as the booklets do; only the Times
+                # digits of the year, page and page count are dynamic (ROC 115 measured).
+                if running_name != '學測':
+                    raise ValueError('The locked 115 header prints 年學測; other running names need their own template')
+                write_field(page, fields["year_name"], str(year), digits, field_size(subject, 'year_name'),
+                            align="right", resource=digit_resource)
+                write_field(page, fields["current_page"], str(number), digits, field_size(subject, 'current_page'), resource=digit_resource)
+                write_field(page, fields["total_pages"], str(total), digits, field_size(subject, 'total_pages'), resource=digit_resource)
+                write_field(page, fields["footer"], str(number), digits, field_size(subject, 'footer'), resource=digit_resource)
                 masks = [*fields.values(), geometry["body"]]
                 if component not in base_pixels:
                     base_pixels[component] = masked_pixels(assets[component][0], masks)
@@ -67817,6 +67870,7 @@ import time
 
 import pymupdf
 from fetch_hosted_template_assets import DEFAULT_MAP
+from hosted_math_typeset import Typesetter, math_tokens, identifier_markup
 from hosted_density import page_void_limit
 from hosted_item_layout import draw_rail
 
@@ -67860,17 +67914,17 @@ BODY_SIZE_PT = {'國寫': 12}
 CSS_TEMPLATE = '''
 @font-face {font-family:Body;src:url(body-font.ttf)}
 * {box-sizing:border-box} body {font-family:Body;font-size:BODY_SIZEpt;line-height:LINE_HEIGHT;margin:0;color:#000;background:transparent}
-p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;width:100%;margin:0} td {padding:0 4pt CELL_PADpt 0;vertical-align:baseline}
+p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;border-spacing:0;width:100%;margin:0} td {padding:0 4pt CELL_PADpt 0;vertical-align:baseline}
 td.figure {vertical-align:top}
-.direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3;font-family:Kai,Body}
+.direction {border:0.6pt solid black;padding:3pt DIR_RIGHTpt 3pt DIR_PADpt;text-indent:-DIR_INDENTpt;font-size:DIR_SIZEpt;line-height:1.3;font-family:Kai,Body}
 .material {font-family:Kai,Body} p.hanging {padding-left:6em;text-indent:-6em;text-align:justify} p.plain {text-indent:0}
-table.material-label {width:18pt;margin:2pt 0 4pt} table.material-label td {border:0.6pt solid black;padding:0;text-align:center;line-height:1.4}
+table.material-label {width:auto;margin:2pt 0 4pt} table.material-label td {border:0.6pt solid black;padding:0;line-height:1.4}
 p.part {font-size:13pt;margin-bottom:2pt}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
-.number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
+.figure {text-align:center} .score {font-size:11pt}
 sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
-.optionlist {margin-left:28pt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
-.passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body}
+.optionlist {margin-left:NUMBER_PITCHpt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
+.passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body} .var {font-family:LatinItalic,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
@@ -67883,9 +67937,40 @@ def typography(subject):
 
 def subject_css(subject):
     line_height, cell_pad, p_margin, options_top, _ = typography(subject)
+    direction = DIRECTION_SIZE_PT.get(subject, 12)
+    pad_left, indent, pad_right = DIRECTION_BOX_PT.get(subject, (5 + 3 * direction, 3 * direction, 5))
     return (CSS_TEMPLATE.replace('LINE_HEIGHT', f'{line_height:g}').replace('CELL_PAD', f'{cell_pad:g}')
             .replace('P_MARGIN', f'{p_margin:g}').replace('OPTIONS_TOP', f'{options_top:g}')
-            .replace('BODY_SIZE', f'{BODY_SIZE_PT.get(subject, 11):g}'))
+            .replace('BODY_SIZE', f'{BODY_SIZE_PT.get(subject, 11):g}')
+            .replace('DIR_PAD', f'{pad_left:g}').replace('DIR_INDENT', f'{indent:g}').replace('DIR_RIGHT', f'{pad_right:g}')
+            .replace('DIR_SIZE', f'{direction:g}').replace('NUMBER_PITCH', f'{number_pitch(subject):g}'))
+
+
+# Item geometry measured on the ROC 115 booklets of every subject: the number sits
+# at the body margin and the stem and every option start 18 pt later (自然 19.5);
+# option columns tab at 90 pt (five abreast), 120 (four), 150 (three) and 180 (two),
+# 自然 2 pt narrower. Part headings are 13 pt, letter-spaced and stroke-bold; the
+# bordered 說明 hangs its continuation lines under the text after 「說明：」 and
+# breaks before the sentences the booklets start on a new line.
+_subject = None  # the booklet being rendered; set by render()
+NUMBER_PITCH_PT = {'自然': 19.5}
+HEADING_SPACING_PT = {'國綜': 2.15, '國寫': 4.56, '英文': 4.56, '社會': 4.56, '數學A': 2.0, '數學B': 2.0, '自然': 2.4}
+HEADING_SIZE_PT = {'數學A': 13.02, '數學B': 13.02, '自然': 13.02}
+DIRECTION_SIZE_PT = {}
+# 國寫 115 condenses the first 說明 paragraph to an 11.4 pt advance so its 41 characters
+# fill line one up to 「答題卷」 and the box edge; the second paragraph is plain 12 pt.
+# Text starts 5.2 pt inside the box and continuation lines hang at 40 pt.
+DIRECTION_BOX_PT = {'國寫': (39.4, 34.8, 0)}   # padding-left, hanging indent, padding-right
+DIRECTION_BREAKS = re.compile(r'。(?=作答使用筆尖|選擇（填）題與|選擇題與「非選擇題|選擇題使用)')
+
+
+def number_pitch(subject=None):
+    return NUMBER_PITCH_PT.get(subject if subject is not None else _subject, 18.0)
+
+
+def option_pitch(columns, subject=None):
+    pitch = 30 * (8 - columns) if 2 <= columns <= 5 else 0
+    return pitch - (2 if (subject if subject is not None else _subject) == '自然' else 0)
 
 
 def item_gap_pt(subject):
@@ -67929,6 +68014,8 @@ LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9�
 _latin_runs_enabled = False
 _writing_mode = False
 _measure_css = None  # the running booklet's CSS, for measuring option cells
+_math_mode = False
+_typesetter = None
 WRITING_TASK_LINE = re.compile(r'^\s*問題[（(]')
 WRITING_ASK_LINE = re.compile(r'^\s*請.{0,14}問題[：:]\s*$')
 WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
@@ -67965,7 +68052,7 @@ def _writing_stem(block):
 def _writing_paragraph(piece, plain):
     plain = plain.strip()
     if WRITING_MATERIAL_LABEL.match(plain):
-        return f'<table class="material-label"><tr><td>{text(piece)}</td></tr></table>'
+        return f'<table class="material-label"><tr>{padded_cell(text(piece), 18, mode="center")}</tr></table>'
     if WRITING_ASK_LINE.match(plain):
         cls = 'plain'
     elif WRITING_TASK_LINE.match(plain):
@@ -67982,6 +68069,17 @@ def _writing_paragraph(piece, plain):
     return f'<p class="{cls}">{markup}</p>'
 
 
+MATH_SYMBOL = r'[−+=×÷±≤≥()\[\]αβγδθλμσφωπ·°]'
+# A Latin run keeps the spaces inside and around it, so an English sentence stays one
+# Times span. Spaces take the Times width everywhere: a CJK face such as 全字庫正宋體
+# draws U+0020 a full em wide, which opened 「為 2/3」 and 「sin x」 like a tab.
+LATIN_SPACED = rf'[ \u00a0]*(?:{LATIN_RUN.pattern})(?:[ \u00a0]+(?:{LATIN_RUN.pattern}))*[ \u00a0]*'
+TEXT_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)')
+# Mathematics also sets operators, brackets and Greek letters standing between CJK text
+# in Times, as the booklets do (the CJK face drew a full-width 「−」).
+MATH_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)|(?P<sym>{MATH_SYMBOL})')
+
+
 def latin_runs(markup):
     """Wrap Latin/digit/radical runs of already-escaped markup in the Latin font, leaving tags alone."""
     parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)  # tags, entities and {{tokens}} stay untouched
@@ -67991,7 +68089,15 @@ def latin_runs(markup):
         # Escaped markup printed literally (&lt;script&gt;) stays one visible token.
         if (index and parts[index - 1] == '&lt;') or (index + 1 < len(parts) and parts[index + 1] == '&gt;'):
             continue
-        parts[index] = LATIN_RUN.sub(lambda m: f'<span class="latin">{m.group(0)}</span>', part)
+
+        def wrap(match, part=part):
+            chunk = match.group(0)
+            if match.lastgroup == 'run' and _math_mode:
+                # Variables print italic, as in every mathematics booklet; function
+                # names, words and acronyms stay upright.
+                chunk = identifier_markup(chunk, part, match.start())
+            return f'<span class="latin">{chunk}</span>'
+        parts[index] = (MATH_RUNS if _math_mode else TEXT_RUNS).sub(wrap, part)
     return ''.join(parts)
 
 
@@ -68000,11 +68106,13 @@ def text(value):
         parser = RichText(); parser.feed(value['rich']); parser.close()
         if parser.stack: raise ValueError('Unclosed rich-text tag')
         result = ''.join(parser.output)
+        result = math_tokens(result) if _math_mode else result
         return latin_runs(result) if _latin_runs_enabled else result
     if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
     if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
         raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
     result = html.escape(value).replace('\n','<br>')
+    result = math_tokens(result) if _math_mode else result
     return latin_runs(result) if _latin_runs_enabled else result
 
 
@@ -68045,7 +68153,7 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
     """
     images={};image_heights={}
     # Numbered blocks print beside a 28pt number column plus cell padding.
-    column_width=width-32 if block.get('kind') in {'choice','multiple','constructed','solution'} else width
+    column_width=width-number_pitch()-4 if block.get('kind') in {'choice','multiple','constructed','solution'} else width
     for key,asset in block.get('assets',{}).items():
         path=(asset_root/asset['path']).resolve()
         if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
@@ -68081,6 +68189,8 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
     for key,image in images.items():
         content=content.replace(html.escape('{{asset:'+key+'}}'),image)
     if '{{asset:' in content:raise ValueError('Missing inline asset')
+    if _typesetter is not None:
+        content=_typesetter.tokens(content,archive)
     return _pad_option_cells(content,archive)
 
 
@@ -68090,15 +68200,23 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
 # shrank each cell to its text, so a hosted 數A printed 「(1) 6 (2) 8 (3) 9」 run
 # together. Padding is honored by every version: each cell's natural advance is
 # measured in the running engine with the booklet's CSS and padded to the pitch.
-OPTION_CELL = re.compile(r'<td class="optcell" data-pitch="([0-9.]+)" data-wrap="(\w*)">(.*?)</td>', re.S)
+OPTION_CELL = re.compile(r'<td class="optcell" data-pitch="([0-9.]+)" data-alt="([0-9.]+)" data-wrap="(\w*)" data-mode="(\w*)">(.*?)</td>', re.S)
+OPTION_TABLE = re.compile(r'<table class="options" style="width:auto">.*?</table>', re.S)
 OPTION_MARK = 'QZXJ'
 _cell_advances = {}
+
+
+def padded_cell(inner, pitch, *, alt=None, wrap='', mode=''):
+    """A cell the renderer pads to a measured pitch (every PyMuPDF version honours padding)."""
+    return (f'<td class="optcell" data-pitch="{pitch:.2f}" data-alt="{(alt or pitch):.2f}" data-wrap="{wrap}" '
+            f'data-mode="{mode}">{inner}</td>')
 
 
 def _mark_positions(page, html_text, top, archive):
     page.insert_htmlbox(pymupdf.Rect(0, top, 3000, top + 180), html_text, css=_measure_css,
                         archive=archive, **HTML_OPTIONS)
-    return sorted(w[0] for w in page.get_text('words') if w[4] == OPTION_MARK and top <= w[1] < top + 180)
+    # search_for, not words: a CJK option ending 「」」 joins the marker into one word.
+    return sorted(r.x0 for r in page.search_for(OPTION_MARK) if top <= r.y0 < top + 180)
 
 
 def _cell_advance(inner, archive, wrap=''):
@@ -68117,15 +68235,40 @@ def _cell_advance(inner, archive, wrap=''):
 
 
 def _pad_option_cells(content, archive):
-    def cell(match):
-        pitch, wrap, inner = float(match.group(1)), match.group(2), match.group(3)
-        advance = _cell_advance(inner, archive, wrap) if _measure_css is not None else None
-        if advance is None:
+    """Pad every marked cell to its pitch; an option table keeps the official pitch only if all its options fit."""
+    def advance(match):
+        return _cell_advance(match.group(5), archive, match.group(3)) if _measure_css is not None else None
+
+    def cell(match, pitch=None):
+        official, alt, mode, inner = float(match.group(1)), float(match.group(2)), match.group(4), match.group(5)
+        pitch = pitch or official
+        width = advance(match)
+        if width is None:
             return f'<td style="width:{pitch - 4:g}pt">{inner}</td>'
+        if mode == 'center':
+            side = max(0, (pitch - (width - 4)) / 2)
+            return f'<td style="padding:0 {side:.2f}pt 0 {side:.2f}pt">{inner}</td>'
+        fits = ';white-space:nowrap' if width <= pitch else ''
+        # PyMuPDF 1.28 also honours a content width: it gives the content half a point of
+        # room, since a box exactly as wide as its text wrapped a stacked fraction under
+        # its label. 1.26 ignores the width and lays the padded cell out exactly.
+        if mode == 'last':
+            return f'<td style="padding-right:4pt;width:{width - 3:.2f}pt{fits}">{inner}</td>'
         # Half a point of slack, and an option that fits its pitch never wraps: the
         # engine otherwise shrank a nearly full row and broke 「(B) donation」 in two.
-        fits = ';white-space:nowrap' if advance <= pitch else ''
-        return f'<td style="padding-right:{max(4, 4 + pitch - advance - .5):.2f}pt{fits}">{inner}</td>'
+        room = f';width:{width - 3.5:.2f}pt' if width <= pitch else ''
+        return f'<td style="padding-right:{max(4, 4 + pitch - width - .5):.2f}pt{room}{fits}">{inner}</td>'
+
+    def table(match):
+        cells = [m for m in OPTION_CELL.finditer(match.group(0)) if m.group(4) != 'number']
+        widths = [advance(m) for m in cells]
+        official = {float(m.group(1)) for m in cells}
+        fits = all(w is not None and w <= float(m.group(1)) for m, w in zip(cells, widths)
+                   if m.group(4) != 'last')
+        chosen = None if fits else max((float(m.group(2)) for m in cells), default=None)
+        return OPTION_CELL.sub(lambda m: cell(m, None if m.group(4) == 'number' else chosen), match.group(0))
+
+    content = OPTION_TABLE.sub(table, content)
     return OPTION_CELL.sub(cell, content)
 
 
@@ -68142,11 +68285,15 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if kind not in KINDS: raise ValueError('Unknown body block kind')
     head,tail=block.get('_head',True),block.get('_tail',True)
     if kind=='section':
-        heading=f'<div class="heading">{text(block["title"])}</div>'
+        heading=f'<div class="heading">{heading_markup(block["title"],archive)}</div>'
         # Answer booklets may print a plain part heading; question-booklet
         # directions stay explicit and are never invented here.
         if 'directions' not in block:return heading
-        return heading+f'<div class="direction">{text(block["directions"])}</div>'
+        notes=DIRECTION_BREAKS.sub("。<br>",plain_text(block["directions"]))
+        if _subject=='國寫' and '<br>' in notes:
+            first,rest=notes.split('<br>',1)
+            notes=f'<span style="font-size:11.4pt">{first}</span><br>{rest}'
+        return heading+f'<div class="direction">{notes}</div>'
     if kind=='passage':
         paragraphs=block.get('paragraphs',[])
         if not paragraphs:raise ValueError('Passage needs actual paragraphs')
@@ -68165,7 +68312,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         if '{{gap:' in content:raise ValueError('Invalid passage gap number')
         cls='english' if block.get('language')=='en' else 'writing' if writing else 'passage'
         heading=f'<div class="heading">{text(block["heading"])}</div>' if block.get('heading') and head else ''
-        if writing and heading:heading=f'<p class="part">{text(block["heading"])}</p>'
+        if writing and heading:heading=f'<p class="part">{heading_markup(block["heading"],archive,spacing=0)}</p>'
         bank=block.get('bank',[]) if tail else []
         if bank:
             columns=block.get('columns',2)
@@ -68233,10 +68380,10 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             if kind=='fill':raise ValueError('Fill figures use below placement; keep answer rails in paragraph flow')
             if block['assets'][figure]['width_pt']>180:raise ValueError('Right-hand figure exceeds reserved column')
             # Numbered items keep their hanging number column beside the pair.
-            text_width=width-189-(28 if column else 0)
+            text_width=width-189-(number_pitch() if column else 0)
             stem=f'<table><tr><td style="width:{text_width:g}pt">{stem}</td><td style="width:185pt" class="figure">{image_box}</td></tr></table>'
         elif kind=='fill':
-            stem=f'<p style="margin-left:28pt;text-indent:-28pt">{label}　{stem}</p><div class="figure">{image_box}</div>'
+            stem=numbered_row(label,stem,width)+f'<div class="figure">{image_box}</div>'
         else:stem+=f'<div class="figure">{image_box}</div>'
     option_block=''
     if kind in {'choice','multiple'} and tail:
@@ -68248,32 +68395,37 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             # Option-only rows (English cloze): the number shares the first
             # option row so both sit on one baseline.
             wrap='english' if block.get('language')=='en' else ''
-            cells=[f'<td class="optcell" data-pitch="{(width-28)/columns:.2f}" data-wrap="{wrap}">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
+            alt=(width-number_pitch())/columns
+            cells=[padded_cell(f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}',option_pitch(columns),alt=alt,wrap=wrap,
+                               mode='last' if (j+1)%columns==0 or j==len(options)-1 else '') for j,o in enumerate(options)]
             rows=[''.join(cells[j:j+columns]) for j in range(0,len(cells),columns)]
-            result=('<table class="options" style="width:auto">'+''.join(f'<tr><td class="number">{label if n==0 else ""}</td>{row}</tr>'
-                                                     for n,row in enumerate(rows))+'</table>')
+            result=('<table class="options" style="width:auto">'+''.join(
+                f'<tr>{padded_cell(label if n==0 else "",number_pitch(),wrap=wrap,mode="number")}{row}</tr>'
+                for n,row in enumerate(rows))+'</table>')
             return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
         # Never nest the option table inside the stem cell: MuPDF's HTML engine
         # shrank that nested table to the stem's width in a hosted runtime, so a
         # 國綜 booklet wrapped every option at 40% of the page. Options print as a
         # sibling block: paragraphs for one column, a top-level table otherwise.
-        rows=[f'{html.escape(str(o["label"]))} {text(o["text"])}' for o in options]
+        rows=[f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}' for o in options]
         if columns==1:
             option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
         else:
             wrap='english' if block.get('language')=='en' else ''
-            cells=[f'<td class="optcell" data-pitch="{(width-28)/columns:.2f}" data-wrap="{wrap}">{row}</td>' for row in rows]
+            alt=(width-number_pitch())/columns
+            cells=[padded_cell(row,option_pitch(columns),alt=alt,wrap=wrap,
+                               mode='last' if (j+1)%columns==0 or j==len(rows)-1 else '') for j,row in enumerate(rows)]
             option_block=(f'<div class="optionlist"><table class="options" style="width:auto">'
                           +''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table></div>')
     if kind=='solution':
         result=(f'<div class="heading">{label}</div>' if head else '')+stem
     elif kind=='fill':
-        result=stem if figure else f'<p style="margin-left:28pt;text-indent:-28pt">{label}　{stem}</p>'
+        result=stem if figure else numbered_row(label,stem,width)
     elif kind=='stimulus':
         result=_group_label(block)+stem
     elif kind=='constructed' and _writing_mode:
         # 國寫 prints no number column: 「一、」 stands on its own line above the material.
-        result=(f'<p class="part">{label}</p>' if label else '')+stem
+        result=(f'<p class="part">{heading_markup(html.unescape(re.sub("<[^>]+>","",label)),archive,spacing=0)}</p>' if label else '')+stem
     else:
         # An explicit stem width keeps option rows full width when the stem is
         # empty (English cloze option rows print only their number).
@@ -68281,8 +68433,41 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # as 英文作文 would stack one glyph per line, so it leads the text instead.
         if len(html.unescape(re.sub('<[^>]+>','',label)))>3:
             stem=f'<b>{label}</b>　'+stem;label=''
-        result=f'<table><tr><td class="number">{label}</td><td style="width:{width-28:g}pt">{stem}</td></tr></table>'+option_block
+        result=numbered_row(label,stem,width)+option_block
     return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
+
+
+def plain_text(value):
+    """Instructions: Latin runs in Times but no variable italics or typeset fractions (「2B鉛筆」)."""
+    global _math_mode
+    mode, _math_mode = _math_mode, False
+    try:
+        return text(value)
+    finally:
+        _math_mode = mode
+
+
+def numbered_row(label, stem, width):
+    """Number at the margin, text and options on the measured stem line (18 pt later)."""
+    if re.fullmatch(r'[\w.()（）]+', html.unescape(re.sub('<[^>]+>', '', label or ''))) and label.isascii():
+        label = f'<span class="latin">{label}</span>'
+    return (f'<table><tr>{padded_cell(label, number_pitch(), mode="number")}'
+            f'<td style="width:{width-number_pitch():g}pt">{stem}</td></tr></table>')
+
+
+def _plain(value):
+    raw = value['rich'] if isinstance(value, dict) else str(value)
+    return html.unescape(re.sub(r'<[^>]+>', '', raw))
+
+
+def heading_markup(value, archive, spacing=None):
+    """Part headings as the booklets set them: 13 pt, letter-spaced, stroke-bold."""
+    plain = _plain(value).strip()
+    if _typesetter is None or archive is None or not plain or '\n' in plain or '{{' in plain:
+        return text(value)
+    size = HEADING_SIZE_PT.get(_subject, 12.96)
+    gap = HEADING_SPACING_PT.get(_subject, 2.0) if spacing is None else spacing
+    return _typesetter.heading(plain, size, gap, archive)
 
 
 def _units(block):
@@ -68329,16 +68514,22 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         raise ValueError('Placeholder gallery IDs cannot become production questions')
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
-    global _latin_runs_enabled, _writing_mode, _measure_css
+    global _latin_runs_enabled, _writing_mode, _measure_css, _math_mode, _typesetter, _subject
     # Official booklets set digits and Latin letters in Times for every subject
     # (國綜, 社會, 自然, 英文 and 數學 all measured); the CJK face keeps the CJK glyphs.
     _latin_runs_enabled = True
     _writing_mode = spec['subject'] == '國寫'
+    _math_mode = spec['subject'] in {'數學A', '數學B'}
+    _subject = spec['subject']
+    _typesetter = Typesetter(font, size=BODY_SIZE_PT.get(spec['subject'], 11))
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
-    body=allowed+(4,4,-4,-4)
+    # Text starts on the measured official margins (the number of item 1 at x 63.8).
+    body=allowed+(.05,4,-.3,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
     archive.add((pymupdf.Font('tiro').buffer,'latin-font.ttf'))
-    css=subject_css(spec['subject'])+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
+    archive.add((pymupdf.Font('tiit').buffer,'latin-italic.ttf'))
+    css=(subject_css(spec['subject'])+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
+         '\n@font-face {font-family:LatinItalic;src:url(latin-italic.ttf)}')
     if reading_font:
         archive.add((reading_font.read_bytes(),'reading-font.ttf'))
         css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
@@ -68384,6 +68575,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         if spare<0 or scale!=1:
             prepared[key]=(content,0,math.inf)
             return prepared[key]
+        # Fractions, radicals, accents and headings reserved in the flow are painted
+        # now, at the positions the engine gave their placeholders.
+        sample=_typesetter.paint(sample,content)
         native=sample.get_text('dict')['blocks']
         for text_block in sample.get_text('rawdict')['blocks']:
             for line in text_block.get('lines',[]):
@@ -69741,6 +69935,317 @@ def part_reviewed_on_page(part, required):
     return all(component.get('role') == 'flow-content' for component in part.get('components') or [])
 </canonical-source>
 
+<canonical-source path="scripts/hosted_math_typeset.py">
+#!/usr/bin/env python3
+"""Official-style mathematics and heading typography for the hosted body renderer.
+
+The ROC 111–115 booklets stack every fraction, draw a vinculum over each radicand,
+put arrows over vectors and bars over segments, and letter-space their bold part
+headings. MuPDF's HTML engine can do none of this, and the pinned hosted PyMuPDF
+1.26.0 also ignores inline vertical alignment, so two hosted 116 數A booklets printed
+「27/64」「2√6」 and plain headings. Each construct is reserved in the HTML flow as a
+transparent placeholder image of its exact width and above-baseline height (an
+inline image's bottom sits on the text baseline in every version); once the block is
+laid out, the placeholder is removed and the construct is painted there as real,
+searchable glyphs and rules.
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+import math
+import re
+
+import pymupdf
+
+TOKEN = re.compile(r'\{\{(frac|sqrt|vec|seg)(\.s)?:([^{}]*)\}\}')
+FUNCTIONS = {'sin', 'cos', 'tan', 'cot', 'sec', 'csc', 'log', 'ln', 'lim', 'max', 'min', 'exp', 'gcd', 'lcm', 'deg', 'mod'}
+# A fraction or radical operand: coefficient radicals, π multiples, coefficient
+# variables, decimals, a single letter, or one parenthesised group.
+ATOM = r'(?:\d*√(?:\d+(?:\.\d+)?|[A-Za-z]|\([^()]{1,24}\))|\d*π|\d+[A-Za-z]|\d+(?:\.\d+)?|[A-Za-zπθ]|\([^()]{1,24}\))'
+FRACTION = re.compile(rf'(?<![A-Za-z0-9_.)√/])({ATOM})/({ATOM})(?![A-Za-z0-9_(√/])')
+RADICAL = re.compile(r'√(\d+(?:\.\d+)?|[A-Za-z]|\([^()]{1,24}\))')
+MARKUP_SPLIT = re.compile(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})')
+CHILD_SCALE = .86          # fraction operands, as the official booklets set them
+SCRIPT_SCALE = .7          # tokens inside <sup>/<sub>, matching sup,sub {font-size:70%}
+FONT_KEYS = {'roman': 'MR', 'italic': 'MI', 'bold': 'MB', 'cjk': 'MC'}
+
+
+def _strip_group(text: str) -> str:
+    return text[1:-1] if text.startswith('(') and text.endswith(')') else text
+
+
+def math_tokens(markup: str) -> str:
+    """Rewrite plain 「a/b」 and 「√x」 in already-escaped markup as typeset tokens."""
+    parts = MARKUP_SPLIT.split(markup)
+    depth = 0
+    for index, part in enumerate(parts):
+        if not part:
+            continue
+        if part.startswith('<'):
+            tag = part.strip('</>').split()[0].lower() if part.strip('</>') else ''
+            if tag in {'sup', 'sub'}:
+                depth += -1 if part.startswith('</') else 1
+            continue
+        if part.startswith(('&', '{{')):
+            continue
+        flag = '.s' if depth > 0 else ''
+        part = FRACTION.sub(lambda m: f'{{{{frac{flag}:{_strip_group(m.group(1))}|{_strip_group(m.group(2))}}}}}', part)
+        pieces = re.split(r'(\{\{[^{}]*\}\})', part)
+        pieces = [p if p.startswith('{{') else RADICAL.sub(lambda m: f'{{{{sqrt{flag}:{_strip_group(m.group(1))}}}}}', p)
+                  for p in pieces]
+        parts[index] = ''.join(pieces)
+    return ''.join(parts)
+
+
+class Fonts:
+    """Metrics of the faces a construct is painted with."""
+    def __init__(self, cjk: pymupdf.Font | None):
+        self.faces = {'roman': pymupdf.Font('tiro'), 'italic': pymupdf.Font('tiit'), 'bold': pymupdf.Font('tibo'),
+                      'cjk': cjk or pymupdf.Font('cjk')}
+
+    def face_for(self, char: str, style: str) -> str:
+        if style == 'bold' and self.faces['bold'].has_glyph(ord(char)):
+            return 'bold'
+        if style == 'italic' and char.isascii() and char.isalpha():
+            return 'italic'
+        if self.faces['roman'].has_glyph(ord(char)):
+            return 'roman'
+        return 'cjk'
+
+    def width(self, char: str, face: str, size: float) -> float:
+        return self.faces[face].text_length(char, fontsize=size)
+
+
+@dataclass
+class Glyphs:
+    """A run of characters; letters that name variables print italic."""
+    text: str
+    size: float
+    fonts: Fonts
+    bold: bool = False
+    spacing: float = 0.0
+    runs: list = field(default_factory=list)
+
+    def __post_init__(self):
+        x = 0.0
+        for chunk in re.findall(r'[A-Za-z]+|.', self.text):
+            style = 'bold' if self.bold else (
+                'roman' if chunk in FUNCTIONS or (len(chunk) > 1 and not chunk.isupper()) else 'italic')
+            for char in chunk:
+                face = self.fonts.face_for(char, style)
+                self.runs.append((x, char, face))
+                x += self.fonts.width(char, face, self.size) + self.spacing
+        self.w = max(0.0, x - self.spacing) if self.runs else 0.0
+        self.asc = .72 * self.size if not self.bold else .9 * self.size
+        self.desc = .22 * self.size
+
+    def paint(self, page, x, base):
+        for dx, char, face in self.runs:
+            extra = {'render_mode': 2, 'border_width': .045, 'color': (0, 0, 0), 'fill': (0, 0, 0)} if self.bold else {}
+            page.insert_text((x + dx, base), char, fontname=FONT_KEYS[face], fontsize=self.size, **extra)
+
+
+def parse(text: str, size: float, fonts: Fonts) -> list:
+    """Operand text as boxes: radicals nest; everything else is glyphs."""
+    boxes, buffer, i = [], '', 0
+    while i < len(text):
+        if text[i] == '√':
+            match = RADICAL.match(text, i)
+            if match:
+                if buffer:
+                    boxes.append(Glyphs(buffer, size, fonts))
+                    buffer = ''
+                boxes.append(Radical(parse(_strip_group(match.group(1)), size, fonts), size))
+                i = match.end()
+                continue
+        buffer += text[i]
+        i += 1
+    if buffer:
+        boxes.append(Glyphs(buffer, size, fonts))
+    return boxes
+
+
+class Row:
+    def __init__(self, boxes):
+        self.boxes = boxes
+        self.w = sum(b.w for b in boxes)
+        self.asc = max((b.asc for b in boxes), default=0)
+        self.desc = max((b.desc for b in boxes), default=0)
+
+    def paint(self, page, x, base):
+        for box in self.boxes:
+            box.paint(page, x, base)
+            x += box.w
+
+
+class Radical:
+    def __init__(self, inner, size):
+        self.inner, self.size = Row(inner), size
+        self.sign = .56 * size
+        self.w = self.sign + self.inner.w + .08 * size
+        self.asc = self.inner.asc + .2 * size
+        self.desc = max(self.inner.desc, .12 * size)
+
+    def paint(self, page, x, base):
+        s, top = self.size, base - self.inner.asc - .13 * self.size
+        shape = page.new_shape()
+        shape.draw_polyline([(x + .04 * s, base - .32 * s), (x + .13 * s, base - .38 * s),
+                             (x + .27 * s, base + .08 * s), (x + self.sign - .03 * s, top),
+                             (x + self.w, top)])
+        shape.finish(color=(0, 0, 0), width=.05 * s, closePath=False, lineCap=0, lineJoin=1)
+        shape.commit()
+        self.inner.paint(page, x + self.sign, base)
+
+
+class Fraction:
+    def __init__(self, num, den, size):
+        self.size = size
+        self.num, self.den = Row(num), Row(den)
+        pad = .12 * size
+        self.w = max(self.num.w, self.den.w) + 2 * pad
+        self.axis = .27 * size
+        self.gap = .12 * size
+        self.asc = self.axis + self.gap + self.num.desc * .4 + self.num.asc
+        self.desc = self.den.asc + self.gap - self.axis + self.den.desc * .4
+
+    def paint(self, page, x, base):
+        axis = base - self.axis
+        page.draw_line((x + .04 * self.size, axis), (x + self.w - .04 * self.size, axis), color=(0, 0, 0), width=.05 * self.size)
+        self.num.paint(page, x + (self.w - self.num.w) / 2, axis - self.gap - self.num.desc * .4)
+        self.den.paint(page, x + (self.w - self.den.w) / 2, axis + self.gap + self.den.asc)
+
+
+class Accent:
+    """Arrow (vector) or bar (segment) over italic point or vector names."""
+    def __init__(self, inner, size, arrow):
+        self.inner, self.size, self.arrow = Row(inner), size, arrow
+        self.w = self.inner.w + .1 * size
+        self.asc = self.inner.asc + (.32 if arrow else .2) * size
+        self.desc = self.inner.desc
+
+    def paint(self, page, x, base):
+        s = self.size
+        y = base - self.inner.asc - .14 * s
+        left, right = x + .04 * s, x + self.w - .02 * s
+        page.draw_line((left, y), (right - (.05 * s if self.arrow else 0), y), color=(0, 0, 0), width=.05 * s)
+        if self.arrow:
+            head = page.new_shape()
+            head.draw_polyline([(right - .22 * s, y - .1 * s), (right, y), (right - .22 * s, y + .1 * s)])
+            head.finish(color=(0, 0, 0), fill=(0, 0, 0), width=.03 * s, closePath=True)
+            head.commit()
+        self.inner.paint(page, x + .05 * s, base)
+
+
+class Heading:
+    """A part heading: 13 pt, letter-spaced and stroke-bold, as the booklets print it."""
+    def __init__(self, text, size, spacing, fonts):
+        self.glyphs = Glyphs(text, size, fonts, bold=True, spacing=spacing)
+        self.w, self.asc, self.desc = self.glyphs.w, .92 * size, .2 * size
+
+    def paint(self, page, x, base):
+        self.glyphs.paint(page, x, base)
+
+
+def build(kind: str, body: str, size: float, fonts: Fonts):
+    if kind == 'frac':
+        num, _, den = body.partition('|')
+        child = size * CHILD_SCALE
+        return Fraction(parse(num, child, fonts), parse(den, child, fonts), size)
+    if kind == 'sqrt':
+        return Radical(parse(body, size, fonts), size)
+    return Accent(parse(body, size, fonts), size, arrow=kind == 'vec')
+
+
+class Typesetter:
+    """Placeholders for one render: HTML images now, painted constructs after layout."""
+    def __init__(self, cjk_font_path=None, size=11.0):
+        self.cjk_path = cjk_font_path
+        self.fonts = Fonts(pymupdf.Font(fontfile=str(cjk_font_path)) if cjk_font_path else None)
+        self.size = size
+        self.boxes = {}
+
+    def _placeholder(self, box, archive) -> str:
+        name = f'mph-{len(self.boxes)}.png'
+        # MuPDF lays inline images out at whole points; the construct is centred in its box.
+        width, height = max(1, math.ceil(box.w)), max(1, math.ceil(box.asc))
+        dims = (width * 4, height * 4)
+        self.boxes[name] = (box, dims)
+        pixels = pymupdf.Pixmap(pymupdf.csRGB, pymupdf.IRect(0, 0, *dims), 1)
+        pixels.clear_with(0)
+        archive.add((pixels.tobytes('png'), name))
+        return f'<img src="{name}" width="{width}" height="{height}">'
+
+    def tokens(self, markup: str, archive) -> str:
+        def replace(match):
+            size = self.size * (SCRIPT_SCALE if match.group(2) else 1)
+            return self._placeholder(build(match.group(1), match.group(3), size, self.fonts), archive)
+        return TOKEN.sub(replace, markup)
+
+    def heading(self, text: str, size: float, spacing: float, archive) -> str:
+        return self._placeholder(Heading(text, size, spacing, self.fonts), archive)
+
+    def paint(self, page, markup: str):
+        """Replace this block's placeholders with painted constructs; fail loudly on a mismatch."""
+        names = re.findall(r'<img src="(mph-\d+\.png)"', markup)
+        if not names:
+            return page
+        doc = page.parent
+        # Placeholders are recognised by their pixel size, in paint order. PyMuPDF
+        # 1.26 merges identical placeholder images, so every image resource of a
+        # placeholder size is removed, not only the one an info record names.
+        sizes = {self.boxes[name][1] for name in names}
+        placeholders = {(name, referencer) for _xref, _smask, w, h, *_rest, name, _filter, referencer
+                        in page.get_images(full=True) if (w, h) in sizes}
+        pending, order = list(names), []
+        for info in page.get_image_info(xrefs=True):
+            if pending and (info['width'], info['height']) == self.boxes[pending[0]][1]:
+                order.append(info)
+                pending.pop(0)
+        if pending:
+            raise ValueError(f'Typeset placeholders: expected {len(names)}, found {len(order)} on the measured page')
+        for key, face in FONT_KEYS.items():
+            if key == 'cjk':
+                if self.cjk_path:
+                    page.insert_font(fontname=face, fontfile=str(self.cjk_path))
+                else:
+                    page.insert_font(fontname=face, fontbuffer=pymupdf.Font('cjk').buffer)
+            else:
+                page.insert_font(fontname=face, fontbuffer=self.fonts.faces[key].buffer)
+        for name, info in zip(names, order):
+            box, rect = self.boxes[name][0], pymupdf.Rect(info['bbox'])
+            if abs(rect.width - max(1, math.ceil(box.w))) > .3:
+                raise ValueError(f'Typeset placeholder {name} laid out {rect.width:.2f} pt wide, expected {math.ceil(box.w)}')
+            box.paint(page, rect.x0 + (rect.width - box.w) / 2, rect.y1)
+        for name, referencer in placeholders:
+            stream = doc.xref_stream(referencer)
+            doc.update_stream(referencer, re.sub(rb'/' + re.escape(name.encode()) + rb'\s+Do\b', b'', stream))
+        # The page caches its parsed content; later checks must see the painted result.
+        return doc.reload_page(page)
+
+
+_standalone_cache: dict = {}
+
+
+def identifier_markup(run: str, context: str, start: int) -> str:
+    """Italicise variable names inside one escaped Latin run of mathematics text."""
+    # One scan per text, not per run: a long passage has thousands of runs.
+    if _standalone_cache.get('context') is not context:
+        _standalone_cache.update(context=context,
+                                 letters=set(re.findall(r'(?<![A-Za-z])([A-Z])(?![A-Za-z])', context)))
+    standalone = _standalone_cache['letters']
+    geometric = re.search(r'(?:三角形|四邊形|梯形|線段|直線|射線|平面|弧|△|∠|點|正方形|長方形|菱形|四面體|六面體|多邊形)\s*$',
+                          context[max(0, start - 12):start])
+
+    def letters(match):
+        word = match.group(0)
+        if word in FUNCTIONS or (len(word) > 1 and not word.isupper()):
+            return word
+        if len(word) == 1 or (len(word) <= 4 and (all(c in standalone for c in word) or geometric)):
+            return f'<span class="var">{word}</span>'
+        return word
+    return re.sub(r'[A-Za-z]+', letters, run)
+</canonical-source>
+
 <canonical-source path="scripts/hosted_run_timing.py">
 #!/usr/bin/env python3
 """Conversation-aware phase clock. Wall time and estimated activity stay distinct.
@@ -70225,7 +70730,8 @@ def writing_font_role_samples(doc, body_box=None) -> list[dict]:
         lines = [line for block in page.get_text("dict")["blocks"] for line in block.get("lines", [])
                  if body.contains(pymupdf.Rect(line["bbox"]))]
         for line in sorted(lines, key=lambda l: (round(l["bbox"][1]), l["bbox"][0])):
-            text = "".join(s["text"] for s in line["spans"]).strip()
+            # Letter-spaced headings extract with spaces (「一 、」); compare compacted text.
+            text = "".join("".join(s["text"] for s in line["spans"]).split())
             if not text or WRITING_LABEL.match(text):
                 continue
             if text.startswith(("說明", "説明")):  # a kai subset may map 說 to its 説 variant
@@ -71377,15 +71883,23 @@ class TemplateUnavailable(ValueError):
 
 
 BUILTIN_FONT = 'pymupdf-builtin-droid-sans-fallback'
-# Hosted runtimes rarely carry a Traditional Chinese serif face, and official
-# booklets are set in 明體. The same fixed-URL route as the PyMuPDF wheel
-# fetches a static Noto Serif TC Regular (SIL OFL 1.1) before falling back to
-# the built-in sans-serif; the download is verified against a pinned digest.
-SERIF_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-noto-serif-tc-1/'
-                  'NotoSerifTC-Regular.ttf')
-SERIF_FONT_SHA256 = '08cfd4736956f3edd4270e86f009c049cce3a44a9a297b13a66dbec96a66fda8'
-SERIF_FONT_BYTES = 10001820
-SERIF_FONT_TIMEOUT = 40
+# The official booklets set their body in 新細明體 (PMingLiU) and their 說明 boxes and
+# 國寫 materials in 標楷體 (DFKai-SB). Those Microsoft-supplied fonts may be used on a
+# computer that has them (the PDF embeds only the glyphs it prints, as their embedding
+# permission allows) but never redistributed, so a hosted runtime without them fetches
+# the Ministry of Digital Affairs' 全字庫正宋體／正楷體 (OFL 1.1), the closest free faces:
+# thin 明體／楷體 drawn in the same Ministry of Education standard forms.
+LOCAL_MING_FONTS = ('C:/Windows/Fonts/mingliu.ttc', '~/AppData/Local/Microsoft/Windows/Fonts/mingliu.ttc',
+                    '/Library/Fonts/Microsoft/PMingLiU.ttf', '/Library/Fonts/PMingLiU.ttf',
+                    '/usr/share/fonts/truetype/msttcorefonts/mingliu.ttc')
+LOCAL_KAI_FONTS = ('C:/Windows/Fonts/kaiu.ttf', '~/AppData/Local/Microsoft/Windows/Fonts/kaiu.ttf',
+                   '/Library/Fonts/Microsoft/DFKai-SB.ttf', '/Library/Fonts/kaiu.ttf',
+                   '/usr/share/fonts/truetype/msttcorefonts/kaiu.ttf')
+SERIF_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-tw-sung-1/'
+                  'TW-Sung-98_1.ttf')
+SERIF_FONT_SHA256 = '9a3b74fe1a69fe1b3470b5ed780bf678c42a25cef93a13f280a5f31f795f0c56'
+SERIF_FONT_BYTES = 35320040
+SERIF_FONT_TIMEOUT = 120
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
 # The kai face for 說明 boxes (every subject) and 國寫 reading materials: 全字庫正楷體
@@ -71555,11 +72069,14 @@ def body_font(run_dir, requested=None):
     install one. PyMuPDF, already required here, ships Droid Sans Fallback with
     full CJK coverage, so a missing or incomplete font never stops a paper.
     """
-    # Fixed typography for every subject: the pinned Traditional Chinese serif
-    # (明體-style Noto Serif TC) for CJK and Times for digits and Latin letters,
-    # as in the official booklets. A supplied font is used only when the pinned
-    # serif cannot be obtained; the built-in sans-serif is the last resort.
+    # Fixed typography for every subject: 新細明體 where this computer has it, else the
+    # pinned 全字庫正宋體, for CJK, and Times for digits and Latin letters, as in the
+    # official booklets. A supplied font is used only when neither can be obtained;
+    # the built-in sans-serif is the last resort.
     note = None
+    installed = local_font(run_dir, LOCAL_MING_FONTS, 'PMingLiU', 'PMingLiU.ttf', FIELD_TEXT)
+    if installed is not None:
+        return installed
     serif, serif_note = downloaded_serif_font(run_dir)
     if serif is not None:
         path, record = serif
@@ -71584,9 +72101,42 @@ def body_font(run_dir, requested=None):
     return target, record
 
 
+def local_font(run_dir, candidates, face, target_name, text):
+    """(path, record) for an installed official face copied into this run, or None.
+
+    Only on a computer that already has the font; tests and hosted runtimes set
+    TAIWAN_EXAM_NO_LOCAL_FONT or simply have no such file.
+    """
+    if os.environ.get('TAIWAN_EXAM_NO_LOCAL_FONT'):
+        return None
+    for candidate in candidates:
+        source = Path(candidate).expanduser()
+        if not source.is_file():
+            continue
+        target = run_dir / 'fonts' / target_name
+        try:
+            target.parent.mkdir(exist_ok=True)
+            if source.suffix.lower() == '.ttc':
+                from fontTools.ttLib import TTCollection
+                chosen = next(f for f in TTCollection(str(source)).fonts if f['name'].getDebugName(4) == face)
+                chosen.save(str(target))
+            else:
+                target.write_bytes(source.read_bytes())
+            font = pymupdf.Font(fontfile=str(target))
+            if any(not font.has_glyph(ord(c)) for c in text):
+                continue
+        except Exception:  # missing fontTools, an unexpected collection or an unreadable file
+            continue
+        return target, {'path': target.relative_to(run_dir).as_posix(), 'source': 'installed-' + face.lower(),
+                        'sha256': digest(target), 'installed_at': str(source),
+                        'style': f'{face}, the face the official booklets use, installed on this computer; '
+                                 'used here only and never redistributed (the PDF embeds the printed glyphs)'}
+    return None
+
+
 def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOUT):
-    """((path, record), None) for the pinned Noto Serif TC body font, or (None, why not)."""
-    target = run_dir / 'fonts' / 'NotoSerifTC-Regular.ttf'
+    """((path, record), None) for the pinned 全字庫正宋體 body font, or (None, why not)."""
+    target = run_dir / 'fonts' / 'TW-Sung-98_1.ttf'
     if os.environ.get('TAIWAN_EXAM_NO_FONT_DOWNLOAD') and not target.is_file():
         return None, 'serif font download disabled by TAIWAN_EXAM_NO_FONT_DOWNLOAD; the built-in sans-serif face was used'
     if not (target.is_file() and digest(target) == SERIF_FONT_SHA256):
@@ -71607,15 +72157,18 @@ def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOU
             return None, 'downloaded serif font lacks field glyphs; the built-in sans-serif face was used'
     except Exception as exc:  # MuPDF raises its own error types
         return None, f'downloaded serif font unusable ({exc}); the built-in sans-serif face was used'
-    record = {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-noto-serif-tc',
+    record = {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-tw-sung',
               'sha256': SERIF_FONT_SHA256, 'url': url,
-              'style': 'serif Traditional Chinese (Noto Serif TC Regular, SIL Open Font License 1.1), '
-                       'the same family as the published layout previews'}
+              'style': '明體 Traditional Chinese (全字庫正宋體 TW-Sung, Ministry of Digital Affairs, SIL Open Font '
+                       'License 1.1), the closest free face to the booklets\' 新細明體'}
     return (target, record), None
 
 
 def kai_font_record(run_dir, url=KAI_FONT_URL, timeout=KAI_FONT_TIMEOUT):
     """Record of the pinned kai face, or why the serif body face stands in for it."""
+    installed = local_font(run_dir, LOCAL_KAI_FONTS, 'DFKai-SB', 'kaiu.ttf', KAI_TEXT)
+    if installed is not None:
+        return installed[1]
     target = run_dir / 'fonts' / 'TW-Kai-98_1.ttf'
     fallback = ('the 說明 boxes print in the serif body face instead of 楷體, and a 國寫 question booklet fails '
                 'the final writing-font-role check until a 楷體 TTF is passed as --kai-font')
@@ -78394,6 +78947,9 @@ MATH_A_11A_ITEMS = (6, 14)
 UNOFFICIAL_ASK = re.compile(r'下列敘述.{0,4}(?:哪些|何者)|以下何者|下列哪些選項|哪些選項|敘述哪些正確')
 MULTIPLE_ASK = '試選出正確的選項'
 FRACTION_NOTE = re.compile(r'（化為最簡分數）\s*$')
+# The booklets draw vector arrows and segment bars over the letters; the renderer does
+# it from {{vec:AB}} / {{seg:AB}}. Plain 「向量AB」 or combining marks print wrongly.
+PLAIN_VECTOR = re.compile(r'向量\s*[A-Z]{2}(?![A-Za-z])|[⃗⃑̅̄]')
 PART_TWO_SCORE = {'single_choice': re.compile(r'（單選題，\s*\d+\s*分）\s*$'),
                   'written': re.compile(r'（非選擇題，\s*\d+\s*分）\s*$')}
 
@@ -78438,6 +78994,11 @@ def validate_exam(exam: dict) -> list[str]:
             labels = [_label(o) for o in question.get('options') or [] if isinstance(o, dict)]
             if tuple(labels) != OPTION_LABELS:
                 errors.append(f'{subject}第{number}題須有五個選項並標為(1)(2)(3)(4)(5)；現有 {labels}')
+        vector = PLAIN_VECTOR.search(stem + _compact(question.get('group_stimulus')) +
+                                     ''.join(_compact(o.get('text')) for o in question.get('options') or [] if isinstance(o, dict)))
+        if vector:
+            errors.append(f'{subject}第{number}題寫成「{vector.group(0)}」：官方以字母上方的箭號表示向量、橫線表示線段長，'
+                          '請寫 {{vec:AB}}（向量）或 {{seg:AB}}（線段），不要用「向量AB」或組合符號')
         ask = UNOFFICIAL_ASK.search(stem)
         if ask:
             errors.append(f'{subject}第{number}題問「{ask.group(0)}」：官方 111–115 多選題一律寫「試選出正確的選項。」，'
@@ -80332,6 +80893,16 @@ def field_pixels(page, box):
                            colorspace=pymupdf.csGRAY).samples
 
 
+# Running-header digits and each booklet's footer page number, ROC 115 measured.
+RUNNING_FOOTER_PT = {"國綜": 10.08, "國寫": 11.04, "英文": 9.96, "數學A": 10.02, "數學B": 10.02, "社會": 9.96, "自然": 10.98}
+RUNNING_HEADER_PT = 11.04
+
+
+def field_size(subject, key):
+    """Dynamic digits at the official size: 11 pt header numbers, the booklet's footer size."""
+    return RUNNING_FOOTER_PT[subject] if key == 'footer' else RUNNING_HEADER_PT
+
+
 def expected_counter(box, text, size):
     # Compare rendered digits. PDF text extraction can include invisible text
     # outside a clipped Form XObject, including the formula's original header.
@@ -80403,7 +80974,7 @@ def verify_pdf(pdf: Path, subject: str, kind: str, asset_dir: Path | None = None
                         text = ''.join(page.get_textbox(pymupdf.Rect(box)).split())
                         expected = str(total) if key == 'total_pages' else str(number)
                         wrong = (not text or field_pixels(page,box)==field_pixels(base,box)) if key == 'year_name' else (
-                            field_pixels(page,box) != expected_counter(box,expected,8 if key=='footer' else 10))
+                            field_pixels(page,box) != expected_counter(box,expected,field_size(subject,key)))
                         if wrong:
                             findings.append('incorrect-dynamic-' + key)
                 formula = math_formula and index == len(doc)-1

@@ -117,6 +117,9 @@ MATH_A_11A_ITEMS = (6, 14)
 UNOFFICIAL_ASK = re.compile(r'下列敘述.{0,4}(?:哪些|何者)|以下何者|下列哪些選項|哪些選項|敘述哪些正確')
 MULTIPLE_ASK = '試選出正確的選項'
 FRACTION_NOTE = re.compile(r'（化為最簡分數）\s*$')
+# The booklets draw vector arrows and segment bars over the letters; the renderer does
+# it from {{vec:AB}} / {{seg:AB}}. Plain 「向量AB」 or combining marks print wrongly.
+PLAIN_VECTOR = re.compile(r'向量\s*[A-Z]{2}(?![A-Za-z])|[⃗⃑̅̄]')
 PART_TWO_SCORE = {'single_choice': re.compile(r'（單選題，\s*\d+\s*分）\s*$'),
                   'written': re.compile(r'（非選擇題，\s*\d+\s*分）\s*$')}
 
@@ -161,6 +164,11 @@ def validate_exam(exam: dict) -> list[str]:
             labels = [_label(o) for o in question.get('options') or [] if isinstance(o, dict)]
             if tuple(labels) != OPTION_LABELS:
                 errors.append(f'{subject}第{number}題須有五個選項並標為(1)(2)(3)(4)(5)；現有 {labels}')
+        vector = PLAIN_VECTOR.search(stem + _compact(question.get('group_stimulus')) +
+                                     ''.join(_compact(o.get('text')) for o in question.get('options') or [] if isinstance(o, dict)))
+        if vector:
+            errors.append(f'{subject}第{number}題寫成「{vector.group(0)}」：官方以字母上方的箭號表示向量、橫線表示線段長，'
+                          '請寫 {{vec:AB}}（向量）或 {{seg:AB}}（線段），不要用「向量AB」或組合符號')
         ask = UNOFFICIAL_ASK.search(stem)
         if ask:
             errors.append(f'{subject}第{number}題問「{ask.group(0)}」：官方 111–115 多選題一律寫「試選出正確的選項。」，'

@@ -11,6 +11,10 @@ from urllib.parse import quote
 from pypdf import PdfReader
 import pymupdf
 
+from verify_fixed_template_pdf import RUNNING_FOOTER_PT, RUNNING_HEADER_PT
+
+DIGITS = pymupdf.Font('tiro')
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / "exam_packs" / "學測" / "templates" / "115"
@@ -40,13 +44,15 @@ def file_record(path: Path) -> dict:
     }
 
 
-def overlay_geometry(asset_dir: Path, profile: dict) -> dict:
+def overlay_geometry(asset_dir: Path, profile: dict, subject_name: str) -> dict:
     """Measure empty field gaps from the actual locked PDFs, not LLM guesses."""
     g = profile["page_geometry"]
     # The maintained inner-body CSS is top:30mm; bottom:17mm. Math A's
     # measured profile further narrows that box; do not enlarge it.
     top = g.get("content_top_pt", 30 * 72 / 25.4)
-    bottom = min(280 * 72 / 25.4, top + g.get("content_frame_height_mm", 250) * 72 / 25.4)
+    # The official footer page number rises to about 788 pt (baseline 797.2); body text
+    # ends above it, as the booklets' last lines end by about 785 pt.
+    bottom = min(786.0, 280 * 72 / 25.4, top + g.get("content_frame_height_mm", 250) * 72 / 25.4)
     result = {"body": [g["body_left_pt"], top, g["body_right_pt"], bottom]}
     with pymupdf.open(asset_dir / "cover-blank.pdf") as doc:
         blocks = doc[0].get_text("blocks")
@@ -57,18 +63,25 @@ def overlay_geometry(asset_dir: Path, profile: dict) -> dict:
             chars = [c for b in doc[0].get_text("rawdict")["blocks"] for l in b.get("lines", [])
                      for s in l["spans"] for c in s["chars"]]
             fields = {}
+            # A field box is sized so write_field's centring puts the digits on the
+            # official baseline: Times digits 0.36 pt below the 細明體 header line and
+            # on the footer dashes' own baseline (ROC 115 measured).
+            header, footer = RUNNING_HEADER_PT, RUNNING_FOOTER_PT[subject_name]
+
+            def on_baseline(x0, x1, baseline, size):
+                y0 = baseline - size * DIGITS.ascender - 1
+                return [x0, y0, x1, y0 + size * (DIGITS.ascender - DIGITS.descender) + 2]
             for anchor, key in (("第", "current_page"), ("共", "total_pages")):
                 first = next(c for c in chars if c["c"] == anchor)
                 last = next(c for c in chars if c["c"] == "頁" and abs(c["bbox"][1] - first["bbox"][1]) < .1)
-                fields[key] = [first["bbox"][2] + 1, first["bbox"][1] - 1,
-                               last["bbox"][0] - 1, first["bbox"][3] + 1]
+                fields[key] = on_baseline(first["bbox"][2] + 1, last["bbox"][0] - 1, first["origin"][1] + .36, header)
             dashes = sorted((c for c in chars if c["c"] == "-" and c["bbox"][1] > 750), key=lambda c: c["bbox"][0])
             if len(dashes) != 2:
                 raise ValueError("Unexpected footer template")
-            fields["footer"] = [dashes[0]["bbox"][2] + .2, dashes[0]["bbox"][1],
-                                dashes[1]["bbox"][0] - .2, dashes[1]["bbox"][3]]
-            fields["year_name"] = ([g["body_right_pt"] - 35 * 72 / 25.4, 40, g["body_right_pt"], 54]
-                                   if parity == "odd" else [g["body_left_pt"], 40, g["body_left_pt"] + 31 * 72 / 25.4, 54])
+            fields["footer"] = on_baseline(dashes[0]["bbox"][2] + .2, dashes[1]["bbox"][0] - .2, dashes[0]["origin"][1], footer)
+            # Three Times digits of the year sit right before the locked 「年學測」.
+            year = next(c for c in chars if c["c"] == "年" and c["bbox"][1] < 70)
+            fields["year_name"] = on_baseline(year["bbox"][0] - 18.5, year["bbox"][0] - .1, year["origin"][1] + .36, header)
             result[parity] = fields
     return result
 
@@ -96,7 +109,7 @@ def build() -> dict:
             "layout_profile": config["layout_profile"],
             "formula_variant": config.get("formula_variant"),
             "assets": assets,
-            "overlay_geometry_pt": overlay_geometry(asset_dir, profile),
+            "overlay_geometry_pt": overlay_geometry(asset_dir, profile, subject),
         })
 
     return {

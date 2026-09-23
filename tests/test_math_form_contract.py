@@ -76,10 +76,14 @@ def test_radicals_and_digits_use_the_latin_face_in_mathematics(tmp_path):
     spec = {'subject': '數學A', 'blocks': [{'kind': 'choice', 'id': 'q1', 'number': 1, 'text': '周長為 2(√5＋√10)，且 x ≤ 3。',
                                             'columns': 1, 'options': [{'label': '(1)', 'text': '√5'}, {'label': '(2)', 'text': '2√3'}]}]}
     hb.render(spec, tmp_path / 'm.pdf', tmp_path / 'm.json', font, asset_root=tmp_path, proof=True)
-    fonts = {c['c']: s['font'] for b in pymupdf.open(tmp_path / 'm.pdf')[0].get_text('rawdict')['blocks']
+    page = pymupdf.open(tmp_path / 'm.pdf')[0]
+    fonts = {c['c']: s['font'] for b in page.get_text('rawdict')['blocks']
              for l in b.get('lines', []) for s in l['spans'] for c in s['chars']}
-    assert 'Nimbus' in fonts['√'] or 'Times' in fonts['√']  # the Latin face, not the CJK body font
-    assert fonts['√'] == fonts['5'] and 'Droid' in fonts['周']
+    # Radicals are painted with a vinculum over the radicand, as the booklets print them:
+    # the radicand stays Times text and no √ glyph is left in the CJK body font.
+    assert ('Nimbus' in fonts['5'] or 'Times' in fonts['5']) and '√' not in fonts and 'Droid' in fonts['周']
+    bars = [d for d in page.get_drawings() if any(item[0] == 'l' for item in d['items'])]
+    assert len(bars) >= 4 and not page.get_image_info()  # four radicals, no placeholder left
     chinese = {'subject': '國綜', 'blocks': [{'kind': 'choice', 'id': 'q1', 'number': 1, 'text': '第 3 題', 'columns': 1,
                                               'options': [{'label': '(A)', 'text': '甲 5'}, {'label': '(B)', 'text': '乙'}]}]}
     hb.render(chinese, tmp_path / 'c.pdf', tmp_path / 'c.json', font, asset_root=tmp_path, proof=True)
@@ -241,3 +245,26 @@ def test_math_a_unit_envelope_and_multiple_keys():
     errors = math_form(paper)
     assert any('矩陣與線性變換' in e and '平面向量' in e for e in errors)
     assert any('機率' in e and '上限 3' in e for e in errors)
+
+
+def test_vectors_and_segments_use_typeset_tokens(tmp_path):
+    """Official booklets draw arrows and bars over point names; hosted papers printed 「向量AB」 and 「PQ」."""
+    paper = _paper()
+    paper['questions'][0]['prompt'] = '已知向量AB與向量AC垂直，試問 |AB| 之值為何？'
+    assert any('第1題寫成「向量AB」' in e for e in math_form(paper))
+    paper['questions'][0]['prompt'] = '已知 {{vec:AB}}·{{vec:AC}}＝0，且 {{seg:BC}}＝2√6，試問 2/3 之值為何？'
+    assert not any('第1題寫成' in e for e in math_form(paper))
+    body = tmp_path / 'body.ttf'
+    body.write_bytes(pymupdf.Font('cjk').buffer)
+    spec = {'subject': '數學A', 'booklet_role': 'questions', 'blocks': [
+        {'kind': 'choice', 'id': 'q1', 'number': 1, 'text': paper['questions'][0]['prompt'], 'columns': 5,
+         'options': [{'label': f'({i})', 'text': t} for i, t in enumerate(['−13/21', '2/25', '√2/4', '1/5', '23/10'], 1)]}]}
+    hb.render(spec, tmp_path / 'v.pdf', tmp_path / 'v.json', body, asset_root=tmp_path)
+    page = pymupdf.open(tmp_path / 'v.pdf')[0]
+    words = page.get_text()
+    assert '{{' not in words and '/' not in words and not page.get_image_info()  # stacked, painted, no placeholder left
+    italic = {s['font'] for b in page.get_text('rawdict')['blocks'] for l in b.get('lines', []) for s in l['spans']
+              for c in s['chars'] if c['c'] in {'A', 'B', 'C'}}
+    assert italic and all('Italic' in f for f in italic)
+    xs = sorted(round(w[0]) for w in page.get_text('words') if w[4] in {'(1)', '(2)', '(3)', '(4)', '(5)'})
+    assert xs[0] - min(round(w[0]) for w in page.get_text('words')) == 18  # options start on the stem line

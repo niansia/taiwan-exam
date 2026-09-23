@@ -52,11 +52,12 @@ def test_chinese_options_fill_the_body_width_and_keep_official_pitch(tmp_path):
     page = pymupdf.open(_render(tmp_path, spec))[0]
     rows = _lines(page)
     first_a = next(r for r in rows if r[3].startswith('(A)'))
-    stem = next(r for r in rows if r[3].startswith('下列「」'))
-    body_right = 519  # the 國綜 body rect less the renderer's 4 pt inset
+    stem = next(r for r in rows if '下列「」' in r[3])
+    body_right = 523  # the measured 國綜 body right edge (official margins, no inset)
     # The option's first line runs to the body edge, far past the stem's own width.
     assert first_a[2] >= body_right - 15 and first_a[2] > stem[2] + 150
-    number_two = next(r for r in rows if r[3] == '2.')
+    number_two = next(r for r in rows if r[3].startswith('2.'))
+    assert number_two[1] == 64 and first_a[1] == 82  # number on the margin, options on the stem line (115 measured)
     options = [r for r in rows if r[3][:3] in {'(B)', '(C)', '(D)'} and r[1] < 200 and r[0] < number_two[0]]
     pitches = [b[0] - a[0] for a, b in zip(options, options[1:])]
     assert pitches and all(15 <= p <= 18 for p in pitches), pitches  # official 16-17 pt
@@ -64,6 +65,7 @@ def test_chinese_options_fill_the_body_width_and_keep_official_pitch(tmp_path):
     assert 17 <= number_two[0] - last_option_before[0] <= 22  # official item gap 19-20 pt
     two_abreast = [r for r in rows if r[0] > number_two[0] and r[3].startswith('(')]
     assert {r[0] for r in two_abreast} and len({r[0] for r in two_abreast}) == 2  # two rows of two options
+    assert sorted({r[1] for r in two_abreast}) == [82, 262]  # the official 180 pt tab (261.8)
     assert inspector.narrow_wrap_samples(page, pymupdf.Rect(64, 87, 531, 775)) == []
 
 
@@ -151,8 +153,24 @@ def test_preflight_downloads_the_pinned_serif_font_or_falls_back(tmp_path, monke
     path, record = preflight.body_font(tmp_path)
     assert record['source'] == preflight.BUILTIN_FONT and 'network disabled' in record['serif_download']
     # A matching cached copy is used without any download.
-    cached = tmp_path / 'fonts' / 'NotoSerifTC-Regular.ttf'
+    cached = tmp_path / 'fonts' / 'TW-Sung-98_1.ttf'
     cached.write_bytes(pymupdf.Font('cjk').buffer)
     monkeypatch.setattr(preflight, 'SERIF_FONT_SHA256', preflight.digest(cached))
     path, record = preflight.body_font(tmp_path)
-    assert record['source'] == 'downloaded-noto-serif-tc' and path == cached
+    assert record['source'] == 'downloaded-tw-sung' and path == cached
+
+
+def test_installed_official_faces_come_first(tmp_path, monkeypatch):
+    """A computer with 新細明體 and 標楷體 prints the booklets' own faces; a hosted runtime cannot."""
+    monkeypatch.delenv('TAIWAN_EXAM_NO_LOCAL_FONT', raising=False)
+    ming = tmp_path / 'installed' / 'PMingLiU.ttf'
+    ming.parent.mkdir()
+    ming.write_bytes(pymupdf.Font('cjk').buffer)
+    monkeypatch.setattr(preflight, 'LOCAL_MING_FONTS', (str(ming),))
+    monkeypatch.setattr(preflight, 'LOCAL_KAI_FONTS', (str(tmp_path / 'absent' / 'kaiu.ttf'),))
+    run = tmp_path / 'run'
+    run.mkdir()
+    path, record = preflight.body_font(run)
+    assert record['source'] == 'installed-pmingliu' and path == run / 'fonts' / 'PMingLiU.ttf'
+    assert 'never redistributed' in record['style']
+    assert 'unavailable' in preflight.kai_font_record(run)  # no 標楷體 here and downloads are off in tests
