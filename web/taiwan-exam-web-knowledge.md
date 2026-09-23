@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.19
+# Taiwan Exam Web Knowledge v2026.09.22.20
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -526,10 +526,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 32759,
-    "sha256": "d46119989f1c56a04ed0bf4f2e78786addaeddf2fbd587bb369516449ded364c",
-    "embedded_bytes": 32759,
-    "embedded_sha256": "d46119989f1c56a04ed0bf4f2e78786addaeddf2fbd587bb369516449ded364c"
+    "bytes": 36141,
+    "sha256": "8ff6a127b1f7df276fa4ac6e0e02f7ed0ecdb4ec07efb5f4b46924bf720ee70d",
+    "embedded_bytes": 36141,
+    "embedded_sha256": "8ff6a127b1f7df276fa4ac6e0e02f7ed0ecdb4ec07efb5f4b46924bf720ee70d"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -653,16 +653,16 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/hosted-body-workflow.md",
     "bytes": 16618,
-    "sha256": "dc0774b536f59233efe17d552e11f850b80fc3fba0657ddaac2658b320cbc820",
+    "sha256": "7544f5377dc10d2bfadac4f5c1410869ed5355dc39332ccce16223eb6c2f9766",
     "embedded_bytes": 16618,
-    "embedded_sha256": "dc0774b536f59233efe17d552e11f850b80fc3fba0657ddaac2658b320cbc820"
+    "embedded_sha256": "7544f5377dc10d2bfadac4f5c1410869ed5355dc39332ccce16223eb6c2f9766"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 43616,
-    "sha256": "abedcc9e037d8a96ae8cc6e6f39e056ee27c0d82c5cdaaef37179b2d536713ce",
-    "embedded_bytes": 43616,
-    "embedded_sha256": "abedcc9e037d8a96ae8cc6e6f39e056ee27c0d82c5cdaaef37179b2d536713ce"
+    "bytes": 44741,
+    "sha256": "662c249002eedaeae1cf2a1d66a0ee05f8f2e791bb45736d115bb635c555aff6",
+    "embedded_bytes": 44741,
+    "embedded_sha256": "662c249002eedaeae1cf2a1d66a0ee05f8f2e791bb45736d115bb635c555aff6"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -673,10 +673,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 17335,
-    "sha256": "20e100b5e568e2fd644d2d5676ad4051baf9771ab1f47e6815fae76172d7a926",
-    "embedded_bytes": 17335,
-    "embedded_sha256": "20e100b5e568e2fd644d2d5676ad4051baf9771ab1f47e6815fae76172d7a926"
+    "bytes": 17384,
+    "sha256": "dfdf314709753a98eded798bb6f03c2cbba52cbf248c2e38927a901b2ae872fd",
+    "embedded_bytes": 17384,
+    "embedded_sha256": "dfdf314709753a98eded798bb6f03c2cbba52cbf248c2e38927a901b2ae872fd"
   },
   {
     "path": "references/hosted-run-evidence.md",
@@ -897,10 +897,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
-    "bytes": 15486,
-    "sha256": "87d123bf7b076ad952020704cc809b7d5bf1986d8571eb7f8910a8aca0e0e4bd",
-    "embedded_bytes": 15486,
-    "embedded_sha256": "87d123bf7b076ad952020704cc809b7d5bf1986d8571eb7f8910a8aca0e0e4bd"
+    "bytes": 15317,
+    "sha256": "c74a776b37a941efead3a82df9ad9268afd27422dc42d47c06f0abd2cd2862a0",
+    "embedded_bytes": 15317,
+    "embedded_sha256": "c74a776b37a941efead3a82df9ad9268afd27422dc42d47c06f0abd2cd2862a0"
   },
   {
     "path": "scripts/emit_item_skeleton.py",
@@ -932,10 +932,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 56279,
-    "sha256": "0566657a16f1a2df3f877fbeee63e63eefb58095286fcd76bf7cb77f64d43d55",
-    "embedded_bytes": 56279,
-    "embedded_sha256": "0566657a16f1a2df3f877fbeee63e63eefb58095286fcd76bf7cb77f64d43d55"
+    "bytes": 62092,
+    "sha256": "9be243666937f0b3a2047b970954335dacab222b457e528c7b8880b51fa77b1d",
+    "embedded_bytes": 62092,
+    "embedded_sha256": "9be243666937f0b3a2047b970954335dacab222b457e528c7b8880b51fa77b1d"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -960,10 +960,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_evidence_refresh.py",
-    "bytes": 18672,
-    "sha256": "b452fc270be2331da92b2cec9c6f4a2c2899fe854e139c6418564c954af2ddf9",
-    "embedded_bytes": 18672,
-    "embedded_sha256": "b452fc270be2331da92b2cec9c6f4a2c2899fe854e139c6418564c954af2ddf9"
+    "bytes": 19542,
+    "sha256": "7ac3aba1258446cd5c67f3ab5b50e9ce938ee041267c4bbc83f7ddbf3df88549",
+    "embedded_bytes": 19542,
+    "embedded_sha256": "7ac3aba1258446cd5c67f3ab5b50e9ce938ee041267c4bbc83f7ddbf3df88549"
   },
   {
     "path": "scripts/hosted_item_layout.py",
@@ -974,10 +974,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_item_triage.py",
-    "bytes": 4795,
-    "sha256": "3e4fa36de72365630839d034cdd5030ffd8d00fd0ff561daae64d0b9fff81877",
-    "embedded_bytes": 4795,
-    "embedded_sha256": "3e4fa36de72365630839d034cdd5030ffd8d00fd0ff561daae64d0b9fff81877"
+    "bytes": 4797,
+    "sha256": "5eb332bcdd836371c3da348ada321241d41b609dd98ecaef25ddaab2668aff5e",
+    "embedded_bytes": 4797,
+    "embedded_sha256": "5eb332bcdd836371c3da348ada321241d41b609dd98ecaef25ddaab2668aff5e"
   },
   {
     "path": "scripts/hosted_math_typeset.py",
@@ -988,10 +988,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_run_timing.py",
-    "bytes": 10823,
-    "sha256": "61a086b6ec8a86783b120c032ce3225ca78367021389e6d2a89c8251f55b52ae",
-    "embedded_bytes": 10823,
-    "embedded_sha256": "61a086b6ec8a86783b120c032ce3225ca78367021389e6d2a89c8251f55b52ae"
+    "bytes": 11913,
+    "sha256": "908126857eefb193a02c0d0b0e52e9d05468d0c0aa75b5bfb669015deffb6089",
+    "embedded_bytes": 11913,
+    "embedded_sha256": "908126857eefb193a02c0d0b0e52e9d05468d0c0aa75b5bfb669015deffb6089"
   },
   {
     "path": "scripts/hosted_subject_gates.py",
@@ -1023,10 +1023,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_review.py",
-    "bytes": 28927,
-    "sha256": "2564775ce359d8269b8d22771b9114ab7100ee35841a4a459cb18e3b20f9cce6",
-    "embedded_bytes": 28927,
-    "embedded_sha256": "2564775ce359d8269b8d22771b9114ab7100ee35841a4a459cb18e3b20f9cce6"
+    "bytes": 29203,
+    "sha256": "da01a7d449aeaef6c1ea15795fb33ddde2ad67409fdc2e818a176f0cee633aa6",
+    "embedded_bytes": 29203,
+    "embedded_sha256": "da01a7d449aeaef6c1ea15795fb33ddde2ad67409fdc2e818a176f0cee633aa6"
   },
   {
     "path": "scripts/prepare_hosted_run.py",
@@ -1044,10 +1044,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 91831,
-    "sha256": "cde09c93794bc418f6bea45e7a2c48b9866bb184fba7ac7c01260bfcea16e723",
-    "embedded_bytes": 91831,
-    "embedded_sha256": "cde09c93794bc418f6bea45e7a2c48b9866bb184fba7ac7c01260bfcea16e723"
+    "bytes": 96201,
+    "sha256": "bc37bf65623c89e14991f0bd15eb9b6bb443f706bedb1c28a0c80342800fe0a0",
+    "embedded_bytes": 96201,
+    "embedded_sha256": "bc37bf65623c89e14991f0bd15eb9b6bb443f706bedb1c28a0c80342800fe0a0"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1093,10 +1093,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_english_layout_contract.py",
-    "bytes": 15760,
-    "sha256": "5d2cc1a20a64353d27f3281a3bbc26004897ea42e6765660c55242c1fa78488b",
-    "embedded_bytes": 15508,
-    "embedded_sha256": "0a7bca0a8aa9df030c330b896cdd95c67a66880241fd08e217049d2b983d5d9a"
+    "bytes": 24790,
+    "sha256": "80343c5588af112317bc5d7c6d93de4fbcfe614e73a291b94753d1a7f2e04eac",
+    "embedded_bytes": 24426,
+    "embedded_sha256": "388eb76ec32ed7b63ec77ef2eddfc05a3528821fdb51ac0e9d6083def8f10c9c"
   },
   {
     "path": "scripts/validate_english_vocabulary_scope.py",
@@ -1247,10 +1247,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "templates/hosted-english-questions.json",
-    "bytes": 7407,
-    "sha256": "6f3d2f6e267d6b1d69b88358d9a5e2ef63168ab54f98b3da89cf32311c80179a",
-    "embedded_bytes": 7407,
-    "embedded_sha256": "6f3d2f6e267d6b1d69b88358d9a5e2ef63168ab54f98b3da89cf32311c80179a"
+    "bytes": 9760,
+    "sha256": "929061d2ff0f47deb3276dbb29ccf97450b75974f9e621e1973203eac8589fe3",
+    "embedded_bytes": 9760,
+    "embedded_sha256": "929061d2ff0f47deb3276dbb29ccf97450b75974f9e621e1973203eac8589fe3"
   },
   {
     "path": "templates/hosted-english-solutions.json",
@@ -57736,11 +57736,42 @@ The broad 180–400-word specification is not a license to put every passage nea
   meaning, mean by, idiom), at least one global item (mainly about, purpose, what question, can we
   learn, inferred, how the author develops/concludes) and at most four "which statement is
   true / NOT" detail checks; a booklet of twelve detail checks is not the form.
-- 混合題 47–50 is the same shape every year: a 4-point word-fill or short-answer pair (47–48), one
-  4-point 多選 and one 2-point 簡答; never a 單選.
-- 中譯英 sentences are 18–28 CJK characters each (contract 16–32) on one shared theme.
+- 混合題 is the same shape in 112–115 (111 used the same three task types as 47/48/49):
+  - **「47-48」** is one printed item worth 4 points: a Chinese instruction (找出單詞、視句型結構需要
+    做適當的字形變化、<u>每格限填一個單詞</u>（word）) closed by 「（填充題，4分）」, then one English
+    summary sentence of the material holding the numbered gaps `[[47]]` and `[[48]]`. Save item 47
+    with `number_display: "47-48"`, both instructions and the summary sentence in its `prompt`, and
+    item 48 with `suppress_question_display: true`. Each answer is one word taken from the material,
+    usually with a form change (innovation, blended; 114 entertaining, kept). Not a table lookup.
+  - **49** is 「（多選題，4分）」: which of the lettered cards/posts/options satisfy a condition that
+    needs the whole material. The stem never states how many are right (「which ONES」, not
+    「Choose TWO」).
+  - **50** is 「（簡答題，2分）」 answered with a word or phrase printed in the material that matches
+    a given meaning (one of a kind, does the trick, fostering empathy); 113–115 print one ruled
+    answer line under it. Not an open sentence or explanation.
+  - Official scoring for each blank and 50: 完全正確 2 分；字形或拼字錯誤 1 分；空白或錯誤 0 分.
+  - The whole material prints first; a table, map or card set belongs to the material and prints
+    after its last paragraph, before 47-48. Never split the material with questions.
+  - Never a 單選.
+- 中譯英 sentences are 18–28 CJK characters each (contract 16–32) on one shared theme. They print
+  `1.` in Times and the sentence in 標楷體 at 11 pt, with no score (the 說明 box already says
+  每題4分). Official rubric: 每題4分，原則上每個錯誤扣0.5分，相同的錯誤只扣一次; list the target
+  words and structures, not invented 2+2 semantic-block points.
 - 英文作文 is picture-based every year (兩張圖, emoji, 三張圖, 對比圖, 多張圖); the 提示 is
-  108–174 CJK characters (contract ≤ 220) and the composition item carries `visual_asset`.
+  108–174 CJK characters (contract ≤ 220) and the composition item carries `visual_asset`. The
+  prompt starts with 「提示︰」 (the 說明 box above already says 依提示寫一篇英文作文…; do not add a
+  second 說明 line) and prints in 標楷體 with its lines hanging under the text, with no score. Let
+  the pictures carry the details: 「描述圖片中所呈現的現象」, not a sentence that already tells the
+  student what the two pictures differ in. Official rubric: 依內容、組織、文法句構、字彙拼字整體評分
+  (holistic score); 字數明顯不足扣總分1分，未分段亦扣總分1分 — not an invented 8/4/6/2 split.
+- Measured item-writing floors the contract enforces (111–115, 2026-09-23): at least five cloze
+  items a year offer phrases or structures (had yet to develop, as such, in that, what is more), so
+  a paper needs at least four; vocabulary keys mix nouns, verbs, adjectives and one adverb, so
+  declare `item_spec.target_part_of_speech` on 1–10 (at least three classes, none above five);
+  every word class in the 文意選填 bank has at least two members, so declare
+  `item_spec.bank_parts_of_speech` on item 21 (A–J → adjective, noun, verb-base, verb-past…);
+  the key of at most four reading items is the strictly longest option. Printed passages never
+  say "invented data" or point at "Question 39".
 
 The measured table is `exam_packs/學測/shared-data/subject-form-envelopes-111-115.json`.
 
@@ -57824,7 +57855,7 @@ The internal product profile intentionally keeps the opening section more demand
 - **Text completion:** ten options for ten gaps. Balance part of speech and semantic role so that early placements constrain later ones without reducing the task to suffix matching.
 - **Discourse structure:** each option must have a plausible local attachment; global topic flow, reference chains, chronology, contrast, or cause must resolve the four placements.
 - **Reading:** vary purpose, inference, reference, organization, attitude, vocabulary-in-context, evidence integration, and visual-text synthesis. Do not let every passage end in the same four question templates.
-- **Mixed:** combine at least two response modes and require transformation or synthesis, not sentence copying. Any supplied image, chart, notice, or map must be necessary evidence.
+- **Mixed:** combine at least two response modes and require transformation or synthesis, not sentence copying. Any supplied image, chart, notice, or map must be necessary evidence. The three synthesis items are 47 and 48 (a word from the material transformed to fit a new summary sentence) and 49 (conditions checked across the whole material); 50 locates a phrase by its meaning. None of them is answered by reading one table cell.
 - **Translation and composition:** use separate rubrics and recent official task forms. The composition prompt may use photos or other noncontinuous material; the question booklet does not become a ruled workbook. Student-facing composition directions are written in Traditional Chinese, including the minimum 120-word requirement. English may appear as authentic input, labels, names, or a quoted phrase, but not as a substitute for the Chinese task explanation.
 
 ### Whole-paper difficulty floor
@@ -57967,7 +57998,7 @@ Vocabulary and cloze choices are normally one four-column row. Reading-comprehen
 
 Render real paragraphs as paragraphs. Do not encode a blank source line between every paragraph and then preserve it with `white-space: pre-wrap`; that produces artificial vertical holes. Use one first-line indent, normal inter-paragraph spacing, and measured line height. A deliberate block document (notice, schedule, form, or table) may use compact block spacing without paragraph indentation.
 
-The mixed section may use bordered text cards or visual panels. Grayscale photos and illustrations must pass the evidence-preservation rules in [visual-generation.md](visual-generation.md). The final non-selected page contains translation and composition prompts; do not add answer lines unless the selected official profile shows them in the question booklet.
+The mixed section may use bordered text cards or visual panels. Grayscale photos and illustrations must pass the evidence-preservation rules in [visual-generation.md](visual-generation.md). The final non-selected page contains translation and composition prompts without answer lines; the only ruled line in the booklet is the one under 簡答 50, which the renderer prints for a `short_answer` item in the mixed part.
 
 Pending complete item-level annotation, a full internal English paper must contain at least three answer-bearing visuals across at least two sections and at least two visual kinds. Count the mixed noncontinuous material and a visual composition task only when the questions genuinely depend on them; include at least one further reading or evidence-synthesis visual when those two alone would make the paper visually predictable. All necessary English outside the reference vocabulary envelope must be locally supported. If the visual is removed and the same answer or writing task remains, replace the item rather than treating the picture as decoration.
 
@@ -57978,7 +58009,7 @@ For the verified 115 profile, the following section-level display rules are rele
 - Text completion prints the passage first with ten numbered underlined slots, then exactly ten lettered options for ten gaps. Each option is used once. Do not prepend a worksheet word bank, invent two unused options, or repeat ten `Blank (...)` rows.
 - Discourse structure prints one passage with four numbered underlined slots, followed by five candidate sentences. Do not print the options before the passage or repeat the gaps as standalone questions.
 - An underlined group label such as `第 11 至 15 題為題組` is printed once when the passage begins. Do not add an invented `（續）` label after a page break.
-- A long mixed stimulus should be split at a semantic boundary across the two verified mixed-section pages. Store the complete stimulus for content validation and explicit page segments for rendering; never print all material on the first page and leave only two short questions on the second.
+- A long mixed stimulus simply continues onto the next page at a paragraph boundary; 47-48, 49 and 50 follow the complete material (111–115 print them on the second mixed page). Do not use `group_stimulus_page_splits` to force questions between paragraphs: a hosted paper printed 47 and 48 between the third and fourth paragraphs, and another printed its chart between 47 and 48.
 - If a section heading and its bordered direction line are placed at the bottom of the preceding page in the selected profile, treat that placement as a page contract and do not repeat the heading on the next page.
 - Before release, visually compare every section start, inline blank, option block, underline, paragraph rhythm, passage word count, content-used height, and page transition with the selected official profile. Reject unexplained large lower-page voids; accept planned white space only when the corresponding official page role (large evidence graphic, mixed continuation, or final writing prompt) supports it. A globally plausible English layout is not enough.
 - After PDF export, run `scripts/validate_reference_page_density.py` against the verified official booklet. The mixed section must receive a genuinely useful map, chart, form, notice panel, or other noncontinuous evidence when the matching official page role depends on one; prose alone must not leave the first mixed page half empty.
@@ -59927,7 +59958,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.19/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.20/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -60539,7 +60570,21 @@ later `proof` or `build` copies its pass automatically (`retained_reviews`,
 `status: proof-retained` when nothing is left) and queues only crops whose printed
 content changed or that carry a recorded defect; never open, re-judge or re-record a
 retained crop, and never put an unchanged item into a new proof just to look at it
-again. Moving a figure to another path is not a change: reviews and difficulty
+again. The proof `iteration_budget` counts only proofs whose every item was unchanged
+since an earlier proof (`repeat_proofs`); batch proofs of new or changed items are
+normal and never spend it. Question crops bind only the question record, so
+correcting a solution re-queues only that item's solution crops.
+
+**Settle typography before item proofs.** The first proof covers one item of each
+kind the paper uses (for 英文: one cloze group with its option rows, the 文意選填
+bank, one 篇章 passage, one reading item, the mixed group, translation and
+composition); decide gap underlines, quotation marks, dashes and figure format on
+it. A hosted 英文 run switched from straight to curly quotes and patched the
+renderer three times after item proofs began, which voided three proofs. Never
+edit renderer code during a paper run; if a rendering defect appears, finish with
+the shipped renderer and report the defect.
+
+Moving a figure to another path is not a change: reviews and difficulty
 records key a verified asset by its sha256, not its path. Text-only items are reviewed on
 their page (`review_via: page`), not as crops. A page keeps its review when its
 **body** pixels and item content are unchanged even if the running header's page
@@ -60758,7 +60803,10 @@ On continuation use `--operation resume`; during long reading, solving or
 inspection use `--operation touch` at least every five minutes. These are
 explicit agent steps, not automatic platform callbacks. Abrupt interruptions
 are detected on the next clock call: time beyond the last activity plus ten
-minutes is labelled **estimated waiting**. It may include unrecorded thought.
+minutes is labelled **unobserved**: unrecorded writing or reading and an
+unannounced wait look the same, so it counts as neither work nor waiting. Only an
+explicit `pause` is waiting. While writing passages or groups, `touch` after each
+one so authoring is not reported as unobserved.
 Keep total wall time, estimated activity, recorded tool duration and explicit/
 estimated waits separate. Legacy logs cannot supply exact active time.
 Always continue repairs from the latest returned review state, so unchanged
@@ -61233,18 +61281,19 @@ must not be presented as active solving or inspection. Before a turn ends use
 next turn use `--operation resume`. Every `build`, `proof` and `plan` result
 repeats this as `clock_reminder`. If a turn ends without the pause, the clock
 counts at most the idle threshold (ten minutes) after the last tool event as
-work and labels the rest estimated waiting; report phase time from
+work and labels the rest unobserved; report phase time from
 `phase_seconds` (active only), never by summing intervals that include
-waiting rows. During continuous work record `touch`
+waiting or unobserved rows. During continuous work record `touch`
 at least every five minutes, including reading/solving without file writes.
 These commands refresh the selected state's timing hash. Optional
 `--question-ids`, `--page-numbers`, and `--revision-id` identify repair scope.
 If a turn is abruptly lost, the next timing call labels the portion after the
-last activity plus ten minutes as **estimated waiting**, not known inactivity.
+last activity plus ten minutes as **unobserved**, neither work nor waiting.
 This is lazy detection, not a background monitor or a precise thinking clock.
 Old logs remain unclassified; do not retroactively subtract gaps from them.
 The report separates `wall_seconds`, estimated `agent_active_seconds`,
-`waiting_seconds`, `estimated_waiting_seconds`, `unclassified_seconds`, and
+`waiting_seconds` (explicit pauses only), `unobserved_seconds` (with
+`unobserved_by_phase`), `unclassified_seconds`, and
 `tool_seconds` (only recorded workflow commands, with overlaps counted once).
 No recorded tool time is `null`, not a claim that tools took zero seconds.
 Above 1200 seconds it reports target_met=false and continues QA; the benchmark
@@ -67051,8 +67100,6 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 fields = geometry[parity]
                 # The template prints 「年學測」 in 細明體 as the booklets do; only the Times
                 # digits of the year, page and page count are dynamic (ROC 115 measured).
-                if running_name != '學測':
-                    raise ValueError('The locked 115 header prints 年學測; other running names need their own template')
                 write_field(page, fields["year_name"], str(year), digits, field_size(subject, 'year_name'),
                             align="right", resource=digit_resource)
                 write_field(page, fields["current_page"], str(number), digits, field_size(subject, 'current_page'), resource=digit_resource)
@@ -67922,8 +67969,11 @@ table.material-label {width:auto;margin:2pt 0 4pt} table.material-label td {bord
 p.part {font-size:13pt;margin-bottom:2pt}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .figure {text-align:center} .score {font-size:11pt}
+u {text-decoration:underline} .kai {font-family:Kai,Body}
+p.task {text-align:justify} p.hint {padding-left:28.6pt;text-indent:-28.6pt;text-align:justify}
+p.hang {padding-left:18pt;text-indent:-18pt}
 sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
-.optionlist {margin-left:NUMBER_PITCHpt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
+.optionlist {margin-left:NUMBER_PITCHpt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0;padding-left:18pt;text-indent:-18pt} .optionlist td {padding-bottom:0}
 .passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body} .var {font-family:LatinItalic,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
@@ -67993,8 +68043,8 @@ class RichText(HTMLParser):
         self.stack = []
 
     def handle_starttag(self, tag, attrs):
-        if tag not in {'sup','sub','i','em','b','strong','br'} or attrs:
-            raise ValueError('Use only sup/sub/i/em/b/strong/br without attributes in rich text')
+        if tag not in {'sup','sub','i','em','b','strong','u','br'} or attrs:
+            raise ValueError('Use only sup/sub/i/em/b/strong/u/br without attributes in rich text')
         self.output.append('<'+tag+'>')
         if tag != 'br': self.stack.append(tag)
 
@@ -68013,6 +68063,9 @@ MATH_SUBJECTS = {'數學A', '數學B'}
 LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
 _latin_runs_enabled = False
 _writing_mode = False
+# English booklets (111-115 measured) set every Chinese line inside an item in 標楷體:
+# the 47-48 and 49 directions, 「（多選題，4分）」, the translation sentences and 提示.
+_item_kai = False
 _measure_css = None  # the running booklet's CSS, for measuring option cells
 _math_mode = False
 _typesetter = None
@@ -68080,6 +68133,14 @@ TEXT_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)')
 MATH_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)|(?P<sym>{MATH_SYMBOL})')
 
 
+def unligated(markup):
+    """MuPDF joins f+f/i/l of the Times face into ﬀ ﬁ ﬂ glyphs; the booklets print them
+    apart (no ligature in any 111-115 English text layer), and a ligature breaks search
+    and copy. A lone 「f」 span ends the run the engine would ligate."""
+    parts = re.split(r'(<[^>]+>)', markup)
+    return ''.join(part if part.startswith('<') else re.sub(r'f(?=[fil])', '<span>f</span>', part) for part in parts)
+
+
 def latin_runs(markup):
     """Wrap Latin/digit/radical runs of already-escaped markup in the Latin font, leaving tags alone."""
     parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)  # tags, entities and {{tokens}} stay untouched
@@ -68096,7 +68157,7 @@ def latin_runs(markup):
                 # Variables print italic, as in every mathematics booklet; function
                 # names, words and acronyms stay upright.
                 chunk = identifier_markup(chunk, part, match.start())
-            return f'<span class="latin">{chunk}</span>'
+            return f'<span class="latin">{unligated(chunk)}</span>'
         parts[index] = (MATH_RUNS if _math_mode else TEXT_RUNS).sub(wrap, part)
     return ''.join(parts)
 
@@ -68107,13 +68168,37 @@ def text(value):
         if parser.stack: raise ValueError('Unclosed rich-text tag')
         result = ''.join(parser.output)
         result = math_tokens(result) if _math_mode else result
-        return latin_runs(result) if _latin_runs_enabled else result
+        return kai_runs(latin_runs(result) if _latin_runs_enabled else result)
     if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
     if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
         raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
     result = html.escape(value).replace('\n','<br>')
     result = math_tokens(result) if _math_mode else result
-    return latin_runs(result) if _latin_runs_enabled else result
+    return kai_runs(latin_runs(result) if _latin_runs_enabled else result)
+
+
+CJK_RUN = re.compile('[\u3000-\u303f\u3400-\u9fff\uf900-\ufaff\ufe10-\ufe4f\uff00-\uffef]+')
+# Western punctuation inside an English booklet's items stays in Times: the CJK face
+# draws “ ” ; ? ! and dashes full width.
+WESTERN_PUNCTUATION = re.compile('[\u2018\u2019\u201c\u201d;?!\u2013\u2014\u2026]+')
+
+
+def kai_runs(markup):
+    if not _item_kai:
+        return markup
+    parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)
+    for index, part in enumerate(parts):
+        if part and not part.startswith(('<', '&', '{{')):
+            part = CJK_RUN.sub(lambda m: f'<span class="kai">{m.group(0)}</span>', part)
+            parts[index] = WESTERN_PUNCTUATION.sub(lambda m: f'<span class="latin">{m.group(0)}</span>', part)
+    return ''.join(parts)
+
+
+def gap_markup(content):
+    """Numbered answer gaps: the number in Times inside a 33 pt underline (111-115)."""
+    content = re.sub(r'\{\{gap:(\d{1,2})\}\}', r'<u>　<span class="latin">\1</span>　</u>', content)
+    if '{{gap:' in content: raise ValueError('Invalid passage gap number')
+    return content
 
 
 def rail_image(number, rows):
@@ -68277,13 +68362,21 @@ def _group_label(block):
         return ''
     style = block.get('group_label_style', 'bold')
     if style not in {'bold', 'underline'}: raise ValueError('group_label_style must be bold or underline')
-    return f'<div class="group-label{" underline" if style=="underline" else ""}">{text(block["group_label"])}</div>'
+    global _item_kai
+    kai, _item_kai = _item_kai, False  # 「第 47 至 50 題為題組」 is 明體 (115 measured)
+    try:
+        label = text(block["group_label"])
+    finally:
+        _item_kai = kai
+    return f'<div class="group-label{" underline" if style=="underline" else ""}">{label}</div>'
 
 
 def _fragment_html(block, archive, index, width, font_metric, images, image_heights):
     kind=block.get('kind')
     if kind not in KINDS: raise ValueError('Unknown body block kind')
     head,tail=block.get('_head',True),block.get('_tail',True)
+    global _item_kai
+    _item_kai=_subject=='英文' and kind not in {'section','solution'}
     if kind=='section':
         heading=f'<div class="heading">{heading_markup(block["title"],archive)}</div>'
         # Answer booklets may print a plain part heading; question-booklet
@@ -68306,10 +68399,11 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
                 return _writing_paragraph(value,html.unescape(re.sub('<[^>]+>','',str(plain))))
             # Source lines and option/bank rows are never first-line indented.
             indent=block.get('indent') and not re.match(r'\s*[(（]',str(plain))
+            if re.match(r'\s*\([A-J]\)\s',str(plain)):
+                return '<p class="hang">'+text(value)+'</p>'  # a lettered candidate hangs under its text
             return ('<p class="indent">' if indent else '<p>')+text(value)+'</p>'
         content=''.join(paragraph(p) for p in paragraphs)
-        content=re.sub(r'\{\{gap:(\d{1,2})\}\}',r'<u>　\1　</u>',content)
-        if '{{gap:' in content:raise ValueError('Invalid passage gap number')
+        content=gap_markup(content)
         cls='english' if block.get('language')=='en' else 'writing' if writing else 'passage'
         heading=f'<div class="heading">{text(block["heading"])}</div>' if block.get('heading') and head else ''
         if writing and heading:heading=f'<p class="part">{heading_markup(block["heading"],archive,spacing=0)}</p>'
@@ -68318,10 +68412,16 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             columns=block.get('columns',2)
             if columns not in (1,2,5):raise ValueError('Unsupported option-bank columns')
             if columns==1:
-                content+=''.join('<p>'+text(o['label'])+' '+text(o['text'])+'</p>' for o in bank)
+                # Candidate sentences hang under their text when they wrap.
+                content+=''.join('<p class="hang">'+bank_entry(o)+'</p>' for o in bank)
             else:
-                cells=[f'<td style="width:{100/columns}%">{text(o["label"])} {text(o["text"])}</td>' for o in bank]
-                content+='<table>'+''.join('<tr>'+''.join(cells[i:i+columns])+'</tr>' for i in range(0,len(cells),columns))+'</table>'
+                # PyMuPDF 1.26 ignores cell widths: pad each cell to the official pitch
+                # (the 115 bank tabs every 96 pt from the margin, five abreast).
+                pitch=96 if columns==5 else width/columns
+                cells=[padded_cell(bank_entry(o),pitch,alt=width/columns,wrap='english' if block.get('language')=='en' else '',
+                                   mode='last' if (i+1)%columns==0 or i==len(bank)-1 else '') for i,o in enumerate(bank)]
+                content+=('<table class="options" style="width:auto">'
+                          +''.join('<tr>'+''.join(cells[i:i+columns])+'</tr>' for i in range(0,len(cells),columns))+'</table>')
         return _group_label(block)+heading+f'<div class="{cls}">{content}</div>'
     if kind=='table':
         headers=block.get('headers',[]);rows=block.get('rows',[])
@@ -68333,7 +68433,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     numbered=type(block.get('number')) is int and block['number']>=1
     if kind!='stimulus' and not numbered and not (kind in {'choice','multiple','constructed','solution'} and 'label' in block):
         raise ValueError('Supply a positive integer question number, or a printed label for an unnumbered task')
-    stem=keep_scores_whole(text(block.get('text','')))
+    stem=gap_markup(keep_scores_whole(text(block.get('text',''))))
     if kind=='constructed' and _writing_mode:
         stem=_writing_stem(block)
     if kind=='solution':
@@ -68368,9 +68468,15 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             printed_score=block.get('printed_score',score)
             if not block.get('_score_checked') and not re.search(rf'(?<![0-9.]){printed_score:g}\s*分',html.unescape(re.sub('<[^>]+>','',stem))):
                 raise ValueError('score_in_text requires the printed text to state the actual score')
-        elif tail:
+        elif tail and not block.get('english_task'):
             # The score closes the item text, before any figure or response area.
             stem+=f'<span class="score">（{score:g}分）</span>'
+        if block.get('english_task'):
+            stem=english_task_markup(block,label if head else '',stem)
+    if block.get('answer_line') and tail:
+        # 簡答 50 (113-115): one ruled line of Times underscores across the item column.
+        count=int((width-number_pitch()-8)/5.52)
+        stem+=f'<p style="margin:2pt 0 0 4pt"><span class="latin">{"_"*count}</span></p>'
     figure=block.get('figure') if tail else None
     column=kind in {'choice','multiple','constructed'}
     if figure:
@@ -68395,9 +68501,11 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             # Option-only rows (English cloze): the number shares the first
             # option row so both sit on one baseline.
             wrap='english' if block.get('language')=='en' else ''
+            inners=[f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}' for o in options]
+            columns=english_columns(inners,columns,archive,wrap,width)
             alt=(width-number_pitch())/columns
-            cells=[padded_cell(f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}',option_pitch(columns),alt=alt,wrap=wrap,
-                               mode='last' if (j+1)%columns==0 or j==len(options)-1 else '') for j,o in enumerate(options)]
+            cells=[padded_cell(inner,option_pitch(columns) if columns>2 else alt,alt=alt,wrap=wrap,
+                               mode='last' if (j+1)%columns==0 or j==len(options)-1 else '') for j,inner in enumerate(inners)]
             rows=[''.join(cells[j:j+columns]) for j in range(0,len(cells),columns)]
             result=('<table class="options" style="width:auto">'+''.join(
                 f'<tr>{padded_cell(label if n==0 else "",number_pitch(),wrap=wrap,mode="number")}{row}</tr>'
@@ -68412,8 +68520,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
         else:
             wrap='english' if block.get('language')=='en' else ''
+            columns=english_columns(rows,columns,archive,wrap,width)
             alt=(width-number_pitch())/columns
-            cells=[padded_cell(row,option_pitch(columns),alt=alt,wrap=wrap,
+            cells=[padded_cell(row,option_pitch(columns) if columns>2 or _subject!='英文' else alt,alt=alt,wrap=wrap,
                                mode='last' if (j+1)%columns==0 or j==len(rows)-1 else '') for j,row in enumerate(rows)]
             option_block=(f'<div class="optionlist"><table class="options" style="width:auto">'
                           +''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table></div>')
@@ -68423,6 +68532,8 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         result=stem if figure else numbered_row(label,stem,width)
     elif kind=='stimulus':
         result=_group_label(block)+stem
+    elif kind=='constructed' and block.get('english_task'):
+        result=stem
     elif kind=='constructed' and _writing_mode:
         # 國寫 prints no number column: 「一、」 stands on its own line above the material.
         result=(f'<p class="part">{heading_markup(html.unescape(re.sub("<[^>]+>","",label)),archive,spacing=0)}</p>' if label else '')+stem
@@ -68431,7 +68542,12 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # empty (English cloze option rows print only their number).
         # The 24 pt number column holds "12." or "（一）"; a longer label such
         # as 英文作文 would stack one glyph per line, so it leads the text instead.
-        if len(html.unescape(re.sub('<[^>]+>','',label)))>3:
+        plain_label=html.unescape(re.sub('<[^>]+>','',label))
+        if RANGE_LABEL.fullmatch(plain_label):
+            # 「47-48」 (英文 112-115) prints in Times at the margin; its text hangs 27.9 pt in.
+            result=numbered_row(f'<span class="latin">{html.escape(plain_label)}</span>',stem,width,pitch=27.9)+option_block
+            return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
+        if len(plain_label)>3:
             stem=f'<b>{label}</b>　'+stem;label=''
         result=numbered_row(label,stem,width)+option_block
     return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
@@ -68447,12 +68563,49 @@ def plain_text(value):
         _math_mode = mode
 
 
-def numbered_row(label, stem, width):
+def numbered_row(label, stem, width, pitch=None):
     """Number at the margin, text and options on the measured stem line (18 pt later)."""
+    pitch = pitch or number_pitch()
     if re.fullmatch(r'[\w.()（）]+', html.unescape(re.sub('<[^>]+>', '', label or ''))) and label.isascii():
         label = f'<span class="latin">{label}</span>'
-    return (f'<table><tr>{padded_cell(label, number_pitch(), mode="number")}'
-            f'<td style="width:{width-number_pitch():g}pt">{stem}</td></tr></table>')
+    return (f'<table><tr>{padded_cell(label, pitch, mode="number")}'
+            f'<td style="width:{width-pitch:g}pt">{stem}</td></tr></table>')
+
+
+RANGE_LABEL = re.compile(r'\d{1,2}\s*[-–]\s*\d{1,2}')
+HINT_LABEL = re.compile(r'^((?:<span class="kai">)?)提示[：︰]')
+
+
+def english_columns(inners, columns, archive, wrap, width):
+    """An English row of four whose longest choice overruns its 120 pt tab breaks into two
+    columns of two, as 115 prints 17 (had yet to develop) and 20 (an intimate romantic
+    dinner) with (B) and (D) at the half-width tab."""
+    if _subject != '英文' or columns < 3 or _measure_css is None:
+        return columns
+    widths = [_cell_advance(inner, archive, wrap) for inner in inners]
+    if any(w is None for w in widths):
+        return columns
+    pitch = option_pitch(columns)
+    last = width - number_pitch() - (columns - 1) * pitch  # the right column ends at the margin
+    if all(w <= (last if (j + 1) % columns == 0 else pitch) for j, w in enumerate(widths)):
+        return columns
+    return 2
+
+
+def bank_entry(option):
+    return f'<span class="latin">{html.escape(str(_plain(option["label"])))}\u00a0</span>{text(option["text"])}'
+
+
+def english_task_markup(block, label, stem):
+    """英文 中譯英 and 作文 as 111-115 print them: 「1.」 in Times followed by the 楷體
+    sentence, and 「提示︰」 at 9.96 pt with the prompt hanging under its text. Neither
+    prints a score or a number column."""
+    if block['english_task'] == 'composition':
+        body = HINT_LABEL.sub(lambda m: f'{m.group(1)}<span style="font-size:9.96pt">提示︰</span>', stem, count=1)
+        return f'<p class="hint">{body}</p>' if body != stem else f'<p class="task">{stem}</p>'
+    plain = html.unescape(re.sub('<[^>]+>', '', label or '')).strip()
+    number = f'<span class="latin">{html.escape(plain)}\u00a0</span>' if plain else ''
+    return f'<p class="task">{number}{stem}</p>'
 
 
 def _plain(value):
@@ -69374,6 +69527,15 @@ def referenced_figures(exam):
     return found
 
 
+def _stable_raster(path, dpi=150):
+    """Two fresh rasterizations of the figure's first page give the same pixels."""
+    digests = []
+    for _ in range(2):
+        with pymupdf.open(path) as document:
+            digests.append(hashlib.sha256(document[0].get_pixmap(dpi=dpi, alpha=False).samples).hexdigest())
+    return digests[0] == digests[1]
+
+
 def _colour_share(page):
     box = page.rect
     scale = min(1.0, RASTER_MAX_WIDTH / box.width) if box.width else 1.0
@@ -69493,6 +69655,12 @@ def figure_selfcheck(root, exam, *, asset_issues=None):
                 entry['warnings'].append(f'{share:.0%} of pixels carry colour: the paper prints in grayscale, so the '
                                          'answer-bearing distinction must also be carried by labels, patterns, '
                                          'markers or line styles')
+            if not _stable_raster(path):
+                # A hosted 英文 run learned this at the final check, after two builds:
+                # the booklet page carrying the figure rasterized differently each time,
+                # so its recorded page review could never bind.
+                entry['errors'].append('renders to different pixels on two consecutive rasterizations: re-export it '
+                                       'as a flat PNG (no transparency groups or soft masks) before the first proof')
             try:
                 hits = _label_collisions(page)
             except Exception:
@@ -69845,7 +70013,7 @@ from __future__ import annotations
 
 import re
 
-RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong)>|<br>')
+RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong|u)>|<br>')
 SCRIPT_RUN = re.compile('[₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱ]')
 ASSET_TOKEN = re.compile(r'\{\{asset:[^{}]+\}\}')
 GAP = re.compile(r'\[\[\d+\]\]')
@@ -70265,6 +70433,13 @@ import time
 
 PHASES = {'reference_preflight', 'authoring', 'solving', 'render_repair', 'visual_qa', 'difficulty_qa'}
 IDLE_SECONDS = 600
+# Beyond the idle threshold with no recorded activity the clock cannot tell a long
+# unrecorded stretch of writing from a wait for the user. A hosted 英文 run wrote
+# passages for twenty minutes without a heartbeat and the report called it waiting.
+# Only an explicit pause is waiting; the rest is labelled unobserved.
+UNOBSERVED = 'unobserved'
+GAP_REASON = 'no recorded activity beyond idle threshold: unrecorded work or an unannounced wait'
+UNMEASURED = ('waiting', UNOBSERVED)
 
 
 def finite(value):
@@ -70276,7 +70451,7 @@ def timing_errors(report, paper_id):
     rows = report.get('intervals', [])
     if report.get('paper_id') != paper_id or report.get('active') is not None or report.get('paused'):
         errors.append('timing: wrong paper or unfinished interval')
-    if {r.get('phase') for r in rows if r.get('state') != 'waiting'} != PHASES:
+    if {r.get('phase') for r in rows if r.get('state') not in UNMEASURED} != PHASES:
         errors.append('timing: all six measured phases required')
     previous = None
     for row in rows:
@@ -70286,7 +70461,7 @@ def timing_errors(report, paper_id):
             continue
         if end <= start or (previous is not None and start < previous):
             errors.append('timing: reversed or overlapping intervals')
-        if row.get('state') not in (None, 'active', 'waiting'):
+        if row.get('state') not in (None, 'active', *UNMEASURED):
             errors.append('timing: unknown interval state')
         previous = end
     if not rows:
@@ -70348,8 +70523,8 @@ def transition(path, paper_id, phase=None, *, action=None, question_ids=None,
                 cutoff = active['last_activity'] + active.get('idle_seconds', idle_seconds)
                 if start > cutoff:
                     append(active, cutoff)
-                    append({**active, 'start': cutoff}, start, state='waiting', estimated=True,
-                           reason='no recorded activity beyond idle threshold')
+                    append({**active, 'start': cutoff}, start, state=UNOBSERVED, estimated=True,
+                           reason=GAP_REASON)
                     active['start'] = start
                 active['last_activity'] = max(active['last_activity'], end)
             report['active'] = active
@@ -70360,8 +70535,8 @@ def transition(path, paper_id, phase=None, *, action=None, question_ids=None,
         else:
             append(active, cutoff)
             if cutoff < now:
-                append({**active, 'start': cutoff}, now, state='waiting', estimated=True,
-                       reason='no recorded activity beyond idle threshold')
+                append({**active, 'start': cutoff}, now, state=UNOBSERVED, estimated=True,
+                       reason=GAP_REASON)
             report['active'] = None
     if paused:
         append(paused, now)
@@ -70419,9 +70594,12 @@ def summary(report, tool_events=()):
     if opened and opened.get('last_activity', opened['start']) > opened['start']:
         rows.append({**opened, 'end': opened['last_activity']})
     duration = lambda r: r['end'] - r['start']
-    waiting = sum(duration(r) for r in rows if r.get('state') == 'waiting')
+    # Earlier logs wrote idle gaps as estimated waiting; they are unobserved too.
+    gap = lambda r: r.get('state') == UNOBSERVED or (r.get('state') == 'waiting' and r.get('estimated'))
+    waiting = sum(duration(r) for r in rows if r.get('state') == 'waiting' and not gap(r))
+    unobserved = sum(duration(r) for r in rows if gap(r))
     active = sum(duration(r) for r in rows if r.get('state') == 'active')
-    unknown = max(0, elapsed - active - waiting)
+    unknown = max(0, elapsed - active - waiting - unobserved)
     windows = []
     for event in tool_events:
         if not isinstance(event, dict):
@@ -70441,11 +70619,16 @@ def summary(report, tool_events=()):
             'agent_active_seconds': active if not unknown else None,
             'activity_basis': 'estimated from phase boundaries and activity heartbeats; not CPU or thinking time',
             'waiting_seconds': waiting,
-            'estimated_waiting_seconds': sum(duration(r) for r in rows if r.get('state') == 'waiting' and r.get('estimated')),
+            'waiting_basis': 'explicit pauses only',
+            'unobserved_seconds': unobserved,
+            'unobserved_basis': ('gaps beyond the idle threshold with no recorded activity: unrecorded '
+                                 'authoring/reading or an unannounced wait; not counted as either'),
+            'unobserved_by_phase': {p: sum(duration(r) for r in rows if gap(r) and r['phase'] == p)
+                                    for p in sorted(PHASES) if any(gap(r) and r['phase'] == p for r in rows)},
             'unclassified_seconds': unknown,
             'tool_seconds': tool_seconds if windows else None,
             'tool_coverage': 'recorded workflow commands only; overlapping intervals counted once',
-            'phase_seconds': {p: sum(duration(r) for r in rows if r['phase'] == p and r.get('state') != 'waiting')
+            'phase_seconds': {p: sum(duration(r) for r in rows if r['phase'] == p and r.get('state') not in UNMEASURED)
                               for p in sorted(PHASES)}}
 
 
@@ -71369,8 +71552,12 @@ def canonical_sha(value):
                                      separators=(',', ':')).encode()).hexdigest()
 
 
-def item_hashes(exam):
-    """Authored printable record per question id; a shared stimulus binds its group."""
+def item_hashes(exam, role='solution'):
+    """Authored printable record per question id; a shared stimulus binds its group.
+
+    The question booklet prints no answer, so its crops bind only the question
+    record: correcting a solution never sends a passed question crop back.
+    """
     questions = [q for q in exam.get('questions', []) if isinstance(q, dict)]
     answers = {}
     for answer in exam.get('answers', []) or []:
@@ -71379,7 +71566,8 @@ def item_hashes(exam):
                 {k: v for k, v in answer.items() if k not in REVIEW_ONLY_ANSWER_FIELDS})
     # Asset paths are storage, not print: printable() keys a figure by its bytes.
     records = {q.get('id'): printable({'question': {k: v for k, v in q.items() if k not in REVIEW_ONLY_QUESTION_FIELDS},
-                                       'answers': answers.get(q.get('id'), [])}) for q in questions}
+                                       'answers': answers.get(q.get('id'), []) if role == 'solution' else []})
+               for q in questions}
     result = {}
     for question in questions:
         group = question.get('group_stimulus')
@@ -71661,7 +71849,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     if record(exam_path)!=state['exam']:raise ValueError('Save the current exam hash before preparing review')
     exam=json.loads(exam_path.read_text(encoding='utf-8'))
     subject=exam.get('metadata',{}).get('subject')
-    hashes=item_hashes(exam)
+    hashes={role:item_hashes(exam,role) for role in ('question','solution')}
     paper_hash=paper_print_hash(exam)
     if set(pairs)!={'question','solution'}:raise ValueError('Supply both booklets')
     for paths in pairs.values():
@@ -71690,7 +71878,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             items=crop_items(pdf,layout,output/role/'items')
             scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'},subject=subject,solutions=role=='solution')
             relative_rasters(items['parts']);relative_rasters(scan['pages'])
-            annotate_parts(items['parts'],hashes)
+            annotate_parts(items['parts'],hashes[role])
             page_read[role]=mark_page_reviewed_parts(items['parts'],exam)
             items.update(role=role,render_identity=render_identity,source=record(pdf),paper_print_sha256=paper_hash)
             by_page={}
@@ -73301,7 +73489,8 @@ def build(state_path, question_spec, solution_spec, font, output, *, year,
 
 
 CLOCK_REMINDER = ('Before yielding this turn run `clock --state <latest-state> --operation pause`; '
-                  'an unpaused gap is estimated as waiting only after the idle threshold.')
+                  'while writing or reading run `--operation touch` after each group or passage (at least every '
+                  'five minutes): a gap beyond the idle threshold is reported as unobserved, neither work nor waiting.')
 
 
 ITERATION_BUDGET = {'plan': 3, 'proof': 4, 'build': 2}
@@ -73334,10 +73523,38 @@ def iteration_budget(root, kind, output):
     runs = sorted(p.name for p in root.iterdir() if p.is_dir() and (p / marker).is_file())
     if Path(output).name not in runs:
         runs.append(Path(output).name)
+    if kind == 'proof':
+        return proof_budget(root, runs)
     over = len(runs) > ITERATION_BUDGET[kind]
     return {'kind': kind, 'count': len(runs), 'budget': ITERATION_BUDGET[kind], 'over_budget': over,
             'note': (f'{len(runs)} {kind} runs exceed the budget of {ITERATION_BUDGET[kind]}: stop adjusting hints by eye; '
                      'fix the figure size or split the block once, then run one more') if over else 'within budget'}
+
+
+def proof_budget(root, runs):
+    """Proofs are item batches: a 50-item paper normally needs many. What wastes time is a
+    proof whose every item is unchanged since an earlier proof (a hosted 英文 run counted 31
+    such re-appearances among 82 and read the 4-proof budget as spent). Passed unchanged
+    crops are retained anyway; a repeat proof only re-reads failures that were not fixed."""
+    manifests = []
+    for name in runs:
+        path = root / name / 'proof-manifest.json'
+        if path.is_file():
+            manifests.append((path.stat().st_mtime, name, read(path)))
+    seen, repeats, unchanged = set(), [], 0
+    for _, name, manifest in sorted(manifests):
+        bound = manifest.get('item_sha256') or {}
+        pairs = {(qid, bound.get(qid)) for qid in manifest.get('items') or []}
+        known = {pair for pair in pairs if pair[1] and pair in seen}
+        unchanged += len(known)
+        if pairs and known == pairs:
+            repeats.append(name)
+        seen |= pairs
+    over = len(repeats) > 1
+    return {'kind': 'proof', 'count': len(runs), 'repeat_proofs': repeats, 'unchanged_item_appearances': unchanged,
+            'budget': 'at most one proof of only unchanged items', 'over_budget': over,
+            'note': (f'{len(repeats)} proofs contained no new or changed item: change the item or its layout hint '
+                     'before proofing it again; passed unchanged crops stay passed') if over else 'within budget'}
 
 
 def plan(state_path, question_spec, solution_spec, font, output, *, reading_font=None, compare=None, kai_font=None):
@@ -73455,7 +73672,7 @@ def current_generated_spec(spec, state):
 
 
 OPTION_LAYOUT_COLUMNS = {'row-5': 5, 'row-4': 4, 'grid-3-2': 3, 'grid-2': 2, 'stack': 1}
-RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong)>|<br>')
+RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong|u)>|<br>')
 SUBSCRIPT = '₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎'
 SUPERSCRIPT = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱ'
 SCRIPT_RUN = re.compile(f'([{SUBSCRIPT}]+)|([{SUPERSCRIPT}]+)')
@@ -73466,7 +73683,7 @@ SPLIT_MIN_CHARACTERS = 260
 LATEX_COMMAND = re.compile(r'\\(?:[A-Za-z]+|[()\[\]{}])')
 # A currency amount is the only printed dollar sign: $ directly before a digit.
 TEX_DOLLAR = re.compile(r'\$(?![  ]?\d)')
-MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong)>')
+MARKUP_TAG = re.compile(r'<(/?)(sup|sub|i|em|b|strong|u)>')
 LATEX_SCRIPT = re.compile(r'[A-Za-z0-9)\]]_\{|\^\{|(?<![A-Za-z])[A-Za-z]_[A-Za-z0-9]')
 INVISIBLE_CHARS = re.compile('[⁠﻿​­‌‍]')
 # A leading U+3000 is the customary paragraph indent; one inside a sentence is not.
@@ -73679,7 +73896,7 @@ def printed(value, where, *, english=False, gaps=False):
     if not rich and not RICH_TAG.search(raw):
         converted = converted.replace('\n', '<br>')
     elif not rich:
-        converted = re.sub(r'<(?!/?(?:sup|sub|i|em|b|strong)>|br>)', '&lt;', converted).replace('\n', '<br>')
+        converted = re.sub(r'<(?!/?(?:sup|sub|i|em|b|strong|u)>|br>)', '&lt;', converted).replace('\n', '<br>')
     return {'rich': converted}
 
 
@@ -73781,6 +73998,8 @@ def english_segment(owner, segment, members, where, layout):
         expected = ' '.join(f'{option_label(o["label"])} {o["text"]}' for o in options)
         if row and options and re.sub(r'\s+', ' ', row.group(2)).strip() == re.sub(r'\s+', ' ', expected).strip():
             flush()
+            if blocks and blocks[-1]['kind'] == 'choice':
+                blocks[-1]['keep_with_next'] = True  # 16's options never part from 17-20's
             blocks.append({'kind': 'choice', 'id': member['id'], 'number': member['number'], 'text': '', 'language': 'en',
                            'options': [{'label': option_label(o['label']),
                                         'text': printed(o['text'], where + ' option', english=True)} for o in options],
@@ -73802,6 +74021,7 @@ def english_segment(owner, segment, members, where, layout):
 
 
 HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
+RANGE_DISPLAY = re.compile(r'(\d{1,2})\s*[-–]\s*(\d{1,2})')
 
 
 def project_specs(exam, hints, body_width):
@@ -73879,9 +74099,19 @@ def project_specs(exam, hints, body_width):
             prompt += f'（應選{count}項）'
         if kind == 'fill' and '{{answer}}' not in prompt:
             prompt = prompt.replace('______', '{{answer}}', 1) if '______' in prompt else prompt + '{{answer}}'
-        block = {'kind': kind, 'id': q['id'], 'text': printed(prompt, where + ' prompt', english=english)}
+        block = {'kind': kind, 'id': q['id'], 'text': printed(prompt, where + ' prompt', english=english, gaps=english)}
         if type(number) is int:
             block['number'] = number
+        title = str((sections.get(q.get('section_id')) or {}).get('title') or '')
+        if english and kind == 'constructed':
+            # 英文 111-115 print 中譯英 as 「1.」 plus a 楷體 sentence and 作文 as 「提示︰」,
+            # neither with a score; a hosted paper printed 「（4分）」 and 「（20分）」.
+            if q.get('section_id') == 'translation' or '中譯英' in title:
+                block['english_task'] = 'translation'
+            elif q.get('section_id') == 'composition' or q.get('type') == 'guided_writing' or '作文' in title:
+                block['english_task'] = 'composition'
+            elif q.get('type') == 'short_answer' and '混合' in title:
+                block['answer_line'] = True  # 簡答 50 (113-115) prints one ruled answer line
         label = hint.get('label', q.get('number_display', None if type(number) is int else q.get('answer_label')))
         if label is not None:
             block['label'] = printed(label, where + ' label') if str(label).strip() else ''
@@ -73897,7 +74127,10 @@ def project_specs(exam, hints, body_width):
             block['rows'] = rows
         if kind == 'constructed':
             block['score'] = q.get('score')
-            for printed_score in dict.fromkeys([q.get('score'), totals.get(q.get('number'))]):
+            pair = RANGE_DISPLAY.fullmatch(str(q.get('number_display') or '').strip())
+            pair_total = (sum(totals.get(n, 0) for n in range(int(pair.group(1)), int(pair.group(2)) + 1))
+                          if pair else None)
+            for printed_score in dict.fromkeys([q.get('score'), totals.get(q.get('number')), pair_total]):
                 if type(printed_score) in (int, float) and re.search(rf'(?<![0-9.]){printed_score:g}\s*分', prompt):
                     block['score_in_text'] = True
                     if printed_score != q.get('score'):
@@ -74009,12 +74242,24 @@ def project_specs(exam, hints, body_width):
                     for block in segment_blocks:
                         add(block)
                     # With explicit page segments, the questions printed on a
-                    # segment's page follow that segment.
-                    if page is not None and position < len(segments) - 1:
+                    # segment's page follow that segment. English never interleaves:
+                    # every 111-115 group prints its whole material first (a hosted
+                    # paper printed 47-48 between the third and fourth paragraphs).
+                    if page is not None and position < len(segments) - 1 and not english:
                         for member in members:
                             if member.get('page') == page and not member.get('suppress_question_display'):
                                 emit_question(member)
                                 placed.add(member['id'])
+        if english and group and q.get('visual_asset') and 'group_blocks' not in hint:
+            # The group's chart, table or map closes its material, above the questions;
+            # printed with item 47 it split 47 from 48 in a hosted paper.
+            figure = {'kind': 'stimulus', 'id': q['id'], 'text': ''}
+            attach_assets(figure, q, f'group of {q["id"]}', body_width, hint, figure_key='figure',
+                          position='below', shown=shown)
+            if figure.get('figure'):
+                if blocks and blocks[-1]['kind'] in {'passage', 'stimulus'}:
+                    blocks[-1]['keep_with_next'] = True
+                add(figure)
         for member in members:
             if member['id'] in emitted or (group and member['id'] in placed):
                 continue
@@ -74149,7 +74394,7 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
     assets = inside(root, root / state['template_asset_dir'])
     with pymupdf.open(assets / 'inner-odd-blank.pdf') as template:
         page_size = [template[0].rect.width, template[0].rect.height]
-    hashes = item_hashes(exam)
+    hashes = {role: item_hashes(exam, role) for role in ('question', 'solution')}
     kai_font = Path(kai_font) if kai_font else recorded_kai_font(state_path)
     identity = render_identity(Path(font), Path(reading_font) if reading_font else None, kai_font)
     loaded = []
@@ -74189,7 +74434,7 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
                 path.write_bytes(data)
                 parts.append({**part, 'raster_path': path.relative_to(root).as_posix(),
                               'raster_sha256': hashlib.sha256(data).hexdigest(), 'status': 'pending', 'observations': ''})
-        annotate_parts(parts, hashes)
+        annotate_parts(parts, hashes[role])
         source = {**record(root, body), 'projected': True, 'page_size': page_size}
         # A crop that already passed in an earlier proof or build, for the same authored
         # item and the same printed pixels or primitives, keeps that pass: it is locked,
@@ -74216,7 +74461,10 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             queue.append(image)
             by_item.setdefault(part['id'], []).append((image, {'role': role, 'items': key}))
             notes['items'][key] = pending_note()
-    save(output / 'proof-manifest.json', {'kind': 'hosted-item-proof', 'paper_id': state['paper_id'], 'items': wanted})
+    save(output / 'proof-manifest.json', {'kind': 'hosted-item-proof', 'paper_id': state['paper_id'], 'items': wanted,
+                                          'item_sha256': {qid: canonical_sha([hashes['question'].get(qid),
+                                                                              hashes['solution'].get(qid)])
+                                                          for qid in wanted}})
     save(output / 'observations-template.json', template)
     transition(root / 'generation-timing.json', state['paper_id'], 'visual_qa')
     event(root, 'proof', started, items=wanted)
@@ -74491,7 +74739,9 @@ def main():
     build_parser.add_argument('--font', type=Path, help='Defaults to the body font recorded by the preflight')
     build_parser.add_argument('--year', required=True)
     build_parser.add_argument('--title', default='學科能力測驗模擬試題')
-    build_parser.add_argument('--running-name', default='學測')
+    # Ignored: the locked 115 header prints 「年學測」 for every subject (a hosted 英文 run
+    # passed 英文 and printed 「116年英文」).
+    build_parser.add_argument('--running-name', default='學測', help=argparse.SUPPRESS)
     build_parser.add_argument('--reading-font', type=Path)
     build_parser.add_argument('--kai-font', type=Path, help='Defaults to the kai face recorded by the preflight')
     plan_parser = commands.add_parser('plan', help='Paginate both bodies in seconds; no PDFs, rasters or review state')
@@ -76282,6 +76532,15 @@ READING_DETAIL_MAX = 4                    # official 111–115: 2–4 true/NOT d
 REFERENCE_STEM = re.compile(r"refer to|refers to|closest in meaning|mean by|is used .{0,30}to refer|idiom|which words? .{0,20}(?:used|refer)", re.I)
 GLOBAL_STEM = re.compile(r"mainly about|main purpose|purpose of|what question|can we learn|be inferred|inferred|how does the author|conclude|develop the ideas|best title|field of study", re.I)
 DETAIL_STEM = re.compile(r"\b(?:is|are) (?:true|NOT|not)\b|\bNOT\b", re.I)
+# Measured on ROC 111-115 (2026-09-23 English audit).
+CLOZE_PHRASE_ITEMS_MIN = 4        # 11-20 items whose options are phrases or structures: 5, 6, 6, 5, 7
+READING_LONGEST_KEY_MAX = 4       # 35-46 keys that are the strictly longest option: 0, 2, 0, 0, 4
+VOCABULARY_POS_CLASSES_MIN = 3    # every year keys nouns, verbs, adjectives and one adverb
+VOCABULARY_POS_SHARE_MAX = 5      # no word class keys more than about four of ten
+MIXED_SCORE_LABELS = {47: r"（填充題?，\s*4\s*分）", 49: r"（多選題，\s*4\s*分）", 50: r"（簡答題?，\s*2\s*分）"}
+COUNT_LEAK = re.compile(r"(?i)\b(?:choose|select|pick|which)\s+(?:the\s+)?(?:two|three|four|2|3|4)\b|選出[兩二三四2-4]")
+AUTHORING_LEAK = re.compile(r"(?i)\b(?:invented|fictional|made-up|hypothetical|imaginary)\s+(?:data|figures?|numbers?|trial|survey|study|results?)\b"
+                            r"|\b(?:in|see|pictured in|shown in)\s+Question\s+\d{1,2}\b")
 OFFICIAL_HEADINGS = (
     "第壹部分、選擇題（占62分）", "一、詞彙題（占10分）", "二、綜合測驗（占10分）", "三、文意選填（占10分）",
     "四、篇章結構（占8分）", "五、閱讀測驗（占24分）", "第貳部分、混合題（占10分）",
@@ -76349,8 +76608,15 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         words = len(word_re.findall(stem))
         if stem and not VOCABULARY_STEM_WORDS[0] <= words <= VOCABULARY_STEM_WORDS[1]:
             errors.append(f"英文第{number}題詞彙題幹 {words} 個單詞，官方 111–115 為 13–24 個（允許 {VOCABULARY_STEM_WORDS[0]}–{VOCABULARY_STEM_WORDS[1]}）")
+    answers = {str(a.get("question_id")): a for a in exam.get("answers") or [] if isinstance(a, dict)}
     errors.extend(reading_stem_errors(by_number))
-    errors.extend(mixed_section_errors(by_number))
+    errors.extend(mixed_section_errors(by_number, answers))
+    errors.extend(selection_design_errors(by_number, answers))
+    for question in exam.get("questions") or []:
+        printed = f'{question.get("group_stimulus") or ""}\n{question.get("prompt") or ""}'
+        leak = AUTHORING_LEAK.search(printed)
+        if leak:
+            errors.append(f"英文第{question.get('number')}題印出「{leak.group(0)}」：學生卷不得標示虛構資料或以題號指稱文章內容")
     if not all((by_number.get(number) or {}).get("page") == 3 for number in range(11, 21)):
         errors.append("115英文兩組綜合測驗須依量測版型同置第3頁")
 
@@ -76381,9 +76647,6 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append(f"{label}正文{count}字，不在111–115實卷基準{minimum}–{maximum}字內")
 
     mixed = by_number.get(47) or {}
-    page_splits = mixed.get("group_stimulus_page_splits") or {}
-    if set(page_splits) != {"10", "11"} or "".join(page_splits.values()).strip() == "":
-        errors.append("英文混合題長材料須跨第9至10題本頁分段配置，避免單頁擁塞或次頁大片留白")
     if not mixed.get("visual_asset"):
         errors.append("115英文混合題首段須配置可讀的非連續文本或視覺證據，避免材料頁大面積留白")
 
@@ -76408,6 +76671,10 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append("英文作文題幹須以中文明示英文作文與至少120個單詞")
         if "提示" not in prompt or "第一段" not in prompt or "第二段" not in prompt:
             errors.append("英文作文題幹須依官方格式以中文寫出「提示：…」並指明第一段與第二段的任務")
+        elif not re.match(r"\s*提示[：︰:]", prompt):
+            errors.append("英文作文題幹須以「提示︰」開頭；說明框已印「說明︰依提示寫一篇英文作文…」，不得再加一段說明")
+        if re.search(r"（\s*\d+\s*分）", prompt):
+            errors.append("英文作文提示不印配分；官方 111–115 只在「二、英文作文（占20分）」標題標示")
         if re.match(r"\s*[A-Za-z]", prompt):
             errors.append("英文作文題幹以英文句子開頭；官方提示全文為中文，只有主題詞可附英文")
         if cjk_count > COMPOSITION_PROMPT_CJK_MAX:
@@ -76448,9 +76715,20 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
             errors.append(f"中譯英第{index}句須印為「{index}.」，不是「{label or '（無）'}」；「中譯英1」不是官方題號")
         if re.search(r"[A-Za-z]{3,}", str(question.get("prompt") or "")):
             errors.append(f"中譯英第{index}句題幹須為中文句子")
+        if re.search(r"（\s*\d+\s*分）", str(question.get("prompt") or "")):
+            errors.append(f"中譯英第{index}句不印配分；說明框已寫「每題4分，共8分」")
         cjk = len(re.findall(r"[\u3400-\u9fff]", str(question.get("prompt") or "")))
         if not TRANSLATION_SENTENCE_CJK[0] <= cjk <= TRANSLATION_SENTENCE_CJK[1]:
             errors.append(f"中譯英第{index}句 {cjk} 字，官方 111–115 每句 18–28 字（允許 {TRANSLATION_SENTENCE_CJK[0]}–{TRANSLATION_SENTENCE_CJK[1]}）")
+        record = answers.get(str(question.get("id")))
+        if record and not ("0.5" in json.dumps(record, ensure_ascii=False) and "扣" in json.dumps(record, ensure_ascii=False)):
+            errors.append(f"中譯英第{index}句詳解須用官方評分原則：每題4分，每個錯誤扣0.5分，相同錯誤只扣一次")
+    record = answers.get(str((composition or {}).get("id"))) if composition else None
+    if record:
+        rubric = json.dumps(record, ensure_ascii=False)
+        missing = [word for word in ("內容", "組織", "文法", "句構", "字彙", "拼字") if word not in rubric]
+        if missing:
+            errors.append("英文作文詳解須用官方評分原則：依內容、組織、文法句構、字彙拼字整體評分（字數明顯不足、未分段各扣總分1分），缺 " + "、".join(missing))
     return errors
 
 
@@ -76474,13 +76752,55 @@ def reading_stem_errors(by_number: dict[int, dict]) -> list[str]:
     return errors
 
 
-def mixed_section_errors(by_number: dict[int, dict]) -> list[str]:
-    """混合題 47–50, identical in 111–115: a 4-point word-fill or short-answer pair (47–48),
-    one 4-point 多選 and one 2-point 簡答; never a 單選."""
+def _alternatives(value: Any) -> list[str]:
+    values = value if isinstance(value, list) else re.split(r"\s*(?:/|／|；|;|\bor\b)\s*", str(value or ""))
+    return [re.sub(r"\s+", " ", str(v)).strip(" .“”\"'") for v in values if str(v).strip()]
+
+
+def mixed_section_errors(by_number: dict[int, dict], answers: dict[str, dict] | None = None) -> list[str]:
+    """混合題 as 112–115 print it (111 used the same three task types): 「47-48」 one
+    4-point 填充 item with a Chinese instruction and a summary sentence holding gaps 47
+    and 48, each filled with one word from the material; 49 a 4-point 多選 that never
+    states how many options are right; 50 a 2-point 簡答 answered with a word or phrase
+    from the material. Never a 單選."""
     items = {n: by_number.get(n) for n in range(47, 51)}
     if any(q is None for q in items.values()):
         return []
     errors = []
+    answers = answers or {}
+    first, second, multiple, short = (items[n] for n in range(47, 51))
+    if first.get("prompt"):
+        display = re.sub(r"\s+", "", str(first.get("number_display") or ""))
+        prompt = str(first.get("prompt") or "")
+        if display not in {"47-48", "47–48"}:
+            errors.append("英文混合題第47、48格須合印為一題「47-48」（number_display），官方 112–115 皆同")
+        if "[[47]]" not in prompt or "[[48]]" not in prompt:
+            errors.append("英文「47-48」須以一句摘要句承載 [[47]]、[[48]] 兩個編號底線空格")
+        if not re.search(r"[\u4e00-\u9fff]", prompt) or "單詞" not in prompt:
+            errors.append("英文「47-48」須以中文說明從文章找出單詞、視需要做字形變化，並寫明每格限填一個單詞（word）")
+        if second.get("suppress_question_display") is not True:
+            errors.append("英文第48格印在「47-48」的摘要句內，第48題須設 suppress_question_display")
+        for number in (47, 48):
+            key = answers.get(str(items[number].get("id")))
+            if key and any(len(re.findall(r"[A-Za-z]+", a)) != 1 for a in _alternatives(key.get("final_answer"))):
+                errors.append(f"英文第{number}格答案須為一個英文單詞（官方：每格限填一個單詞）")
+    for number, pattern in MIXED_SCORE_LABELS.items():
+        prompt = str(items[number].get("prompt") or "")
+        if prompt and not re.search(pattern, prompt):
+            label = {47: "（填充題，4分）", 49: "（多選題，4分）", 50: "（簡答題，2分）"}[number]
+            errors.append(f"英文第{number}題題末須印官方題型與配分「{label}」")
+    leak = COUNT_LEAK.search(str(multiple.get("prompt") or ""))
+    if leak:
+        errors.append(f"英文第49題多選題不得寫出應選數量（「{leak.group(0)}」）；官方問 which ONES")
+    if short.get("prompt"):
+        if short.get("type") not in {"short_answer", "constructed_response", "fill_in"}:
+            errors.append("英文第50題須為簡答題")
+        key = answers.get(str(short.get("id")))
+        material = re.sub(r"\s+", " ", str(first.get("group_stimulus") or short.get("group_stimulus") or "")).lower()
+        if key and material:
+            options = _alternatives(key.get("final_answer"))
+            if not any(len(o.split()) <= 6 and o.lower() in material for o in options):
+                errors.append("英文第50題須以文章中的一個單詞或片語作答（官方如 one of a kind、does the trick），不是自由寫句")
     types = {n: str(q.get("type") or "") for n, q in items.items()}
     if any(t == "single_choice" for t in types.values()):
         errors.append("英文混合題 47–50 不得有單選題；官方 111–115 為填充／簡答（4分）、多選（4分）、簡答（2分）")
@@ -76495,6 +76815,48 @@ def mixed_section_errors(by_number: dict[int, dict]) -> list[str]:
             errors.append("英文混合題的多選題須為 4 分")
         if 2 not in scores.values():
             errors.append("英文混合題須有一題 2 分簡答題（官方 111–115 每年為第50題）")
+    return errors
+
+
+def _pos(value: Any) -> str:
+    return re.sub(r"[\s._-]+", "-", str(value or "").strip().lower())
+
+
+def selection_design_errors(by_number: dict[int, dict], answers: dict[str, dict]) -> list[str]:
+    """Measured item-writing floors that keep a paper from being easier than 111–115."""
+    errors = []
+    phrase_items = [n for n in range(11, 21)
+                    if sum(" " in str(o.get("text") or "").strip() for o in (by_number.get(n) or {}).get("options") or []) >= 2]
+    if all((by_number.get(n) or {}).get("options") for n in range(11, 21)) and len(phrase_items) < CLOZE_PHRASE_ITEMS_MIN:
+        errors.append(f"英文綜合測驗只有 {len(phrase_items)} 題以片語或句構為選項；官方 111–115 每年 5–7 題（如 had yet to develop、as such、in that）")
+    longest = []
+    for number in range(35, 47):
+        question = by_number.get(number) or {}
+        key = str((answers.get(str(question.get("id"))) or {}).get("final_answer") or "").strip("()（） ")
+        lengths = {str(o.get("label") or "").strip("()（）"): len(str(o.get("text") or "").strip()) for o in question.get("options") or []}
+        if key in lengths and list(lengths.values()).count(max(lengths.values())) == 1 and lengths[key] == max(lengths.values()):
+            longest.append(number)
+    if len(longest) > READING_LONGEST_KEY_MAX:
+        errors.append(f"英文閱讀測驗 {len(longest)} 題的正解是唯一最長選項（{longest}）；官方 111–115 每年至多 4 題，考生可憑長度猜題")
+    declared = [_pos(((by_number.get(n) or {}).get("item_spec") or {}).get("target_part_of_speech")) for n in range(1, 11)]
+    if all(by_number.get(n) for n in range(1, 11)):
+        if not all(declared):
+            errors.append("英文詞彙題 1–10 須在 item_spec.target_part_of_speech 記錄正解詞性（noun／verb／adjective／adverb）")
+        else:
+            counts = {pos: declared.count(pos) for pos in set(declared)}
+            if len(counts) < VOCABULARY_POS_CLASSES_MIN or max(counts.values()) > VOCABULARY_POS_SHARE_MAX:
+                errors.append(f"英文詞彙題正解詞性 {counts} 過於集中；官方 111–115 每年混合名詞、動詞、形容詞與一個副詞，單一詞性至多約 4 題")
+    bank_owner = by_number.get(21) or {}
+    if bank_owner:
+        bank = ((bank_owner.get("item_spec") or {}).get("bank_parts_of_speech") or {})
+        labels = list("ABCDEFGHIJ")
+        if not isinstance(bank, dict) or sorted(str(k).strip("()") for k in bank) != labels:
+            errors.append("英文文意選填須在第21題 item_spec.bank_parts_of_speech 記錄 (A)–(J) 各選項詞性（如 adjective、noun、verb-base、verb-past）")
+        else:
+            classes = [_pos(v) for v in bank.values()]
+            single = sorted({c for c in classes if classes.count(c) == 1})
+            if single:
+                errors.append(f"英文文意選填選項庫中 {single} 只有一個選項，考生只看詞性就能作答；官方 111–115 每種詞形至少兩個（115：動詞原形、名詞、形容詞各三至四個）")
     return errors
 
 
@@ -81370,7 +81732,11 @@ if __name__ == '__main__':
     },
     {
       "kind": "section",
-      "title": "一、詞彙題",
+      "title": "第壹部分、選擇題（占62分）"
+    },
+    {
+      "kind": "section",
+      "title": "一、詞彙題（占10分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -81399,7 +81765,7 @@ if __name__ == '__main__':
     },
     {
       "kind": "section",
-      "title": "二、綜合測驗",
+      "title": "二、綜合測驗（占10分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -81438,7 +81804,7 @@ if __name__ == '__main__':
     },
     {
       "kind": "section",
-      "title": "三、文意選填",
+      "title": "三、文意選填（占10分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -81496,7 +81862,7 @@ if __name__ == '__main__':
     },
     {
       "kind": "section",
-      "title": "四、篇章結構",
+      "title": "四、篇章結構（占8分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -81534,7 +81900,7 @@ if __name__ == '__main__':
     },
     {
       "kind": "section",
-      "title": "五、閱讀測驗",
+      "title": "五、閱讀測驗（占24分）",
       "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
     },
     {
@@ -81572,13 +81938,13 @@ if __name__ == '__main__':
     },
     {
       "kind": "section",
-      "title": "六、混合題",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+      "title": "第貳部分、混合題（占10分）",
+      "directions": "說明︰本部分共有1題組，每一子題配分標於題末。限在答題卷標示題號的作答區內作答，並以規定用筆作答。"
     },
     {
       "kind": "stimulus",
       "id": "layout-english-mixed",
-      "text": "〔本次新閱讀材料與必要圖表，不能沿用此灰色框〕",
+      "text": "〔本次新閱讀材料全文；表格、地圖或圖卡屬於材料，印在全部段落之後、題目之前〕",
       "assets": {
         "figure": {
           "path": "hosted-body-figure-placeholder.svg",
@@ -81587,43 +81953,97 @@ if __name__ == '__main__':
         }
       },
       "figure": "figure",
-      "figure_position": "right"
+      "figure_position": "below",
+      "group_label": "第 47 至 50 題為題組",
+      "group_label_style": "underline"
     },
     {
       "kind": "constructed",
       "id": "layout-english-response",
-      "number": 47,
-      "text": "〔依新材料進行轉換的填答要求〕",
-      "score": 2
+      "label": "47-48",
+      "score": 4,
+      "score_in_text": true,
+      "text": {
+        "rich": "〔中文作答說明：請從文章中找出兩個單詞，視句型結構需要做字形變化；<u>每格限填一個單詞</u>（word）〕（填充題，4分）<br><br>[A new one-sentence summary of the material with gap {{gap:47}} and gap {{gap:48}}.]"
+      }
+    },
+    {
+      "kind": "multiple",
+      "id": "layout-english-multiple",
+      "number": 49,
+      "language": "en",
+      "columns": 1,
+      "text": "〔From (A) to (E), which ONES …? 不寫出應選數量〕（多選題，4分）",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(E)",
+          "text": "〔本次新選項內容〕"
+        }
+      ]
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-english-short",
+      "number": 50,
+      "score": 2,
+      "score_in_text": true,
+      "answer_line": true,
+      "text": "〔Which phrase in the material means “…”? 答案為文中的一個單詞或片語〕（簡答題，2分）"
     },
     {
       "kind": "section",
-      "title": "七、非選擇題：中譯英與英文作文",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+      "title": "第參部分、非選擇題（占28分）",
+      "directions": "說明︰本部分共有二大題，請依各題指示作答，答案必須寫在「答題卷」標示題號之作答區內，作答時不必抄題。"
+    },
+    {
+      "kind": "section",
+      "title": "一、中譯英（占8分）",
+      "directions": "說明︰依題號將以下中文句子譯成正確、通順、達意的英文。每題4分，共8分。"
     },
     {
       "kind": "constructed",
       "id": "layout-english-translation",
-      "number": 1,
-      "text": "〔本次第一句中譯英題幹〕",
+      "label": "1.",
       "score": 4,
-      "label": "（一）"
+      "english_task": "translation",
+      "text": "〔本次第一句中譯英題幹：18–28 字的中文句子，不印配分〕"
     },
     {
       "kind": "constructed",
       "id": "layout-english-translation2",
-      "number": 2,
-      "text": "〔本次第二句中譯英題幹〕",
+      "label": "2.",
       "score": 4,
-      "label": "（二）"
+      "english_task": "translation",
+      "text": "〔本次第二句中譯英題幹：18–28 字的中文句子，不印配分〕"
+    },
+    {
+      "kind": "section",
+      "title": "二、英文作文（占20分）",
+      "directions": "說明︰依提示寫一篇英文作文，文長至少120個單詞（words）。"
     },
     {
       "kind": "constructed",
       "id": "layout-english-composition",
-      "number": 3,
-      "text": "〔本次作文材料、情境與任務，以繁體中文說明〕；文長至少120個英文單詞。於指定答題卷作答。",
+      "label": "",
       "score": 20,
-      "label": "作文"
+      "english_task": "composition",
+      "text": "提示︰〔本次作文情境與任務，以繁體中文說明，文分兩段；第一段描述圖片可見內容，第二段說明經驗或看法。不印配分〕"
     }
   ]
 }

@@ -16,6 +16,13 @@ import time
 
 PHASES = {'reference_preflight', 'authoring', 'solving', 'render_repair', 'visual_qa', 'difficulty_qa'}
 IDLE_SECONDS = 600
+# Beyond the idle threshold with no recorded activity the clock cannot tell a long
+# unrecorded stretch of writing from a wait for the user. A hosted 英文 run wrote
+# passages for twenty minutes without a heartbeat and the report called it waiting.
+# Only an explicit pause is waiting; the rest is labelled unobserved.
+UNOBSERVED = 'unobserved'
+GAP_REASON = 'no recorded activity beyond idle threshold: unrecorded work or an unannounced wait'
+UNMEASURED = ('waiting', UNOBSERVED)
 
 
 def finite(value):
@@ -27,7 +34,7 @@ def timing_errors(report, paper_id):
     rows = report.get('intervals', [])
     if report.get('paper_id') != paper_id or report.get('active') is not None or report.get('paused'):
         errors.append('timing: wrong paper or unfinished interval')
-    if {r.get('phase') for r in rows if r.get('state') != 'waiting'} != PHASES:
+    if {r.get('phase') for r in rows if r.get('state') not in UNMEASURED} != PHASES:
         errors.append('timing: all six measured phases required')
     previous = None
     for row in rows:
@@ -37,7 +44,7 @@ def timing_errors(report, paper_id):
             continue
         if end <= start or (previous is not None and start < previous):
             errors.append('timing: reversed or overlapping intervals')
-        if row.get('state') not in (None, 'active', 'waiting'):
+        if row.get('state') not in (None, 'active', *UNMEASURED):
             errors.append('timing: unknown interval state')
         previous = end
     if not rows:
@@ -99,8 +106,8 @@ def transition(path, paper_id, phase=None, *, action=None, question_ids=None,
                 cutoff = active['last_activity'] + active.get('idle_seconds', idle_seconds)
                 if start > cutoff:
                     append(active, cutoff)
-                    append({**active, 'start': cutoff}, start, state='waiting', estimated=True,
-                           reason='no recorded activity beyond idle threshold')
+                    append({**active, 'start': cutoff}, start, state=UNOBSERVED, estimated=True,
+                           reason=GAP_REASON)
                     active['start'] = start
                 active['last_activity'] = max(active['last_activity'], end)
             report['active'] = active
@@ -111,8 +118,8 @@ def transition(path, paper_id, phase=None, *, action=None, question_ids=None,
         else:
             append(active, cutoff)
             if cutoff < now:
-                append({**active, 'start': cutoff}, now, state='waiting', estimated=True,
-                       reason='no recorded activity beyond idle threshold')
+                append({**active, 'start': cutoff}, now, state=UNOBSERVED, estimated=True,
+                       reason=GAP_REASON)
             report['active'] = None
     if paused:
         append(paused, now)
@@ -170,9 +177,12 @@ def summary(report, tool_events=()):
     if opened and opened.get('last_activity', opened['start']) > opened['start']:
         rows.append({**opened, 'end': opened['last_activity']})
     duration = lambda r: r['end'] - r['start']
-    waiting = sum(duration(r) for r in rows if r.get('state') == 'waiting')
+    # Earlier logs wrote idle gaps as estimated waiting; they are unobserved too.
+    gap = lambda r: r.get('state') == UNOBSERVED or (r.get('state') == 'waiting' and r.get('estimated'))
+    waiting = sum(duration(r) for r in rows if r.get('state') == 'waiting' and not gap(r))
+    unobserved = sum(duration(r) for r in rows if gap(r))
     active = sum(duration(r) for r in rows if r.get('state') == 'active')
-    unknown = max(0, elapsed - active - waiting)
+    unknown = max(0, elapsed - active - waiting - unobserved)
     windows = []
     for event in tool_events:
         if not isinstance(event, dict):
@@ -192,11 +202,16 @@ def summary(report, tool_events=()):
             'agent_active_seconds': active if not unknown else None,
             'activity_basis': 'estimated from phase boundaries and activity heartbeats; not CPU or thinking time',
             'waiting_seconds': waiting,
-            'estimated_waiting_seconds': sum(duration(r) for r in rows if r.get('state') == 'waiting' and r.get('estimated')),
+            'waiting_basis': 'explicit pauses only',
+            'unobserved_seconds': unobserved,
+            'unobserved_basis': ('gaps beyond the idle threshold with no recorded activity: unrecorded '
+                                 'authoring/reading or an unannounced wait; not counted as either'),
+            'unobserved_by_phase': {p: sum(duration(r) for r in rows if gap(r) and r['phase'] == p)
+                                    for p in sorted(PHASES) if any(gap(r) and r['phase'] == p for r in rows)},
             'unclassified_seconds': unknown,
             'tool_seconds': tool_seconds if windows else None,
             'tool_coverage': 'recorded workflow commands only; overlapping intervals counted once',
-            'phase_seconds': {p: sum(duration(r) for r in rows if r['phase'] == p and r.get('state') != 'waiting')
+            'phase_seconds': {p: sum(duration(r) for r in rows if r['phase'] == p and r.get('state') not in UNMEASURED)
                               for p in sorted(PHASES)}}
 
 

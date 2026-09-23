@@ -37,8 +37,12 @@ def canonical_sha(value):
                                      separators=(',', ':')).encode()).hexdigest()
 
 
-def item_hashes(exam):
-    """Authored printable record per question id; a shared stimulus binds its group."""
+def item_hashes(exam, role='solution'):
+    """Authored printable record per question id; a shared stimulus binds its group.
+
+    The question booklet prints no answer, so its crops bind only the question
+    record: correcting a solution never sends a passed question crop back.
+    """
     questions = [q for q in exam.get('questions', []) if isinstance(q, dict)]
     answers = {}
     for answer in exam.get('answers', []) or []:
@@ -47,7 +51,8 @@ def item_hashes(exam):
                 {k: v for k, v in answer.items() if k not in REVIEW_ONLY_ANSWER_FIELDS})
     # Asset paths are storage, not print: printable() keys a figure by its bytes.
     records = {q.get('id'): printable({'question': {k: v for k, v in q.items() if k not in REVIEW_ONLY_QUESTION_FIELDS},
-                                       'answers': answers.get(q.get('id'), [])}) for q in questions}
+                                       'answers': answers.get(q.get('id'), []) if role == 'solution' else []})
+               for q in questions}
     result = {}
     for question in questions:
         group = question.get('group_stimulus')
@@ -329,7 +334,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
     if record(exam_path)!=state['exam']:raise ValueError('Save the current exam hash before preparing review')
     exam=json.loads(exam_path.read_text(encoding='utf-8'))
     subject=exam.get('metadata',{}).get('subject')
-    hashes=item_hashes(exam)
+    hashes={role:item_hashes(exam,role) for role in ('question','solution')}
     paper_hash=paper_print_hash(exam)
     if set(pairs)!={'question','solution'}:raise ValueError('Supply both booklets')
     for paths in pairs.values():
@@ -358,7 +363,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             items=crop_items(pdf,layout,output/role/'items')
             scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'},subject=subject,solutions=role=='solution')
             relative_rasters(items['parts']);relative_rasters(scan['pages'])
-            annotate_parts(items['parts'],hashes)
+            annotate_parts(items['parts'],hashes[role])
             page_read[role]=mark_page_reviewed_parts(items['parts'],exam)
             items.update(role=role,render_identity=render_identity,source=record(pdf),paper_print_sha256=paper_hash)
             by_page={}

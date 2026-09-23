@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import re
 
-RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong)>|<br>')
+RICH_TAG = re.compile(r'</?(?:sup|sub|i|em|b|strong|u)>|<br>')
 SCRIPT_RUN = re.compile('[₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱ]')
 ASSET_TOKEN = re.compile(r'\{\{asset:[^{}]+\}\}')
 GAP = re.compile(r'\[\[\d+\]\]')

@@ -174,6 +174,11 @@ def test_proof_reviews_carry_into_final_booklets_but_pages_still_need_review(run
     again = workflow.proof(state, *specs, ','.join(q['id'] for q in questions), font, root / 'proof-02')
     assert len(again['review_queue']) == 1 and again['review_batches'][0]['items'] == ['q2']
     assert sum(c['pixel-identical'] + c['vector-equivalent'] for c in again['retained_reviews'].values()) > 0
+    # Only a proof with no new or changed item counts against the budget.
+    assert proof['iteration_budget']['repeat_proofs'] == []
+    assert again['iteration_budget']['repeat_proofs'] == ['proof-02'] and not again['iteration_budget']['over_budget']
+    third = workflow.proof(state, *specs, ','.join(q['id'] for q in questions), font, root / 'proof-03')
+    assert third['iteration_budget']['over_budget'] and third['iteration_budget']['unchanged_item_appearances'] == 2 * len(questions)
     workflow.content_lock(state)
     built = workflow.build(state, *specs, font, root / 'build-v1', year=116)
     assert built['reviews_approved_by_tool'] is False
@@ -234,7 +239,8 @@ def test_changed_item_record_is_not_retained_even_with_identical_pixels(run):
     workflow.content_lock(first_state, reason='test repair')
     repaired = workflow.build(first_state, *specs, font, root / 'build-v2', year=116)
     found = statuses(root, Path(repaired['state']))
-    assert found['question']['q4'] == 'pending' and found['solution']['q4'] == 'pending'
+    # Only the solution changed: the question booklet prints no answer, so its crop stays passed.
+    assert found['solution']['q4'] == 'pending' and found['question']['q4'] == 'pass'
     assert found['question']['q1'] == 'pass'
 
 
@@ -406,6 +412,18 @@ def test_item_hash_ignores_review_metadata_but_binds_printed_group():
     exam['questions'][1]['prompt'] = 'z'
     after = item_hashes(exam)
     assert after['a'] != before['a'] and after['b'] != before['b']
+
+
+def test_question_crops_do_not_bind_the_answer():
+    """Correcting a solution must not send a passed question crop back to review."""
+    exam = {'questions': [{'id': 'a', 'prompt': 'x'}],
+            'answers': [{'question_id': 'a', 'final_answer': '1', 'explanation': 'old'}]}
+    question, solution = item_hashes(exam, 'question'), item_hashes(exam, 'solution')
+    exam['answers'][0]['explanation'] = 'new'
+    assert item_hashes(exam, 'question') == question
+    assert item_hashes(exam, 'solution') != solution
+    exam['questions'][0]['prompt'] = 'y'
+    assert item_hashes(exam, 'question') != question
 
 
 def test_signature_identifies_each_rail_image_among_identical_black_layers(tmp_path):
