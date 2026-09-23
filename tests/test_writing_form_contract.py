@@ -27,6 +27,16 @@ def paper():
             'answers': [{'question_id': q['id'], 'final_answer': '評分說明', 'reasoning': [f'{q["id"]} 評分要點']} for q in questions]}
 
 
+def test_section_title_and_part_labels_follow_the_official_booklets():
+    p = paper()
+    p['sections'][0]['title'] = '國寫非選擇題'
+    p['questions'][0]['number_display'] = '1.'
+    p['questions'][2].pop('number_display')
+    errors = writing_form(p)
+    assert any('非選擇題（共二大題，占50分）' in e for e in errors)
+    assert any("目前 ['1.', '', '<missing>']" in e for e in errors)
+
+
 def test_direction_box_and_ask_lines_follow_the_official_booklets():
     p = paper()
     p['sections'][0]['instructions'] = ['說明：本部分共有二大題，各題配分標於題末。請依各題指示作答，答案必須寫在「答題卷」上。第一大題限作答於答題卷「正面」，第二大題限作答於答題卷「背面」。']

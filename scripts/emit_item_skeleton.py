@@ -60,6 +60,17 @@ def skeleton(subject,number=None,subpart=None,slot_id=None):
     if number is None:
         section=next(s for s in profile['sections'] if s['id']==slot['section_id'])
         question['number_display']=slot.get('printed_label') or section['title']
+    if subject=='國寫':
+        # The official booklet prints 一、／二、 on their own line above each 大題 and no
+        # number column; 問題（二） carries no label. A hosted paper skeleton without these
+        # printed 「1.」「2.」 and headed its solutions 「(1)」「(2)」「第2題」.
+        numeral='一二三'[number-1]
+        if slot.get('subpart_id'):
+            question['number_display']=f'{numeral}、' if ordinal==1 else ''
+            question['answer_label']=f'{numeral}、問題（{"一二三"[ordinal-1]}）'
+        else:
+            question['number_display']=f'{numeral}、'
+            question['answer_label']=f'{numeral}、'
     question.update(prompt=None,group_stimulus=None,visual_asset=None,expected_minutes=None,
                     options=[{'label':str(i),'text':None} for i in range(1,slot.get('option_count',0)+1)])
     design={'band':None,'content_sha256':None,'basis':None,'confidence':None,

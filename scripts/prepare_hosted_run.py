@@ -162,7 +162,8 @@ def authoring_requirements(subject):
         'item_spec.difficulty_design: band, basis, confidence, short_route, misconception, linked_decisions, bottleneck, '
         'expected_minutes, content_sha256 (difficulty-field-contract.md)',
         'item_spec.originality_record: candidate_count>=3, 3 mechanism families, novelty_dimensions>=3, skin_swap_test and '
-        'lexical_screen pass; items of one shared stimulus may set item_spec.inherits_audit_from to the group\'s first item',
+        'lexical_screen pass; items of one shared stimulus, or subparts of one printed number (國寫 問題（二）), may set '
+        'item_spec.inherits_audit_from to the leading item',
         'item_spec.subject_innovation_audit for 國綜/自然/社會 items (candidate_competition_linked, routine rejected, text fields)',
         'any printed material (group_stimulus, long prompt, continuation pages): item_spec.literacy.source_ids naming a real '
         'registered source plus item_spec.source_grounding {status: verified, proposition_map, material_mode/data_mode}; '

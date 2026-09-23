@@ -115,6 +115,18 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
     if not TASK_TWO_MATERIAL_CJK[0] <= cjk_two <= TASK_TWO_MATERIAL_CJK[1]:
         errors.append(f'國寫第二大題材料 {cjk_two} 字，官方 111–115 為 226–443 字（允許 {TASK_TWO_MATERIAL_CJK[0]}–{TASK_TWO_MATERIAL_CJK[1]}）')
 
+    # Printed section title and part labels (all five official years): 非選擇題（共二大題，占50分）
+    # once, then 一、 and 二、 on their own line; never a 「1.」「2.」 number column.
+    sections = [s for s in (exam.get('sections') or []) if isinstance(s, dict)]
+    if sections and '非選擇題（共二大題，占50分）' not in re.sub(r'\s+', '', ''.join(str(s.get('title') or '') for s in sections)).replace('(', '（').replace(')', '）'):
+        errors.append('國寫題本標題須印「非選擇題（共二大題，占50分）」（官方 111–115 逐字相同），不是「國寫非選擇題」之類的自訂標題')
+    labels = [str(q.get('number_display') if q.get('number_display') is not None else '<missing>') for q in task_one] + \
+             [str(task_two[0].get('number_display') if task_two[0].get('number_display') is not None else '<missing>')]
+    expected = ['一、', ''] if len(task_one) == 2 else ['一、']
+    if labels[:len(expected)] != expected or labels[-1] != '二、':
+        errors.append(f'國寫 number_display 須為 一、（問題（一）紀錄）、空字串（問題（二）紀錄）、二、，目前 {labels}；'
+                      '官方以「一、」「二、」獨占一行，沒有「1.」「2.」題號欄')
+
     # The printed 說明 and the two ask lines (all five official years).
     directions = ''.join(str(v) for s in (exam.get('sections') or []) if isinstance(s, dict) for v in (s.get('instructions') or []))
     if exam.get('sections') is not None and _cjk(directions) and re.sub(r'\s+', '', OFFICIAL_DIRECTION) not in re.sub(r'\s+', '', directions):

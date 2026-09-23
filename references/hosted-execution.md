@@ -422,7 +422,11 @@ re-open every page.
   to the serif when that download fails. Authors never choose fonts.
 - 國寫 prints 12 pt on a 20 pt line (111–115 measured): 「一、」「二、」 on their own
   line, materials indented two characters, 「請分項回答下列問題：」 at the margin,
-  問題（一）／（二） with a six-character hanging indent, and no number column.
+  問題（一）／（二） with a six-character hanging indent, and no number column. The
+  skeleton sets `number_display` 一、／''／二、 and solution labels 一、問題（一）／
+  一、問題（二）／二、; the contract refuses 「1.」「2.」 labels and a section title other
+  than 非選擇題（共二大題，占50分）. 問題（二） may inherit the leading record's audits
+  (`inherits_audit_from`) because it shares the printed number.
 - Leading is measured per subject: 國綜, 國寫 and 英文 print 11 pt on a 1.5 line
   (16–17 pt option pitch, 19–20 pt between items, as the official booklets),
   社會 and 自然 on 1.6, mathematics on 1.65 for scripts. A 國綜 paper that runs
