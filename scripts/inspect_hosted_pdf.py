@@ -53,7 +53,8 @@ def writing_font_role_samples(doc, body_box=None) -> list[dict]:
         lines = [line for block in page.get_text("dict")["blocks"] for line in block.get("lines", [])
                  if body.contains(pymupdf.Rect(line["bbox"]))]
         for line in sorted(lines, key=lambda l: (round(l["bbox"][1]), l["bbox"][0])):
-            text = "".join(s["text"] for s in line["spans"]).strip()
+            # Letter-spaced headings extract with spaces (「一 、」); compare compacted text.
+            text = "".join("".join(s["text"] for s in line["spans"]).split())
             if not text or WRITING_LABEL.match(text):
                 continue
             if text.startswith(("說明", "説明")):  # a kai subset may map 說 to its 説 variant

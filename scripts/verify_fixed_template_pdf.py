@@ -44,6 +44,16 @@ def field_pixels(page, box):
                            colorspace=pymupdf.csGRAY).samples
 
 
+# Running-header digits and each booklet's footer page number, ROC 115 measured.
+RUNNING_FOOTER_PT = {"國綜": 10.08, "國寫": 11.04, "英文": 9.96, "數學A": 10.02, "數學B": 10.02, "社會": 9.96, "自然": 10.98}
+RUNNING_HEADER_PT = 11.04
+
+
+def field_size(subject, key):
+    """Dynamic digits at the official size: 11 pt header numbers, the booklet's footer size."""
+    return RUNNING_FOOTER_PT[subject] if key == 'footer' else RUNNING_HEADER_PT
+
+
 def expected_counter(box, text, size):
     # Compare rendered digits. PDF text extraction can include invisible text
     # outside a clipped Form XObject, including the formula's original header.
@@ -115,7 +125,7 @@ def verify_pdf(pdf: Path, subject: str, kind: str, asset_dir: Path | None = None
                         text = ''.join(page.get_textbox(pymupdf.Rect(box)).split())
                         expected = str(total) if key == 'total_pages' else str(number)
                         wrong = (not text or field_pixels(page,box)==field_pixels(base,box)) if key == 'year_name' else (
-                            field_pixels(page,box) != expected_counter(box,expected,8 if key=='footer' else 10))
+                            field_pixels(page,box) != expected_counter(box,expected,field_size(subject,key)))
                         if wrong:
                             findings.append('incorrect-dynamic-' + key)
                 formula = math_formula and index == len(doc)-1

@@ -19,7 +19,7 @@ import pymupdf
 
 from fetch_hosted_template_assets import DEFAULT_MAP, PRODUCTION_COMPONENTS, verify
 from inspect_hosted_pdf import rail_collision_samples
-from verify_fixed_template_pdf import verify_pdf, masked_pixels
+from verify_fixed_template_pdf import verify_pdf, masked_pixels, field_size
 
 # Only whole CJK body fonts are this large; fixed-template fonts are small subsets.
 LARGE_FONT_PROGRAM = 1_000_000
@@ -230,11 +230,15 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 else:
                     page.show_pdf_page(page.rect, body_doc, index)
                 fields = geometry[parity]
-                write_field(page, fields["year_name"], f"{year}年{running_name}", font, 10,
-                            align="right" if parity == "odd" else "left", resource=font_resource)
-                write_field(page, fields["current_page"], str(number), digits, 10, resource=digit_resource)
-                write_field(page, fields["total_pages"], str(total), digits, 10, resource=digit_resource)
-                write_field(page, fields["footer"], str(number), digits, 8, resource=digit_resource)
+                # The template prints 「年學測」 in 細明體 as the booklets do; only the Times
+                # digits of the year, page and page count are dynamic (ROC 115 measured).
+                if running_name != '學測':
+                    raise ValueError('The locked 115 header prints 年學測; other running names need their own template')
+                write_field(page, fields["year_name"], str(year), digits, field_size(subject, 'year_name'),
+                            align="right", resource=digit_resource)
+                write_field(page, fields["current_page"], str(number), digits, field_size(subject, 'current_page'), resource=digit_resource)
+                write_field(page, fields["total_pages"], str(total), digits, field_size(subject, 'total_pages'), resource=digit_resource)
+                write_field(page, fields["footer"], str(number), digits, field_size(subject, 'footer'), resource=digit_resource)
                 masks = [*fields.values(), geometry["body"]]
                 if component not in base_pixels:
                     base_pixels[component] = masked_pixels(assets[component][0], masks)

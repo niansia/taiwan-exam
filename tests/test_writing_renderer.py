@@ -88,7 +88,7 @@ def test_writing_geometry_matches_the_official_booklets(tmp_path, fonts):
 def test_writing_stem_classifies_paragraphs():
     html_out = hb._writing_stem({'text': spec()['blocks'][1]['text']})
     assert html_out.count('<p class="material indent">') == 2
-    assert '<table class="material-label"><tr><td>甲</td></tr></table>' in html_out
+    assert '<table class="material-label"><tr><td class="optcell" data-pitch="18.00"' in html_out and '>甲</td>' in html_out
     assert '<p class="plain">請分項回答下列問題：</p>' in html_out
     assert html_out.count('<p class="hanging">') == 1
     essay = hb._writing_stem({'text': spec()['blocks'][3]['text']})

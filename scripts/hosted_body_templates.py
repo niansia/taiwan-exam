@@ -17,6 +17,7 @@ import time
 
 import pymupdf
 from fetch_hosted_template_assets import DEFAULT_MAP
+from hosted_math_typeset import Typesetter, math_tokens, identifier_markup
 from hosted_density import page_void_limit
 from hosted_item_layout import draw_rail
 
@@ -60,17 +61,17 @@ BODY_SIZE_PT = {'國寫': 12}
 CSS_TEMPLATE = '''
 @font-face {font-family:Body;src:url(body-font.ttf)}
 * {box-sizing:border-box} body {font-family:Body;font-size:BODY_SIZEpt;line-height:LINE_HEIGHT;margin:0;color:#000;background:transparent}
-p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;width:100%;margin:0} td {padding:0 4pt CELL_PADpt 0;vertical-align:baseline}
+p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;border-spacing:0;width:100%;margin:0} td {padding:0 4pt CELL_PADpt 0;vertical-align:baseline}
 td.figure {vertical-align:top}
-.direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3;font-family:Kai,Body}
+.direction {border:0.6pt solid black;padding:3pt DIR_RIGHTpt 3pt DIR_PADpt;text-indent:-DIR_INDENTpt;font-size:DIR_SIZEpt;line-height:1.3;font-family:Kai,Body}
 .material {font-family:Kai,Body} p.hanging {padding-left:6em;text-indent:-6em;text-align:justify} p.plain {text-indent:0}
-table.material-label {width:18pt;margin:2pt 0 4pt} table.material-label td {border:0.6pt solid black;padding:0;text-align:center;line-height:1.4}
+table.material-label {width:auto;margin:2pt 0 4pt} table.material-label td {border:0.6pt solid black;padding:0;line-height:1.4}
 p.part {font-size:13pt;margin-bottom:2pt}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
-.number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
+.figure {text-align:center} .score {font-size:11pt}
 sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
-.optionlist {margin-left:28pt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
-.passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body}
+.optionlist {margin-left:NUMBER_PITCHpt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0} .optionlist td {padding-bottom:0}
+.passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body} .var {font-family:LatinItalic,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
@@ -83,9 +84,40 @@ def typography(subject):
 
 def subject_css(subject):
     line_height, cell_pad, p_margin, options_top, _ = typography(subject)
+    direction = DIRECTION_SIZE_PT.get(subject, 12)
+    pad_left, indent, pad_right = DIRECTION_BOX_PT.get(subject, (5 + 3 * direction, 3 * direction, 5))
     return (CSS_TEMPLATE.replace('LINE_HEIGHT', f'{line_height:g}').replace('CELL_PAD', f'{cell_pad:g}')
             .replace('P_MARGIN', f'{p_margin:g}').replace('OPTIONS_TOP', f'{options_top:g}')
-            .replace('BODY_SIZE', f'{BODY_SIZE_PT.get(subject, 11):g}'))
+            .replace('BODY_SIZE', f'{BODY_SIZE_PT.get(subject, 11):g}')
+            .replace('DIR_PAD', f'{pad_left:g}').replace('DIR_INDENT', f'{indent:g}').replace('DIR_RIGHT', f'{pad_right:g}')
+            .replace('DIR_SIZE', f'{direction:g}').replace('NUMBER_PITCH', f'{number_pitch(subject):g}'))
+
+
+# Item geometry measured on the ROC 115 booklets of every subject: the number sits
+# at the body margin and the stem and every option start 18 pt later (自然 19.5);
+# option columns tab at 90 pt (five abreast), 120 (four), 150 (three) and 180 (two),
+# 自然 2 pt narrower. Part headings are 13 pt, letter-spaced and stroke-bold; the
+# bordered 說明 hangs its continuation lines under the text after 「說明：」 and
+# breaks before the sentences the booklets start on a new line.
+_subject = None  # the booklet being rendered; set by render()
+NUMBER_PITCH_PT = {'自然': 19.5}
+HEADING_SPACING_PT = {'國綜': 2.15, '國寫': 4.56, '英文': 4.56, '社會': 4.56, '數學A': 2.0, '數學B': 2.0, '自然': 2.4}
+HEADING_SIZE_PT = {'數學A': 13.02, '數學B': 13.02, '自然': 13.02}
+DIRECTION_SIZE_PT = {}
+# 國寫 115 condenses the first 說明 paragraph to an 11.4 pt advance so its 41 characters
+# fill line one up to 「答題卷」 and the box edge; the second paragraph is plain 12 pt.
+# Text starts 5.2 pt inside the box and continuation lines hang at 40 pt.
+DIRECTION_BOX_PT = {'國寫': (39.4, 34.8, 0)}   # padding-left, hanging indent, padding-right
+DIRECTION_BREAKS = re.compile(r'。(?=作答使用筆尖|選擇（填）題與|選擇題與「非選擇題|選擇題使用)')
+
+
+def number_pitch(subject=None):
+    return NUMBER_PITCH_PT.get(subject if subject is not None else _subject, 18.0)
+
+
+def option_pitch(columns, subject=None):
+    pitch = 30 * (8 - columns) if 2 <= columns <= 5 else 0
+    return pitch - (2 if (subject if subject is not None else _subject) == '自然' else 0)
 
 
 def item_gap_pt(subject):
@@ -129,6 +161,8 @@ LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9�
 _latin_runs_enabled = False
 _writing_mode = False
 _measure_css = None  # the running booklet's CSS, for measuring option cells
+_math_mode = False
+_typesetter = None
 WRITING_TASK_LINE = re.compile(r'^\s*問題[（(]')
 WRITING_ASK_LINE = re.compile(r'^\s*請.{0,14}問題[：:]\s*$')
 WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
@@ -165,7 +199,7 @@ def _writing_stem(block):
 def _writing_paragraph(piece, plain):
     plain = plain.strip()
     if WRITING_MATERIAL_LABEL.match(plain):
-        return f'<table class="material-label"><tr><td>{text(piece)}</td></tr></table>'
+        return f'<table class="material-label"><tr>{padded_cell(text(piece), 18, mode="center")}</tr></table>'
     if WRITING_ASK_LINE.match(plain):
         cls = 'plain'
     elif WRITING_TASK_LINE.match(plain):
@@ -182,6 +216,17 @@ def _writing_paragraph(piece, plain):
     return f'<p class="{cls}">{markup}</p>'
 
 
+MATH_SYMBOL = r'[−+=×÷±≤≥()\[\]αβγδθλμσφωπ·°]'
+# A Latin run keeps the spaces inside and around it, so an English sentence stays one
+# Times span. Spaces take the Times width everywhere: a CJK face such as 全字庫正宋體
+# draws U+0020 a full em wide, which opened 「為 2/3」 and 「sin x」 like a tab.
+LATIN_SPACED = rf'[ \u00a0]*(?:{LATIN_RUN.pattern})(?:[ \u00a0]+(?:{LATIN_RUN.pattern}))*[ \u00a0]*'
+TEXT_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)')
+# Mathematics also sets operators, brackets and Greek letters standing between CJK text
+# in Times, as the booklets do (the CJK face drew a full-width 「−」).
+MATH_RUNS = re.compile(rf'(?P<run>{LATIN_SPACED})|(?P<space>[ \u00a0]+)|(?P<sym>{MATH_SYMBOL})')
+
+
 def latin_runs(markup):
     """Wrap Latin/digit/radical runs of already-escaped markup in the Latin font, leaving tags alone."""
     parts = re.split(r'(<[^>]+>|&[a-z#0-9]+;|\{\{[^{}]*\}\})', markup)  # tags, entities and {{tokens}} stay untouched
@@ -191,7 +236,15 @@ def latin_runs(markup):
         # Escaped markup printed literally (&lt;script&gt;) stays one visible token.
         if (index and parts[index - 1] == '&lt;') or (index + 1 < len(parts) and parts[index + 1] == '&gt;'):
             continue
-        parts[index] = LATIN_RUN.sub(lambda m: f'<span class="latin">{m.group(0)}</span>', part)
+
+        def wrap(match, part=part):
+            chunk = match.group(0)
+            if match.lastgroup == 'run' and _math_mode:
+                # Variables print italic, as in every mathematics booklet; function
+                # names, words and acronyms stay upright.
+                chunk = identifier_markup(chunk, part, match.start())
+            return f'<span class="latin">{chunk}</span>'
+        parts[index] = (MATH_RUNS if _math_mode else TEXT_RUNS).sub(wrap, part)
     return ''.join(parts)
 
 
@@ -200,11 +253,13 @@ def text(value):
         parser = RichText(); parser.feed(value['rich']); parser.close()
         if parser.stack: raise ValueError('Unclosed rich-text tag')
         result = ''.join(parser.output)
+        result = math_tokens(result) if _math_mode else result
         return latin_runs(result) if _latin_runs_enabled else result
     if not isinstance(value, str): raise ValueError('Text must be a string or {rich: inline HTML}')
     if re.search(r'\\(?:frac|sqrt|begin|\()|\$\$', value):
         raise ValueError('Render complex math to a verified inline asset; do not print raw LaTeX')
     result = html.escape(value).replace('\n','<br>')
+    result = math_tokens(result) if _math_mode else result
     return latin_runs(result) if _latin_runs_enabled else result
 
 
@@ -245,7 +300,7 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
     """
     images={};image_heights={}
     # Numbered blocks print beside a 28pt number column plus cell padding.
-    column_width=width-32 if block.get('kind') in {'choice','multiple','constructed','solution'} else width
+    column_width=width-number_pitch()-4 if block.get('kind') in {'choice','multiple','constructed','solution'} else width
     for key,asset in block.get('assets',{}).items():
         path=(asset_root/asset['path']).resolve()
         if not path.is_relative_to(asset_root.resolve()): raise ValueError('Asset outside current run')
@@ -281,6 +336,8 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
     for key,image in images.items():
         content=content.replace(html.escape('{{asset:'+key+'}}'),image)
     if '{{asset:' in content:raise ValueError('Missing inline asset')
+    if _typesetter is not None:
+        content=_typesetter.tokens(content,archive)
     return _pad_option_cells(content,archive)
 
 
@@ -290,15 +347,23 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
 # shrank each cell to its text, so a hosted 數A printed 「(1) 6 (2) 8 (3) 9」 run
 # together. Padding is honored by every version: each cell's natural advance is
 # measured in the running engine with the booklet's CSS and padded to the pitch.
-OPTION_CELL = re.compile(r'<td class="optcell" data-pitch="([0-9.]+)" data-wrap="(\w*)">(.*?)</td>', re.S)
+OPTION_CELL = re.compile(r'<td class="optcell" data-pitch="([0-9.]+)" data-alt="([0-9.]+)" data-wrap="(\w*)" data-mode="(\w*)">(.*?)</td>', re.S)
+OPTION_TABLE = re.compile(r'<table class="options" style="width:auto">.*?</table>', re.S)
 OPTION_MARK = 'QZXJ'
 _cell_advances = {}
+
+
+def padded_cell(inner, pitch, *, alt=None, wrap='', mode=''):
+    """A cell the renderer pads to a measured pitch (every PyMuPDF version honours padding)."""
+    return (f'<td class="optcell" data-pitch="{pitch:.2f}" data-alt="{(alt or pitch):.2f}" data-wrap="{wrap}" '
+            f'data-mode="{mode}">{inner}</td>')
 
 
 def _mark_positions(page, html_text, top, archive):
     page.insert_htmlbox(pymupdf.Rect(0, top, 3000, top + 180), html_text, css=_measure_css,
                         archive=archive, **HTML_OPTIONS)
-    return sorted(w[0] for w in page.get_text('words') if w[4] == OPTION_MARK and top <= w[1] < top + 180)
+    # search_for, not words: a CJK option ending 「」」 joins the marker into one word.
+    return sorted(r.x0 for r in page.search_for(OPTION_MARK) if top <= r.y0 < top + 180)
 
 
 def _cell_advance(inner, archive, wrap=''):
@@ -317,15 +382,40 @@ def _cell_advance(inner, archive, wrap=''):
 
 
 def _pad_option_cells(content, archive):
-    def cell(match):
-        pitch, wrap, inner = float(match.group(1)), match.group(2), match.group(3)
-        advance = _cell_advance(inner, archive, wrap) if _measure_css is not None else None
-        if advance is None:
+    """Pad every marked cell to its pitch; an option table keeps the official pitch only if all its options fit."""
+    def advance(match):
+        return _cell_advance(match.group(5), archive, match.group(3)) if _measure_css is not None else None
+
+    def cell(match, pitch=None):
+        official, alt, mode, inner = float(match.group(1)), float(match.group(2)), match.group(4), match.group(5)
+        pitch = pitch or official
+        width = advance(match)
+        if width is None:
             return f'<td style="width:{pitch - 4:g}pt">{inner}</td>'
+        if mode == 'center':
+            side = max(0, (pitch - (width - 4)) / 2)
+            return f'<td style="padding:0 {side:.2f}pt 0 {side:.2f}pt">{inner}</td>'
+        fits = ';white-space:nowrap' if width <= pitch else ''
+        # PyMuPDF 1.28 also honours a content width: it gives the content half a point of
+        # room, since a box exactly as wide as its text wrapped a stacked fraction under
+        # its label. 1.26 ignores the width and lays the padded cell out exactly.
+        if mode == 'last':
+            return f'<td style="padding-right:4pt;width:{width - 3:.2f}pt{fits}">{inner}</td>'
         # Half a point of slack, and an option that fits its pitch never wraps: the
         # engine otherwise shrank a nearly full row and broke 「(B) donation」 in two.
-        fits = ';white-space:nowrap' if advance <= pitch else ''
-        return f'<td style="padding-right:{max(4, 4 + pitch - advance - .5):.2f}pt{fits}">{inner}</td>'
+        room = f';width:{width - 3.5:.2f}pt' if width <= pitch else ''
+        return f'<td style="padding-right:{max(4, 4 + pitch - width - .5):.2f}pt{room}{fits}">{inner}</td>'
+
+    def table(match):
+        cells = [m for m in OPTION_CELL.finditer(match.group(0)) if m.group(4) != 'number']
+        widths = [advance(m) for m in cells]
+        official = {float(m.group(1)) for m in cells}
+        fits = all(w is not None and w <= float(m.group(1)) for m, w in zip(cells, widths)
+                   if m.group(4) != 'last')
+        chosen = None if fits else max((float(m.group(2)) for m in cells), default=None)
+        return OPTION_CELL.sub(lambda m: cell(m, None if m.group(4) == 'number' else chosen), match.group(0))
+
+    content = OPTION_TABLE.sub(table, content)
     return OPTION_CELL.sub(cell, content)
 
 
@@ -342,11 +432,15 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if kind not in KINDS: raise ValueError('Unknown body block kind')
     head,tail=block.get('_head',True),block.get('_tail',True)
     if kind=='section':
-        heading=f'<div class="heading">{text(block["title"])}</div>'
+        heading=f'<div class="heading">{heading_markup(block["title"],archive)}</div>'
         # Answer booklets may print a plain part heading; question-booklet
         # directions stay explicit and are never invented here.
         if 'directions' not in block:return heading
-        return heading+f'<div class="direction">{text(block["directions"])}</div>'
+        notes=DIRECTION_BREAKS.sub("。<br>",plain_text(block["directions"]))
+        if _subject=='國寫' and '<br>' in notes:
+            first,rest=notes.split('<br>',1)
+            notes=f'<span style="font-size:11.4pt">{first}</span><br>{rest}'
+        return heading+f'<div class="direction">{notes}</div>'
     if kind=='passage':
         paragraphs=block.get('paragraphs',[])
         if not paragraphs:raise ValueError('Passage needs actual paragraphs')
@@ -365,7 +459,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         if '{{gap:' in content:raise ValueError('Invalid passage gap number')
         cls='english' if block.get('language')=='en' else 'writing' if writing else 'passage'
         heading=f'<div class="heading">{text(block["heading"])}</div>' if block.get('heading') and head else ''
-        if writing and heading:heading=f'<p class="part">{text(block["heading"])}</p>'
+        if writing and heading:heading=f'<p class="part">{heading_markup(block["heading"],archive,spacing=0)}</p>'
         bank=block.get('bank',[]) if tail else []
         if bank:
             columns=block.get('columns',2)
@@ -433,10 +527,10 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             if kind=='fill':raise ValueError('Fill figures use below placement; keep answer rails in paragraph flow')
             if block['assets'][figure]['width_pt']>180:raise ValueError('Right-hand figure exceeds reserved column')
             # Numbered items keep their hanging number column beside the pair.
-            text_width=width-189-(28 if column else 0)
+            text_width=width-189-(number_pitch() if column else 0)
             stem=f'<table><tr><td style="width:{text_width:g}pt">{stem}</td><td style="width:185pt" class="figure">{image_box}</td></tr></table>'
         elif kind=='fill':
-            stem=f'<p style="margin-left:28pt;text-indent:-28pt">{label}　{stem}</p><div class="figure">{image_box}</div>'
+            stem=numbered_row(label,stem,width)+f'<div class="figure">{image_box}</div>'
         else:stem+=f'<div class="figure">{image_box}</div>'
     option_block=''
     if kind in {'choice','multiple'} and tail:
@@ -448,32 +542,37 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             # Option-only rows (English cloze): the number shares the first
             # option row so both sit on one baseline.
             wrap='english' if block.get('language')=='en' else ''
-            cells=[f'<td class="optcell" data-pitch="{(width-28)/columns:.2f}" data-wrap="{wrap}">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
+            alt=(width-number_pitch())/columns
+            cells=[padded_cell(f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}',option_pitch(columns),alt=alt,wrap=wrap,
+                               mode='last' if (j+1)%columns==0 or j==len(options)-1 else '') for j,o in enumerate(options)]
             rows=[''.join(cells[j:j+columns]) for j in range(0,len(cells),columns)]
-            result=('<table class="options" style="width:auto">'+''.join(f'<tr><td class="number">{label if n==0 else ""}</td>{row}</tr>'
-                                                     for n,row in enumerate(rows))+'</table>')
+            result=('<table class="options" style="width:auto">'+''.join(
+                f'<tr>{padded_cell(label if n==0 else "",number_pitch(),wrap=wrap,mode="number")}{row}</tr>'
+                for n,row in enumerate(rows))+'</table>')
             return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
         # Never nest the option table inside the stem cell: MuPDF's HTML engine
         # shrank that nested table to the stem's width in a hosted runtime, so a
         # 國綜 booklet wrapped every option at 40% of the page. Options print as a
         # sibling block: paragraphs for one column, a top-level table otherwise.
-        rows=[f'{html.escape(str(o["label"]))} {text(o["text"])}' for o in options]
+        rows=[f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}' for o in options]
         if columns==1:
             option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
         else:
             wrap='english' if block.get('language')=='en' else ''
-            cells=[f'<td class="optcell" data-pitch="{(width-28)/columns:.2f}" data-wrap="{wrap}">{row}</td>' for row in rows]
+            alt=(width-number_pitch())/columns
+            cells=[padded_cell(row,option_pitch(columns),alt=alt,wrap=wrap,
+                               mode='last' if (j+1)%columns==0 or j==len(rows)-1 else '') for j,row in enumerate(rows)]
             option_block=(f'<div class="optionlist"><table class="options" style="width:auto">'
                           +''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table></div>')
     if kind=='solution':
         result=(f'<div class="heading">{label}</div>' if head else '')+stem
     elif kind=='fill':
-        result=stem if figure else f'<p style="margin-left:28pt;text-indent:-28pt">{label}　{stem}</p>'
+        result=stem if figure else numbered_row(label,stem,width)
     elif kind=='stimulus':
         result=_group_label(block)+stem
     elif kind=='constructed' and _writing_mode:
         # 國寫 prints no number column: 「一、」 stands on its own line above the material.
-        result=(f'<p class="part">{label}</p>' if label else '')+stem
+        result=(f'<p class="part">{heading_markup(html.unescape(re.sub("<[^>]+>","",label)),archive,spacing=0)}</p>' if label else '')+stem
     else:
         # An explicit stem width keeps option rows full width when the stem is
         # empty (English cloze option rows print only their number).
@@ -481,8 +580,41 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # as 英文作文 would stack one glyph per line, so it leads the text instead.
         if len(html.unescape(re.sub('<[^>]+>','',label)))>3:
             stem=f'<b>{label}</b>　'+stem;label=''
-        result=f'<table><tr><td class="number">{label}</td><td style="width:{width-28:g}pt">{stem}</td></tr></table>'+option_block
+        result=numbered_row(label,stem,width)+option_block
     return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
+
+
+def plain_text(value):
+    """Instructions: Latin runs in Times but no variable italics or typeset fractions (「2B鉛筆」)."""
+    global _math_mode
+    mode, _math_mode = _math_mode, False
+    try:
+        return text(value)
+    finally:
+        _math_mode = mode
+
+
+def numbered_row(label, stem, width):
+    """Number at the margin, text and options on the measured stem line (18 pt later)."""
+    if re.fullmatch(r'[\w.()（）]+', html.unescape(re.sub('<[^>]+>', '', label or ''))) and label.isascii():
+        label = f'<span class="latin">{label}</span>'
+    return (f'<table><tr>{padded_cell(label, number_pitch(), mode="number")}'
+            f'<td style="width:{width-number_pitch():g}pt">{stem}</td></tr></table>')
+
+
+def _plain(value):
+    raw = value['rich'] if isinstance(value, dict) else str(value)
+    return html.unescape(re.sub(r'<[^>]+>', '', raw))
+
+
+def heading_markup(value, archive, spacing=None):
+    """Part headings as the booklets set them: 13 pt, letter-spaced, stroke-bold."""
+    plain = _plain(value).strip()
+    if _typesetter is None or archive is None or not plain or '\n' in plain or '{{' in plain:
+        return text(value)
+    size = HEADING_SIZE_PT.get(_subject, 12.96)
+    gap = HEADING_SPACING_PT.get(_subject, 2.0) if spacing is None else spacing
+    return _typesetter.heading(plain, size, gap, archive)
 
 
 def _units(block):
@@ -529,16 +661,22 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         raise ValueError('Placeholder gallery IDs cannot become production questions')
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
-    global _latin_runs_enabled, _writing_mode, _measure_css
+    global _latin_runs_enabled, _writing_mode, _measure_css, _math_mode, _typesetter, _subject
     # Official booklets set digits and Latin letters in Times for every subject
     # (國綜, 社會, 自然, 英文 and 數學 all measured); the CJK face keeps the CJK glyphs.
     _latin_runs_enabled = True
     _writing_mode = spec['subject'] == '國寫'
+    _math_mode = spec['subject'] in {'數學A', '數學B'}
+    _subject = spec['subject']
+    _typesetter = Typesetter(font, size=BODY_SIZE_PT.get(spec['subject'], 11))
     allowed=pymupdf.Rect(subject['overlay_geometry_pt']['body'])
-    body=allowed+(4,4,-4,-4)
+    # Text starts on the measured official margins (the number of item 1 at x 63.8).
+    body=allowed+(.05,4,-.3,-4)
     archive=pymupdf.Archive();archive.add((font.read_bytes(),'body-font.ttf'))
     archive.add((pymupdf.Font('tiro').buffer,'latin-font.ttf'))
-    css=subject_css(spec['subject'])+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
+    archive.add((pymupdf.Font('tiit').buffer,'latin-italic.ttf'))
+    css=(subject_css(spec['subject'])+'\n@font-face {font-family:Latin;src:url(latin-font.ttf)}'
+         '\n@font-face {font-family:LatinItalic;src:url(latin-italic.ttf)}')
     if reading_font:
         archive.add((reading_font.read_bytes(),'reading-font.ttf'))
         css+='\n@font-face {font-family:Reading;src:url(reading-font.ttf)}'
@@ -584,6 +722,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         if spare<0 or scale!=1:
             prepared[key]=(content,0,math.inf)
             return prepared[key]
+        # Fractions, radicals, accents and headings reserved in the flow are painted
+        # now, at the positions the engine gave their placeholders.
+        sample=_typesetter.paint(sample,content)
         native=sample.get_text('dict')['blocks']
         for text_block in sample.get_text('rawdict')['blocks']:
             for line in text_block.get('lines',[]):

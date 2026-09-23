@@ -45,15 +45,23 @@ class TemplateUnavailable(ValueError):
 
 
 BUILTIN_FONT = 'pymupdf-builtin-droid-sans-fallback'
-# Hosted runtimes rarely carry a Traditional Chinese serif face, and official
-# booklets are set in 明體. The same fixed-URL route as the PyMuPDF wheel
-# fetches a static Noto Serif TC Regular (SIL OFL 1.1) before falling back to
-# the built-in sans-serif; the download is verified against a pinned digest.
-SERIF_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-noto-serif-tc-1/'
-                  'NotoSerifTC-Regular.ttf')
-SERIF_FONT_SHA256 = '08cfd4736956f3edd4270e86f009c049cce3a44a9a297b13a66dbec96a66fda8'
-SERIF_FONT_BYTES = 10001820
-SERIF_FONT_TIMEOUT = 40
+# The official booklets set their body in 新細明體 (PMingLiU) and their 說明 boxes and
+# 國寫 materials in 標楷體 (DFKai-SB). Those Microsoft-supplied fonts may be used on a
+# computer that has them (the PDF embeds only the glyphs it prints, as their embedding
+# permission allows) but never redistributed, so a hosted runtime without them fetches
+# the Ministry of Digital Affairs' 全字庫正宋體／正楷體 (OFL 1.1), the closest free faces:
+# thin 明體／楷體 drawn in the same Ministry of Education standard forms.
+LOCAL_MING_FONTS = ('C:/Windows/Fonts/mingliu.ttc', '~/AppData/Local/Microsoft/Windows/Fonts/mingliu.ttc',
+                    '/Library/Fonts/Microsoft/PMingLiU.ttf', '/Library/Fonts/PMingLiU.ttf',
+                    '/usr/share/fonts/truetype/msttcorefonts/mingliu.ttc')
+LOCAL_KAI_FONTS = ('C:/Windows/Fonts/kaiu.ttf', '~/AppData/Local/Microsoft/Windows/Fonts/kaiu.ttf',
+                   '/Library/Fonts/Microsoft/DFKai-SB.ttf', '/Library/Fonts/kaiu.ttf',
+                   '/usr/share/fonts/truetype/msttcorefonts/kaiu.ttf')
+SERIF_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-tw-sung-1/'
+                  'TW-Sung-98_1.ttf')
+SERIF_FONT_SHA256 = '9a3b74fe1a69fe1b3470b5ed780bf678c42a25cef93a13f280a5f31f795f0c56'
+SERIF_FONT_BYTES = 35320040
+SERIF_FONT_TIMEOUT = 120
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
 # The kai face for 說明 boxes (every subject) and 國寫 reading materials: 全字庫正楷體
@@ -223,11 +231,14 @@ def body_font(run_dir, requested=None):
     install one. PyMuPDF, already required here, ships Droid Sans Fallback with
     full CJK coverage, so a missing or incomplete font never stops a paper.
     """
-    # Fixed typography for every subject: the pinned Traditional Chinese serif
-    # (明體-style Noto Serif TC) for CJK and Times for digits and Latin letters,
-    # as in the official booklets. A supplied font is used only when the pinned
-    # serif cannot be obtained; the built-in sans-serif is the last resort.
+    # Fixed typography for every subject: 新細明體 where this computer has it, else the
+    # pinned 全字庫正宋體, for CJK, and Times for digits and Latin letters, as in the
+    # official booklets. A supplied font is used only when neither can be obtained;
+    # the built-in sans-serif is the last resort.
     note = None
+    installed = local_font(run_dir, LOCAL_MING_FONTS, 'PMingLiU', 'PMingLiU.ttf', FIELD_TEXT)
+    if installed is not None:
+        return installed
     serif, serif_note = downloaded_serif_font(run_dir)
     if serif is not None:
         path, record = serif
@@ -252,9 +263,42 @@ def body_font(run_dir, requested=None):
     return target, record
 
 
+def local_font(run_dir, candidates, face, target_name, text):
+    """(path, record) for an installed official face copied into this run, or None.
+
+    Only on a computer that already has the font; tests and hosted runtimes set
+    TAIWAN_EXAM_NO_LOCAL_FONT or simply have no such file.
+    """
+    if os.environ.get('TAIWAN_EXAM_NO_LOCAL_FONT'):
+        return None
+    for candidate in candidates:
+        source = Path(candidate).expanduser()
+        if not source.is_file():
+            continue
+        target = run_dir / 'fonts' / target_name
+        try:
+            target.parent.mkdir(exist_ok=True)
+            if source.suffix.lower() == '.ttc':
+                from fontTools.ttLib import TTCollection
+                chosen = next(f for f in TTCollection(str(source)).fonts if f['name'].getDebugName(4) == face)
+                chosen.save(str(target))
+            else:
+                target.write_bytes(source.read_bytes())
+            font = pymupdf.Font(fontfile=str(target))
+            if any(not font.has_glyph(ord(c)) for c in text):
+                continue
+        except Exception:  # missing fontTools, an unexpected collection or an unreadable file
+            continue
+        return target, {'path': target.relative_to(run_dir).as_posix(), 'source': 'installed-' + face.lower(),
+                        'sha256': digest(target), 'installed_at': str(source),
+                        'style': f'{face}, the face the official booklets use, installed on this computer; '
+                                 'used here only and never redistributed (the PDF embeds the printed glyphs)'}
+    return None
+
+
 def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOUT):
-    """((path, record), None) for the pinned Noto Serif TC body font, or (None, why not)."""
-    target = run_dir / 'fonts' / 'NotoSerifTC-Regular.ttf'
+    """((path, record), None) for the pinned 全字庫正宋體 body font, or (None, why not)."""
+    target = run_dir / 'fonts' / 'TW-Sung-98_1.ttf'
     if os.environ.get('TAIWAN_EXAM_NO_FONT_DOWNLOAD') and not target.is_file():
         return None, 'serif font download disabled by TAIWAN_EXAM_NO_FONT_DOWNLOAD; the built-in sans-serif face was used'
     if not (target.is_file() and digest(target) == SERIF_FONT_SHA256):
@@ -275,15 +319,18 @@ def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOU
             return None, 'downloaded serif font lacks field glyphs; the built-in sans-serif face was used'
     except Exception as exc:  # MuPDF raises its own error types
         return None, f'downloaded serif font unusable ({exc}); the built-in sans-serif face was used'
-    record = {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-noto-serif-tc',
+    record = {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-tw-sung',
               'sha256': SERIF_FONT_SHA256, 'url': url,
-              'style': 'serif Traditional Chinese (Noto Serif TC Regular, SIL Open Font License 1.1), '
-                       'the same family as the published layout previews'}
+              'style': '明體 Traditional Chinese (全字庫正宋體 TW-Sung, Ministry of Digital Affairs, SIL Open Font '
+                       'License 1.1), the closest free face to the booklets\' 新細明體'}
     return (target, record), None
 
 
 def kai_font_record(run_dir, url=KAI_FONT_URL, timeout=KAI_FONT_TIMEOUT):
     """Record of the pinned kai face, or why the serif body face stands in for it."""
+    installed = local_font(run_dir, LOCAL_KAI_FONTS, 'DFKai-SB', 'kaiu.ttf', KAI_TEXT)
+    if installed is not None:
+        return installed[1]
     target = run_dir / 'fonts' / 'TW-Kai-98_1.ttf'
     fallback = ('the 說明 boxes print in the serif body face instead of 楷體, and a 國寫 question booklet fails '
                 'the final writing-font-role check until a 楷體 TTF is passed as --kai-font')

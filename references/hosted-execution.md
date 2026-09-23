@@ -419,17 +419,27 @@ re-open every page.
   than 60% of the body is refused until resized, and a key that differs from the
   planned position in `paper-plan.json` is listed as `answer_position_drift`.
 - Typography is fixed for all seven subjects (國綜、國寫、英文、數學A、數學B、社會、自然), as in the official booklets: CJK in the
-  pinned Traditional Chinese serif (明體-style Noto Serif TC, downloaded by the
-  preflight; a supplied font is used only when that download fails, the built-in
-  sans-serif is the last resort) and digits, Latin letters and √ in the Times-like
-  Latin face. The bordered 說明 box of every subject and the 國寫 reading materials
-  print in the pinned 楷體 face (全字庫正楷體 TW-Kai, the preflight's second download,
-  recorded as `kai_font`; the official booklets set them in 標楷體), falling back
+  booklets' 新細明體 where the computer has it, otherwise the pinned 全字庫正宋體
+  (TW-Sung, downloaded by the preflight; a supplied font is used only when both are
+  unavailable, the built-in sans-serif is the last resort) and digits, Latin letters
+  and √ in the Times-like Latin face. The bordered 說明 box of every subject and the
+  國寫 reading materials print in 標楷體 where installed, otherwise the pinned 全字庫正楷體
+  (TW-Kai, the preflight's second download, recorded as `kai_font`), falling back
   to the serif when that download fails. A 國寫 question booklet cannot take that
   fallback: the final checker reads the embedded fonts and blocks materials or a
   說明 box set in 明體 (`writing-font-role`), whether the materials sit in a stem or
   a passage block. When the download is blocked, ask for a 楷體 TTF and pass it as
   `--kai-font`. Authors never choose fonts.
+- Official form is produced by the renderer, not by authors: the number on the body
+  margin with stem and options 18 pt later, options tabbed at the official 90/120/150/180
+  pt pitch, letter-spaced stroke-bold part headings, a hanging 說明 box with the
+  booklets' line breaks, and (數學A／數學B) stacked fractions, radicals with a vinculum,
+  italic variables and `{{vec:AB}}`／`{{seg:AB}}` accents from plain `2/3`, `√6`
+  (current-gsat-math-form.md). The pinned PyMuPDF 1.26.0 ignores every table width,
+  so cells are padded to measured widths; never add hand-tuned spaces or hint columns
+  to line things up. The fixed running header is the 115 one: 11 pt 細明體 with Times
+  digits, 「年學測」 locked in the template and only the year, page and page-count digits
+  filled in.
 - 國寫 prints 12 pt on a 20 pt line (111–115 measured): 「一、」「二、」 on their own
   line, materials indented two characters, 「請分項回答下列問題：」 at the margin,
   問題（一）／（二） with a six-character hanging indent, and no number column. The
@@ -444,10 +454,10 @@ re-open every page.
 - Every composed booklet carries the creator stamp `taiwan-exam-generator/
   compose_hosted_pdf`; `check_hosted_run.py` refuses a PDF without it, so a
   body typeset by any other tool cannot be delivered.
-- The preflight downloads a Traditional Chinese serif body font (Noto Serif TC
-  Regular, OFL 1.1, pinned digest) from this project's GitHub Release when the
-  runtime has none, and only then falls back to the built-in sans-serif; the
-  font record says which happened.
+- The preflight copies an installed 新細明體／標楷體 into the run, or downloads
+  全字庫正宋體／正楷體 (OFL 1.1, pinned digests) from this project's GitHub Releases, and
+  only then falls back to the built-in sans-serif; the font record says which
+  happened. Microsoft's faces are used only where installed, never redistributed.
 - A task label longer than three characters (`中譯英`, `英文作文`, `第一段`)
   leads the text; only plain numbers and `(1)`-style subparts sit in the number
   column. Give each subpart its own `number_display`/`answer_label`; `specs`

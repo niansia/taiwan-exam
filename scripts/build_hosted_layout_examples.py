@@ -8,7 +8,7 @@ from pathlib import Path
 import time
 
 from hosted_body_templates import render
-from compose_hosted_pdf import compose
+from compose_hosted_pdf import compose, compact_fonts
 from fetch_hosted_template_assets import DEFAULT_MAP, ROOT
 from inspect_hosted_pdf import audit
 from hosted_item_layout import crop_items
@@ -38,7 +38,7 @@ def render_index(records):
     return '\n'.join(page)+'\n'
 
 
-def build(output, work, font, reading_font=None):
+def build(output, work, font, reading_font=None, kai_font=None):
     if output.exists() or work.exists():raise ValueError('Use fresh preview and work directories')
     manifest=json.loads((ROOT/'templates/hosted-subject-layouts.json').read_text(encoding='utf-8'))
     assets=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))['subjects']
@@ -54,12 +54,15 @@ def build(output, work, font, reading_font=None):
                 raise ValueError('Wrong-subject or non-placeholder preview input')
             stem=row['slug']+'-'+role
             body=work/(stem+'-body.pdf');layout_path=work/(stem+'-layout.json')
-            layout=render(spec,body,layout_path,font,asset_root=spec_path.parent,proof=True,reading_font=reading_font)
+            layout=render(spec,body,layout_path,font,asset_root=spec_path.parent,proof=True,reading_font=reading_font,
+                          kai_font=kai_font)
             asset_row=next(a for a in assets if a['subject']==row['subject'])
             asset_dir=ROOT/Path(asset_row['assets'][0]['repository_path']).parent
             pdf=output/(stem+'.pdf')
             composition=compose(row['subject'],body,asset_dir,pdf,year='116',title='版型示範',
                                 running_name='學測',font_path=font,kind='questions' if role=='questions' else 'answers')
+            # Keep only the glyphs each preview prints, as delivered booklets do.
+            pdf.write_bytes(compact_fonts(pdf.read_bytes())[0])
             final_layout=bind_layout(body,pdf,layout,1 if role=='questions' else 0)
             items=crop_items(pdf,final_layout,work/stem/'crops')
             scan=audit(pdf,work/stem/'pages',math=row['subject'] in {'數學A','數學B'})
@@ -82,5 +85,6 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('output','work','font'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--reading-font',type=Path)
-    a=p.parse_args();r=build(a.output,a.work,a.font,a.reading_font)
+    p.add_argument('--kai-font',type=Path)
+    a=p.parse_args();r=build(a.output,a.work,a.font,a.reading_font,a.kai_font)
     print(json.dumps({'subject_count':len(r['subjects']),'pdf_count':14,'build_seconds':r['build_seconds']},ensure_ascii=False))

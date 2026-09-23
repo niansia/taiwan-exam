@@ -141,9 +141,11 @@ def test_answer_rail_remains_next_to_equation_at_actual_text_height(rows,prefix,
         assert abs((rail.y0+rail.y1-text_box.y0-text_box.y1)/2)<5
         # Conditions follow at the same readable line; they are not compressed
         # into a narrow third table column or displaced above the answer rail.
-        suffix=next(pymupdf.Rect(s['bbox']) for s in spans if '化為' in s['text'])
-        assert suffix.x0>=rail.x1-.1
-        assert abs(suffix.y0-text_box.y0)<.1
+        suffix_span=next(s for s in spans if '化為' in s['text'])
+        assert pymupdf.Rect(suffix_span['bbox']).x0>=rail.x1-.1
+        # Same baseline: 「=」 prints in Times, 化為 in the CJK face, so their boxes differ in height.
+        equals=next(s for s in spans if '=' in s['text'])
+        assert abs(suffix_span['origin'][1]-equals['origin'][1])<.1
 
 
 RICH_SCRIPTS=[

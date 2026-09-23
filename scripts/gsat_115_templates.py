@@ -17,6 +17,9 @@ ROOT = Path(__file__).resolve().parents[1]
 PACK_ROOT = ROOT / "exam_packs" / "學測" / "templates" / "115"
 SIGNATURE_COVER = "請於考試開始鈴響起，在答題卷簽名欄位以正楷簽全名"
 SIGNATURE_RUNNING = "請記得在答題卷簽名欄位以正楷簽全名"
+# Footer page-number size and the gap between 第 and 頁, measured on each ROC 115 booklet.
+from verify_fixed_template_pdf import RUNNING_FOOTER_PT, RUNNING_HEADER_PT  # noqa: E402  (shared with the hosted checker)
+RUNNING_PAGE_GAP_PT = {"國綜": 23.1, "社會": 23.5}
 
 SUBJECT_ORDER = ("國綜", "國寫", "英文", "數學A", "數學B", "社會", "自然")
 SUBJECTS: dict[str, dict[str, Any]] = {
@@ -126,21 +129,24 @@ DOCUMENT_CSS = r"""
 html,body { margin:0; padding:0; background:#fff; color:#000; }
 .sheet { position:relative; width:210mm; height:297mm; overflow:hidden; background:#fff; }
 .sheet:not(:last-child) { break-after:page; }
+/* Running header and footer as ROC 115 prints them (every subject measured): 11 pt
+   細明體 with Times digits and Latin, baselines 53.0 and 67.3 pt, a 20 pt gap for the
+   page number, a three-digit year before 「年學測」, the grey 標楷體 signature strip
+   centred on the page, and the right edge at 531.8 pt whatever the body width. */
 .gsat115-inner { --left:22mm; --right:20.5mm; font-family:"DFKai-SB","BiauKai","KaiTi","PMingLiU",serif; }
-.inner-header { position:absolute; left:var(--left); right:var(--right); top:14.75mm; height:13mm;
-  display:grid; grid-template-columns:auto 1fr auto; column-gap:2mm; align-items:start;
-  font-size:10pt; line-height:13pt; }
-.inner-header > span:first-child, .inner-header .head-right { white-space:nowrap; }
-.inner-header .head-center { width:max-content; max-width:100%; justify-self:center; padding:0 5pt;
-  background:#d9d9d9; text-align:center; white-space:nowrap; }
-.inner-header .head-right { text-align:right; }
+.inner-header { position:absolute; left:var(--left); right:calc(595.28pt - 531.8pt); top:42.6pt; height:30pt;
+  font-family:"Times New Roman","PMingLiU","MingLiU",serif; font-size:11.04pt; line-height:14.28pt; }
+.inner-header > span:first-child { position:absolute; left:0; top:0; white-space:nowrap; }
+.inner-header .head-right { position:absolute; right:0; top:0; white-space:nowrap; text-align:right; }
+.inner-header .head-center { position:absolute; left:calc(297.64pt - var(--left) - 93.5pt); width:187pt; top:-.84pt;
+  height:14.28pt; background:#d9d9d9; text-align:center; white-space:nowrap; font-family:"DFKai-SB","BiauKai",serif; }
 .inner-body { position:absolute; left:var(--left); right:var(--right); top:30mm; bottom:17mm; }
-.inner-footer { position:absolute; left:var(--left); right:var(--right); bottom:12.6mm;
-  display:grid; grid-template-columns:1fr auto 1fr; font:10pt/1 "Times New Roman",serif; }
+.inner-footer { position:absolute; left:var(--left); right:calc(595.28pt - 531.8pt); top:calc(797.86pt - .891 * var(--footer));
+  display:grid; grid-template-columns:1fr auto 1fr; font-family:"Times New Roman",serif; font-size:var(--footer); line-height:1; }
 .inner-footer .outer-left { grid-column:1; text-align:left; }
 .inner-footer .outer-right { grid-column:3; text-align:right; }
-.blank-number { display:inline-block; min-width:2.1em; }
-.blank-year { display:inline-block; min-width:2.4em; }
+.blank-number { display:inline-block; width:var(--page-gap); text-align:center; }
+.blank-year { display:inline-block; width:16.56pt; }
 .formula-sheet { color:#000; font:10.98pt/20pt "Times New Roman","PMingLiU",serif; }
 .formula-title { margin:0 0 23pt; font-weight:700; font-size:13.02pt; line-height:21pt; }
 .formula-block { display:grid; grid-template-columns:15pt 1fr; gap:3pt; margin:0; }
@@ -298,16 +304,19 @@ def inner_markup(
         raise ValueError("parity 必須是 odd 或 even")
     config = subject_config(subject)
     left_margin, right_margin = page_margins(subject)
-    page_mark = (f'第 <span class="blank-number">{_e(current_page)}</span> 頁<br>'
-                 f'共 <span class="blank-number">{_e(total_pages)}</span> 頁')
-    running_name = "學測" if "學科能力測驗" in exam_name else exam_name
-    year_line = ((f'<span class="blank-year">{_e(year)}</span>年' if year else '<span class="blank-year"></span>') +
-                 _e(running_name))
+    page_mark = (f'第<span class="blank-number">{_e(current_page)}</span>頁<br>'
+                 f'共<span class="blank-number">{_e(total_pages)}</span>頁')
+    running_name = "學測" if "學科能力測驗" in exam_name or not exam_name else exam_name
+    # 「年學測」 is part of the locked header; only the three year digits are filled in.
+    year_line = f'<span class="blank-year">{_e(year)}</span>年{_e(running_name)}'
     year_mark = f'{year_line}<br>{_e(config["label"])}'
     left, right = (page_mark, year_mark) if parity == "odd" else (year_mark, page_mark)
     footer_class = "outer-left" if parity == "odd" else "outer-right"
     footer = f'- {_e(current_page)} -' if current_page else '-　-'
-    return f'''<section class="sheet gsat115-inner" style="--left:{left_margin:.3f}mm;--right:{right_margin:.3f}mm">
+    # The even header's Times digits sit in a 1.2 pt narrower gap (115 measured).
+    footer_size = RUNNING_FOOTER_PT[subject]
+    page_gap = RUNNING_PAGE_GAP_PT.get(subject, 20.04) - (1.2 if parity == "even" else 0)
+    return f'''<section class="sheet gsat115-inner" style="--left:{left_margin:.3f}mm;--right:{right_margin:.3f}mm;--footer:{footer_size}pt;--page-gap:{page_gap}pt">
 <div class="inner-header"><span>{left}</span><span class="head-center">{SIGNATURE_RUNNING}</span><span class="head-right">{right}</span></div>
 <main class="inner-body">{body}</main><div class="inner-footer"><span class="{footer_class}">{footer}</span></div></section>'''
 

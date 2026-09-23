@@ -23,7 +23,7 @@ Keep a separate **context-texture** audit from the curriculum-unit audit. A pape
   uses approximately 13.02 pt bold PMingLiU for section headings. Use the selected
   profile's role measurements, not a universal 12 pt heading assumption.
 - In the 115 cover specimen, the organization and year lines are approximately 19.98 pt DFKai, the subject title approximately 25.98 pt DFKai/Times, the signature warning 18 pt DFKai, and the notice heading approximately 16.02 pt. Treat these as profile measurements rather than visual guesses.
-- Do not substitute Noto Serif TC for a mathematics paper when the Windows fonts above are available. Its glyph width, punctuation position, and apparent density are visibly different.
+- The hosted preflight prints 新細明體／標楷體 wherever they are installed and substitutes 全字庫正宋體／正楷體 only where they are not; never Noto Serif TC, whose glyph width, punctuation position and apparent density are visibly different.
 - Never use Unicode presentation glyphs such as `₂` or `ⁿ` as the final formula representation. They carry font-specific miniature metrics and often look much smaller than the official notation. Store formula structure semantically and render subscripts/superscripts at the measured script ratio and baseline offset.
 - A renderer must check body text, inline formulas, display formulas, fractions, radicals, matrices, subscripts, superscripts, vectors, and cases separately. Matching the Chinese font does not imply that mathematical composition is correct.
 - The target is not merely the same nominal point size. Match apparent density, full-width Chinese punctuation, line spacing, formula axis, script baseline, and spacing around operators.
@@ -41,6 +41,38 @@ Keep a separate **context-texture** audit from the curriculum-unit audit. A pape
   within this frame. The final formula page is supplied by the maintained v4
   component; it is not a blank extra-content page.
 - Cover examples must remain completely inside the bordered instruction box at final print metrics. Allow explanatory prose to wrap inside its remaining column; do not force a long sentence into one unbreakable flex row or visually shrink the entire example to hide overflow.
+
+### Hosted body renderer: how official mathematics notation is produced
+
+The hosted renderer (`hosted_body_templates.py` with `hosted_math_typeset.py`)
+prints mathematics as the ROC 111–115 booklets do, under the pinned PyMuPDF 1.26.0
+and newer engines alike. Authors write plain text; nothing here is optional styling.
+
+- **Fractions stack.** Write `2/3`, `−13/21`, `2√2/3`, `π/3`, `(√3+1)/2`, `x/2`; a
+  slash between two operands (a number, a coefficient radical, a π multiple, a single
+  letter or one parenthesised group) prints as a stacked fraction with its bar on the
+  math axis, operands at 0.86 of the text size, the minus sign outside. Inside
+  `<sup>`/`<sub>` the fraction is set at the script size. Units such as km/h, whose
+  operands are words, stay slashed.
+- **Radicals carry a vinculum.** `√6`, `2√5`, `√(x+1)` draw the radical sign with
+  its bar over the whole radicand; the parentheses of a grouped radicand are dropped.
+- **Vectors and segments.** Write `{{vec:AB}}` for an arrow over the letters and
+  `{{seg:BC}}` for a segment bar; the contract rejects 「向量AB」 and combining marks.
+- **Variables are italic.** Single Latin letters (x, f, a, P, n), lower-case Greek
+  variables (α, β, θ) and capital point names that the stem introduces as points
+  (A、B、C then ABC, △ABC, ∠BAC) print in Times Italic; function names (sin, cos,
+  log), words, units and acronyms (CPI, AI, Google) stay upright. Instructions and
+  說明 boxes never italicise (「2B鉛筆」).
+- Each construct is reserved in the line as a transparent placeholder of its exact
+  size and then painted as real, searchable Times glyphs and rules; the placeholder
+  is removed before any check reads the page.
+- **Item geometry.** The item number sits on the body margin; stem and options start
+  18 pt later (自然 19.5); option columns tab at 90/120/150/180 pt for 5/4/3/2 abreast
+  (自然 2 pt narrower) and fall back to equal columns only when an option is wider.
+- **Headings and 說明.** Part headings print at 13 pt, letter-spaced (數 2.0 pt,
+  國綜 2.15, 自然 2.4, 國寫／英文／社會 4.56) and stroke-bold; the 說明 box hangs its
+  continuation lines under the text after 「說明：」 and starts a new line before
+  「選擇（填）題與」「作答使用筆尖」 and the other sentences the booklets break before.
 
 ## Avoid repeat mathematics proof repairs
 
