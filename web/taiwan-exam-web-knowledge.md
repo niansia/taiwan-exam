@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.17
+# Taiwan Exam Web Knowledge v2026.09.22.18
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -533,10 +533,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-math-form.md",
-    "bytes": 22332,
-    "sha256": "58011895f0d045e1ac59838a26b0845d47260ac3db646a88f3f109c880039e8a",
-    "embedded_bytes": 22332,
-    "embedded_sha256": "58011895f0d045e1ac59838a26b0845d47260ac3db646a88f3f109c880039e8a"
+    "bytes": 24371,
+    "sha256": "7e2551c1703a93ed66959cd694e50d35ea2a01eecffbde7bc39c940187ad61a1",
+    "embedded_bytes": 24371,
+    "embedded_sha256": "7e2551c1703a93ed66959cd694e50d35ea2a01eecffbde7bc39c940187ad61a1"
   },
   {
     "path": "references/current-gsat-math-scope.md",
@@ -659,10 +659,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 41946,
-    "sha256": "a90a2e50b0af57f12f0e4c5b037ab19d36f372f01210c1d6d7c9f91fd4db3dd5",
-    "embedded_bytes": 41946,
-    "embedded_sha256": "a90a2e50b0af57f12f0e4c5b037ab19d36f372f01210c1d6d7c9f91fd4db3dd5"
+    "bytes": 42717,
+    "sha256": "b757256b6c641441233f73852a5a96c24a1b0409168e3dcfd3007916c8d6a7c8",
+    "embedded_bytes": 42717,
+    "embedded_sha256": "b757256b6c641441233f73852a5a96c24a1b0409168e3dcfd3007916c8d6a7c8"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -883,10 +883,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 24494,
-    "sha256": "fa7be1ffce2efd5443483485a9030af15fb7f84a5b72eac7740c8b72dd77b6c8",
-    "embedded_bytes": 24494,
-    "embedded_sha256": "fa7be1ffce2efd5443483485a9030af15fb7f84a5b72eac7740c8b72dd77b6c8"
+    "bytes": 25076,
+    "sha256": "300525b55d277f122d9457d7df1518af811640c03448c360972fe73f59350e95",
+    "embedded_bytes": 25076,
+    "embedded_sha256": "300525b55d277f122d9457d7df1518af811640c03448c360972fe73f59350e95"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -925,17 +925,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 9565,
-    "sha256": "9ce5e8d3bb00cc77feeeba994b444c621ace8350c88597b5c300158135e2d2ce",
-    "embedded_bytes": 9565,
-    "embedded_sha256": "9ce5e8d3bb00cc77feeeba994b444c621ace8350c88597b5c300158135e2d2ce"
+    "bytes": 10280,
+    "sha256": "81af8bbd668c22b2c2b480fd71fda46a6aa2f2889344caf003a1b8eb3bf40ec4",
+    "embedded_bytes": 10280,
+    "embedded_sha256": "81af8bbd668c22b2c2b480fd71fda46a6aa2f2889344caf003a1b8eb3bf40ec4"
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 45078,
-    "sha256": "73e7d7f9ce45d083d55831ae7cf8b30ce9a2391e81c4c68c9c0a6bbd1e17c99f",
-    "embedded_bytes": 45078,
-    "embedded_sha256": "73e7d7f9ce45d083d55831ae7cf8b30ce9a2391e81c4c68c9c0a6bbd1e17c99f"
+    "bytes": 48187,
+    "sha256": "9e48664263647291512fba18a48d0c8cb8434da8cac208600427633842527355",
+    "embedded_bytes": 48187,
+    "embedded_sha256": "9e48664263647291512fba18a48d0c8cb8434da8cac208600427633842527355"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -1016,10 +1016,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_review.py",
-    "bytes": 28768,
-    "sha256": "106a169b2db5710e6d94f4e45a3acc7e2215080fec3daa811e4b2f0434b9a678",
-    "embedded_bytes": 28768,
-    "embedded_sha256": "106a169b2db5710e6d94f4e45a3acc7e2215080fec3daa811e4b2f0434b9a678"
+    "bytes": 28927,
+    "sha256": "2564775ce359d8269b8d22771b9114ab7100ee35841a4a459cb18e3b20f9cce6",
+    "embedded_bytes": 28927,
+    "embedded_sha256": "2564775ce359d8269b8d22771b9114ab7100ee35841a4a459cb18e3b20f9cce6"
   },
   {
     "path": "scripts/prepare_hosted_run.py",
@@ -1037,10 +1037,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 89815,
-    "sha256": "b766891d2750e14b53d34b856607f8b53fe696e0d9a61c6595b71a561e1594a9",
-    "embedded_bytes": 89815,
-    "embedded_sha256": "b766891d2750e14b53d34b856607f8b53fe696e0d9a61c6595b71a561e1594a9"
+    "bytes": 91831,
+    "sha256": "cde09c93794bc418f6bea45e7a2c48b9866bb184fba7ac7c01260bfcea16e723",
+    "embedded_bytes": 91831,
+    "embedded_sha256": "cde09c93794bc418f6bea45e7a2c48b9866bb184fba7ac7c01260bfcea16e723"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1142,17 +1142,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_layout_contract.py",
-    "bytes": 13624,
-    "sha256": "f9ebdbf96959923d7dfac4d4df0cdf0493b3759defab7c94ca0a40c65aa010c0",
-    "embedded_bytes": 13407,
-    "embedded_sha256": "450414596111574c3e0c340b04d34abea6ee4dd4f0e7455296db3e80ad18fd04"
+    "bytes": 20527,
+    "sha256": "d17fd020e69484784f59edd896be932c53aa01895af09ec25ab2c6b4a431655e",
+    "embedded_bytes": 20211,
+    "embedded_sha256": "da1e9ed32ae0540ee153ea1d3e5689563108902414f4dedfb60d9475bc6c0f01"
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
-    "bytes": 5848,
-    "sha256": "72ea9a5b0143a8bb5f3e85341c70800ec0fadb3e509ef109511ada7f4f47739f",
-    "embedded_bytes": 5848,
-    "embedded_sha256": "72ea9a5b0143a8bb5f3e85341c70800ec0fadb3e509ef109511ada7f4f47739f"
+    "bytes": 6372,
+    "sha256": "8ecc1157a212298174bc73a140a62005541970cf0dd35c2f05bf11128b4c8296",
+    "embedded_bytes": 6372,
+    "embedded_sha256": "8ecc1157a212298174bc73a140a62005541970cf0dd35c2f05bf11128b4c8296"
   },
   {
     "path": "scripts/validate_reference_page_density.py",
@@ -58094,6 +58094,26 @@ final check:
   wraps those runs automatically for 數學A／數學B, so authors write 「√5」 plainly.
 - `plan` reports `page_budget`: the official question booklet has 6 body pages;
   a plan above 7 is verbosity or figure size, not content.
+- Wording and score marks, identical in all ten booklets: every 多選題 asks
+  「試選出正確的選項。」 and no stem asks 「下列敘述哪些正確」 or 「以下何者正確」; a
+  fraction 選填 ends 「為 ___。（化為最簡分數）」 (not 「化為最簡分數後為」); the 題組
+  label is the underlined 「18-20 題為題組」 (the spec builder prints it); item 18
+  ends 「（單選題，3分）」 and items 19–20 「（非選擇題，N分）」, never a bare
+  「（4分）」. A score group never breaks across lines.
+- A part heading that owns no items (第壹部分) still prints: the spec builder emits
+  it before its first section, and the final checker reads the booklet text for
+  every heading. A hosted 116 數A listed 第壹部分 in `sections` and printed only
+  「一、單選題」.
+- 數A unit envelope (hand-classified on 111–115, checked on the full saved paper by
+  each item's first recognised scope code): every paper has at least one item of
+  指數與對數、多項式函數、直線與圓、三角（含正餘弦定理）、排列組合、機率、數據分析、
+  矩陣與線性變換、平面向量 and 空間向量／平面／直線; 機率 at most 3, 數據分析、排列
+  組合、數列 and 數與式 at most 2 each, any family at most 5; 6–14 items carry an
+  11A-only code (official 8–13). Two hosted 116 papers had no matrix, plane-vector
+  or 正餘弦定理 item and six probability/statistics items.
+- Items 17 and 20 close 選填 and the 題組 and must review hard or very_hard, as in
+  every official 111–115 paper (`hosted_blind_review.review_errors`); both hosted
+  116 papers ended them on textbook routines.
 
 ## Stem rhetoric contract
 
@@ -58144,6 +58164,10 @@ Apply the full record and release thresholds in [math-difficulty-design.md](math
 - Four short options: one horizontal row when they fit.
 - Long propositions or independent statements: stack vertically.
 - The renderer must receive an explicit `option_layout`; automatic browser wrapping is not an accepted layout decision.
+- Columns sit on a fixed pitch like the official tab stops (five abreast at 90 pt,
+  three at 150 pt). The pinned hosted PyMuPDF 1.26.0 ignores every table and cell
+  width, so the renderer measures each option in the running engine and pads it to
+  the pitch; two hosted 116 數A booklets printed 「(1) 6 (2) 8 (3) 9」 run together.
 
 ## Machine-marked answer rail contract
 
@@ -60471,7 +60495,13 @@ content. The order below is not advice; the tools enforce the parts they can.
    cause to fix once; report the overrun in the delivery notes.
 
 Proof rounds follow the same rule: proof `proof_recommended` items once after
-they are written, then trust the retained reviews. Text-only items are reviewed on
+they are written, then trust the retained reviews. **A passed crop is locked.** A
+later `proof` or `build` copies its pass automatically (`retained_reviews`,
+`status: proof-retained` when nothing is left) and queues only crops whose printed
+content changed or that carry a recorded defect; never open, re-judge or re-record a
+retained crop, and never put an unchanged item into a new proof just to look at it
+again. Moving a figure to another path is not a change: reviews and difficulty
+records key a verified asset by its sha256, not its path. Text-only items are reviewed on
 their page (`review_via: page`), not as crops. A page keeps its review when its
 **body** pixels and item content are unchanged even if the running header's page
 count changed (`共 22 頁` → `共 21 頁`), so a shorter final booklet does not
@@ -60658,6 +60688,10 @@ both separate downloadable final PDFs and current complete evidence. On
 named `{考試}_{科目}_{paper_id}_題本.pdf` and
 `{考試}_{科目}_{paper_id}_詳解.pdf` under `delivery/`. Use the returned paths
 as the actual downloadable attachments, preserving the same paper ID on resume.
+Hand them over byte for byte: never open and re-save, recompress, merge or retitle a
+delivery file with a PDF library. A ChatGPT 數A booklet arrived without the composer
+stamp and with 「1」 mapped to 「俳」 in its text layer, so its bytes were not the
+checked paper's.
 All subjects follow the naming rule in `SKILL.md`; build-folder English filenames
 remain internal evidence paths. If the user explicitly requests other names,
 copy the finalized bytes to those names and link those files.
@@ -66198,6 +66232,7 @@ from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from hosted_subject_gates import subject_gate_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
 from hosted_density import booklet_limits
+from validate_math_layout_contract import HEADINGS as MATH_HEADINGS
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -66374,6 +66409,11 @@ def check(state_path: Path) -> dict:
             need(actual.metadata.get('creator') == COMPOSER,
                  f'{role}: PDF was not composed by compose_hosted_pdf (creator stamp missing); '
                  'a body typeset by another route is not deliverable')
+            if role == 'question' and exam.get('metadata', {}).get('subject') in MATH_HEADINGS and len(items) == 20:
+                # The exam JSON listed 第壹部分 while the printed booklet began at 一、單選題.
+                printed_text = ''.join(''.join(page.get_text().split()) for page in actual)
+                for heading in MATH_HEADINGS[exam['metadata']['subject']]:
+                    need(heading in printed_text, f'{role}: the booklet does not print the official heading 「{heading}」')
             if role == 'question' and exam.get('metadata', {}).get('subject') == '國寫':
                 for sample in writing_font_role_samples(actual):
                     need(False, f'{role}/page-{sample["page"]}: 國寫 line 「{sample["text"]}」 is set in '
@@ -67716,6 +67756,14 @@ def review_errors(exam, review):
             errors.append('difficulty: reviewed medium-hard/hard score must reach 70 points')
         if reviewed_points['very_hard'] < 30:
             errors.append('difficulty: reviewed hard score must reach 30 points')
+        # Official 111-115 close 選填 and the 題組 with their hardest items (115 16-17 and
+        # 20, 114 16-17 and 20, 113 17 and 20); two hosted 116 數A papers ended 選填 on a
+        # textbook maximum and the 題組 on completing a square.
+        for number in (17, 20):
+            closing = next((q for q in exam['questions'] if q.get('number') == number), None)
+            if closing and rows.get(closing['id'], {}).get('difficulty_band') not in {'hard', 'very_hard'}:
+                errors.append(f'difficulty/{closing["id"]}: item {number} closes its part and must review hard or very_hard, '
+                              'as every official 111-115 paper does; redesign it before rendering')
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
         if not 80 <= total <= 92:
@@ -67880,12 +67928,18 @@ MATH_SUBJECTS = {'數學A', '數學B'}
 LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
 _latin_runs_enabled = False
 _writing_mode = False
+_measure_css = None  # the running booklet's CSS, for measuring option cells
 WRITING_TASK_LINE = re.compile(r'^\s*問題[（(]')
 WRITING_ASK_LINE = re.compile(r'^\s*請.{0,14}問題[：:]\s*$')
 WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
-# 「（占4分）」 never breaks inside (111 wraps the whole group); a hosted paper printed
-# 「（占」 at a line end and 「4分）」 on the next. 115 does break 「（至多／19 行）」.
-WRITING_UNBREAKABLE = re.compile(r'（占(?:<[^>]+>|[^（）<])*）')
+# A score group never breaks inside (國寫 111 wraps 「（占4分）」 whole; 數學 prints
+# 「（非選擇題，8分）」): hosted papers printed 「（占」 or 「（4」 at a line end and 「分）」
+# on the next. 115 國寫 does break 「（至多／19 行）」, so only scores are kept whole.
+SCORE_GROUP = re.compile(r'（(?:占|(?:單選題|多選題|選填題|非選擇題)，)?(?:\s|<[^>]+>|[0-9])+分）')
+
+
+def keep_scores_whole(markup):
+    return SCORE_GROUP.sub(lambda m: f'<span style="white-space:nowrap">{m.group(0)}</span>', markup)
 
 
 def _writing_stem(block):
@@ -67924,7 +67978,7 @@ def _writing_paragraph(piece, plain):
         cls = 'material indent'
     markup = text(piece)
     if 'material' not in cls:
-        markup = WRITING_UNBREAKABLE.sub(lambda m: f'<span style="white-space:nowrap">{m.group(0)}</span>', markup)
+        markup = keep_scores_whole(markup)
     return f'<p class="{cls}">{markup}</p>'
 
 
@@ -68027,7 +68081,52 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
     for key,image in images.items():
         content=content.replace(html.escape('{{asset:'+key+'}}'),image)
     if '{{asset:' in content:raise ValueError('Missing inline asset')
-    return content
+    return _pad_option_cells(content,archive)
+
+
+# Option columns sit on a fixed pitch, as the official booklets tab them (數學 five
+# abreast at 90 pt, 111-115 measured). The pinned hosted PyMuPDF 1.26.0 ignores every
+# table/cell width (style, attribute, percentage, fixed layout, spacer images) and
+# shrank each cell to its text, so a hosted 數A printed 「(1) 6 (2) 8 (3) 9」 run
+# together. Padding is honored by every version: each cell's natural advance is
+# measured in the running engine with the booklet's CSS and padded to the pitch.
+OPTION_CELL = re.compile(r'<td class="optcell" data-pitch="([0-9.]+)" data-wrap="(\w*)">(.*?)</td>', re.S)
+OPTION_MARK = 'QZXJ'
+_cell_advances = {}
+
+
+def _mark_positions(page, html_text, top, archive):
+    page.insert_htmlbox(pymupdf.Rect(0, top, 3000, top + 180), html_text, css=_measure_css,
+                        archive=archive, **HTML_OPTIONS)
+    return sorted(w[0] for w in page.get_text('words') if w[4] == OPTION_MARK and top <= w[1] < top + 180)
+
+
+def _cell_advance(inner, archive, wrap=''):
+    key = (inner, wrap, _measure_css)
+    if key not in _cell_advances:
+        with pymupdf.open() as doc:
+            page = doc.new_page(width=3000, height=400)
+            mark = f'<td>{OPTION_MARK}</td>'
+            opened, closed = (f'<div class="{wrap}">', '</div>') if wrap else ('', '')
+            marks = _mark_positions(page, f'{opened}<table class="options" style="width:auto"><tr>{mark}<td>{inner}</td>{mark}'
+                                          f'</tr></table>{closed}', 0, archive)
+            pair = _mark_positions(page, f'{opened}<table class="options" style="width:auto"><tr>{mark}{mark}</tr></table>{closed}',
+                                   200, archive)
+        _cell_advances[key] = (marks[1] - marks[0]) - (pair[1] - pair[0]) if len(marks) == 2 and len(pair) == 2 else None
+    return _cell_advances[key]
+
+
+def _pad_option_cells(content, archive):
+    def cell(match):
+        pitch, wrap, inner = float(match.group(1)), match.group(2), match.group(3)
+        advance = _cell_advance(inner, archive, wrap) if _measure_css is not None else None
+        if advance is None:
+            return f'<td style="width:{pitch - 4:g}pt">{inner}</td>'
+        # Half a point of slack, and an option that fits its pitch never wraps: the
+        # engine otherwise shrank a nearly full row and broke 「(B) donation」 in two.
+        fits = ';white-space:nowrap' if advance <= pitch else ''
+        return f'<td style="padding-right:{max(4, 4 + pitch - advance - .5):.2f}pt{fits}">{inner}</td>'
+    return OPTION_CELL.sub(cell, content)
 
 
 def _group_label(block):
@@ -68087,7 +68186,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     numbered=type(block.get('number')) is int and block['number']>=1
     if kind!='stimulus' and not numbered and not (kind in {'choice','multiple','constructed','solution'} and 'label' in block):
         raise ValueError('Supply a positive integer question number, or a printed label for an unnumbered task')
-    stem=text(block.get('text',''))
+    stem=keep_scores_whole(text(block.get('text','')))
     if kind=='constructed' and _writing_mode:
         stem=_writing_stem(block)
     if kind=='solution':
@@ -68148,9 +68247,10 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         if not stem.strip() and not figure and head:
             # Option-only rows (English cloze): the number shares the first
             # option row so both sit on one baseline.
-            cells=[f'<td style="width:{(width-28)/columns:g}pt">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
+            wrap='english' if block.get('language')=='en' else ''
+            cells=[f'<td class="optcell" data-pitch="{(width-28)/columns:.2f}" data-wrap="{wrap}">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
             rows=[''.join(cells[j:j+columns]) for j in range(0,len(cells),columns)]
-            result=('<table class="options">'+''.join(f'<tr><td class="number">{label if n==0 else ""}</td>{row}</tr>'
+            result=('<table class="options" style="width:auto">'+''.join(f'<tr><td class="number">{label if n==0 else ""}</td>{row}</tr>'
                                                      for n,row in enumerate(rows))+'</table>')
             return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
         # Never nest the option table inside the stem cell: MuPDF's HTML engine
@@ -68161,9 +68261,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         if columns==1:
             option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
         else:
-            cell_width=(width-28-4*columns)/columns
-            cells=[f'<td style="width:{cell_width:g}pt">{row}</td>' for row in rows]
-            option_block=(f'<div class="optionlist"><table class="options" style="width:{width-28:g}pt">'
+            wrap='english' if block.get('language')=='en' else ''
+            cells=[f'<td class="optcell" data-pitch="{(width-28)/columns:.2f}" data-wrap="{wrap}">{row}</td>' for row in rows]
+            option_block=(f'<div class="optionlist"><table class="options" style="width:auto">'
                           +''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table></div>')
     if kind=='solution':
         result=(f'<div class="heading">{label}</div>' if head else '')+stem
@@ -68229,7 +68329,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         raise ValueError('Placeholder gallery IDs cannot become production questions')
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
-    global _latin_runs_enabled, _writing_mode
+    global _latin_runs_enabled, _writing_mode, _measure_css
     # Official booklets set digits and Latin letters in Times for every subject
     # (國綜, 社會, 自然, 英文 and 數學 all measured); the CJK face keeps the CJK glyphs.
     _latin_runs_enabled = True
@@ -68246,6 +68346,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         archive.add((Path(kai_font).read_bytes(),'kai-font.ttf'))
         css+='\n@font-face {font-family:Kai;src:url(kai-font.ttf)}'
     if not spec['blocks']:raise ValueError('No authored blocks')
+    _measure_css=css
     font_metric=pymupdf.Font(fontfile=str(font))
     blocks=[]
     for index,block in enumerate(spec['blocks']):
@@ -70741,6 +70842,7 @@ from hosted_calibration import snapshot
 from hosted_item_layout import crop_items, crop_bytes, geometry_errors, render_signature, equivalent_render
 from hosted_item_triage import crop_required_ids, part_reviewed_on_page
 from inspect_hosted_pdf import audit
+from validate_paper_difficulty_balance import printable
 
 # Review and design metadata change while real reviews are recorded; they are
 # never printed. Printed question/answer fields stay in the item binding.
@@ -70769,8 +70871,9 @@ def item_hashes(exam):
         if isinstance(answer, dict):
             answers.setdefault(answer.get('question_id'), []).append(
                 {k: v for k, v in answer.items() if k not in REVIEW_ONLY_ANSWER_FIELDS})
-    records = {q.get('id'): {'question': {k: v for k, v in q.items() if k not in REVIEW_ONLY_QUESTION_FIELDS},
-                             'answers': answers.get(q.get('id'), [])} for q in questions}
+    # Asset paths are storage, not print: printable() keys a figure by its bytes.
+    records = {q.get('id'): printable({'question': {k: v for k, v in q.items() if k not in REVIEW_ONLY_QUESTION_FIELDS},
+                                       'answers': answers.get(q.get('id'), [])}) for q in questions}
     result = {}
     for question in questions:
         group = question.get('group_stimulus')
@@ -72285,7 +72388,7 @@ from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note,
-                                   propagate_page_reviews)
+                                   propagate_page_reviews, retain_parts, review_sources, Renderings)
 from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from hosted_evidence_refresh import record_history, evidence_gaps, refresh as refresh_drafts, figure_selfcheck
 from fetch_hosted_template_assets import DEFAULT_MAP
@@ -73145,6 +73248,9 @@ def english_segment(owner, segment, members, where, layout):
     return blocks, emitted
 
 
+HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
+
+
 def project_specs(exam, hints, body_width):
     """Deterministic layout projection of saved items. It adds no printed content.
 
@@ -73276,6 +73382,8 @@ def project_specs(exam, hints, body_width):
                  **({'split': 'paragraphs'} if plain_length(text_) >= SPLIT_MIN_CHARACTERS else {})})
         number_owner[q.get('number')] = q['id']
 
+    used_sections = {q.get('section_id') for q in questions}
+    printed_headings = set()
     i = 0
     while i < len(questions):
         q = questions[i]
@@ -73283,6 +73391,15 @@ def project_specs(exam, hints, body_width):
             section = sections.get(q.get('section_id'))
             if section is None:
                 raise ValueError(f'item {q["id"]}: unknown section_id')
+            # A part heading owns no items (數學 「第壹部分、選擇（填）題（占85分）」): print
+            # it before the first section that follows it. A hosted 數A paper listed it and
+            # printed only 「一、單選題」 because headings used to print only with their items.
+            order = list(sections)
+            for earlier in order[:order.index(section['id'])]:
+                if earlier not in used_sections and earlier not in printed_headings:
+                    printed_headings.add(earlier)
+                    add({'kind': 'section', 'title': printed(sections[earlier]['title'], 'section ' + earlier)})
+            printed_headings.add(section['id'])
             notes = ' '.join(section.get('instructions') or [])
             add({'kind': 'section', 'title': printed(section['title'], 'section ' + section['id']),
                  **({'directions': printed(notes, 'section ' + section['id'] + ' instructions')} if notes.strip() else {})})
@@ -73301,7 +73418,10 @@ def project_specs(exam, hints, body_width):
             label = hint.get('group_label')
             if (label is None and len(everyone) > 1 and everyone[0].get('number') is not None and
                     everyone[-1].get('number') is not None and everyone[0]['number'] != everyone[-1]['number']):
-                label = f'第 {everyone[0]["number"]} 至 {everyone[-1]["number"]} 題為題組'
+                # 數學 and 自然 print the underlined 「18-20 題為題組」 (111-115 measured);
+                # 英文 prints 「第 11 至 15 題為題組」.
+                label = (f'{everyone[0]["number"]}-{everyone[-1]["number"]} 題為題組' if subject in HYPHEN_GROUP_SUBJECTS
+                         else f'第 {everyone[0]["number"]} 至 {everyone[-1]["number"]} 題為題組')
             splits = q.get('group_stimulus_page_splits') or {}
             segments = ([(int(page), text_) for page, text_ in sorted(splits.items(), key=lambda item: int(item[0]))]
                         if splits else [(None, group)])
@@ -73328,7 +73448,7 @@ def project_specs(exam, hints, body_width):
                                 block['split'] = 'paragraphs'
                     if position == 0 and label and segment_blocks:
                         segment_blocks[0]['group_label'] = printed(label, where + ' label')
-                        if english:
+                        if english or subject in HYPHEN_GROUP_SUBJECTS:
                             segment_blocks[0]['group_label_style'] = 'underline'
                     last_text = next((b for b in reversed(segment_blocks) if b['kind'] in {'passage', 'stimulus'}), None)
                     if last_text is not None and hint.get('group_keep_with_next', True) and last_text is segment_blocks[-1]:
@@ -73494,7 +73614,7 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
             raise ValueError(f'{role} spec has no blocks for: ' + ', '.join(sorted(absent)))
         loaded.append((role, spec_path, {**spec, 'blocks': blocks}))
     output.mkdir()
-    queue, template = [], {}
+    queue, template, retained = [], {}, {}
     by_item = {qid: [] for qid in wanted}
     for role, spec_path, spec in loaded:
         body = output / (role + '-body.pdf')
@@ -73517,16 +73637,28 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
                 parts.append({**part, 'raster_path': path.relative_to(root).as_posix(),
                               'raster_sha256': hashlib.sha256(data).hexdigest(), 'status': 'pending', 'observations': ''})
         annotate_parts(parts, hashes)
+        source = {**record(root, body), 'projected': True, 'page_size': page_size}
+        # A crop that already passed in an earlier proof or build, for the same authored
+        # item and the same printed pixels or primitives, keeps that pass: it is locked,
+        # not queued again. Hosted runs re-viewed unchanged items in every later proof.
+        renderings = Renderings(root)
+        try:
+            counts = retain_parts(root, role, parts, source, identity, review_sources(root, state), renderings, {})
+        finally:
+            renderings.close()
+        retained[role] = counts
         save(output / (role + '-items.json'), {
             'kind': 'pre-pagination-item-proof', 'role': role, 'paper_id': state['paper_id'],
             'exam_sha256': state['exam']['sha256'], 'pdf_sha256': layout['pdf_sha256'],
             'render_identity': identity,
-            'source': {**record(root, body), 'projected': True, 'page_size': page_size},
+            'source': source,
             'parts': parts,
             'scope': 'Early crop review only; final booklets still need every page reviewed and fresh final crops.'})
         # Absolute paths: the helper's working directory is not the run.
         notes = template.setdefault(role, {'items': {}})
         for part, key in zip(parts, crop_keys(parts)):
+            if part.get('status') == 'pass':
+                continue
             image = str((root / part['raster_path']).resolve())
             queue.append(image)
             by_item.setdefault(part['id'], []).append((image, {'role': role, 'items': key}))
@@ -73539,6 +73671,8 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
     # together: separate native images, never stitched or downscaled.
     batches, current = [], {'items': [], 'images': [], 'record_as': []}
     for qid, rows in by_item.items():
+        if not rows:
+            continue  # every crop of this item kept its earlier pass
         if current['images'] and len(current['images']) + len(rows) > REVIEW_BATCH_IMAGES:
             batches.append(current)
             current = {'items': [], 'images': [], 'record_as': []}
@@ -73547,7 +73681,8 @@ def proof(state_path, question_spec, solution_spec, items, font, output, *, read
         current['record_as'] += [target for _, target in rows]
     if current['images']:
         batches.append(current)
-    return {'status': 'proof-review-pending', 'proof': output.name, 'proof_dir': str(output),
+    return {'status': 'proof-review-pending' if queue else 'proof-retained', 'proof': output.name, 'proof_dir': str(output),
+            'retained_reviews': retained,
             'iteration_budget': iteration_budget(root, 'proof', output),
             'review_queue': queue,
             'review_batches': batches,
@@ -78160,6 +78295,11 @@ Official facts this module enforces (text extracted from the ten booklets):
 * no student-facing disclaimer or invented-source label;
 * no real-world context repeated in three or more items (official four-character
   repeats are only generic phrases such as 坐標平面上 and 試選出正確的選項).
+* every 多選題 stem asks 「試選出正確的選項」 and no stem asks 「下列敘述哪些正確」 or
+  「以下何者正確」 (0 of 200 official items);
+* a fraction 選填 answer is announced after its rail as 「（化為最簡分數）」;
+* the 第貳部分 題組 marks its 單選題 「（單選題，N分）」 and each written item
+  「（非選擇題，N分）」 (every year in both subjects).
 
 Structural passes are never editorial passes.
 """
@@ -78221,6 +78361,41 @@ MATH_B_FAMILY_CAPS = {'sequence': 2, 'counting': 2, 'probability': 3, 'matrix': 
 MATH_B_ANY_FAMILY_CAP = 5
 MATH_B_11B_ITEMS = (3, 10)
 MATH_A_ONLY_CODES = re.compile(r'^[A-Z]-11A-\d+$')
+# 數學A unit families, hand-classified item by item on the official 111–115 booklets
+# (page images where extraction lost the math; 題組 counted as three). Per year:
+# number 1/0/0/0/1, exp_log 1/1/2/1/2, polynomial 2/1/2/2/2, line_circle 2/2/2/4/2,
+# trigonometry 4/4/3/3/2, sequence 1/2/0/1/0, counting 1/1/1/1/1, probability 2/1/1/2/2,
+# data 1/1/1/1/1, matrix 1/2/3/2/2, plane_vector 1/1/1/1/2, space 3/4/4/2/3. Items
+# needing an 11A-only code: 8/10/13/9/10. Two hosted 116 數A papers had no matrix,
+# plane-vector or 正餘弦定理 item.
+MATH_A_FAMILIES = {
+    'number': ('N-10-1', 'N-10-2', 'N-10-5', 'N-10-7'),
+    'exp_log': ('N-10-3', 'N-10-4', 'A-11A-4', 'F-11A-4'),
+    'polynomial': ('A-10-1', 'A-10-2', 'F-10-1', 'F-10-2', 'F-10-3'),
+    'line_circle': ('G-10-1', 'G-10-2', 'G-10-3', 'G-10-4'),
+    'trigonometry': ('G-10-5', 'G-10-6', 'G-10-7', 'N-11A-1', 'G-11A-5', 'F-11A-1', 'F-11A-2'),
+    'sequence': ('N-10-6',),
+    'counting': ('D-10-1', 'D-10-3'),
+    'probability': ('D-10-4', 'D-11A-1', 'D-11A-2', 'D-11A-3'),
+    'data': ('D-10-2',),
+    'matrix': ('A-11A-1', 'A-11A-2', 'A-11A-3', 'F-11A-3'),
+    'plane_vector': ('G-11A-1', 'G-11A-4', 'G-11A-6'),
+    'space': ('S-11A-1', 'G-11A-2', 'G-11A-3', 'G-11A-7', 'G-11A-8', 'G-11A-9', 'G-11A-10'),
+}
+MATH_A_FAMILY_LABELS = {'number': '數與式', 'exp_log': '指數與對數', 'polynomial': '多項式函數', 'line_circle': '直線與圓',
+                        'trigonometry': '三角（含正餘弦定理、和角、三角函數）', 'sequence': '數列與級數', 'counting': '排列組合',
+                        'probability': '機率（含條件機率、期望值）', 'data': '數據分析', 'matrix': '矩陣與線性變換',
+                        'plane_vector': '平面向量', 'space': '空間向量、平面與直線'}
+MATH_A_REQUIRED_FAMILIES = ('exp_log', 'polynomial', 'line_circle', 'trigonometry', 'counting', 'probability', 'data',
+                            'matrix', 'plane_vector', 'space')     # ≥1 item in every official year
+MATH_A_FAMILY_CAPS = {'number': 2, 'sequence': 2, 'counting': 2, 'probability': 3, 'data': 2}
+MATH_A_ANY_FAMILY_CAP = 5
+MATH_A_11A_ITEMS = (6, 14)
+UNOFFICIAL_ASK = re.compile(r'下列敘述.{0,4}(?:哪些|何者)|以下何者|下列哪些選項|哪些選項|敘述哪些正確')
+MULTIPLE_ASK = '試選出正確的選項'
+FRACTION_NOTE = re.compile(r'（化為最簡分數）\s*$')
+PART_TWO_SCORE = {'single_choice': re.compile(r'（單選題，\s*\d+\s*分）\s*$'),
+                  'written': re.compile(r'（非選擇題，\s*\d+\s*分）\s*$')}
 
 
 def _compact(text: Any) -> str:
@@ -78241,6 +78416,8 @@ def validate_exam(exam: dict) -> list[str]:
     full = metadata.get('generation_mode') == 'full-paper' or len(questions) >= 20
     if subject == '數學B':
         errors.extend(math_b_scope_errors(questions, full))
+    if subject == '數學A':
+        errors.extend(math_a_scope_errors(questions, full))
 
     for question in questions:
         number = question.get('number') or question.get('id')
@@ -78261,6 +78438,24 @@ def validate_exam(exam: dict) -> list[str]:
             labels = [_label(o) for o in question.get('options') or [] if isinstance(o, dict)]
             if tuple(labels) != OPTION_LABELS:
                 errors.append(f'{subject}第{number}題須有五個選項並標為(1)(2)(3)(4)(5)；現有 {labels}')
+        ask = UNOFFICIAL_ASK.search(stem)
+        if ask:
+            errors.append(f'{subject}第{number}題問「{ask.group(0)}」：官方 111–115 多選題一律寫「試選出正確的選項。」，'
+                          '單選題寫「試問…為何？」')
+        if question.get('type') == 'multiple_choice' and MULTIPLE_ASK not in stem:
+            errors.append(f'{subject}第{number}題（多選）須以「試選出正確的選項。」作答要求（官方 111–115 每題皆同）')
+        answer_format = question.get('answer_format') if isinstance(question.get('answer_format'), dict) else {}
+        raw = str(question.get('prompt') or '')
+        if answer_format.get('kind') == 'fraction' and not FRACTION_NOTE.search(raw):
+            errors.append(f'{subject}第{number}題是分數選填：官方在答案格之後印「。（化為最簡分數）」作結'
+                          '（不寫「化為最簡分數後為」）')
+        if isinstance(question.get('number'), int) and question['number'] >= 18:
+            role = 'single_choice' if question.get('type') == 'single_choice' else (
+                'written' if question.get('type') not in {'multiple_choice', 'fill_in'} else None)
+            if role and not PART_TWO_SCORE[role].search(raw):
+                label = '（單選題，3分）' if role == 'single_choice' else '（非選擇題，N分）'
+                errors.append(f'{subject}第{number}題（第貳部分題組）須以「{label}」作結（官方 111–115 每年如此），'
+                              '不是只寫「（4分）」或不標')
 
     if full:
         titles = [_compact(s.get('title')) for s in exam.get('sections') or [] if isinstance(s, dict)]
@@ -78338,6 +78533,45 @@ def math_b_scope_errors(questions: list[dict], full: bool) -> list[str]:
     return errors
 
 
+def _family(codes: list, table: dict) -> str | None:
+    for code in codes:
+        for family, members in table.items():
+            if str(code) in members:
+                return family
+    return None
+
+
+def math_a_scope_errors(questions: list[dict], full: bool) -> list[str]:
+    """The measured 111–115 unit envelope of a full 數學A paper (codes themselves are checked elsewhere)."""
+    coded = [q for q in questions if isinstance(q.get('item_spec'), dict) and q['item_spec'].get('scope_codes')]
+    if not full or len(questions) < 20 or len(coded) < len(questions):
+        return []  # validate_math_curriculum reports items without scope_codes
+    families: Counter = Counter()
+    eleven_a = 0
+    for q in questions:
+        spec = q.get('item_spec') if isinstance(q.get('item_spec'), dict) else {}
+        codes = [str(c) for c in (spec.get('scope_codes') or [])]
+        family = _family(codes, MATH_A_FAMILIES)
+        if family:
+            families[family] += 1
+        if any(MATH_A_ONLY_CODES.match(c) for c in codes):
+            eleven_a += 1
+    errors = []
+    missing = [MATH_A_FAMILY_LABELS[f] for f in MATH_A_REQUIRED_FAMILIES if families[f] == 0]
+    if missing:
+        errors.append(f'數學A整卷缺 {"、".join(missing)}：官方 111–115 每卷都各有至少 1 題（以各題 scope_codes 的第一個可辨識代碼歸類）')
+    for family, cap in MATH_A_FAMILY_CAPS.items():
+        if families[family] > cap:
+            errors.append(f'數學A {MATH_A_FAMILY_LABELS[family]} 有 {families[family]} 題，官方 111–115 每卷最多 {cap - 1}–{cap} 題（上限 {cap}）')
+    for family, count in families.items():
+        if count > MATH_A_ANY_FAMILY_CAP:
+            errors.append(f'數學A {MATH_A_FAMILY_LABELS[family]} 有 {count} 題，超過單一單元上限 {MATH_A_ANY_FAMILY_CAP}（官方最高 4 題）')
+    low, high = MATH_A_11A_ITEMS
+    if not low <= eleven_a <= high:
+        errors.append(f'數學A 帶 11A 專屬代碼的題目 {eleven_a} 題，官方 111–115 為 8–13 題（允許 {low}–{high}）')
+    return errors
+
+
 def context_repeats(stems: list[str], labels: list[str] | None = None) -> list[tuple[tuple, str]]:
     """Four-character phrases (generic exam wording removed) shared by three or more stems."""
     labels = labels or [str(i + 1) for i in range(len(stems))]
@@ -78364,8 +78598,19 @@ def context_repeats(stems: list[str], labels: list[str] | None = None) -> list[t
 import argparse,collections,hashlib,json
 from pathlib import Path
 BANDS=('簡單','中','中偏難','難')
+def printable(value):
+    """What the student sees: a verified asset is its bytes (sha256) and size, not its path.
+
+    A hosted run moved four figures to run-relative paths without changing a pixel,
+    and every affected item lost its difficulty record and its passed crop review.
+    """
+    if isinstance(value,dict):
+        return {k:printable(v) for k,v in value.items() if not (k=='path' and 'sha256' in value)}
+    if isinstance(value,list):
+        return [printable(v) for v in value]
+    return value
 def content_hash(q):
-    content={k:q.get(k) for k in ('prompt','group_stimulus','options','visual_asset')}
+    content={k:printable(q.get(k)) for k in ('prompt','group_stimulus','options','visual_asset')}
     # These optional fields also become visible student-facing content.  Bind
     # them when used, while preserving existing hashes for ordinary items.
     for key in ('continuation_pages','group_stimulus_page_splits','response_format_table'):

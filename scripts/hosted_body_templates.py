@@ -128,12 +128,18 @@ MATH_SUBJECTS = {'數學A', '數學B'}
 LATIN_RUN = re.compile(r'[A-Za-z0-9√][A-Za-z0-9√.,()+\-−=/%:]*[A-Za-z0-9√)]|[A-Za-z0-9√]')
 _latin_runs_enabled = False
 _writing_mode = False
+_measure_css = None  # the running booklet's CSS, for measuring option cells
 WRITING_TASK_LINE = re.compile(r'^\s*問題[（(]')
 WRITING_ASK_LINE = re.compile(r'^\s*請.{0,14}問題[：:]\s*$')
 WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
-# 「（占4分）」 never breaks inside (111 wraps the whole group); a hosted paper printed
-# 「（占」 at a line end and 「4分）」 on the next. 115 does break 「（至多／19 行）」.
-WRITING_UNBREAKABLE = re.compile(r'（占(?:<[^>]+>|[^（）<])*）')
+# A score group never breaks inside (國寫 111 wraps 「（占4分）」 whole; 數學 prints
+# 「（非選擇題，8分）」): hosted papers printed 「（占」 or 「（4」 at a line end and 「分）」
+# on the next. 115 國寫 does break 「（至多／19 行）」, so only scores are kept whole.
+SCORE_GROUP = re.compile(r'（(?:占|(?:單選題|多選題|選填題|非選擇題)，)?(?:\s|<[^>]+>|[0-9])+分）')
+
+
+def keep_scores_whole(markup):
+    return SCORE_GROUP.sub(lambda m: f'<span style="white-space:nowrap">{m.group(0)}</span>', markup)
 
 
 def _writing_stem(block):
@@ -172,7 +178,7 @@ def _writing_paragraph(piece, plain):
         cls = 'material indent'
     markup = text(piece)
     if 'material' not in cls:
-        markup = WRITING_UNBREAKABLE.sub(lambda m: f'<span style="white-space:nowrap">{m.group(0)}</span>', markup)
+        markup = keep_scores_whole(markup)
     return f'<p class="{cls}">{markup}</p>'
 
 
@@ -275,7 +281,52 @@ def fragment(block, archive, asset_root, index, width=467.7, font_metric=None, s
     for key,image in images.items():
         content=content.replace(html.escape('{{asset:'+key+'}}'),image)
     if '{{asset:' in content:raise ValueError('Missing inline asset')
-    return content
+    return _pad_option_cells(content,archive)
+
+
+# Option columns sit on a fixed pitch, as the official booklets tab them (數學 five
+# abreast at 90 pt, 111-115 measured). The pinned hosted PyMuPDF 1.26.0 ignores every
+# table/cell width (style, attribute, percentage, fixed layout, spacer images) and
+# shrank each cell to its text, so a hosted 數A printed 「(1) 6 (2) 8 (3) 9」 run
+# together. Padding is honored by every version: each cell's natural advance is
+# measured in the running engine with the booklet's CSS and padded to the pitch.
+OPTION_CELL = re.compile(r'<td class="optcell" data-pitch="([0-9.]+)" data-wrap="(\w*)">(.*?)</td>', re.S)
+OPTION_MARK = 'QZXJ'
+_cell_advances = {}
+
+
+def _mark_positions(page, html_text, top, archive):
+    page.insert_htmlbox(pymupdf.Rect(0, top, 3000, top + 180), html_text, css=_measure_css,
+                        archive=archive, **HTML_OPTIONS)
+    return sorted(w[0] for w in page.get_text('words') if w[4] == OPTION_MARK and top <= w[1] < top + 180)
+
+
+def _cell_advance(inner, archive, wrap=''):
+    key = (inner, wrap, _measure_css)
+    if key not in _cell_advances:
+        with pymupdf.open() as doc:
+            page = doc.new_page(width=3000, height=400)
+            mark = f'<td>{OPTION_MARK}</td>'
+            opened, closed = (f'<div class="{wrap}">', '</div>') if wrap else ('', '')
+            marks = _mark_positions(page, f'{opened}<table class="options" style="width:auto"><tr>{mark}<td>{inner}</td>{mark}'
+                                          f'</tr></table>{closed}', 0, archive)
+            pair = _mark_positions(page, f'{opened}<table class="options" style="width:auto"><tr>{mark}{mark}</tr></table>{closed}',
+                                   200, archive)
+        _cell_advances[key] = (marks[1] - marks[0]) - (pair[1] - pair[0]) if len(marks) == 2 and len(pair) == 2 else None
+    return _cell_advances[key]
+
+
+def _pad_option_cells(content, archive):
+    def cell(match):
+        pitch, wrap, inner = float(match.group(1)), match.group(2), match.group(3)
+        advance = _cell_advance(inner, archive, wrap) if _measure_css is not None else None
+        if advance is None:
+            return f'<td style="width:{pitch - 4:g}pt">{inner}</td>'
+        # Half a point of slack, and an option that fits its pitch never wraps: the
+        # engine otherwise shrank a nearly full row and broke 「(B) donation」 in two.
+        fits = ';white-space:nowrap' if advance <= pitch else ''
+        return f'<td style="padding-right:{max(4, 4 + pitch - advance - .5):.2f}pt{fits}">{inner}</td>'
+    return OPTION_CELL.sub(cell, content)
 
 
 def _group_label(block):
@@ -335,7 +386,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     numbered=type(block.get('number')) is int and block['number']>=1
     if kind!='stimulus' and not numbered and not (kind in {'choice','multiple','constructed','solution'} and 'label' in block):
         raise ValueError('Supply a positive integer question number, or a printed label for an unnumbered task')
-    stem=text(block.get('text',''))
+    stem=keep_scores_whole(text(block.get('text','')))
     if kind=='constructed' and _writing_mode:
         stem=_writing_stem(block)
     if kind=='solution':
@@ -396,9 +447,10 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         if not stem.strip() and not figure and head:
             # Option-only rows (English cloze): the number shares the first
             # option row so both sit on one baseline.
-            cells=[f'<td style="width:{(width-28)/columns:g}pt">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
+            wrap='english' if block.get('language')=='en' else ''
+            cells=[f'<td class="optcell" data-pitch="{(width-28)/columns:.2f}" data-wrap="{wrap}">{html.escape(str(o["label"]))} {text(o["text"])}</td>' for o in options]
             rows=[''.join(cells[j:j+columns]) for j in range(0,len(cells),columns)]
-            result=('<table class="options">'+''.join(f'<tr><td class="number">{label if n==0 else ""}</td>{row}</tr>'
+            result=('<table class="options" style="width:auto">'+''.join(f'<tr><td class="number">{label if n==0 else ""}</td>{row}</tr>'
                                                      for n,row in enumerate(rows))+'</table>')
             return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
         # Never nest the option table inside the stem cell: MuPDF's HTML engine
@@ -409,9 +461,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         if columns==1:
             option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
         else:
-            cell_width=(width-28-4*columns)/columns
-            cells=[f'<td style="width:{cell_width:g}pt">{row}</td>' for row in rows]
-            option_block=(f'<div class="optionlist"><table class="options" style="width:{width-28:g}pt">'
+            wrap='english' if block.get('language')=='en' else ''
+            cells=[f'<td class="optcell" data-pitch="{(width-28)/columns:.2f}" data-wrap="{wrap}">{row}</td>' for row in rows]
+            option_block=(f'<div class="optionlist"><table class="options" style="width:auto">'
                           +''.join('<tr>'+''.join(cells[j:j+columns])+'</tr>' for j in range(0,len(cells),columns))+'</table></div>')
     if kind=='solution':
         result=(f'<div class="heading">{label}</div>' if head else '')+stem
@@ -477,7 +529,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         raise ValueError('Placeholder gallery IDs cannot become production questions')
     manifest=json.loads(DEFAULT_MAP.read_text(encoding='utf-8'))
     subject=next(s for s in manifest['subjects'] if s['subject']==spec['subject'])
-    global _latin_runs_enabled, _writing_mode
+    global _latin_runs_enabled, _writing_mode, _measure_css
     # Official booklets set digits and Latin letters in Times for every subject
     # (國綜, 社會, 自然, 英文 and 數學 all measured); the CJK face keeps the CJK glyphs.
     _latin_runs_enabled = True
@@ -494,6 +546,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         archive.add((Path(kai_font).read_bytes(),'kai-font.ttf'))
         css+='\n@font-face {font-family:Kai;src:url(kai-font.ttf)}'
     if not spec['blocks']:raise ValueError('No authored blocks')
+    _measure_css=css
     font_metric=pymupdf.Font(fontfile=str(font))
     blocks=[]
     for index,block in enumerate(spec['blocks']):

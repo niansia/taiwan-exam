@@ -2,8 +2,19 @@
 import argparse,collections,hashlib,json
 from pathlib import Path
 BANDS=('簡單','中','中偏難','難')
+def printable(value):
+    """What the student sees: a verified asset is its bytes (sha256) and size, not its path.
+
+    A hosted run moved four figures to run-relative paths without changing a pixel,
+    and every affected item lost its difficulty record and its passed crop review.
+    """
+    if isinstance(value,dict):
+        return {k:printable(v) for k,v in value.items() if not (k=='path' and 'sha256' in value)}
+    if isinstance(value,list):
+        return [printable(v) for v in value]
+    return value
 def content_hash(q):
-    content={k:q.get(k) for k in ('prompt','group_stimulus','options','visual_asset')}
+    content={k:printable(q.get(k)) for k in ('prompt','group_stimulus','options','visual_asset')}
     # These optional fields also become visible student-facing content.  Bind
     # them when used, while preserving existing hashes for ordinary items.
     for key in ('continuation_pages','group_stimulus_page_splits','response_format_table'):

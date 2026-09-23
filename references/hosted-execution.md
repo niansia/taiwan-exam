@@ -391,7 +391,13 @@ content. The order below is not advice; the tools enforce the parts they can.
    cause to fix once; report the overrun in the delivery notes.
 
 Proof rounds follow the same rule: proof `proof_recommended` items once after
-they are written, then trust the retained reviews. Text-only items are reviewed on
+they are written, then trust the retained reviews. **A passed crop is locked.** A
+later `proof` or `build` copies its pass automatically (`retained_reviews`,
+`status: proof-retained` when nothing is left) and queues only crops whose printed
+content changed or that carry a recorded defect; never open, re-judge or re-record a
+retained crop, and never put an unchanged item into a new proof just to look at it
+again. Moving a figure to another path is not a change: reviews and difficulty
+records key a verified asset by its sha256, not its path. Text-only items are reviewed on
 their page (`review_via: page`), not as crops. A page keeps its review when its
 **body** pixels and item content are unchanged even if the running header's page
 count changed (`共 22 頁` → `共 21 頁`), so a shorter final booklet does not
@@ -578,6 +584,10 @@ both separate downloadable final PDFs and current complete evidence. On
 named `{考試}_{科目}_{paper_id}_題本.pdf` and
 `{考試}_{科目}_{paper_id}_詳解.pdf` under `delivery/`. Use the returned paths
 as the actual downloadable attachments, preserving the same paper ID on resume.
+Hand them over byte for byte: never open and re-save, recompress, merge or retitle a
+delivery file with a PDF library. A ChatGPT 數A booklet arrived without the composer
+stamp and with 「1」 mapped to 「俳」 in its text layer, so its bytes were not the
+checked paper's.
 All subjects follow the naming rule in `SKILL.md`; build-folder English filenames
 remain internal evidence paths. If the user explicitly requests other names,
 copy the finalized bytes to those names and link those files.
