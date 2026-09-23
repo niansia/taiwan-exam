@@ -37,13 +37,32 @@ Text extracted from the five official 國寫 booklets on disk:
 Fonts and geometry measured on the same booklets: body 12 pt on a 20 pt line; the
 說明 box and the reading materials in 標楷體 (DFKai-SB) with Times digits, materials
 indented two characters (x 87.9 pt against the 63.9 pt margin) and a lone 甲／乙
-label on its own line; 「一、」「二、」 in 明體 12.96 pt on their own line; 「請分項回答
+label on its own line inside an 18 pt box (113 and 115, the two years that label
+their texts); 「一、」「二、」 in 明體 12.96 pt on their own line; 「請分項回答
 下列問題：」 and 問題（一）／（二） in 明體 12 pt at the margin, continuation lines
 hanging at 135.9 pt (six characters); the 第二大題 task paragraph indented two
 characters. The renderer reproduces this (`hosted_body_templates._writing_stem`)
 with the pinned 楷體 download; a hosted paper printed the materials in 明體 11 pt,
 merged 「一、」 with the first line, indented 問題（一） and 問題（二） differently,
 dropped both ask lines and printed half of the 說明.
+
+Materials print this way whichever block carries them: a constructed stem or a
+`passage` block (`_writing_paragraph`). A ChatGPT run (GW0923) put its materials in
+passage blocks, which then used the separate reading face and fell back to 明體
+because no `--reading-font` was passed; its page review passed anyway. The final
+checker and the inspector now read the embedded font names of the question PDF
+(`inspect_hosted_pdf.writing_font_role_samples`): a body-size ideograph of the 說明
+box or a material in a non-楷 face, or of an ask line or 問題 in a 楷 face, is the
+blocking `writing-font-role` failure. All four official 112–115 booklets pass it
+(111 embeds unnamed CID fonts). The hosted faces are licensed stand-ins, not the
+official ones: 全字庫正楷體 (TW-Kai, Ministry of Digital Affairs, OFL 1.1) for 標楷體,
+Noto Serif TC for 細明體 and Nimbus Roman (MuPDF's Times clone) for Times New Roman.
+DFKai-SB, MingLiU and Times New Roman cannot be redistributed in the Skill ZIP, and a
+hosted sandbox does not have them. TW-Kai draws the Ministry of Education standard
+forms, as 標楷體 does; LXGW WenKai TC, the kai face until 2026.09.22.17, follows
+inherited forms and printed 為 as 爲 (W116M1 「較爲」「改爲」). Its text layer also
+mapped shared glyphs to variant code points (説明、評閲、硏究), so the checker
+accepts 「説明」 as the start of the 說明 box.
 
 The contract, run when a 國寫 batch is saved and again at finalize, requires: exactly two 大題;
 問題（一） printing `文長限80字以內（至多4行）` and `（占4分）` and pointing at 上文／甲、乙二文;

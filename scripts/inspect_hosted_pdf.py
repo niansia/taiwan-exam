@@ -21,12 +21,56 @@ from validate_math_context import source_note_samples, production_caption_sample
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
                  "answer-rail-content-collision", "printed-math-source-note", "answer-rail-format",
-                 "printed-math-production-caption", "narrow-wrap-column"}
+                 "printed-math-production-caption", "narrow-wrap-column", "writing-font-role"}
 # A wrapped line that leaves this share of the body width unused, with nothing
 # printed to its right, was set in a column the page never asked for.
 NARROW_WRAP_UNUSED_SHARE = 0.25
 LIST_MARKER = re.compile(r"^(?:\([A-Ea-e1-9]\)|[A-Ea-e1-9][.、．)]|\d{1,2}[.．、(（]|[甲乙丙丁戊己庚辛壬癸][、.．]|[①②③④⑤⑥⑦⑧⑨⑩]|[（(][甲乙丙丁戊己庚辛壬癸一二三四五六七八九十0-9]+[）)]|[□■☐☑✓•‧・※◎○●▲△-]|[ivx]+[.)])")
 LINE_END_PUNCTUATION = "。．！？：；，、」』）)】〕〉》…—.!?:;,"
+
+
+KAI_FACE = re.compile(r"kai", re.I)
+CJK_IDEOGRAPH = re.compile(r"[㐀-鿿]")
+WRITING_PART = re.compile(r"^\s*[一二]、\s*$")
+WRITING_LABEL = re.compile(r"^\s*[甲乙丙丁戊]\s*$")
+WRITING_ASK = re.compile(r"^\s*請.{0,14}問題[：:]")
+
+
+def writing_font_role_samples(doc, body_box=None) -> list[dict]:
+    """國寫 question-booklet lines printed in the wrong face, read from the final PDF.
+
+    ROC 111–115 set the 說明 box and every reading material in 標楷體 and the part
+    labels, ask lines and 問題 in 明體. A hosted paper once passed page review
+    with its materials in the serif body face because a passage block ignored the
+    kai face; the embedded font names, not the page image, decide this check.
+    Body-size (≥ 11.5 pt) ideographs only: text drawn inside a figure is exempt.
+    """
+    samples, role = [], None
+    for number, page in enumerate(doc, 1):
+        if number == 1:
+            continue  # the fixed cover
+        body = pymupdf.Rect(body_box or [64, 87, page.rect.width - 64, 775])
+        lines = [line for block in page.get_text("dict")["blocks"] for line in block.get("lines", [])
+                 if body.contains(pymupdf.Rect(line["bbox"]))]
+        for line in sorted(lines, key=lambda l: (round(l["bbox"][1]), l["bbox"][0])):
+            text = "".join(s["text"] for s in line["spans"]).strip()
+            if not text or WRITING_LABEL.match(text):
+                continue
+            if text.startswith(("說明", "説明")):  # a kai subset may map 說 to its 説 variant
+                role = "kai"
+            elif WRITING_PART.match(text):
+                role = "kai"
+                continue
+            elif text.startswith("非選擇題") or WRITING_ASK.match(text):
+                role = "ming"
+            if role is None:
+                continue
+            wrong = [s["font"] for s in line["spans"] if s["size"] >= 11.5 and CJK_IDEOGRAPH.search(s["text"])
+                     and bool(KAI_FACE.search(s["font"])) != (role == "kai")]
+            if wrong:
+                samples.append({"page": number, "expected": "標楷體" if role == "kai" else "明體",
+                                "fonts": sorted(set(wrong)), "text": text[:24]})
+    return samples
 
 
 def narrow_wrap_samples(page, body):
@@ -189,6 +233,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False, sub
     target.mkdir(parents=True, exist_ok=True)
     pages = []
     with pymupdf.open(stream=data, filetype="pdf") as doc:
+        font_roles = writing_font_role_samples(doc, body_box) if subject == "國寫" and not solutions else []
         limits = booklet_limits([(n, p.get_text()) for n, p in enumerate(doc, 1)],
                                 subject or ('數學A' if math else None), solutions=solutions)
         for number, page in enumerate(doc, 1):
@@ -217,6 +262,9 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False, sub
                 issues.append('answer-rail-format')
             if table_collisions:
                 issues.append("table-grid-text-collision-review")
+            role_faces = [r for r in font_roles if r["page"] == number]
+            if role_faces:
+                issues.append("writing-font-role")
             narrow_wraps = narrow_wrap_samples(page, body)
             if len(narrow_wraps) >= 2:
                 issues.append("narrow-wrap-column")
@@ -254,6 +302,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False, sub
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
                           "narrow_wrap_samples": narrow_wraps,
+                          "writing_font_role_samples": role_faces,
                           "rail_collision_samples": rail_collisions,
                           "rail_format_samples": rail_formats,
                           "bottom_void_ratio": void, "bottom_void_limit": void_limit, "page_role": role_name,

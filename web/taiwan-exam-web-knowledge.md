@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.16
+# Taiwan Exam Web Knowledge v2026.09.22.17
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -554,10 +554,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-writing-form.md",
-    "bytes": 18443,
-    "sha256": "35eee8d592b2fc4ed101680e2dfae724dc3a6489aa60730f14d5866edfa984b3",
-    "embedded_bytes": 18443,
-    "embedded_sha256": "35eee8d592b2fc4ed101680e2dfae724dc3a6489aa60730f14d5866edfa984b3"
+    "bytes": 19929,
+    "sha256": "e146b122bff1baaae184826ce20587c0bf4dbbbacd59a5001bf89ea96ddf3966",
+    "embedded_bytes": 19929,
+    "embedded_sha256": "e146b122bff1baaae184826ce20587c0bf4dbbbacd59a5001bf89ea96ddf3966"
   },
   {
     "path": "references/current-source-transformation.md",
@@ -652,17 +652,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-body-workflow.md",
-    "bytes": 16400,
-    "sha256": "8ca1f9cd094469906717ad35bf685a3b702096bb038216fdac14a905f357fed6",
-    "embedded_bytes": 16400,
-    "embedded_sha256": "8ca1f9cd094469906717ad35bf685a3b702096bb038216fdac14a905f357fed6"
+    "bytes": 16617,
+    "sha256": "a0050f7175f71d5c678f57e7fefd0aa74bda7f0b5bf0fa904e33834ddc15fe27",
+    "embedded_bytes": 16617,
+    "embedded_sha256": "a0050f7175f71d5c678f57e7fefd0aa74bda7f0b5bf0fa904e33834ddc15fe27"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 41621,
-    "sha256": "b04b605f49a5864639f315f90c3d565c90bf7f5e1bd71337095a12b070c66dd7",
-    "embedded_bytes": 41621,
-    "embedded_sha256": "b04b605f49a5864639f315f90c3d565c90bf7f5e1bd71337095a12b070c66dd7"
+    "bytes": 41946,
+    "sha256": "a90a2e50b0af57f12f0e4c5b037ab19d36f372f01210c1d6d7c9f91fd4db3dd5",
+    "embedded_bytes": 41946,
+    "embedded_sha256": "a90a2e50b0af57f12f0e4c5b037ab19d36f372f01210c1d6d7c9f91fd4db3dd5"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -883,10 +883,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 23926,
-    "sha256": "730313e09baa00d05f1f726590f32d0f79ce999963e337634df19c086aaed7c6",
-    "embedded_bytes": 23926,
-    "embedded_sha256": "730313e09baa00d05f1f726590f32d0f79ce999963e337634df19c086aaed7c6"
+    "bytes": 24494,
+    "sha256": "fa7be1ffce2efd5443483485a9030af15fb7f84a5b72eac7740c8b72dd77b6c8",
+    "embedded_bytes": 24494,
+    "embedded_sha256": "fa7be1ffce2efd5443483485a9030af15fb7f84a5b72eac7740c8b72dd77b6c8"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -932,10 +932,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 43752,
-    "sha256": "313558b03379111827438b0c34f158c0630a26ee88a1b5e162bb47a5250b4815",
-    "embedded_bytes": 43752,
-    "embedded_sha256": "313558b03379111827438b0c34f158c0630a26ee88a1b5e162bb47a5250b4815"
+    "bytes": 45078,
+    "sha256": "73e7d7f9ce45d083d55831ae7cf8b30ce9a2391e81c4c68c9c0a6bbd1e17c99f",
+    "embedded_bytes": 45078,
+    "embedded_sha256": "73e7d7f9ce45d083d55831ae7cf8b30ce9a2391e81c4c68c9c0a6bbd1e17c99f"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -995,10 +995,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
-    "bytes": 16206,
-    "sha256": "748b6640acb469bd01b6b942c02bd6c029e11fdcc7117a403ba78e0dd10c19e4",
-    "embedded_bytes": 16206,
-    "embedded_sha256": "748b6640acb469bd01b6b942c02bd6c029e11fdcc7117a403ba78e0dd10c19e4"
+    "bytes": 18793,
+    "sha256": "b0820b5a6c7f461505124334f614cf06883970bc55ee14170a706eb182c2c226",
+    "embedded_bytes": 18793,
+    "embedded_sha256": "b0820b5a6c7f461505124334f614cf06883970bc55ee14170a706eb182c2c226"
   },
   {
     "path": "scripts/normalize_figure_asset.py",
@@ -1023,10 +1023,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 34432,
-    "sha256": "2ed15f2aa44194327e4d4cfe3d794035706a375df2aba1edc294b11afa752226",
-    "embedded_bytes": 34432,
-    "embedded_sha256": "2ed15f2aa44194327e4d4cfe3d794035706a375df2aba1edc294b11afa752226"
+    "bytes": 34714,
+    "sha256": "ac5d22f764e721b0c8debdabfd25dc8a3bab3763fada66ce353d11f9e00b7018",
+    "embedded_bytes": 34714,
+    "embedded_sha256": "ac5d22f764e721b0c8debdabfd25dc8a3bab3763fada66ce353d11f9e00b7018"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1184,10 +1184,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_writing_layout_contract.py",
-    "bytes": 10812,
-    "sha256": "6c7f63d2d9ac935c265086f9ddafa61c63fb48e9af8d89a4998d8e37d7bb824a",
-    "embedded_bytes": 10812,
-    "embedded_sha256": "6c7f63d2d9ac935c265086f9ddafa61c63fb48e9af8d89a4998d8e37d7bb824a"
+    "bytes": 11586,
+    "sha256": "e750c6262a754324a93e3b92a225c276cd24057c9216792736d598cce6cd737b",
+    "embedded_bytes": 11586,
+    "embedded_sha256": "e750c6262a754324a93e3b92a225c276cd24057c9216792736d598cce6cd737b"
   },
   {
     "path": "scripts/validate_writing_source_grounding.py",
@@ -58624,13 +58624,32 @@ Text extracted from the five official 國寫 booklets on disk:
 Fonts and geometry measured on the same booklets: body 12 pt on a 20 pt line; the
 說明 box and the reading materials in 標楷體 (DFKai-SB) with Times digits, materials
 indented two characters (x 87.9 pt against the 63.9 pt margin) and a lone 甲／乙
-label on its own line; 「一、」「二、」 in 明體 12.96 pt on their own line; 「請分項回答
+label on its own line inside an 18 pt box (113 and 115, the two years that label
+their texts); 「一、」「二、」 in 明體 12.96 pt on their own line; 「請分項回答
 下列問題：」 and 問題（一）／（二） in 明體 12 pt at the margin, continuation lines
 hanging at 135.9 pt (six characters); the 第二大題 task paragraph indented two
 characters. The renderer reproduces this (`hosted_body_templates._writing_stem`)
 with the pinned 楷體 download; a hosted paper printed the materials in 明體 11 pt,
 merged 「一、」 with the first line, indented 問題（一） and 問題（二） differently,
 dropped both ask lines and printed half of the 說明.
+
+Materials print this way whichever block carries them: a constructed stem or a
+`passage` block (`_writing_paragraph`). A ChatGPT run (GW0923) put its materials in
+passage blocks, which then used the separate reading face and fell back to 明體
+because no `--reading-font` was passed; its page review passed anyway. The final
+checker and the inspector now read the embedded font names of the question PDF
+(`inspect_hosted_pdf.writing_font_role_samples`): a body-size ideograph of the 說明
+box or a material in a non-楷 face, or of an ask line or 問題 in a 楷 face, is the
+blocking `writing-font-role` failure. All four official 112–115 booklets pass it
+(111 embeds unnamed CID fonts). The hosted faces are licensed stand-ins, not the
+official ones: 全字庫正楷體 (TW-Kai, Ministry of Digital Affairs, OFL 1.1) for 標楷體,
+Noto Serif TC for 細明體 and Nimbus Roman (MuPDF's Times clone) for Times New Roman.
+DFKai-SB, MingLiU and Times New Roman cannot be redistributed in the Skill ZIP, and a
+hosted sandbox does not have them. TW-Kai draws the Ministry of Education standard
+forms, as 標楷體 does; LXGW WenKai TC, the kai face until 2026.09.22.17, follows
+inherited forms and printed 為 as 爲 (W116M1 「較爲」「改爲」). Its text layer also
+mapped shared glyphs to variant code points (説明、評閲、硏究), so the checker
+accepts 「説明」 as the start of the 說明 box.
 
 The contract, run when a 國寫 batch is saved and again at finalize, requires: exactly two 大題;
 問題（一） printing `文長限80字以內（至多4行）` and `（占4分）` and pointing at 上文／甲、乙二文;
@@ -59905,7 +59924,9 @@ options, bank, score and figure stay on the last. `run_hosted_workflow.py specs`
 sets these fields from the saved exam.
 
 `--reading-font` can supply a separately verified reading-material font for
-國綜/國寫. Main body and reading roles must retain the selected subject's visual
+國綜 passages. 國寫 materials always use the preflight's kai face (`--kai-font`),
+whether they sit in a constructed stem or a passage block, and the final checker
+rejects a 國寫 question PDF whose materials are not set in it. Main body and reading roles must retain the selected subject's visual
 hierarchy. Some DFKai versions collapse Chinese advances in the HTML renderer;
 the helper rejects this pattern. Use a compatible tested font, not a smaller
 font or a claim that successful export proves text is readable.
@@ -60476,9 +60497,13 @@ re-open every page.
   preflight; a supplied font is used only when that download fails, the built-in
   sans-serif is the last resort) and digits, Latin letters and √ in the Times-like
   Latin face. The bordered 說明 box of every subject and the 國寫 reading materials
-  print in the pinned 楷體 face (LXGW WenKai TC, the preflight's second download,
+  print in the pinned 楷體 face (全字庫正楷體 TW-Kai, the preflight's second download,
   recorded as `kai_font`; the official booklets set them in 標楷體), falling back
-  to the serif when that download fails. Authors never choose fonts.
+  to the serif when that download fails. A 國寫 question booklet cannot take that
+  fallback: the final checker reads the embedded fonts and blocks materials or a
+  說明 box set in 明體 (`writing-font-role`), whether the materials sit in a stem or
+  a passage block. When the download is blocked, ask for a 楷體 TTF and pass it as
+  `--kai-font`. Authors never choose fonts.
 - 國寫 prints 12 pt on a 20 pt line (111–115 measured): 「一、」「二、」 on their own
   line, materials indented two characters, 「請分項回答下列問題：」 at the margin,
   問題（一）／（二） with a six-character hanging indent, and no number column. The
@@ -66158,7 +66183,8 @@ import hashlib
 import json
 from pathlib import Path
 import pymupdf
-from inspect_hosted_pdf import HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void, narrow_wrap_samples
+from inspect_hosted_pdf import (HARD_FAILURES, rail_collision_samples, rail_format_samples, bottom_void,
+                                 narrow_wrap_samples, writing_font_role_samples)
 from hosted_item_layout import geometry_errors, crop_bytes
 from hosted_run_timing import timing_errors, summary as timing_summary, workflow_events
 from hosted_blind_review import packet, review_errors, REVIEW_MODES
@@ -66348,6 +66374,11 @@ def check(state_path: Path) -> dict:
             need(actual.metadata.get('creator') == COMPOSER,
                  f'{role}: PDF was not composed by compose_hosted_pdf (creator stamp missing); '
                  'a body typeset by another route is not deliverable')
+            if role == 'question' and exam.get('metadata', {}).get('subject') == '國寫':
+                for sample in writing_font_role_samples(actual):
+                    need(False, f'{role}/page-{sample["page"]}: 國寫 line 「{sample["text"]}」 is set in '
+                                f'{"/".join(sample["fonts"])}, not {sample["expected"]}; materials and the 說明 box '
+                                'print in the preflight kai face (--kai-font), 問題 and ask lines in the body face')
             for number, actual_page in enumerate(actual, 1):
                 collisions = rail_collision_samples(actual_page)
                 need(not collisions,
@@ -67785,6 +67816,7 @@ p {margin:0 0 P_MARGINpt} table {border-collapse:collapse;width:100%;margin:0} t
 td.figure {vertical-align:top}
 .direction {border:0.6pt solid black;padding:3pt 5pt;font-size:12pt;line-height:1.3;font-family:Kai,Body}
 .material {font-family:Kai,Body} p.hanging {padding-left:6em;text-indent:-6em;text-align:justify} p.plain {text-indent:0}
+table.material-label {width:18pt;margin:2pt 0 4pt} table.material-label td {border:0.6pt solid black;padding:0;text-align:center;line-height:1.4}
 p.part {font-size:13pt;margin-bottom:2pt}
 .heading {font-size:13pt;font-weight:bold;margin-bottom:4pt}
 .number {width:24pt} .figure {text-align:center} .score {font-size:11pt}
@@ -67851,13 +67883,17 @@ _writing_mode = False
 WRITING_TASK_LINE = re.compile(r'^\s*問題[（(]')
 WRITING_ASK_LINE = re.compile(r'^\s*請.{0,14}問題[：:]\s*$')
 WRITING_MATERIAL_LABEL = re.compile(r'^\s*[甲乙丙丁戊]\s*$')
+# 「（占4分）」 never breaks inside (111 wraps the whole group); a hosted paper printed
+# 「（占」 at a line end and 「4分）」 on the next. 115 does break 「（至多／19 行）」.
+WRITING_UNBREAKABLE = re.compile(r'（占(?:<[^>]+>|[^（）<])*）')
 
 
 def _writing_stem(block):
     """國寫 paragraphs as the official booklets print them.
 
     Reading material: 楷體, first line indented two characters; a lone 甲／乙 label
-    sits on its own unindented line. 「請分項回答下列問題：」 prints at the margin;
+    sits on its own line in an 18 pt box (113 and 115 measured), and a source line
+    printed as its own paragraph stays at the margin. 「請分項回答下列問題：」 prints at the margin;
     問題（一）／（二） hang six characters (the width of 「問題（一）：」) so their
     continuation lines align under the text; the 第二大題 task paragraph is an
     ordinary indented 明體 paragraph.
@@ -67869,19 +67905,27 @@ def _writing_stem(block):
     else:
         pieces = [p for p in PARAGRAPH_BREAK.split(str(value)) if p.strip()]
         plains = list(pieces)
-    out = []
-    for piece, plain in zip(pieces, plains):
-        plain = plain.strip()
-        if WRITING_MATERIAL_LABEL.match(plain) or WRITING_ASK_LINE.match(plain):
-            cls = 'plain'
-        elif WRITING_TASK_LINE.match(plain):
-            cls = 'hanging'
-        elif '為題' in plain or '（占' in plain or '文長' in plain:
-            cls = 'indent'
-        else:
-            cls = 'material indent'
-        out.append(f'<p class="{cls}">{text(piece)}</p>')
-    return ''.join(out)
+    return ''.join(_writing_paragraph(piece, plain) for piece, plain in zip(pieces, plains))
+
+
+def _writing_paragraph(piece, plain):
+    plain = plain.strip()
+    if WRITING_MATERIAL_LABEL.match(plain):
+        return f'<table class="material-label"><tr><td>{text(piece)}</td></tr></table>'
+    if WRITING_ASK_LINE.match(plain):
+        cls = 'plain'
+    elif WRITING_TASK_LINE.match(plain):
+        cls = 'hanging'
+    elif '為題' in plain or '（占' in plain or '文長' in plain:
+        cls = 'indent'
+    elif re.match(r'[（(]', plain):
+        cls = 'material plain'
+    else:
+        cls = 'material indent'
+    markup = text(piece)
+    if 'material' not in cls:
+        markup = WRITING_UNBREAKABLE.sub(lambda m: f'<span style="white-space:nowrap">{m.group(0)}</span>', markup)
+    return f'<p class="{cls}">{markup}</p>'
 
 
 def latin_runs(markup):
@@ -68007,16 +68051,22 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if kind=='passage':
         paragraphs=block.get('paragraphs',[])
         if not paragraphs:raise ValueError('Passage needs actual paragraphs')
+        writing=_writing_mode and block.get('language')!='en'
         def paragraph(value):
             plain=value['rich'] if isinstance(value,dict) else value
+            if writing:
+                # 國寫 materials print in 楷體 whichever block carries them: a passage
+                # once fell back to the 明體 body face because only stems were classified.
+                return _writing_paragraph(value,html.unescape(re.sub('<[^>]+>','',str(plain))))
             # Source lines and option/bank rows are never first-line indented.
             indent=block.get('indent') and not re.match(r'\s*[(（]',str(plain))
             return ('<p class="indent">' if indent else '<p>')+text(value)+'</p>'
         content=''.join(paragraph(p) for p in paragraphs)
         content=re.sub(r'\{\{gap:(\d{1,2})\}\}',r'<u>　\1　</u>',content)
         if '{{gap:' in content:raise ValueError('Invalid passage gap number')
-        cls='english' if block.get('language')=='en' else 'passage'
+        cls='english' if block.get('language')=='en' else 'writing' if writing else 'passage'
         heading=f'<div class="heading">{text(block["heading"])}</div>' if block.get('heading') and head else ''
+        if writing and heading:heading=f'<p class="part">{text(block["heading"])}</p>'
         bank=block.get('bank',[]) if tail else []
         if bank:
             columns=block.get('columns',2)
@@ -70042,12 +70092,56 @@ from validate_math_context import source_note_samples, production_caption_sample
 RAW_MATH = re.compile(r"[A-Za-z0-9)]\s*[\^_]\s*[A-Za-z0-9{(]|\[\[")
 HARD_FAILURES = {"non-A4-or-rotated", "replacement-or-null-glyph", "text-outside-page",
                  "answer-rail-content-collision", "printed-math-source-note", "answer-rail-format",
-                 "printed-math-production-caption", "narrow-wrap-column"}
+                 "printed-math-production-caption", "narrow-wrap-column", "writing-font-role"}
 # A wrapped line that leaves this share of the body width unused, with nothing
 # printed to its right, was set in a column the page never asked for.
 NARROW_WRAP_UNUSED_SHARE = 0.25
 LIST_MARKER = re.compile(r"^(?:\([A-Ea-e1-9]\)|[A-Ea-e1-9][.、．)]|\d{1,2}[.．、(（]|[甲乙丙丁戊己庚辛壬癸][、.．]|[①②③④⑤⑥⑦⑧⑨⑩]|[（(][甲乙丙丁戊己庚辛壬癸一二三四五六七八九十0-9]+[）)]|[□■☐☑✓•‧・※◎○●▲△-]|[ivx]+[.)])")
 LINE_END_PUNCTUATION = "。．！？：；，、」』）)】〕〉》…—.!?:;,"
+
+
+KAI_FACE = re.compile(r"kai", re.I)
+CJK_IDEOGRAPH = re.compile(r"[㐀-鿿]")
+WRITING_PART = re.compile(r"^\s*[一二]、\s*$")
+WRITING_LABEL = re.compile(r"^\s*[甲乙丙丁戊]\s*$")
+WRITING_ASK = re.compile(r"^\s*請.{0,14}問題[：:]")
+
+
+def writing_font_role_samples(doc, body_box=None) -> list[dict]:
+    """國寫 question-booklet lines printed in the wrong face, read from the final PDF.
+
+    ROC 111–115 set the 說明 box and every reading material in 標楷體 and the part
+    labels, ask lines and 問題 in 明體. A hosted paper once passed page review
+    with its materials in the serif body face because a passage block ignored the
+    kai face; the embedded font names, not the page image, decide this check.
+    Body-size (≥ 11.5 pt) ideographs only: text drawn inside a figure is exempt.
+    """
+    samples, role = [], None
+    for number, page in enumerate(doc, 1):
+        if number == 1:
+            continue  # the fixed cover
+        body = pymupdf.Rect(body_box or [64, 87, page.rect.width - 64, 775])
+        lines = [line for block in page.get_text("dict")["blocks"] for line in block.get("lines", [])
+                 if body.contains(pymupdf.Rect(line["bbox"]))]
+        for line in sorted(lines, key=lambda l: (round(l["bbox"][1]), l["bbox"][0])):
+            text = "".join(s["text"] for s in line["spans"]).strip()
+            if not text or WRITING_LABEL.match(text):
+                continue
+            if text.startswith(("說明", "説明")):  # a kai subset may map 說 to its 説 variant
+                role = "kai"
+            elif WRITING_PART.match(text):
+                role = "kai"
+                continue
+            elif text.startswith("非選擇題") or WRITING_ASK.match(text):
+                role = "ming"
+            if role is None:
+                continue
+            wrong = [s["font"] for s in line["spans"] if s["size"] >= 11.5 and CJK_IDEOGRAPH.search(s["text"])
+                     and bool(KAI_FACE.search(s["font"])) != (role == "kai")]
+            if wrong:
+                samples.append({"page": number, "expected": "標楷體" if role == "kai" else "明體",
+                                "fonts": sorted(set(wrong)), "text": text[:24]})
+    return samples
 
 
 def narrow_wrap_samples(page, body):
@@ -70210,6 +70304,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False, sub
     target.mkdir(parents=True, exist_ok=True)
     pages = []
     with pymupdf.open(stream=data, filetype="pdf") as doc:
+        font_roles = writing_font_role_samples(doc, body_box) if subject == "國寫" and not solutions else []
         limits = booklet_limits([(n, p.get_text()) for n, p in enumerate(doc, 1)],
                                 subject or ('數學A' if math else None), solutions=solutions)
         for number, page in enumerate(doc, 1):
@@ -70238,6 +70333,9 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False, sub
                 issues.append('answer-rail-format')
             if table_collisions:
                 issues.append("table-grid-text-collision-review")
+            role_faces = [r for r in font_roles if r["page"] == number]
+            if role_faces:
+                issues.append("writing-font-role")
             narrow_wraps = narrow_wrap_samples(page, body)
             if len(narrow_wraps) >= 2:
                 issues.append("narrow-wrap-column")
@@ -70275,6 +70373,7 @@ def audit(pdf: Path, raster_dir: Path, *, body_box=None, math: bool = False, sub
                           "issues": sorted(set(issues)), "raw_math_samples": leaked,
                           "table_collision_samples": table_collisions,
                           "narrow_wrap_samples": narrow_wraps,
+                          "writing_font_role_samples": role_faces,
                           "rail_collision_samples": rail_collisions,
                           "rail_format_samples": rail_formats,
                           "bottom_void_ratio": void, "bottom_void_limit": void_limit, "page_role": role_name,
@@ -71186,13 +71285,15 @@ SERIF_FONT_BYTES = 10001820
 SERIF_FONT_TIMEOUT = 40
 # Every booklet prints these in its cover title and running headers.
 FIELD_TEXT = '0123456789學年度學科能力測驗模擬試題學測'
-# The kai face for 說明 boxes (every subject) and 國寫 reading materials: LXGW WenKai TC
-# Regular, OFL 1.1, unmodified upstream release asset re-hosted with its licence notes.
-KAI_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-lxgw-wenkai-tc-1/'
-                'LXGWWenKaiTC-Regular.ttf')
-KAI_FONT_SHA256 = 'b1a0795862c1415bf3f393ea50b2a4ea6275012cf5bad3f94feeb1222f555731'
-KAI_FONT_BYTES = 15267616
-KAI_FONT_TIMEOUT = 60
+# The kai face for 說明 boxes (every subject) and 國寫 reading materials: 全字庫正楷體
+# (TW-Kai, Ministry of Digital Affairs CNS11643 open data, OFL 1.1), unmodified and
+# re-hosted with its licence notes. It draws the Ministry of Education standard forms
+# of 標楷體; LXGW WenKai TC, used before, prints 為 in its inherited form 爲.
+KAI_FONT_URL = ('https://github.com/niansia/taiwan-exam/releases/download/fonts-tw-kai-1/'
+                'TW-Kai-98_1.ttf')
+KAI_FONT_SHA256 = 'd5e8d7d8743c5cf816bdeb393a443f65105a8130266a04c19560e1d3401b28f0'
+KAI_FONT_BYTES = 36925608
+KAI_FONT_TIMEOUT = 120
 KAI_TEXT = '說明本部分共有二大題請依各題指示作答'
 # Hosted images usually install Noto/Source Han CJK as one collection file whose
 # FIRST face is Japanese. MuPDF loads that face, so a paper would print Japanese
@@ -71412,8 +71513,9 @@ def downloaded_serif_font(run_dir, url=SERIF_FONT_URL, timeout=SERIF_FONT_TIMEOU
 
 def kai_font_record(run_dir, url=KAI_FONT_URL, timeout=KAI_FONT_TIMEOUT):
     """Record of the pinned kai face, or why the serif body face stands in for it."""
-    target = run_dir / 'fonts' / 'LXGWWenKaiTC-Regular.ttf'
-    fallback = 'the 說明 boxes and 國寫 materials print in the serif body face instead of 楷體'
+    target = run_dir / 'fonts' / 'TW-Kai-98_1.ttf'
+    fallback = ('the 說明 boxes print in the serif body face instead of 楷體, and a 國寫 question booklet fails '
+                'the final writing-font-role check until a 楷體 TTF is passed as --kai-font')
 
     def unavailable(note):
         return {'unavailable': note + '; ' + fallback, 'url': url}
@@ -71438,8 +71540,8 @@ def kai_font_record(run_dir, url=KAI_FONT_URL, timeout=KAI_FONT_TIMEOUT):
             return unavailable('downloaded kai font lacks 說明 glyphs')
     except Exception as exc:  # MuPDF raises its own error types
         return unavailable(f'downloaded kai font unusable ({exc})')
-    return {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-lxgw-wenkai-tc', 'sha256': KAI_FONT_SHA256,
-            'url': url, 'style': '楷體 Traditional Chinese (LXGW WenKai TC Regular, SIL Open Font License 1.1) for the '
+    return {'path': target.relative_to(run_dir).as_posix(), 'source': 'downloaded-tw-kai', 'sha256': KAI_FONT_SHA256,
+            'url': url, 'style': '楷體 Traditional Chinese (全字庫正楷體 TW-Kai, Ministry of Digital Affairs, SIL Open Font License 1.1) for the '
                                  'bordered 說明 boxes of every subject and the 國寫 reading materials, as the official '
                                  'booklets set them in 標楷體'}
 
@@ -79652,6 +79754,13 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         errors.append('國寫問題（一）須印「文長限80字以內（至多4行）」（官方 111–115 逐字相同）')
     if not TASK_ONE_LONG.search(text_one):
         errors.append('國寫問題（二）須印「文長限400字以內（至多19行）」（官方 111–115 逐字相同）')
+    # Every official year prints 「問題（一）：」 and closes the length limit with 「。」 before
+    # the score; a hosted paper printed 「問題（一）根據上文…（至多4行）（占4分）」.
+    for label, limit in (('問題（一）', TASK_ONE_SHORT), ('問題（二）', TASK_ONE_LONG)):
+        if label in text_one and not re.search(re.escape(label) + '：', text_one):
+            errors.append(f'國寫須印「{label}：」（全形冒號，官方 111–115 逐字相同）')
+        if limit.search(text_one) and not re.search(limit.pattern + r'。\s*（占', text_one):
+            errors.append(f'國寫{label}的字數限制與配分之間須印「。」：「……（至多N行）。（占N分）」（官方 111–115 逐字相同）')
     scores_one = [int(s) for s in SCORE.findall(text_one)]
     if scores_one != [4, 21]:
         errors.append(f'國寫第一大題配分須依序印（占4分）、（占21分），目前 {scores_one}')

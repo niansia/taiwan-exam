@@ -417,9 +417,13 @@ re-open every page.
   preflight; a supplied font is used only when that download fails, the built-in
   sans-serif is the last resort) and digits, Latin letters and √ in the Times-like
   Latin face. The bordered 說明 box of every subject and the 國寫 reading materials
-  print in the pinned 楷體 face (LXGW WenKai TC, the preflight's second download,
+  print in the pinned 楷體 face (全字庫正楷體 TW-Kai, the preflight's second download,
   recorded as `kai_font`; the official booklets set them in 標楷體), falling back
-  to the serif when that download fails. Authors never choose fonts.
+  to the serif when that download fails. A 國寫 question booklet cannot take that
+  fallback: the final checker reads the embedded fonts and blocks materials or a
+  說明 box set in 明體 (`writing-font-role`), whether the materials sit in a stem or
+  a passage block. When the download is blocked, ask for a 楷體 TTF and pass it as
+  `--kai-font`. Authors never choose fonts.
 - 國寫 prints 12 pt on a 20 pt line (111–115 measured): 「一、」「二、」 on their own
   line, materials indented two characters, 「請分項回答下列問題：」 at the margin,
   問題（一）／（二） with a six-character hanging indent, and no number column. The

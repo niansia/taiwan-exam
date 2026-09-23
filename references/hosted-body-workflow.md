@@ -86,7 +86,9 @@ options, bank, score and figure stay on the last. `run_hosted_workflow.py specs`
 sets these fields from the saved exam.
 
 `--reading-font` can supply a separately verified reading-material font for
-國綜/國寫. Main body and reading roles must retain the selected subject's visual
+國綜 passages. 國寫 materials always use the preflight's kai face (`--kai-font`),
+whether they sit in a constructed stem or a passage block, and the final checker
+rejects a 國寫 question PDF whose materials are not set in it. Main body and reading roles must retain the selected subject's visual
 hierarchy. Some DFKai versions collapse Chinese advances in the HTML renderer;
 the helper rejects this pattern. Use a compatible tested font, not a smaller
 font or a claim that successful export proves text is readable.
