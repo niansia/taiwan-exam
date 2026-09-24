@@ -277,6 +277,8 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
     elif subject in {'國綜', '自然'}:
         if subject == '國綜':
             commands += [('validate_chinese_layout_contract.py', [exam_path])]
+        else:
+            commands += [('validate_natural_layout_contract.py', [exam_path])]
         commands += [('validate_chinese_natural_scope.py', [exam_path]),
                      ('validate_source_grounding.py', [exam_path, source_path, '--novelty-report', base / contract.get('source_novelty_report', '')])]
     elif subject == '社會':

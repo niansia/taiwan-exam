@@ -24,7 +24,9 @@ PROVISIONAL_FLOORS = {
     # Official 111-115 booklets label 21-36 (自然) and 8-17 (社會) distinct figures/tables
     # and mention photographs 3-7 times a year (社會); a paper at the old floor of 6-8
     # visuals looked like a text worksheet. Floors sit below the weakest official year.
-    "自然": {"count": 16, "sections": 2, "kinds": 4, "domains": 4, "sourced_photos": 3},
+    # 自然 111-115: 16-28 labelled 圖 and 4-12 表 a year, almost all drawn graphs, apparatus and
+    # tables; real photographs are 0-2 a year (115: a mitosis micrograph panel and a rock).
+    "自然": {"count": 16, "sections": 2, "kinds": 4, "domains": 4, "sourced_photos": 1},
     # 社會 111-115 measured (2026-09-24): 2-4 photographs or archival images a year (112 poster,
     # land deed, aerial photo; 113 temple photos, statuette; 114 cave photo, two cartoons; 115
     # murals, satellite image, aerial panel, Bamiyan) beside 7-13 charts, maps and tables, and

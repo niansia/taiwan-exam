@@ -83,6 +83,7 @@ sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
 .cn-material.inline {margin-left:0} .cn-material p.indent {text-indent:24pt} .cn-material p.hang {padding-left:22.8pt;text-indent:-22.8pt}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
 .social-material p {margin:0;text-indent:24pt;text-align:justify} .social-material p.flush {text-indent:0}
+.figcaption {text-align:center;margin-top:1pt;line-height:1.3}
 '''
 
 
@@ -702,6 +703,8 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if figure:
         if figure not in images:raise ValueError('Figure must name a hash-verified asset')
         image_box=f'<div style="line-height:{image_heights[figure]+FIGURE_LEADING_PT:g}pt">{images[figure]}</div>'
+        if block.get('figure_caption'):
+            image_box+=f'<div class="figcaption">{text(block["figure_caption"])}</div>'
         if block.get('figure_position','below')=='right':
             if kind=='fill':raise ValueError('Fill figures use below placement; keep answer rails in paragraph flow')
             if block['assets'][figure]['width_pt']>180:raise ValueError('Right-hand figure exceeds reserved column')

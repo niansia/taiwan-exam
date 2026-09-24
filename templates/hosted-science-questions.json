@@ -78,7 +78,7 @@
     {
       "kind": "table",
       "id": "layout-science-data",
-      "text": "〔實驗／觀測資料位置〕",
+      "text": "表1　〔實驗／觀測資料位置〕",
       "headers": [
         "〔條件〕",
         "〔量測值〕",
@@ -100,7 +100,7 @@
     {
       "kind": "stimulus",
       "id": "layout-science-figure",
-      "text": "〔本次新照片、圖表或裝置圖；占位框不提供現象、數據或答案線索〕",
+      "text": "〔本次新照片、圖表或裝置圖，以「圖1」「表1」依序編號；題幹寫「如圖1」，不寫「如圖」〕",
       "assets": {
         "figure": {
           "path": "hosted-body-figure-placeholder.svg",
@@ -110,14 +110,28 @@
       },
       "figure": "figure",
       "figure_position": "right",
-      "keep_with_next": true
+      "keep_with_next": true,
+      "figure_caption": "圖1"
     },
     {
       "kind": "constructed",
       "id": "layout-science-short",
       "number": 37,
-      "text": "〔根據本次資料提出解釋／計算／設計的作答要求〕",
-      "score": 2
+      "text": "〔第一個小題要求〕（2 分）",
+      "score": 2,
+      "score_in_text": true,
+      "lead": "〔依圖1命製的非選題引導句，題號只印一次〕",
+      "subpart": "(a)"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-science-short-b",
+      "number": 37,
+      "label": "",
+      "subpart": "(b)",
+      "text": "〔第二個小題要求，續行對齊小題文字〕（2 分）",
+      "score": 2,
+      "score_in_text": true
     }
   ]
 }

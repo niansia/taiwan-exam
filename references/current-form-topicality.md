@@ -27,9 +27,11 @@ or dataset datable to within 24 months before that January administration.
 
 Three shapes recur and are the model for generated papers:
 
-- **自然** carries recency through a shared stimulus (Nobel result, mission, disaster warning)
-  whose measurement, structure or time series the items must use; the arithmetic itself
-  is timeless. Four of five years include an autumn Nobel prize.
+- **自然** carries recency through a shared stimulus (a research result, mission, data
+  release, disaster warning) whose measurement, structure or time series the items must
+  use; the arithmetic itself is timeless. Four of five years include an autumn Nobel prize,
+  but that is a record of the past, not a recipe: two hosted 116 papers built three Nobel
+  groups each once this reference said 「plan the Nobel prizes」.
 - **英文 and 國綜** attach one recent element (a news list, a film synopsis, a side box, a
   closing sentence) to an otherwise older main text. Recency never appears through a
   printed 改寫自 year.
@@ -145,9 +147,17 @@ reasoning. Those remain editorial review under
 2. Prefer sources that supply a measurement, a series, an image feature, a procedure or a
    constraint. A name, a headline or a prize alone is decoration and fails the
    source-relation test.
-3. For 自然 plan the autumn Nobel prizes when the lock date allows, and one in-season Taiwan
-   hazard (a named typhoon warning, an earthquake report, a cold surge or a rainfall
-   event) as a shared stimulus with real printed data.
+3. For 自然 choose freely among fresh, checkable sources: a journal paper (Nature, Science,
+   PNAS, a Taiwanese journal), a conference result, a Nature/Science news item, an agency
+   data release, a monitoring series (ENSO, CO2, sea level), a space mission, a hazard
+   report, local Taiwan data, or a Nobel prize. `validate_current_context.py` allows at
+   most one Nobel prize, at most two recent sources from one publisher, at least three
+   source families, and one event per group (a hosted paper used the same eclipse and the
+   same Swift notice in two groups each, and NASA for three of six sources). Include one
+   in-season Taiwan hazard (a named typhoon warning, an earthquake report, a cold surge or a
+   rainfall event) as a shared stimulus with real printed data. Objects earlier generated
+   papers wore out, such as the Hubble deep-field image, are listed in
+   `shared-data/overused-generated-materials.json` and rejected.
 4. For 英文 and 國綜 write the older main text first, then add the recent element the way
    the official papers do: a closing sentence, a side box, a quoted list, a synopsis.
 5. For 國寫 and the English composition choose a trend that students live inside and can

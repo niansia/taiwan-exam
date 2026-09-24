@@ -15,7 +15,7 @@ STRANDS={'number_and_algebra','functions_and_models','geometry_and_space',
          'data_and_statistics','counting_and_probability'}
 # Planning floors mirror visual-generation.md. These are product minima, not
 # claims about official frequencies or proof that a planned visual is useful.
-VISUAL_FLOORS={'數學A':(4,3,2,0,0),'數學B':(4,3,2,0,0),'自然':(8,2,4,4,2),
+VISUAL_FLOORS={'數學A':(4,3,2,0,0),'數學B':(4,3,2,0,0),'自然':(8,2,4,4,1),
                '社會':(10,2,4,3,2),'英文':(3,2,2,0,1)}
 
 def number(value, minimum=0):

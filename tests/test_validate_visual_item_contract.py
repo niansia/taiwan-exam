@@ -112,11 +112,11 @@ def test_changed_asset_hash_fails(tmp_path):
     assert any("hash" in error for error in report["errors"])
 
 
-def test_natural_full_paper_requires_two_real_photo_items(tmp_path):
+def test_natural_full_paper_requires_one_real_photo_item(tmp_path):
     domains = ["物理", "化學", "生物", "地科"] * 2
     kinds = ["circuit", "experimental_setup", "biological_illustration", "map"] * 2
     questions = [
-        sourced_photo_question(tmp_path, 1, "s1", domains[0]),
+        visual_question(tmp_path, 1, "s1", "graph", domains[0]),
         *[
             visual_question(tmp_path, number, "s1" if number < 5 else "s2", kinds[number - 1], domains[number - 1])
             for number in range(2, 9)
@@ -126,8 +126,8 @@ def test_natural_full_paper_requires_two_real_photo_items(tmp_path):
         {"metadata": {"subject": "自然", "generation_mode": "full-paper"}, "questions": questions},
         tmp_path,
     )
-    assert report["sourced_photo_count"] == 1
-    assert any("real photographs or archival images, minimum is 3" in error for error in report["errors"])
+    assert report["sourced_photo_count"] == 0
+    assert any("real photographs or archival images, minimum is 1" in error for error in report["errors"])
 
 
 def test_social_photo_floor_has_no_upper_bound(tmp_path):

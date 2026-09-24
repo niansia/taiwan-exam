@@ -297,7 +297,10 @@ def content_lock(state_path, *, reason=None):
     # The subject contract the final check applies, before the first booklet exists: a
     # hosted 國綜 run learned from its whole-paper source check only after two builds.
     exam = read(inside(root, root / state['exam']['path']))
-    problems = asset_path_problems(root, exam) + subject_gate_errors(exam, root=root)
+    from validate_current_context import validate as current_context_errors
+    # Source dates and facts are settled here too: a hosted 自然 run printed a NASA release date
+    # as the image's capture date and found it in the final source check, after three builds.
+    problems = asset_path_problems(root, exam) + subject_gate_errors(exam, root=root) + current_context_errors(exam)
     path = root / 'content-lock.json'
     previous = read(path) if path.exists() else None
     if previous and previous['identity'] != identity and not (reason or '').strip():
@@ -799,6 +802,8 @@ def printed_fields(question, answer):
     for key in ('continuation_pages', 'group_stimulus_page_splits'):
         for page, value in sorted((question.get(key) or {}).items()):
             yield f'{key} {page}', value
+    if isinstance(question.get('visual_asset'), dict) and isinstance(question['visual_asset'].get('caption'), str):
+        yield 'figure caption', question['visual_asset']['caption']
     table = question.get('response_format_table')
     if isinstance(table, dict):
         for key in ('caption', 'heading'):
@@ -917,6 +922,12 @@ def option_columns(question, subject):
         # every 社會 option onto its own line and hosted papers ran 3-4 pages over.
         longest = max(len(re.sub(r'\s|<[^>]+>', '', str(o.get('text', '')))) for o in options)
         return 4 if longest <= 7 else 2 if longest <= 16 else 1
+    if subject == '自然' and len(options) == 5:
+        # 111-115 measured: options of up to 7 characters print five abreast (20 items), a
+        # few three abreast; longer ones one per line (76 items, 2 to 42 characters). The
+        # old default put 8-52-character options two abreast.
+        longest = max(len(re.sub(r'\s|<[^>]+>', '', str(o.get('text', '')))) for o in options)
+        return 5 if longest <= 7 else 1
     if question.get('option_layout') in OPTION_LAYOUT_COLUMNS:
         return OPTION_LAYOUT_COLUMNS[question['option_layout']]
     options = question.get('options') or []
@@ -970,6 +981,10 @@ def attach_assets(block, record_, where, body_width, hint, *, figure_key, positi
         block['figure'] = figure_key
         block['figure_position'] = position or hint.get('figure_position') or (
             'right' if record_.get('visual_layout') == 'side-right' else 'below')
+        if str(visual.get('caption') or '').strip():
+            # 「圖3」 centred under the figure, as 自然 and 社會 111-115 print every figure; two
+            # hosted 自然 papers could only write 「如圖」 because no caption was printed.
+            block['figure_caption'] = printed(visual['caption'], where + ' figure caption')
     if assets:
         block['assets'] = assets
 
@@ -1015,7 +1030,7 @@ def english_segment(owner, segment, members, where, layout):
 
 
 HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
-SUBPART_PREFIX = re.compile(r'\s*([（(][1-9][)）])\s*')
+SUBPART_PREFIX = re.compile(r'\s*([（(](?:[1-9]|[a-e])[)）])\s*')
 
 
 def subpart_of(q):
@@ -1025,7 +1040,9 @@ def subpart_of(q):
         return str(q['subpart_label']), prompt
     match = SUBPART_PREFIX.match(prompt)
     if match and q.get('type') not in {'single_choice', 'multiple_choice'}:
-        return '（' + match.group(1)[1:-1] + '）', prompt[match.end():]
+        inner = match.group(1)[1:-1]
+        # 自然 112-115 print (a)(b) in half-width brackets; 國綜 prints （1）（2）.
+        return ('(' + inner + ')' if inner.isalpha() else '（' + inner + '）'), prompt[match.end():]
     return None
 # Shared material that points at its own table or figure (「下表為…」); the figure then
 # belongs to the material, not to the group's first question.

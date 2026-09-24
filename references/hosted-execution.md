@@ -416,7 +416,15 @@ content. The order below is not advice; the tools enforce the parts they can.
    discovered.
 3. **Lock** (`lock-content`). `build` refuses to run without `content-lock.json`.
    A booklet built before the lock is discarded the moment an item changes, and
-   every one of its page reviews with it. If content must change after reviews
+   every one of its page reviews with it. After the lock, a rebuild keeps every
+   page review whose page pixels (or body pixels, when only the running page count
+   moved) and printed items are unchanged, and queues only the pages that changed:
+   two hosted 自然 runs re-reviewed 130 identical pages because they read this rule
+   as 「any PDF change voids every page」. Record each build's page and crop reviews
+   (`record-review`) **before** changing anything: an unrecorded review cannot be
+   retained, and one run re-read a whole build for that reason. `lock-content` also
+   runs the recent-source check (dates, facts, source diversity), so a date such as a
+   release day printed as a capture day is fixed before the first build. If content must change after reviews
    exist, run `refresh-evidence --state <state>`: it re-registers the mechanical
    records and writes `<gate>.draft.json` for every stale report, keeping the rows
    of items whose authored record is unchanged, leaving changed or new items and

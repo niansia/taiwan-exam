@@ -338,6 +338,31 @@ The page-level visual signal above includes tables, formulas, and drawing operat
 
 The visual-kind count is based on rendered topology, not filenames or declared labels. Reusing a bordered one-column label/value panel for a profile, map, graph, spectrum, apparatus, flowchart, or cross-section is a hard rejection. A real table needs row and column variables whose cross-cell relationship is necessary to solve the item; a boxed list that repeats the stem does not count. For the measured Natural Science contract, require the representation-topology audit described in `visual-generation.md`, visually compare all deterministic assets at final size, and reject prompt–figure duplication that lets the item remain answerable after the figure is removed.
 
+### 自然 printed form measured on 111–115 (`validate_natural_layout_contract.py`, 2026-09-24)
+
+- **Figure and table labels.** Every figure and table carries a label 「圖1」「表2」 (16–28 圖 and
+  4–12 表 a year), numbered in print order and cited in the stem (「如圖3」「依表2」). Give each
+  `visual_asset` a `caption` such as 「圖3」; the builder prints it centred under the figure.
+  「如圖」「如表」 with no label in an item that cites no numbered figure is rejected: two hosted
+  116 papers printed no label at all.
+- **Options.** Five options of up to 7 characters print five abreast, longer ones one per line
+  (measured: 20 and 76 items); the builder chooses. The key is the single longest option in at
+  most four single-choice items (official 1–3 a year, 7–14%; hosted papers 22% and 52%), the
+  five options of an item differ by a median of at most 6 characters (official 1–5), and no
+  option ends with 「。」.
+- **Written subparts.** 112–115 print the number once and start each subpart with (a), (b)
+  (「42. (a)寫出…（2 分） (b)…」). Save one record per subpart with the same `number`, prompt
+  starting 「(a)」; the solutions print 「第42題(a)」. 「38(a)」 inside the prompt or （1）（2） are rejected.
+- **No authoring notes.** Official booklets state assumptions as 「(設)」 or 「假設…」; they never
+  print 「教學模型」「課堂模型」「非NASA數據」 or say that data are invented. One hosted paper
+  printed such notes in almost every group.
+- **Keys test science.** At most three correct options may be 「再蒐集／核對／另查資料」
+  (official: 0–1 a year; one hosted paper keyed most items that way).
+- **Worn-out materials.** `shared-data/overused-generated-materials.json` lists objects earlier
+  generated papers already used (the Hubble deep-field image); an item built on one is rejected.
+- **Difficulty.** Record `estimated_p` for every choice item; the mean may not exceed 0.65
+  (official 111–115: 0.53–0.57).
+
 ## How to use this envelope
 
 During drafting, use only these aggregates plus the subject blueprint and source registry. During QA, render the candidate, measure it with the companion density validator, then inspect every page. Density is a rejection signal, not permission to cram or shrink type.

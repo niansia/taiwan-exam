@@ -14,9 +14,11 @@ the reasoning still needs the editorial review named in that reference.
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
 import json
 from pathlib import Path
+import re
 from urllib.parse import urlparse
 
 SUBJECTS = {'自然', '英文', '國綜', '國寫'}
@@ -39,6 +41,16 @@ FLOORS = {
     '國寫': {'trend_tasks': 1},
 }
 SOURCE_FIELDS = ('publisher', 'title', 'rights_status', 'source_family')
+# Source diversity (maintainer decision 2026-09-24): two hosted 116 自然 papers built three Nobel
+# groups each (the guidance once said 「plan the autumn Nobel prizes」), and one used NASA for
+# three of six recent sources with the same eclipse and the same Swift notice in two groups each.
+# Any fresh, checkable source serves: a journal paper, a conference result, a Nature/Science news
+# item, an agency data release, a monitoring series (ENSO, CO2), a space mission, a hazard report,
+# local Taiwan data. Official papers used 0-2 Nobel prizes a year.
+NOBEL = re.compile(r'nobel|諾貝爾', re.I)
+NOBEL_MAX = 1
+NATURAL_FAMILIES_MIN = 3
+PUBLISHER_MAX = 2
 
 
 def parse_date(value):
@@ -168,6 +180,49 @@ def progress(exam):
     return {'subject': subject, 'floor': floor, 'counts': counts}
 
 
+def diversity_errors(subject, recent):
+    """Nobel cap, publisher cap, source-family spread and one material per recent event."""
+    records = {r['record']['source_id']: r['record'] for r in recent}
+    describe = lambda rec: ' '.join(str(rec.get(k) or '') for k in ('publisher', 'title', 'source_family'))
+    errors = []
+    nobel = sorted(sid for sid, rec in records.items() if NOBEL.search(describe(rec)))
+    if len(nobel) > NOBEL_MAX:
+        errors.append(f'current_context: {len(nobel)} recent sources are Nobel prizes ({", ".join(nobel)}); use at most '
+                      f'{NOBEL_MAX} and draw the rest from papers, conferences, data releases, monitoring series, missions '
+                      'or hazard reports')
+    if subject != '自然':
+        return errors
+    publishers = defaultdict(set)
+    for sid, rec in records.items():
+        publishers[re.sub(r'\W+', '', str(rec.get('publisher') or '')).casefold()].add(sid)
+    for name, sids in publishers.items():
+        if name and len(sids) > PUBLISHER_MAX:
+            errors.append(f'current_context: {len(sids)} recent sources come from one publisher ({", ".join(sorted(sids))}); '
+                          f'at most {PUBLISHER_MAX}, so the paper does not read as one agency press page')
+    families = {str(rec.get('source_family') or '').strip().casefold() for rec in records.values()} - {''}
+    if len(records) >= NATURAL_FAMILIES_MIN and len(families) < NATURAL_FAMILIES_MIN:
+        errors.append(f'current_context: recent sources span {len(families)} source families ({", ".join(sorted(families))}); '
+                      f'自然 needs at least {NATURAL_FAMILIES_MIN} (e.g. journal paper, conference, agency data, monitoring '
+                      'series, space mission, hazard report, Taiwan local data)')
+    materials = defaultdict(set)
+    events = defaultdict(set)
+    for row in recent:
+        question = row['question']
+        material = str(question.get('group_stimulus') or '').strip()[:80] or f'Q{question.get("number")}'
+        rec = row['record']
+        materials[rec['source_id']].add(material)
+        events[(re.sub(r'\W+', '', str(rec.get('publisher') or '')).casefold(), str(rec.get('event_date')))].add(material)
+    for sid, used in materials.items():
+        if len(used) > 1:
+            errors.append(f'current_context: source {sid} is the recent material of {len(used)} different groups or items; '
+                          'one event feeds one group, so the paper does not repeat the same news')
+    for (publisher, day), used in events.items():
+        if publisher and len(used) > 1 and not any(len(materials[s]) > 1 for s in materials):
+            errors.append(f'current_context: the same {publisher} event of {day} is the material of {len(used)} different '
+                          'groups or items; use it once')
+    return errors
+
+
 def validate(exam):
     """Errors only, in the flat message style the hosted checker and release gate print."""
     metadata = exam.get('metadata') or {}
@@ -194,8 +249,9 @@ def validate(exam):
         fresh = {r['record']['source_id'] for r in recent if (lock - r['event']).days <= FRESH_DAYS}
         if len(fresh) < floor['fresh_sources']:
             errors.append(f'current_context: {subject} needs at least {floor["fresh_sources"]} recent source from the '
-                          f'last {FRESH_DAYS} days before the lock (the official pattern is the autumn Nobel prizes '
-                          'or an in-season Taiwan hazard); found ' + str(len(fresh)))
+                          f'last {FRESH_DAYS} days before the lock (any fresh checkable source: a paper, a conference, a '
+                          'data release, a mission, a hazard report); found ' + str(len(fresh)))
+    errors.extend(diversity_errors(subject, recent))
     if floor.get('both_parts') and recent:
         numbers = [r['question'].get('number') for r in recent if isinstance(r['question'].get('number'), int)]
         if not any(n <= 36 for n in numbers) or not any(n >= 37 for n in numbers):

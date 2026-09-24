@@ -12,7 +12,7 @@ LOCK = '2026-09-21'
 
 
 def source(sid, event='2026-08-18', published=None, family='government_data'):
-    return {'source_id': sid, 'publisher': 'Synthetic agency', 'title': 'Synthetic release',
+    return {'source_id': sid, 'publisher': f'Synthetic publisher {sid}', 'title': 'Synthetic release',
             'canonical_url': f'https://example.org/{sid}', 'source_family': family, 'authority_class': 'primary',
             'event_date': event, 'published_at': published or event, 'accessed_at': '2026-09-20',
             'fact_check_status': 'verified', 'rights_status': 'facts_only_synthesis',
@@ -35,6 +35,7 @@ def natural_paper():
               52: 'quake-2026', 53: 'quake-2026'}
     for number, sid in recent.items():
         questions[number - 1]['item_spec']['current_context'] = context(sid)
+        questions[number - 1]['group_stimulus'] = f'Synthetic material from {sid}'
     questions[43]['item_spec']['context_tags'] = ['typhoon', 'taiwan', 'weather_hazard']
     questions[44]['item_spec']['context_tags'] = ['typhoon', 'taiwan']
     for number in (29, 30, 31, 32):
@@ -190,3 +191,24 @@ def test_writing_paper_needs_one_trend_tied_task_only():
     paper['questions'][0]['item_spec'].pop('current_context')
     assert any('current_trend' in e for e in validate(paper))
     assert FLOORS['國寫'] == {'trend_tasks': 1}
+
+
+def test_one_nobel_prize_and_varied_publishers_and_families():
+    paper = natural_paper()
+    sources = paper["metadata"]["current_context_plan"]["sources"]
+    sources[1]["title"] = "2025 Nobel Prize in Chemistry"
+    assert any("Nobel prizes" in e for e in validate(paper))
+    paper = natural_paper()
+    for record in paper["metadata"]["current_context_plan"]["sources"][:3]:
+        record["publisher"] = "NASA"
+    assert any("from one publisher" in e for e in validate(paper))
+    paper = natural_paper()
+    for record in paper["metadata"]["current_context_plan"]["sources"]:
+        record["source_family"] = "research"
+    assert any("source families" in e for e in validate(paper))
+
+
+def test_one_event_feeds_one_group():
+    paper = natural_paper()
+    paper["questions"][29]["item_spec"]["current_context"] = context("typhoon-2026")
+    assert any("recent material of 2 different groups" in e for e in validate(paper))
