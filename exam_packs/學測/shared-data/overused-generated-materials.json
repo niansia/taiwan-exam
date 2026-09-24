@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "purpose": "Materials that earlier generated papers already leaned on, reported by the maintainer. A new paper may not build an item on them again; they are not banned topics in general, only these specific worn objects.",
+  "entries": [
+    {
+      "subjects": ["自然"],
+      "pattern": "極深空|超深空|深空場|深空影像|Deep Field|XDF|HUDF",
+      "what": "the Hubble (eXtreme / Ultra) Deep Field image",
+      "seen": "several generated 自然 papers through 2026-09-24, including N116M1 Q33-34"
+    }
+  ]
+}

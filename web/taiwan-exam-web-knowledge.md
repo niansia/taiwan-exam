@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.23
+# Taiwan Exam Web Knowledge v2026.09.22.24
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 87788,
-    "sha256": "75db094d4e3c29255cdacbe29a36a7e24760ef1e4a7dfec11eb6faa57c0949c1",
-    "embedded_bytes": 87788,
-    "embedded_sha256": "75db094d4e3c29255cdacbe29a36a7e24760ef1e4a7dfec11eb6faa57c0949c1"
+    "bytes": 88296,
+    "sha256": "29118787466f5ad10752034030539a08c8998e540e50260364e6be4646ba3871",
+    "embedded_bytes": 88296,
+    "embedded_sha256": "29118787466f5ad10752034030539a08c8998e540e50260364e6be4646ba3871"
   },
   {
     "path": "core/taxonomy.json",
@@ -194,6 +194,13 @@ attachments; extract only the selected subject's components.
     "sha256": "01590361dcde6fef1fdd39d93a727b6cdeca942bb50a8044d21223022d7eb5db",
     "embedded_bytes": 67285,
     "embedded_sha256": "01590361dcde6fef1fdd39d93a727b6cdeca942bb50a8044d21223022d7eb5db"
+  },
+  {
+    "path": "exam_packs/學測/shared-data/overused-generated-materials.json",
+    "bytes": 551,
+    "sha256": "cbb5961300edafecfe9e6c3dee559eda779531c3bcab838557efdbd0c659e0e4",
+    "embedded_bytes": 551,
+    "embedded_sha256": "cbb5961300edafecfe9e6c3dee559eda779531c3bcab838557efdbd0c659e0e4"
   },
   {
     "path": "exam_packs/學測/shared-data/subject-form-envelopes-111-115.json",
@@ -519,17 +526,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-form-topicality.md",
-    "bytes": 11078,
-    "sha256": "bda6a1d102377125299b7f282c65eac22e04836c4580b8f07e270a480b4f9b87",
-    "embedded_bytes": 11078,
-    "embedded_sha256": "bda6a1d102377125299b7f282c65eac22e04836c4580b8f07e270a480b4f9b87"
+    "bytes": 11964,
+    "sha256": "511ae33434f78e33b7a5b8a78ee4f5e92a3d5613a279fb6e47dec6a1b4af401e",
+    "embedded_bytes": 11964,
+    "embedded_sha256": "511ae33434f78e33b7a5b8a78ee4f5e92a3d5613a279fb6e47dec6a1b4af401e"
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 44774,
-    "sha256": "a7cc23c56d1aacf2ce483813c05a312d87cfc0360aec6d6768b934662a82dc93",
-    "embedded_bytes": 44414,
-    "embedded_sha256": "45c2c38fed2870237a369f106c94eb8e9cd15a0c0b0ce5822af5d3302500c4dc"
+    "bytes": 46847,
+    "sha256": "7d1d929e06727f119a2325afcc46ae6cc7b53c587b6f4df417eb582fb97ef94d",
+    "embedded_bytes": 46462,
+    "embedded_sha256": "774e939d5718154219cc864d5f66aa9bbafc97367722a467f6f5b12799992b4d"
   },
   {
     "path": "references/current-gsat-english-form.md",
@@ -660,16 +667,16 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/hosted-body-workflow.md",
     "bytes": 16618,
-    "sha256": "bc7ab4a20566c7983e5f1eaed317f4d33a578c9cecf429fc0cbe4edb99a8661d",
+    "sha256": "559f51b5fe6eedc0b248b5f142989a511084cd59c09d70e4cfc3939261e8d86e",
     "embedded_bytes": 16618,
-    "embedded_sha256": "bc7ab4a20566c7983e5f1eaed317f4d33a578c9cecf429fc0cbe4edb99a8661d"
+    "embedded_sha256": "559f51b5fe6eedc0b248b5f142989a511084cd59c09d70e4cfc3939261e8d86e"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 48319,
-    "sha256": "476538959812aa197be300352140565a2778749533882148a06230f9d0b68341",
-    "embedded_bytes": 48319,
-    "embedded_sha256": "476538959812aa197be300352140565a2778749533882148a06230f9d0b68341"
+    "bytes": 49021,
+    "sha256": "ff8f69612aa0a243e052186022e83d7b96d2ddbbda16a8e9dbde92876116988b",
+    "embedded_bytes": 49021,
+    "embedded_sha256": "ff8f69612aa0a243e052186022e83d7b96d2ddbbda16a8e9dbde92876116988b"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -905,9 +912,9 @@ attachments; extract only the selected subject's components.
   {
     "path": "scripts/check_paper_plan.py",
     "bytes": 13309,
-    "sha256": "8625f34e707e94cdbfaa3c8a90cb099f1d014854a93ab917180072cd853923ee",
+    "sha256": "dbfe434deb3052f00ea24ad9398b923a723ba70d6b681a9d8ce7ac5b7c428ce5",
     "embedded_bytes": 13309,
-    "embedded_sha256": "8625f34e707e94cdbfaa3c8a90cb099f1d014854a93ab917180072cd853923ee"
+    "embedded_sha256": "dbfe434deb3052f00ea24ad9398b923a723ba70d6b681a9d8ce7ac5b7c428ce5"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -939,17 +946,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 13308,
-    "sha256": "38881086a0618c16a5b015657023a991d4821244562b982ccfd032521eb1d4fb",
-    "embedded_bytes": 13308,
-    "embedded_sha256": "38881086a0618c16a5b015657023a991d4821244562b982ccfd032521eb1d4fb"
+    "bytes": 13676,
+    "sha256": "7b901a0acd29de5fbac607ac539f0449c2fdbcd190813d59976d802778ee4cf5",
+    "embedded_bytes": 13676,
+    "embedded_sha256": "7b901a0acd29de5fbac607ac539f0449c2fdbcd190813d59976d802778ee4cf5"
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 70876,
-    "sha256": "7f2341bcc535a4e34950eda868bbde1ca29022682321be1036e969bc85735f82",
-    "embedded_bytes": 70876,
-    "embedded_sha256": "7f2341bcc535a4e34950eda868bbde1ca29022682321be1036e969bc85735f82"
+    "bytes": 71067,
+    "sha256": "44c1068eafbe88257cd859cb926d29befe2595b9a10a936cf2be8e9a95238e72",
+    "embedded_bytes": 71067,
+    "embedded_sha256": "44c1068eafbe88257cd859cb926d29befe2595b9a10a936cf2be8e9a95238e72"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -1009,10 +1016,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_subject_gates.py",
-    "bytes": 11667,
-    "sha256": "8b00d2edb3949fbc9fe376bd8e858f09d59bf1d31fd7b27c29d8182c98922c17",
-    "embedded_bytes": 11458,
-    "embedded_sha256": "c6eef2de054b7b5fe0fd3d8fca2c714895a22e771b7ffb0a2dc28543695f8a24"
+    "bytes": 11880,
+    "sha256": "7d0858da79edec72074332f51f41211f82f084128c446afbfa03e06eeb30eb6a",
+    "embedded_bytes": 11668,
+    "embedded_sha256": "e718282c4bbec7ab0b1fa224999536be13434902d11844b90037b0f64a468156"
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
@@ -1065,10 +1072,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 105262,
-    "sha256": "09cd84133c7f6e5920aa1e57636286edb1a314c6ecd42c8ee323b436cee94537",
-    "embedded_bytes": 105262,
-    "embedded_sha256": "09cd84133c7f6e5920aa1e57636286edb1a314c6ecd42c8ee323b436cee94537"
+    "bytes": 106688,
+    "sha256": "a854cea691aa3edeb7ab31df42f14940e78a9c230e95ea102bc10c4f17f4ec9c",
+    "embedded_bytes": 106688,
+    "embedded_sha256": "a854cea691aa3edeb7ab31df42f14940e78a9c230e95ea102bc10c4f17f4ec9c"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1093,10 +1100,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_current_context.py",
-    "bytes": 14492,
-    "sha256": "de3e28ba41e82845d7397b720f103d25d0fc5aeb211d87a8ae28e50dfde8fef8",
-    "embedded_bytes": 14492,
-    "embedded_sha256": "de3e28ba41e82845d7397b720f103d25d0fc5aeb211d87a8ae28e50dfde8fef8"
+    "bytes": 18132,
+    "sha256": "ded51884713cb33ed490f412f5fde1eb157cb7b239903f56a2acafc398b81aa5",
+    "embedded_bytes": 18132,
+    "embedded_sha256": "ded51884713cb33ed490f412f5fde1eb157cb7b239903f56a2acafc398b81aa5"
   },
   {
     "path": "scripts/validate_current_form_density.py",
@@ -1176,6 +1183,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "5fabc7560b2150b04da6657707c8db14e296ec152cee481fe4c3b8619b13ccca"
   },
   {
+    "path": "scripts/validate_natural_layout_contract.py",
+    "bytes": 10052,
+    "sha256": "d0e3dfd91538525eaad17952123de59b285315dec8a332b012c538d5387e2406",
+    "embedded_bytes": 9871,
+    "embedded_sha256": "5900422fa80a714a0a34cddc098731a3bdbe26c67679777e283fc281f23d9320"
+  },
+  {
     "path": "scripts/validate_paper_difficulty_balance.py",
     "bytes": 6372,
     "sha256": "8ecc1157a212298174bc73a140a62005541970cf0dd35c2f05bf11128b4c8296",
@@ -1198,10 +1212,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_social_layout_contract.py",
-    "bytes": 12239,
-    "sha256": "1e24866bef2d884ca5aa05c5c56a043bc65a110e3ca59b27bfd20b20d2368228",
-    "embedded_bytes": 12015,
-    "embedded_sha256": "d62147b87350d43019cc1c8b0a02dbfb026663f2b71e6aaf215b32a237c5d9bc"
+    "bytes": 12347,
+    "sha256": "3b6ec1373e6e9589cf0e81165000c25d27ee4617bbe91def72c31bf4c1d58083",
+    "embedded_bytes": 12122,
+    "embedded_sha256": "23cf50652570db19b54d3d7ff27454b1a7fe18cda7f8abf48e6bf334e0c17430"
   },
   {
     "path": "scripts/validate_source_grounding.py",
@@ -1212,10 +1226,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_visual_item_contract.py",
-    "bytes": 15854,
-    "sha256": "024fb27f33d5f086cce8c87de88d0cbeaf94e7af9f7fedcd13427a4e678be9c0",
-    "embedded_bytes": 15854,
-    "embedded_sha256": "024fb27f33d5f086cce8c87de88d0cbeaf94e7af9f7fedcd13427a4e678be9c0"
+    "bytes": 16047,
+    "sha256": "482e27d30899c4c90c4657cef6ca876d7b7b19a323dabe1a8a80790344605863",
+    "embedded_bytes": 16047,
+    "embedded_sha256": "482e27d30899c4c90c4657cef6ca876d7b7b19a323dabe1a8a80790344605863"
   },
   {
     "path": "scripts/validate_writing_layout_contract.py",
@@ -1317,10 +1331,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "templates/hosted-science-questions.json",
-    "bytes": 3519,
-    "sha256": "7edee4cade192cafc796fd07e478cabee7ce593aac1db377822c6c8fce1ff7a1",
-    "embedded_bytes": 3519,
-    "embedded_sha256": "7edee4cade192cafc796fd07e478cabee7ce593aac1db377822c6c8fce1ff7a1"
+    "bytes": 4101,
+    "sha256": "64dd9c652c0a27473fa49587883dc03a8dda822664eb096b91bae13348783203",
+    "embedded_bytes": 3964,
+    "embedded_sha256": "e9739dcb60e64e68de851b4fe6e21ddae410781a51156f03141cfb5fbc37b1d6"
   },
   {
     "path": "templates/hosted-science-solutions.json",
@@ -1638,7 +1652,7 @@ ask users to disable protection, restore quarantined scripts, or add exclusions.
    The printed 國綜 form is fixed across 111–115 and enforced by `scripts/validate_chinese_layout_contract.py` on every surface: the four headings with scores (第壹部分、選擇題（占76分）／一、單選題（占48分）／二、多選題（占28分）／第貳部分、混合題或非選擇題（占24分）), item 1 字音 and item 2 字形, standalone items 1–5, seven standalone multiple-choice items 25–31 with at least two language-knowledge items and no （應選n項）, one mixed group 32–36, `(A)`–`(E)` labels with every option on its own line.
    國綜 has two additional editorial constraints: each independently answered short-response subpart is at most 40 Chinese characters and at most 4 points (a full short explanation is designed for 4 points); core classical selections must account for 20–25% of the whole paper's score. Apply the counting, rubric and source-dependency rules in the 國綜 section of that reference. These are not 國寫 limits, not a quota for all classical-language material, and not permission to alter historical official profiles.
    A complete Natural Science paper must place Questions 1–36 in one first part worth exactly 72 points: the printed heading is `第壹部分、選擇題（占72分）` and its boxed direction states `說明：第1題至第36題，含單選題及多選題，每題2分。` (spacing may follow the measured font, but no fact may be omitted). These 36 items are **not** all single-choice and must not be recorded as an unresolved generic choice block after the controlling paper has been reviewed. Reproduce a measured official mix: the official 111–115 booklets print 18, 15, 19, 18 and 12 multiple-choice items among Questions 1–36 (single-choice is the remainder), so a paper must carry 12–19 multiple-choice items there and record its actual counts in `metadata.natural_choice_form_contract`; every multiple-choice item prints 應選2項 or 應選3項. The mixed part numbers 37 through 56–60 as exactly six groups of 3–6 items, each with at least one constructed-response item (official bands: 3–9 single, 5–10 multiple, 8–9 constructed). Every Natural Science selected-response item uses five options labelled `A`–`E`. Every multiple-choice item anywhere in the paper—including a selected-response subpart inside the mixed section—must print `（應選 n 項）`, where `n` is derived from and checked against the independently verified answer key. The cover must print both the single-choice and partial-credit multiple-choice scoring rules; a generic `依題本說明` sentence is not an acceptable substitute. Questions 1–36 must also form four uninterrupted nine-item discipline blocks, one each for physics, chemistry, biology, and earth science; record the actual block order and do not interleave disciplines. This block rule stops at Question 36. Do **not** force the mixed/constructed part into four isolated mini-papers: one coherent shared stimulus may and often should integrate two or more of physics, chemistry, biology, and earth science. Give every subpart one primary scored domain, add valid codes for every discipline genuinely required by its solution, and record the non-ornamental evidence bridge in `metadata.natural_mixed_group_designs`. Merely mentioning a second discipline is not integration. Apply the same anti-surface rule used for Social Studies: no pure definition, named-law recall, one-step formula substitution, or decorative experiment/data material. Every item must assess a core or high-frequency curriculum anchor through at least two linked operations; medium and harder items must normally require three. Difficulty may be raised through experimental design, competing models, variable control, multi-representation evidence, uncertainty, or constraint reconciliation, never through peripheral content or calculation bulk.
-   Every full Natural Science paper is current-affairs-aware by default, not only on request: read [references/current-form-topicality.md](references/current-form-topicality.md), set an `as_of_date` and editorial lock date, record `metadata.natural_source_ecology_plan` and `metadata.current_context_plan`, and meet the measured floor enforced by `scripts/validate_current_context.py` (at least five verified sources within the year carrying eight scored items in both parts, two of them within 180 days such as the autumn Nobel prizes or an in-season Taiwan typhoon/earthquake warning, plus Taiwan-hazard, climate/energy and Taiwan-place contexts). Official 111–115 papers carry 0–5 such contexts a year with a typhoon in four of five years; a paper with none is outside the form. Give the preceding 12 months a larger share of the genuinely time-sensitive source groups, but never let a numerical news quota distort the four-discipline, difficulty, form, or solving-time balance. Sample the remaining dated sources across multiple earlier years and source families rather than clustering on one convenient year; keep evergreen school models in a separate bucket instead of pretending they are dated events. Every recent item must depend on a source-specific measurement, comparison, image feature, method, or constraint—not merely a fashionable name. Favor additional graphs, tables, maps, photographs, and observation images when they carry answer evidence; the visual floor is a minimum, not a target or permission to add decoration.
+   Every full Natural Science paper is current-affairs-aware by default, not only on request: read [references/current-form-topicality.md](references/current-form-topicality.md), set an `as_of_date` and editorial lock date, record `metadata.natural_source_ecology_plan` and `metadata.current_context_plan`, and meet the measured floor enforced by `scripts/validate_current_context.py` (at least five verified sources within the year carrying eight scored items in both parts, two of them within 180 days, plus Taiwan-hazard, climate/energy and Taiwan-place contexts). Choose sources freely among fresh, checkable ones — a journal paper, a conference result, a Nature/Science news item, an agency data release, a monitoring series such as ENSO or CO2, a space mission, a hazard report, local Taiwan data; at most one Nobel prize, at most two sources from one publisher, at least three source families, and one event feeds one group (maintainer decision 2026-09-24). Official 111–115 papers carry 0–5 such contexts a year with a typhoon in four of five years; a paper with none is outside the form. Give the preceding 12 months a larger share of the genuinely time-sensitive source groups, but never let a numerical news quota distort the four-discipline, difficulty, form, or solving-time balance. Sample the remaining dated sources across multiple earlier years and source families rather than clustering on one convenient year; keep evergreen school models in a separate bucket instead of pretending they are dated events. Every recent item must depend on a source-specific measurement, comparison, image feature, method, or constraint—not merely a fashionable name. Favor additional graphs, tables, maps, photographs, and observation images when they carry answer evidence; the visual floor is a minimum, not a target or permission to add decoration.
    For current-form GSAT writing, read [references/current-gsat-writing-form.md](references/current-gsat-writing-form.md) and [references/gsat-writing-source-ecology.md](references/gsat-writing-source-ecology.md). During the writing pass, do not read past question text, year-by-year topic summaries, or prior generated writing prompts. The LLM must discover new articles independently, then design a new material sequence, rhetorical tension, task decision, and title from those sources. Every printable event, case, datum, attributed viewpoint, and concrete anecdote must map to an identified source; the LLM may paraphrase, translate, juxtapose, and ask a new question, but it may not invent a supposedly real or generic case to complete the material. **Do not use United Daily News, any other newspaper, publisher, magazine, platform, archive, or institution as a default, preferred, or de facto exclusive source.** 國寫 source eligibility is publisher-neutral: any traceable and rights-safe source may compete when its transformed material fits the selected official length envelope and rhetorical role. The full-paper candidate pool must still span at least four publishers and four unrelated domains, and one easy-to-search publisher must not occupy more than half the pool. Length compliance is necessary but never substitutes for traceability, rights safety, a concrete carrier, a semantic hinge, material dependence, or role fit. For the second task, search contemporary Chinese essays, new poetry, picture-book prose and other Chinese literary writing first. A foreign work may advance only through a traceable published Chinese translation; do not expose a raw English web bibliography as the normal student-facing source line.
    In every subject the printed answer key must look like an official key, that is unpatterned: `scripts/answer_key_patterns.py` (run by the release gate, the hosted final checker and each saved batch) rejects four identical positions in a row, a period-2/3/4 cycle that continues past two repeats, an option bank keyed in label order, five answers stepping through the labels, two item groups with the same answer sequence, and label counts differing by more than one. Write the item, shuffle the options, then derive the key; a key such as 1-4-3-2 repeated or A–J in order is a release failure even when every answer is correct.
    For every full 英文, 國綜 and 國寫 paper, also apply [references/current-form-topicality.md](references/current-form-topicality.md): 英文 needs two verified recent passages carrying six items and a composition prompt tied to a verified current social trend; 國綜 needs two recent groups carrying four items and Taiwan-anchored passages; 國寫 needs one task tied to a verified current trend; 社會 needs ten items within the year, four of them within 180 days, and ten answer-bearing visuals. Record `metadata.current_context_plan` and each item's `item_spec.current_context`; `scripts/validate_current_context.py` runs in the release gate and the hosted final checker, and `append_items.py` reports progress toward the floor after every batch.
@@ -1729,7 +1743,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
    For mathematics, run `scripts/validate_math_difficulty_design.py` and reject any item whose planned difficulty collapses to direct substitution, one familiar formula, one routine linear-system solve, or repeated execution of the same operation. Treat model-estimated discrimination only as a design label until representative pilot data exist. Then validate explicit `option_layout` per item (`row-5`, `row-4`, `grid-3-2`, `grid-2`, or `stack`). Never infer the printed arrangement only from character count. Validate the rendered option baselines and inter-option whitespace against recent reference pages.
    Every mathematics fill-in item must declare a machine-marking `answer_format`: integer/decimal/fraction/sign form, exact numerator and denominator slot counts, and the sequential answer-row ids printed in the booklet. The renderer must show the same circle/rail/fraction geometry that the student will mark; a generic blank line is a hard failure.
    A current mathematics paper must also meet its learned answer-bearing visual quota across more than one section. Until item-level 111–115 visual annotation is complete, the internal review floor is four required visuals or structured graphical representations across at least three sections, including at least one item before the mixed-response section. Decorative pictures do not count.
-   The same stability requirement applies to full current Mathematics B, Natural Science, Social Studies, and English papers; it is not a Mathematics A-only feature. Until each subject/year has complete item-level annotation, use these conservative internal release floors: Mathematics A/B `4 visuals / 3 sections / 2 kinds`; Natural Science `16 / 2 / 4`, spanning physics, chemistry, biology, and earth science, including at least **3 traceable real photographs or authentic observation images**; Social Studies `10 / 2 / 4`, spanning history, geography, and civics, including at least **2 traceable real photographs or archival images** and **18 items that cite a 圖／表／照片** (official 111–115: 2–4 photographs or archival images and 7–13 charts, maps and tables a year, 18–45 figure-citing items); English `3 / 2 / 2`, including at least **1 traceable real photograph** and the noncontinuous mixed material or selected composition form. The photo numbers are lower bounds only: Natural Science and Social Studies have **no photo-count upper bound**. Do not stop at two merely because the validator floor has passed; retain every additional sourced photo that introduces a distinct, answer-bearing observation and improves section, source-family, or discipline spread without harming rights safety, grayscale survival, page density, or solving time. Equally, never add a decorative image merely to increase the count. Generated photorealism, screenshots, decorative pictures, and photographs whose decisive evidence disappears in grayscale do not satisfy these real-image floors. These are product floors, not claimed CEEC frequencies. A selected annotated profile may raise the minimum, never silently lower it or impose an arbitrary maximum.
+   The same stability requirement applies to full current Mathematics B, Natural Science, Social Studies, and English papers; it is not a Mathematics A-only feature. Until each subject/year has complete item-level annotation, use these conservative internal release floors: Mathematics A/B `4 visuals / 3 sections / 2 kinds`; Natural Science `16 / 2 / 4`, spanning physics, chemistry, biology, and earth science, including at least **1 traceable real photograph or observation image** (official 111–115 print 16–28 labelled figures a year, almost all drawn graphs, apparatus and tables, and 0–2 photographs), every figure and table captioned 「圖N／表N」 and cited in its stem; Social Studies `10 / 2 / 4`, spanning history, geography, and civics, including at least **2 traceable real photographs or archival images** and **18 items that cite a 圖／表／照片** (official 111–115: 2–4 photographs or archival images and 7–13 charts, maps and tables a year, 18–45 figure-citing items); English `3 / 2 / 2`, including at least **1 traceable real photograph** and the noncontinuous mixed material or selected composition form. The photo numbers are lower bounds only: Natural Science and Social Studies have **no photo-count upper bound**. Do not stop at two merely because the validator floor has passed; retain every additional sourced photo that introduces a distinct, answer-bearing observation and improves section, source-family, or discipline spread without harming rights safety, grayscale survival, page density, or solving time. Equally, never add a decorative image merely to increase the count. Generated photorealism, screenshots, decorative pictures, and photographs whose decisive evidence disappears in grayscale do not satisfy these real-image floors. These are product floors, not claimed CEEC frequencies. A selected annotated profile may raise the minimum, never silently lower it or impose an arbitrary maximum.
    Every counted visual must be evidence or required for solution, set `item_spec.requires_diagram: true`, include a schema-complete `visual_asset.visual_spec`, enumerate answer-bearing features, and fail the visual-removal test. Run `scripts/validate_visual_item_contract.py generated-exam.json`. If a full paper misses its subject envelope, replace the failed or text-only item with a newly designed visual item and re-solve it; never attach a decorative image to preserve an old stem or enlarge a figure to fill the page.
    The declared visual kind must match the **rendered scientific topology**, not merely its metadata label. A coordinate graph needs axes, scales and plotted marks; a profile or cross-section needs spatial layers/paths; a spectrum needs a wavelength axis and spectral lines; an apparatus or circuit needs connected components; a flowchart needs meaningful nodes and directed links. A one-column box that restates prompt values is not a graph, map, profile, spectrum, apparatus, process diagram, or evidence matrix. Do not route heterogeneous visual kinds through one generic label-and-row panel. A genuine data table must have an explicit row/column comparison structure used by the solution; a vertical list of already printed facts is not a data table. If removing the figure leaves every number and relation needed for the answer in the prose, remove the redundant figure or rewrite the item so the figure actually carries evidence. Before release, record `representation_audit` with the topology family, rendered primitive types, semantic channels, prompt-redundancy result, and visual-removal result; reject repeated near-identical panel topology masquerading as representation diversity.
    A sourced photograph must preserve the downloaded original beside the placed derivative and hash-bind both files. Record the stable source page, creator or agency, rights/license, original-file path and hash, fixed crop, processing steps, target print width, and effective raster resolution. Convert the placed asset to a fixed grayscale or bilevel file before pagination; do not rely on printer conversion. The final-size review must locate every answer-bearing boundary, object, count, texture, label, or relative tone in the monochrome page without consulting the color original.
@@ -13510,6 +13524,21 @@ Use `templates/llm-originality-record.json` for every scored item and `templates
 
 <canonical-source path="exam_packs/學測/shared-data/official-passage-fingerprints.json">
 {"kind":"official-passage-fingerprints","subject":"國綜","window":30,"step":10,"hash":"sha1-hex10 of 30 consecutive CJK ideographs","years":{"111":["007f79d3c8","008b247a54","00d7d54f73","00f53aa736","00fc5ecaf6","0113fd172d","0119458d1a","0189ae6f04","028be8aab2","02e25939c0","0373397388","038fa4f27f","03ab5dce23","041479ab3f","04224a73ce","04312ea780","04b4e3c903","04b9de9138","0553f3324e","05b2b6aa55","05b83979cc","05ceb4e38f","05d322510b","05d5fe9919","06010d2b27","0606453e0f","0685a03964","0687144987","0688997820","0713f1b3d9","07163f0319","074d4b3c18","0763829544","08004ccd62","086afdeb75","09fa375b59","0b05169d80","0b4b513196","0b55ae00a4","0b6ddc6d56","0b71908a98","0b9b26d4ff","0bb09b1d6d","0c13e29f6f","0c16294ce7","0c3903b7a5","0c569867c3","0c5fda09d5","0c61e66ecf","0c84418fb4","0c9659098f","0d0b884276","0d133a074c","0d7c15ca55","0dc873e004","0e10c4827f","0e4b9a8ffc","0e5834e97c","0e8bcc6eaf","0f159c9285","0f5a24492a","0f82eac50d","1018d1ca27","1049d9a114","104b4fe684","105b1269c7","1084c73ba1","108593bce5","10b5a9f962","10b7636356","10d3dbbb9f","116d73ff51","11792046b2","11bcfc5141","11c55092b4","12a0eebe89","12d0e60585","12d6c487a9","131a1d88e3","133771da8f","135d18cda9","13afa393c5","1407271c56","1407cfdf69","141135ed25","14369720e3","145a720655","14c3370f20","15091dbad6","15e40a2b4b","166c5773da","16adb390d2","173bd63c2e","175e300744","17d687597a","18d0152a7f","191395707d","196e1a558d","1a2ffa414b","1a4b423a59","1aa13dafab","1af867d116","1b0efc9cb9","1b319b49b3","1b4d35cc84","1bfb436b30","1c0fc2ddeb","1c826d1c6f","1cc01fff40","1cd457a842","1da142c723","1ebf0fdd24","1ec4390525","1f036ccdb3","1f16b597d4","1f1bac5ee7","1f34cd4f92","1f5ccdbe21","1f7625ecb9","1f8b6918a5","1fade014be","1fb4950dcf","1fd8cc806c","201a8b3daa","203711c9a7","20a3d6e50e","20b527f613","20bb4c57b2","216c040c0d","21915d9ea1","21a7dc6c8a","21ab75fc38","21ac1e8b05","21bed8d0b9","21ded078f9","21ec1db7e2","2214d5e404","22153a9077","2233d6abbd","22364a0e46","227fb3f202","235d44b3e4","236fb30beb","239ff2a76e","23fe959a6a","241148c786","2411df632a","243d764666","245deb9107","2466e7dbfc","2496fce927","24fea6d1a4","2567cade2b","258a3c2214","258ae80224","259a8ec926","25b72cc65f","25c50024bf","261508da0c","264959b247","2667779f7e","2679c30adb","2697c0f358","26b573920b","26fbfc8ae9","2722ccf3ec","27782a3db8","27d8375d7f","28815465fd","289506a3f7","289d1078d5","28a63ba1e3","28bd72f3e0","2941aa30ac","299a720afe","29b36d35c3","29f1cb075a","29ff99b43b","2a0398b0bc","2aafca0f04","2b5f3891d8","2b7be3b59c","2ba4d16a70","2bf2b33b25","2c0b1b112c","2c4dd00606","2c4f6f2daf","2c74435ecf","2c95c5bf7e","2d028c2879","2db22594ad","2de3e3f6a9","2e2115d7cd","2e4a9bff1c","2f10563f33","2f2cd3d6c4","2f63ce927b","2f9f1a4350","2fa990a972","3035709fc5","30471b562b","30d8bd64e6","30fdbfa021","3159d4cd56","31f2c43d34","3230b387ea","32800a8516","32d151ed73","32d237679c","32d9d40740","3301e3cc86","33343fe2ad","33f97e23f0","341d0d60a0","34c437ecbd","3645c7b0df","3652004647","366ec7b950","3778972722","3790d9cc68","37f56b2590","38124798c3","385ee03500","38674e3627","391f3304b3","3928bdac15","392de880eb","39394b1cba","393c43883b","398eff4ec8","399106d594","3992a84cb7","39ef8675c6","39efd61e44","3a0c43877e","3a674de39b","3a7b4ee049","3ae69e4935","3b7ba8f201","3c42913684","3ca197cfc4","3cca9b94c6","3d84bed1f3","3dc896c3e9","3e7adf1d2b","3e8687d94c","3e977b4feb","3eb2de9841","3f04784ab6","3f16c48cc7","3fd916d1e5","4082d7b4be","40a3dd0d2b","414f2539cc","4174137311","417f6b1d2b","426108384a","426b40d40c","42d3b665f1","42d6156c1d","42e3fc1d10","42ef6b77e3","43845519aa","43db57d800","43ea16b950","441134f344","4430e5f96c","445f663f40","4486882be0","44cc0f309c","44dc8d0550","44e34caf43","4517f7ee14","452eeaf545","4544a43ab1","45aa2c09a9","464b3df476","4672d0965e","46b7c0a87c","46bff6f641","46f3572bdf","478f3e9eba","47ef3c57f6","481da9dc99","484ac83a9b","4867bb9363","48921a8a09","489881f0b1","490d536468","494b33a2a6","494ea146b9","4989371b26","49c3cf6e06","49ceeed55c","49cf319081","49fe91e620","4a14fa6691","4a1fe2fe80","4a7b873059","4b82f11a75","4b8ff05827","4ba286afde","4c8be8cd97","4cb9fd3b2a","4cf4d50ef6","4d35a3e9b8","4d36e0b473","4d9be68db2","4dcb0db635","4df8c83759","4e185a71a7","4e2edc39dc","4e3cbffa8a","4e401df426","4e529c84cc","4ef23f9cde","4f39959f26","4fadf2e99d","5022fd65ec","504d11a236","504dca616f","505a6f1ac5","50f05c48f0","51cf3c2d96","52119815b2","5223ebe265","527ff87f65","529ea6d66b","52dba7d05a","5338db3937","535dda6f4e","53b7c92078","53c41649d9","5491a0d0f3","54ad5ce203","54d977b20b","54df658455","55d651b968","55d77b2d5a","560ce2fdf5","5631b4d4fe","56abec3931","56ec31a09e","56efa0cf96","56f54640a8","5723f824dd","57696de5b1","577fb28b67","5786b1a337","582840085b","5871f884ce","58d8fd2843","58db9cc510","59ce91c91c","5a8935ce1e","5ab587e210","5ae7031380","5b1448c57f","5b21467a17","5b3c93e75f","5b48b19f1e","5b94aa1895","5bff37380c","5ccf157cfd","5cfe897fdd","5d01b547c9","5d8661eaec","5de3593908","5e1cd302b3","5e38379665","5e3b3ccf33","5ec3ed2d87","5ec403bd7d","5f6e328e8a","5fcb71f716","5fd97a1e64","5fe975498f","5ffa858691","6036726c3e","60427d1d6a","6084e5df53","60fb498ee4","61b5fd4b84","61b6c8621d","62453595b8","626cd9698c","62ae0bf34f","62ba93b7a0","62fc07d0cc","633c82391b","63639b5654","636e694a58","63882ac85a","63a02e5194","63b61c1277","63cc79d434","644a2cbb5b","6456f51bff","649d25afcd","64cc2e06b9","64db5ed21b","64dd668856","64ebd5bc76","64f4d5ee3b","652f2cc453","6538136cc1","673c00007c","675285941e","67679dca2d","692fa8f89c","6937dd6ffa","695deabf4b","69ac258905","69c1efda91","69cabf58fb","6a322948cd","6a5e30effc","6a708f7729","6b723b3e1a","6c1a6a3520","6c902deff2","6cd094fc1c","6e49991b4d","6e4ec58d02","6e5a351672","6eb6ce2b83","6f0c802068","6f13ce3fea","6fe087b34e","7025ee7746","702b83718f","7107d4d11d","710b3d6d3a","7132ae3ce4","71475bfe71","71510fe0b3","725a668fad","726d4dd97e","728589ce61","72983d9bca","72bddfdc77","734273efcc","734dc8cb2c","736931be26","73ba30adab","7400772b52","7419ba4d78","743d7708e7","74efb3ceda","7596a7378d","7599237857","764852784a","767ca4599c","76a85448b8","76c9e2376c","76cb2def7c","7715f41e79","77c80b2b9b","77ce6bed29","77e1cba74e","77eebd24e1","781eb97d8d","78b63763b6","790a3ff64c","798c4abac7","79ed85532f","7a34d8f954","7a5dd42b1e","7a8ce6401d","7abab4dcda","7aea832ce1","7b14ce7b73","7b44b8c98d","7bf202cb2d","7c3703f1b8","7d567fcc75","7e09f611fd","7e530110d9","7ec59d4f14","7f1e2ada21","7f9559235b","7fab4d1fc3","7fb5fbcb96","80203fe187","8027eaad68","8172803169","817f4178e1","8188edcb9a","819afdeb88","826880596c","830ae5344d","83dce57479","84db8dbb05","858de26081","859c3b34ed","85c7548ab3","85cdd3a65c","85fed30e98","86174664a9","8649a19c2d","8721103f25","874faef6a7","87dde2234a","87ee4ec1cb","87f47b86fc","884ace30f6","89201e6db3","89586de293","89dc989b9a","89f99d9a92","8a6b19f59c","8aa0ef6da0","8b13d6a774","8b62be60a7","8c068b1bd9","8c67bd6d8c","8c991ced38","8ca4660261","8cb97e6d78","8d4dbdd276","8d85239451","8da84fe407","8e64ee4766","8e9074657a","8e9473dbf9","8eb8df331c","8ef3b2d5c2","8f0186f83d","8f24f73366","8f7b7df7f1","8fe8d0e2ae","90524b5b66","907144faaa","90c82d350a","90de853eb2","9156a4bc07","9179a50120","91c40f00b9","924177a55f","9278bad269","92861e745b","9289d813e4","92eb80baee","931dc6d566","9333b2e660","93ffc5fc5c","962c705cee","962f870a8d","96313a8a6d","96a6b3463c","96d827881f","96dba25ccb","9778ff5c01","978e05fd17","9793dcc241","992213597f","995e841051","9976fffec8","99c7875ebe","99ecdae662","9a2fcb4050","9a8c6653e5","9a93b7d6a7","9aaf4ef115","9ab14c92db","9b1508642e","9b29e46e07","9b697649d3","9c269b7e2e","9ca18c762a","9d3a5e00f7","9dd79a3feb","9e2baac3e5","9e6ca7c89a","9eca0fcd08","9f15731dae","9f840d7504","9f8fd71772","9fc183bd9c","9fc97d6277","9fd9059f85","a02f2d80cc","a0657a376c","a080d0a0e9","a0b23ad622","a0d1b16212","a111e45b82","a13907bed5","a13bf81784","a1dd29b6f6","a29ce8ec8f","a2e80b53d4","a3258cb85a","a4193ea854","a42a6d7278","a43ddec0e8","a4521ab773","a466c670f4","a4fc81e44a","a54086e78c","a566af7899","a56b5c31a8","a570e8417f","a5a8743b4f","a683fa8285","a6cd03e8d3","a6ef98f16a","a7259815e2","a74c6b8478","a77d8cd699","a8105be04a","a83aff04f0","a84c313c21","a853c43457","a8bf168976","a9195dc2ee","a92496b1ce","a987730c87","a9911f76f6","a9ca717c68","a9f56a428d","aaecf4e717","aafe006ee0","ab1c7e1517","abf33691ca","ac95c1725f","acb3a7dbe8","acdeb787fe","ace5bf00f9","ad7b4892ff","adbb2128bd","add1dd833b","ade159b15d","aded43c5b1","ae2718dd6d","ae4c80fffe","ae79ec25f6","ae9e3b0af6","aed1fa0fff","aef193aae8","af084b1bbb","afa4498788","afa546e778","afb3583ef1","afe9837322","afee01d344","b015ae6e2e","b045418198","b05d9892fa","b0b01640c0","b0d70777e0","b1c0e1abc9","b1f0690d89","b270c840ae","b2f2cb6505","b33d9f1484","b3e539e0ae","b3eeed4dd2","b420e282e4","b42596b9c3","b485211a93","b4c189d324","b5697e2972","b5ee392e84","b612fafe24","b64386bd0c","b70d0b1134","b715041bc0","b7172d2084","b74cb42971","b7bf8f4f4f","b81bc97654","b8438d24f0","b85701e1ba","b8cbe71cd0","b9044a8382","b972e64406","b9c4dff183","ba396253db","ba5abc14ec","ba963a27aa","baf1255a33","baf5b76997","baf9f17c7b","bb0b4b9f14","bb0d49ffb6","bb1a1719d0","bb63f28932","bbc2c7307b","bbcb8611b1","bbdada1c7f","bbe012b5ce","bbe37813f0","bc1cb2ae16","bc24a855c6","bc786aa5d9","bc81b1851b","bc89c69964","bcc0eb6c74","bccaa43017","bcf808d4c2","bd34674b22","be288ccd21","be36babe7f","be9372b30b","be9bcd215d","bec6043c69","bed449cbcd","bf1a726f04","bf2c658472","bf929c8d8d","c02e87d051","c03031f2b3","c06c7a9a2e","c06dad238e","c1235e77e5","c165e40d7d","c1cfecdac7","c21689a542","c23882b210","c2437f5f7f","c275c0d2bd","c2addfbbcd","c2f73c2766","c2fdc84318","c3432d1533","c3c7453ecf","c3e90cf796","c3ec072ccc","c4563a7b14","c524d4c539","c58d814b3f","c58edafef8","c5e04555e3","c619c28014","c62b73760e","c6a3693b15","c6c1b9835b","c6d52cb4ad","c6eb4092ef","c71a7e688d","c76f0d1ef5","c8c903166e","c8d084967a","c8ddd67d72","c8e41f9f5c","c90e638cb4","c924831a90","c932878e53","c958bf69b2","c95a9b21df","ca84453c21","caa1d4d290","cad7a6635e","cb1fd2418e","cb26f43541","cb371e3cb3","cb6f903b0f","cc1cac297a","cc5dbb00c9","cd0b712fac","cd23ab5c37","cd25481dfc","ce12e1129a","ce34a68934","ce715537c2","cf21232c42","cf6a5af852","cf99cb9e19","cfbf648c0f","cfe7a2685c","d0011dc5da","d01acc00b6","d022b77232","d02e3f066c","d04724558f","d0850f3e45","d1049cb4bb","d105c87254","d143221396","d17df37d3c","d1d01c56c7","d1d47bac29","d240cd3333","d2df7759bb","d2e71f7368","d2f9c6ec71","d3074e91c8","d30c698ee0","d3109407d5","d3cac2fcc0","d3e46ec8db","d42ccefe64","d46c947cd7","d4760c5d74","d4bc8e31eb","d51bdcff62","d59f933615","d72baf476e","d73b08d0e0","d754a68117","d7ab664d90","d7c67b18aa","d89264b5c3","d89b6c58b5","d8c4edb1a4","da427bd8fe","da44719772","dacf9f5539","db43c592f6","db45e2b002","dbd96d6168","dbe5581f68","dc060bf283","dc40d4615f","dc41556d4b","dc6749127b","dcc8e434a6","dcd5fdb9cb","dd28b054a0","ddad89d202","ddb9e26726","ddc21d15dd","ddcbaff801","dde0f22fd9","ddfb683eb9","de27097231","de31068bbb","de7edd0d7d","dec002bc59","df1dc4b8d6","df365a8e9d","df425c1b6c","df771cb3fa","e03efd1360","e0941722ff","e0b9f2641d","e1983641a6","e210faf414","e22c0cc827","e25e2c0b24","e3141ccf77","e44bb93f4d","e4c3c656bf","e4cfe38105","e4da170bf4","e4ee45d903","e53ba8aa16","e55a76b1ed","e564ed61f1","e5b9156faf","e6605e1e62","e66e3e5081","e676bffc8e","e6a307c5e6","e6c2d82906","e6d186cd66","e7039c1421","e70a385fb8","e72bd10045","e756985d5b","e7b283a13c","e7d3a47979","e83e09be93","e8596e5e58","e8ac1c544a","e8d589876e","e9757cb3ea","e9780409ed","ea8a279fec","ea949c3cb7","ead680b055","ead8b489e9","eadf79409a","eb2bd58a6b","eb68e3a107","eb7798bdb9","eba83497d1","ebea36a7e7","ec046e343a","ec584f762a","ec75b45ac5","ed02eab07c","ed138b44a5","ed2cee4599","ed83ad5cc6","ee28b399ae","ee47d16e8e","ee50c5f763","ee6e53a8e8","ee90c9eaa2","ee9e8fa904","eed004834e","efc26e9e3a","efc5281d6d","efe2680280","f031f4a421","f05a6c62d4","f07f5cea1e","f0e07cb54e","f10ac76c69","f1281e6db2","f12b27eb22","f1419da22c","f156e5a6f5","f1aa7edc2b","f1e04ad7f7","f28d0183df","f28d202f46","f296cbec9b","f2ee1fc56d","f3924ea31f","f401ba3189","f459ad694a","f5343c49ec","f63637b2c2","f6915f4419","f6ae1da8b3","f6e7a64db3","f6ff2c0f48","f742758784","f75ced8b3e","f7f9ed4d75","f8961c5f9a","f8d0cbeb1a","f8d1de8d86","f95719824d","f9ad355ee1","fa409e2132","fa6b206ef8","fa7ac2a677","fa8781867e","fb95831b24","fbcac32af3","fbd7426344","fc6eaca7c2","fc750dba7d","fcb3616189","fd3448370b","fe18236d8f","fe410ccce1","fe492e9989","fe66fb4f5d","fe7a9a0404","fecbd4787a","ff22f3e3a4","ff36e1561f","ff6410ec4a","ff6efcce60","ff884fae72","ff8e5a2ca3","ffa32e5a75","ffb2b086d3","ffdcb6e5aa","ffe29e8d88","fffba5d0cc"],"112":["00171172fb","0068c601d9","00a577178c","00a8faebf0","01540b005c","0181909370","0187fd4c30","018f6c6412","020d6df6e6","02720dfc2b","02ed989b6d","030fc2c877","033f468dad","0365e08031","038771f622","038fb56ddc","05144d5f89","055e66abdb","05619e8534","056668673b","05910ceda8","0592e2d916","06374f49c2","06bec0026d","07051d4f80","071ee57568","07610d691b","0792a5d7ec","07ab015d93","07ab7198ac","08039b5501","08221c8e0e","083cbc0a03","08cf4f774a","09bf8eac38","09d7a6cc1f","0a58a3736c","0a6407e9d4","0a8ca14f94","0ab5802e08","0b42f70e12","0b6742ba2b","0b76e79991","0bb8359fb6","0be838103a","0c66deedd0","0cccc54dff","0d497d83d3","0d6cfa7bda","0d7d2a21b3","0e0e3d90e0","0e16cc11c0","0e31347cf0","0e4c50c254","0f450a227f","0f5162e094","0f52223374","0f5604a491","0f6c10a4a0","0f86664f61","0f9fd8fbb4","0fa2f5c42c","0fac70fcd4","0fbdef9e28","1045402b8e","10a3e061b8","112ad6f29b","115196d347","11527b9f38","122218c001","129bc3b8e5","12cd8fed53","131931be56","137d98244f","13b67a25b8","13ceab2f56","13f28010dc","14ad26fc1a","14ae76b7ab","14e3bbaf2a","14ee3c0437","15112dc787","15eab8639f","15fbde0db0","1616b8ae1c","1684dcd4d5","168c3d24b9","16a3efd244","16f35a6bf3","16f49bd4d2","170631bfd1","172d3ff601","1753217e3f","17fcb0d427","18f939520a","191dde9d18","19708366fc","19975b4f75","19b8f88901","1b03115b2e","1b32dd296f","1b4f4c8485","1b7cc692a6","1b7eabe9a9","1bcf73a53d","1c08655359","1c0e991b4b","1c2e3bf94b","1ccb60a8f2","1d4cdd5b17","1d8f6e22f0","1e2194dc82","1e932691fd","1ea938e56d","1eedf4601b","1efbbdb184","1f7c5c3461","1f8eb342c6","1fa1564206","1fed0ab086","202619dc08","2027c4dfef","211f7e5fad","21b37d2cb7","21b53c2763","222563caa5","22348728c9","22352eafe3","227d9a45a2","228a2a5328","22912c6587","2298d38122","22f342c052","23382fa097","23c3259e8b","2446de8fd0","248c65f9bb","24a67facea","24be6ea858","24c02ba8a8","24cd08f2bf","24cf7e3fa4","24dbf77307","2532ae984d","257557c599","2581dfa5d1","25ae7c9171","25bb00cd5b","2607e6cec3","262eb7780d","2664553db0","2688adfedd","26e49a1d92","27089eee10","2717679bd1","27208beeb0","27aed16745","28c5e56b97","28f1fa11c1","29431c823e","2971079056","29a33326ac","29cb3583f1","29cbddc626","2a5cef55b8","2a5f2a92ac","2a81ae70a6","2ac82d4824","2ad864d748","2ae655215f","2aea1f4ca4","2b05aaf378","2cb3eb6449","2cccf05e27","2d8b70082e","2dff6fc58c","2f0c9af7c8","2f47b59332","2f9dc7ac25","2f9ed69ae6","2fda02bec7","3010dedf57","30e0496f18","3123a4694c","315851d5cd","319bb845cb","31be2793cd","328f411fc5","329c730172","3318de2cc5","331a94a43a","3329508b2e","33b0b3b02e","33b51a63ce","340e910313","34a76bf7e4","34abd749de","34f5f625a0","358a08f2ec","35ccfe2c4b","35f09f9ae8","3612687d24","364631f403","36736fa1d0","374eb2cebe","376db023ce","3796ec4795","37a44d0bc9","381d5937bf","385fc5212d","38a801309c","38c0537f72","393e65a65d","39c486f2af","3a28bb5b18","3a3722e1da","3a5d91a1dc","3acb1f2fcb","3b68af4b65","3b6c4a049f","3b7efe762f","3b88dbc33e","3c11994b2e","3c1cfb7b9e","3c22451fb4","3c78be1f13","3cf78417b2","3d26370e9a","3d5190ea38","3da7f421dc","3dc66b2003","3ee4d9faa8","3f216de883","3f451073c4","3f4ef7d7c2","3fa0ab2a24","3fbd76c176","3fd465389a","4040ba29be","409f146abf","40cbb7446e","40df0edd02","4142b8f493","418adeb5bc","4213ece59a","4216bfffdd","4216f27441","42209d2390","427ca8abd9","42a0acfd6e","42c24dec35","42cebb5c24","42e7860d3d","4300dcae53","43255b9318","4331152302","43607edf94","4364e23b66","436f9673a2","43750ba49c","446f13c79f","44f0dd8e8c","454296c09f","4556a52103","45639d30b9","4569091776","456bfd2d49","458975e4de","45b30e8462","45bc265551","461205663c","46321a3e8e","4641a34f52","465b3a81d9","4688c8cbbf","46a8575225","46cfc5348f","47d62a6d29","483030af9f","4876f0596a","48bf1c5b8c","48fe9a2e00","48fee8a66f","491d236397","49555fdc89","496e8a9893","4983227890","49ab7715f3","4a4af866c3","4a5310cf56","4a64c87434","4a71ea50fe","4a840694ca","4ac1fa30df","4acc8e7e67","4b11e3265e","4ba43d2b1c","4ba86dbc9b","4bb14ac0cd","4c253abe44","4c8935509b","4cd9c0b2ed","4d06a6d2ea","4d06ccfc75","4d2a2442ab","4d5c227ab4","4d6922f64b","4d9be68db2","4e2ff1cbfb","4e466c7560","4eb2d7ea26","4eb7041c6f","4ee68eda9e","4f3511ce78","4f7f7ff6e2","4f870a0c80","4f99f572dc","4f9c223921","4fa8d63614","50274bfff2","505ad10927","505ba04b7d","506126c236","50a81e3a40","50a8338683","50e3de792e","511d1c2b6f","516cdbd2ae","5177577ca7","51835da213","51e040f101","51fd5d124a","528ebabd21","52da503e6b","52f0df8f2d","5308b53736","541137d547","5421c456e6","5446970fa8","54713a9f55","549ddc4029","54acee152c","54b4e333af","54f7470ff0","5500ceabe1","5527229b9d","55671ca516","566304bbb0","56ce8b28c3","57a6281077","57ffedde88","5837f51449","58688a0ae6","587b17fdb9","5976a79f9c","597a955c96","5982c008f8","599ccd2482","59ed85d0a5","5a14c1cedc","5ace14fa3d","5ae00fdd36","5b1486eda9","5b18d4c6da","5b4ccab9df","5bab2b2133","5bd7eda2e6","5bfc64cdb2","5c09bf1b5d","5c69b50fab","5c73fb9040","5c83ad7960","5c9d58fe09","5caa9cc360","5ccf87b119","5cdfc75e4b","5d2ae73bb7","5d6726638e","5de07b478f","5de82cc6f5","5e4acc777a","5e4f6b9414","5e55674344","5e9dad3944","5f084bf991","5f0cef2e22","5f0d8852e1","5f679e3098","5fde22e670","603c331c9e","605e35be4f","6066fe8a3b","606c18a6c6","607c92c54a","612464b8ae","61c7345383","61fbef1015","6205ae3d2c","6245007cc7","6273f0d48e","62aba389af","6308b274bf","631846939c","63cec3ccc7","63ddefbf08","6419ea69a0","641f46b5d0","6434b5b523","644d760196","64ec7816a0","650a57914c","654f7c2204","655286ebce","65643b6460","6578d6f673","65a26b200a","6609c269e9","66dd5fabf3","673e17069c","674c7d0154","6774d176e6","67761b9668","678f2fcce5","67f7925319","68057db8c7","68441bedf7","684e7f055a","6894519d07","6901c934cd","693af78d10","698f5546d0","699cbe1f1c","6a24ae4b82","6a6457170e","6a720a22aa","6b03603622","6b53720fc6","6b680b45bd","6b78d9eedd","6c02bf26fa","6c3aaff29a","6c901d54ef","6cbe86cad7","6ce083498d","6d3291a3fd","6d605bf16b","6e16d6c454","6e3dae9ce2","6e4674d9f7","6e8688b13a","6ed1933dd7","6edf39a8d7","6ee8b8f8f7","6f1d29dd8c","6f3ecc3b81","6f5be2b7c0","6f63bf4877","70082becf0","707560cf5c","70d89702a1","71b6e70570","71f7174087","71f8ab000c","72583791bf","727e8e25ee","73033ef881","73241f57fa","73265b2713","734f741989","7367303cd8","737efe7417","739ebe0268","73a4af0a80","742539e788","742e53fb77","7480db931e","74b08611a6","74bef0c007","752f364182","755fc67568","75697d0e8d","756c5fbf17","758b757c6d","75bcf5cfcd","762b341524","762ee31ccc","764150265f","765280e5b3","765e52b91a","7675ab3c9f","76c4d8ad40","773e0f784b","77b95fdb8f","77ec16315f","7825690b87","78307e3e62","788d20a2d0","7897cfa25d","7a19741c31","7a63f1649f","7ab545194d","7abe131ddc","7b30bb53e5","7b3fc80538","7b64eedb35","7b7c214b55","7bceda875f","7bfab942d4","7c04d68b9e","7cdec1d1bf","7d01efd4c9","7d46fc0828","7e05214a02","7e2805974c","7e9e1f058d","7ea4d77b1d","7eaf08297d","7ec937da2d","7ed9febdc1","7f0834c8f8","7f365535e6","7f4ed38c05","7f61b5e114","7feb56056c","7ff1b10871","80b139e71b","80f74b212d","8120ecdaf1","812368fb54","818be8369b","81d2dfec90","82635d1a2b","826fea375d","82a642e8b4","82f8e342ec","8322bc2862","832756b949","839ac045d3","83a57c2155","83a93e4285","83c85db783","83cfd963d7","842a0c8268","845bb072f8","846dbb1f04","84a715476b","84b01486f1","84c43ad56c","8518ab8207","8628c50fab","8658f2312a","866b199a6e","8747a2c4be","87e26715a0","884dcc50d8","888607573f","88a9bc04e8","896580235d","8972a5cbe7","89ab9d7089","89de78ed97","8a16cbdccc","8a1d732773","8a2222caa2","8a2ab3b3b6","8a2dd27e24","8a3604515c","8abd26d7f9","8acd435998","8af4dc452a","8bec078836","8c3c2e0423","8c4c8bafe1","8c8a0a61e6","8cbe8a2d3b","8d0b0d9702","8d5026675c","8dc3fe9af6","8e667a752f","8e6dd8a811","8ed8c68abf","8eda6aef38","8f9c8db4a1","90284df91c","905b07da82","909378c9dd","90a8bc10b4","91ed6def84","92077c63ca","921efbfbc3","930bd2f5c4","932ddd1ee0","93bbd50617","93c10fe294","93fc8e061d","940ac243cf","94314a0fb4","9599459dba","9603c5c101","970b232d95","97372a2db9","9757254278","977cb44382","9840da8b06","984e29d58e","986e0ea549","9897c002d1","991e14ad38","99230ebf13","9a7ddd4430","9a8234be8b","9ae37642fa","9b392aa9c5","9b40e8811f","9b89b3838b","9bfeb52ad2","9c4cb415e7","9ca9bef418","9cab9e69b6","9cd678f251","9d281f7490","9d3cdbf251","9d916aadfa","9dc785e02f","9dc848ae4b","9de333a5a1","9e062c9f05","9e2cd1f907","9e3a3476cd","9e3a635754","9ea15f556c","9f3c5638dd","9f76b8887e","9fb3f09499","a0403e9f04","a080c9e567","a0ef6c5dc9","a118c7dade","a189e2b574","a2103b41a8","a2c2c5d77a","a2eebd9161","a2f83fa6be","a35aaaa39c","a3894bb30c","a39e63fa8c","a421b98e19","a42c35c0c7","a4330bad0f","a451b0c16b","a4aef0906f","a4bf55d5d3","a5d81f516e","a61ab3c2c6","a65da2931a","a6a8d76ad1","a6e83885e0","a73b1ef41e","a78863405a","a79ad46797","a81aea1425","a842d0d211","a842ebeba5","a8d916559c","a909e63fba","a95b06a859","a981a64f7d","a984948739","a9ae53b953","a9cd132cb7","a9f38eb467","a9fe3ee5ed","aa3f9ef8fb","aa4efc3a5d","aa94059a12","aab3b9f6d3","ab368caa09","ab8129e93b","abd030b840","abd69c8b52","abf3e47687","abfa6470aa","ac074d4ab9","ac09df059e","ac24e08db7","ac42e3d568","ac52bf0489","ac91ac4ca5","aca374f14b","acd85f3f07","ace1f707e7","ad011e2a3e","ad0f226bba","ad2c4f00ad","adae976229","adcdd100c2","ae5601c049","aeef64195a","af5b92c918","af7e2e1f8c","af86fd13ca","afcd803397","afde2488db","aff40138ba","b122994c33","b1ff15b9cd","b211d5fe3c","b21935d955","b2915b29b3","b2b5f0e3b8","b2ea3ed323","b33ec73878","b359149446","b39c8166df","b3b9d5e41b","b3f3402ccd","b4663cb417","b4941b7dab","b529627a68","b564831935","b59cdf8d3e","b5d7bbf173","b633152d44","b6cfeb6204","b6e9e14085","b70fee3ba4","b81f6dc66c","b87a518259","b8a9ec58e8","b93b7d2933","b952224657","b983074228","b99fed9202","b9ee15cb31","ba9627ff39","ba9c3e6773","bad52e5c0b","bb2ace88dc","bb360fcd5f","bb5a2f28d8","bc991a1690","bd02349114","bd47be0c16","bd50479d94","bd983c1ef2","bda9c0000d","bdd99cd723","bdec3a067a","be7bfd0398","be90e3c657","be9ccf8db6","beb9a2a20f","bed4ae57c4","bf74a1bca2","bfacb8ed88","c029acc081","c0705d7b36","c086ab303c","c08bd88864","c11431fd22","c13ff46589","c1aeeb52d6","c256d76b07","c2920e0df5","c2b7d1630e","c30747edc5","c3112dfd8e","c311722eba","c38b3c7e42","c392cf0fe9","c479e849a1","c4a36a7ea3","c4ec3fae63","c5326d42ed","c53fbe642a","c59b13c5b4","c5b122fc16","c5bff53c56","c5edb5b5df","c5fba468c9","c6e216bf99","c6f20c3424","c725fcbb7e","c729610d7a","c7e6270e40","c862ec4014","c87a3f4f34","c87cc140af","c89d52569b","c8b8366c5c","c8e6b86be5","c937521c7a","c93a624482","c9597b0e19","c9d55196f2","ca01989bb1","ca54c2ccb2","cac56a687a","cacbca1a6b","cad9c3636f","cb82aa1568","cb90e95cd1","cbc60842e0","cbcf9e3c5c","cc15b2c7c1","cc53253392","ccd922bb7a","cd0cac0ff6","cd58948037","cd65f2062a","cd9970858c","ce085e693d","ce5458b801","cf1ba808f9","cf81c90700","cfed2e3ea9","cff67722a4","d00525d9a4","d024fcc71a","d03aa0e996","d0549da7d5","d0729c99ef","d1aea162da","d21cf0e8fe","d2593c1201","d27bed2b4b","d2a3298306","d2b1fa416a","d2ede83fce","d3066a182a","d3839b1bb1","d3abb1af6d","d41478dd64","d433284fce","d4a59eeaec","d4b1ba524e","d4c2335745","d52f61f18c","d5bc086772","d5f4cb53bf","d601170c83","d68e54ce3c","d6981404df","d6ab1b984f","d6b7b74bc0","d700d81048","d70c79efa2","d73971ba91","d757026ad8","d78ffb678f","d797fc9f0b","d7acda9448","d7b0a14bd9","d7c158e341","d7d5353d62","d7d7b5ad1b","d7e107f57e","d809945504","d81346f9af","d83594b74e","d863fd1ef7","d883af952d","d8c70fda53","d8f24cbe8b","d95badaefb","d999914f03","da0a87fe79","db32eec664","db3577382b","db6b67c3e4","db7738c950","dc2a941a2d","dd1737858f","dd386e4339","dd82e6ecf6","dd9e583722","ddbdb0e378","ddd637a0e2","ddfbbf89d4","de77cb3a2c","de8ea76c2e","de97604ae1","df21e88bdf","df4d779613","df5acd7b8b","df76a52883","dfd59f9955","e011d29107","e0b2f25144","e12cf6da94","e17a808e91","e18b1986d8","e21c5353ae","e275e09087","e294c0c44c","e2b900543e","e2df6b0ba8","e2f4863195","e2ff31703d","e31669d116","e3232d17d2","e323d8b1ac","e40dd4803d","e48863458c","e554f64ba6","e55a421900","e567b72ead","e5b596056d","e5beab5792","e600c8171d","e633008053","e64cb4303d","e68ce1cb0f","e6a1e03a6e","e6c6da80c3","e76db515a0","e78fd40dac","e7a1fce78f","e7a8141c2f","e7ea627587","e8415237fa","e86eaa3431","e878955511","e8b72b3824","e8cda8c49e","e9e2311d81","ea26da2562","ea6756e4de","eab277f0e7","eabc1531c7","eb1d9ee89f","eb9231ebfc","ebad561000","ec0b2f06c2","ec5d9d333f","ec5ed559b0","ec912012c5","ece04e280d","ece3ade251","ed2cf1d3cb","ed3cc78300","ed3da70ba5","ed4836925d","ee27ce7801","ee2f174b26","ee56a66a26","ee59c0f8e7","ee72452e8e","ee7cdb297d","ee8c908c3e","ee9c9c99dc","eee5a9444e","ef315a74ac","ef4dce458e","ef58962647","efa1916f28","f01121d9e1","f0131fe7c7","f061a635db","f11dcc3431","f158cefcaf","f1ab153311","f1dca963c1","f1f9a3a834","f23eff86d3","f267df0725","f28f873047","f29d0b577c","f2feff7ac5","f32c3bfcc4","f35ca55949","f3739304fd","f39dfbf8fa","f39ffeedcd","f3c9f61985","f448a7e62b","f509a571a6","f549153be6","f59c2c2cf0","f5e257167c","f623887ef1","f6527d18be","f664de0699","f6851db3b7","f6c832c6a4","f6d0857ac6","f6e6442050","f6e8697a31","f73bf16c60","f74fb77ec2","f76445e1bd","f7b73981e3","f7e08f7cfe","f81f12b7e7","f8496f9d99","f84a5ae5b3","f85ac22c5b","f8a56a127f","f8b6fee666","f91febadc4","f978a24a82","f97a133ca4","fa00aebdaa","fa851179fe","fa9fddfda0","fb6c5dbd7b","fb8c306206","fcbaa38c61","fcd481bdbf","fd163ba943","fd208ba9d6","fde41675b6","fe061d345f","fe315854b0","fe82f138db","fe964340f7","fedc119902","ff1faedc4a","ffeea1e871"],"113":["002d5e4538","005564689e","00559149cb","01559be4c5","0171066531","019cbc0926","01a3914c0e","01aa75acc0","01f48e56a6","0258b08da6","02d9694c3e","0324970d9f","03750a2cf8","0453067da6","0453c1ba8e","047e18e68d","0498d219a9","04fb3881c6","050800c43a","05425aaf5b","054a575be9","055f5e07c5","05aa7fbaf9","05f900d876","0631f977a1","0662c3cccf","06a77577f2","06c807e1a3","06e7ab98a1","06ebef9967","0706df49b4","07a27521b6","07b7a17645","07e23a96cc","07e608cd67","07eaae9025","0822118572","083dc8e066","08667bf98d","092b28dc7b","09403f9990","09fa0853db","09fc66cb2a","0a156b01ee","0a35046ce6","0a3aff120e","0a5bf94691","0a5c630d9c","0a703ea083","0a85e5e78f","0adf5e6ae0","0afe5e456f","0b00af3947","0b34223e38","0b3e60c4e1","0ba3a035e3","0be2ccfd1a","0c268f0d50","0c5c91198d","0c80ea8c04","0c95813e53","0cccc54dff","0ce3edd1f6","0d2c1e4190","0d2f1bfb99","0d34c936bf","0dbb3a4b73","0dc69c7b45","0dfd001f8c","0e2f17d7c7","0e44efffad","0e47fe7149","0e8139914c","0ed97daa14","0ef7b8f59c","0efbd5f7e5","0f31e1dcda","0f4148fbac","0f49311dcb","0f7cee5978","0fa2f5c42c","0fac70fcd4","0fdc65fbc3","0ffd0021e3","1073189513","10a3e061b8","10c6d85b56","10ef5f7ba1","1146a3b469","1191d72842","119ad77992","11d31c0d46","11db8832ca","1238a9d178","1278b08cef","1308f60f0f","137d98244f","138c20603d","13b67a25b8","13b6c32213","1411dcfe84","141e90ec9a","143f182d50","148ba77c3c","14eb3d7a97","1500d7383d","152dd4e148","154275ce16","157570fd24","157fbf1e7d","15bd1f9e57","15c7405392","15cf1695be","15cfc7a0da","15f59742e6","165489c77a","166f491abc","1682fc182f","16b930df58","16df668f81","16e37964f6","16e54d615e","16e68aa4e2","16e68d769e","16fa3c426b","1714f157a2","1730cd4631","17a252e6f5","17acaaa558","17cc6ef8aa","17d67d1d8c","17ed6f1b26","180bfb3e83","185c15d0ca","18e7a55905","18fe90c75e","1936bc03fc","1a8e8dbd95","1beb2bb19c","1cbcac828f","1ce4ee5e8e","1d0da15391","1d4dc3da57","1d617697fc","1dafe1ad66","1dba578559","1e35d459e8","1e6b94dc77","1eaa542868","1ed2b4eb28","1ee7c8850e","1f88111258","1fb78448cb","1fbef31e53","203fa1c8a5","2054eec9de","205c7b102f","208de746a5","20bfa02c85","210d7cb891","2130207435","2138a1c1fc","216a239767","216b0a85a3","216e93f82e","217468bfb4","2192707afe","21d256882d","2219ca5d9e","221bb489be","22276718f7","2337d812d8","24a12bdc4c","24de23e6f1","2545c324b2","254c5f2705","254d7b014e","25a78e3965","25fe1d9118","260749db9a","26b443a865","26d3cb7e36","26df240519","27297030c8","2804a741c3","2856732287","29128da6d4","2932ba86f2","293dc874a5","2995ba14d1","29965ad11f","29c2a5270e","29cf1b56df","2a81ae70a6","2a8422003d","2acd6d01db","2b1c995672","2bd8ee0db7","2be828e7d0","2c63aefd21","2ca2452da9","2d2594db5a","2d433ec397","2d9ddcf0d3","2da059017b","2da1c65c14","2e1aefa3de","2e2231ead5","2e7bb01e4c","2e85961d64","2e95a57c19","2ebc185a69","2ecbf2c480","2eda624514","2f14fe3c45","2f3b45ea62","2f3ecbc0ec","2f7239eddd","2fb5352f82","30181ec4e0","30922dda14","310c7652ee","31894254d6","31a4d17071","31f4d1208e","32340d977c","327203c34e","327c0d4cd6","3288061e6d","32bd40aa26","3318de2cc5","3329508b2e","334983b91d","3375f77c28","33f0b9b026","33f732e5dd","33fdc39592","342a6a8bda","345447dee7","346cad6541","347ca0c7a1","359d63a784","35a82ce11d","35cec38765","35e67b5365","364c46cf57","36be251d48","3729e00196","374b5975b7","3769dac214","379bf281ef","37bd11a9ff","3865041c48","387486acc2","38844bcd52","3894382020","398bcd6e16","39dc2bde32","3a0603320c","3a4104b81e","3a8123fefc","3ac463e664","3adb147485","3b8563c70c","3b93a54793","3ba2b20610","3bc45b8acc","3bf9626f4e","3c423e6009","3d9c141a36","3dc235e7e2","3de43ef640","3e44119f6e","3e9768f798","3f0040f1da","3fdb5ed2da","404dab12be","4061f6c7b5","4062432af4","4065769d48","40bb083187","40c6d0885a","40ca46d37c","41399e9e9d","41ec5f9075","427306c01a","428e3e3d58","428eda03d0","42ae9661a0","42cebb5c24","43385ed7ff","43c52e5f9c","43e8ef0e14","43ed61d0ca","443b0f23c8","44862ad43c","44965b4073","4512a02c38","451fd92662","452eff780a","45985ef5f2","45dcfcff13","462b747a6c","46b07606fd","46e5b8a4d2","473c00e625","473ef03ee1","479116d062","47a2db64cb","4862d13ab0","4865d89fba","48a3718046","4958fac574","496f4d26c0","4996e6ecd5","49be35563b","4a1b8ee888","4a6389a48d","4ad493b6bd","4b2585300b","4b643c0ba4","4b93e23796","4ba86dbc9b","4bc749d39d","4c487c32d2","4c976fb6e8","4d04dc6baa","4d0adce2d4","4d9be68db2","4db7c26c32","4e2530bc21","4e5e3c924f","4ed7786f1a","4f612d0a16","4f6ecebd63","4f9f0cd6a5","4ffcaf8d28","504915e590","505dcb98ca","50644b9f07","5074761968","50bb7fdb91","50e125dff9","50f22cc0e3","51436103ca","5191b03ddd","51a606edc9","51c8b121a7","51caa1a139","51d11b0bdc","51e040f101","51e24bdaae","520d058602","5215391a0b","52397d7a7c","523e91ad75","52ab123729","52b2473b3c","52be72e334","52d1c14ec8","52eb20131c","531728c4b3","532e59c04d","537937e056","54831e096b","54eb9a42ed","550a20bb9a","552f1fba4f","55468e52d5","5587ca2021","55d6a53d11","55fafdbee7","5607b2351b","56536a6bda","566304bbb0","56880cb4df","5695dc9c6f","56ebf41e2e","56ed8025a2","57cfb9e1c4","5957e51342","59ca130955","59da61f246","59dea8e0e1","59ed85d0a5","5a57b02449","5a67ae493f","5ae699e8de","5af42d7da2","5b1ffe742d","5b23bb132e","5b455bebc0","5b6b770c82","5b83a1242d","5b869f7aa4","5bf10e4183","5c3a54edbc","5c5a600595","5c6372838b","5cbd32813e","5d94416773","5db13c0bda","5dee6494b5","5e1df24a0d","5e638a6957","5ee2639555","5f33252a37","5f47bf6b85","5f59e6a9dd","5f5b18fae8","5fa8a3f465","600d88573c","6024cca2d7","6066fe8a3b","609012cedf","6097e3b3d5","609e2fe71b","60a8fa3373","610c4c0b5f","6137beaf77","616f7a1dab","61b2e1f24a","61d0176577","61ddde2deb","625a9bf041","627358738d","62a8504ebc","62b729bd9a","62ba51dee3","62c28c564b","62e6350626","6347daeefa","6357a1d029","635bdea01b","6383432a1c","639e709787","63d30bd2e7","63e125d5d2","640a47ce49","6434b5b523","6439d317b1","647b7e1505","64aff7f9b6","64b7662f46","64c7c85d89","64e5754792","6505a63f7b","655ef74542","6591306e0d","665fe274ec","66d4bef2bc","67310c2468","674aa29483","6790499b83","68634e3a39","687f0d8725","68a7d6dbb6","68ac0b70ac","68b1404036","68bd5bacaf","692ed2e987","6943c6d16d","69737c4173","69b09ea616","69edea9914","6a3c892421","6a8c6ee955","6a8cc38dd2","6ac2e69476","6ae7c75593","6b092d75c8","6bb902bbab","6c01bc54b8","6c15d726b9","6c20cb9808","6c48ae2b9c","6c8b0a7d1b","6cb7bfaeea","6ced567929","6da165710a","6db68bccaa","6dee2f41c9","6e959d0094","6ea5e19d86","6ec571a9c0","6f5be2b7c0","6f7cffe600","6fbfd67136","7006a3b5a3","7016a24c61","7037f91203","70a56013f1","710f40f8d2","71185d667c","716e0b9099","718b8cba88","720732f7b0","72139c50e2","727e8e25ee","72a4a8c795","733ca944c1","733e2715d2","7386abeb97","7390d07969","739a870e7b","73fc7c569c","740fb30517","741142489d","742270c30a","746f0dff80","754767a164","7551ec2f3e","75572b5dd6","7558c943ff","75697d0e8d","756c0c1acb","756c5fbf17","7586008699","75912003ec","75acb1efe2","764e434b7c","765f521d51","76f8001e75","76f9b69f8e","771088cb91","7717dbefc6","7770e54d85","780f4d501e","789be94f7b","7901c62393","7904106be8","790c6c201c","7928e15a9a","795c848aa6","79cdae9f29","7a612960b5","7a63f1649f","7ad2f3f26e","7b4f373aaf","7b55cf0a14","7bf0913a78","7c42457325","7c8a7aac49","7cf7c7474d","7cfb71712a","7d0772fced","7d0df84c32","7d53247055","7d5d3a87f5","7db05402da","7de949ae8c","7eadd8afce","7ebdd31a14","7f31ed59f9","7f67da711e","7f6e480646","7f8aaaa78e","7ff5959b09","805a31bbf7","806071cebb","815cd49eda","817241931b","8190b5213e","81a7b11618","827b0a8d1a","82f95bda50","83077c12e8","832af2ad7b","832decd1f8","832fe5d2d7","838592885f","8395eb18a3","83f59046e8","84043556a6","842be6f987","8499bd53ca","84da1a2e17","84e1359592","84eef7ab41","850a1a973b","852e7dd4b6","8561b4644d","85bb77a989","85ccb3773a","85d66b72b6","86853d578c","86ed238bfd","87d512d6da","88257b8872","883b456e9d","8844afd82d","889ad7075d","88c1602bf2","88ece816c0","88ef19bf2a","88f0d3d122","8911c4f233","893979c331","893a8b7073","89d38c9020","89e6c87943","8a47150573","8abf1ed91b","8ae3ca26bd","8aec6cc104","8b178021b1","8b230d72a4","8b39e37c92","8bd0fd82d4","8bdfda71cc","8c26b6c237","8c3c2e0423","8c885036e6","8cd62060dc","8d5c9ded5e","8d748d6637","8dc88016c3","8dfe1a16ca","8e3010ee27","8e97b3eb3c","8f0c2cd04d","8f0cbd358d","8f7ce63adf","8f91a9ab87","8ff1f095c0","8ff3d4d808","90028b2119","90183129d1","903dcbb806","9055fcc7f0","9093bb051e","90c77378a2","9110ec9bb0","9187d949c6","91a3be2138","91d21883cd","91ee8db089","92592da426","929d973b40","92b4a12b1f","92dbdda860","936e779510","93a4221668","93a4912e24","93a69df4b8","93b563b4df","93d63a97fe","93f0121e6a","940d4b0485","941f334598","942dc692a5","94bdb08333","94ce40b16c","95149ee986","953858ca17","955d04315f","95ba0e8255","96ad3bc720","96b9affa2d","96e68f8508","973590fee7","9738c098f2","97474e4475","97ece04125","98453cf373","989f9afdbc","98aba51c8e","992967cdc5","999addac6f","99b539c82c","99cf14a43f","99e791f161","9a8ace17b7","9ac30ec077","9ae6a98b17","9afa93c6bd","9b2d97f79d","9b55b1abbf","9b7479f529","9b91638703","9bd42ce08f","9bda77bc69","9bdea98443","9bdf8312d1","9c2ca9b936","9c7be5ba75","9caa032164","9ccb449350","9cd678f251","9d095c8c70","9d1f6dfd7b","9d5d57ef60","9d70b4f7a7","9d8acccc27","9de333a5a1","9e091baf13","9e13aa1a40","9eb39c579f","9eb8fd353e","9f193a53b8","9f76b8887e","a0252d4c26","a08612fb39","a08d6cee19","a0c466ead6","a10410d921","a15347bfea","a15492cbee","a15afdb76e","a189e2b574","a1a17d674f","a1fcdb980d","a23297787a","a2394b076e","a2810d450f","a29a65cda9","a2b10e10d9","a2d72f06be","a2e4e14d98","a3891beb52","a38b107065","a39e63fa8c","a3a253fdf1","a404ddd1f2","a422dcf387","a431563afd","a49ba7087e","a4e261c982","a4f3b19c66","a581ea6162","a69adbeb51","a6afd1b16d","a6e39eb718","a81950138e","a909e63fba","a910f2b025","a94bb8b93c","a95b06a859","aaa2570421","aaa91caa7a","aac2cc2f2d","aad0a5d583","ab31891021","ab545a0743","ab88494801","abf46fd677","abf671b321","ac2d0e5044","ac310fba37","ac67c88ca1","acbe1b4577","ad3047cde7","adb2e367e6","add58a863d","ae4c2d4ddf","ae4dc9e360","ae92f2d937","ae9b3104c2","aea1172e81","aed227965c","aed78507a5","af397c1083","af61174fb9","af96a2a090","b01b4f514e","b08b20392a","b08ed322bf","b0911da154","b145180638","b20702e092","b21944caed","b27437ec70","b2bff24b97","b2c6c0eefe","b33ec73878","b35a39171c","b35f5eba06","b3612946ff","b3737836bf","b38801e73d","b45b75462b","b4931a7335","b4a265490d","b554f71d1f","b5cb2c3577","b60e61afb2","b633152d44","b63dc7e6ed","b68a9745c9","b69b568f1c","b783ca2293","b7c2af27f5","b7f55d15ba","b8ab2b703f","b8ba9aea66","b9401290b9","b999997e07","ba243f0f85","ba497eab64","ba8a5add77","bab5b8282d","baf4b4fb7f","bafa4c7e43","bb4b7c7a0a","bb5c7762d2","bb78da3964","bbd1d429a3","bbe373a501","bc114cf42d","bc84873eee","bc9cc8e69a","bc9eefcb9c","bd0c6af6cf","bd6be863f8","bdec3a067a","bdec3eca17","be14482687","be42c0efd6","be5883ca7f","be7421b8c4","be9042788a","be955b387a","bed6da1da2","beea9fbf18","bf17ba8c71","bf2f9c9d7a","bf3328cd09","bfc0073bd0","bfe0518218","bfe1f849ee","c03f6b6612","c06e774820","c13b6c7e1e","c13de46fb4","c151af3833","c15ac05744","c17390e467","c18bfd191b","c18d5afa05","c1aeeb52d6","c1b576b33d","c1c6754585","c1d020c5f4","c1d3f4e2e3","c23d5fa9b9","c2a10fe474","c2f8000220","c310900179","c3805d4c7b","c383296f2f","c3b2ed3b66","c411555fd4","c484d350d5","c67f74eca6","c759041c7b","c7a16ee860","c7e0bcbff7","c8077f301e","c8105b51a7","c8b8366c5c","c90f807818","c957029194","c990372f11","c994ad7b46","ca0e4ffee1","ca22d9aed8","ca37ea0b6c","ca5e7c13dd","ca6cd2f6a3","ca87ce43e0","cac7d8c25d","cae926d018","cb013533ed","cb14ec4eb6","cb9cb039b8","cbc4de6f5f","cbcba54721","cc02469c91","cc3f594691","cc4572c683","ccc2de8f05","ccce853ac0","cd0fea6836","cd70c3c519","cd92a36656","ce66cf1658","ce9fd39bad","cec690aedf","cf3e20ba79","cf4dbcfd3a","cf6434f7ff","cf67b423cd","cfb1af398d","d04a170b3a","d0bacf3c52","d17d442e51","d1a4d21e94","d27ca5ab50","d2e911e4b1","d311b284b1","d3890c7fa4","d3edac38fb","d41bf20eaf","d4a09e1f5a","d4a59eeaec","d4a71f5d82","d4c37082c1","d4eb8cffd0","d551d73bd2","d6534d9792","d664e99c12","d6bc5c4dec","d6f3de3df1","d6f5a3baec","d74ffc91a1","d757026ad8","d76d3431e5","d78953bfa5","d81ed37f06","d835d3c6d1","d8d9cae012","d8da233699","d91dcd3a2b","d98ec32cc5","d9aa80db3f","da3e602666","da72a668e0","da8cef1aae","dbb490fac4","dc183f5cef","dc4645e2ad","dc4b471754","dc8ca712eb","dcc347f377","dcf180b22d","dd2b71113d","dd8c98aa21","dd929c9395","dd97d2d700","ddb1e5165c","ddbdb0e378","ddc28e64cf","df05b1f85d","df3511b126","dfe0ce4898","e025eff82f","e0355ba313","e05cb590d4","e0797b24b1","e0aa14f6ae","e0c08d958b","e0df015666","e10eeade6a","e2243a3d4a","e2306651d6","e24a917f56","e2512c970c","e27ba379d3","e29f628cd7","e2ff31703d","e319110b5a","e32b106b81","e37fd87843","e38b8ce2a2","e3a1f35fe0","e409022623","e424df4c06","e446d5cbb4","e462d28ed0","e4cbef5898","e520350818","e524fa9aa8","e52f181b47","e54ef94e66","e56a485f23","e5ff86c8ad","e666a70802","e67087a899","e6a6017702","e6a95b9706","e6aff0fb17","e6dd09b59a","e707a2201e","e728b39757","e7f792c2bf","e8c7774888","e8ca977ea4","e921e71535","e96c015b76","e9c4a59de3","ea03ca7d8b","ea27b1a3cf","ea5cd6c593","eab3b8a1eb","eb1ff0fbcd","ec3f8b020d","ec4d6dbe94","ecfd675012","ed05db86f2","ed12a2fb6a","ed85394aaa","eda6bb7067","ee20b3350d","ee9978922e","ef52af2d9c","ef855b4353","f0072ebd53","f021101e59","f03d45aae4","f0c3655d0b","f0cfca5fcf","f1240d6416","f18f6fb180","f19d352294","f19f23f8c4","f1cd6679a7","f1e6647483","f1fc1fd5ae","f29d0b577c","f2a8bac1d9","f2b7c1dbd1","f2b930243d","f2bffcda11","f348bd0554","f39de71693","f3cd4319ae","f4163817d6","f44949f4fd","f4b714bf50","f4da02445c","f50d1a94d8","f52a005d55","f549608d33","f5f0613e83","f604f6c628","f60542fc30","f61e8ceef4","f64e353072","f6e37d56ea","f6e8697a31","f713b7e15c","f72bbba489","f738b99634","f73e122344","f74b082da7","f765f853d4","f76888af47","f7db9f5b68","f81887a6ae","f826338e1a","f829e9ed69","f8506ac865","f8a22589c7","f8a234c24c","f9cd944ba1","fa0e9995e0","fa377cd1b0","fa9cf53277","fad9044190","fb80479ef1","fbacdb6733","fbb286a727","fbc43e8c1b","fc078b308f","fc80189eca","fcb1fb708a","fcde5d6719","fd16ac707e","fd6fb8aa49","fdaf97b44c","fdcf80e2be","fde8bf03db","fe0aa6d38d","fe64616677","fee3ee050d","ff28dfff60","ff387f0ff5","ffbdc07af1","ffdfd14cc7"],"114":["00033b79ed","00410fdba7","00f643ff63","012df1d066","01653582ce","01b2380a29","01ee1d57bb","0211b48fa3","022451ec3a","0227bd59dc","02501a8bb7","02ed920985","035ec1b56c","03727618b0","0385920ba9","0419c3262a","04448a5a27","045fdae683","04b5e0fd60","052795ac14","058f7e8b9d","06158aa334","06387afc19","067dae4e3d","072552b5a9","07334d30a8","076188ad54","07ae337ee9","07c4d64f3f","080fc5c571","083aceec03","086f38d793","08714ca108","08e6e595d0","09aa611f67","0a343bb6b3","0afb3c65a8","0b53f49369","0cccc54dff","0cd7b36854","0d32f7fdd6","0d4a7f77af","0d60d7133d","0d9aac7d25","0dcd3cf3c8","0dd5dbe43c","0df9cb237f","0e2f17d7c7","0e637b2cc4","0f2313b80f","0f3f5e1db5","0f8408ee50","0f97b0c248","0fa2f5c42c","0fac70fcd4","0fcf9c9166","0fde19de5b","10734ded74","10806fb784","10a3e061b8","10b87c42b7","10dc7fbeea","110f7a9f96","1158ca2b93","11bf770aa2","11c09c8807","11df75e27e","11fa7999b1","12d81253fd","130dca1824","134968d5f8","134e62919d","1375e08ed8","137d98244f","13b67a25b8","1410ab8c53","144732fd0c","148c333b89","14c7b162a0","164623a111","1658eb1fe5","166fa04c78","167db2cd27","168bde7b79","16b8b42561","17238cc7d6","17bdf3819e","17ccce08e7","17d8c2e4b6","17e93ffe01","17e947db4c","1812b618db","184c600ba2","185a2dc1b7","187486cfdd","187b5f3509","18c7bc632a","1924948aed","194bc0b6b1","1958b134f6","195e705aef","19894cb06f","19a8bbabbd","19e2a25b38","1a1d212b20","1a5041e26c","1a5740a912","1ab77a04da","1c2dee27da","1cd6358f7c","1cf9656359","1d1b6cdb47","1d4eef9834","1d6f84746b","1d786a22c6","1dd353697a","1dd7dd9d0b","1e156fb5f8","1e1859600a","1e44bd3c1c","1f5801638f","1f7e4a105b","1f995dcf21","1f9cf3ee92","1fdb9851e2","1ff461775b","2004ceae8d","204147763b","20640953a9","2095d1a4a1","20b9bdc8fc","2124fc2aef","2128873519","21b419f1b4","222d7c9ba8","224ce83ead","224ecaf2d1","22fb429786","230dd5006d","231544d010","234026e138","2350b7cab0","235a9fe747","23e1f0acba","24ad63fa05","24d0457f4f","25265c9782","2562626191","259ad8c832","25e82dc197","260de43d94","263666382b","26a50b2242","26d1065426","27114bf7dc","2716e94706","2747c7a48e","27dca14223","27e74d28a9","27eba3d78c","2887b472e5","289aca578d","29b4d03230","29ebd3fdd5","2a19d085c8","2a5e61b6f6","2a81ae70a6","2a82619027","2adb78b750","2afc50c0ea","2b1b2a3554","2b3fdc228f","2b79fe9ae5","2bac366ea4","2c619c63c2","2c68bc58f0","2c6dc70d25","2ccf363ba2","2d26af5cd6","2d7ba8a0ad","2e05dfdf92","2ef11ea01f","2f1fef48d9","2f360993a7","2f36c5352c","2f50d24aa9","2f6641b231","2f7f708d15","2fe386c4d8","30032d9330","304763207a","308ca8f013","30b71ca41d","30ea292f1d","31316cbbb6","315a8244d0","31adf01157","3231da8ccf","3288d9b6a4","329c68d731","32b8f8c431","32be0ccfc7","32cb22ff69","32fae11757","3318de2cc5","3329508b2e","333b828d4d","33811b6506","3386749fa8","33e52367b2","3463bdf298","347a99ae45","34c4923c45","3522323a55","3726c00990","376bf03b31","3772451a0e","378cda4c64","37aa622a9f","37e4511c6f","383ac1c4f3","38a6d41f0f","393fe013f4","395a5abb03","3971204f82","39db124985","3a02786391","3a5fe924ae","3a95aa70bc","3aca1f901d","3b804672f3","3bfbedee3c","3c2c7b832f","3c329f90f1","3c37db6ece","3c3897d921","3c43700b4b","3c7d4216e4","3ca1af6f8e","3cd67a08f9","3cdf095dd2","3cec0ee6b6","3d1fc3e442","3d2190b95d","3d924db870","3dd94a23e6","3e31f2f8e5","3ea4aed5eb","3f74bda53d","3fc97ede7b","3fe2cc770e","402d0541ec","404a3ad331","4067d60414","406b30d52a","40d07dca75","417559c174","41c2e691e1","421230b5ee","42209efbe5","42527d2018","42b367486a","42cebb5c24","42d7738e5c","4338030c0e","434d01ba7e","435cca7d1d","43979a806a","43a666e1c0","43b10512ef","4422f7eaa4","4433a26d2a","4439b45ed5","444ad890ae","44e87bb429","4576f69085","459817cd61","4632b239a6","4637f84a5c","464b372854","46dab77153","47c11b268f","47fc4b6990","483054f55b","4834306507","496b4df2cd","49ba47ddc7","4a3a745d04","4a8fd8b789","4a9e73d00c","4ab69ee169","4b05231e7f","4b223781f8","4b6623677c","4ba86dbc9b","4baa6edff4","4bba2a829f","4c3ffd7324","4ccd69a752","4cf47e6a46","4d2dc8cf12","4d9be68db2","4db13342ec","4df7d22c29","4e15f8aacf","4e568f07da","4e67587561","4e7f4cbb79","4ed19d28a8","4ee18bc507","4ef0c006a8","4ef2ac5f44","4efeb350b2","4fb6de2bd2","503008b191","503a4012e3","50be0e0f07","50f54cd897","51504cf6dd","515e33c8d9","51dda3784c","51e040f101","51f2dd07a2","5205fb076f","5223cd7018","524dd757c8","525ee70951","52e35ab3be","53216b97ed","5374dc8a50","53763bceeb","53f2f156da","5407427c0d","5433bf3e33","54795e0f36","54d9fb7a34","54fe1fdf85","552f1fba4f","55373126ce","553cfb5b95","55fe6f95d2","565ae3d23e","566304bbb0","56a5100f30","56b7bc5b08","5707799449","57247c5fd8","5731036e54","57af05c776","57bf21494d","57fe419029","580c676392","58472744ad","58fff354a2","591a9e85cc","5928e82baf","5942764e33","594e0dcd5d","59c30878d9","59ed85d0a5","59f77f02f2","5a36c3789b","5a4c3a5556","5ad80e281c","5ae51d4e9b","5b01a343ca","5b03cad240","5b41d3233b","5b6f6b0687","5bca00b376","5be0d8cc26","5c1e58078b","5c9c65f821","5d34054b3a","5d87ba0140","5db0977977","5dd695f454","5df0955bce","5dff96f453","5e243920d8","5eba6b6a93","5ecb99acb5","5eeb56e704","5f2407a5ad","5f3f2d428b","5fd211e4f7","6066fe8a3b","6081449b9e","60bd85301b","60db15d132","60f853f37c","61074436a0","6130b94a9b","61c5a33d7a","61f812546c","625c5dab87","6261979574","63213923cd","6386b28bd8","63ffda9473","641b041da1","6434b5b523","646500279c","651660adce","65180881f8","658d1ec9b7","65a13eceae","661bc1198e","66933110a1","66b59bddd4","66c6cd73c7","670e4826ae","679375a2d6","67aa9ef888","67b86fe3e5","681a21ecc3","682a0b848e","68d8f30e88","690e21e845","69139bf41a","691ae1ce63","694356ef30","69b820582f","6a05436ecb","6a1b5ec089","6ac107ed4e","6b604f56d4","6b6108ea87","6ba02a58e8","6c1562df72","6c2360b17c","6c5794b3e4","6ce1edddd3","6d5cc43916","6dc9b0cc5d","6e1fd16583","6e55eb30dc","6e5d1754c4","6ebebf889f","6ec1e1b7aa","6eff3d2b27","6f5be2b7c0","6f7f0abd61","6f895f242a","6fdd182537","6ff4e00496","7042f3e396","706421cd33","70720a6fed","70895c2449","70a606000c","7116b71547","713e0661ea","717cd45e77","71ba7c7749","71cae3b45e","720d2da312","727e8e25ee","72aec6cdb8","73c48df39c","75697d0e8d","756c5fbf17","7578bcb06a","7614f5f6e7","76317d9136","76334ea5a4","764fd1cf3c","766a462691","7682ea6274","76c9830063","772078d2fb","775350434e","775eebb28f","779f621b32","77ce045be9","77fba87a2e","7824481070","787a15b519","787c806c7a","78a7a56e65","78daf4b27a","794395f542","79a08d48da","79f3eba9f8","79f74bf57b","7b24544ab8","7b34ab3634","7b4108d254","7b67d5ad55","7bc3dbc9a0","7bcf6573c3","7c569d97ba","7cb185b8d0","7ce76003be","7d3aea53c9","7dd2ff38e5","7e1c5670f0","7e4a628884","7ea17937ff","7ed45f9c87","7f94234d5e","7fa1e6e85b","7fa85ac9ac","7fd33d80b8","80305e6a59","80ab2c1a3b","80b71ee442","80c6d5ad97","8159ecd9e6","8193ab5073","82379af7f0","824eb82885","8266f35ef4","834cadfa22","8389653d6c","838ef83329","83e2d4bda2","842db381ac","8473ee5b29","84b484a9bc","84d65d6f63","851d67492e","8578cc885a","85a3615e10","85d97c7be7","85f59d197b","866faad198","86bbc5a767","8784ecebf9","87db266ce0","87f585e966","88090730c4","8812e002bf","887a0a14b5","88ff2cb45c","891a1decb6","893f7d7907","896ea1988b","896fa92b38","898f0f3c37","89d51dce9b","89d74fe5ca","89e3b65fee","8a1e0f5638","8b5647f410","8b7c13dc42","8b8d152c8e","8be706045d","8c17904683","8c3c2e0423","8cb4722be6","8cdeda17d9","8ce2c84dd8","8d98c670f6","8de9b9b0a7","8e78f35e40","8ebb2830c7","8ee889c269","8f274b6c41","8fb5290774","8fd5f26952","8fdf3c6384","8fe3ff3834","8fe8a9dd49","90298a5f95","90a72850ac","90aba4b8a0","90cbd02af2","918bd237c7","91b1519efe","921c93959a","921eab2939","922538f8ee","92504f4ff1","926eec3bee","92c07b7f0b","92c6ed4e38","92d785d6e0","92fc5fefa9","92fe287cb5","93a9dd16fd","949250ba38","94eed25c16","94eeee012f","957e98496c","95be910ee3","95d0d94c2f","95dfc34772","95fd059214","960853ce80","9697a39cfd","9770a9ddb6","97842b074e","979879f8d8","97f3a13c4c","98110b2580","98d8dfb66d","98e41f3960","98e86b3023","99080edc70","992008a306","99d6a4829c","9a2b77b8c1","9a4fa385c3","9b48a4dee9","9b92f43592","9c0d454de3","9c0f1eb98b","9c32618e06","9c81ebc5b6","9c8983f995","9c9252d0a2","9cc3958c9e","9cc78be6ff","9cd678f251","9d10f66351","9d281f7490","9dda17ce07","9de333a5a1","9e5aee2dcb","9e5ceda2d4","9e8f98738e","9ea7a44d35","9f44a95512","9f4a46f294","9f631a7685","9f76b8887e","9fb19b0000","9fee7ff882","a02d60144a","a08139d20a","a1720e43be","a174e4ce9a","a175d0365a","a189e2b574","a1e81f8d0c","a21a742257","a237758f86","a2a762790c","a2f2450cee","a2f50fe0fe","a3177960f8","a3246a7d6c","a3406f149a","a39e63fa8c","a3a9b1b3af","a3bfdc1f05","a3f450973d","a3f95dd9d1","a4039bc297","a44e320116","a59fc4d072","a5fc630015","a62234ec83","a68ed2fd8b","a68f10a2eb","a6c3d1e406","a6df50ab07","a717c24872","a7666125bc","a76f73d2ed","a79dec5398","a8167af52c","a81e14903b","a8510c563e","a878a085f0","a89c2e102b","a909e63fba","a914002ac2","a93fb8a46d","a95b06a859","a9618b8959","a9cdf461b5","a9df3148c9","aa16e918af","aa2348c251","aad3493b99","aae4dd5b76","aaf40d1452","ac41b34e18","ac4e66d3d5","ac54eb1c35","acc35d1b9a","acd00c3913","acef87879d","ad7259ae11","ada473be18","ae1fa6e7d2","aebf8a978a","aecc4ee446","aee373b07f","af34f63973","af4543db81","af706c6a72","af85b8d90f","afb5e544b2","afc61af6b8","afcf897dc6","afd70390d2","b05c7cc732","b06cc8a8c7","b0759e7b75","b130e76c10","b144ccfcf9","b188d1f0bf","b1b90f9945","b1d1cf94db","b1fdadfce8","b2058f9ea1","b2398d7c0e","b24f9aa5a5","b25e6be6d9","b271a63cab","b284935403","b2af340d56","b2c4d03742","b2d56a5d78","b30b1565b6","b311b8e2d6","b33ec73878","b387e941f2","b3d2d89b57","b46a278a40","b477c30a42","b4b238120e","b4c7ce9ed3","b4ffdc30c1","b61c697508","b622433682","b633152d44","b6627ca785","b6f0243b08","b74322252e","b74e0b3e38","b7fe8be510","b8a3f6c16f","b98e570a38","b9d091147d","b9d1a00fb4","ba2332c9a3","ba4c7327eb","ba83853bd1","bac3b53596","bb209817e0","bbd339b219","bbeb67fbf5","bbff1fc9ed","bc3465425d","bc57b7766e","bcb82566e2","bcc353a386","bcd9c545b0","bd3896c492","bd55302447","bdcfc1e187","bdd5943ae9","bdec3a067a","be1d3ee6f7","be9788725d","beb42305ba","bf3036fb1b","bfacb8ed88","bfd8d68b5f","c0bb0744e7","c0eb488c66","c140bd3c4d","c14ca5f98c","c168c54dfb","c1aaac5d17","c1aeeb52d6","c1c736fa08","c1f58bb2af","c204e20bd5","c23c9b7f12","c283425421","c297efcf02","c2c9e67ea6","c2e90ab778","c30f6c5dbd","c31d8f632d","c3ea00a2c5","c3fde0ba0f","c4163ea72a","c46ec878e5","c4b0193dd6","c5048b020a","c5aaf330d3","c61d3aea32","c662320905","c66caf12e1","c6b50e1ad0","c6da089a89","c709e3533b","c7bff5ec3b","c7c070301c","c7c8bb6e19","c806ffeb81","c8b8366c5c","c96220ad48","c9773c67ff","c98427ba16","c99a377101","c9a55fe5bc","c9e84f614b","ca300f716f","ca556ac92a","ca6dc3de70","ca93a61eb5","ca992306b3","cad03af2d0","cb127220b0","cb3c29be76","cb499fc4c2","cb569fc8da","cb7f513b35","cbd7add2c1","cbed8f98c4","cbfac38288","cbffc183e9","cc058ea3cf","cc15fd8580","cc4fc820f8","cc6f06e12b","ccc9eb2122","cd0df1a9c6","cd1c6907c5","cd6d195656","ce6b82ab06","ce753533ea","cefe4b930f","cf0795dd78","cf3df20b08","d091fc742f","d0ce112fd1","d1ab61bd78","d1ffcc5bd0","d25e2fb7e2","d28e8cc85c","d293b4b544","d2956b8631","d2960addb6","d39d26cdc2","d44485d92d","d4a59eeaec","d4b6cd60aa","d5760d37f8","d5a22e2444","d5fc320079","d62b708f24","d64406cbca","d6c278ad36","d6eba06d91","d757026ad8","d78905f45e","d7d9b35a69","d7ef76abf7","d8af514eee","d9385d7e21","d95e3f834e","d9b385ce01","d9ca8af8dc","da869a11a5","daa720cce5","db0b3326ef","db3f75ab61","dbbd487625","dc1b723dc3","dcc1f7b80b","dd0980fc58","dd64d0c023","dd92416171","dda286bfc5","ddbdb0e378","dddf7d0cd8","ddf14ecdd9","de0934ec0f","de4f805ddf","df4d14d506","df82cd4368","dfc1f0489d","dfd764b6fa","dfe65cd538","e03ecec0cd","e091ac1512","e0b9cb7ae3","e0e33c44a5","e103b504a1","e10afd5724","e124948572","e13ffa4f0d","e163c1444c","e21b6c3bbe","e2ac2b2aee","e2bcbbfe9e","e2ff31703d","e30be9d308","e31fea8bc1","e33652dab3","e3ea3b6dc1","e420a18724","e428e08f2a","e43c1e0bbb","e498f73d98","e4c0136db1","e4c687585b","e521b8ea9e","e556092413","e56a2fb37b","e60d676c3d","e636668b86","e67a6d9d1b","e7664fe25c","e76b3fde73","e7712ac5f1","e7974bd609","e7bceff77e","e7cfc8e9ae","e8cc8c63d9","e90b94c078","e937d67f77","e9474627e0","e95371eda1","e9e4c76aae","eac6ec6918","eade70ec46","eadf76bd5e","eaf0bd5953","eaf4045d27","eb35ce6d81","eb4168621d","eb56bf58a0","eb9b23ef7d","eba896c303","ebeab0b171","ec15d25e98","ec76d2632a","ecb87f7de7","ecc6afe4d4","ed58eb7a29","edc0746e4a","edd782a1ca","ee1e811c3c","ee848f19c6","ef0218c58d","ef03509419","ef35533049","ef5a19de59","ef78474807","ef824228f7","efa83ea70b","efc79d13f8","f00e832dd6","f05735a974","f060d4fe67","f088a82a8a","f119f3246f","f1449acf85","f1a994f0d3","f1c03be47d","f21a9712b7","f22f1ed822","f235001e3f","f248215aa0","f24ee98c47","f25eb106ef","f292c4d159","f29d0b577c","f2b7943a00","f2dc0c70b6","f2e36d1acd","f34d8c3a53","f3647a0592","f3713eef72","f37c3dcb0e","f383163596","f39599bab0","f3984f774c","f3ce587e45","f3f6a8fff8","f45086bbef","f47acd8741","f4d36682d1","f4fff12e61","f55ca0263f","f5d4da5bac","f5dce692c2","f6794c3175","f68cb11a14","f6943b0c89","f6b8be522e","f6d246e1ef","f6d6bb5a09","f6e8697a31","f6ea53c25d","f739c5ffa7","f75ad471aa","f75ee0d1a1","f76d6eafd9","f76e4d8446","f7886f92e4","f7e138c514","f7f4e15936","f84523f99a","f85b3174ce","f8a23befc0","f8f81cf97d","f9934afce1","f9a0328861","f9b998e4d2","f9d550de8c","f9dbacf644","fab1c75941","fabd685f7a","fad8685229","fb02084f4a","fb0eacba08","fb1acff9dd","fbadd9febd","fbc97e77cf","fbcb932cdb","fc217d756f","fccd28f713","fcda1b382e","fd5a10baa7","fd68c2ef4b","fd7edc110e","fd995e2847","fdc2dac3bf","fdea14ce8e","fe1de6f4c7","fe7380ec80","fe89ff5a21","fe8a272860","ff196b9beb","ff227557e3","ff4ece0c35","ff540f141d","ffeb1a05c2","fff7043e46","fffdf4b26c"],"115":["00026b5020","0017814602","005cee8dfe","00a2bad798","012aa7590d","0139fb70b1","0144c64a3f","0159f33dda","01dab22469","01dee66c8a","01e0b14b26","020c88f0d2","020da94364","02f5999e0a","03a6a9dd53","03f29e32e4","047e18e68d","05007e0a96","052f9c769b","055104c357","0551cf7365","059492818e","05f873ef70","06370b83a4","0661317276","06b0a32f29","06e5d291f7","071c59af5c","073ed0ea23","0773684be2","07b5996e18","07c8cde96c","07eddfc907","07ffec67ff","0886e622c7","088986564c","08c36116d8","08f1b4c729","08f9473121","0915a4d46c","09ffb58ab2","0a059ddde6","0a78849076","0a7c5b9a7c","0b6b3d0d0b","0c119b1e9c","0c79b04251","0cccc54dff","0cdd0362b8","0d30e014df","0dd484705b","0dd524da15","0de934caae","0e11283a4b","0e60a53650","0e64c791d4","0eb1467fd4","0ef09defd8","0f3bddeec0","0f87021e03","0fa2f5c42c","0fac70fcd4","0fbd5034dd","0fec392d6d","0ffa87425d","100f93fb93","1017586a55","104290284d","10a3e061b8","117e1a4199","118bb2a9d8","11b71cefc4","122cfbe08e","1234a6a4f1","1255fe8db8","129feb5dc4","12a6c9d70d","12b1975a22","12f560bc14","130856f134","134968d5f8","137d98244f","13b67a25b8","1402f438ae","144082c63f","1444bb1218","1446bb76d3","149e7b6d37","149eaf744d","14ffa4627f","1558b4a80f","1563ad8ebd","157d2bed13","15ca121bd9","16019f66e2","16ab5bcf1a","16b000ae7c","16c763b4e4","17590d1479","179dc8875a","17ab570dfa","17ddda3a2f","17e15e2b00","17f2bdd9b7","184c8fc367","1853571d0a","197620b3a5","198147d718","1a3c0810b4","1a3cadbba8","1a7f151802","1a9d1c1ed4","1a9ea017b6","1b00b50504","1b3eaa2d30","1b51a7f4a8","1ba94e080e","1be2ccb1e0","1c0c89b9a7","1c48ee798d","1c6c8e7532","1cdf755d8d","1ce5a60607","1cf2912bd9","1d24179125","1d7229c6e5","1d7f1707a9","1d95e2d751","1db83e8787","1dfe07c707","1e24684ece","1e410021f4","1e5f3e74c3","1ecea97aea","1f2d9f1d35","1f3af74aa2","1f6de78191","1facba4848","1fe4c440b0","1fee989146","2063d4ec00","20d454598d","20e2fccb0c","2118fe3637","2155a5e25d","216b0a85a3","217315d1b2","217a64a765","218ddb817d","21ba3f8aff","220ed85087","223c147cc1","2250969fec","2281688101","2282e9e09d","22b6ae75a3","230aedde09","235415d42b","23691c3107","23a42a43ff","23caef1f9c","23f9ad882f","24571fbed7","2469952bd5","251fc4bfe8","253486441e","2595608134","259f6c436a","2608b37c9e","264ddeb456","268c1fbefd","26da76c16e","272bebe70c","274fef47d9","2797ea964c","27a9df2140","27d642848d","27e561490f","27f9ccc357","2899e107a7","28fb205892","290ee0333f","293f3f4948","29733a3cbd","298c968045","2993229c51","2a2d073811","2a6eb78166","2a81ae70a6","2a8858e482","2b03b71d14","2b0a6f583a","2bcd3d73e3","2bf891ef6e","2c11436874","2c210e0525","2cdbb6ed3b","2ce14d0486","2d2c967ec8","2da38d0699","2dbf4c9181","2dc27ecea5","2e207455e1","2e91e2f627","2edbcd8bca","2f9d9d2910","2ff6fe8e4a","300bdb8b21","3068e2668b","308f4d60ab","30f39c1c38","3105eb9390","32646b2b4e","3281548c13","32f8b5abbf","3306c822c4","3318de2cc5","3329508b2e","334ca2a84d","336a6dafad","33e77820be","346b1c242a","34c8567c9c","35fa02a3fd","35fe8d9835","364ce3539d","36a46f865f","36f2927b17","371cba7911","3739455119","377f081d26","379b735450","37ecad5030","38c0a96e25","38f207f2d8","38f8a18ac3","390a9a0c6c","3a05a12e94","3ac3264dd8","3ad20ef66b","3b019d30d9","3b5b82536b","3c8a20791c","3cacc278b0","3cb6542c0b","3cf3dca115","3d750452f4","3d756ea61e","3db1ea6fef","3e20e077cf","3e55aba2b7","3e8fdbc852","3ec4deade6","3ed489ff84","3f485841ba","3f50635d09","3f5528cdee","3f93d5dd1c","3fb68eeeca","3fc9f79352","40195a3e5b","403c500f22","4091db0ac2","41758f2fca","41883be748","41a6553e42","41d8a4ed5a","425d194ccc","427154a0a2","429d1a24bb","42a55d532f","42cebb5c24","42e0b3fea5","42fe84ecc3","437ff0fae9","4386dc4fb5","439835c593","43ca005b6d","4457a71a23","447ab87e59","44911cff34","44cd282caa","44d2e606d2","44df3bd598","4567781178","45a44ad93c","45b39c0f68","46ac8ba87f","46bac2f77f","476bff5bb5","485a93cf44","486004effd","486ac91217","486f43c78c","4898a50cd0","48fc167ea1","4937258e6c","4939dd2f8e","49d16631cd","49e665ddb2","49eb2c85da","4a182c1d1f","4a3cd1caa1","4a3f24801d","4aa0c44e3a","4aae639070","4ae68638cd","4ae9516522","4b07ae0a65","4b7c1f11dc","4b90c18fc7","4ba86dbc9b","4c0443eac1","4c4c783a23","4c8f657ed1","4cac9d8695","4d0a96c172","4d9be68db2","4db1242f7f","4dc113a032","4e522388ef","4e9d2e397d","4eaf205610","4eb7b35d7e","4efd1f842e","4f87abddd2","4fa42c03a5","4ffd761872","50071768bf","507fc52b4f","509fe22bb8","50e90e7899","5112441195","515f7530d5","51e040f101","5255fc9e4e","5263ab8b94","52e2be4177","5351741204","538c44a011","538ed494c3","544206b293","54befa10d6","551720cd6e","552a5721d6","5592415ea7","559c56cffa","560118056b","5650431b2c","566304bbb0","56648e1a54","5701a308ae","5725d2d468","57ab4b290d","57bdeec99a","57cd96c5c5","57d9b9ecfa","5820959edf","58377d46c8","588c362fe0","5945e1139a","5972506f1d","597d29c0bb","59971df7ce","599bbf476e","59a4810a00","59ed85d0a5","5a5e22f1be","5a7603bfd1","5b3d01843e","5b42365306","5b5ed1b932","5b61191f8b","5b72d6921f","5b9e7ca160","5c8b9be769","5cb3be191a","5ce975e8ed","5cec738148","5d158ef322","5d1b5296b6","5d5e2b9860","5d9efd31ae","5dcd507ab5","5e21ef94fa","5e899b4d07","5ee2851443","5ef462c68c","5f2c52d250","5f2e241b24","5f59c84d9d","5fcf2a89ac","5fd5d9a9bc","602d9ec82a","6048e37da3","604dd399b1","6066fe8a3b","60bfc8d91a","60f8a801bb","61220034ee","6139a4cffb","614958b6d9","6149cd855c","61d9986527","61f9be7bc0","62036bd798","62f2352117","6366db5bfd","637e53ea08","639c050448","640e268382","642f5d8a89","6434b5b523","64e69ecab3","651b84633a","65466ad9a9","659fcdc1cf","666d7efd72","66b20a8f09","66cf721f13","6718ba8f45","675dbfd0a1","682318f718","6824ebb8cd","682d12634a","684b32ad10","68521c13fc","686846f836","688f2f7132","68b2e7ef38","691bcb8ed3","692c9ffe93","693299e440","6943320e90","695e43d9d0","69a4787aaa","69b4cf2e21","69eb725b5a","6af0f782e6","6af75365ea","6b6e8b6ea2","6bb7443972","6c0f75ad45","6c1b778c28","6c20cb9808","6c5cc671b2","6cb647bb2c","6cc94fc14e","6ccb2bc84a","6cea5e2697","6d10522c12","6d1b9ea5d8","6d32db8cc1","6d7f30616c","6d83fbaaca","6e4094160a","6e9abeb7a0","6ea4050e5e","6eb7c6cecb","6f5be2b7c0","7003644af3","700d7ae13c","703cc0d489","70df7f09e5","7139fa0ca1","71798a8d05","727e8e25ee","7289cf288e","72b1f49144","72bf66b0a8","72e54d3065","73d70e804b","73d7412e97","73d773c3c4","73d836b0db","73f25c6fc3","7409d15271","74682c95ee","754a6a4fc9","75697d0e8d","756c5fbf17","75de2cf1e9","75e9dfa8de","75fd871d31","760b1c0682","765d75f133","768fdc6a19","76c74c5c1e","76f8c7a210","773fe0a64a","77700da970","77af7455c2","77dea257dd","786824b038","7873b132ed","789f983240","789fc49f19","78eff1e8c5","793cb18c72","79c2d97530","79f03893d7","7a19bd30f2","7a2b00113d","7a2fd2c01b","7a46243fbb","7a53f80757","7a77742ecb","7a797a46a9","7b1074bde3","7b404315c4","7b56be5c36","7c13c49486","7c43ccf9a0","7c4fafa6f0","7d2fb1da85","7d4d87e12f","7dd9aa921c","7e939720e7","7f219201ca","80820e420f","80adc67b01","80b4097e0e","80b4e3557a","80f538221e","81c82ce50b","81c98e8abf","81ca8f31c8","82082e3f76","8258c31fb0","82b762557c","83134a485c","8325140d50","83d9255136","840922b98f","841661ed21","842fd3523c","84cee8fe3e","84fca2b7cc","853080638c","8555fb4560","85dfdcf2d5","85e7fb4182","8639d995a7","86440c5353","866e29c6a0","86b1f8aa0b","86bd29acde","86d80e190e","870c6f578d","87ee36ff6c","87f8f16a66","882aca5cf0","88d5a306bc","89067c4457","8946791c06","8964a88cf2","897f95c624","89871488b5","89eee98947","8a1ee1a682","8a87849350","8b5c4d0ea7","8b90abe145","8b962529a9","8ba6f75f85","8baedd430d","8bb7097768","8bc6568061","8c3c2e0423","8c87d0876f","8cf68fff81","8d74592f2c","8d80a82f28","8e0d2b8e26","8e47bb566c","8e5dd84219","8e944501ed","8efd345fb2","8efd874b5a","8f270bb98f","8f337d25b9","8f345df5f2","8fa635e6c4","8fff47d8c4","90208cc8cb","90dfc3eff7","9101ebe323","91a90e5b95","91dba6ca0d","91e9643b16","929a01964d","92b22121f9","945c780aa6","952609fb28","95a9adb5fd","95bfa45430","95e21e10e3","95f1ffa8f8","9655f09d3a","9667747f3e","967a0bb60c","967fdb997b","96bd637a6a","96c1560b24","97614f3f71","976455e27e","97685dddd7","9775c3fc44","9788dd58ff","979d38cde1","97a50ddd09","97baf7853a","97ca648fc3","98259367cd","9833dd7d25","9868b6637f","98961cf179","98afada2c8","992933abad","994e87a4f4","9956f8a6b1","9971c4f179","9987b88606","99b5ea4ab9","99faf15369","9a519cb103","9a57a2494d","9aad3f2d6a","9aae792f44","9ad64bfb54","9adf6860bd","9b51dccc34","9b682ee488","9b81f22d5a","9bbdd5cb09","9be4bee086","9c04bf63c8","9c255be985","9c54823c0d","9c598ad64b","9ca312e9ae","9ca43e9cb2","9cbbc7b1c9","9cd678f251","9d6fd5b611","9d86c8ceef","9dbd4ef6de","9dd510d657","9de333a5a1","9e8d53a2b9","9eb405b402","9eede065da","9f2620e858","a008ca4ea2","a0226e85ff","a0536c2252","a074b746e4","a0b3eba3b3","a0eddd0a18","a121164962","a1562b1cd2","a189e2b574","a1b68ac0a1","a1c49f96a0","a2ed1aa1f8","a30b206f66","a367c0be38","a39e63fa8c","a40c9fc3f3","a40f2719ab","a4844096a2","a4b165c1b0","a4b7b14dbd","a5cf8f039c","a5d97d9469","a64a5a314f","a6a9dd1374","a6cac8041c","a6f70edc32","a77c60ff96","a782bb7359","a78f73408a","a7a6de9e64","a84eeccb5e","a84f3a81d4","a8662f968c","a8a0d47eb8","a909e63fba","a95b06a859","a97e1ff330","a9a4edab31","a9a9486c42","a9bc67cf36","a9d5645619","a9e9acce8e","aa54210482","abd4c85005","ac6abc1011","ac7cffe2b9","ac82251d6d","ac89739b3a","aca340dd6f","acaadcd55b","acb855b768","ace8e6e62c","ad0059ea03","ad12389385","ad76186f8c","ad97c6a81f","adad40e14c","adcfc8a885","ae393df43e","ae5dc0a524","ae8ab54e0c","aea8f5da54","aee0c22880","af401cf33e","af460a2a5c","af9b35bdc2","af9e2e861e","afac83ba19","b013df5bde","b04bae68ca","b17850233b","b2ad146862","b2b2007a4e","b321a5b62a","b337902ccb","b33ec73878","b359e2bac7","b3a8556e7f","b3e18cbbc9","b3e8ce272c","b3f128bec9","b4142d3439","b41b1bb3c4","b4a0264ece","b4c59c8e00","b4d75d4e84","b56ec92d0a","b583a384ea","b59d71bee5","b633152d44","b6436aba01","b65f9b36ab","b67cb7437c","b6fe05b8f6","b705c8cda6","b71bdb3ef5","b787b97b0b","b79db2d50a","b7e4167548","b870cff0cf","b877e64dfd","b88394d2ff","b8e9192ac3","b929771e98","b9c20a01bc","ba1c29f7e9","ba3900f8b4","bb6cc0f4fe","bba665866b","bbdbfac8f6","bc112302ba","bc294138d7","bc686367f2","bc9787a01f","bcb8609afd","bce891d101","bd01666ebd","bd414b44d5","bda102b9b8","bdb4c52ce0","bdec3a067a","be02d21569","be714a8310","be7fd2302f","becd1a2e5e","bedb598091","bee09c80de","bee4976ba5","bf3ab8cfe5","bf3b4c972d","bf93a1b6da","bfa33a8c25","bfc18a3962","c086fa1572","c0c67be389","c0e002679d","c0ecf010a5","c131bf7c2f","c1aeeb52d6","c20576f802","c21994133a","c264ebb904","c266b5e5ff","c297a9f42e","c31ae5216c","c3c025e7e4","c455dbca02","c4a64ae70b","c4a7d6a67d","c4c2963937","c4c568584f","c5632cdc52","c567193fe9","c595bef041","c5e40e6779","c62a727ec4","c643682550","c6446f38c3","c64a30fdba","c6a816be27","c6f3a64315","c7117ceba1","c7437ab596","c7cd776124","c828b5a610","c85d714ab8","c8b8366c5c","c9238b77f1","c936a2a132","c98c29595e","c9c445e527","ca3e451a94","ca476e2d5b","ca9a58c31e","ca9dc0b2cf","caba3c830c","cad0e2a34d","caef704d06","cb4f3835ac","cb7a6b570a","cb8e4571f4","cbdc101486","cbf05f5442","cc16674fde","cc3ce4230c","cc4c9cb28f","cc794ce4ba","cc7ba802ed","ccbc4092e3","cd6a0bed07","cecfbbcec5","cf27d95a30","cf29925497","cf2a7b166b","cf413c23ba","cf822d508a","cf913dfb4e","cf93fcc2bd","d0744ee411","d0ac04fb2b","d0d1fef6a1","d0e160c3c9","d0ea122245","d1a6b674e5","d1c0c2264e","d1e43b7362","d20238926d","d2170a3d1e","d2205222c1","d2bf82bd6e","d2d27047dd","d33839ca4e","d4225b8377","d4a59eeaec","d4b84a2406","d4d2664b13","d5126a5230","d541c92c12","d5447d9fb8","d58594f031","d5ac136977","d5b5a5da70","d5c1dde937","d5cd258129","d5ce3928b4","d5ee94a6f3","d5fb21be4c","d6142b162d","d65a0cedb3","d6e3f7c175","d757026ad8","d7c239a5d9","d7d9420a46","d8169f4948","d8264b6f17","d85c99a290","d8b649b923","d8c30682fc","d8c51a3baa","d8ca25db1a","d8eb5415e9","d907f406de","d97cd412a8","d991d88d6a","d99be30782","d99f361f4c","d9ceb6c3e6","d9fc60b593","da0d1325f9","da4ab48b7d","dab2bd211c","dabafaff61","dad4b84a9f","dafc4691c5","daff37915b","db22361d9a","db277c7cba","db5e64e9a7","db8dce63d5","dbce2d32e8","dbd12454a2","dbf8f17130","dc611c60e2","dc8d9321a4","dc9f964d1f","dccafe2f47","dd0c89e6a5","ddbdb0e378","de12cb4d5e","de4cf73f34","de4eee7e69","de5419fbd1","de66933d46","de9daf6426","dea3b841b1","df61fb4ba1","dfb5de705c","dfbdc57e97","dfcf55ef21","e00b960df3","e07e6b1b77","e0e8db209f","e0f84ab32f","e104de5c13","e135e55110","e1786b35ba","e18808d774","e1a8d90ab1","e20fca764d","e2e326b9a2","e2fb79392c","e2ff31703d","e3675b55e4","e37c1db3c8","e3e35e757d","e43d23683c","e456e9cb91","e478604a8f","e486daec5a","e493451083","e4a867c615","e50257d310","e516f8b97b","e51fd64651","e56d24ba40","e574da72b1","e5b59b09f7","e60e2863e8","e61bae3132","e66c1eec7e","e696f07371","e6f39b00b3","e73e13ccce","e7a8409191","e7f4074185","e7fd0f45c3","e8351a0f40","e882658e76","e9afd4745c","e9e98a0e9c","e9f38fecb5","eb19af5697","eb3ff7b5e4","eb737e9853","ebfed9e0d0","ecf6763aa5","ed07012174","ed2cf1d3cb","ed8fd40bfa","edb643a6a4","edced278c6","edd2f54bbe","edf4927125","ee026007ec","ee0fcad870","ee5b075254","ee8e84394a","eebbd2a46e","eed1488d35","eeeff780c4","ef572163b9","ef5a6dcbea","ef9f44c79a","efaf58a24b","f045b634db","f070fb22dd","f0dc6f4286","f0eafcc33f","f16fab1a8d","f1ad1e22a2","f1c3832f6b","f1f943a76b","f219c0c00b","f26d78342f","f29d0b577c","f2b047c02d","f2c56f21ac","f2f4eb6091","f38bf5c723","f3b9d108c9","f3fba392d8","f49e01891c","f49f0f8abe","f4cd0e4110","f4dffbd771","f535bff390","f579a7999c","f59ecf513f","f64d847c9f","f65c5f868b","f67b475502","f6a4cdb0f7","f6e8697a31","f721f41e2f","f72f7ccf73","f738353a46","f76888af47","f782a77bff","f7dda5011f","f803eb7340","f83ff5e453","f99ee8cb6f","f9eb55a9f6","f9ee442165","fa0e5fbedc","fa110cf9be","fa64ec3658","fa965653e7","faffc2cd9e","fb2c47ec9a","fb472d167b","fb4fba8ecc","fb5cebf24d","fb8ec35cd9","fbd734e166","fbdd056d02","fbf30cac50","fc48c46592","fcdb16f188","fd39a36e65","fd782d67bb","fe1ec4e9ec","fe6569b1ca","fee877be87","ff6fa30dd2","ffdac881b6","fffc315351"]},"note":"No official text is stored; a candidate window hash that matches means a copied stretch."}
+</canonical-source>
+
+<canonical-source path="exam_packs/學測/shared-data/overused-generated-materials.json">
+{
+  "schema_version": 1,
+  "purpose": "Materials that earlier generated papers already leaned on, reported by the maintainer. A new paper may not build an item on them again; they are not banned topics in general, only these specific worn objects.",
+  "entries": [
+    {
+      "subjects": ["自然"],
+      "pattern": "極深空|超深空|深空場|深空影像|Deep Field|XDF|HUDF",
+      "what": "the Hubble (eXtreme / Ultra) Deep Field image",
+      "seen": "several generated 自然 papers through 2026-09-24, including N116M1 Q33-34"
+    }
+  ]
+}
 </canonical-source>
 
 <canonical-source path="exam_packs/學測/shared-data/subject-form-envelopes-111-115.json">
@@ -57251,9 +57280,11 @@ or dataset datable to within 24 months before that January administration.
 
 Three shapes recur and are the model for generated papers:
 
-- **自然** carries recency through a shared stimulus (Nobel result, mission, disaster warning)
-  whose measurement, structure or time series the items must use; the arithmetic itself
-  is timeless. Four of five years include an autumn Nobel prize.
+- **自然** carries recency through a shared stimulus (a research result, mission, data
+  release, disaster warning) whose measurement, structure or time series the items must
+  use; the arithmetic itself is timeless. Four of five years include an autumn Nobel prize,
+  but that is a record of the past, not a recipe: two hosted 116 papers built three Nobel
+  groups each once this reference said 「plan the Nobel prizes」.
 - **英文 and 國綜** attach one recent element (a news list, a film synopsis, a side box, a
   closing sentence) to an otherwise older main text. Recency never appears through a
   printed 改寫自 year.
@@ -57369,9 +57400,17 @@ reasoning. Those remain editorial review under
 2. Prefer sources that supply a measurement, a series, an image feature, a procedure or a
    constraint. A name, a headline or a prize alone is decoration and fails the
    source-relation test.
-3. For 自然 plan the autumn Nobel prizes when the lock date allows, and one in-season Taiwan
-   hazard (a named typhoon warning, an earthquake report, a cold surge or a rainfall
-   event) as a shared stimulus with real printed data.
+3. For 自然 choose freely among fresh, checkable sources: a journal paper (Nature, Science,
+   PNAS, a Taiwanese journal), a conference result, a Nature/Science news item, an agency
+   data release, a monitoring series (ENSO, CO2, sea level), a space mission, a hazard
+   report, local Taiwan data, or a Nobel prize. `validate_current_context.py` allows at
+   most one Nobel prize, at most two recent sources from one publisher, at least three
+   source families, and one event per group (a hosted paper used the same eclipse and the
+   same Swift notice in two groups each, and NASA for three of six sources). Include one
+   in-season Taiwan hazard (a named typhoon warning, an earthquake report, a cold surge or a
+   rainfall event) as a shared stimulus with real printed data. Objects earlier generated
+   papers wore out, such as the Hubble deep-field image, are listed in
+   `shared-data/overused-generated-materials.json` and rejected.
 4. For 英文 and 國綜 write the older main text first, then add the recent element the way
    the official papers do: a closing sentence, a side box, a quoted list, a synopsis.
 5. For 國寫 and the English composition choose a trend that students live inside and can
@@ -57723,6 +57762,31 @@ Per-year density checks:
 The page-level visual signal above includes tables, formulas, and drawing operators; it is not a count of semantically audited image questions. Pending complete item-level annotation, a full internal Natural Science paper must contain at least eight answer-bearing visual items across both major sections, at least four visual kinds, and visible coverage of physics, chemistry, biology, and earth science. At least one visual should require integrating two representational layers or variables rather than reading a single labeled value. A precise state surface, apparatus, circuit, graph, cross-section, orbital/sky model, or biological structure must be deterministically drawn from semantic data. Each counted item must fail when the figure is removed, remain legible in grayscale at final print size, and stay wholly within the 108 curriculum. If the floor is missed, replace existing items; do not attach decorative diagrams to short recall stems.
 
 The visual-kind count is based on rendered topology, not filenames or declared labels. Reusing a bordered one-column label/value panel for a profile, map, graph, spectrum, apparatus, flowchart, or cross-section is a hard rejection. A real table needs row and column variables whose cross-cell relationship is necessary to solve the item; a boxed list that repeats the stem does not count. For the measured Natural Science contract, require the representation-topology audit described in `visual-generation.md`, visually compare all deterministic assets at final size, and reject prompt–figure duplication that lets the item remain answerable after the figure is removed.
+
+### 自然 printed form measured on 111–115 (`validate_natural_layout_contract.py`, 2026-09-24)
+
+- **Figure and table labels.** Every figure and table carries a label 「圖1」「表2」 (16–28 圖 and
+  4–12 表 a year), numbered in print order and cited in the stem (「如圖3」「依表2」). Give each
+  `visual_asset` a `caption` such as 「圖3」; the builder prints it centred under the figure.
+  「如圖」「如表」 with no label in an item that cites no numbered figure is rejected: two hosted
+  116 papers printed no label at all.
+- **Options.** Five options of up to 7 characters print five abreast, longer ones one per line
+  (measured: 20 and 76 items); the builder chooses. The key is the single longest option in at
+  most four single-choice items (official 1–3 a year, 7–14%; hosted papers 22% and 52%), the
+  five options of an item differ by a median of at most 6 characters (official 1–5), and no
+  option ends with 「。」.
+- **Written subparts.** 112–115 print the number once and start each subpart with (a), (b)
+  (「42. (a)寫出…（2 分） (b)…」). Save one record per subpart with the same `number`, prompt
+  starting 「(a)」; the solutions print 「第42題(a)」. 「38(a)」 inside the prompt or （1）（2） are rejected.
+- **No authoring notes.** Official booklets state assumptions as 「(設)」 or 「假設…」; they never
+  print 「教學模型」「課堂模型」「非NASA數據」 or say that data are invented. One hosted paper
+  printed such notes in almost every group.
+- **Keys test science.** At most three correct options may be 「再蒐集／核對／另查資料」
+  (official: 0–1 a year; one hosted paper keyed most items that way).
+- **Worn-out materials.** `shared-data/overused-generated-materials.json` lists objects earlier
+  generated papers already used (the Hubble deep-field image); an item built on one is rejected.
+- **Difficulty.** Record `estimated_p` for every choice item; the mean may not exceed 0.65
+  (official 111–115: 0.53–0.57).
 
 ## How to use this envelope
 
@@ -60056,7 +60120,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.23/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -60688,7 +60752,15 @@ content. The order below is not advice; the tools enforce the parts they can.
    discovered.
 3. **Lock** (`lock-content`). `build` refuses to run without `content-lock.json`.
    A booklet built before the lock is discarded the moment an item changes, and
-   every one of its page reviews with it. If content must change after reviews
+   every one of its page reviews with it. After the lock, a rebuild keeps every
+   page review whose page pixels (or body pixels, when only the running page count
+   moved) and printed items are unchanged, and queues only the pages that changed:
+   two hosted 自然 runs re-reviewed 130 identical pages because they read this rule
+   as 「any PDF change voids every page」. Record each build's page and crop reviews
+   (`record-review`) **before** changing anything: an unrecorded review cannot be
+   retained, and one run re-read a whole build for that reason. `lock-content` also
+   runs the recent-source check (dates, facts, source diversity), so a date such as a
+   release day printed as a capture day is fixed before the first build. If content must change after reviews
    exist, run `refresh-evidence --state <state>`: it re-registers the mechanical
    records and writes `<gate>.draft.json` for every stale report, keeping the rows
    of items whose authored record is unchanged, leaving changed or new items and
@@ -69171,7 +69243,7 @@ STRANDS={'number_and_algebra','functions_and_models','geometry_and_space',
          'data_and_statistics','counting_and_probability'}
 # Planning floors mirror visual-generation.md. These are product minima, not
 # claims about official frequencies or proof that a planned visual is useful.
-VISUAL_FLOORS={'數學A':(4,3,2,0,0),'數學B':(4,3,2,0,0),'自然':(8,2,4,4,2),
+VISUAL_FLOORS={'數學A':(4,3,2,0,0),'數學B':(4,3,2,0,0),'自然':(8,2,4,4,1),
                '社會':(10,2,4,3,2),'英文':(3,2,2,0,1)}
 
 def number(value, minimum=0):
@@ -70260,6 +70332,9 @@ CHINESE_MEAN_P_MAX = 0.62
 # 社會 111-115 objective items average 0.60, 0.51, 0.55, 0.52, 0.57 (official statistics); two
 # hosted 116 papers had keys that were the longest option in 40 and 42 of 54 items.
 SOCIAL_MEAN_P_MAX = 0.65
+# 自然 111-115 choice items average 0.57, 0.53, 0.57, 0.56, 0.55; two hosted 116 papers keyed the
+# longest option in 22% and 52% of single-choice items (official 7-14%).
+CHOICE_MEAN_P_MAX = {'社會': (SOCIAL_MEAN_P_MAX, '0.51-0.60'), '自然': (0.65, '0.53-0.57')}
 MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
 
 
@@ -70369,14 +70444,16 @@ def review_errors(exam, review):
         elif estimates and sum(estimates) / len(estimates) > CHINESE_MEAN_P_MAX:
             errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} is easier than any official '
                           f'國綜 paper (111-115: 0.48-0.58; ceiling {CHINESE_MEAN_P_MAX})')
-    if exam.get('metadata', {}).get('subject') == '社會':
+    subject_name = exam.get('metadata', {}).get('subject')
+    if subject_name in CHOICE_MEAN_P_MAX:
+        ceiling, official = CHOICE_MEAN_P_MAX[subject_name]
         chosen = [q for q in exam['questions'] if q.get('options')]
         estimates = [rows.get(q['id'], {}).get('estimated_p') for q in chosen]
         if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
-            errors.append('difficulty: record estimated_p (the predicted 答對率, 0-1) for every 社會 choice item')
-        elif estimates and sum(estimates) / len(estimates) > SOCIAL_MEAN_P_MAX:
+            errors.append(f'difficulty: record estimated_p (the predicted 答對率, 0-1) for every {subject_name} choice item')
+        elif estimates and sum(estimates) / len(estimates) > ceiling:
             errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} of the choice items is easier '
-                          f'than any official 社會 paper (111-115: 0.51-0.60; ceiling {SOCIAL_MEAN_P_MAX}): make distractors '
+                          f'than any official {subject_name} paper (111-115: {official}; ceiling {ceiling}): make distractors '
                           'as long and plausible as the key, each failing on one specific concept')
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
@@ -70520,6 +70597,7 @@ sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
 .cn-material.inline {margin-left:0} .cn-material p.indent {text-indent:24pt} .cn-material p.hang {padding-left:22.8pt;text-indent:-22.8pt}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
 .social-material p {margin:0;text-indent:24pt;text-align:justify} .social-material p.flush {text-indent:0}
+.figcaption {text-align:center;margin-top:1pt;line-height:1.3}
 '''
 
 
@@ -71139,6 +71217,8 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if figure:
         if figure not in images:raise ValueError('Figure must name a hash-verified asset')
         image_box=f'<div style="line-height:{image_heights[figure]+FIGURE_LEADING_PT:g}pt">{images[figure]}</div>'
+        if block.get('figure_caption'):
+            image_box+=f'<div class="figcaption">{text(block["figure_caption"])}</div>'
         if block.get('figure_position','below')=='right':
             if kind=='fill':raise ValueError('Fill figures use below placement; keep answer rails in paragraph flow')
             if block['assets'][figure]['width_pt']>180:raise ValueError('Right-hand figure exceeds reserved column')
@@ -73522,6 +73602,9 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
         if subject == '國綜' and full:
             from validate_chinese_layout_contract import validate_exam as chinese_layout
             errors.extend('chinese-layout: ' + e for e in chinese_layout(exam))
+        if subject == '自然' and full:
+            from validate_natural_layout_contract import validate_exam as natural_layout
+            errors.extend('natural-layout: ' + e for e in natural_layout(exam))
     elif subject == '社會':
         from validate_social_item_design import validate_exam as social
         for row in social(exam)['errors']:
@@ -76351,7 +76434,10 @@ def content_lock(state_path, *, reason=None):
     # The subject contract the final check applies, before the first booklet exists: a
     # hosted 國綜 run learned from its whole-paper source check only after two builds.
     exam = read(inside(root, root / state['exam']['path']))
-    problems = asset_path_problems(root, exam) + subject_gate_errors(exam, root=root)
+    from validate_current_context import validate as current_context_errors
+    # Source dates and facts are settled here too: a hosted 自然 run printed a NASA release date
+    # as the image's capture date and found it in the final source check, after three builds.
+    problems = asset_path_problems(root, exam) + subject_gate_errors(exam, root=root) + current_context_errors(exam)
     path = root / 'content-lock.json'
     previous = read(path) if path.exists() else None
     if previous and previous['identity'] != identity and not (reason or '').strip():
@@ -76853,6 +76939,8 @@ def printed_fields(question, answer):
     for key in ('continuation_pages', 'group_stimulus_page_splits'):
         for page, value in sorted((question.get(key) or {}).items()):
             yield f'{key} {page}', value
+    if isinstance(question.get('visual_asset'), dict) and isinstance(question['visual_asset'].get('caption'), str):
+        yield 'figure caption', question['visual_asset']['caption']
     table = question.get('response_format_table')
     if isinstance(table, dict):
         for key in ('caption', 'heading'):
@@ -76971,6 +77059,12 @@ def option_columns(question, subject):
         # every 社會 option onto its own line and hosted papers ran 3-4 pages over.
         longest = max(len(re.sub(r'\s|<[^>]+>', '', str(o.get('text', '')))) for o in options)
         return 4 if longest <= 7 else 2 if longest <= 16 else 1
+    if subject == '自然' and len(options) == 5:
+        # 111-115 measured: options of up to 7 characters print five abreast (20 items), a
+        # few three abreast; longer ones one per line (76 items, 2 to 42 characters). The
+        # old default put 8-52-character options two abreast.
+        longest = max(len(re.sub(r'\s|<[^>]+>', '', str(o.get('text', '')))) for o in options)
+        return 5 if longest <= 7 else 1
     if question.get('option_layout') in OPTION_LAYOUT_COLUMNS:
         return OPTION_LAYOUT_COLUMNS[question['option_layout']]
     options = question.get('options') or []
@@ -77024,6 +77118,10 @@ def attach_assets(block, record_, where, body_width, hint, *, figure_key, positi
         block['figure'] = figure_key
         block['figure_position'] = position or hint.get('figure_position') or (
             'right' if record_.get('visual_layout') == 'side-right' else 'below')
+        if str(visual.get('caption') or '').strip():
+            # 「圖3」 centred under the figure, as 自然 and 社會 111-115 print every figure; two
+            # hosted 自然 papers could only write 「如圖」 because no caption was printed.
+            block['figure_caption'] = printed(visual['caption'], where + ' figure caption')
     if assets:
         block['assets'] = assets
 
@@ -77069,7 +77167,7 @@ def english_segment(owner, segment, members, where, layout):
 
 
 HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
-SUBPART_PREFIX = re.compile(r'\s*([（(][1-9][)）])\s*')
+SUBPART_PREFIX = re.compile(r'\s*([（(](?:[1-9]|[a-e])[)）])\s*')
 
 
 def subpart_of(q):
@@ -77079,7 +77177,9 @@ def subpart_of(q):
         return str(q['subpart_label']), prompt
     match = SUBPART_PREFIX.match(prompt)
     if match and q.get('type') not in {'single_choice', 'multiple_choice'}:
-        return '（' + match.group(1)[1:-1] + '）', prompt[match.end():]
+        inner = match.group(1)[1:-1]
+        # 自然 112-115 print (a)(b) in half-width brackets; 國綜 prints （1）（2）.
+        return ('(' + inner + ')' if inner.isalpha() else '（' + inner + '）'), prompt[match.end():]
     return None
 # Shared material that points at its own table or figure (「下表為…」); the figure then
 # belongs to the material, not to the group's first question.
@@ -79090,9 +79190,11 @@ the reasoning still needs the editorial review named in that reference.
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
 import json
 from pathlib import Path
+import re
 from urllib.parse import urlparse
 
 SUBJECTS = {'自然', '英文', '國綜', '國寫'}
@@ -79115,6 +79217,16 @@ FLOORS = {
     '國寫': {'trend_tasks': 1},
 }
 SOURCE_FIELDS = ('publisher', 'title', 'rights_status', 'source_family')
+# Source diversity (maintainer decision 2026-09-24): two hosted 116 自然 papers built three Nobel
+# groups each (the guidance once said 「plan the autumn Nobel prizes」), and one used NASA for
+# three of six recent sources with the same eclipse and the same Swift notice in two groups each.
+# Any fresh, checkable source serves: a journal paper, a conference result, a Nature/Science news
+# item, an agency data release, a monitoring series (ENSO, CO2), a space mission, a hazard report,
+# local Taiwan data. Official papers used 0-2 Nobel prizes a year.
+NOBEL = re.compile(r'nobel|諾貝爾', re.I)
+NOBEL_MAX = 1
+NATURAL_FAMILIES_MIN = 3
+PUBLISHER_MAX = 2
 
 
 def parse_date(value):
@@ -79244,6 +79356,49 @@ def progress(exam):
     return {'subject': subject, 'floor': floor, 'counts': counts}
 
 
+def diversity_errors(subject, recent):
+    """Nobel cap, publisher cap, source-family spread and one material per recent event."""
+    records = {r['record']['source_id']: r['record'] for r in recent}
+    describe = lambda rec: ' '.join(str(rec.get(k) or '') for k in ('publisher', 'title', 'source_family'))
+    errors = []
+    nobel = sorted(sid for sid, rec in records.items() if NOBEL.search(describe(rec)))
+    if len(nobel) > NOBEL_MAX:
+        errors.append(f'current_context: {len(nobel)} recent sources are Nobel prizes ({", ".join(nobel)}); use at most '
+                      f'{NOBEL_MAX} and draw the rest from papers, conferences, data releases, monitoring series, missions '
+                      'or hazard reports')
+    if subject != '自然':
+        return errors
+    publishers = defaultdict(set)
+    for sid, rec in records.items():
+        publishers[re.sub(r'\W+', '', str(rec.get('publisher') or '')).casefold()].add(sid)
+    for name, sids in publishers.items():
+        if name and len(sids) > PUBLISHER_MAX:
+            errors.append(f'current_context: {len(sids)} recent sources come from one publisher ({", ".join(sorted(sids))}); '
+                          f'at most {PUBLISHER_MAX}, so the paper does not read as one agency press page')
+    families = {str(rec.get('source_family') or '').strip().casefold() for rec in records.values()} - {''}
+    if len(records) >= NATURAL_FAMILIES_MIN and len(families) < NATURAL_FAMILIES_MIN:
+        errors.append(f'current_context: recent sources span {len(families)} source families ({", ".join(sorted(families))}); '
+                      f'自然 needs at least {NATURAL_FAMILIES_MIN} (e.g. journal paper, conference, agency data, monitoring '
+                      'series, space mission, hazard report, Taiwan local data)')
+    materials = defaultdict(set)
+    events = defaultdict(set)
+    for row in recent:
+        question = row['question']
+        material = str(question.get('group_stimulus') or '').strip()[:80] or f'Q{question.get("number")}'
+        rec = row['record']
+        materials[rec['source_id']].add(material)
+        events[(re.sub(r'\W+', '', str(rec.get('publisher') or '')).casefold(), str(rec.get('event_date')))].add(material)
+    for sid, used in materials.items():
+        if len(used) > 1:
+            errors.append(f'current_context: source {sid} is the recent material of {len(used)} different groups or items; '
+                          'one event feeds one group, so the paper does not repeat the same news')
+    for (publisher, day), used in events.items():
+        if publisher and len(used) > 1 and not any(len(materials[s]) > 1 for s in materials):
+            errors.append(f'current_context: the same {publisher} event of {day} is the material of {len(used)} different '
+                          'groups or items; use it once')
+    return errors
+
+
 def validate(exam):
     """Errors only, in the flat message style the hosted checker and release gate print."""
     metadata = exam.get('metadata') or {}
@@ -79270,8 +79425,9 @@ def validate(exam):
         fresh = {r['record']['source_id'] for r in recent if (lock - r['event']).days <= FRESH_DAYS}
         if len(fresh) < floor['fresh_sources']:
             errors.append(f'current_context: {subject} needs at least {floor["fresh_sources"]} recent source from the '
-                          f'last {FRESH_DAYS} days before the lock (the official pattern is the autumn Nobel prizes '
-                          'or an in-season Taiwan hazard); found ' + str(len(fresh)))
+                          f'last {FRESH_DAYS} days before the lock (any fresh checkable source: a paper, a conference, a '
+                          'data release, a mission, a hazard report); found ' + str(len(fresh)))
+    errors.extend(diversity_errors(subject, recent))
     if floor.get('both_parts') and recent:
         numbers = [r['question'].get('number') for r in recent if isinstance(r['question'].get('number'), int)]
         if not any(n <= 36 for n in numbers) or not any(n >= 37 for n in numbers):
@@ -82744,6 +82900,190 @@ def context_repeats(stems: list[str], labels: list[str] | None = None) -> list[t
     return list(by_items.items())
 </canonical-source>
 
+<canonical-source path="scripts/validate_natural_layout_contract.py">
+#!/usr/bin/env python3
+"""Printed-form checks for a 自然 paper, measured on the official ROC 111-115 booklets.
+
+Two hosted 116 papers (2026-09-24 audit) were compared with the five official booklets on
+disk. Official booklets label every figure and table 「圖1」「表2」 (16-28 圖 and 4-12 表 a
+year) and cite the label in the stem; the hosted papers wrote 「如圖」「如表」 with no label.
+Official keys are the single longest of five options in 1-3 single-choice items a year (7-14%)
+and one item's options differ by a median 1-5 characters; the hosted papers had 22% and 52%
+and a median of 11-12. One paper printed 「教學模型」「非NASA數據」 notes in almost every group
+and keyed many items 「仍需另查資料」 (official: at most one such correct option a year).
+Official written subparts are 「(a)」「(b)」 after the number printed once (112-115).
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import statistics
+from collections import defaultdict
+from pathlib import Path
+
+from validate_social_layout_contract import METHOD_KEY, _keys, _length, _number, _questions, _text
+
+LONGEST_KEY_MAX = 4            # official single-choice keys that are the strictly longest option: 2, 1, 3, 2, 2
+OPTION_SPREAD_MEDIAN_MAX = 6   # official median spread of one item's five options: 1, 5, 2, 2, 3.5 characters
+METHOD_KEY_MAX = 3             # official correct options of the 「再查證／補充資料」 kind: 0, 0, 1, 0, 0
+CAPTION = re.compile(r'^(圖|表|照片)\s*(\d+)(?:\s*[(（][a-z甲乙丙丁][)）])?$')
+# 「如圖」「依表」 with no number, in an item whose text cites no 「圖N／表N／照片N」 at all. Official
+# stems write 「如圖14。圖中…」 and 「下表」 for an answer table, so only the unnumbered pointer counts.
+BARE_REFERENCE = re.compile(r'(?:如|依|由|附|見)(?:圖|表|照片)(?![\s\d]*\d)')
+NUMBERED_LABEL = re.compile(r'(?:圖|表|照片)\s*\d')
+AUTHORING_NOTE = re.compile(r'虛構|教學(?:模型|情境|假設|用途|示意|改寫|模擬)|課堂模型|僅供教學|未抄錄|'
+                            r'非\s*(?:NASA|NOAA|ESA|官方|真實|現場)[^。；，]{0,8}(?:數據|資料|實測|測值|觀測)|'
+                            r'不是\s*(?:NASA|NOAA|ESA)[^。；]{0,10}(?:數據|資料|測值)')
+OVERUSED = Path(__file__).resolve().parents[1] / 'exam_packs' / '學測' / 'shared-data' / 'overused-generated-materials.json'
+NUMBERED_SUBPART = re.compile(r'^\s*\d{1,2}\s*[(（][a-z1-9][)）]')
+DIGIT_SUBPART = re.compile(r'^\s*[(（][1-9][)）]')
+
+
+def figure_label_errors(exam, subject='自然'):
+    """Every figure carries a caption label, cited in its text; labels run 1, 2, 3 in print order."""
+    errors = []
+    questions = sorted(_questions(exam), key=lambda q: (q.get('number') or 0))
+    group_text = defaultdict(str)
+    for q in questions:
+        key = str(q.get('group_stimulus') or '').strip()
+        if key:
+            group_text[key] += _text(q.get('prompt'))
+    seen = defaultdict(list)
+    for q in questions:
+        number = _number(q)
+        texts = [_text(q.get('group_stimulus')), _text(q.get('prompt'))]
+        texts += [_text(o.get('text')) for o in q.get('options') or [] if isinstance(o, dict)]
+        for value in texts:
+            bare = BARE_REFERENCE.search(value)
+            if bare and not NUMBERED_LABEL.search(' '.join(texts)):
+                errors.append(f'Q{number}: 「{bare.group(0)}」 names no figure; {subject} 111-115 label every figure and table '
+                              '(「如圖3」「表2」) and print the label under it: give the visual_asset a caption 「圖3」 and cite it')
+                break
+        asset = q.get('visual_asset')
+        if not isinstance(asset, dict):
+            continue
+        caption = str(asset.get('caption') or '').strip()
+        match = CAPTION.match(caption)
+        if not match:
+            errors.append(f'Q{number}: visual_asset.caption must be the printed label 「圖1」「表2」「照片1」 (found {caption!r})')
+            continue
+        seen[match.group(1)].append((number, int(match.group(2))))
+        cited = ' '.join(texts) + ' ' + group_text.get(str(q.get('group_stimulus') or '').strip(), '')
+        label = match.group(1) + match.group(2)
+        if not re.search(re.escape(match.group(1)) + r'\s*' + match.group(2) + r'(?!\d)', cited):
+            errors.append(f'Q{number}: {label} is printed but its material and stems never cite 「{label}」')
+    for kind, rows in seen.items():
+        values = [n for _, n in rows]
+        distinct = list(dict.fromkeys(values))
+        if distinct != list(range(1, len(distinct) + 1)):
+            errors.append(f'{kind} labels run {distinct} in print order; number them 1, 2, 3 … as the official booklets do')
+    return errors
+
+
+def option_errors(exam):
+    errors, spreads, longest = [], [], []
+    keys = _keys(exam)
+    for q in _questions(exam):
+        options = [o for o in q.get('options') or [] if isinstance(o, dict)]
+        if len(options) != 5:
+            continue
+        lengths = {str(o.get('label') or '').strip('()（） '): _length(o.get('text')) for o in options}
+        spreads.append(max(lengths.values()) - min(lengths.values()))
+        key = keys.get(q.get('id'))
+        if q.get('type') == 'single_choice' and key in lengths and lengths[key] == max(lengths.values()) \
+                and list(lengths.values()).count(lengths[key]) == 1:
+            longest.append(_number(q))
+        for o in options:
+            if re.search(r'[。；;]\s*$', _text(o.get('text'))):
+                errors.append(f'Q{_number(q)}: option ({o.get("label")}) ends with 「。」; official 自然 options end without it')
+                break
+    if len(longest) > LONGEST_KEY_MAX:
+        errors.append(f'the key is the single longest option in {len(longest)} single-choice items (Q{", Q".join(map(str, longest))}); '
+                      f'official 自然 111-115: 2, 1, 3, 2, 2 a year, at most {LONGEST_KEY_MAX} here: write each distractor as '
+                      'complete and specific as the key')
+    if spreads and statistics.median(spreads) > OPTION_SPREAD_MEDIAN_MAX:
+        errors.append(f'the five options of an item differ by a median {statistics.median(spreads):g} characters; official '
+                      f'自然 111-115: 1-5, at most {OPTION_SPREAD_MEDIAN_MAX} here')
+    return errors
+
+
+def method_key_errors(exam):
+    keys = _keys(exam)
+    hits = []
+    for q in _questions(exam):
+        chosen = set(re.findall(r'[A-E]', str(keys.get(q.get('id')) or '')))
+        for o in q.get('options') or []:
+            if isinstance(o, dict) and str(o.get('label') or '').strip('()（） ') in chosen and METHOD_KEY.search(_text(o.get('text'))):
+                hits.append(_number(q))
+                break
+    if len(hits) > METHOD_KEY_MAX:
+        return [f'{len(hits)} items are keyed on 「再蒐集／核對／另查資料」 (Q{", Q".join(map(str, hits))}); official 自然 111-115 '
+                f'have at most one such correct option a year, at most {METHOD_KEY_MAX} here: key the science the evidence shows']
+    return []
+
+
+def note_errors(exam):
+    errors = []
+    for q in _questions(exam):
+        texts = [q.get('group_stimulus'), q.get('prompt'), *[o.get('text') for o in q.get('options') or [] if isinstance(o, dict)]]
+        for value in texts:
+            match = AUTHORING_NOTE.search(_text(value))
+            if match:
+                errors.append(f'Q{_number(q)}: prints the authoring note 「{match.group(0)}」; official 自然 booklets state '
+                              'assumptions as 「(設)」 or 「假設…」 and never say data are invented or not an agency\'s')
+                break
+    return errors
+
+
+def subpart_errors(exam):
+    errors = []
+    for q in _questions(exam):
+        if q.get('type') != 'constructed_response':
+            continue
+        prompt = _text(q.get('prompt'))
+        if NUMBERED_SUBPART.match(prompt):
+            errors.append(f'Q{_number(q)}: the prompt starts with its number and subpart (「{prompt[:6]}」); print the number '
+                          'once and start each subpart with (a), (b) as 112-115 do (save each as its own record)')
+        elif DIGIT_SUBPART.match(prompt) or str(q.get('subpart_label') or '').strip('()（） ').isdigit():
+            errors.append(f'Q{_number(q)}: 自然 112-115 label written subparts (a), (b), not (1), (2)')
+    return errors
+
+
+def overused_material_errors(exam, subject='自然'):
+    """Specific objects earlier generated papers wore out (the Hubble deep field, …)."""
+    if not OVERUSED.is_file():
+        return []
+    entries = [e for e in json.loads(OVERUSED.read_text(encoding='utf-8'))['entries'] if subject in e['subjects']]
+    errors = []
+    for q in _questions(exam):
+        texts = ' '.join([_text(q.get('group_stimulus')), _text(q.get('prompt'))])
+        for entry in entries:
+            if re.search(entry['pattern'], texts, re.I):
+                errors.append(f'Q{_number(q)}: builds on {entry["what"]}, which {entry["seen"]} already used; choose '
+                              'another object or dataset')
+                break
+    return errors
+
+
+def validate_exam(exam):
+    return [*figure_label_errors(exam), *overused_material_errors(exam), *option_errors(exam), *method_key_errors(exam), *note_errors(exam),
+            *subpart_errors(exam)]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('exam_json', type=Path)
+    args = parser.parse_args()
+    errors = validate_exam(json.loads(args.exam_json.read_text(encoding='utf-8-sig')))
+    print(json.dumps({'status': 'fail' if errors else 'pass', 'errors': errors}, ensure_ascii=False, indent=2))
+    return 1 if errors else 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
+</canonical-source>
+
 <canonical-source path="scripts/validate_paper_difficulty_balance.py">
 """Structural four-band audit, deliberately not a achieved-difficulty certificate."""
 import argparse,collections,hashlib,json
@@ -83892,7 +84232,8 @@ def repeated_data_errors(exam):
 
 
 def validate_exam(exam):
-    return [*section_errors(exam), *option_form_errors(exam), *method_key_errors(exam), *printed_note_errors(exam),
+    from validate_natural_layout_contract import figure_label_errors
+    return [*figure_label_errors(exam, '社會'), *section_errors(exam), *option_form_errors(exam), *method_key_errors(exam), *printed_note_errors(exam),
             *score_errors(exam), *answer_area_errors(exam), *repeated_data_errors(exam)]
 
 
@@ -84108,7 +84449,9 @@ PROVISIONAL_FLOORS = {
     # Official 111-115 booklets label 21-36 (自然) and 8-17 (社會) distinct figures/tables
     # and mention photographs 3-7 times a year (社會); a paper at the old floor of 6-8
     # visuals looked like a text worksheet. Floors sit below the weakest official year.
-    "自然": {"count": 16, "sections": 2, "kinds": 4, "domains": 4, "sourced_photos": 3},
+    # 自然 111-115: 16-28 labelled 圖 and 4-12 表 a year, almost all drawn graphs, apparatus and
+    # tables; real photographs are 0-2 a year (115: a mitosis micrograph panel and a rock).
+    "自然": {"count": 16, "sections": 2, "kinds": 4, "domains": 4, "sourced_photos": 1},
     # 社會 111-115 measured (2026-09-24): 2-4 photographs or archival images a year (112 poster,
     # land deed, aerial photo; 113 temple photos, statuette; 114 cave photo, two cartoons; 115
     # murals, satellite image, aerial panel, Bamiyan) beside 7-13 charts, maps and tables, and
@@ -86188,7 +86531,7 @@ if __name__ == '__main__':
     {
       "kind": "table",
       "id": "layout-science-data",
-      "text": "〔實驗／觀測資料位置〕",
+      "text": "表1　〔實驗／觀測資料位置〕",
       "headers": [
         "〔條件〕",
         "〔量測值〕",
@@ -86210,7 +86553,7 @@ if __name__ == '__main__':
     {
       "kind": "stimulus",
       "id": "layout-science-figure",
-      "text": "〔本次新照片、圖表或裝置圖；占位框不提供現象、數據或答案線索〕",
+      "text": "〔本次新照片、圖表或裝置圖，以「圖1」「表1」依序編號；題幹寫「如圖1」，不寫「如圖」〕",
       "assets": {
         "figure": {
           "path": "hosted-body-figure-placeholder.svg",
@@ -86220,14 +86563,28 @@ if __name__ == '__main__':
       },
       "figure": "figure",
       "figure_position": "right",
-      "keep_with_next": true
+      "keep_with_next": true,
+      "figure_caption": "圖1"
     },
     {
       "kind": "constructed",
       "id": "layout-science-short",
       "number": 37,
-      "text": "〔根據本次資料提出解釋／計算／設計的作答要求〕",
-      "score": 2
+      "text": "〔第一個小題要求〕（2 分）",
+      "score": 2,
+      "score_in_text": true,
+      "lead": "〔依圖1命製的非選題引導句，題號只印一次〕",
+      "subpart": "(a)"
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-science-short-b",
+      "number": 37,
+      "label": "",
+      "subpart": "(b)",
+      "text": "〔第二個小題要求，續行對齊小題文字〕（2 分）",
+      "score": 2,
+      "score_in_text": true
     }
   ]
 }

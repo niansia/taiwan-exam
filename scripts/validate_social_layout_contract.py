@@ -207,7 +207,8 @@ def repeated_data_errors(exam):
 
 
 def validate_exam(exam):
-    return [*section_errors(exam), *option_form_errors(exam), *method_key_errors(exam), *printed_note_errors(exam),
+    from validate_natural_layout_contract import figure_label_errors
+    return [*figure_label_errors(exam, '社會'), *section_errors(exam), *option_form_errors(exam), *method_key_errors(exam), *printed_note_errors(exam),
             *score_errors(exam), *answer_area_errors(exam), *repeated_data_errors(exam)]
 
 

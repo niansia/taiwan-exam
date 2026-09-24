@@ -104,6 +104,7 @@ def source_paths(root: Path = ROOT) -> list[Path]:
     paths.append(root / "scripts" / "validate_chinese_natural_scope.py")
     paths.append(root / "scripts" / "validate_social_item_design.py")
     paths.append(root / "scripts" / "validate_social_layout_contract.py")
+    paths.append(root / "scripts" / "validate_natural_layout_contract.py")
     paths.append(root / "scripts" / "photo_library.py")
     paths.append(root / "scripts" / "validate_writing_source_grounding.py")
     paths.append(root / "scripts" / "validate_writing_layout_contract.py")

@@ -14,6 +14,9 @@ CHINESE_MEAN_P_MAX = 0.62
 # 社會 111-115 objective items average 0.60, 0.51, 0.55, 0.52, 0.57 (official statistics); two
 # hosted 116 papers had keys that were the longest option in 40 and 42 of 54 items.
 SOCIAL_MEAN_P_MAX = 0.65
+# 自然 111-115 choice items average 0.57, 0.53, 0.57, 0.56, 0.55; two hosted 116 papers keyed the
+# longest option in 22% and 52% of single-choice items (official 7-14%).
+CHOICE_MEAN_P_MAX = {'社會': (SOCIAL_MEAN_P_MAX, '0.51-0.60'), '自然': (0.65, '0.53-0.57')}
 MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
 
 
@@ -123,14 +126,16 @@ def review_errors(exam, review):
         elif estimates and sum(estimates) / len(estimates) > CHINESE_MEAN_P_MAX:
             errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} is easier than any official '
                           f'國綜 paper (111-115: 0.48-0.58; ceiling {CHINESE_MEAN_P_MAX})')
-    if exam.get('metadata', {}).get('subject') == '社會':
+    subject_name = exam.get('metadata', {}).get('subject')
+    if subject_name in CHOICE_MEAN_P_MAX:
+        ceiling, official = CHOICE_MEAN_P_MAX[subject_name]
         chosen = [q for q in exam['questions'] if q.get('options')]
         estimates = [rows.get(q['id'], {}).get('estimated_p') for q in chosen]
         if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
-            errors.append('difficulty: record estimated_p (the predicted 答對率, 0-1) for every 社會 choice item')
-        elif estimates and sum(estimates) / len(estimates) > SOCIAL_MEAN_P_MAX:
+            errors.append(f'difficulty: record estimated_p (the predicted 答對率, 0-1) for every {subject_name} choice item')
+        elif estimates and sum(estimates) / len(estimates) > ceiling:
             errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} of the choice items is easier '
-                          f'than any official 社會 paper (111-115: 0.51-0.60; ceiling {SOCIAL_MEAN_P_MAX}): make distractors '
+                          f'than any official {subject_name} paper (111-115: {official}; ceiling {ceiling}): make distractors '
                           'as long and plausible as the key, each failing on one specific concept')
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()

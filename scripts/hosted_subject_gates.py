@@ -145,6 +145,9 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
         if subject == '國綜' and full:
             from validate_chinese_layout_contract import validate_exam as chinese_layout
             errors.extend('chinese-layout: ' + e for e in chinese_layout(exam))
+        if subject == '自然' and full:
+            from validate_natural_layout_contract import validate_exam as natural_layout
+            errors.extend('natural-layout: ' + e for e in natural_layout(exam))
     elif subject == '社會':
         from validate_social_item_design import validate_exam as social
         for row in social(exam)['errors']:
