@@ -791,6 +791,11 @@ def numbered_row(label, stem, width, pitch=None):
     pitch = pitch or number_pitch()
     if re.fullmatch(r'[\w.()（）]+', html.unescape(re.sub('<[^>]+>', '', label or ''))) and label.isascii():
         label = f'<span class="latin">{label}</span>'
+    if not html.unescape(re.sub('<[^>]+>', '', label or '')).strip():
+        # PyMuPDF 1.26 drops an empty cell with its padding: a hosted 國綜 printed 32（2） and a
+        # continued item's next page at the margin, 18 pt left of （1）. A no-break space
+        # keeps the number column, padded to the same pitch as a printed number.
+        label = '&nbsp;'
     return (f'<table><tr>{padded_cell(label, pitch, mode="number")}'
             f'<td style="width:{width-pitch:g}pt">{stem}</td></tr></table>')
 
