@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.24
+# Taiwan Exam Web Knowledge v2026.09.22.25
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -667,9 +667,9 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/hosted-body-workflow.md",
     "bytes": 16618,
-    "sha256": "559f51b5fe6eedc0b248b5f142989a511084cd59c09d70e4cfc3939261e8d86e",
+    "sha256": "d45b6aba2ed105d84cde950c63a445d7d263242669b60c6e76b4b10dc6c7e81c",
     "embedded_bytes": 16618,
-    "embedded_sha256": "559f51b5fe6eedc0b248b5f142989a511084cd59c09d70e4cfc3939261e8d86e"
+    "embedded_sha256": "d45b6aba2ed105d84cde950c63a445d7d263242669b60c6e76b4b10dc6c7e81c"
   },
   {
     "path": "references/hosted-execution.md",
@@ -1023,10 +1023,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
-    "bytes": 18900,
-    "sha256": "96e9aec719a0d02e150d478a47ed4f0b308137c0e868d2a1ee90ee2e19c2ef4d",
-    "embedded_bytes": 18900,
-    "embedded_sha256": "96e9aec719a0d02e150d478a47ed4f0b308137c0e868d2a1ee90ee2e19c2ef4d"
+    "bytes": 21165,
+    "sha256": "8ecc1b8343826701a8e3854b8b3bfa804376e1a310695aaf4ee0dbd39a7f1f59",
+    "embedded_bytes": 21165,
+    "embedded_sha256": "8ecc1b8343826701a8e3854b8b3bfa804376e1a310695aaf4ee0dbd39a7f1f59"
   },
   {
     "path": "scripts/normalize_figure_asset.py",
@@ -1366,10 +1366,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "templates/hosted-writing-questions.json",
-    "bytes": 1992,
-    "sha256": "e2596122164420d1d7543d0f8c1e6d9d232fe07c29468cb5cf96b48594487740",
-    "embedded_bytes": 1992,
-    "embedded_sha256": "e2596122164420d1d7543d0f8c1e6d9d232fe07c29468cb5cf96b48594487740"
+    "bytes": 2411,
+    "sha256": "15cdb6106def3de29e168a11def2318cd9ab6cbfd6b8d3864cba5c17e4592b85",
+    "embedded_bytes": 2347,
+    "embedded_sha256": "ca9a2a327d0cc98f94bc3ffabb91b5f5f418236e5bd92b0f1b667de915dc9c59"
   },
   {
     "path": "templates/hosted-writing-solutions.json",
@@ -60120,7 +60120,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -73706,6 +73706,10 @@ CJK_IDEOGRAPH = re.compile(r"[㐀-鿿]")
 WRITING_PART = re.compile(r"^\s*[一二]、\s*$")
 WRITING_LABEL = re.compile(r"^\s*[甲乙丙丁戊]\s*$")
 WRITING_ASK = re.compile(r"^\s*請.{0,14}問題[：:]")
+WRITING_QUESTION = re.compile(r"^\s*(?:問題)?[（(][一二三四][）)]")  # 問題（一） and its label print in 明體
+# The 第二大題 task paragraph (「請以『…』為題，…（占25分）」) is 明體 too; without this every
+# correctly set task line after 「二、」 read as a 標楷體 line in the wrong face.
+WRITING_TASK = re.compile(r"^\s*請(?:以|就|依|根據|結合|參考|從|寫|閱讀)|為題|[（(]占\s*\d|文長")
 
 
 def writing_font_role_samples(doc, body_box=None) -> list[dict]:
@@ -73722,19 +73726,41 @@ def writing_font_role_samples(doc, body_box=None) -> list[dict]:
         if number == 1:
             continue  # the fixed cover
         body = pymupdf.Rect(body_box or [64, 87, page.rect.width - 64, 775])
+        # Only the running header and footer are excluded, by height. Requiring each line to
+        # sit wholly inside a fixed 64 pt box dropped the 說明 line (its box runs to 536.8 pt)
+        # and 「一、」 (63.9 pt): the role they set was never read, so every correct 標楷體
+        # line under them was reported as wrong in every hosted 國寫 paper.
         lines = [line for block in page.get_text("dict")["blocks"] for line in block.get("lines", [])
-                 if body.contains(pymupdf.Rect(line["bbox"]))]
+                 if line["bbox"][1] >= body.y0 - 8 and line["bbox"][3] <= body.y1 + 8]
+        # The bordered 說明 box, found by its drawn frame rather than by its first words, so a
+        # box whose text does not open with 「說明：」 is still read as 標楷體.
+        frames = []
+        drawings = page.get_drawings() if hasattr(page, "get_drawings") else []
+        for d in drawings:
+            rect = pymupdf.Rect(d["rect"])
+            if rect.width > 0.6 * body.width and 12 < rect.height < 220 and d.get("color") is not None:
+                frames.append(rect)  # a stroked rectangle
+        # The renderer draws the box as separate thin filled rules: pair the full-width ones.
+        rules = sorted({round(pymupdf.Rect(d["rect"]).y0, 1): pymupdf.Rect(d["rect"]) for d in drawings
+                        if pymupdf.Rect(d["rect"]).width > 0.6 * body.width and pymupdf.Rect(d["rect"]).height < 1.6
+                        and d.get("fill") not in (None, (1, 1, 1), (1.0, 1.0, 1.0))}.values(), key=lambda r: r.y0)
+        frames += [pymupdf.Rect(top.x0, top.y0, bottom.x1, bottom.y1)
+                   for top, bottom in zip(rules[0::2], rules[1::2]) if 12 < bottom.y0 - top.y0 < 220]
         for line in sorted(lines, key=lambda l: (round(l["bbox"][1]), l["bbox"][0])):
             # Letter-spaced headings extract with spaces (「一 、」); compare compacted text.
             text = "".join("".join(s["text"] for s in line["spans"]).split())
             if not text or WRITING_LABEL.match(text):
                 continue
-            if text.startswith(("說明", "説明")):  # a kai subset may map 說 to its 説 variant
+            centre = pymupdf.Rect(line["bbox"])
+            in_frame = any(frame.contains(pymupdf.Point((centre.x0 + centre.x1) / 2, (centre.y0 + centre.y1) / 2))
+                           for frame in frames)
+            if text.startswith(("說明", "説明")) or in_frame:  # a kai subset may map 說 to its 説 variant
                 role = "kai"
             elif WRITING_PART.match(text):
                 role = "kai"
                 continue
-            elif text.startswith("非選擇題") or WRITING_ASK.match(text):
+            elif (text.startswith("非選擇題") or WRITING_ASK.match(text) or WRITING_QUESTION.match(text)
+                  or WRITING_TASK.search(text)):
                 role = "ming"
             if role is None:
                 continue
@@ -86870,7 +86896,7 @@ if __name__ == '__main__':
     {
       "kind": "section",
       "title": "非選擇題（共二大題，占50分）",
-      "directions": "第一大題於答題卷正面作答；第二大題於背面作答。此檔僅呈現材料及任務版型，不是正式命題。"
+      "directions": "說明：第一大題於答題卷正面作答；第二大題於背面作答。此檔僅呈現材料及任務版型，不是正式命題。"
     },
     {
       "kind": "passage",
@@ -86885,17 +86911,19 @@ if __name__ == '__main__':
       "kind": "constructed",
       "id": "layout-writing-one-a",
       "number": 1,
-      "text": "〔依本次材料設計的閱讀統整要求，80字以內〕",
+      "text": "請分項回答下列問題：\n\n問題（一）：〔依本次材料設計的閱讀統整要求〕（文長限80字以內，占4分）",
       "score": 4,
-      "label": "（一）"
+      "label": "",
+      "score_in_text": true
     },
     {
       "kind": "constructed",
       "id": "layout-writing-one-b",
       "number": 1,
-      "text": "〔依本次材料設計的延伸判斷與表述要求，400字以內〕",
+      "text": "問題（二）：〔依本次材料設計的延伸判斷與表述要求〕（文長限400字以內，占21分）",
       "score": 21,
-      "label": "（二）"
+      "label": "",
+      "score_in_text": true
     },
     {
       "kind": "passage",
@@ -86903,15 +86931,18 @@ if __name__ == '__main__':
       "heading": "二、",
       "paragraphs": [
         "〔本次重新選取的文學／感受性材料；不可沿用示範作為文章、意象或題目〕"
-      ]
+      ],
+      "score_in_text": true,
+      "text": "〔本次寫作任務、命題方式與作答要求〕。請於指定答題卷作答。（占25分）"
     },
     {
       "kind": "constructed",
       "id": "layout-writing-two",
       "number": 2,
-      "text": "〔本次寫作任務、命題方式與作答要求〕。請於指定答題卷作答。",
+      "text": "〔本次寫作任務、命題方式與作答要求〕。請於指定答題卷作答。（占25分）",
       "score": 25,
-      "label": ""
+      "label": "",
+      "score_in_text": true
     }
   ]
 }

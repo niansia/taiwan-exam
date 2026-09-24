@@ -8,7 +8,7 @@
 **讓 AI 幫你出一份原創的學測模擬考**<br>
 命題、解題驗算、套用大考正式版面，最後交給你「題目 PDF」和「答案詳解 PDF」。
 
-[![Skill ZIP](https://img.shields.io/badge/Skill_ZIP-2026.09.22.24-2563eb?style=flat-square)](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip)
+[![Skill ZIP](https://img.shields.io/badge/Skill_ZIP-2026.09.22.25-2563eb?style=flat-square)](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)
 [![學測七科](https://img.shields.io/badge/%E5%AD%B8%E6%B8%AC-%E4%B8%83%E7%A7%91-0ea5e9?style=flat-square)](#支援的考試與科目)
 [![Claude](https://img.shields.io/badge/Claude-Skill-d97757?style=flat-square&logo=claude&logoColor=white)](#claude)
 [![ChatGPT](https://img.shields.io/badge/ChatGPT-Skills-10a37f?style=flat-square)](#chatgpt)
@@ -53,7 +53,7 @@
 
 預計用 **5 種模型各出一次學測七科，共 35 份完整模擬考**。以下是待填紀錄，尚未代表任何模型已通過測試。模型名稱依本輪測試規劃列出，實測時請填平台顯示的完整名稱。
 
-**本輪預定版本：2026.09.22.24。** 每完成一科就更新一列，結果連結可指向該次的題目 PDF、答案詳解與檢查紀錄所在資料夾。
+**本輪預定版本：2026.09.22.25。** 每完成一科就更新一列，結果連結可指向該次的題目 PDF、答案詳解與檢查紀錄所在資料夾。
 
 <details>
 <summary><b>展開測試紀錄表：5 種模型 × 學測七科（35 筆）</b></summary>
@@ -114,8 +114,8 @@
 
 | 你用的 AI | 下載 | 安裝說明 |
 | --- | --- | --- |
-| **Claude**（claude.ai） | [⬇ Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip) | [看 Claude](#claude) |
-| **ChatGPT**（左側欄有 Plugins → Skills） | [⬇ Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip) | [看 ChatGPT](#chatgpt) |
+| **Claude**（claude.ai） | [⬇ Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip) | [看 Claude](#claude) |
+| **ChatGPT**（左側欄有 Plugins → Skills） | [⬇ Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip) | [看 ChatGPT](#chatgpt) |
 | **ChatGPT**（找不到 Skills） | [⬇ 直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html) | [看 ChatGPT 專案](#chatgpt) |
 | **Gemini** | [⬇ 直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html) | [看 Gemini](#gemini) |
 | Codex、Claude Code、Gemini CLI | 不用下載 | [看本機版](#進階本機版) |
@@ -125,9 +125,9 @@
 
 ### Claude
 
-1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip)，不要解壓縮。
+1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)，不要解壓縮。
 2. 開啟 [Claude](https://claude.ai/)，依序點 **Customize → Skills → ＋ → Create skill → Upload a skill**。
-3. 選剛下載的 `taiwan-exam-hosted-2026.09.22.24.zip`，按 **Save**。
+3. 選剛下載的 `taiwan-exam-hosted-2026.09.22.25.zip`，按 **Save**。
 4. 確認技能清單出現 `taiwan-exam-generator`，而且已開啟。
 5. 到 **Settings → Capabilities**，確認 **Code execution and file creation** 已開啟（學校或公司帳號可能由管理員控制）。
 
@@ -157,7 +157,7 @@
 
 依 [OpenAI 官方說明](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)，Skills 目前開放給 Business、Enterprise、Healthcare、Edu 帳號，工作區管理員也可能關閉上傳。一般 Free、Plus、Pro 帳號請看下面的「沒有 Skills」。
 
-1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip)，不要解壓縮。
+1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)，不要解壓縮。
 2. 開啟 [ChatGPT](https://chatgpt.com/)，在左側欄點 **Plugins**，再點上方的 **Skills** 分頁。
 3. 點 **Create → Upload from your computer**，選剛下載的 ZIP。
 4. 等 ChatGPT 掃描完成，技能清單出現 `taiwan-exam-generator` 就完成了。
@@ -206,7 +206,7 @@
 
 用專案或 Gem（知識檔）的人，每個科目準備一次：
 
-1. 開啟[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/index.html)，找到要出的科目，分別按「**下載題本版型**」和「**下載詳解版型**」。
+1. 開啟[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/index.html)，找到要出的科目，分別按「**下載題本版型**」和「**下載詳解版型**」。
 2. 下載[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)（七科共用一份）。
 3. 出卷時把這 3 份檔案一起附上。
 
@@ -235,6 +235,30 @@
 | 換科目 | 「數 A」改成國綜、英文、數 B、自然、社會或國寫 |
 | 只出幾題練習 | 改成「請出 5 題學測數 A 自訂練習」，通常一輪就完成 |
 | 完整考卷 | 通常要 2～3 輪；AI 停在存檔點時，在同一個對話回「繼續」即可 |
+| 指定題材入題 | 在出卷文字最後加一句，例如「請把中秋節融入至少一個題組，其餘照常命題。」 |
+
+<details>
+<summary><b>想把特定題材放進考卷？（中秋節、最近的颱風、某則新聞…）</b></summary>
+
+在上面那段出卷文字的**最後**，再加一行你想要的題材，其餘照常送出。例如：
+
+```text
+請把「中秋節」融入至少一個題組（例如月相、節慶習俗或消費統計），其餘題目照常命題。
+```
+
+```text
+請以「今年 8 月的颱風」為其中一組題的情境，並查證氣象署公布的資料。
+```
+
+```text
+請參考這則新聞出一組題：https://（貼上新聞網址）
+```
+
+- 題材只當作情境，題目仍然會依課綱命題、查證事實，並符合正式考卷的題型與難度。
+- 一次指定 1～2 個題材最適合；指定太多會壓縮其他單元，AI 可能只用得上其中幾個。
+- 附上新聞或資料的網址，AI 查證會更準確。
+
+</details>
 
 > [!TIP]
 > ChatGPT 剛上傳完 Skill 時，輸入框可能自動出現一段英文（I just added the … skill）。先刪掉再貼出卷文字，免得 AI 先做示範。ChatGPT 若有 **Work** 模式，完整考卷建議在 Work 模式出。
@@ -245,12 +269,12 @@
 
 | 科目 | 題本 | 詳解 | 科目 | 題本 | 詳解 |
 | --- | :-: | :-: | --- | :-: | :-: |
-| 國綜 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/chinese-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/chinese-solutions.pdf) | 自然 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/science-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/science-solutions.pdf) |
-| 英文 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/english-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/english-solutions.pdf) | 社會 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/social-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/social-solutions.pdf) |
-| 數 A | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/math-a-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/math-a-solutions.pdf) | 國寫 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/writing-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/writing-solutions.pdf) |
-| 數 B | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/math-b-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/math-b-solutions.pdf) | | | |
+| 國綜 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/chinese-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/chinese-solutions.pdf) | 自然 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/science-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/science-solutions.pdf) |
+| 英文 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/english-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/english-solutions.pdf) | 社會 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/social-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/social-solutions.pdf) |
+| 數 A | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/math-a-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/math-a-solutions.pdf) | 國寫 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/writing-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/writing-solutions.pdf) |
+| 數 B | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/math-b-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/math-b-solutions.pdf) | | | |
 
-版型只含占位內容，供排版參考，不能照抄題目、題號、配分或留白。也可以到[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.24/index.html)一次看完。
+版型只含占位內容，供排版參考，不能照抄題目、題號、配分或留白。也可以到[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/index.html)一次看完。
 
 ## 卡住了怎麼辦？
 
@@ -353,7 +377,7 @@ Skill 會自己從本專案的 GitHub Release 下載並驗證 PyMuPDF，通常�
 <details>
 <summary><b>上傳 ZIP 出現「too many files」或「path with invalid characters」</b></summary>
 
-這是舊版 ZIP 的問題（2026.09.22.1～.3 超過 Claude 的 200 個檔案上限；2026.09.14.1 有路徑字元問題）。請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip) 再上傳，不需要自己解壓或修改。若新版仍被拒收，請保留錯誤文字並[回報問題](https://github.com/niansia/taiwan-exam/issues)。
+這是舊版 ZIP 的問題（2026.09.22.1～.3 超過 Claude 的 200 個檔案上限；2026.09.14.1 有路徑字元問題）。請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip) 再上傳，不需要自己解壓或修改。若新版仍被拒收，請保留錯誤文字並[回報問題](https://github.com/niansia/taiwan-exam/issues)。
 
 </details>
 
@@ -382,7 +406,7 @@ Skill 會自己從本專案的 GitHub Release 下載並驗證 PyMuPDF，通常�
 <details>
 <summary><b>進階：讓專案或 Gem 的對話直接使用 ZIP 裡的工具</b></summary>
 
-如果出卷對話能執行 Python、讀寫檔案，可以額外附上 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip)，並加上這段：
+如果出卷對話能執行 Python、讀寫檔案，可以額外附上 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)，並加上這段：
 
 ```text
 我已附上 Taiwan Exam 網頁工具 ZIP，請解壓到本次工作目錄，依內附 hosted-execution 流程執行。
@@ -394,7 +418,7 @@ Skill 會自己從本專案的 GitHub Release 下載並驗證 PyMuPDF，通常�
 
 ## 更新到新版
 
-**目前版本：Skill ZIP 與知識檔皆為 2026.09.22.24，七科版型 2026.09.22.24。** [看更新紀錄](docs/web-updates.md)
+**目前版本：Skill ZIP 與知識檔皆為 2026.09.22.25，七科版型 2026.09.22.25。** [看更新紀錄](docs/web-updates.md)
 
 GitHub 有新版時，你帳號裡的檔案**不會自動更新**：
 

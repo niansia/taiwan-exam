@@ -12,7 +12,7 @@
     {
       "kind": "section",
       "title": "非選擇題（共二大題，占50分）",
-      "directions": "第一大題於答題卷正面作答；第二大題於背面作答。此檔僅呈現材料及任務版型，不是正式命題。"
+      "directions": "說明：第一大題於答題卷正面作答；第二大題於背面作答。此檔僅呈現材料及任務版型，不是正式命題。"
     },
     {
       "kind": "passage",
@@ -27,17 +27,19 @@
       "kind": "constructed",
       "id": "layout-writing-one-a",
       "number": 1,
-      "text": "〔依本次材料設計的閱讀統整要求，80字以內〕",
+      "text": "請分項回答下列問題：\n\n問題（一）：〔依本次材料設計的閱讀統整要求〕（文長限80字以內，占4分）",
       "score": 4,
-      "label": "（一）"
+      "label": "",
+      "score_in_text": true
     },
     {
       "kind": "constructed",
       "id": "layout-writing-one-b",
       "number": 1,
-      "text": "〔依本次材料設計的延伸判斷與表述要求，400字以內〕",
+      "text": "問題（二）：〔依本次材料設計的延伸判斷與表述要求〕（文長限400字以內，占21分）",
       "score": 21,
-      "label": "（二）"
+      "label": "",
+      "score_in_text": true
     },
     {
       "kind": "passage",
@@ -45,15 +47,18 @@
       "heading": "二、",
       "paragraphs": [
         "〔本次重新選取的文學／感受性材料；不可沿用示範作為文章、意象或題目〕"
-      ]
+      ],
+      "score_in_text": true,
+      "text": "〔本次寫作任務、命題方式與作答要求〕。請於指定答題卷作答。（占25分）"
     },
     {
       "kind": "constructed",
       "id": "layout-writing-two",
       "number": 2,
-      "text": "〔本次寫作任務、命題方式與作答要求〕。請於指定答題卷作答。",
+      "text": "〔本次寫作任務、命題方式與作答要求〕。請於指定答題卷作答。（占25分）",
       "score": 25,
-      "label": ""
+      "label": "",
+      "score_in_text": true
     }
   ]
 }
