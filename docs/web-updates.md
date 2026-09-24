@@ -17,7 +17,7 @@
 - **流程**（依兩份計時回報）：藍圖檢查改用最終答案檢查的同一套規則（Claude 卷第 29～43 題預定答案的 4 題循環原本藍圖放行，寫完 65 題才被擋）；`lock-content` 會先列出圖檔絕對路徑、檔案不存在或雜湊過期（ChatGPT 卷 14 張圖用絕對路徑，到最終檢查才發現、多建置兩次）。
 - 七科版型範例以本版重出（2026.09.22.23），ZIP 內建版型同步更新。
 
-新 ZIP（SHA-256 `bfb6e2088c8fab73b06c37e328457215b082d9d439e4dc23c8c1a5448c7ba9a8`，8,642,144 位元組，100 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；等待維護者在 Chrome 下載並於 Claude 與 ChatGPT 上傳確認。[下載 2026.09.22.23 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.23/taiwan-exam-hosted-2026.09.22.23.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.23) 頁面。照片庫另在 [photos-v1](https://github.com/niansia/taiwan-exam/releases/tag/photos-v1)，Skill 需要時自動下載。
+新 ZIP（SHA-256 `bfb6e2088c8fab73b06c37e328457215b082d9d439e4dc23c8c1a5448c7ba9a8`，8,642,144 位元組，100 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.23 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.23/taiwan-exam-hosted-2026.09.22.23.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.23) 頁面。已安裝的舊 Skill 請重新下載替換。照片庫另在 [photos-v1](https://github.com/niansia/taiwan-exam/releases/tag/photos-v1)，Skill 需要時自動下載。
 
 ## 2026.09.22.22：國綜混合題小題、題組標記、閱讀材料與命題下限依官方 111～115
 
