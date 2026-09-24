@@ -98,7 +98,7 @@ def test_scaffolded_direct_substitution_cannot_be_counted_as_hard_work():
     assert any('hard label' in e for e in errors)
     assert any('50-point' in e for e in errors)
     assert any('routine-only' in e for e in errors)
-    assert not any('outside existing 80-92' in e for e in errors) # Inflating time alone cannot pass.
+    assert not any('minutes is outside' in e for e in errors) # Inflating time alone cannot pass.
 
 
 def test_blind_packet_keeps_continuations_and_printed_explanations():

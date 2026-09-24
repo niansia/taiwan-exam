@@ -18,6 +18,34 @@ SOCIAL_MEAN_P_MAX = 0.65
 # longest option in 22% and 52% of single-choice items (official 7-14%).
 CHOICE_MEAN_P_MAX = {'社會': (SOCIAL_MEAN_P_MAX, '0.51-0.60'), '自然': (0.65, '0.53-0.57')}
 MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
+# 數A/數B targets and the range a paper may pass in (maintainer decision 2026-09-24). A hosted
+# 數B run went seven review rounds at 難 28 points and 93 minutes: every redesign that made one
+# item harder lengthened another. Aim at the targets; the gates accept the ranges.
+MATH_CHALLENGE_TARGET, MATH_HARD_TARGET, MATH_POINT_TOLERANCE = 70, 30, 3
+MATH_MINUTES_TARGET, MATH_MINUTE_TOLERANCE = (80, 92), 5
+MATH_CHALLENGE_MIN = MATH_CHALLENGE_TARGET - MATH_POINT_TOLERANCE   # 67
+MATH_HARD_MIN = MATH_HARD_TARGET - MATH_POINT_TOLERANCE             # 27
+MATH_MINUTES_RANGE = (MATH_MINUTES_TARGET[0] - MATH_MINUTE_TOLERANCE, MATH_MINUTES_TARGET[1] + MATH_MINUTE_TOLERANCE)  # 75-97
+
+
+def math_floor_errors(challenge, hard, prefix='difficulty: reviewed'):
+    """中偏難＋難 and 難 points against the 70/30 targets, passing within MATH_POINT_TOLERANCE."""
+    errors = []
+    if challenge < MATH_CHALLENGE_MIN:
+        errors.append(f'{prefix} medium-hard/hard score {challenge:g} is below {MATH_CHALLENGE_MIN} points '
+                      f'(target {MATH_CHALLENGE_TARGET}, ±{MATH_POINT_TOLERANCE} accepted)')
+    if hard < MATH_HARD_MIN:
+        errors.append(f'{prefix} hard score {hard:g} is below {MATH_HARD_MIN} points '
+                      f'(target {MATH_HARD_TARGET}, ±{MATH_POINT_TOLERANCE} accepted)')
+    return errors
+
+
+def math_minutes_error(total, prefix='difficulty: reviewed hand-solving total'):
+    low, high = MATH_MINUTES_RANGE
+    if low <= total <= high:
+        return None
+    return (f'{prefix} {total:g} minutes is outside {low}-{high} (target {MATH_MINUTES_TARGET[0]}-'
+            f'{MATH_MINUTES_TARGET[1]}, ±{MATH_MINUTE_TOLERANCE} accepted)')
 
 
 def band_for_p(p):
@@ -148,10 +176,7 @@ def review_errors(exam, review):
                                   if rows.get(q['id'], {}).get('difficulty_band') == b) for b in bands}
         if reviewed_points['easy'] + reviewed_points['very_easy'] >= 10:
             errors.append('difficulty: reviewed easy score must be below 10 points')
-        if reviewed_points['hard'] + reviewed_points['very_hard'] < 70:
-            errors.append('difficulty: reviewed medium-hard/hard score must reach 70 points')
-        if reviewed_points['very_hard'] < 30:
-            errors.append('difficulty: reviewed hard score must reach 30 points')
+        errors.extend(math_floor_errors(reviewed_points['hard'] + reviewed_points['very_hard'], reviewed_points['very_hard']))
         # Official 111-115 close 選填 and the 題組 with their hardest items (115 16-17 and
         # 20, 114 16-17 and 20, 113 17 and 20); two hosted 116 數A papers ended 選填 on a
         # textbook maximum and the 題組 on completing a square.
@@ -162,8 +187,8 @@ def review_errors(exam, review):
                               'as every official 111-115 paper does; redesign it before rendering')
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
-        if not 80 <= total <= 92:
-            errors.append(f'difficulty: reviewed hand-solving total {total:g} minutes is outside existing 80-92 target')
+        if math_minutes_error(total):
+            errors.append(math_minutes_error(total))
         decision_score = sum(q.get('score', 0) or 0 for q in exam['questions']
                              if isinstance(rows.get(q['id'], {}).get('decisive_steps'), list)
                              and len(rows[q['id']]['decisive_steps']) >= 3

@@ -96,9 +96,11 @@ def validate(plan, root=ROOT):
     minutes=sum(q['expected_minutes'] for q in items if number(q.get('expected_minutes')))+shared
     if number(duration) and minutes>duration:errors.append('planned solving time exceeds duration')
     if subject in {'數學A','數學B'}:
-        if points['簡單']>=10 or points['中偏難']+points['難']<70 or points['難']<30:
-            errors.append('math challenge floor: easy <10, medium-hard + hard >=70, hard >=30 points')
-        if not 80<=minutes<=92:errors.append('math hand-solving plan must total 80–92 minutes')
+        from hosted_blind_review import math_floor_errors, math_minutes_error
+        if points['簡單']>=10:
+            errors.append('math challenge floor: easy <10 points')
+        errors.extend(math_floor_errors(points['中偏難']+points['難'],points['難'],'math challenge plan:'))
+        if math_minutes_error(minutes):errors.append(math_minutes_error(minutes,'math hand-solving plan totals'))
         if any(number(q.get('expected_minutes')) and q['expected_minutes']>10 for q in items):
             errors.append('math item expected_minutes may not exceed 10')
     distribution=meta.get('content_distribution_plan') or {}

@@ -135,4 +135,23 @@ def test_math_easy_ten_is_rejected_and_hard_points_are_required(subject):
     assert any('below 10' in e for e in review_errors(exam,r))
     for item in r['items']:item['difficulty_band']='medium'
     errors=review_errors(exam,r)
-    assert any('70 points' in e for e in errors) and any('30 points' in e for e in errors)
+    assert any('target 70' in e for e in errors) and any('target 30' in e for e in errors)
+
+
+@pytest.mark.parametrize('subject',['數學A','數學B'])
+def test_math_targets_pass_within_their_ranges(subject):
+    # A hosted 數B run went seven review rounds at 難 28 points and 93 minutes: the targets
+    # stay 70/30 and 80-92, the gates accept ±3 points and ±5 minutes.
+    exam={'metadata':{'subject':subject},'questions':[{'id':str(i),'score':5} for i in range(20)]}
+    exam['questions'][19]['score']=3;exam['questions'][1]['score']=7
+    r=review([row(i) for i in range(20)])
+    bands=['easy']+['medium']*5+['hard']*8+['very_hard']*6
+    p={'easy':.78,'medium':.6,'hard':.4,'very_hard':.2}
+    for item,band in zip(r['items'],bands):item.update(difficulty_band=band,estimated_p=p[band])
+    for item in r['items'][:13]:item['expected_minutes']=4.9      # 93.45 minutes, 難 28, 中偏難+難 68
+    assert not review_errors(exam,r)
+    for item in r['items'][:13]:item['expected_minutes']=5.4      # 99.95 minutes
+    assert any('outside 75-97' in e for e in review_errors(exam,r))
+    for item in r['items'][:13]:item['expected_minutes']=4.25
+    r['items'][18].update(difficulty_band='hard',estimated_p=.4)  # 難 23
+    assert any('hard score 23 is below 27' in e for e in review_errors(exam,r))
