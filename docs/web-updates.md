@@ -22,7 +22,7 @@
   - 兩項都新增測試（舊程式失敗、新程式通過），並在 PyMuPDF 1.26 下驗證。
 - **9 月 24 日第三次替換 ZIP（版本號不變）**：數A／數B 的難度與時間檢查改為目標加容許範圍。一份 數B 在獨立審題後停在「難 28 分、手算 93 分鐘」，因為難度門檻是硬性 30 分、時間是硬性 80～92 分鐘，改一題變難、另一題時間就變長，來回跑了 7 輪。現在目標仍是中偏難＋難 70 分、難 30 分、80～92 分鐘，但檢查接受 **±3 分**（67／27 分）與 **±5 分鐘**（75～97 分鐘）；落在範圍內就算完成，不必再為了貼近目標多跑審題。「簡單低於 10 分」與「三步關鍵判斷至少 50 分」不變。規劃與審題階段的四支檢查共用同一組數值，新增測試（舊程式失敗、新程式通過）。
 
-目前的 ZIP 是 9 月 24 日第三次替換後的版本（SHA-256 `c71da2aacc55d839ce43d434444254642e2ee79d69f9710e842003d74a5909d2`，8,662,865 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查，待維護者重新確認 Chrome 下載與 Claude／ChatGPT 上傳。前三份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`）都曾由維護者確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
+目前的 ZIP 是 9 月 24 日第三次替換後的版本（SHA-256 `c71da2aacc55d839ce43d434444254642e2ee79d69f9710e842003d74a5909d2`，8,662,865 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。前三份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`）也曾分別確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 
