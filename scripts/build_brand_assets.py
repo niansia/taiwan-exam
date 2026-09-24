@@ -59,8 +59,8 @@ def title_logo(latin_font, caption_font, dark=False):
     result += f'''<path fill="{accent}" d="M277 381 C350 287 425 234 521 200 C650 155 808 138 864 169 C911 195 883 225 860 232 C884 211 889 189 859 177 C798 147 658 171 534 214 C431 249 362 308 277 381Z"/>
       <circle cx="368" cy="218" r="18" fill="none" stroke="{accent}" stroke-width="2.5"/>
       <path d="M359 219L366 226L384 205" fill="none" stroke="{accent}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'''
-    result += lettering("學測模擬考", caption_font, 28, 364, 432, ink, 7)
-    result += f'<path d="M293 422H333M565 422H605" stroke="{accent}" stroke-width="2" stroke-linecap="round"/>'
+    result += lettering("大型考試自動化命題", caption_font, 28, 295, 432, ink, 7)
+    result += f'<path d="M224 422H264M634 422H674" stroke="{accent}" stroke-width="2" stroke-linecap="round"/>'
     return result
 
 
@@ -79,7 +79,7 @@ def main():
     args = parser.parse_args()
     ASSETS.mkdir(parents=True, exist_ok=True)
     cjk = lambda t, s, x, y, c=INK: lettering(t, args.cjk_font, s, x, y, c)
-    description = "日系輕小說與校園番片名式 Taiwan Exam 字標，圓潤軟襯線字形、上下交錯排版、霧玫瑰色答題筆畫與繁體中文『學測模擬考』。"
+    description = "日系輕小說與校園番片名式 Taiwan Exam 字標，圓潤軟襯線字形、上下交錯排版、霧玫瑰色答題筆畫與繁體中文『大型考試自動化命題』。"
     for theme in ["light", "dark"]:
         body = title_logo(args.latin_font, args.caption_font, dark=theme == "dark")
         (ASSETS / f"wordmark-{theme}.svg").write_text(svg(920, 470, "Taiwan Exam", body,

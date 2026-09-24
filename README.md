@@ -2,7 +2,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/readme/wordmark-dark.svg">
-  <img src="docs/assets/readme/wordmark-light.svg" width="460" alt="Taiwan Exam：日系校園番片名字標，學測模擬考">
+  <img src="docs/assets/readme/wordmark-light.svg" width="460" alt="Taiwan Exam：日系校園番片名字標，大型考試自動化命題">
 </picture>
 
 **讓 AI 幫你出一份原創的學測模擬考**<br>
