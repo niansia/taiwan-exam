@@ -65,6 +65,7 @@ def sourced_photo_question(tmp_path: Path, number: int, section: str, domain: st
         "source_url": "https://example.invalid/archive/photo",
         "source_creator": "public archive",
         "license_or_authorization": "public domain fixture",
+        "source_retrieved_at": "2026-09-01",
         "source_asset_path": original.name,
         "source_asset_sha256": hashlib.sha256(original.read_bytes()).hexdigest(),
         "crop_description": "fixed test crop",
@@ -126,7 +127,7 @@ def test_natural_full_paper_requires_two_real_photo_items(tmp_path):
         tmp_path,
     )
     assert report["sourced_photo_count"] == 1
-    assert any("real-photo items" in error for error in report["errors"])
+    assert any("real photographs or archival images, minimum is 3" in error for error in report["errors"])
 
 
 def test_social_photo_floor_has_no_upper_bound(tmp_path):
@@ -141,13 +142,34 @@ def test_social_photo_floor_has_no_upper_bound(tmp_path):
         {"metadata": {"subject": "社會", "generation_mode": "full-paper"}, "questions": questions},
         tmp_path,
     )
-    # Four real photos satisfy the raised photo floor; the six visuals still miss the
-    # ten-visual floor measured on official 社會 papers (8-17 labelled figures a year).
-    assert not any("real-photo" in error for error in report["errors"])
+    # Four real photos clear the two-photo floor (111-115: 2-4 a year); the six visuals still
+    # miss the ten-visual floor and the 18 figure-citing items measured on official 社會 papers.
+    assert not any("real photographs" in error for error in report["errors"])
     assert any("required visuals, minimum is 10" in error for error in report["errors"])
+    assert any("items cite a 圖/表/照片" in error for error in report["errors"])
     assert report["sourced_photo_count"] == 4
-    assert report["sourced_photo_minimum"] == 4
+    assert report["sourced_photo_minimum"] == 2
     assert report["sourced_photo_upper_bound"] is None
+
+
+def test_web_found_photo_needs_provenance_not_a_license(tmp_path):
+    q = sourced_photo_question(tmp_path, 1, "reading")
+    spec = q["visual_asset"]["visual_spec"]
+    spec.update({"generation_mode": "web_source", "source_rights": "web_sourced", "source_site": "某縣政府觀光網"})
+    del spec["license_or_authorization"], spec["source_creator"]
+    exam = {"metadata": {"subject": "英文", "generation_mode": "custom-practice"}, "questions": [q]}
+    assert module.validate_exam(exam, tmp_path)["errors"] == []
+    del spec["source_url"]
+    assert any("lacks source_url" in e for e in module.validate_exam(exam, tmp_path)["errors"])
+
+
+def test_paper_cannot_lower_its_own_photo_floor(tmp_path):
+    questions = [sourced_photo_question(tmp_path, 1, "objective", "歷史")]
+    report = module.validate_exam({"metadata": {"subject": "社會", "generation_mode": "full-paper",
+                                                "visual_contract": {"minimum_sourced_photos": 1}},
+                                   "questions": questions}, tmp_path)
+    assert report["sourced_photo_minimum"] == 2
+    assert any("minimum is 2" in e for e in report["errors"])
 
 
 def test_english_full_paper_accepts_one_traceable_photo(tmp_path):

@@ -1,0 +1,162 @@
+{
+  "purpose": "layout-reference-only",
+  "full_exam": false,
+  "subjects": [
+    {
+      "subject": "國綜",
+      "slug": "chinese",
+      "booklets": {
+        "questions": {
+          "file": "chinese-questions.pdf",
+          "sha256": "fdb043f3843516cdee5d02ace168517f7fc6e7d36bc39c0b853ecfa0db9e71a5",
+          "pages": 3,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-chinese-questions.json"
+        },
+        "solutions": {
+          "file": "chinese-solutions.pdf",
+          "sha256": "1bb15d260799a135d51089469e83326386a5b94de19ac60fa6cbbdacfb68db37",
+          "pages": 1,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-chinese-solutions.json"
+        }
+      }
+    },
+    {
+      "subject": "英文",
+      "slug": "english",
+      "booklets": {
+        "questions": {
+          "file": "english-questions.pdf",
+          "sha256": "8a0129dfa9597d6a7915840b35a9e9db133309403bb4ace9067ba6acaac12432",
+          "pages": 4,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-english-questions.json"
+        },
+        "solutions": {
+          "file": "english-solutions.pdf",
+          "sha256": "7c1f638a84bd6b9218dafb0c63a315da8c274896a7233d1cf42ab549bfd2c1c8",
+          "pages": 1,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-english-solutions.json"
+        }
+      }
+    },
+    {
+      "subject": "數學A",
+      "slug": "math-a",
+      "booklets": {
+        "questions": {
+          "file": "math-a-questions.pdf",
+          "sha256": "98bf2fd8a491227013a0f68c310c96ac677d2bbe0c2de85ece52237456d27e1d",
+          "pages": 4,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-math-a-questions.json"
+        },
+        "solutions": {
+          "file": "math-a-solutions.pdf",
+          "sha256": "2923489056302f0b8dae4d759852183e6587c1de5276e59d8261e1e12556557c",
+          "pages": 1,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-math-a-solutions.json"
+        }
+      }
+    },
+    {
+      "subject": "數學B",
+      "slug": "math-b",
+      "booklets": {
+        "questions": {
+          "file": "math-b-questions.pdf",
+          "sha256": "0cb328af1c30d7e5b82f25f27a0409de4d9fb07a3f70315559b9816515d5cdad",
+          "pages": 4,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-math-b-questions.json"
+        },
+        "solutions": {
+          "file": "math-b-solutions.pdf",
+          "sha256": "aa7b9d7e650625447a583a2d243ce738412a9a6f1c747c90a0a65403744e8486",
+          "pages": 1,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-math-b-solutions.json"
+        }
+      }
+    },
+    {
+      "subject": "自然",
+      "slug": "science",
+      "booklets": {
+        "questions": {
+          "file": "science-questions.pdf",
+          "sha256": "5e258cf5a0650baf658374d1fe253df451cd203f4a805a582ae1b65c8a21fa72",
+          "pages": 2,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-science-questions.json"
+        },
+        "solutions": {
+          "file": "science-solutions.pdf",
+          "sha256": "9db1eeb8480329dbeec2cfd4f958260b177625d858b086ef74d24e635b145d5e",
+          "pages": 1,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-science-solutions.json"
+        }
+      }
+    },
+    {
+      "subject": "社會",
+      "slug": "social",
+      "booklets": {
+        "questions": {
+          "file": "social-questions.pdf",
+          "sha256": "9300c563c89c3202d8c425f7561c02f3f02ff95b9a9a8a1945ace84760dec72c",
+          "pages": 2,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-social-questions.json"
+        },
+        "solutions": {
+          "file": "social-solutions.pdf",
+          "sha256": "1d28467bfb14c9de935cd3bf259defba5c81a93bc6b26b6bf8ca07e8d65fc6ad",
+          "pages": 1,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-social-solutions.json"
+        }
+      }
+    },
+    {
+      "subject": "國寫",
+      "slug": "writing",
+      "booklets": {
+        "questions": {
+          "file": "writing-questions.pdf",
+          "sha256": "a4eba045cfbdf27178f9306658ddde71be157d5db6a8b0c2656fc4b7d920d176",
+          "pages": 2,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-writing-questions.json"
+        },
+        "solutions": {
+          "file": "writing-solutions.pdf",
+          "sha256": "403026a163f4530d7937d38291a147f367058baf4a5e9e382cd12a6009c20b7e",
+          "pages": 1,
+          "fixed_template": "pass-fixed-template",
+          "visual_review": "pending",
+          "source": "hosted-writing-solutions.json"
+        }
+      }
+    }
+  ],
+  "scope": "Placeholder layout previews; no authored questions, difficulty or full-paper acceptance",
+  "build_seconds": 417.032
+}

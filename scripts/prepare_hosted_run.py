@@ -564,6 +564,14 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                     proofs[kind]['rasters'].append({'path': raster.relative_to(run_dir).as_posix(),
                                                    'sha256': digest(raster)})
         report['cache_inputs'] = cache_inputs(font)
+        if subject in {'社會', '自然', '英文'} and not os.environ.get('TAIWAN_EXAM_SKIP_IMAGE_PROBE'):
+            # Both 116 社會 runs learned that web images were unreachable only after writing
+            # 60 items. Four seconds here says whether to search the web or use the library.
+            from photo_library import probe as image_probe
+            try:
+                report['image_sources'] = image_probe()
+            except Exception as error:  # a probe must never block authoring
+                report['image_sources'] = {'error': str(error)[:200]}
         report.update(status='ready-for-authoring', proofs=proofs,
                       next_action='Continue in this same response; do not end it to report the preflight. '
                       'Open the small proof rasters and check field/font fit, then run checkpoint --phase authoring '

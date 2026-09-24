@@ -11,6 +11,9 @@ REVIEW_MODES = ('independent-context', 'single-context')
 # official 115 數學B scores exactly 70 and 30 points, the project's floors. Without them
 # hosted reviewers placed the same item on either side of 0.50 in successive rounds.
 CHINESE_MEAN_P_MAX = 0.62
+# 社會 111-115 objective items average 0.60, 0.51, 0.55, 0.52, 0.57 (official statistics); two
+# hosted 116 papers had keys that were the longest option in 40 and 42 of 54 items.
+SOCIAL_MEAN_P_MAX = 0.65
 MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
 
 
@@ -120,6 +123,15 @@ def review_errors(exam, review):
         elif estimates and sum(estimates) / len(estimates) > CHINESE_MEAN_P_MAX:
             errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} is easier than any official '
                           f'國綜 paper (111-115: 0.48-0.58; ceiling {CHINESE_MEAN_P_MAX})')
+    if exam.get('metadata', {}).get('subject') == '社會':
+        chosen = [q for q in exam['questions'] if q.get('options')]
+        estimates = [rows.get(q['id'], {}).get('estimated_p') for q in chosen]
+        if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
+            errors.append('difficulty: record estimated_p (the predicted 答對率, 0-1) for every 社會 choice item')
+        elif estimates and sum(estimates) / len(estimates) > SOCIAL_MEAN_P_MAX:
+            errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} of the choice items is easier '
+                          f'than any official 社會 paper (111-115: 0.51-0.60; ceiling {SOCIAL_MEAN_P_MAX}): make distractors '
+                          'as long and plausible as the key, each failing on one specific concept')
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
                             if type(r.get('expected_minutes')) in (int,float))

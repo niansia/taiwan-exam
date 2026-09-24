@@ -11,51 +11,77 @@
     },
     {
       "kind": "section",
-      "title": "一、選擇題",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
-    },
-    {
-      "kind": "passage",
-      "id": "layout-social-sources",
-      "heading": "〔歷史史料／地理材料／公民資料的題組位置〕",
-      "paragraphs": [
-        "甲：〔本次新來源材料與必要出處〕",
-        "乙：〔與甲構成實際推論關係的新材料〕"
-      ]
+      "title": "第壹部分、選擇題（占76分）",
+      "directions": "說明：第1題至第38題為單選題，每題2分。"
     },
     {
       "kind": "choice",
       "id": "layout-social-choice",
       "number": 1,
-      "text": "〔新題幹與四個選項；不是固定考查某一歷史或政策主題〕",
+      "text": "〔本次新題幹：材料寫出事件的年、月與必要證據，考一個必修概念〕",
       "options": [
         {
           "label": "(A)",
-          "text": "〔本次新選項內容〕"
+          "text": "〔四個選項寫成同樣長度，正解不是最長的〕"
         },
         {
           "label": "(B)",
-          "text": "〔本次新選項內容〕"
+          "text": "〔每個錯誤選項都錯在一個具體概念上〕"
         },
         {
           "label": "(C)",
-          "text": "〔本次新選項內容〕"
+          "text": "〔選項句末不加句號，字數與其他相同〕"
         },
         {
           "label": "(D)",
-          "text": "〔本次新選項內容〕"
+          "text": "〔不以「再蒐集資料」一類說法當作正解〕"
         }
-      ]
+      ],
+      "columns": 1
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-social-group",
+      "group_label": "26-27 為題組",
+      "group_label_style": "underline",
+      "text": "〔本次新材料：真實來源，每段首行縮排；公民、歷史、地理的證據寫在同一段材料裡，段末可接「請問：」〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-social-short",
+      "number": 26,
+      "text": "〔依材料命製的題幹；選項七字以內時四個一列〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔原料〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔市場〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔動力〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔資金〕"
+        }
+      ],
+      "columns": 4
     },
     {
       "kind": "section",
-      "title": "二、圖表與跨領域混合題",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+      "title": "第貳部分、混合題或非選擇題（占68分）",
+      "directions": "說明：本部分共有11題組，單選題每題2分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。選擇題與「非選擇題作圖部分」使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，並依題目指示作答。"
     },
     {
       "kind": "stimulus",
       "id": "layout-social-figure",
-      "text": "〔本次新地圖、史料圖像或統計圖；須獨立查證，不沿用灰色框〕",
+      "group_label": "47-49 為題組",
+      "group_label_style": "underline",
+      "text": "〔本次新材料；照片先上網搜尋、網路不通時用 photo_library.py，地圖與統計圖依查證資料自繪〕",
       "assets": {
         "figure": {
           "path": "hosted-body-figure-placeholder.svg",
@@ -67,34 +93,39 @@
       "figure_position": "right"
     },
     {
-      "kind": "table",
-      "id": "layout-social-data",
-      "text": "〔跨材料比較表／填答欄〕",
-      "headers": [
-        "材料或條件",
-        "可觀察證據",
-        "待填內容"
-      ],
-      "rows": [
-        [
-          "〔新材料〕",
-          "〔必要資料〕",
-          "〔作答欄〕"
-        ],
-        [
-          "〔新材料〕",
-          "〔必要資料〕",
-          "〔作答欄〕"
-        ]
-      ],
-      "keep_with_next": true
+      "kind": "constructed",
+      "id": "layout-social-short-answer",
+      "number": 49,
+      "text": "〔本次資料判讀要求〕請在答題卷作答區作答。（3 分，35 字內）",
+      "score": 3,
+      "score_in_text": true
     },
     {
       "kind": "constructed",
-      "id": "layout-social-short",
-      "number": 2,
-      "text": "〔本次資料判讀、比較或論證要求；正式字數與配分依題型〕",
-      "score": 3
+      "id": "layout-social-table-item",
+      "number": 50,
+      "text": "〔同一題的勾選與說明：請在答題卷勾選一個正確選項，並說明判斷理由。〕（4 分）",
+      "score": 4,
+      "keep_with_next": true,
+      "score_in_text": true
+    },
+    {
+      "kind": "table",
+      "id": "layout-social-response",
+      "headers": [
+        "〔勾選項目〕（2 分）",
+        "〔判斷理由〕（2 分，30 字內）"
+      ],
+      "rows": [
+        [
+          "□〔選項一〕",
+          ""
+        ],
+        [
+          "□〔選項二〕",
+          ""
+        ]
+      ]
     }
   ]
 }

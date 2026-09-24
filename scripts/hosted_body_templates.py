@@ -82,6 +82,7 @@ sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
 .cn-material {margin-left:18.2pt;font-family:Kai,Body;text-align:justify} .cn-material p {margin:0}
 .cn-material.inline {margin-left:0} .cn-material p.indent {text-indent:24pt} .cn-material p.hang {padding-left:22.8pt;text-indent:-22.8pt}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
+.social-material p {margin:0;text-indent:24pt;text-align:justify} .social-material p.flush {text-indent:0}
 '''
 
 
@@ -129,6 +130,8 @@ def option_pitch(columns, subject=None):
     subject = subject if subject is not None else _subject
     if subject == '國綜' and columns == 2:
         return 221.1  # 115 prints the second column at x 303.2 (114: 298)
+    if subject == '社會' and columns in (2, 4):
+        return {2: 225.0, 4: 112.6}[columns]  # 111-115: (B) at 306.8 two abreast, 194.4 four abreast
     pitch = 30 * (8 - columns) if 2 <= columns <= 5 else 0
     return pitch - (2 if subject == '自然' else 0)
 
@@ -146,6 +149,21 @@ def material_markup(value, inline=False):
         cls = 'hang' if re.match(r'[甲乙丙丁戊]、', plain) else '' if re.match(r'[（(]', plain) else 'indent'
         rows.append(f'<p class="{cls}">{text(piece)}</p>')
     return f'<div class="cn-material{" inline" if inline else ""}">' + ''.join(rows) + '</div>'
+
+
+def social_material_markup(value):
+    """社會 題組 material as 111-115 print it: at the margin, each paragraph's first line 24 pt
+    in (115 26-27: 「在某大城市」 at x 87.8, the margin 63.8); a 甲、 or （一） line stays flush."""
+    if isinstance(value, dict):
+        pieces = [{'rich': piece} for piece in re.split(r'(?:<br>\s*){2,}', value['rich']) if piece.strip()]
+    else:
+        pieces = [piece for piece in PARAGRAPH_BREAK.split(str(value)) if piece.strip()]
+    rows = []
+    for piece in pieces:
+        plain = html.unescape(re.sub('<[^>]+>', '', piece['rich'] if isinstance(piece, dict) else piece)).strip()
+        flush = re.match(r'[甲乙丙丁戊己]、|[（(][一二三四五1-9]', plain)
+        rows.append(('<p class="flush">' if flush else '<p>') + text(piece) + '</p>')
+    return '<div class="social-material">' + ''.join(rows) + '</div>'
 
 
 def item_gap_pt(subject):
@@ -628,6 +646,8 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         stem=_writing_stem(block)
     if block.get('material') is True and kind=='stimulus':
         stem=material_markup(block.get('text',''))
+    elif kind=='stimulus' and _subject=='社會' and re.sub(r'<[^>]+>|\s','',str((block.get('text') or {}).get('rich','') if isinstance(block.get('text'),dict) else block.get('text') or '')):
+        stem=social_material_markup(block['text'])
     elif block.get('material') and head:
         stem+=material_markup(block['material'],inline=True)  # already in the item's text column
     if kind=='solution':

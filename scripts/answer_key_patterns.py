@@ -49,6 +49,42 @@ def _group_key(question):
     return None
 
 
+def sequence_errors(sequence, labels, stage='final'):
+    """Balance, runs and cycles of one label population, in printed order.
+
+    The paper plan (check_paper_plan.py) runs the same test on the planned key: a hosted
+    社會 plan with a four-item cycle over 29-43 passed its plan check, which looked only
+    for periods 2 and 3, and was caught after all 65 items were written.
+    """
+    errors = []
+    if len(sequence) >= MIN_POPULATION_MULTIPLE * len(labels):
+        counts = Counter(sequence)
+        values = [counts[label] for label in labels]
+        if min(values) == 0 or max(values) - min(values) > 1:
+            errors.append(f'{stage} single-choice answer positions are not near-even for {labels}: {dict(counts)}')
+        run = 1
+        for previous, current in zip(sequence, sequence[1:]):
+            run = run + 1 if current == previous else 1
+            if run >= 4:
+                errors.append(f'{stage} single-choice answer key contains four identical positions in succession')
+                break
+        for period in range(2, 5):
+            # Two full repeats plus a partial third already give the pattern
+            # away: the paper's vocabulary key 1-4-3-2-1-4-3-2-1-4 has ten items.
+            needed = 2 * period + 2  # p=2 needs three repeats; p=4 needs two and a half
+            longest, stretch = 0, period
+            for i in range(period, len(sequence)):
+                stretch = stretch + 1 if sequence[i] == sequence[i - period] else period
+                longest = max(longest, stretch)
+            if longest >= needed:
+                errors.append(f'{stage} single-choice answer key contains a mechanical period-{period} cycle over {longest} items')
+                break
+        if len(sequence) >= NO_REPEAT_SUSPECT and all(a != b for a, b in zip(sequence, sequence[1:])):
+            errors.append(f'{len(sequence)} consecutive single-choice answers never repeat a position: a rotated '
+                          'key, not a random one (official keys repeat neighbours regularly)')
+    return errors
+
+
 def answer_pattern_errors(exam, *, require_full=True):
     metadata = exam.get('metadata') or {}
     if require_full and metadata.get('generation_mode') != 'full-paper':
@@ -56,31 +92,7 @@ def answer_pattern_errors(exam, *, require_full=True):
     errors = []
     for labels, rows in _single_choice_populations(exam).items():
         sequence = [answer for _, answer, _ in rows]
-        if len(rows) >= MIN_POPULATION_MULTIPLE * len(labels):
-            counts = Counter(sequence)
-            values = [counts[label] for label in labels]
-            if min(values) == 0 or max(values) - min(values) > 1:
-                errors.append(f'final single-choice answer positions are not near-even for {labels}: {dict(counts)}')
-            run = 1
-            for previous, current in zip(sequence, sequence[1:]):
-                run = run + 1 if current == previous else 1
-                if run >= 4:
-                    errors.append('final single-choice answer key contains four identical positions in succession')
-                    break
-            for period in range(2, 5):
-                # Two full repeats plus a partial third already give the pattern
-                # away: the paper's vocabulary key 1-4-3-2-1-4-3-2-1-4 has ten items.
-                needed = 2 * period + 2  # p=2 needs three repeats; p=4 needs two and a half
-                longest, stretch = 0, period
-                for i in range(period, len(sequence)):
-                    stretch = stretch + 1 if sequence[i] == sequence[i - period] else period
-                    longest = max(longest, stretch)
-                if longest >= needed:
-                    errors.append(f'final single-choice answer key contains a mechanical period-{period} cycle over {longest} items')
-                    break
-            if len(sequence) >= NO_REPEAT_SUSPECT and all(a != b for a, b in zip(sequence, sequence[1:])):
-                errors.append(f'{len(sequence)} consecutive single-choice answers never repeat a position: a rotated '
-                              'key, not a random one (official keys repeat neighbours regularly)')
+        errors.extend(sequence_errors(sequence, labels))
         if len(sequence) >= MONOTONE_RUN:
             start = _monotone_run(sequence, labels, MONOTONE_RUN)
             if start is not None:

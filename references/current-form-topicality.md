@@ -69,14 +69,14 @@ them explicitly for a themed or historical simulation.
 | 英文 | ≥ 2 verified recent sources carrying ≥ 6 items (passages, not vocabulary sentences); the composition prompt declares a verified `current_trend` | every official year on recency (no year has two recent passages); 111 (composition) |
 | 國綜 | ≥ 2 verified recent sources carrying ≥ 4 items; ≥ 2 passages tagged `taiwan` | every official year (each has exactly one recent group) |
 | 國寫 | ≥ 1 task tied to a verified `current_trend` source | 112 |
-| 社會 | ≥ 6 items within the year, ≥ 2 of them within 180 days, per `validate_social_item_design.py` | every official year (about 12% strict recent items, few within six months) |
+| 社會 | ≥ 10 items within the year, ≥ 4 of them within 180 days, from ≥ 5 materials and ≥ 4 in each part, per `validate_social_item_design.py` (raised 2026-09-24) | every official year (about 12% strict recent items, few within six months) |
 
 These floors were raised on 2026-09-22 after the maintainer judged the 2026-09-21 floors
 (自然 4/6/120 days, 英文 1/3, 國綜 1/2, 社會 3) still too thin: the generated 自然 and 社會
 papers stopped exactly at the minimum. Every floor now sits above the official range, so a
 paper meeting it is deliberately more topical than any official year; the reference
 disclosure above is the honest statement of that gap. Targets above the floor: 自然 6–7
-contexts with 9–12 items; 英文 2–3 recent passages; 國綜 2 groups; 社會 8–10 items. Do not exceed the official share by turning the paper
+contexts with 9–12 items; 英文 2–3 recent passages; 國綜 2 groups; 社會 10–13 items. Do not exceed the official share by turning the paper
 into a news quiz: every recent item still passes the source-relation and removal tests in
 [current-source-transformation.md](current-source-transformation.md), and the discipline,
 difficulty and reading-load balances are unchanged.

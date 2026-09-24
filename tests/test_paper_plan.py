@@ -1,4 +1,5 @@
 import copy
+import random
 from collections import Counter
 import sys
 from pathlib import Path
@@ -24,7 +25,9 @@ def make_plan(subject):
         if 'option_labels' not in q:continue
         labels=tuple(q['option_labels']);p=populations.setdefault(labels,{'single':[],'multi':[]})
         if q['type']=='single_choice':
-            q['planned_correct_labels']=[labels[len(p['single'])%len(labels)]];p['single']+=q['planned_correct_labels']
+            # Balanced but not rotated: each block of len(labels) keys is a seeded shuffle.
+            n=len(p['single']);block=list(labels);random.Random(n//len(labels)).shuffle(block)
+            q['planned_correct_labels']=[block[n%len(labels)]];p['single']+=q['planned_correct_labels']
         else:q['planned_correct_labels']=list(labels[:2]);p['multi']+=q['planned_correct_labels']
     counts=Counter(q['band'] for q in items)
     meta={'subject':subject,'duration_minutes':official['duration_minutes'],'total_score':official['total_score'],
@@ -67,3 +70,15 @@ def test_planned_visual_material_is_deduplicated():
     plan=make_plan('自然')
     for q in plan['items']:q['visual_plan']['asset_id']='same-figure'
     assert any('planned visuals' in e for e in validate(plan)['errors'])
+
+
+def test_plan_rejects_a_four_item_rotation_like_the_final_key_check():
+    # A hosted 社會 plan keyed 29-43 in a four-item cycle and passed its plan check.
+    plan=make_plan('社會')
+    single=[q for q in plan['items'] if q.get('type')=='single_choice']
+    for i,q in enumerate(single):q['planned_correct_labels']=[q['option_labels'][i%4]]
+    labels=tuple(single[0]['option_labels'])
+    for row in plan['answer_distribution_plan']:
+        if tuple(row['option_labels'])==labels:
+            row['single_counts']={v:sum(q['planned_correct_labels']==[v] for q in single) for v in labels}
+    assert any('period-4 cycle' in e for e in validate(plan)['errors'])

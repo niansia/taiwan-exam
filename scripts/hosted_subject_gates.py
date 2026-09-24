@@ -154,6 +154,9 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
                 errors.append('social: ' + where + str(row.get('code')) + (f' {extra}' if extra else ''))
             else:
                 errors.append('social: ' + str(row))
+        if full:
+            from validate_social_layout_contract import validate_exam as social_layout
+            errors.extend('social-layout: ' + e for e in social_layout(exam))
     elif subject == '國寫' and full:
         from validate_writing_layout_contract import validate_exam as writing_form
         errors.extend('writing-form: ' + e for e in writing_form(exam))

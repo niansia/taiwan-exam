@@ -68,6 +68,14 @@ SOCIAL_BREADTH = {
     "公民與社會": {"社會生活的組織及制度": ("B", 4)},
 }
 SOCIAL_CIVICS_DISTINCT_THEMES = 3
+# Recency floors (maintainer decision 2026-09-24): ten items on events or substantive updates
+# within a year of the lock, four of them within 180 days, drawn from five different materials
+# and at least four in each part, so the 第壹部分 single items carry dated current material too.
+WITHIN_YEAR_MIN, FRESH_MIN, CURRENT_MATERIALS_MIN, WITHIN_YEAR_PER_PART_MIN = 10, 4, 5, 4
+# 題組 whose items put 歷史, 地理 and 公民與社會 each in the lead at least once. The 115 feature
+# report lists 30-33 and 36-38 as 史地公 groups in 第壹部分; the maintainer asks for the same
+# three-subject integration in 第貳部分.
+THREE_SUBJECT_GROUPS_MIN = {"first": 1, "second": 2}
 
 
 def canonical_content_code(value: Any) -> str:
@@ -244,6 +252,29 @@ def curriculum_breadth_errors(questions: list[dict[str, Any]]) -> list[dict[str,
     return errors
 
 
+def three_subject_group_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
+    """題組 whose items lead with 歷史, 地理 and 公民與社會 at least once each, per part."""
+    sections = [s.get("id") for s in exam.get("sections") or [] if isinstance(s, dict)]
+    if len(sections) < 2:
+        return []
+    groups: dict[str, dict[str, Any]] = {}
+    for q in exam.get("questions") or []:
+        if not isinstance(q, dict) or not str(q.get("group_stimulus") or "").strip():
+            continue
+        spec = q.get("item_spec") if isinstance(q.get("item_spec"), dict) else {}
+        row = groups.setdefault(str(q["group_stimulus"]).strip(), {"section": q.get("section_id"), "domains": set()})
+        row["domains"].add(str(spec.get("domain") or q.get("domain") or ""))
+    errors = []
+    for part, section_id in (("first", sections[0]), ("second", sections[1])):
+        found = sum(1 for g in groups.values() if g["section"] == section_id and VALID_DOMAINS <= g["domains"])
+        if found < THREE_SUBJECT_GROUPS_MIN[part]:
+            errors.append({"code": "three_subject_groups_too_few", "part": "第壹部分" if part == "first" else "第貳部分",
+                           "found": found, "minimum": THREE_SUBJECT_GROUPS_MIN[part],
+                           "detail": "同一題組的各題分別以歷史、地理、公民為主科（115 年 30-33、36-38 題）；"
+                                     "三題共用一段真實材料，刪去任一科的證據就答不出該題。"})
+    return errors
+
+
 def objective_order_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
     """Check standalone blocks only; a mixed-section choice is not a standalone.
 
@@ -309,6 +340,8 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
     editorial_lock_dates: set[date] = set()
     current_score = 0.0
     current_clusters: set[tuple[str, ...]] = set()
+    within_year_materials: set[str] = set()
+    within_year_by_section: Counter[str] = Counter()
     objective_current_clusters: set[tuple[str, ...]] = set()
     competence_items = 0
     basic_items = 0
@@ -373,8 +406,6 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(question, dict):
             continue
         qid = str(question.get("id") or question.get("number") or "unknown")
-        if question.get("options") and question.get("option_layout") != "stack":
-            errors.append({"code": "social_options_not_stacked", "question_id": qid})
         spec = question.get("item_spec") if isinstance(question.get("item_spec"), dict) else {}
         if question.get("visual_asset"):
             visible_text = f'{question.get("group_stimulus") or ""}\n{question.get("prompt") or ""}'
@@ -530,6 +561,9 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
                         errors.append({"code": "current_event_after_lock", "question_id": qid})
                     elif published <= lock and year_start <= happened and spec.get("fact_check_status") == "verified":
                         within_year_items += 1
+                        within_year_materials.add(str(question.get("group_stimulus") or "").strip()
+                                                  or "|".join(sorted(map(str, spec.get("source_ids") or []))) or qid)
+                        within_year_by_section[str(question.get("section_id"))] += 1
                         if (lock - happened).days <= 180:
                             fresh_items += 1
                 else:
@@ -591,12 +625,25 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
                 "maximum_allowed_gap": 0.08,
             })
         # Official 111-115 papers carry 6-10 strictly datable within-two-year items; the
-        # maintainer wants recency above the weakest year, so six within one year and two
-        # within 180 days of the lock are the floors (see current-form-topicality.md).
-        if within_year_items < 6:
-            errors.append({"code": "within_year_current_context_items_too_few", "found": within_year_items, "minimum": 6})
-        if fresh_items < 2:
-            errors.append({"code": "fresh_current_context_items_too_few", "found": fresh_items, "minimum": 2, "window_days": 180})
+        # maintainer asked for clearly more (see current-form-topicality.md).
+        if within_year_items < WITHIN_YEAR_MIN:
+            errors.append({"code": "within_year_current_context_items_too_few", "found": within_year_items,
+                           "minimum": WITHIN_YEAR_MIN})
+        if fresh_items < FRESH_MIN:
+            errors.append({"code": "fresh_current_context_items_too_few", "found": fresh_items, "minimum": FRESH_MIN,
+                           "window_days": 180})
+        if within_year_items and len(within_year_materials) < CURRENT_MATERIALS_MIN:
+            errors.append({"code": "within_year_items_share_too_few_materials", "found": len(within_year_materials),
+                           "minimum": CURRENT_MATERIALS_MIN,
+                           "detail": "一年內時事題須分散在至少 5 份不同材料，不能由一兩則新聞撐起。"})
+        section_ids = [s.get("id") for s in exam.get("sections") or [] if isinstance(s, dict)]
+        if len(section_ids) >= 2:
+            for part, section_id in zip(("第壹部分", "第貳部分"), section_ids[:2]):
+                if within_year_by_section[str(section_id)] < WITHIN_YEAR_PER_PART_MIN:
+                    errors.append({"code": "within_year_items_missing_from_part", "part": part,
+                                   "found": within_year_by_section[str(section_id)], "minimum": WITHIN_YEAR_PER_PART_MIN,
+                                   "detail": "兩部分都要有標明年月的近一年時事題，第壹部分單題與題組也要有。"})
+        errors.extend(three_subject_group_errors(exam))
         if len(editorial_lock_dates) > 1:
             errors.append({"code": "inconsistent_editorial_lock_dates"})
 
@@ -633,7 +680,8 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
             "完整卷每題另須通過社會科創新命題稽核；新地名、年份、政策名稱、圖片或來源不能替代新的證據與推理結構。",
             "社會完整卷另以內部反短材料門檻檢查可見證據量與獨立材料中位長度；這些值是退件下限，不是要求逐題灌字或冒充大考中心統計。",
             "時事只提供證據情境；題目不得要求考生事先知道新聞。",
-            "完整卷預設至少 6 題依賴截稿日前一年內的事件或實質更新，其中至少 2 題在 180 天內；其餘選材不設新鮮度、時事配分或分區配額。日期計數仍須來源及內容複核。",
+            "完整卷至少 10 題依賴截稿日前一年內的事件或實質更新，其中至少 4 題在 180 天內，分散在至少 5 份材料、兩部分各至少 4 題；日期計數仍須來源及內容複核。",
+            "第壹部分至少 1 個、第貳部分至少 2 個題組的各題分別以歷史、地理、公民為主科。",
         ],
     }
 
