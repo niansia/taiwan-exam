@@ -80,6 +80,66 @@ def _svg_primitives(path: Path) -> set[str]:
     return {node.tag.rsplit("}", 1)[-1] for node in root.iter()}
 
 
+# Figure and table labels print in Chinese outside 英文 (maintainer decision 2026-09-25): a
+# hosted 自然 paper headed a table 「sample／sulfate／carbonate」 and labelled figures
+# 「electrolyte」「reaction progress」 where the booklets print 樣品、硫酸根、電解液、反應進程.
+# A word is four or more letters in lower case after its first (so symbols, units such as
+# mol and kWh, formulas such as NaHCO3 and acronyms such as DNA, NOAA and LED stay allowed).
+ENGLISH_LABEL_EXEMPT_SUBJECTS = {"英文"}
+ENGLISH_WORD = re.compile(r"(?<![A-Za-z])[A-Za-z][a-z]{3,}(?![A-Za-z])")
+LATIN_LABEL_ALLOWED = {
+    "mmol", "kmol", "kcal", "mbar", "torr", "alpha", "beta", "gamma", "delta", "theta", "lambda",
+    "sigma", "omega", "sinh", "cosh", "tanh",
+}
+SVG_TEXT_TAGS = {"text", "tspan", "textPath"}
+# semantic_data fields that print (axis names, legends, table headers and cells), not style
+# settings such as {"style": "dashed"}.
+PRINTED_KEY = re.compile(r"label|title|header|caption|name|text|legend|row|column|cell|categor|annotation|axis|tick|unit",
+                         re.I)
+
+
+def _label_strings(value: Any, printed: bool = False) -> list[str]:
+    if isinstance(value, str):
+        return [value] if printed else []
+    if isinstance(value, dict):
+        return [s for k, v in value.items() for s in _label_strings(v, printed or bool(PRINTED_KEY.search(str(k))))]
+    if isinstance(value, list):
+        return [s for v in value for s in _label_strings(v, printed)]
+    return []
+
+
+def _asset_label_text(path: Path) -> list[str]:
+    """Printed words of a vector asset: SVG text nodes or a PDF page's text (rasters are unreadable)."""
+    suffix = path.suffix.lower()
+    try:
+        if suffix == ".svg":
+            root = ET.parse(path).getroot()
+            return ["".join(node.itertext()) for node in root.iter() if node.tag.rsplit("}", 1)[-1] in SVG_TEXT_TAGS]
+        if suffix == ".pdf":
+            import pymupdf
+            with pymupdf.open(path) as doc:
+                return [page.get_text() for page in doc]
+    except Exception:
+        return []
+    return []
+
+
+def english_label_errors(number: Any, spec: dict[str, Any], path: Path, subject: Any) -> list[str]:
+    if str(subject) in ENGLISH_LABEL_EXEMPT_SUBJECTS or str(spec.get("kind")) in PHOTOGRAPHIC_KINDS:
+        return []
+    texts = _label_strings(spec.get("semantic_data")) + (_asset_label_text(path) if path.is_file() else [])
+    words = []
+    for value in texts:
+        for word in ENGLISH_WORD.findall(value):
+            if word.lower() not in LATIN_LABEL_ALLOWED and word not in words:
+                words.append(word)
+    if not words:
+        return []
+    return [f"Q{number}: figure/table labels print English words ({'、'.join(words[:6])}); {subject} booklets label "
+            "figures and tables in Chinese (樣品、時間、電解液、反應進程); keep only symbols, units, formulas and "
+            "acronyms such as x, t (s), mol, NaCl, DNA in Latin letters"]
+
+
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -110,6 +170,7 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         if not isinstance(spec, dict):
             errors.append(f"Q{number}: visual_asset lacks visual_spec")
             continue
+        errors.extend(english_label_errors(number, spec, asset_root / str(asset.get("path") or ""), subject))
         missing_fields = sorted(field for field in REQUIRED_SPEC_FIELDS if spec.get(field) in (None, ""))
         if missing_fields:
             errors.append(f"Q{number}: visual_spec fields missing: {', '.join(missing_fields)}")

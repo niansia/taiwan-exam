@@ -373,6 +373,10 @@ def figure_selfcheck(root, exam, *, asset_issues=None):
                 continue
             if asset_issues is not None:
                 entry['errors'].extend(asset_issues(path, asset, inline=inline))
+            if isinstance(asset.get('visual_spec'), dict):
+                from validate_visual_item_contract import english_label_errors
+                subject = (exam.get('metadata') or {}).get('subject')
+                entry['errors'].extend(e.split(': ', 1)[1] for e in english_label_errors(label, asset['visual_spec'], path, subject))
             text = page.get_text() or ''
             missing = sorted(set(MISSING_GLYPH.findall(text)))
             if missing:

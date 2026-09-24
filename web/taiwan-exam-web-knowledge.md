@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 88527,
-    "sha256": "f6a7d83cb444306f47313ab83859f984bf4a1fa2028618feb825a127ed6d8158",
-    "embedded_bytes": 88527,
-    "embedded_sha256": "f6a7d83cb444306f47313ab83859f984bf4a1fa2028618feb825a127ed6d8158"
+    "bytes": 88955,
+    "sha256": "afabbda1ad3f3b77639a11127d2ac97f5e822729d25e7c9abd76ba25b687deae",
+    "embedded_bytes": 88955,
+    "embedded_sha256": "afabbda1ad3f3b77639a11127d2ac97f5e822729d25e7c9abd76ba25b687deae"
   },
   {
     "path": "core/taxonomy.json",
@@ -785,10 +785,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/visual-generation.md",
-    "bytes": 16141,
-    "sha256": "5ed356029887cf12f90d804ac1e6c58f021b7e58f265e111a0f4b3c654b21aa3",
-    "embedded_bytes": 16141,
-    "embedded_sha256": "5ed356029887cf12f90d804ac1e6c58f021b7e58f265e111a0f4b3c654b21aa3"
+    "bytes": 16567,
+    "sha256": "57a0ef6900b0f7c3ffd791495865f339ecfcc049b6f5fad5d08e8ebb35eccfd1",
+    "embedded_bytes": 16567,
+    "embedded_sha256": "57a0ef6900b0f7c3ffd791495865f339ecfcc049b6f5fad5d08e8ebb35eccfd1"
   },
   {
     "path": "references/web-platform-use.md",
@@ -981,10 +981,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_evidence_refresh.py",
-    "bytes": 20685,
-    "sha256": "eb0a526c3fd2d1c4d68728956130c0b87d5702d08e49ce63deb0451a4888f92b",
-    "embedded_bytes": 20685,
-    "embedded_sha256": "eb0a526c3fd2d1c4d68728956130c0b87d5702d08e49ce63deb0451a4888f92b"
+    "bytes": 21027,
+    "sha256": "54d40beb07777957167a608517a5f58ca5439329fac529d3e5b1866182b9d9ce",
+    "embedded_bytes": 21027,
+    "embedded_sha256": "54d40beb07777957167a608517a5f58ca5439329fac529d3e5b1866182b9d9ce"
   },
   {
     "path": "scripts/hosted_item_layout.py",
@@ -1226,10 +1226,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_visual_item_contract.py",
-    "bytes": 16047,
-    "sha256": "482e27d30899c4c90c4657cef6ca876d7b7b19a323dabe1a8a80790344605863",
-    "embedded_bytes": 16047,
-    "embedded_sha256": "482e27d30899c4c90c4657cef6ca876d7b7b19a323dabe1a8a80790344605863"
+    "bytes": 19158,
+    "sha256": "69543a756e4d0044b3d4dd8c00415290dfa345f464aee5887fd3b0f2284edb09",
+    "embedded_bytes": 19158,
+    "embedded_sha256": "69543a756e4d0044b3d4dd8c00415290dfa345f464aee5887fd3b0f2284edb09"
   },
   {
     "path": "scripts/validate_writing_layout_contract.py",
@@ -1744,6 +1744,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
    Every mathematics fill-in item must declare a machine-marking `answer_format`: integer/decimal/fraction/sign form, exact numerator and denominator slot counts, and the sequential answer-row ids printed in the booklet. The renderer must show the same circle/rail/fraction geometry that the student will mark; a generic blank line is a hard failure.
    A current mathematics paper must also meet its learned answer-bearing visual quota across more than one section. Until item-level 111–115 visual annotation is complete, the internal review floor is four required visuals or structured graphical representations across at least three sections, including at least one item before the mixed-response section. Decorative pictures do not count.
    The same stability requirement applies to full current Mathematics B, Natural Science, Social Studies, and English papers; it is not a Mathematics A-only feature. Until each subject/year has complete item-level annotation, use these conservative internal release floors: Mathematics A/B `4 visuals / 3 sections / 2 kinds`; Natural Science `16 / 2 / 4`, spanning physics, chemistry, biology, and earth science, including at least **1 traceable real photograph or observation image** (official 111–115 print 16–28 labelled figures a year, almost all drawn graphs, apparatus and tables, and 0–2 photographs), every figure and table captioned 「圖N／表N」 and cited in its stem; Social Studies `10 / 2 / 4`, spanning history, geography, and civics, including at least **2 traceable real photographs or archival images** and **18 items that cite a 圖／表／照片** (official 111–115: 2–4 photographs or archival images and 7–13 charts, maps and tables a year, 18–45 figure-citing items); English `3 / 2 / 2`, including at least **1 traceable real photograph** and the noncontinuous mixed material or selected composition form. The photo numbers are lower bounds only: Natural Science and Social Studies have **no photo-count upper bound**. Do not stop at two merely because the validator floor has passed; retain every additional sourced photo that introduces a distinct, answer-bearing observation and improves section, source-family, or discipline spread without harming rights safety, grayscale survival, page density, or solving time. Equally, never add a decorative image merely to increase the count. Generated photorealism, screenshots, decorative pictures, and photographs whose decisive evidence disappears in grayscale do not satisfy these real-image floors. These are product floors, not claimed CEEC frequencies. A selected annotated profile may raise the minimum, never silently lower it or impose an arbitrary maximum.
+   Label every figure and table in Chinese outside 英文 (樣品、硫酸根、電解液、反應進程、時間), as the official booklets do; keep only symbols, units, formulas and acronyms (x, t (s), mol, NaCl, DNA, NOAA) in Latin letters. `validate_visual_item_contract.py` rejects English words in `semantic_data` labels, SVG text and PDF figures; it cannot read a raster, so check a PNG's labels when reviewing the page.
    Every counted visual must be evidence or required for solution, set `item_spec.requires_diagram: true`, include a schema-complete `visual_asset.visual_spec`, enumerate answer-bearing features, and fail the visual-removal test. Run `scripts/validate_visual_item_contract.py generated-exam.json`. If a full paper misses its subject envelope, replace the failed or text-only item with a newly designed visual item and re-solve it; never attach a decorative image to preserve an old stem or enlarge a figure to fill the page.
    The declared visual kind must match the **rendered scientific topology**, not merely its metadata label. A coordinate graph needs axes, scales and plotted marks; a profile or cross-section needs spatial layers/paths; a spectrum needs a wavelength axis and spectral lines; an apparatus or circuit needs connected components; a flowchart needs meaningful nodes and directed links. A one-column box that restates prompt values is not a graph, map, profile, spectrum, apparatus, process diagram, or evidence matrix. Do not route heterogeneous visual kinds through one generic label-and-row panel. A genuine data table must have an explicit row/column comparison structure used by the solution; a vertical list of already printed facts is not a data table. If removing the figure leaves every number and relation needed for the answer in the prose, remove the redundant figure or rewrite the item so the figure actually carries evidence. Before release, record `representation_audit` with the topology family, rendered primitive types, semantic channels, prompt-redundancy result, and visual-removal result; reject repeated near-identical panel topology masquerading as representation diversity.
    A sourced photograph must preserve the downloaded original beside the placed derivative and hash-bind both files. Record the stable source page, creator or agency, rights/license, original-file path and hash, fixed crop, processing steps, target print width, and effective raster resolution. Convert the placed asset to a fixed grayscale or bilevel file before pagination; do not rely on printer conversion. The final-size review must locate every answer-bearing boundary, object, count, texture, label, or relative tone in the monochrome page without consulting the color original.
@@ -65341,6 +65342,8 @@ Use a deterministic renderer when a pixel can change the answer:
 
 For maps, record the subtype: reference, projection, choropleth, cartogram, thematic, route, or topographic contour. Build answer-bearing maps from authorized geodata and a deterministic renderer; do not ask an image model to invent boundaries, values, contours, or scale.
 
+Label every figure and table in Chinese outside 英文 (樣品、硫酸根、電解液、反應進程、時間), as the official booklets do; keep only symbols, units, formulas and acronyms (x, t (s), mol, NaCl, DNA, NOAA) in Latin letters. `validate_visual_item_contract.py` rejects English words in `semantic_data` labels, SVG text and PDF figures; it cannot read a raster, so check a PNG's labels when reviewing the page.
+
 Create semantic data first, solve from that data, then render it. `scripts/render_visual.py` provides grayscale-safe SVG for coordinate graphs, bar/line charts, and point/segment geometry. Extend the renderer rather than asking an image model to guess exact values.
 
 For a hybrid scene diagram, separate a non-answer-bearing illustration layer from an exact overlay layer. The background may establish the telescope, launch tower, building, transit station, camera, laboratory, or daily-life setting; the deterministic overlay must carry every ray, path, boundary, tick, angle, scale, state, or label used in the solution. Record both layers in the Visual Spec and verify the composite in grayscale. A recognizable silhouette is allowed, but copying a source photograph's composition or a historical question's topology is not.
@@ -72474,6 +72477,10 @@ def figure_selfcheck(root, exam, *, asset_issues=None):
                 continue
             if asset_issues is not None:
                 entry['errors'].extend(asset_issues(path, asset, inline=inline))
+            if isinstance(asset.get('visual_spec'), dict):
+                from validate_visual_item_contract import english_label_errors
+                subject = (exam.get('metadata') or {}).get('subject')
+                entry['errors'].extend(e.split(': ', 1)[1] for e in english_label_errors(label, asset['visual_spec'], path, subject))
             text = page.get_text() or ''
             missing = sorted(set(MISSING_GLYPH.findall(text)))
             if missing:
@@ -84610,6 +84617,66 @@ def _svg_primitives(path: Path) -> set[str]:
     return {node.tag.rsplit("}", 1)[-1] for node in root.iter()}
 
 
+# Figure and table labels print in Chinese outside 英文 (maintainer decision 2026-09-25): a
+# hosted 自然 paper headed a table 「sample／sulfate／carbonate」 and labelled figures
+# 「electrolyte」「reaction progress」 where the booklets print 樣品、硫酸根、電解液、反應進程.
+# A word is four or more letters in lower case after its first (so symbols, units such as
+# mol and kWh, formulas such as NaHCO3 and acronyms such as DNA, NOAA and LED stay allowed).
+ENGLISH_LABEL_EXEMPT_SUBJECTS = {"英文"}
+ENGLISH_WORD = re.compile(r"(?<![A-Za-z])[A-Za-z][a-z]{3,}(?![A-Za-z])")
+LATIN_LABEL_ALLOWED = {
+    "mmol", "kmol", "kcal", "mbar", "torr", "alpha", "beta", "gamma", "delta", "theta", "lambda",
+    "sigma", "omega", "sinh", "cosh", "tanh",
+}
+SVG_TEXT_TAGS = {"text", "tspan", "textPath"}
+# semantic_data fields that print (axis names, legends, table headers and cells), not style
+# settings such as {"style": "dashed"}.
+PRINTED_KEY = re.compile(r"label|title|header|caption|name|text|legend|row|column|cell|categor|annotation|axis|tick|unit",
+                         re.I)
+
+
+def _label_strings(value: Any, printed: bool = False) -> list[str]:
+    if isinstance(value, str):
+        return [value] if printed else []
+    if isinstance(value, dict):
+        return [s for k, v in value.items() for s in _label_strings(v, printed or bool(PRINTED_KEY.search(str(k))))]
+    if isinstance(value, list):
+        return [s for v in value for s in _label_strings(v, printed)]
+    return []
+
+
+def _asset_label_text(path: Path) -> list[str]:
+    """Printed words of a vector asset: SVG text nodes or a PDF page's text (rasters are unreadable)."""
+    suffix = path.suffix.lower()
+    try:
+        if suffix == ".svg":
+            root = ET.parse(path).getroot()
+            return ["".join(node.itertext()) for node in root.iter() if node.tag.rsplit("}", 1)[-1] in SVG_TEXT_TAGS]
+        if suffix == ".pdf":
+            import pymupdf
+            with pymupdf.open(path) as doc:
+                return [page.get_text() for page in doc]
+    except Exception:
+        return []
+    return []
+
+
+def english_label_errors(number: Any, spec: dict[str, Any], path: Path, subject: Any) -> list[str]:
+    if str(subject) in ENGLISH_LABEL_EXEMPT_SUBJECTS or str(spec.get("kind")) in PHOTOGRAPHIC_KINDS:
+        return []
+    texts = _label_strings(spec.get("semantic_data")) + (_asset_label_text(path) if path.is_file() else [])
+    words = []
+    for value in texts:
+        for word in ENGLISH_WORD.findall(value):
+            if word.lower() not in LATIN_LABEL_ALLOWED and word not in words:
+                words.append(word)
+    if not words:
+        return []
+    return [f"Q{number}: figure/table labels print English words ({'、'.join(words[:6])}); {subject} booklets label "
+            "figures and tables in Chinese (樣品、時間、電解液、反應進程); keep only symbols, units, formulas and "
+            "acronyms such as x, t (s), mol, NaCl, DNA in Latin letters"]
+
+
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -84640,6 +84707,7 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         if not isinstance(spec, dict):
             errors.append(f"Q{number}: visual_asset lacks visual_spec")
             continue
+        errors.extend(english_label_errors(number, spec, asset_root / str(asset.get("path") or ""), subject))
         missing_fields = sorted(field for field in REQUIRED_SPEC_FIELDS if spec.get(field) in (None, ""))
         if missing_fields:
             errors.append(f"Q{number}: visual_spec fields missing: {', '.join(missing_fields)}")
