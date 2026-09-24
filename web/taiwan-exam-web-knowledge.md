@@ -918,10 +918,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
-    "bytes": 16497,
-    "sha256": "643fe91147d7afdc393de32ac30c1d2f0497f8053c15630559d32fed464bc421",
-    "embedded_bytes": 16497,
-    "embedded_sha256": "643fe91147d7afdc393de32ac30c1d2f0497f8053c15630559d32fed464bc421"
+    "bytes": 16951,
+    "sha256": "1c24536e056cd1b30ddca05929abccecc3a3adbb17bc2af422db0dfa71d22d90",
+    "embedded_bytes": 16951,
+    "embedded_sha256": "1c24536e056cd1b30ddca05929abccecc3a3adbb17bc2af422db0dfa71d22d90"
   },
   {
     "path": "scripts/emit_item_skeleton.py",
@@ -953,10 +953,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 71239,
-    "sha256": "655a08bdc69555bb3049b62b2567f0b1bef5a894cce01e7b185f586efe8c593f",
-    "embedded_bytes": 71239,
-    "embedded_sha256": "655a08bdc69555bb3049b62b2567f0b1bef5a894cce01e7b185f586efe8c593f"
+    "bytes": 71608,
+    "sha256": "0bcc8e58a64a05fc7672bf147324d74208b5f167c45e61d336f90f6060ca0599",
+    "embedded_bytes": 71608,
+    "embedded_sha256": "0bcc8e58a64a05fc7672bf147324d74208b5f167c45e61d336f90f6060ca0599"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -69551,12 +69551,22 @@ def check_body(page, box) -> None:
         raise ValueError("Body overlay paints outside measured body box; remove headers/backgrounds, do not clip them away")
 
 
-def write_field(page, box, text: str, font, size: float, *, align: str = "center", resource=None) -> None:
+# The page-number boxes were measured on one-digit pages: a two-digit 「10」 advances 0.40 pt
+# wider than the footer box in every subject, so any booklet of ten or more inner pages (115
+# 國綜 has 11) was refused. Official page 10 prints 「- 10 -」 in the same place. A page number
+# may exceed its box by this much; its ink must still leave every locked pixel unchanged.
+PAGE_NUMBER_SLACK_PT = 1.0
+
+
+def write_field(page, box, text: str, font, size: float, *, align: str = "center", resource=None,
+                slack: float = 0) -> None:
     rect = pymupdf.Rect(box)
     if any(not font.has_glyph(ord(c)) for c in text):
         raise ValueError(f"Dynamic-field font lacks a glyph in {text!r}")
     width = font.text_length(text, fontsize=size)
-    if width > rect.width:
+    if width > rect.width + slack:
+        if slack:
+            raise ValueError(f"Page number {text!r} does not fit the fixed template's page-number field")
         raise ValueError(f"Dynamic field too long: {text!r}; supply a shorter test title")
     x = rect.x0 if align == "left" else rect.x1 - width if align == "right" else rect.x0 + (rect.width - width) / 2
     y = rect.y0 + (rect.height - size * (font.ascender - font.descender)) / 2 + size * font.ascender
@@ -69671,9 +69681,9 @@ def compose(subject: str, body: Path, asset_dir: Path, output: Path, *, year: st
                 # digits of the year, page and page count are dynamic (ROC 115 measured).
                 write_field(page, fields["year_name"], str(year), digits, field_size(subject, 'year_name'),
                             align="right", resource=digit_resource)
-                write_field(page, fields["current_page"], str(number), digits, field_size(subject, 'current_page'), resource=digit_resource)
-                write_field(page, fields["total_pages"], str(total), digits, field_size(subject, 'total_pages'), resource=digit_resource)
-                write_field(page, fields["footer"], str(number), digits, field_size(subject, 'footer'), resource=digit_resource)
+                for key, value in (("current_page", number), ("total_pages", total), ("footer", number)):
+                    write_field(page, fields[key], str(value), digits, field_size(subject, key), resource=digit_resource,
+                                slack=PAGE_NUMBER_SLACK_PT)
                 masks = [*fields.values(), geometry["body"]]
                 if component not in base_pixels:
                     base_pixels[component] = masked_pixels(assets[component][0], masks)
@@ -71305,6 +71315,11 @@ def numbered_row(label, stem, width, pitch=None):
     pitch = pitch or number_pitch()
     if re.fullmatch(r'[\w.()（）]+', html.unescape(re.sub('<[^>]+>', '', label or ''))) and label.isascii():
         label = f'<span class="latin">{label}</span>'
+    if not html.unescape(re.sub('<[^>]+>', '', label or '')).strip():
+        # PyMuPDF 1.26 drops an empty cell with its padding: a hosted 國綜 printed 32（2） and a
+        # continued item's next page at the margin, 18 pt left of （1）. A no-break space
+        # keeps the number column, padded to the same pitch as a printed number.
+        label = '&nbsp;'
     return (f'<table><tr>{padded_cell(label, pitch, mode="number")}'
             f'<td style="width:{width-pitch:g}pt">{stem}</td></tr></table>')
 
