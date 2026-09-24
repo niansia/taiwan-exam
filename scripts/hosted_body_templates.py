@@ -739,11 +739,12 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # 國綜 booklet wrapped every option at 40% of the page. Options print as a
         # sibling block: paragraphs for one column, a top-level table otherwise.
         rows=[f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}' for o in options]
+        wrap='english' if block.get('language')=='en' else ''
+        if columns>1:
+            columns=english_columns(rows,columns,archive,wrap,width)
         if columns==1:
             option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
         else:
-            wrap='english' if block.get('language')=='en' else ''
-            columns=english_columns(rows,columns,archive,wrap,width)
             alt=(width-number_pitch())/columns
             cells=[padded_cell(row,option_pitch(columns) if columns>2 or _subject!='英文' else alt,alt=alt,wrap=wrap,
                                mode='last' if (j+1)%columns==0 or j==len(rows)-1 else '') for j,row in enumerate(rows)]
@@ -805,10 +806,16 @@ HINT_LABEL = re.compile(r'^((?:<span class="kai">)?)提示[：︰]')
 
 
 def english_columns(inners, columns, archive, wrap, width):
-    """An English row of four whose longest choice overruns its 120 pt tab breaks into two
-    columns of two, as 115 prints 17 (had yet to develop) and 20 (an intimate romantic
-    dinner) with (B) and (D) at the half-width tab."""
-    if _subject != '英文' or columns < 3 or _measure_css is None:
+    """Columns that hold every option on one line at the official tab.
+
+    英文: a row of four whose longest choice overruns its 120 pt tab breaks into two columns
+    of two, as 115 prints 17 (had yet to develop) and 20 (an intimate romantic dinner) with
+    (B) and (D) at the half-width tab. 數學A/B 111-115 print options five abreast or one per
+    line (once three and two, all short); a hosted 數A paper set 13-15-character options
+    three abreast and wrapped 「相／等」 and a fraction inside their cells, so options that
+    overrun their tab print one per line."""
+    minimum = 3 if _subject == '英文' else 2 if _subject in {'數學A', '數學B'} else None
+    if minimum is None or columns < minimum or _measure_css is None:
         return columns
     widths = [_cell_advance(inner, archive, wrap) for inner in inners]
     if any(w is None for w in widths):
@@ -817,7 +824,7 @@ def english_columns(inners, columns, archive, wrap, width):
     last = width - number_pitch() - (columns - 1) * pitch  # the right column ends at the margin
     if all(w <= (last if (j + 1) % columns == 0 else pitch) for j, w in enumerate(widths)):
         return columns
-    return 2
+    return 2 if _subject == '英文' else 1
 
 
 def bank_entry(option):
