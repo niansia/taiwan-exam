@@ -1,0 +1,53 @@
+name: 出卷問題
+description: AI 出卷失敗、PDF 排版錯誤、答案或難度有問題
+title: "[出卷問題] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        謝謝回報！請不要上傳大考中心或出版社的完整試卷、個人資料或帳號資訊。
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 使用的 AI 平台
+      options:
+        - Claude（Skill ZIP）
+        - Claude（專案）
+        - ChatGPT（Skill ZIP）
+        - ChatGPT（專案）
+        - Gemini（Gem）
+        - Codex／Claude Code／Gemini CLI（本機）
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Skill 版本
+      description: 看你下載的 ZIP 檔名，例如 2026.09.22.23
+      placeholder: "2026.09.22.23"
+  - type: dropdown
+    id: subject
+    attributes:
+      label: 科目
+      options: [國綜, 國寫, 英文, 數 A, 數 B, 自然, 社會, 其他]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 發生了什麼事？
+      description: 你原本想做什麼、實際看到什麼。可以直接貼 AI 的錯誤訊息。
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: 你貼給 AI 的出卷文字
+      render: text
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截圖或 PDF 頁面
+      description: 拖曳圖片到這裡。只需要有問題的那幾頁。
