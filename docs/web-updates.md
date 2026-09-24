@@ -21,7 +21,7 @@
   - **國綜混合題（2）起點**：第二小題不印題號，題號欄是空的；雲端使用的 PyMuPDF 1.26 會把空儲存格連同寬度一起略過，（2）因此比（1）往左約 18 pt，換行縮排也跟著偏。題目跨頁時的接續段落也有同樣問題。現在空題號欄仍保留同樣寬度，（1）（2）起點一致。
   - 兩項都新增測試（舊程式失敗、新程式通過），並在 PyMuPDF 1.26 下驗證。
 
-目前的 ZIP 是 9 月 24 日第二次替換後的版本（SHA-256 `140b293dbbddc124ef95ce1a02fe46632516da66e5c6f5ed3cab4b89c36a5c3c`，8,661,947 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查，待維護者重新確認 Chrome 下載與 Claude／ChatGPT 上傳。前兩份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`）都曾由維護者確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
+目前的 ZIP 是 9 月 24 日第二次替換後的版本（SHA-256 `140b293dbbddc124ef95ce1a02fe46632516da66e5c6f5ed3cab4b89c36a5c3c`，8,661,947 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。前兩份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`）也曾分別確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 
