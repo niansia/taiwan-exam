@@ -49,7 +49,7 @@ VISUAL_KINDS = {
     "circuit", "experimental_setup", "biological_illustration", "chemical_structure", "photo",
     "document_facsimile", "other",
 }
-VISUAL_MODES = {"deterministic_svg", "chart_renderer", "image_model", "licensed_source", "none"}
+VISUAL_MODES = {"deterministic_svg", "chart_renderer", "image_model", "licensed_source", "web_source", "photo_library", "none"}
 GUIDANCE = {
     "歷屆試題": (
         "放資料到這裡.md",

@@ -262,13 +262,42 @@ def content_identity(root, state):
     return {'paper_id': state['paper_id'], 'exam_content_sha256': canonical_sha(locked), 'assets': assets}
 
 
+def asset_path_problems(root, exam):
+    """Figure records the final check rejects, reported before the first build.
+
+    A hosted 社會 run recorded 14 figures by absolute path; the final check refused them
+    after the first complete build, and making them relative then invalidated 14 items'
+    content fingerprints, costing two more builds.
+    """
+    problems = []
+    records = [(q.get('id'), 'visual_asset', q.get('visual_asset')) for q in exam.get('questions') or [] if isinstance(q, dict)]
+    records += [(a.get('question_id'), 'solution visual', a.get('visual_asset')) for a in exam.get('answers') or [] if isinstance(a, dict)]
+    for qid, label, asset in records:
+        if not isinstance(asset, dict):
+            continue
+        spec = asset.get('visual_spec') if isinstance(asset.get('visual_spec'), dict) else {}
+        for field, value in (('path', asset.get('path')), ('visual_spec.source_asset_path', spec.get('source_asset_path'))):
+            if not value:
+                continue
+            path = Path(str(value))
+            resolved = (root / path).resolve()
+            if path.is_absolute() or not resolved.is_relative_to(root):
+                problems.append(f'{qid}: {label} {field} {value!r} must be a path relative to the run directory')
+            elif not resolved.is_file():
+                problems.append(f'{qid}: {label} {field} {value!r} does not exist')
+            elif field == 'path' and asset.get('sha256') != hashlib.sha256(resolved.read_bytes()).hexdigest():
+                problems.append(f'{qid}: {label} sha256 is stale; record the hash of the file as saved')
+    return problems
+
+
 def content_lock(state_path, *, reason=None):
     state_path = Path(state_path).resolve()
     root, state = state_path.parent, read(state_path)
     identity = content_identity(root, state)
     # The subject contract the final check applies, before the first booklet exists: a
     # hosted 國綜 run learned from its whole-paper source check only after two builds.
-    problems = subject_gate_errors(read(inside(root, root / state['exam']['path'])), root=root)
+    exam = read(inside(root, root / state['exam']['path']))
+    problems = asset_path_problems(root, exam) + subject_gate_errors(exam, root=root)
     path = root / 'content-lock.json'
     previous = read(path) if path.exists() else None
     if previous and previous['identity'] != identity and not (reason or '').strip():
@@ -881,6 +910,13 @@ def option_label(label):
 
 def option_columns(question, subject):
     """Explicit option_layout first; otherwise the maintained renderer heuristic."""
+    options = question.get('options') or []
+    if subject == '社會' and len(options) == 4:
+        # 111-115 measured: options of up to 7 characters print four abreast (tab 112.6 pt),
+        # up to 16 two abreast (225 pt), longer ones one per line. The earlier rule forced
+        # every 社會 option onto its own line and hosted papers ran 3-4 pages over.
+        longest = max(len(re.sub(r'\s|<[^>]+>', '', str(o.get('text', '')))) for o in options)
+        return 4 if longest <= 7 else 2 if longest <= 16 else 1
     if question.get('option_layout') in OPTION_LAYOUT_COLUMNS:
         return OPTION_LAYOUT_COLUMNS[question['option_layout']]
     options = question.get('options') or []
@@ -1197,6 +1233,8 @@ def project_specs(exam, hints, body_width):
                 label = (f'{first}-{last} 題為題組' if subject in HYPHEN_GROUP_SUBJECTS
                          # 國綜 111-115: 「6-8為題組。閱讀下文，回答6-8題。」 on one plain line.
                          else f'{first}-{last}為題組。閱讀下文，回答{first}-{last}題。' if subject == '國綜'
+                         # 社會 111-115: 「26-27 為題組」 underlined at the margin.
+                         else f'{first}-{last} 為題組' if subject == '社會'
                          else f'第 {first} 至 {last} 題為題組')
             splits = q.get('group_stimulus_page_splits') or {}
             segments = ([(int(page), text_) for page, text_ in sorted(splits.items(), key=lambda item: int(item[0]))]
@@ -1232,7 +1270,7 @@ def project_specs(exam, hints, body_width):
                                 block['split'] = 'paragraphs'
                     if position == 0 and label and segment_blocks:
                         segment_blocks[0]['group_label'] = printed(label, where + ' label')
-                        if english or subject in HYPHEN_GROUP_SUBJECTS:
+                        if english or subject in HYPHEN_GROUP_SUBJECTS or subject == '社會':
                             segment_blocks[0]['group_label_style'] = 'underline'
                         elif subject == '國綜':
                             segment_blocks[0]['group_label_style'] = 'plain'

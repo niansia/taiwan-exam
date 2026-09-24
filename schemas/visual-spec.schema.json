@@ -45,7 +45,7 @@
     },
     "generation_mode": {
       "type": "string",
-      "enum": ["deterministic_svg", "chart_renderer", "image_model", "licensed_source", "none"]
+      "enum": ["deterministic_svg", "chart_renderer", "image_model", "licensed_source", "web_source", "photo_library", "none"]
     },
     "information_density": {"type": "integer", "minimum": 1, "maximum": 5},
     "visual_reasoning_steps": {"type": "integer", "minimum": 0, "maximum": 5},
@@ -77,10 +77,12 @@
     "semantic_data": {"type": ["object", "null"]},
     "source_rights": {
       "type": "string",
-      "enum": ["original", "licensed", "public_domain", "user_authorized", "unknown"]
+      "enum": ["original", "licensed", "public_domain", "user_authorized", "web_sourced", "unknown"]
     },
     "source_url": {"type": ["string", "null"], "format": "uri"},
     "source_creator": {"type": ["string", "null"]},
+    "source_site": {"type": ["string", "null"]},
+    "source_retrieved_at": {"type": ["string", "null"], "format": "date"},
     "source_published_at": {"type": ["string", "null"], "format": "date"},
     "license_or_authorization": {"type": ["string", "null"]},
     "source_asset_path": {"type": ["string", "null"], "minLength": 1},
@@ -131,6 +133,7 @@
           "print_legibility",
           "resolution_sufficient",
           "accessibility_text_safe",
+          "source_traceable",
           "rights_verified"
         ]
       },
@@ -152,7 +155,7 @@
         ],
         "properties": {
           "source_rights": {
-            "enum": ["original", "licensed", "public_domain", "user_authorized"]
+            "enum": ["original", "licensed", "public_domain", "user_authorized", "web_sourced"]
           }
         }
       }
@@ -161,23 +164,19 @@
       "if": {
         "properties": {
           "kind": {"const": "photo"},
-          "generation_mode": {"const": "licensed_source"}
+          "generation_mode": {"enum": ["licensed_source", "web_source", "photo_library"]}
         },
         "required": ["kind", "generation_mode"]
       },
       "then": {
         "required": [
           "source_url",
-          "source_creator",
-          "license_or_authorization",
           "source_asset_path",
           "source_asset_sha256",
           "processing_steps"
         ],
         "properties": {
-          "source_url": {"type": "string", "format": "uri"},
-          "source_creator": {"type": "string", "minLength": 1},
-          "license_or_authorization": {"type": "string", "minLength": 1}
+          "source_url": {"type": "string", "format": "uri"}
         }
       }
     },

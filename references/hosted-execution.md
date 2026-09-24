@@ -92,6 +92,15 @@ not start a separate logger or reconstruct times later. Run:
 python scripts/prepare_hosted_run.py --subject SUBJECT --run-dir run --paper-id PAPER_ID [--font FONT] [--resource-pdf UPLOADED_RESOURCE_PDF]
 ```
 
+For 社會, 自然 and 英文 the preflight also reports `image_sources`: whether web image hosts
+answer from this runtime and whether the photo library on GitHub does. Decide the photo
+route then, not after the items are written (both hosted 116 社會 runs discovered blocked
+image downloads with 60 items drafted): search the web first when it is reachable,
+otherwise `python scripts/photo_library.py fetch --run-dir run` and pick from its 59
+photographs. Plan the answer key in the paper plan, whose check now applies the final
+key test (periods 2-4, rotated keys): a hosted 社會 plan with a four-item cycle passed
+the old plan check and was reordered after all 65 items were written.
+
 Pass `--font` for an installed or user-supplied Traditional Chinese serif font
 (for example Noto Serif CJK TC). Without one, or when it lacks a glyph of the
 cover and header fields, the helper uses PyMuPDF's built-in CJK font (Droid Sans
@@ -332,7 +341,10 @@ pages are reviewed as pages. Settle pagination with `plan` before proofing a 題
 material may split, because a new split changes every crop of the group.
 
 `lock-content` runs the same subject contract as the final check and returns
-`contract_problems`: fix every one before the first build.
+`contract_problems`: fix every one before the first build. It also lists figure records
+the final check would refuse (an absolute or external `path`, a missing file, a stale
+hash): a hosted 社會 run recorded 14 figures by absolute path, learned it from the final
+check and rebuilt twice. Record every figure path relative to the run directory.
 
 Register the gate reports as soon as the first complete draft is reviewed, not at the
 end: only a registered review keeps its rows when a later correction runs

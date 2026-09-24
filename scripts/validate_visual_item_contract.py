@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
@@ -24,7 +25,12 @@ PROVISIONAL_FLOORS = {
     # and mention photographs 3-7 times a year (社會); a paper at the old floor of 6-8
     # visuals looked like a text worksheet. Floors sit below the weakest official year.
     "自然": {"count": 16, "sections": 2, "kinds": 4, "domains": 4, "sourced_photos": 3},
-    "社會": {"count": 10, "sections": 2, "kinds": 4, "domains": 3, "sourced_photos": 4},
+    # 社會 111-115 measured (2026-09-24): 2-4 photographs or archival images a year (112 poster,
+    # land deed, aerial photo; 113 temple photos, statuette; 114 cave photo, two cartoons; 115
+    # murals, satellite image, aerial panel, Bamiyan) beside 7-13 charts, maps and tables, and
+    # 18-45 items that cite a 圖/表/照片. A four-photo floor sat above two official years and
+    # made hosted runs stall on downloads while text-only items multiplied.
+    "社會": {"count": 10, "sections": 2, "kinds": 4, "domains": 3, "sourced_photos": 2, "visual_items": 18},
     "英文": {"count": 3, "sections": 2, "kinds": 2, "sourced_photos": 1},
 }
 
@@ -37,10 +43,17 @@ REQUIRED_CHECKS = {
     "color_independence",
     "print_legibility",
     "accessibility_text_safe",
-    "rights_verified",
+    "source_traceable",
 }
+# `rights_verified` is the earlier name of `source_traceable`; either records the check.
+CHECK_ALIASES = {"rights_verified": "source_traceable"}
 REQUIRED_ROLES = {"evidence", "required_for_solution"}
-ALLOWED_RIGHTS = {"original", "licensed", "public_domain", "user_authorized"}
+# A source found on the web is usable when it is traceable (maintainer decision 2026-09-24):
+# the record keeps where it came from, not a license verdict. `web_sourced` says exactly that.
+ALLOWED_RIGHTS = {"original", "licensed", "public_domain", "user_authorized", "web_sourced"}
+EXTERNAL_MODES = {"licensed_source", "web_source", "photo_library"}
+PHOTOGRAPHIC_KINDS = {"photo", "archival_image", "satellite_image", "aerial_photo", "artifact_photo"}
+FIGURE_REFERENCE = re.compile(r"(?:圖|表|照片)\s*\d+")
 REQUIRED_SPEC_FIELDS = {
     "kind", "role", "generation_mode", "information_density",
     "visual_reasoning_steps", "precision", "alt_text", "difficulty_basis",
@@ -116,19 +129,23 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         review = spec.get("grayscale_review") or {}
         if review.get("status") != "pass" or not review.get("evidence_notes"):
             errors.append(f"Q{number}: final-size grayscale review has not passed")
-        checks = set(spec.get("validation_checks") or [])
+        checks = {CHECK_ALIASES.get(c, c) for c in spec.get("validation_checks") or []}
         missing_checks = sorted(REQUIRED_CHECKS - checks)
         if missing_checks:
             errors.append(f"Q{number}: visual checks missing: {', '.join(missing_checks)}")
         if spec.get("source_rights") not in ALLOWED_RIGHTS:
-            errors.append(f"Q{number}: source rights are absent or unverified")
-        if spec.get("generation_mode") == "licensed_source":
-            for field in (
-                "source_url", "source_creator", "license_or_authorization", "crop_description",
-                "source_asset_path", "source_asset_sha256", "processing_steps",
-            ):
+            errors.append(f"Q{number}: source_rights must be one of {', '.join(sorted(ALLOWED_RIGHTS))} "
+                          "(web_sourced: found online, traceable, no license claim needed)")
+        if spec.get("generation_mode") in EXTERNAL_MODES:
+            # Traceability, not a license: where it came from, who made or hosts it, when it
+            # was fetched, the preserved original and what was done to it.
+            for field in ("source_url", "crop_description", "source_asset_path", "source_asset_sha256", "processing_steps"):
                 if not spec.get(field):
-                    errors.append(f"Q{number}: licensed visual lacks {field}")
+                    errors.append(f"Q{number}: sourced visual lacks {field}")
+            if not (spec.get("source_creator") or spec.get("source_site")):
+                errors.append(f"Q{number}: sourced visual lacks source_creator or source_site")
+            if not (spec.get("source_retrieved_at") or spec.get("source_published_at")):
+                errors.append(f"Q{number}: sourced visual lacks source_retrieved_at")
         path = asset_root / str(asset.get("path") or "")
         if not path.is_file():
             errors.append(f"Q{number}: visual asset is missing")
@@ -161,9 +178,10 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
                     errors.append(f"Q{number}: {kind} SVG has no plotted axis/line/path topology")
                 if kind in RELATIONAL_TOPOLOGY_KINDS and len(nontext & {"line", "polyline", "path", "circle", "ellipse", "polygon"}) < 1:
                     errors.append(f"Q{number}: {kind} SVG is only a bordered label panel")
-        if kind == "photo":
-            if spec.get("generation_mode") != "licensed_source":
-                errors.append(f"Q{number}: counted real photograph must use a traceable licensed_source record")
+        if kind in PHOTOGRAPHIC_KINDS:
+            if spec.get("generation_mode") not in EXTERNAL_MODES:
+                errors.append(f"Q{number}: a real photograph or archival image needs a traceable source record "
+                              "(generation_mode web_source, photo_library or licensed_source)")
             elif path.suffix.lower() not in PHOTO_EXTENSIONS:
                 errors.append(f"Q{number}: sourced photograph is not a raster image")
             else:
@@ -185,10 +203,20 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
             domains.add(domain)
         rows.append({"number": number, "section": section, "kind": kind, "domain": domain, "role": role})
 
+    visual_items = sum(
+        1 for q in exam.get("questions") or [] if isinstance(q, dict) and FIGURE_REFERENCE.search(" ".join(
+            [str(q.get("group_stimulus") or ""), str(q.get("prompt") or "")]
+            + [str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict)])))
+
+    def minimum(key, fallback):
+        # A paper may ask for more than the floor, never less: a hosted paper once lowered
+        # its own photo floor in metadata.visual_contract.
+        return max(_as_positive_int(configured.get(key), fallback), fallback)
+
     if full_paper and floor:
-        minimum_count = _as_positive_int(configured.get("minimum_required_visuals"), floor["count"])
-        minimum_sections = _as_positive_int(configured.get("minimum_sections"), floor["sections"])
-        minimum_kinds = _as_positive_int(configured.get("minimum_kinds"), floor["kinds"])
+        minimum_count = minimum("minimum_required_visuals", floor["count"])
+        minimum_sections = minimum("minimum_sections", floor["sections"])
+        minimum_kinds = minimum("minimum_kinds", floor["kinds"])
         if len(rows) < minimum_count:
             errors.append(f"paper: {len(rows)} required visuals, minimum is {minimum_count}")
         if len(sections) < minimum_sections:
@@ -196,17 +224,18 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         if len(kinds) < minimum_kinds:
             errors.append(f"paper: {len(kinds)} visual kinds, minimum is {minimum_kinds}")
         if floor.get("domains"):
-            minimum_domains = _as_positive_int(configured.get("minimum_domains"), floor["domains"])
+            minimum_domains = minimum("minimum_domains", floor["domains"])
             if len(domains) < minimum_domains:
                 errors.append(f"paper: visuals cover {len(domains)} subject domains, minimum is {minimum_domains}")
         if floor.get("sourced_photos"):
-            minimum_photos = _as_positive_int(
-                configured.get("minimum_sourced_photos"), floor["sourced_photos"]
-            )
+            minimum_photos = minimum("minimum_sourced_photos", floor["sourced_photos"])
             if sourced_photos < minimum_photos:
                 errors.append(
-                    f"paper: {sourced_photos} traceable real-photo items, minimum is {minimum_photos}"
+                    f"paper: {sourced_photos} traceable real photographs or archival images, minimum is {minimum_photos}"
                 )
+        if floor.get("visual_items") and visual_items < floor["visual_items"]:
+            errors.append(f"paper: {visual_items} items cite a 圖/表/照片 in their material, stem or options; "
+                          f"official 社會 111-115 have 18-45, minimum is {floor['visual_items']}")
 
     return {
         "schema_version": 1,
@@ -217,10 +246,11 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         "kind_counts": dict(kinds),
         "sourced_photo_count": sourced_photos,
         "sourced_photo_minimum": (
-            _as_positive_int(configured.get("minimum_sourced_photos"), floor["sourced_photos"])
+            max(_as_positive_int(configured.get("minimum_sourced_photos"), floor["sourced_photos"]), floor["sourced_photos"])
             if full_paper and floor.get("sourced_photos")
             else None
         ),
+        "figure_citing_item_count": visual_items,
         "sourced_photo_upper_bound": None,
         "domains": sorted(domains),
         "items": rows,
@@ -228,7 +258,7 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         "notes": [
             "Counts include only evidence/required-for-solution visuals with a completed visual-removal test.",
             "Default floors are conservative internal release floors, not claimed official item-count statistics.",
-            "Photo floors count only traceable raster photographs/observation images, not generated photorealism or decorative pictures.",
+            "Photo floors count traceable raster photographs, observation and archival images (web_source, photo_library or licensed_source), not generated photorealism or decorative pictures. A traceable web source needs no license claim.",
             "The photo threshold is a minimum only. Natural Science and Social Studies have no photo-count upper bound; every additional photo must still be answer-bearing and pass all provenance, rights, grayscale, density, and timing checks.",
         ],
     }

@@ -280,7 +280,7 @@ def validate(exam_path, contract_path, stage='content', root=ROOT, execute=True)
         commands += [('validate_chinese_natural_scope.py', [exam_path]),
                      ('validate_source_grounding.py', [exam_path, source_path, '--novelty-report', base / contract.get('source_novelty_report', '')])]
     elif subject == '社會':
-        commands += [('validate_social_item_design.py', [exam_path])]
+        commands += [('validate_social_item_design.py', [exam_path]), ('validate_social_layout_contract.py', [exam_path])]
     elif subject == '英文':
         commands += [('validate_english_layout_contract.py', [exam_path]),
                      ('validate_english_vocabulary_scope.py', [exam_path] + ([base / contract['vocabulary_reference']] if contract.get('vocabulary_reference') else [])),

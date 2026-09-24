@@ -1,0 +1,2309 @@
+{
+ "schema_version": 1,
+ "library": "taiwan-exam-photo-library",
+ "version": "v1",
+ "built_at": "2026-09-24",
+ "purpose": "Real photographs, archival images and satellite scenes a hosted 社會 run can use when the web cannot be reached from its sandbox. Search the web first; use this library as the fallback.",
+ "license_note": "Each file keeps its source license. The grayscale files are adaptations: CC BY and CC BY-SA works stay under their license (BY-SA adaptations under the same license) with the creator credited in ATTRIBUTION.md; public-domain and CC0 files carry no condition.",
+ "items": [
+  {
+   "id": "g01",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "野柳女王頭（新北市萬里）",
+   "file": "g01.jpg",
+   "width": 1050,
+   "height": 1400,
+   "sha256": "a9b2db80864dc6b6fae7de174a56668827f91342bb6c4c3c436237872383f854",
+   "observable_features": [
+    "頂部較寬、頸部細窄的蕈狀岩柱",
+    "岩體表面蜂窩狀孔洞",
+    "周圍為平坦的岩質海岸"
+   ],
+   "curriculum_links": [
+    "差異侵蝕與風化",
+    "海岸地形",
+    "地景保育"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Queen%27s_Head,_Yehliu_20060405.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Queen%27s_Head%2C_Yehliu_20060405.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "David Monniaux",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source_rights": "licensed",
+    "date": "5 April 2006 (according to Exif data)",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Queen%27s_Head%2C_Yehliu_20060405.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "a4e5e7258b7219a4d50f56669d96e5e4dd4624e66cc350818596d6cd08d43920"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 81-248 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g02",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "太魯閣峽谷燕子口段（花蓮）",
+   "file": "g02.jpg",
+   "width": 933,
+   "height": 1400,
+   "sha256": "663bc5f4159b2d0a0a9264d63d31ad31c145ff123c3e1887c103718916be1091",
+   "observable_features": [
+    "兩側陡峭近乎垂直的岩壁",
+    "谷底狹窄、河道多礫石",
+    "岩壁上的步道與護欄"
+   ],
+   "curriculum_links": [
+    "河流下切侵蝕與峽谷",
+    "板塊擠壓隆起",
+    "山區道路與觀光"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Taroko-Gorge_Hualien_Taiwan_Swallow-Grotto-01.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Taroko-Gorge_Hualien_Taiwan_Swallow-Grotto-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2016-01-02",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Taroko-Gorge_Hualien_Taiwan_Swallow-Grotto-01.jpg/1920px-Taroko-Gorge_Hualien_Taiwan_Swallow-Grotto-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e06dd91f0ccb85facc116379be820aa448f7c640e0e718d53398d1b91819f8fc"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g03",
+   "domain": "地理",
+   "kind": "aerial_photo",
+   "title": "胆沢扇狀地空照（日本岩手縣）",
+   "file": "g03.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "e94f96ca0b4715c504bf5a297ec65b6ee97c5671111317876ea64223fb35bd8a",
+   "observable_features": [
+    "河流出山口後向外展開的扇形平原",
+    "扇面上分散的農田與林地",
+    "上方雲層"
+   ],
+   "curriculum_links": [
+    "沖積扇的形成與分帶",
+    "散居聚落與農業土地利用"
+   ],
+   "caution": "照片未標比例尺與方位。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Isawa-alluvial-fan.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Isawa-alluvial-fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "MaedaAkihiko",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2022-06-18",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Isawa-alluvial-fan.jpg/1920px-Isawa-alluvial-fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e459a1aa81a17f79a24b040748b6d8c31107f816137e941052c14437a4667262"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 58-250 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g04",
+   "domain": "地理",
+   "kind": "aerial_photo",
+   "title": "紅河曲流空照（美國阿肯色州）",
+   "file": "g04.jpg",
+   "width": 1194,
+   "height": 1400,
+   "sha256": "7bafc3836651e94a1f7697eb4993a25576d9f6d4694215bc20365ab06e810314",
+   "observable_features": [
+    "蜿蜒的曲流河道",
+    "多個與主流分離的弧形牛軛湖",
+    "河道兩側方格狀農地",
+    "圖上附比例尺與指北"
+   ],
+   "curriculum_links": [
+    "曲流與牛軛湖",
+    "河川作用與截彎取直",
+    "氾濫平原農業"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:RedRiverMeandersArkansas1.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/RedRiverMeandersArkansas1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "USDA/FSA",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2011-05-27",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/RedRiverMeandersArkansas1.jpg/1920px-RedRiverMeandersArkansas1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "12e5d2ac189c99faeed51c321f24b86ac4dd0ea30a098e63ee7cffd32bae23ac"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g05",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "元陽梯田（中國雲南）",
+   "file": "g05.jpg",
+   "width": 1400,
+   "height": 906,
+   "sha256": "fd8f07807cccaadfd8390030176ad4da0fec63b078aa20d6d30f2cd0b25fdf25",
+   "observable_features": [
+    "沿等高線層層分布的彎曲田埂",
+    "田面多已蓄水",
+    "坡面陡峭"
+   ],
+   "curriculum_links": [
+    "山坡地農業與水土保持",
+    "人地關係與文化地景"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Terrace_field_yunnan_china_denoised.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Terrace_field_yunnan_china_denoised.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Jialiang Gao, www.peace-on-earth.org",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source_rights": "licensed",
+    "date": "2003-03",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Terrace_field_yunnan_china_denoised.jpg/1920px-Terrace_field_yunnan_china_denoised.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "8e3d4ce91d9a5e4b349b0abc88850f420975cb7aa1bcc0b9fb297728f2b78649"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g06",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "澎湖玄武岩海岸",
+   "file": "g06.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "02d8759c49dca7f41c0fcf9ec8c964c903ac0a69bd7d735f890df8a61cafe8ca",
+   "observable_features": [
+    "頂部平緩、四周陡崖的方山狀岩體",
+    "岩壁上垂直排列的柱狀節理",
+    "海岸邊的岩塊"
+   ],
+   "curriculum_links": [
+    "玄武岩熔岩台地",
+    "柱狀節理",
+    "海蝕作用"
+   ],
+   "caution": "照片未指明澎湖哪一處岩體。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Penghu_Basalt.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Penghu_Basalt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "P1340",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2011-08-20",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Penghu_Basalt.jpg/1920px-Penghu_Basalt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "6c1833bf19232ed4775e6ca769168102fd6cf34ff6a345b10be30fb7a6409e32"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g07",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "桂林陽朔灕江沿岸",
+   "file": "g07.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "54034803af00b194deca75d6c77b48d3af77355b5d54754ecf88e1e1cc398d63",
+   "observable_features": [
+    "平地上拔起的尖錐狀孤峰群（峰林）",
+    "河岸城鎮與多層樓房",
+    "前景橋梁欄杆"
+   ],
+   "curriculum_links": [
+    "石灰岩溶蝕與喀斯特地形",
+    "觀光與聚落"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Li_River_and_mountains_in_Yangshuo_County,_Guilin2.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Li_River_and_mountains_in_Yangshuo_County%2C_Guilin2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Huangdan2060",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source_rights": "public_domain",
+    "date": "2014-08-27 08:48:34",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Li_River_and_mountains_in_Yangshuo_County%2C_Guilin2.jpg/1920px-Li_River_and_mountains_in_Yangshuo_County%2C_Guilin2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e38dd5c56eefbffb74393bcac92abc8bb58586268d4580e9f1a28cc411adab0c"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 51-231 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g08",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "蓋倫格峽灣（挪威）",
+   "file": "g08.jpg",
+   "width": 1400,
+   "height": 786,
+   "sha256": "9fcc10a2a878d8c808759421609c0ff9e3c326e26622b33165742ae364942dff",
+   "observable_features": [
+    "兩側陡峻高聳的谷壁",
+    "深入陸地的狹長水域",
+    "谷壁上的植被"
+   ],
+   "curriculum_links": [
+    "冰河侵蝕與峽灣",
+    "沉降海岸"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Geirangerfjord_from_%C3%98rnesvingen,_2013_June.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Geirangerfjord_from_%C3%98rnesvingen%2C_2013_June.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2013-06-16 11:45:30",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Geirangerfjord_from_%C3%98rnesvingen%2C_2013_June.jpg/1920px-Geirangerfjord_from_%C3%98rnesvingen%2C_2013_June.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "7c6fea6ce512befb4173750a3cf4e046ea586579db285b231cda28ef6091ccd1"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g09",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "格倫科 U 形谷（英國蘇格蘭）",
+   "file": "g09.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "bf0be3f65d34616085dd7f25495fa65515c5ac51f62c4e27998724996d533dec",
+   "observable_features": [
+    "谷底寬平、兩側谷壁陡直的谷地剖面",
+    "谷底草地"
+   ],
+   "curriculum_links": [
+    "冰河地形",
+    "U 形谷與 V 形谷的比較"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:U_shaped_glacial_valley_Glen_Coe_(15250526462).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/U_shaped_glacial_valley_Glen_Coe_%2815250526462%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Brian Gratwicke from DC, USA",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2014-07-25 06:22",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/U_shaped_glacial_valley_Glen_Coe_%2815250526462%29.jpg/1920px-U_shaped_glacial_valley_Glen_Coe_%2815250526462%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "1f402e28c5424eaf4cb0e4dd1cbfa58b99f8fa69b403ec89f3488756da33a505"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 7-188 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g10",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "達赫拉綠洲外圍沙漠（埃及）",
+   "file": "g10.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "bdb0966fdd006ca9697fdeaa319ef27a6441d0ba019ef2636366d4ad358da12c",
+   "observable_features": [
+    "大片平坦的沙地與砂紋",
+    "遠方平頂的斷崖台地",
+    "天空無雲"
+   ],
+   "curriculum_links": [
+    "乾燥氣候與風力作用",
+    "綠洲與水源"
+   ],
+   "caution": "照片本身未見綠洲植被。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Sand_dunes,_Remote_view_of_Dakhla_Oasis,_Egypt.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Sand_dunes%2C_Remote_view_of_Dakhla_Oasis%2C_Egypt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source_rights": "licensed",
+    "date": "2007-05-13 18:45:21",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Sand_dunes%2C_Remote_view_of_Dakhla_Oasis%2C_Egypt.jpg/1920px-Sand_dunes%2C_Remote_view_of_Dakhla_Oasis%2C_Egypt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "7f3faea244029f9842fe13586bca209daf718dbd96958b69e97f672f2c167d20"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g11",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "社子島紅樹林（臺北）",
+   "file": "g11.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "6abfbf7ed449b0376d750f6e7822d0a37a771995e9b4446c51d8c339aa716e04",
+   "observable_features": [
+    "水中叢生的矮灌木林",
+    "潮水淹沒林床",
+    "遠方城市與橋梁"
+   ],
+   "curriculum_links": [
+    "河口潮間帶與紅樹林",
+    "都市邊緣溼地保育"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:2009-04-09_Mangrove_forest_at_Shezidao.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/2009-04-09_Mangrove_forest_at_Shezidao.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "MiNe",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2009-04-09 11:54:51",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/2009-04-09_Mangrove_forest_at_Shezidao.jpg/1920px-2009-04-09_Mangrove_forest_at_Shezidao.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "1d6080e616696547c71a2423e25ec26d74201222b284e492b212862c883415cf"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g12",
+   "domain": "地理",
+   "kind": "satellite_image",
+   "title": "國際太空站夜間拍攝的尼羅河三角洲",
+   "file": "g12.jpg",
+   "width": 1400,
+   "height": 935,
+   "sha256": "52a5cc7280f979180742d8dec0a228bcab851e29f05f1a720b68684d71ccd54b",
+   "observable_features": [
+    "北端呈扇形分布的密集燈光（三角洲）",
+    "南方沿河谷延伸的細長燈光帶",
+    "最亮的光團位於三角洲頂端（開羅一帶）",
+    "兩側大片黑暗區"
+   ],
+   "curriculum_links": [
+    "人口分布與水源",
+    "夜間燈光作為人口與都市化指標",
+    "乾燥區河谷農業"
+   ],
+   "caution": "Claude 116 模擬卷已用過此照片，出題時換用別的判讀方式。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Nile_River_Delta_at_Night_cropped.JPG",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nile_River_Delta_at_Night_cropped.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Nile_River_Delta_at_Night.JPG: ISS Expedition 25 crew\nderivative work: Przykuta → [edit]",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2010-11-08 19:27",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Nile_River_Delta_at_Night_cropped.JPG/1920px-Nile_River_Delta_at_Night_cropped.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b750e50eef4e5196f293ee969bbcad8047ff9353a43208974ef970269cc44404"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g13",
+   "domain": "地理",
+   "kind": "satellite_image",
+   "title": "美國堪薩斯州農田衛星影像（ASTER, 2001）",
+   "file": "g13.jpg",
+   "width": 1400,
+   "height": 1341,
+   "sha256": "243899c826c761961c113f03f4cb9b60219370589dd071a6cf2abd3e54ea7960",
+   "observable_features": [
+    "大量排列整齊的圓形田塊",
+    "圓形之間的方形邊角空地",
+    "棋盤狀的方格道路"
+   ],
+   "curriculum_links": [
+    "中心樞紐灌溉",
+    "地下水抽用與農業",
+    "土地測量與方格系統"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Crops_Kansas_AST_20010624.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Crops_Kansas_AST_20010624.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "NASA",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2001-06-24",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Crops_Kansas_AST_20010624.jpg/1920px-Crops_Kansas_AST_20010624.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b6bf3aeb4b9ce83adffbf78481a06d86dfe4fc0c03a6414560ef3fc88c3d9917"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g14",
+   "domain": "地理",
+   "kind": "satellite_image",
+   "title": "巴西朗多尼亞州熱帶雨林衛星影像（2016）",
+   "file": "g14.jpg",
+   "width": 1357,
+   "height": 1400,
+   "sha256": "7b47b93a89f6fbafd7e619792179ab67650b0963112f4c39a8eb091356d1671a",
+   "observable_features": [
+    "沿道路向兩側延伸的魚骨狀開墾帶",
+    "大片深色未開墾森林",
+    "蜿蜒河流"
+   ],
+   "curriculum_links": [
+    "熱帶雨林開發與砍伐",
+    "道路建設與土地開墾",
+    "全球環境議題"
+   ],
+   "caution": "原影像較暗，已拉高對比。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Rond%C3%B4nia_Deforestation_(25_July_2016),_Brazil_(34296310700).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Rond%C3%B4nia_Deforestation_%2825_July_2016%29%2C_Brazil_%2834296310700%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "O.V.E.R.V.I.E.W.",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2017-05-15 20:26",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Rond%C3%B4nia_Deforestation_%2825_July_2016%29%2C_Brazil_%2834296310700%29.jpg/1920px-Rond%C3%B4nia_Deforestation_%2825_July_2016%29%2C_Brazil_%2834296310700%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "eaff4719ea02465070eb82f00bfbd3d590c392a2860e6f29961c4f45287bdf91"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 27-63 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g15",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "高雄港貨櫃碼頭",
+   "file": "g15.jpg",
+   "width": 933,
+   "height": 1400,
+   "sha256": "3c6aa05d891a29d527e64a332041e928a9b58f0e7ea51887bf08b41abe868352",
+   "observable_features": [
+    "一排高聳的貨櫃起重機",
+    "成排堆疊的貨櫃",
+    "靠泊的貨櫃船"
+   ],
+   "curriculum_links": [
+    "港口與全球貿易",
+    "運輸革新與貨櫃化",
+    "產業區位"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Kaohsiung_international_container_terminal.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Kaohsiung_international_container_terminal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Eric Deng",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2018-02-09 11:03:04",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Kaohsiung_international_container_terminal.jpg/1920px-Kaohsiung_international_container_terminal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "ae1f2fe40c007099c5470f3ce1520537cf7e7d5785933fbaa82a2fc9a11f1958"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 28-217 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g16",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "井仔腳瓦盤鹽田（臺南北門）",
+   "file": "g16.jpg",
+   "width": 1400,
+   "height": 911,
+   "sha256": "1885400979cc29a1fe33f8803384aebfb060830b952e8458305a5f4acbf50b93",
+   "observable_features": [
+    "以碎瓦片鋪成的方格鹽田",
+    "田間一堆堆白色鹽丘",
+    "工作者以長耙收鹽"
+   ],
+   "curriculum_links": [
+    "日照、蒸發與曬鹽條件",
+    "沿海產業變遷與觀光轉型"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Jingzaijiao_Tile-paved_Salt_Fields_(_WEI,_WAN-CHEN_)_1.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/The_Jingzaijiao_Tile-paved_Salt_Fields_%28_WEI%2C_WAN-CHEN_%29_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "WEI, WAN-CHEN（魏琬臻）",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2018-05-10 17:49:48",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/The_Jingzaijiao_Tile-paved_Salt_Fields_%28_WEI%2C_WAN-CHEN_%29_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "14b4ebbd146eb89ce3ccd1fe81be87c8570e119bef2814ee6b24b2956cc30f48"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g17",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "臺灣中部山區河谷的河階（九美一帶）",
+   "file": "g17.jpg",
+   "width": 1400,
+   "height": 787,
+   "sha256": "02ba3470fa00fb5031f42230f01c29830166bd570a0043aac56181b778a9ec49",
+   "observable_features": [
+    "河谷兩側高低不同的平坦台面",
+    "台面上的農地",
+    "遠方高聳山脈"
+   ],
+   "curriculum_links": [
+    "河階的形成（下切與堆積交替）",
+    "山區聚落與農地分布"
+   ],
+   "caution": "拍攝地點依檔名為九美，出題不宜要求辨認確切地名。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:River_terraces_in_Jiumei.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/River_terraces_in_Jiumei.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Joe Lo",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source_rights": "licensed",
+    "date": "2015-02-28 19:44:00",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/River_terraces_in_Jiumei.jpg/1920px-River_terraces_in_Jiumei.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b64a52e79f31dc7d948c802500c0056c114686d10c08ac22589b8a4fd8ab65af"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 25-223 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g18",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "宮古市街道於 2011 年東日本大地震海嘯後",
+   "file": "g18.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "2f25bf4bcdde0d701354ca491be733ebac48d509d5341b2ee315990890ac20b1",
+   "observable_features": [
+    "道路兩側堆積的瓦礫與損壞車輛",
+    "仍在通行的車輛與機車",
+    "沿街受損的商店"
+   ],
+   "curriculum_links": [
+    "海嘯災害與防災",
+    "災後復原與公共安全"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Japan,Iwate,Miyako_city,_2011_T%C5%8Dhoku_earthquake.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Japan%2CIwate%2CMiyako_city%2C_2011_T%C5%8Dhoku_earthquake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Orienoda",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2011-03-13 12:02:41",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Japan%2CIwate%2CMiyako_city%2C_2011_T%C5%8Dhoku_earthquake.jpg/1920px-Japan%2CIwate%2CMiyako_city%2C_2011_T%C5%8Dhoku_earthquake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "f5a43a163119790c54c5bb5c9877438577b0e97842964b50d8e217c9176256e2"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g19",
+   "domain": "地理",
+   "kind": "aerial_photo",
+   "title": "臺南珊瑚潭（烏山頭水庫）空照",
+   "file": "g19.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "d49f6815383b94e82a197f16fdbc065b1c392bfbeb03a9f8abc82b080b13ea9c",
+   "observable_features": [
+    "呈多分枝狀的水庫水面",
+    "四周丘陵與林地",
+    "下方平原上的農田與道路"
+   ],
+   "curriculum_links": [
+    "水庫與灌溉",
+    "嘉南平原農業發展",
+    "日治時期水利建設"
+   ],
+   "caution": "由機窗拍攝，邊緣有雲。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Coral_Lake_Tainan_from_airplane_window.JPG",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Coral_Lake_Tainan_from_airplane_window.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Koika",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source_rights": "licensed",
+    "date": "2014-06-30",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Coral_Lake_Tainan_from_airplane_window.JPG/1920px-Coral_Lake_Tainan_from_airplane_window.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b2ea8c31e01893e8dcad8bd24bfc0104c0ff68c9c50747d01b0f09a189dede5d"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 105-159 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g20",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "河口湖畔遠望富士山（日本）",
+   "file": "g20.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "070eda8b456fc1b63cbf8d820d447b14a743aacf540648436a9d3b7e901b0082",
+   "observable_features": [
+    "左右對稱、山頂積雪的錐狀火山",
+    "山腳的湖泊與聚落"
+   ],
+   "curriculum_links": [
+    "火山地形與板塊",
+    "觀光與地方發展"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Mount_Fuji_from_Lake_Kawaguchi_20170206.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Mount_Fuji_from_Lake_Kawaguchi_20170206.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Suicasmo",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2017-02-06 14:49:09",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Mount_Fuji_from_Lake_Kawaguchi_20170206.jpg/1920px-Mount_Fuji_from_Lake_Kawaguchi_20170206.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "95ba4313430c6b25cc213dfbdcdfec3093116147537e19f644a9d76a30f12929"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g21",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "里約熱內盧 Rocinha 社區",
+   "file": "g21.jpg",
+   "width": 1400,
+   "height": 929,
+   "sha256": "6b5d930a8df6d7aa8028f0beddbf15b5f00ae5b8333020a4fed75a3640d36bbf",
+   "observable_features": [
+    "沿陡坡密集堆疊的自建房屋",
+    "缺少規則街道格局",
+    "後方仍有林地"
+   ],
+   "curriculum_links": [
+    "都市化與非正式聚落",
+    "都市內部的社會空間差異",
+    "坡地災害風險"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:1_rocinha_favela_closeup.JPG",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/1_rocinha_favela_closeup.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/1_rocinha_favela_closeup.JPG/1920px-1_rocinha_favela_closeup.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "f85725b09d6319bca7e4e2cecd017242cd427f7dfd03cf9a008c0f6caf609df3"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g22",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "小孩堤防風車群（荷蘭）",
+   "file": "g22.jpg",
+   "width": 1400,
+   "height": 1048,
+   "sha256": "856e041225bfe05e32f3ac7c6f65d655a360eda51834191d107de574121aa8d2",
+   "observable_features": [
+    "沿運河排列的多座風車",
+    "平坦低窪的地面與水道"
+   ],
+   "curriculum_links": [
+    "填海造陸與圩田排水",
+    "人地關係"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:KinderdijkMolens02.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/KinderdijkMolens02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Lucas Hirschegger",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source_rights": "licensed",
+    "date": "2004-12-26",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/KinderdijkMolens02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "66e4f65c6062fc609f05d8e0c4a31430244eaa93e1d51093b428ee1739e7d1a1"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 10-196 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g23",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "芹苴水上市場（越南湄公河三角洲）",
+   "file": "g23.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "fae588a0c8b1b9d1b239cc2ef74d20ed1e676c01e26503534710dbbaec7a02a4",
+   "observable_features": [
+    "河面上聚集的小船",
+    "船上的交易與搬運",
+    "河岸房屋"
+   ],
+   "curriculum_links": [
+    "三角洲河運與聚落",
+    "傳統市場與觀光"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Can_Tho,_Vietnam,_Floating_Market,_Boats.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Boats.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source_rights": "licensed",
+    "date": "2008-02-15 07:03:55",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Boats.jpg/1920px-Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Boats.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "12cbe92820089e316dea225094623da5ecf7732c45e437d4bee7b0c69fb808c5"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g24",
+   "domain": "地理",
+   "kind": "aerial_photo",
+   "title": "亞馬遜熱帶雨林空照",
+   "file": "g24.jpg",
+   "width": 1400,
+   "height": 859,
+   "sha256": "ca29a27e73deac0432a98e996f11a30e83b7926f0b7d8531a6151cc09ad41a43",
+   "observable_features": [
+    "一望無際的濃密林冠",
+    "蜿蜒曲折的河流"
+   ],
+   "curriculum_links": [
+    "熱帶雨林氣候與生態",
+    "河川與交通"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Amazon_Rainforest.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Aerial_view_of_the_Amazon_Rainforest.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "lubasi",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source_rights": "licensed",
+    "date": "2009-09-09 06:48",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aerial_view_of_the_Amazon_Rainforest.jpg/1920px-Aerial_view_of_the_Amazon_Rainforest.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "9f07126c25a85eaf442eec0921b0229dcb5582e4528c7222eac8c609ef4cf228"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g25",
+   "domain": "地理",
+   "kind": "satellite_image",
+   "title": "泰國大城府 2011 年洪水前後衛星影像（EO-1）",
+   "file": "g25.jpg",
+   "width": 1400,
+   "height": 955,
+   "sha256": "e8d4b59469f3f27a36990b819c4713f48f0983e53b115989fa34031832fb3346",
+   "observable_features": [
+    "左右兩幅同一地區的對照",
+    "右幅大片淹水的平坦區域",
+    "左幅可見河道與農田"
+   ],
+   "curriculum_links": [
+    "洪患與低地",
+    "遙測判讀與前後比較",
+    "全球供應鏈中斷"
+   ],
+   "caution": "左右兩幅的拍攝日期須依來源頁核對後再寫入題目。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:2011_flooding_in_Ayutthaya_Province-EO-1_merged.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/2011_flooding_in_Ayutthaya_Province-EO-1_merged.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "NASA Earth Observatory image created by Jesse Allen and Robert Simmon, using EO-1 ALI data provided courtesy of the NASA EO-1 team and the United States Geologi",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2011-10-23",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/2011_flooding_in_Ayutthaya_Province-EO-1_merged.jpg/1920px-2011_flooding_in_Ayutthaya_Province-EO-1_merged.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "77d21272647faf6fba091381679570f2fabfa13da1091ccb16144062db1c0bb9"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 22-214 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g26",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "上海浦東陸家嘴天際線",
+   "file": "g26.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "c7518d4133a294742fed5d1fa65d29749ea3a491a7a40e44425c2bcaa8d299e8",
+   "observable_features": [
+    "沿江密集的高樓群",
+    "電視塔與超高層大樓",
+    "前景寬闊的江面"
+   ],
+   "curriculum_links": [
+    "中心商業區",
+    "全球城市",
+    "都市發展"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Shanghai_skyline_Pudong.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Shanghai_skyline_Pudong.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Ernest Jourdier",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source_rights": "licensed",
+    "date": "2025-06-18 12:34:40",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Shanghai_skyline_Pudong.jpg/1920px-Shanghai_skyline_Pudong.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "63612037bd08130ec030d464ec4265db8024f89eccd5f8bf9db5a601805d4376"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 30-175 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h01",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "安平古堡（臺南）",
+   "file": "h01.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "7ab3abff0ee05b6fa59fb794a2dba0057cc43bca4a1c711503c6b978651d0eed",
+   "observable_features": [
+    "紅磚殘牆與高台上的建築",
+    "通往高台的石階",
+    "白色塔樓（後代建築）"
+   ],
+   "curriculum_links": [
+    "荷蘭東印度公司在臺",
+    "熱蘭遮城與鄭氏",
+    "古蹟的層疊與再利用"
+   ],
+   "caution": "白色瞭望台為後代所建，不可當作荷治原貌。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Tainan_Taiwan_Fort-Zeelandia-01.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Tainan_Taiwan_Fort-Zeelandia-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2015-12-29",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Tainan_Taiwan_Fort-Zeelandia-01.jpg/1920px-Tainan_Taiwan_Fort-Zeelandia-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "5991978b8f44368a88da7cd0740538f580073141b50deb446ab9a460349b0707"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h02",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "億載金城城門（臺南）",
+   "file": "h02.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "abe1fb409136c42fd5b90b0a4cc5ca2134764e9d8723a5c768a92b01936d78d5",
+   "observable_features": [
+    "磚砌拱形城門",
+    "跨越護城河的橋",
+    "城牆厚實低矮、覆土植草"
+   ],
+   "curriculum_links": [
+    "牡丹社事件後的海防建設",
+    "西式砲臺",
+    "沈葆楨"
+   ],
+   "caution": "Claude 116 模擬卷已用過同一座砲臺，出題時避免同樣問法。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Tainan_Eternal_Golden_Castle_Gate.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Tainan_Eternal_Golden_Castle_Gate.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "User:Shack",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2008-06-22",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Tainan_Eternal_Golden_Castle_Gate.jpg/1920px-Tainan_Eternal_Golden_Castle_Gate.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "6f04648387808260300449bfc9b001b354701827b621f1b4d47838a367c1026a"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h03",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "紅毛城（新北淡水）",
+   "file": "h03.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "1177b80d009299ceb3905b2a9e99072adf26f4321fbd7e509b50425a13bb7107",
+   "observable_features": [
+    "紅磚建築與拱形迴廊",
+    "建築上方旗桿",
+    "整齊修剪的樹籬"
+   ],
+   "curriculum_links": [
+    "西班牙、荷蘭在臺",
+    "開港通商後的英國領事館",
+    "古蹟的多重用途"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:%E7%B4%85%E6%AF%9B%E5%9F%8E_Fort_San_Domingo_-_panoramio_(2).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/%E7%B4%85%E6%AF%9B%E5%9F%8E_Fort_San_Domingo_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "lienyuan lee",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "source_rights": "licensed",
+    "date": "Taken on 4 March 2015",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/%E7%B4%85%E6%AF%9B%E5%9F%8E_Fort_San_Domingo_-_panoramio_%282%29.jpg/1920px-%E7%B4%85%E6%AF%9B%E5%9F%8E_Fort_San_Domingo_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "02be4e649edeb1dbd550b0bc5ad01949980fabf8460a4dc65aac3f669c469f45"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h04",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "烏山頭水庫工程現場（日治時期）",
+   "file": "h04.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "30ae718afc7595fdf8638357298c3d36ecbd06932e4ff9ffb2c97062cd1e7e9e",
+   "observable_features": [
+    "鋪設的多條軌道與運土車",
+    "大片開挖的土地",
+    "照片下方印有日、英文說明文字"
+   ],
+   "curriculum_links": [
+    "嘉南大圳與日治水利建設",
+    "殖民統治下的農業發展"
+   ],
+   "caution": "照片內含原說明文字，可遮蓋後再用。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Construction_of_Wushantou_Dam.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Construction_of_Wushantou_Dam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Unknown author",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1920sdate QS:P,+1920-00-00T00:00:00Z/8",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Construction_of_Wushantou_Dam.jpg/1920px-Construction_of_Wushantou_Dam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "446aba8f641885d83afde55be95cd3920616d8258d8c811a4ed663ff895391ae"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 34-205 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h05",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "聖索菲亞大教堂夜景（伊斯坦堡）",
+   "file": "h05.jpg",
+   "width": 1400,
+   "height": 929,
+   "sha256": "82b9402be678d585ecc89a4ae01ea61e8df7fe7ffd17a698b57a97cfc8146cc7",
+   "observable_features": [
+    "中央大圓頂",
+    "四周高細的宣禮塔",
+    "周邊現代建築"
+   ],
+   "curriculum_links": [
+    "拜占庭帝國",
+    "鄂圖曼帝國征服君士坦丁堡",
+    "宗教建築的改用"
+   ],
+   "caution": "Claude 116 模擬卷已用過聖索菲亞大教堂，出題時避免同樣問法。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_(8395709547).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Hagia_Sophia_%288395709547%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Jorge Láscar from Australia",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2012-08-28 20:17",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Hagia_Sophia_%288395709547%29.jpg/1920px-Hagia_Sophia_%288395709547%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "6c86e39e4a75160f4bd6f7c22c51aa453770c91f95eb5e880222d25021e9d02a"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h06",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "秦始皇陵兵馬俑一號坑",
+   "file": "h06.jpg",
+   "width": 933,
+   "height": 1400,
+   "sha256": "8d6628f7b5cb3f231029cfedd9c5827be73487c981902af2fc1eae449013da3c",
+   "observable_features": [
+    "陶俑身穿鎧甲、髮髻",
+    "成排站立的陶俑",
+    "陶俑面容各異"
+   ],
+   "curriculum_links": [
+    "秦代軍事與統一",
+    "考古資料作為史料"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Qin_Terracotta_Army,_Pit_1_04.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Qin_Terracotta_Army%2C_Pit_1_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Gary Lee Todd, Ph.D.",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source_rights": "public_domain",
+    "date": "2011-10-03 10:58:09",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Qin_Terracotta_Army%2C_Pit_1_04.jpg/1920px-Qin_Terracotta_Army%2C_Pit_1_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "314e6019cd1c37ca181511a43ee5157dc697afe3d0e3f2d1c19490d66ef15769"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 30-173 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h07",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "1989 年柏林圍牆上的東西德民眾（布蘭登堡門前）",
+   "file": "h07.jpg",
+   "width": 661,
+   "height": 498,
+   "sha256": "440c55f8b6089d1312853b7ff96c6d81b30087b715415f763f136a78d7a3a55b",
+   "observable_features": [
+    "大批民眾站在牆頂與牆前",
+    "牆上的標語與塗鴉",
+    "後方布蘭登堡門"
+   ],
+   "curriculum_links": [
+    "冷戰結束",
+    "德國統一",
+    "東歐變局"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Unknown photographer, Reproduction by Lear 21 at English Wikipedia.",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "1989",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "c0a91835b3ba607e925561b97838a556179e440addda8a26938ecf7c73149102"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h08",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "〈羅德斯巨像〉漫畫（Punch，1892）",
+   "file": "h08.jpg",
+   "width": 1080,
+   "height": 1400,
+   "sha256": "d256b043352737a1187d8f055e5f0f89accbeafcf05e869b81447fac44cb708d",
+   "observable_features": [
+    "一人跨立於非洲大陸南北兩端",
+    "手中拉著一條橫越非洲的線",
+    "身著探險裝束"
+   ],
+   "curriculum_links": [
+    "帝國主義與瓜分非洲",
+    "開普敦到開羅的構想",
+    "漫畫作為史料"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Punch_Rhodes_Colossus.png",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Punch_Rhodes_Colossus.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Edward Linley Sambourne",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1892-12-10",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Punch_Rhodes_Colossus.png/1920px-Punch_Rhodes_Colossus.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "456f3a9b28477203cf52444c05050dbbd7a149368cc51fb32e54147a9e2ae8c8"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h09",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "〈中國：國王與皇帝的蛋糕〉（Le Petit Journal，1898）",
+   "file": "h09.jpg",
+   "width": 970,
+   "height": 1400,
+   "sha256": "c452b129b7302bb4075cb66e9b363cecd90a636c4e4d561cdae58f1f910fc84f",
+   "observable_features": [
+    "數位代表列強的人物圍著寫有「Chine」的餅準備切分",
+    "後方清朝官員舉手驚慌",
+    "法文標題"
+   ],
+   "curriculum_links": [
+    "列強瓜分中國（租借地與勢力範圍）",
+    "漫畫的立場與史料判讀"
+   ],
+   "caution": "畫中人物各代表哪國，須由題文提供，不可要求考生認人。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:China,_the_cake_of_kings_and_emperors,_Le_Petit_Journal_1898.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/China%2C_the_cake_of_kings_and_emperors%2C_Le_Petit_Journal_1898.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Henri Meyer",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1898-01-16",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/China%2C_the_cake_of_kings_and_emperors%2C_Le_Petit_Journal_1898.jpg/1920px-China%2C_the_cake_of_kings_and_emperors%2C_Le_Petit_Journal_1898.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "8febf50aa3e55dcf3859e2e466cf8176a49ee16db1fdcab3aed594878b7824b9"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 54-204 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h10",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "喬治亞州棉紡廠的童工（Lewis Hine，1909）",
+   "file": "h10.jpg",
+   "width": 1400,
+   "height": 988,
+   "sha256": "e7937c5db67d2a2b3be59e58249186b799b5b842e1caec87bfdde972b352a86d",
+   "observable_features": [
+    "站在紡紗機走道中的小女孩",
+    "兩側長排的紡紗機",
+    "地上散落的棉絮"
+   ],
+   "curriculum_links": [
+    "工業革命與工廠制度",
+    "童工與勞動立法",
+    "社會改革與攝影"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hine,_Spinner_in_Globe_Cotton_Mill,_Augusta,_Georgia,_1909.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Lewis_Hine%2C_Spinner_in_Globe_Cotton_Mill%2C_Augusta%2C_Georgia%2C_1909.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Lewis Hine",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1909-01",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Lewis_Hine%2C_Spinner_in_Globe_Cotton_Mill%2C_Augusta%2C_Georgia%2C_1909.jpg/1920px-Lewis_Hine%2C_Spinner_in_Globe_Cotton_Mill%2C_Augusta%2C_Georgia%2C_1909.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "7afc1e1bb47a0b3b0fe118c0bdf8be41ce9ac5ba991aca0fe71cc3b4049fb4f0"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h11",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "〈移民母親〉（Dorothea Lange，1936）",
+   "file": "h11.jpg",
+   "width": 1076,
+   "height": 1400,
+   "sha256": "f0850d66e0572b41458b927a42d4161856bef47d40f1933864941fac98c49be3",
+   "observable_features": [
+    "憂慮神情的母親",
+    "依偎在身邊的孩子",
+    "簡陋的衣著"
+   ],
+   "curriculum_links": [
+    "經濟大恐慌",
+    "新政與社會救助",
+    "攝影作為史料"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Lange-MigrantMother02.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Lange-MigrantMother02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Dorothea Lange",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "6 March 1936",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Lange-MigrantMother02.jpg/1920px-Lange-MigrantMother02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e6657df96f6dadede759d88c6c3ebc14dc956633c246a3a1046a47ebf5c17afd"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h12",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "1869 年蘇伊士運河通航典禮（塞得港）",
+   "file": "h12.jpg",
+   "width": 1260,
+   "height": 1015,
+   "sha256": "bdb478eed15fa81375ef70d7c5f82ca9ab0ac729b2d0a0421ecdaaad8c5d657e",
+   "observable_features": [
+    "港內懸掛旗幟的帆船與蒸汽船",
+    "岸邊碼頭與群眾"
+   ],
+   "curriculum_links": [
+    "蘇伊士運河與全球航運",
+    "帝國主義與交通"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Opening_of_the_Suez_Canal,_Port_Said,_1869.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Opening_of_the_Suez_Canal%2C_Port_Said%2C_1869.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Unknown author",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1869-11-17",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Opening_of_the_Suez_Canal%2C_Port_Said%2C_1869.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "356200cd3cf0021b0cc6c23ffc37b578336bc76e8943c1bcb48590268c06eaff"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h13",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "總統府（原臺灣總督府，1919 年落成）",
+   "file": "h13.jpg",
+   "width": 1400,
+   "height": 1011,
+   "sha256": "7fe84e6c79b14f59eb83fd82c9b86e054717cfa1b581620c2eca98022de72a41",
+   "observable_features": [
+    "紅磚與白色橫帶的西式外觀",
+    "對稱的立面與拱窗",
+    "前方大道"
+   ],
+   "curriculum_links": [
+    "日治時期的統治與建築",
+    "官方建築的象徵"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Presidential_Office_Building.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Presidential_Office_Building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Rutger van der Maar",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2013-07-02 10:53:37",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Presidential_Office_Building.jpg/1920px-Presidential_Office_Building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "67879b339cca24cb6bdceea738c070960cd62dcf670b77b847c4149d53440d17"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h14",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "臺南孔廟大成殿",
+   "file": "h14.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "94b01492d5295166c2601b7f8790d59f476ace73d2d13edc883f7c02c799c923",
+   "observable_features": [
+    "重簷歇山式屋頂",
+    "屋脊裝飾",
+    "殿前石砌平台"
+   ],
+   "curriculum_links": [
+    "清代臺灣的儒學與教化",
+    "科舉與文教"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Exterior_of_Tainan_Confucius_Temple_in_November_2017.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Exterior_of_Tainan_Confucius_Temple_in_November_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Nick-D",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2017-11-29 10:32:02",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Exterior_of_Tainan_Confucius_Temple_in_November_2017.jpg/1920px-Exterior_of_Tainan_Confucius_Temple_in_November_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "ef67e62d04f94901ebe35980b53adb698c6c1d5bad6bf8ce7c68f520fd7a93fd"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h15",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "鹿港龍山寺（彰化）",
+   "file": "h15.jpg",
+   "width": 1400,
+   "height": 1054,
+   "sha256": "60c22c0e701234e2e7fd099d9801d1e90ff214193690bed7d029d647ee872a2e",
+   "observable_features": [
+    "傳統廟宇山門與屋頂",
+    "寬闊前埕",
+    "四周現代樓房與機車"
+   ],
+   "curriculum_links": [
+    "清代移民與宗教信仰",
+    "港市與寺廟",
+    "古蹟保存與都市發展"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Main_Gate_of_the_Lukang_Longshan_Temple.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Main_Gate_of_the_Lukang_Longshan_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Allervous",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2024-04-14 12:16:15",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Main_Gate_of_the_Lukang_Longshan_Temple.jpg/1920px-Main_Gate_of_the_Lukang_Longshan_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "803be331e07660630d8bd2c06ec74949ee1e80fb6fa1794569b6b64622047890"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h16",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "慕田峪長城（北京）",
+   "file": "h16.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "41c104e7bccd0f80970444a2154c1b55c676aff0e0892289479a4c3509211dfe",
+   "observable_features": [
+    "沿山脊蜿蜒的城牆",
+    "城牆上的垛口",
+    "遠處山脊上的敵樓"
+   ],
+   "curriculum_links": [
+    "中國的邊防與游牧民族",
+    "明代長城"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Mutianyu_Great_Wall_(6222519140).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Mutianyu_Great_Wall_%286222519140%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Arian Zwegers",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2005-07-28 07:28",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Mutianyu_Great_Wall_%286222519140%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "23b087828a019fa4325b2a94e198132dff8b493f27c32525879db0007cf14a91"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h17",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "吳哥窟（柬埔寨）",
+   "file": "h17.jpg",
+   "width": 1400,
+   "height": 927,
+   "sha256": "1c7e28ffb1623f1fbd78cc9b3ec60a985fe11c105aeed6d6b5e054ddb196f133",
+   "observable_features": [
+    "五座塔尖的寺廟建築群",
+    "前方水池的倒影"
+   ],
+   "curriculum_links": [
+    "東南亞的印度文化影響",
+    "宗教與王權"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:20171126_Angkor_Wat_4712_DxO.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/20171126_Angkor_Wat_4712_DxO.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2017-11-26 16:14:10",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/20171126_Angkor_Wat_4712_DxO.jpg/1920px-20171126_Angkor_Wat_4712_DxO.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "5cb6471574f4e968d7462d216c90e99d87f15e7c8b8321469af4837f6c951fa3"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h18",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "羅馬競技場",
+   "file": "h18.jpg",
+   "width": 1400,
+   "height": 881,
+   "sha256": "f75797ca8ca3590d82e77e68d26c5a8aa952144b167b4bdadcf28aea2669adbc",
+   "observable_features": [
+    "多層連續拱門的橢圓形外牆",
+    "部分外牆殘缺"
+   ],
+   "curriculum_links": [
+    "羅馬帝國的公共建築與城市生活",
+    "拱券技術"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Colosseum_of_Rome,_Italy.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Colosseum_of_Rome%2C_Italy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Wilfredor",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source_rights": "public_domain",
+    "date": "2024-02-08 11:53:11",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Colosseum_of_Rome%2C_Italy.jpg/1920px-Colosseum_of_Rome%2C_Italy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "185a36ea1eeebda546be6058b8d40a6b125ca647afb064a3b8369a7e37e3b815"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h19",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "雅典帕德嫩神殿",
+   "file": "h19.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "7320f307522fb86d0495ce91fd421e181fec4a42d93197da5c2abe0f56067552",
+   "observable_features": [
+    "成排多立克式石柱",
+    "三角形山牆殘跡",
+    "建於山丘上"
+   ],
+   "curriculum_links": [
+    "古希臘城邦與宗教",
+    "古典文化的影響"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Parthenon_from_west.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Parthenon_from_west.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "User:Mountain",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2006-11-26",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Parthenon_from_west.jpg/1920px-Parthenon_from_west.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "463d3f15fc97586a872c2f8e97b44bbbd3a50b278e1843e8960ad687a84bab19"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h20",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "〈巴達維亞城堡〉（Andries Beeckman，1661 年前後）",
+   "file": "h20.jpg",
+   "width": 1400,
+   "height": 995,
+   "sha256": "2ba62f444ec3d626414e5ce3949a48cbbee728f451a90f22802d0bc43d5d76de",
+   "observable_features": [
+    "棕櫚樹下聚集的人群",
+    "遠方的城堡與城牆",
+    "熱帶天空"
+   ],
+   "curriculum_links": [
+    "荷蘭東印度公司的亞洲據點",
+    "巴達維亞與臺灣的關係",
+    "畫作作為史料"
+   ],
+   "caution": "畫作非照片，題目稱「畫作」。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Andries_Beeckman_-_The_Castle_of_Batavia.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Andries_Beeckman_-_The_Castle_of_Batavia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Andries Beeckman",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1662",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Andries_Beeckman_-_The_Castle_of_Batavia.jpg/1920px-Andries_Beeckman_-_The_Castle_of_Batavia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "c271396db3ab9c8af27c24d2a365b6251a3bf07d8e515cd055f401f5d43bc4ba"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 38-199 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h21",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "馬關條約簽約場景（浮世繪）",
+   "file": "h21.jpg",
+   "width": 1287,
+   "height": 666,
+   "sha256": "8c126bd47640bb918b29152f76522ae63b411927dfe43717cc69efabeee1d76a",
+   "observable_features": [
+    "長桌兩側分坐日方與清方代表",
+    "雙方服飾明顯不同",
+    "畫上的日文題字"
+   ],
+   "curriculum_links": [
+    "甲午戰爭與馬關條約",
+    "臺灣割讓",
+    "圖像史料的立場"
+   ],
+   "caution": "浮世繪為日方當時的出版品，判讀時可討論其立場。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "as shown on picture",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "circa 1895date QS:P,+1895-00-00T00:00:00",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "17a2ea70c6c28558b66abf90eef681c61d89efcb6a67c118b4159dfcb7970bd6"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h22",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "1935 年臺灣博覽會第一會場空照（臺北）",
+   "file": "h22.jpg",
+   "width": 1213,
+   "height": 892,
+   "sha256": "849f0fa11a4c3b6079ded6f2ac7d4734ed091cc46edd9edccdd435752b8fec5a",
+   "observable_features": [
+    "大型展館建築群",
+    "方格化的街道與密集市街",
+    "鐵道與大道"
+   ],
+   "curriculum_links": [
+    "始政四十周年臺灣博覽會",
+    "日治時期的都市計畫",
+    "殖民統治的宣傳"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Taiwan_Exposition,_area_1,_Taihoku,_1935.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Taiwan_Exposition%2C_area_1%2C_Taihoku%2C_1935.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "社團法人臺灣建築會",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1935",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Taiwan_Exposition%2C_area_1%2C_Taihoku%2C_1935.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "f3a0ccd64bf923b93afd511a06410801ace21deb3237cc8e50fd9d504bf4213e"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h23",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "埔里社製糖所（日治時期）",
+   "file": "h23.jpg",
+   "width": 1400,
+   "height": 961,
+   "sha256": "ad05b733f197965dc23ba9e130564429b0f372a23f8db38de9595409de89d838",
+   "observable_features": [
+    "高聳煙囪與工廠建築",
+    "廠前多條軌道與台車",
+    "前景甘蔗田"
+   ],
+   "curriculum_links": [
+    "日治時期新式製糖業",
+    "糖業鐵道",
+    "殖民地經濟"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:%E5%9F%94%E9%87%8C%E7%A4%BE%E8%A3%BD%E7%B3%96%E6%89%80.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/%E5%9F%94%E9%87%8C%E7%A4%BE%E8%A3%BD%E7%B3%96%E6%89%80.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Unknown author",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1910sdate QS:P,+1910-00-00T00:00:00Z/8-1",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/%E5%9F%94%E9%87%8C%E7%A4%BE%E8%A3%BD%E7%B3%96%E6%89%80.jpg/1920px-%E5%9F%94%E9%87%8C%E7%A4%BE%E8%A3%BD%E7%B3%96%E6%89%80.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b14ab800f8cc573f99eb8bd1ecc66a28afa21e067c782aad8856a31db1debb1b"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 50-222 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h24",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "嘉南大圳平面圖（日治時期）",
+   "file": "h24.jpg",
+   "width": 1400,
+   "height": 1163,
+   "sha256": "3157f52ed669479a055db39824db3c2a7604d0334f2a6d75f0409c9f331a84d8",
+   "observable_features": [
+    "覆蓋嘉南平原的密集圳道網",
+    "圖例、比例尺與方位",
+    "圖下說明文字"
+   ],
+   "curriculum_links": [
+    "嘉南大圳",
+    "三年輪作",
+    "日治時期水利與農業"
+   ],
+   "caution": "圖中文字須放大才能辨讀，建議只用局部。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Map_of_Kanan_Irrigation_System.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Map_of_Kanan_Irrigation_System.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "嘉南大圳組合等",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1933-10",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Map_of_Kanan_Irrigation_System.jpg/1920px-Map_of_Kanan_Irrigation_System.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "3fe9237da65c67f23c3c4211e71d97e4330989e9f77b175b53b9abbea755de1c"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 55-223 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h25",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "馬丘比丘（祕魯）",
+   "file": "h25.jpg",
+   "width": 1400,
+   "height": 930,
+   "sha256": "7f42a3781a51ebce513c1d90d8387f1e1ae149939b244dffd2f9c30751f602ef",
+   "observable_features": [
+    "山脊上的石砌建築群",
+    "層層石砌梯田",
+    "後方陡峭山峰"
+   ],
+   "curriculum_links": [
+    "印加文明",
+    "高山環境的利用"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Per%C3%BA,_2015-07-30,_DD_47.JPG",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2015-07-30 16:01:04",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG/1920px-Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "41c765050ca89aa9adc7cbfccc98f0b7ca3e9e0f0424ab3453d87bbaad8e6833"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c01",
+   "domain": "公民與社會",
+   "kind": "aerial_photo",
+   "title": "立法院院區空照（臺北）",
+   "file": "c01.jpg",
+   "width": 1400,
+   "height": 1249,
+   "sha256": "7f594e314f92f02b9d0b34793d5c3f487211a7f249beb3212bc85169cfdba4db",
+   "observable_features": [
+    "被高樓環繞的院區",
+    "院區內的舊建築與議場",
+    "院區前的廣場"
+   ],
+   "curriculum_links": [
+    "立法院職權與民主政治",
+    "憲政機關"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Legislative_Yuan_Building_20240626.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Legislative_Yuan_Building_20240626.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Yu tptw",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2024-06-26 12:53:29",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Legislative_Yuan_Building_20240626.jpg/1920px-Legislative_Yuan_Building_20240626.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b8a1c2ba576dc54b989099fd1fa89899a159ac7f777a124a4b4be0cf3dfca08f"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c02",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "司法院大樓（臺北，日治時期建築）",
+   "file": "c02.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "a804f4a700093a546bc5d918b6f61e0d21e9748d35de5f73bf2fe6ba7c00bed2",
+   "observable_features": [
+    "對稱的紅磚立面",
+    "中央高塔與拱門入口"
+   ],
+   "curriculum_links": [
+    "司法權與法院體系",
+    "憲法法庭",
+    "建築的歷史脈絡"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Taipei_Taiwan_Judicial-Yuan-01.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Taipei_Taiwan_Judicial-Yuan-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2014-05-18",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Taipei_Taiwan_Judicial-Yuan-01.jpg/1920px-Taipei_Taiwan_Judicial-Yuan-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "37289fb16e70a14413ac359290529ceab4451c4f8ff76df756b6ccadbcbfe081"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c03",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "臺北 YouBike 公共自行車站",
+   "file": "c03.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "083c3cb76a04be1ecc4c21fd11b03771d3f9f6be13e35cd5b4d4204bf840fca9",
+   "observable_features": [
+    "停放在樁柱上的公共自行車",
+    "人行道上的租借樁"
+   ],
+   "curriculum_links": [
+    "公共運輸與共享經濟",
+    "外部效益與公共財",
+    "都市交通政策"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:YouBike_bicycle_parking_in_Taipei_20120916.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/YouBike_bicycle_parking_in_Taipei_20120916.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Muhammad Riza",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source_rights": "licensed",
+    "date": "2012-09-16 13:50:33",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/YouBike_bicycle_parking_in_Taipei_20120916.jpg/1920px-YouBike_bicycle_parking_in_Taipei_20120916.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e0a81f1b6a78b33ade0f27fcd330ab8538915baabc660736c754d68c4d5ce49c"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c04",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "士林市場周邊街道（白天）",
+   "file": "c04.jpg",
+   "width": 1400,
+   "height": 787,
+   "sha256": "75923d9f369499cc131a1b99f424ca079b371f690bcd97677046bff4dad04915",
+   "observable_features": [
+    "狹窄巷道兩側的攤位與店面",
+    "拉下的鐵捲門",
+    "懸掛的招牌"
+   ],
+   "curriculum_links": [
+    "市場與價格機制",
+    "公共空間的使用與管理"
+   ],
+   "caution": "照片為白天，未必是營業中的夜市。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Shilin_Night_Market_02.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Shilin_Night_Market_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Exec8",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2018-08-13 22:34:29",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Shilin_Night_Market_02.jpg/1920px-Shilin_Night_Market_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "1eb7e3f62307f532725c81fa03fdff501d0de5f7256728c17666a640653ad306"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c05",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "臺中火力發電廠與周邊聚落",
+   "file": "c05.jpg",
+   "width": 1400,
+   "height": 929,
+   "sha256": "c5d6b35e6543c39346ece684e6d0324c983e4529f943b7e54a2ad9244e9147bf",
+   "observable_features": [
+    "多支高聳煙囪",
+    "前景密集的住宅",
+    "平坦的沿海平原"
+   ],
+   "curriculum_links": [
+    "外部成本與環境管制",
+    "能源結構與空氣品質",
+    "鄰避設施"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Taichung_Fire_Power_Plant.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Taichung_Fire_Power_Plant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "阿爾特斯",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "source_rights": "licensed",
+    "date": "2010-04-16",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Taichung_Fire_Power_Plant.jpg/1920px-Taichung_Fire_Power_Plant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "c51a55347d9ac877bc70bdec67f2159788062c5d5346a8a81502e7c2259a458a"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c06",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "臺北傳統市場蔬果攤",
+   "file": "c06.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "a4ca810e87cea1fc31eab0475fdb4e1f2ab17dcb944a6c066cd67358bee6281d",
+   "observable_features": [
+    "攤上的標價牌",
+    "選購蔬果的顧客",
+    "戴口罩的人"
+   ],
+   "curriculum_links": [
+    "市場交易與價格",
+    "消費行為"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:A_greengrocer_in_a_wet_market_in_Taipei.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/A_greengrocer_in_a_wet_market_in_Taipei.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "ThomasYehYeh",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2022-08-13",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/A_greengrocer_in_a_wet_market_in_Taipei.jpg/1920px-A_greengrocer_in_a_wet_market_in_Taipei.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e21af86b4381a1beeec18ced4aa5f697bd36d3bc0c4b3b77715fc1927080f5a7"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c07",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "臺北垃圾車與資源回收車收運",
+   "file": "c07.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "b85cb94f7e3201870e6848a73cc89b2a0f2ac845e6352c3f6f0665b0d016bd67",
+   "observable_features": [
+    "民眾提著分類後的垃圾",
+    "回收車上的標示字樣",
+    "裝滿回收物的大袋"
+   ],
+   "curriculum_links": [
+    "資源回收與垃圾分類政策",
+    "公共政策與市民參與",
+    "外部成本"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Disposing_sorted_waste_to_garbage_truck_on_Beining_Road_20220726.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Disposing_sorted_waste_to_garbage_truck_on_Beining_Road_20220726.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "ThomasYehYeh",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2022-07-26",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Disposing_sorted_waste_to_garbage_truck_on_Beining_Road_20220726.jpg/1920px-Disposing_sorted_waste_to_garbage_truck_on_Beining_Road_20220726.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "73fef0934147bdcaa16807b6fb017229f9afab17cd29b009e1bc147e1c8dc73c"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c08",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "2014 年臺灣選民排隊等候投票",
+   "file": "c08.jpg",
+   "width": 1024,
+   "height": 576,
+   "sha256": "cae88bdb99c7728571162c50ae1598d53f0d1363f6728b3a47a0b8b1318273c6",
+   "observable_features": [
+    "投票所外排隊的民眾",
+    "門口的公告與指示"
+   ],
+   "curriculum_links": [
+    "選舉制度與投票",
+    "公民參與"
+   ],
+   "caution": "不得藉此照片暗示任何政黨立場。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:2014%E5%B9%B4%E5%8F%B0%E7%81%A3%E9%81%B8%E6%B0%91%E6%8E%92%E9%9A%8A%E7%AD%89%E5%80%99%E6%8A%95%E7%A5%A8.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/2014%E5%B9%B4%E5%8F%B0%E7%81%A3%E9%81%B8%E6%B0%91%E6%8E%92%E9%9A%8A%E7%AD%89%E5%80%99%E6%8A%95%E7%A5%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "美國之音 許波",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2014-11-29 16:10",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/2014%E5%B9%B4%E5%8F%B0%E7%81%A3%E9%81%B8%E6%B0%91%E6%8E%92%E9%9A%8A%E7%AD%89%E5%80%99%E6%8A%95%E7%A5%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "3ba4e373b8f31121db7f975d03a0224a89d0f2cfd25f8aa5f74b4fb5037dc6bc"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  }
+ ]
+}

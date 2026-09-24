@@ -3,7 +3,7 @@ name: taiwan-exam-generator
 description: Create original Taiwan GSAT and CAP exams with separate question and solution PDFs, verified fixed templates, answer checks, difficulty review, and visual QA. Use for Taiwan exam generation.
 ---
 
-# Taiwan Exam Web Knowledge v2026.09.22.22
+# Taiwan Exam Web Knowledge v2026.09.22.23
 
 This is the Project Knowledge / ordinary-file compatibility bundle. For a new
 native Skill installation, use the multi-file hosted Skill ZIP with its short
@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 87153,
-    "sha256": "ac573ee6e77afeaa5d1a606b1ff0d584a5e0bbb01e9bcfc52e2ef09f5b669107",
-    "embedded_bytes": 87153,
-    "embedded_sha256": "ac573ee6e77afeaa5d1a606b1ff0d584a5e0bbb01e9bcfc52e2ef09f5b669107"
+    "bytes": 87788,
+    "sha256": "75db094d4e3c29255cdacbe29a36a7e24760ef1e4a7dfec11eb6faa57c0949c1",
+    "embedded_bytes": 87788,
+    "embedded_sha256": "75db094d4e3c29255cdacbe29a36a7e24760ef1e4a7dfec11eb6faa57c0949c1"
   },
   {
     "path": "core/taxonomy.json",
@@ -519,10 +519,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-form-topicality.md",
-    "bytes": 11011,
-    "sha256": "eac3ff1def61a9b8d6b6bf6df36305ddf27f948e7d8618cee7e3fa7bf15f6a79",
-    "embedded_bytes": 11011,
-    "embedded_sha256": "eac3ff1def61a9b8d6b6bf6df36305ddf27f948e7d8618cee7e3fa7bf15f6a79"
+    "bytes": 11078,
+    "sha256": "bda6a1d102377125299b7f282c65eac22e04836c4580b8f07e270a480b4f9b87",
+    "embedded_bytes": 11078,
+    "embedded_sha256": "bda6a1d102377125299b7f282c65eac22e04836c4580b8f07e270a480b4f9b87"
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
@@ -554,10 +554,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-social-form.md",
-    "bytes": 34768,
-    "sha256": "994f212aa407aad0da6b461c9876533d8b0fca1c468655f7690c86a8da045262",
-    "embedded_bytes": 34768,
-    "embedded_sha256": "994f212aa407aad0da6b461c9876533d8b0fca1c468655f7690c86a8da045262"
+    "bytes": 38939,
+    "sha256": "08876168cc749ef92bb7b480ad9268e8626a1442a50acd039c8bdd7a778c91a5",
+    "embedded_bytes": 38939,
+    "embedded_sha256": "08876168cc749ef92bb7b480ad9268e8626a1442a50acd039c8bdd7a778c91a5"
   },
   {
     "path": "references/current-gsat-writing-form.md",
@@ -660,16 +660,16 @@ attachments; extract only the selected subject's components.
   {
     "path": "references/hosted-body-workflow.md",
     "bytes": 16618,
-    "sha256": "5972471e7fae84073498261e28da15ca16bb4884e0dd9cd40c2221aa4d730bed",
+    "sha256": "bc7ab4a20566c7983e5f1eaed317f4d33a578c9cecf429fc0cbe4edb99a8661d",
     "embedded_bytes": 16618,
-    "embedded_sha256": "5972471e7fae84073498261e28da15ca16bb4884e0dd9cd40c2221aa4d730bed"
+    "embedded_sha256": "bc7ab4a20566c7983e5f1eaed317f4d33a578c9cecf429fc0cbe4edb99a8661d"
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 47340,
-    "sha256": "0c0313b86fbc215d606f76b18da2d12d3781a1546f396a4694a60bb7d7df57a9",
-    "embedded_bytes": 47340,
-    "embedded_sha256": "0c0313b86fbc215d606f76b18da2d12d3781a1546f396a4694a60bb7d7df57a9"
+    "bytes": 48319,
+    "sha256": "476538959812aa197be300352140565a2778749533882148a06230f9d0b68341",
+    "embedded_bytes": 48319,
+    "embedded_sha256": "476538959812aa197be300352140565a2778749533882148a06230f9d0b68341"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -749,6 +749,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "41b12c1c68eca9a6a6ddde5c3f33f1d0f4db77d42b4eae910de2e40562724621"
   },
   {
+    "path": "references/photo-library-manifest.json",
+    "bytes": 96731,
+    "sha256": "f574b6c42d5348c8aee016b48c84e937bdb34fbcb17867dc4c9b5fc6eca3151c",
+    "embedded_bytes": 94422,
+    "embedded_sha256": "a8bed265ff463f0170c3ee6a382cf3c07fb65917e28be0dbc8c8e510322c4b57"
+  },
+  {
     "path": "references/rendering.md",
     "bytes": 8316,
     "sha256": "0f460a2cca62e91b2b866d7a4fa64fc41b566fdcb78317774d5c969857df6751",
@@ -771,10 +778,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/visual-generation.md",
-    "bytes": 15980,
-    "sha256": "3f8b31940cf37b22855b22add8deb2d68afcbeab9e627f1c4beaaf07c424f96c",
-    "embedded_bytes": 15980,
-    "embedded_sha256": "3f8b31940cf37b22855b22add8deb2d68afcbeab9e627f1c4beaaf07c424f96c"
+    "bytes": 16141,
+    "sha256": "5ed356029887cf12f90d804ac1e6c58f021b7e58f265e111a0f4b3c654b21aa3",
+    "embedded_bytes": 16141,
+    "embedded_sha256": "5ed356029887cf12f90d804ac1e6c58f021b7e58f265e111a0f4b3c654b21aa3"
   },
   {
     "path": "references/web-platform-use.md",
@@ -848,10 +855,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "schemas/visual-spec.schema.json",
-    "bytes": 6942,
-    "sha256": "62e507ca320cf817168a38ed24f19c48f866af70bbd277ecf01e678d5d74a4f5",
-    "embedded_bytes": 6942,
-    "embedded_sha256": "62e507ca320cf817168a38ed24f19c48f866af70bbd277ecf01e678d5d74a4f5"
+    "bytes": 6985,
+    "sha256": "00cd4f883c5c521aa21ddc066ff7e8d285677311d6527e8f1a81b9b307459f1f",
+    "embedded_bytes": 6985,
+    "embedded_sha256": "00cd4f883c5c521aa21ddc066ff7e8d285677311d6527e8f1a81b9b307459f1f"
   },
   {
     "path": "scripts/analyze_current_form_literacy.py",
@@ -862,10 +869,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/answer_key_patterns.py",
-    "bytes": 5938,
-    "sha256": "1ec6859b20c8a7908bb0071cc28a04050a93f53714db78855dbe425c597822b7",
-    "embedded_bytes": 5938,
-    "embedded_sha256": "1ec6859b20c8a7908bb0071cc28a04050a93f53714db78855dbe425c597822b7"
+    "bytes": 6333,
+    "sha256": "f66054e00e0076ee18b45186f3335e92a9ae095ee6377f6a686c62cd4a76b676",
+    "embedded_bytes": 6333,
+    "embedded_sha256": "f66054e00e0076ee18b45186f3335e92a9ae095ee6377f6a686c62cd4a76b676"
   },
   {
     "path": "scripts/append_items.py",
@@ -897,10 +904,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_paper_plan.py",
-    "bytes": 12987,
-    "sha256": "22914ca4116e131a5578476a80123f2f153c0a08bdb9517d7088b16a8a6f9e55",
-    "embedded_bytes": 12987,
-    "embedded_sha256": "22914ca4116e131a5578476a80123f2f153c0a08bdb9517d7088b16a8a6f9e55"
+    "bytes": 13309,
+    "sha256": "8625f34e707e94cdbfaa3c8a90cb099f1d014854a93ab917180072cd853923ee",
+    "embedded_bytes": 13309,
+    "embedded_sha256": "8625f34e707e94cdbfaa3c8a90cb099f1d014854a93ab917180072cd853923ee"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -932,17 +939,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 12252,
-    "sha256": "eec9e050369d56c10e9ce46f496482babc32a33d7d018c891e39722586fd23fc",
-    "embedded_bytes": 12252,
-    "embedded_sha256": "eec9e050369d56c10e9ce46f496482babc32a33d7d018c891e39722586fd23fc"
+    "bytes": 13308,
+    "sha256": "38881086a0618c16a5b015657023a991d4821244562b982ccfd032521eb1d4fb",
+    "embedded_bytes": 13308,
+    "embedded_sha256": "38881086a0618c16a5b015657023a991d4821244562b982ccfd032521eb1d4fb"
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 69488,
-    "sha256": "86ba153715fd5f166a0b6c9ae40ca237a8f5020844a746f924243db42b7264b0",
-    "embedded_bytes": 69488,
-    "embedded_sha256": "86ba153715fd5f166a0b6c9ae40ca237a8f5020844a746f924243db42b7264b0"
+    "bytes": 70876,
+    "sha256": "7f2341bcc535a4e34950eda868bbde1ca29022682321be1036e969bc85735f82",
+    "embedded_bytes": 70876,
+    "embedded_sha256": "7f2341bcc535a4e34950eda868bbde1ca29022682321be1036e969bc85735f82"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -1002,10 +1009,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_subject_gates.py",
-    "bytes": 11482,
-    "sha256": "fefbd3c1571610b6bf724a837f2804abe3cde461540f82195753fc509205b7db",
-    "embedded_bytes": 11276,
-    "embedded_sha256": "dc433cd0ecb1f889ac48ea84501df31f0a90947af0c21e71d5e9fe639625fb14"
+    "bytes": 11667,
+    "sha256": "8b00d2edb3949fbc9fe376bd8e858f09d59bf1d31fd7b27c29d8182c98922c17",
+    "embedded_bytes": 11458,
+    "embedded_sha256": "c6eef2de054b7b5fe0fd3d8fca2c714895a22e771b7ffb0a2dc28543695f8a24"
   },
   {
     "path": "scripts/inspect_hosted_pdf.py",
@@ -1029,6 +1036,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "861e260cdddfa2850970e407c3c3f85cbfebc0275b6d59c1ae1f1f587953491a"
   },
   {
+    "path": "scripts/photo_library.py",
+    "bytes": 11229,
+    "sha256": "f621ed02a7a3c72b032556bc958cf09478e063259b6e7e07067d53f8eee6a79a",
+    "embedded_bytes": 11029,
+    "embedded_sha256": "b93e0def3b0f8d332d3feaab66e7613ab8b3b679461e5fcf9c4c7648bfa621b1"
+  },
+  {
     "path": "scripts/prepare_hosted_review.py",
     "bytes": 29225,
     "sha256": "1108822023217e3ace6a92c616da847fbb260c0a1d4fa0b2c6015019d3663af1",
@@ -1037,24 +1051,24 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 38197,
-    "sha256": "9d9c261f20e4a5ae0b09e602b42ef016b7730b72a4b433cef3a20ee1a9af0c02",
-    "embedded_bytes": 38197,
-    "embedded_sha256": "9d9c261f20e4a5ae0b09e602b42ef016b7730b72a4b433cef3a20ee1a9af0c02"
+    "bytes": 38773,
+    "sha256": "89349ed0c6d2e5947b09df0e876dd5adc958ddc83b8932a87fd29bdc3fc06934",
+    "embedded_bytes": 38773,
+    "embedded_sha256": "89349ed0c6d2e5947b09df0e876dd5adc958ddc83b8932a87fd29bdc3fc06934"
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 27647,
-    "sha256": "3f61486db327593ed795be2ecd6daec682d1900ff4786ea140a5a0fdf6e9dc10",
-    "embedded_bytes": 27647,
-    "embedded_sha256": "3f61486db327593ed795be2ecd6daec682d1900ff4786ea140a5a0fdf6e9dc10"
+    "bytes": 27709,
+    "sha256": "07a4a3e95f7e5d0a9efac04b4122a5c18479eb6691ac908820c49a026be4e5d5",
+    "embedded_bytes": 27709,
+    "embedded_sha256": "07a4a3e95f7e5d0a9efac04b4122a5c18479eb6691ac908820c49a026be4e5d5"
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 102850,
-    "sha256": "6c107d7dc9207c22abd043be09551781a5169bd435dfe632288634d81905292f",
-    "embedded_bytes": 102850,
-    "embedded_sha256": "6c107d7dc9207c22abd043be09551781a5169bd435dfe632288634d81905292f"
+    "bytes": 105262,
+    "sha256": "09cd84133c7f6e5920aa1e57636286edb1a314c6ecd42c8ee323b436cee94537",
+    "embedded_bytes": 105262,
+    "embedded_sha256": "09cd84133c7f6e5920aa1e57636286edb1a314c6ecd42c8ee323b436cee94537"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1177,10 +1191,17 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_social_item_design.py",
-    "bytes": 36469,
-    "sha256": "bae9243d90882b5a477f5ca30b50a5c748639b59ff33662d74324fedd8c16667",
-    "embedded_bytes": 36469,
-    "embedded_sha256": "bae9243d90882b5a477f5ca30b50a5c748639b59ff33662d74324fedd8c16667"
+    "bytes": 40161,
+    "sha256": "406ec09a05a3d6a5909839f22d3f226cb461aab958e80fc2de24cbff05b38126",
+    "embedded_bytes": 40161,
+    "embedded_sha256": "406ec09a05a3d6a5909839f22d3f226cb461aab958e80fc2de24cbff05b38126"
+  },
+  {
+    "path": "scripts/validate_social_layout_contract.py",
+    "bytes": 12239,
+    "sha256": "1e24866bef2d884ca5aa05c5c56a043bc65a110e3ca59b27bfd20b20d2368228",
+    "embedded_bytes": 12015,
+    "embedded_sha256": "d62147b87350d43019cc1c8b0a02dbfb026663f2b71e6aaf215b32a237c5d9bc"
   },
   {
     "path": "scripts/validate_source_grounding.py",
@@ -1191,10 +1212,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_visual_item_contract.py",
-    "bytes": 13195,
-    "sha256": "fc5bd6808996d0037c82f0b50aae177e2da91e5d91114b84d166926344e45310",
-    "embedded_bytes": 13195,
-    "embedded_sha256": "fc5bd6808996d0037c82f0b50aae177e2da91e5d91114b84d166926344e45310"
+    "bytes": 15854,
+    "sha256": "024fb27f33d5f086cce8c87de88d0cbeaf94e7af9f7fedcd13427a4e678be9c0",
+    "embedded_bytes": 15854,
+    "embedded_sha256": "024fb27f33d5f086cce8c87de88d0cbeaf94e7af9f7fedcd13427a4e678be9c0"
   },
   {
     "path": "scripts/validate_writing_layout_contract.py",
@@ -1310,10 +1331,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "templates/hosted-social-questions.json",
-    "bytes": 2961,
-    "sha256": "de6497c287ba6ca98d5470db72ef38a15573d262dc58a4d23d4e354c97dd3f3a",
-    "embedded_bytes": 2961,
-    "embedded_sha256": "de6497c287ba6ca98d5470db72ef38a15573d262dc58a4d23d4e354c97dd3f3a"
+    "bytes": 4274,
+    "sha256": "d91dcc3db3d05277ecf7ac65404e285822077f31dd63ed9f6c580630d9fb997d",
+    "embedded_bytes": 4274,
+    "embedded_sha256": "d91dcc3db3d05277ecf7ac65404e285822077f31dd63ed9f6c580630d9fb997d"
   },
   {
     "path": "templates/hosted-social-solutions.json",
@@ -1387,10 +1408,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "templates/visual-spec.json",
-    "bytes": 1345,
-    "sha256": "a8ecf1b68bfdd57690aa658c807135d5c5894fee4acf96e7e4385efa66ea2a13",
-    "embedded_bytes": 1345,
-    "embedded_sha256": "a8ecf1b68bfdd57690aa658c807135d5c5894fee4acf96e7e4385efa66ea2a13"
+    "bytes": 1346,
+    "sha256": "ae2152847e3091bbd76adecf8f71c9e072f41af64f342922300905afdf127a08",
+    "embedded_bytes": 1346,
+    "embedded_sha256": "ae2152847e3091bbd76adecf8f71c9e072f41af64f342922300905afdf127a08"
   }
 ]
 ```
@@ -1610,7 +1631,7 @@ ask users to disable protection, restore quarantined scripts, or add exclusions.
    For the verified 115 English profile, render cloze, text completion, and discourse gaps inline inside the passage; print their option blocks once in the official order, never as repeated worksheet-style blank rows. Part I is 62 points. Section-start underlines, heading placement, and page transitions require a section-by-section visual comparison before release.
    For current-form GSAT Social Studies, read [references/current-gsat-social-form.md](references/current-gsat-social-form.md). Its discipline balance, source ecology, evidence operations, cross-disciplinary grouping, constructed-response contract, and page geometry are hard constraints. Current events may supply evidence and a real decision problem, but may not replace history, geography, or civics reasoning.
    Group the objective section's standalone items into contiguous disciplinary blocks, following the selected official year's block order and counts. Do not alternate history, geography and civics item by item. This restriction does not apply to shared-stimulus objective groups or the mixed/constructed section, including its single-choice subparts. A mixed group may integrate all three disciplines through one coherent evidence problem; prefer genuine, curriculum-bounded cross-disciplinary inference when the material supports it, without forcing every group or every subpart to involve all three. Follow the subject reference's integration and ordering checks.
-   For Social Studies, include a few questions grounded in verified events or substantive updates within the year before the editorial lock; the small default allocation is described in the subject reference. Do not prioritize a six-month or 90-day window or force the rest of the paper into current affairs. Apply the reference's party-stance-free rules to prompts, options, images and explanations; assess evidence and syllabus concepts, never allegiance to a party or policy position. Plan a richer mix of answer-bearing images using its 8–10-material / four-kind editorial target, while retaining the established minimums, realistic solving time, grayscale legibility and the official form. User examples are candidates, not mandatory recurring topics.
+   For Social Studies, at least ten scored items must rest on verified events or substantive updates within the year before the editorial lock, four of them within 180 days, spread over five materials and at least four in each part (maintainer decision 2026-09-24); print the year and month in the material. Keep the rest of the paper on the curriculum rather than turning it into a news quiz. Apply the reference's party-stance-free rules to prompts, options, images and explanations; assess evidence and syllabus concepts, never allegiance to a party or policy position. Plan answer-bearing visuals as 111–115 print them: 2–4 real photographs or archival images, 7–13 charts, maps and tables, and 18 or more items that cite a 圖／表／照片. Search the web for fitting real photographs first and use them from your own environment, recording where each came from; when the runtime cannot fetch images, use `scripts/photo_library.py` (59 traceable photographs). A traceable source is enough; no license verdict is required. User examples are candidates, not mandatory recurring topics.
    Social Studies novelty applies to every scored standalone and grouped item, not only to cross-disciplinary mixed groups or current-event items. Each item must record `item_spec.subject_innovation_audit` and introduce a new evidence configuration, source tension, spatial/temporal comparison, institutional constraint, quantitative relation, or cross-domain inference that changes the reasoning path. A different place, year, policy name, person, photograph, or dataset attached to the same textbook-definition question is a failed skin swap. Follow the per-domain audit in [references/current-gsat-social-form.md](references/current-gsat-social-form.md), require `metadata.subject_innovation_review`, and enforce it through `scripts/validate_social_item_design.py`.
    For current-form GSAT 國綜 or 自然, read [references/current-gsat-chinese-natural-form.md](references/current-gsat-chinese-natural-form.md). Its ROC 111–115 item-length and page-density envelopes, source-novelty rule, and no-unattributed-passage rule are hard constraints. 國綜 does not permit model-authored literary, classical, expository, or practical-text passages. 自然 may define a school-level model or ask students to transform source data, but every printed empirical datum and real-world claim must be traceable to a frozen source or a transparent calculation from it.
    國綜 and 自然 also require subject-level novelty beyond source novelty or visual novelty. Every scored item must carry `item_spec.subject_innovation_audit` and pass the applicable section in [references/current-gsat-chinese-natural-form.md](references/current-gsat-chinese-natural-form.md). 國綜 must create a new language/interpretive problem and evidence relation; merely selecting a previously unused author or excerpt is insufficient. 自然 must create a new model–evidence, experiment, constraint, uncertainty, multi-representation, or cross-disciplinary reasoning architecture; a new mission, organism, apparatus, photograph, graph skin, or numeric tuple around the same routine is insufficient. Require `metadata.subject_innovation_review` and enforce both subjects through `scripts/validate_chinese_natural_scope.py`.
@@ -1620,7 +1641,7 @@ ask users to disable protection, restore quarantined scripts, or add exclusions.
    Every full Natural Science paper is current-affairs-aware by default, not only on request: read [references/current-form-topicality.md](references/current-form-topicality.md), set an `as_of_date` and editorial lock date, record `metadata.natural_source_ecology_plan` and `metadata.current_context_plan`, and meet the measured floor enforced by `scripts/validate_current_context.py` (at least five verified sources within the year carrying eight scored items in both parts, two of them within 180 days such as the autumn Nobel prizes or an in-season Taiwan typhoon/earthquake warning, plus Taiwan-hazard, climate/energy and Taiwan-place contexts). Official 111–115 papers carry 0–5 such contexts a year with a typhoon in four of five years; a paper with none is outside the form. Give the preceding 12 months a larger share of the genuinely time-sensitive source groups, but never let a numerical news quota distort the four-discipline, difficulty, form, or solving-time balance. Sample the remaining dated sources across multiple earlier years and source families rather than clustering on one convenient year; keep evergreen school models in a separate bucket instead of pretending they are dated events. Every recent item must depend on a source-specific measurement, comparison, image feature, method, or constraint—not merely a fashionable name. Favor additional graphs, tables, maps, photographs, and observation images when they carry answer evidence; the visual floor is a minimum, not a target or permission to add decoration.
    For current-form GSAT writing, read [references/current-gsat-writing-form.md](references/current-gsat-writing-form.md) and [references/gsat-writing-source-ecology.md](references/gsat-writing-source-ecology.md). During the writing pass, do not read past question text, year-by-year topic summaries, or prior generated writing prompts. The LLM must discover new articles independently, then design a new material sequence, rhetorical tension, task decision, and title from those sources. Every printable event, case, datum, attributed viewpoint, and concrete anecdote must map to an identified source; the LLM may paraphrase, translate, juxtapose, and ask a new question, but it may not invent a supposedly real or generic case to complete the material. **Do not use United Daily News, any other newspaper, publisher, magazine, platform, archive, or institution as a default, preferred, or de facto exclusive source.** 國寫 source eligibility is publisher-neutral: any traceable and rights-safe source may compete when its transformed material fits the selected official length envelope and rhetorical role. The full-paper candidate pool must still span at least four publishers and four unrelated domains, and one easy-to-search publisher must not occupy more than half the pool. Length compliance is necessary but never substitutes for traceability, rights safety, a concrete carrier, a semantic hinge, material dependence, or role fit. For the second task, search contemporary Chinese essays, new poetry, picture-book prose and other Chinese literary writing first. A foreign work may advance only through a traceable published Chinese translation; do not expose a raw English web bibliography as the normal student-facing source line.
    In every subject the printed answer key must look like an official key, that is unpatterned: `scripts/answer_key_patterns.py` (run by the release gate, the hosted final checker and each saved batch) rejects four identical positions in a row, a period-2/3/4 cycle that continues past two repeats, an option bank keyed in label order, five answers stepping through the labels, two item groups with the same answer sequence, and label counts differing by more than one. Write the item, shuffle the options, then derive the key; a key such as 1-4-3-2 repeated or A–J in order is a release failure even when every answer is correct.
-   For every full 英文, 國綜 and 國寫 paper, also apply [references/current-form-topicality.md](references/current-form-topicality.md): 英文 needs two verified recent passages carrying six items and a composition prompt tied to a verified current social trend; 國綜 needs two recent groups carrying four items and Taiwan-anchored passages; 國寫 needs one task tied to a verified current trend; 社會 needs six items within the year, two of them within 180 days, and ten answer-bearing visuals. Record `metadata.current_context_plan` and each item's `item_spec.current_context`; `scripts/validate_current_context.py` runs in the release gate and the hosted final checker, and `append_items.py` reports progress toward the floor after every batch.
+   For every full 英文, 國綜 and 國寫 paper, also apply [references/current-form-topicality.md](references/current-form-topicality.md): 英文 needs two verified recent passages carrying six items and a composition prompt tied to a verified current social trend; 國綜 needs two recent groups carrying four items and Taiwan-anchored passages; 國寫 needs one task tied to a verified current trend; 社會 needs ten items within the year, four of them within 180 days, and ten answer-bearing visuals. Record `metadata.current_context_plan` and each item's `item_spec.current_context`; `scripts/validate_current_context.py` runs in the release gate and the hosted final checker, and `append_items.py` reports progress toward the floor after every batch.
 8. For every competence-oriented item or group stimulus, read [references/stimulus-generation.md](references/stimulus-generation.md).
    For corpus rechecks, current-example/literacy complaints, source-note cleanup, or release review, also read [references/evidence-backed-editorial-audit.md](references/evidence-backed-editorial-audit.md). Report coverage gaps; author-declared pass flags never substitute for a comparison. Keep full provenance internal and print only notes justified by the official form, answerability, or rights.
    If the stimulus is drawn from a dated article, event, dataset, research release, or technical update, also read [references/current-source-transformation.md](references/current-source-transformation.md). A recognizable topic name is not evidence of literacy or originality. When users request real/current-event literacy, anonymous hypothetical cases do not fulfill that request: source actual dated evidence first, then require its specific relations to enter the curriculum reasoning. Keep event, publication and page-update dates distinct; never backfill invented observations under a real institution's name.
@@ -1708,14 +1729,14 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
    For mathematics, run `scripts/validate_math_difficulty_design.py` and reject any item whose planned difficulty collapses to direct substitution, one familiar formula, one routine linear-system solve, or repeated execution of the same operation. Treat model-estimated discrimination only as a design label until representative pilot data exist. Then validate explicit `option_layout` per item (`row-5`, `row-4`, `grid-3-2`, `grid-2`, or `stack`). Never infer the printed arrangement only from character count. Validate the rendered option baselines and inter-option whitespace against recent reference pages.
    Every mathematics fill-in item must declare a machine-marking `answer_format`: integer/decimal/fraction/sign form, exact numerator and denominator slot counts, and the sequential answer-row ids printed in the booklet. The renderer must show the same circle/rail/fraction geometry that the student will mark; a generic blank line is a hard failure.
    A current mathematics paper must also meet its learned answer-bearing visual quota across more than one section. Until item-level 111–115 visual annotation is complete, the internal review floor is four required visuals or structured graphical representations across at least three sections, including at least one item before the mixed-response section. Decorative pictures do not count.
-   The same stability requirement applies to full current Mathematics B, Natural Science, Social Studies, and English papers; it is not a Mathematics A-only feature. Until each subject/year has complete item-level annotation, use these conservative internal release floors: Mathematics A/B `4 visuals / 3 sections / 2 kinds`; Natural Science `16 / 2 / 4`, spanning physics, chemistry, biology, and earth science, including at least **3 traceable real photographs or authentic observation images**; Social Studies `10 / 2 / 4`, spanning history, geography, and civics, including at least **4 traceable real photographs or archival images** (official 111–115 booklets carry 8–17 labelled figures a year; a generated paper that stopped at exactly two photographs is why the floor was raised); English `3 / 2 / 2`, including at least **1 traceable real photograph** and the noncontinuous mixed material or selected composition form. The photo numbers are lower bounds only: Natural Science and Social Studies have **no photo-count upper bound**. Do not stop at two merely because the validator floor has passed; retain every additional sourced photo that introduces a distinct, answer-bearing observation and improves section, source-family, or discipline spread without harming rights safety, grayscale survival, page density, or solving time. Equally, never add a decorative image merely to increase the count. Generated photorealism, screenshots, decorative pictures, and photographs whose decisive evidence disappears in grayscale do not satisfy these real-image floors. These are product floors, not claimed CEEC frequencies. A selected annotated profile may raise the minimum, never silently lower it or impose an arbitrary maximum.
+   The same stability requirement applies to full current Mathematics B, Natural Science, Social Studies, and English papers; it is not a Mathematics A-only feature. Until each subject/year has complete item-level annotation, use these conservative internal release floors: Mathematics A/B `4 visuals / 3 sections / 2 kinds`; Natural Science `16 / 2 / 4`, spanning physics, chemistry, biology, and earth science, including at least **3 traceable real photographs or authentic observation images**; Social Studies `10 / 2 / 4`, spanning history, geography, and civics, including at least **2 traceable real photographs or archival images** and **18 items that cite a 圖／表／照片** (official 111–115: 2–4 photographs or archival images and 7–13 charts, maps and tables a year, 18–45 figure-citing items); English `3 / 2 / 2`, including at least **1 traceable real photograph** and the noncontinuous mixed material or selected composition form. The photo numbers are lower bounds only: Natural Science and Social Studies have **no photo-count upper bound**. Do not stop at two merely because the validator floor has passed; retain every additional sourced photo that introduces a distinct, answer-bearing observation and improves section, source-family, or discipline spread without harming rights safety, grayscale survival, page density, or solving time. Equally, never add a decorative image merely to increase the count. Generated photorealism, screenshots, decorative pictures, and photographs whose decisive evidence disappears in grayscale do not satisfy these real-image floors. These are product floors, not claimed CEEC frequencies. A selected annotated profile may raise the minimum, never silently lower it or impose an arbitrary maximum.
    Every counted visual must be evidence or required for solution, set `item_spec.requires_diagram: true`, include a schema-complete `visual_asset.visual_spec`, enumerate answer-bearing features, and fail the visual-removal test. Run `scripts/validate_visual_item_contract.py generated-exam.json`. If a full paper misses its subject envelope, replace the failed or text-only item with a newly designed visual item and re-solve it; never attach a decorative image to preserve an old stem or enlarge a figure to fill the page.
    The declared visual kind must match the **rendered scientific topology**, not merely its metadata label. A coordinate graph needs axes, scales and plotted marks; a profile or cross-section needs spatial layers/paths; a spectrum needs a wavelength axis and spectral lines; an apparatus or circuit needs connected components; a flowchart needs meaningful nodes and directed links. A one-column box that restates prompt values is not a graph, map, profile, spectrum, apparatus, process diagram, or evidence matrix. Do not route heterogeneous visual kinds through one generic label-and-row panel. A genuine data table must have an explicit row/column comparison structure used by the solution; a vertical list of already printed facts is not a data table. If removing the figure leaves every number and relation needed for the answer in the prose, remove the redundant figure or rewrite the item so the figure actually carries evidence. Before release, record `representation_audit` with the topology family, rendered primitive types, semantic channels, prompt-redundancy result, and visual-removal result; reject repeated near-identical panel topology masquerading as representation diversity.
    A sourced photograph must preserve the downloaded original beside the placed derivative and hash-bind both files. Record the stable source page, creator or agency, rights/license, original-file path and hash, fixed crop, processing steps, target print width, and effective raster resolution. Convert the placed asset to a fixed grayscale or bilevel file before pagination; do not rely on printer conversion. The final-size review must locate every answer-bearing boundary, object, count, texture, label, or relative tone in the monochrome page without consulting the color original.
    Full Social Studies papers must keep history, geography, and civics genuinely balanced in both item count and score, and full Natural Science papers must do the same for physics, chemistry, biology, and earth science. Until an annotated selected-year profile supplies tighter values, the internal fail-closed limits are a largest-to-smallest item-count gap of at most `3` and a score-share gap of at most `8` percentage points. `validate_social_item_design.py` and `validate_chinese_natural_scope.py` enforce these limits; merely naming every discipline once is not balance.
    For English, run `scripts/validate_english_vocabulary_scope.py generated-exam.json <CEEC-reference-vocabulary.pdf> --report output/english-vocabulary-scope.json`, `scripts/validate_english_difficulty_design.py generated-exam.json`, and `scripts/validate_english_layout_contract.py generated-exam.json`. Treat an out-of-envelope non-reading word, a vocabulary target above level 5, a missing exact surface-form binding between option/answer/explanation, fewer than two plausible distractors for most vocabulary items, a narrow distractor-family mix, more than one simple vocabulary anchor, fewer than five medium-hard/hard vocabulary items, a one-cue or suffix-only shortcut disguised by a hard label, a non-Chinese composition direction, an incoherent forced writing prompt, or a failed section-display contract as release-blocking. Use near-synonym, collocation, polysemy, argument-structure, register, semantic-prosody, discourse-relation, and controlled word-form/word-family competition across the section; a form-based distractor counts only when it remains syntactically plausible and is defeated by full-sentence evidence. Level 6 or off-list words in authentic reading material require local support or a documented reading-only exception; rarity may not be the intended source of difficulty.
    For Social Studies, run `scripts/validate_social_item_design.py generated-exam.json --report output/social-item-design.json`. `curriculum_codes` must contain exact Grade 10–11 required **learning-content** codes from `references/social-required-content-codes.json`; keep learning-performance codes in a separate field and CEEC `H/G/C/S` assessment targets in `ceec_assessment_targets`. Treat a performance code masquerading as content, an elective/invented/wrong-domain code, a missing curriculum-alignment record, unsupported current-event claim, ornamental proper noun, non-self-contained domain rule, evidence-free competence label, bare definition recall, or peripheral low-priority curriculum target as release-blocking. Every scored item—including basic anchors—must record a core or high-frequency curriculum anchor, forbid recall-only solution paths, and require at least two linked operations grounded in evidence, relations, causes, constraints, scale, or procedure. Preserve identifiable history, geography, and civics coverage alongside cross-disciplinary groups instead of making the whole paper a collection of topical news passages.
-   For a full current Social Studies paper, include the small within-one-year allocation in `references/current-gsat-social-form.md`, with section placement and all remaining sources chosen for curriculum coverage, evidence quality and realistic solving time. Do not impose the retired large current-affairs quota or mandatory per-section recent-group counts; an event name, date, or fashionable technology used only as decoration does not count.
+   For a full current Social Studies paper, meet the within-one-year floors in `references/current-gsat-social-form.md` (10 items, 4 within 180 days, 5 materials, 4 in each part) and its three-subject 題組 floor (at least one in 第壹部分 and two in 第貳部分 whose items lead with 歷史, 地理 and 公民 in turn); an event name, date, or fashionable technology used only as decoration does not count. Run `scripts/validate_social_layout_contract.py` too: it enforces the printed form measured on 111–115 (equal-length options, the key the longest option in at most four items, 「26-27 為題組」, 「（3 分，35 字內）」, the two part headings, no printed authoring notes or blank answer boxes).
    For every answer-bearing photograph or raster figure, require `grayscale_evidence_survival` and `color_independence` in its Visual Spec and inspect the final rasterized page at print scale. Schema compliance alone is not a visual pass. Newness means a new information mechanism, solution graph, semantic data, and visual topology—not an unusual topic, grayscale filter, crop, rotation, relabeling, or artistic restyle. Precise diagrams, axes, boundaries, scales, labels, state regions, maps, and measured values must be deterministic; image models may supply only non-exact context beneath a deterministic answer-bearing overlay.
    Keep photo rights and credit in the internal provenance ledger. Do not print optional photo-source lines in the student booklet unless the selected official Layout Profile explicitly includes them; textual material/source lines remain subject to their own official-form rule. If a license requires visible attribution incompatible with the form, replace the source or obtain suitable permission; internal metadata never substitutes for required visible credit.
 8. Keep student paper and answer material separate. Produce structured `exam.json`; for fixed-page proofs, render HTML and pass `scripts/validate_fixed_page_html.py` before PDF export. The gate must cover horizontal and vertical overflow plus containment inside bordered instruction boxes, tables, response examples, and the printable page frame. Then rasterize the PDF and inspect every page at readable scale before a formal claim. Page count, extracted-text density, font inventory, or a contact sheet alone cannot establish that nothing is clipped. A minimum-height box is not printed content: compare actual text/figure endings and distributed working space with the selected reference. Verify function powers and log bases by their actual raised/lowered positions, not merely smaller digits or valid-looking tags. After shared renderer changes, regenerate affected PDFs and withdraw stale visual passes until the new pages are reviewed. For current Math A/B mixed-response items, do not print workbook-style answer lines in the question booklet unless the controlling official Layout Profile explicitly contains them.
@@ -57272,14 +57293,14 @@ them explicitly for a themed or historical simulation.
 | 英文 | ≥ 2 verified recent sources carrying ≥ 6 items (passages, not vocabulary sentences); the composition prompt declares a verified `current_trend` | every official year on recency (no year has two recent passages); 111 (composition) |
 | 國綜 | ≥ 2 verified recent sources carrying ≥ 4 items; ≥ 2 passages tagged `taiwan` | every official year (each has exactly one recent group) |
 | 國寫 | ≥ 1 task tied to a verified `current_trend` source | 112 |
-| 社會 | ≥ 6 items within the year, ≥ 2 of them within 180 days, per `validate_social_item_design.py` | every official year (about 12% strict recent items, few within six months) |
+| 社會 | ≥ 10 items within the year, ≥ 4 of them within 180 days, from ≥ 5 materials and ≥ 4 in each part, per `validate_social_item_design.py` (raised 2026-09-24) | every official year (about 12% strict recent items, few within six months) |
 
 These floors were raised on 2026-09-22 after the maintainer judged the 2026-09-21 floors
 (自然 4/6/120 days, 英文 1/3, 國綜 1/2, 社會 3) still too thin: the generated 自然 and 社會
 papers stopped exactly at the minimum. Every floor now sits above the official range, so a
 paper meeting it is deliberately more topical than any official year; the reference
 disclosure above is the honest statement of that gap. Targets above the floor: 自然 6–7
-contexts with 9–12 items; 英文 2–3 recent passages; 國綜 2 groups; 社會 8–10 items. Do not exceed the official share by turning the paper
+contexts with 9–12 items; 英文 2–3 recent passages; 國綜 2 groups; 社會 10–13 items. Do not exceed the official share by turning the paper
 into a news quiz: every recent item still passes the source-relation and removal tests in
 [current-source-transformation.md](current-source-transformation.md), and the discipline,
 difficulty and reading-load balances are unchanged.
@@ -58641,15 +58662,19 @@ The printed evidence must be rich enough to support the claimed operations. Reje
 
 Before item review, measure each unique printed stimulus once, the prompt and all options, and the final student PDF's compact interior text. Compare the rendered paper with the selected official question booklet using `validate_reference_page_density.py`; the whole-paper substantive-text floor is 80% of the reference and does not include invisible metadata, answer explanations, duplicated shared material, oversized headings, blank answer lines, or decorative captions. An answer-bearing photograph, map, or chart may legitimately replace some prose on its page, but its observed features and reasoning role must be stated in the page review. Passing the numeric floor does not excuse repetitive one-paragraph scenarios, and failing it may not be repaired by smaller type, wider text blocks, padded options, or irrelevant prose.
 
-For a full current-form paper, include a few scored questions that genuinely depend on verified events or substantive updates within the year before the editorial lock. Interpret this as a small default allocation: normally 3–5 questions, with a minimum of 3 in the default full-paper check, not a required percentage or an upper limit. This operational default is not a user-specified exact number or a CEEC statistic. Retire the previous seven-cluster / 24-item / 24-point quota and the mandatory objective-section cluster count. Arrange the remaining questions and section placement freely within the curriculum, discipline balance, evidence quality and solving-time contract; older and evergreen sources are equally eligible. Count only source-verified, task-reviewed items using `evidence-backed-editorial-audit.md`. Several distinct scored tasks may share one well-designed group, but duplicate tasks or decorative dates do not count; report unique source objects separately from question count.
+For a full current-form paper, at least ten scored questions must genuinely depend on verified events or substantive updates within the year before the editorial lock (the next section gives every floor). This is a maintainer decision (2026-09-24), deliberately above the official share, not a CEEC statistic. Arrange the remaining questions freely within the curriculum, discipline balance, evidence quality and solving-time contract; older and evergreen sources are equally eligible. Count only source-verified, task-reviewed items using `evidence-backed-editorial-audit.md`. Several distinct scored tasks may share one well-designed group, but duplicate tasks or decorative dates do not count; report unique source objects separately from question count.
 
 Current clusters should make students perform operations such as reconstructing a hazard–exposure–vulnerability chain, correcting a denominator, comparing policy defaults and exceptions, identifying scale mismatch, weighing rights or incentives, relating current change to historical evidence, or testing what a source cannot establish. Plausible distractors must fail on one of these operations; three absurd alternatives do not create literacy. “More current” never means asking who, when, or where as news trivia: all event-specific facts needed for the answer must appear in the material, while the assessed operation remains within a required-course code.
 
 ### 一年內安排幾題，其餘彈性選材
 
-- 每份完整卷至少安排 **6 題**一年內的真實時事（`validate_social_item_design.py` 的 `within_year_current_context_items_too_few` 下限），其中 **至少 2 題**事件日在截稿日前 180 天內（`fresh_current_context_items_too_few`）。這是維護者要求「近一兩年、甚至近幾個月」的材料明顯多於最弱官方年份後訂的編輯目標，不是大考中心統計；111～115 官方卷嚴格計算約 12% 題目與一年內事件有關，颱風只出現在選項中。其餘依課綱、題型、資料品質與整卷節奏安排，沒有額外的新舊比例或時事配分要求。沒有指定模擬截稿日時以本次出卷日期為準，全卷共用同一截稿日；指定歷史年份時不得偷用其後新聞。
+- 每份完整卷至少安排 **10 題**一年內的真實時事（`within_year_current_context_items_too_few`），其中 **至少 4 題**事件日在截稿日前 180 天內（`fresh_current_context_items_too_few`），分散在 **至少 5 份不同材料**（`within_year_items_share_too_few_materials`），**第壹部分與第貳部分各至少 4 題**（`within_year_items_missing_from_part`）。材料寫出事件的年、月（「2026年7月」），第壹部分的單題與題組也要有這類時事素養題。這是維護者 2026-09-24 的決定，刻意多於官方；111～115 官方卷嚴格計算約 12% 題目與一年內事件有關。沒有指定模擬截稿日時以本次出卷日期為準，全卷共用同一截稿日；指定歷史年份時不得偷用其後新聞。
 - 「一年內」為截稿日往前一個曆年起至截稿日止，含兩端；閏日對應前一年2月28日。用實際事件或實質更新日期判定，不用網站更新日或今年重刊舊聞充數。既有 `item_spec` 記錄 `event_date`，或確有新內容時記錄 `substantive_update_date`，並保留 `published_at` 與 `editorial_lock_date`；均使用 `YYYY-MM-DD`。來源須已在截稿日前公開，日期不明不計入一年內的題數。審查仍須分清事件、發布、資料期間與法規生效日期，程式比較日期不證明內容真的有更新。
 - 一年內與較舊材料均須有來源、真正支撐課綱推論，不能只換年份。仍在發展的新聞只考查已凍結的事實，不問未確定結果；不能核實就換來源。沿用既有審查明細列出一年內的實際題數、來源及必要證據，其他選材不受新鮮度偏好綁住；政治中立、圖片品質、素養與學科平衡規則不變。
+
+### 三科合一題組
+
+第壹部分至少 1 個、第貳部分至少 2 個題組，其各題分別以歷史、地理、公民與社會為主科（`three_subject_groups_too_few`）：三題共用一段真實材料（例如一項近一年的政策、事件或地方變遷），一題問歷史脈絡、一題問空間或環境、一題問制度或經濟，刪去任一科的證據就答不出那一題。115 年 30-33、36-38 題即是史地公題組。每題的 `item_spec.domain` 記主科；三題都記同一科、或只把另一科名詞寫進材料，都不算。
 
 ### 政治中立與爭議議題
 
@@ -58691,19 +58716,38 @@ Constructed responses must state the evidence units and permissible equivalents 
 
 ## Visual evidence and grayscale photographs
 
-Maps, tables, charts, timelines, document fragments, aerial images, artifacts, and real photographs are central evidence forms. Real photos may be used only with traceable rights and provenance. Convert to grayscale only after identifying the answer-bearing features.
+Maps, tables, charts, timelines, document fragments, aerial images, artifacts, and real photographs are central evidence forms. A real photograph found on the web may be used when its source is traceable and it fits the item: record the page URL, the site or creator, the retrieval date, the preserved original and its hash, the crop and every tonal step (`generation_mode: web_source`, `source_rights: web_sourced`). No license verdict is required (maintainer decision 2026-09-24). Convert to grayscale only after identifying the answer-bearing features.
+
+Where to get photographs, in order:
+
+1. The preflight reports `image_sources` (`python scripts/photo_library.py probe`). When web image hosts are reachable, search the web first for a photograph that fits the item and use it from your own environment.
+2. When they are blocked (a hosted Claude sandbox reached only GitHub; Wikimedia, government sites and NASA answered 403), do not retry: run `python scripts/photo_library.py fetch --run-dir RUN`, browse `list --domain 地理` (or `--query`), and place one with `use ID --run-dir RUN --output figures/qN.jpg --crop x0,y0,x1,y1`. It prints the `visual_asset` and `visual_spec` fields to merge. The library holds 59 grayscale photographs, archival images and satellite scenes from Wikimedia Commons, each with its observable features; `references/photo-library-manifest.json` lists them offline.
+3. Only when GitHub is blocked too, ask the user once to upload images or the library ZIP. Never print a placeholder box in place of a photograph.
 
 Keep photograph credit, license, crop, and transformation records in the internal provenance ledger. Do not print a photo-source credit in the student question booklet unless the selected official profile explicitly places one there. This does not remove the obligation to print a textual material/source attribution when that attribution is part of the selected profile.
 
 Every visual item must pass the color-independence and evidence-survival tests in [visual-generation.md](visual-generation.md). A question about color is invalid after monochrome conversion unless the decisive categories are redundantly encoded by labels, shape, pattern, position, or measured value. Do not repair a failed image by relying on the answer explanation.
 
-Pending complete item-level annotation, a full internal Social Studies paper must contain at least **ten** answer-bearing visuals across both objective and mixed parts, with at least **four** visual kinds, at least **four** traceable real photographs or archival images, and visual evidence serving history, geography, and civics (`validate_visual_item_contract.py`, enforced in the hosted final check since 2026.09.22.2). The floor was raised after a generated paper treated the earlier "at least two photographs" as exactly two: official 111–115 booklets carry 8–17 labelled figures a year and mention 照片 3–7 times. A map, chart, timeline, document fragment, photograph, or artifact counts only when removing it changes the evidence search or reasoning. If the floor is missed, replace the text-only item with a newly designed visual mechanism and re-solve it; an ornamental skyline, portrait, flag, or map silhouette does not count.
+Measured on the official 111–115 booklets (2026-09-24): 2–4 photographs or archival images a year (112: a poster, a land deed, an aerial photo; 113: temple photos and a statuette; 114: a cave photo and two cartoons; 115: murals, a satellite image, an aerial panel and the Bamiyan niche) beside 7–13 charts, maps and tables, and 18–45 items that cite a 圖／表／照片. A full paper must contain at least **ten** answer-bearing visuals across both parts, at least **four** visual kinds, at least **two** traceable real photographs or archival images, visual evidence serving history, geography and civics, and at least **18** items citing a figure (`validate_visual_item_contract.py`). The earlier four-photograph floor sat above two official years and made hosted runs stall on downloads; a paper's own `visual_contract` may raise these floors, never lower them. A map, chart, timeline, document fragment, photograph, or artifact counts only when removing it changes the evidence search or reasoning. If the floor is missed, replace the text-only item with a newly designed visual mechanism and re-solve it; an ornamental skyline, portrait, flag, or map silhouette does not count.
 
-For a more visual-rich new paper, use **12–15 independent answer-bearing visual materials, at least four kinds and five or more photographs as the planning target**, not a measured CEEC quota or a rigid maximum. The ten-visual / four-kind / four-photo release floor is a minimum, not the drafting target: a paper that stops exactly at a floor is treating a minimum as a quota, which is the defect this floor was raised to catch. If source quality, the controlling layout or realistic solving time prevents the higher target, explain the trade-off in the existing editorial review rather than silently stopping at the floor. Do not grow the official item count or squeeze type to fit more images.
+Plan **12–15 independent answer-bearing visual materials, at least four kinds and three or four photographs or archival images**, as the official papers do, not a rigid maximum. The ten-visual / four-kind / four-photo release floor is a minimum, not the drafting target: a paper that stops exactly at a floor is treating a minimum as a quota, which is the defect this floor was raised to catch. If source quality, the controlling layout or realistic solving time prevents the higher target, explain the trade-off in the existing editorial review rather than silently stopping at the floor. Do not grow the official item count or squeeze type to fit more images.
 
 Prefer a purposeful mix of photographs/artifacts, maps or remote images, charts, timelines and source-document images across the three disciplines and both parts. Do not fill the increase solely with text tables or screenshots of paragraphs. Count one shared image once in the material inventory, separately from the number of questions using it; duplicated crops and recolored copies are not new evidence. Require students to observe, compare or integrate something actually visible with a curriculum concept, rather than identify a place/person by memory. Preserve a sensible mix of text-only and visual items.
 
 Accurate maps, graphs and schematic relationships may be self-drawn from verified semantic data. Image models may supply non-exact context only, never fabricate a purported news photograph, historical artifact, empirical pattern or answer-bearing boundary. Freeze the final grayscale version, check it at printed size and re-solve from it; keep labels, patterns, line styles and contrast readable without color. The political-neutrality review applies to the images as well as their captions. Record the adopted visual count, kinds and evidence-removal findings in the existing literacy/layout review; a machine count alone does not establish visual quality or neutrality.
+
+## Printed form measured on 111–115 (`validate_social_layout_contract.py`)
+
+- Headings 「第壹部分、選擇題（占76分）」 and 「第貳部分、混合題或非選擇題（占68分）」 with the part's real score.
+- 題組 label 「26-27 為題組」 underlined at the margin; the material follows at the margin with each paragraph's first line 24 pt in, and often ends 「請問：」. The builder prints both.
+- A constructed response ends with one parenthesis, 「（3 分）」 or 「（3 分，35 字內）」; never 「（本題3分）」, 「（10字以內）（3分）」 or a second score. No （1）（2） subparts: two tasks of one number share a stem and a `response_format_table` of labelled cells (115 Q44, Q46, Q52: a checkbox cell and a reason cell with its own 「（2 分，30 字內）」). A table of 「作答區／請依題意書寫／答＿＿」 is not an official device.
+- No printed authoring notes: official booklets never say a scenario is 虛構, 教學情境, 教學改寫 or unrelated to real events. Write 「某市」「某生」 or cite the real source.
+- Keys test a curriculum concept applied to the evidence. At most three keys may say 「再蒐集／核對／追蹤資料」 (none in any official year; one hosted 116 paper had 17), and the same figures may not reappear in a second material.
+- The reviewed mean 答對率 of the choice items (`estimated_p`) must not exceed 0.65 (official 111–115: 0.51–0.60).
+- Every item needs a 108 必修 concept the student brings (比例原則、攤丁入畝、沖積扇、外部成本、冷戰…): an item any
+  careful adult could answer from the material alone is a reading test, not a 社會 item. A hosted 116 paper built
+  almost every item as 「which extra data should the researcher collect」 around invented towns; the official
+  papers ask which concept, cause, place or institution the real evidence points to.
 
 ## Layout contract
 
@@ -58713,7 +58757,7 @@ For the measured 115 role, odd-numbered inner pages place `第 n 頁／共 N 頁
 
 The 20-page count describes that administration. Preserve its PMingLiU/MingLiU body role at approximately 11.04 pt, the DFKai-SB instruction role, printable width, line pitch, and option spacing; never reduce them to fit a new 20-page target. New material may flow to more pages. Remove artificial breaks and orphan headings, then compare every resulting page with the closest official page role. Matching 20 pages with smaller glyphs or thinly written material is a layout failure.
 
-Options are normally stacked beneath the stem. Figures sit close to the exact paragraph or question that invokes them and use sequential labels (`圖`, `表`, `照片`) with captions. Mixed groups may include bordered answer-format tables that describe what belongs on the separate answer sheet; reproduce their cell sizes, word limits, and checkboxes only when present in the selected profile. Never add generic ruled lines to every constructed item.
+Options print as 111–115 measure: four abreast (tab 112.6 pt) when every option has at most 7 characters, two abreast (225 pt) up to 16, otherwise one per line; the builder chooses. Within one item the four options have the same length (80% of official items; within two characters in 89–96%) and the key is the single longest option in at most four items (official 0–3 a year; two hosted 116 papers: 42 and 40 of 54). Options end without 「。」. Figures sit close to the exact paragraph or question that invokes them and use sequential labels (`圖`, `表`, `照片`) with captions. Mixed groups may include bordered answer-format tables that describe what belongs on the separate answer sheet; reproduce their cell sizes, word limits, and checkboxes only when present in the selected profile. Never add generic ruled lines to every constructed item.
 
 For the measured 115 terminal mixed-item role, the supported device is a captioned bordered inference/completion table whose labeled slots are part of the question. A new table must likewise give every row a scoring or reasoning function, be represented as structured `response_format_table` content, and be covered by the question content hash. It must not be a blank grid, an unlabeled writing box, or a layout filler.
 
@@ -60012,7 +60056,7 @@ or fixed topic/figure quotas. Preserve each subject's own profile. Do not assign
 math rails to other subjects, reuse the English composition rubric for 國寫,
 or copy the preview's sparse page density and abbreviated passages.
 Downloadable previews are at
-https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.22/index.html .
+https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.23/index.html .
 They are optional visual references, never a new download/preflight requirement.
 
 `templates/hosted-body-blocks.json` is a **layout-reference-only** gallery.
@@ -60320,6 +60364,15 @@ not start a separate logger or reconstruct times later. Run:
 python scripts/prepare_hosted_run.py --subject SUBJECT --run-dir run --paper-id PAPER_ID [--font FONT] [--resource-pdf UPLOADED_RESOURCE_PDF]
 ```
 
+For 社會, 自然 and 英文 the preflight also reports `image_sources`: whether web image hosts
+answer from this runtime and whether the photo library on GitHub does. Decide the photo
+route then, not after the items are written (both hosted 116 社會 runs discovered blocked
+image downloads with 60 items drafted): search the web first when it is reachable,
+otherwise `python scripts/photo_library.py fetch --run-dir run` and pick from its 59
+photographs. Plan the answer key in the paper plan, whose check now applies the final
+key test (periods 2-4, rotated keys): a hosted 社會 plan with a four-item cycle passed
+the old plan check and was reordered after all 65 items were written.
+
 Pass `--font` for an installed or user-supplied Traditional Chinese serif font
 (for example Noto Serif CJK TC). Without one, or when it lacks a glyph of the
 cover and header fields, the helper uses PyMuPDF's built-in CJK font (Droid Sans
@@ -60560,7 +60613,10 @@ pages are reviewed as pages. Settle pagination with `plan` before proofing a 題
 material may split, because a new split changes every crop of the group.
 
 `lock-content` runs the same subject contract as the final check and returns
-`contract_problems`: fix every one before the first build.
+`contract_problems`: fix every one before the first build. It also lists figure records
+the final check would refuse (an absolute or external `path`, a missing file, a stale
+hash): a hosted 社會 run recorded 14 figures by absolute path, learned it from the final
+check and rebuilt twice. Record every figure path relative to the run directory.
 
 Register the gate reports as soon as the first complete draft is reviewed, not at the
 end: only a registered review keeps its rows when a later correction runs
@@ -62591,6 +62647,2318 @@ Passing the before/after pixel check proves only that adding this mark did not
 change the tested rendering. It does not fix or approve the underlying layout.
 </canonical-source>
 
+<canonical-source path="references/photo-library-manifest.json">
+{
+ "schema_version": 1,
+ "library": "taiwan-exam-photo-library",
+ "version": "v1",
+ "built_at": "2026-09-24",
+ "purpose": "Real photographs, archival images and satellite scenes a hosted 社會 run can use when the web cannot be reached from its sandbox. Search the web first; use this library as the fallback.",
+ "license_note": "Each file keeps its source license. The grayscale files are adaptations: CC BY and CC BY-SA works stay under their license (BY-SA adaptations under the same license) with the creator credited in ATTRIBUTION.md; public-domain and CC0 files carry no condition.",
+ "items": [
+  {
+   "id": "g01",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "野柳女王頭（新北市萬里）",
+   "file": "g01.jpg",
+   "width": 1050,
+   "height": 1400,
+   "sha256": "a9b2db80864dc6b6fae7de174a56668827f91342bb6c4c3c436237872383f854",
+   "observable_features": [
+    "頂部較寬、頸部細窄的蕈狀岩柱",
+    "岩體表面蜂窩狀孔洞",
+    "周圍為平坦的岩質海岸"
+   ],
+   "curriculum_links": [
+    "差異侵蝕與風化",
+    "海岸地形",
+    "地景保育"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Queen%27s_Head,_Yehliu_20060405.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Queen%27s_Head%2C_Yehliu_20060405.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "David Monniaux",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source_rights": "licensed",
+    "date": "5 April 2006 (according to Exif data)",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Queen%27s_Head%2C_Yehliu_20060405.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "a4e5e7258b7219a4d50f56669d96e5e4dd4624e66cc350818596d6cd08d43920"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 81-248 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g02",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "太魯閣峽谷燕子口段（花蓮）",
+   "file": "g02.jpg",
+   "width": 933,
+   "height": 1400,
+   "sha256": "663bc5f4159b2d0a0a9264d63d31ad31c145ff123c3e1887c103718916be1091",
+   "observable_features": [
+    "兩側陡峭近乎垂直的岩壁",
+    "谷底狹窄、河道多礫石",
+    "岩壁上的步道與護欄"
+   ],
+   "curriculum_links": [
+    "河流下切侵蝕與峽谷",
+    "板塊擠壓隆起",
+    "山區道路與觀光"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Taroko-Gorge_Hualien_Taiwan_Swallow-Grotto-01.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Taroko-Gorge_Hualien_Taiwan_Swallow-Grotto-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2016-01-02",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Taroko-Gorge_Hualien_Taiwan_Swallow-Grotto-01.jpg/1920px-Taroko-Gorge_Hualien_Taiwan_Swallow-Grotto-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e06dd91f0ccb85facc116379be820aa448f7c640e0e718d53398d1b91819f8fc"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g03",
+   "domain": "地理",
+   "kind": "aerial_photo",
+   "title": "胆沢扇狀地空照（日本岩手縣）",
+   "file": "g03.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "e94f96ca0b4715c504bf5a297ec65b6ee97c5671111317876ea64223fb35bd8a",
+   "observable_features": [
+    "河流出山口後向外展開的扇形平原",
+    "扇面上分散的農田與林地",
+    "上方雲層"
+   ],
+   "curriculum_links": [
+    "沖積扇的形成與分帶",
+    "散居聚落與農業土地利用"
+   ],
+   "caution": "照片未標比例尺與方位。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Isawa-alluvial-fan.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Isawa-alluvial-fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "MaedaAkihiko",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2022-06-18",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Isawa-alluvial-fan.jpg/1920px-Isawa-alluvial-fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e459a1aa81a17f79a24b040748b6d8c31107f816137e941052c14437a4667262"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 58-250 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g04",
+   "domain": "地理",
+   "kind": "aerial_photo",
+   "title": "紅河曲流空照（美國阿肯色州）",
+   "file": "g04.jpg",
+   "width": 1194,
+   "height": 1400,
+   "sha256": "7bafc3836651e94a1f7697eb4993a25576d9f6d4694215bc20365ab06e810314",
+   "observable_features": [
+    "蜿蜒的曲流河道",
+    "多個與主流分離的弧形牛軛湖",
+    "河道兩側方格狀農地",
+    "圖上附比例尺與指北"
+   ],
+   "curriculum_links": [
+    "曲流與牛軛湖",
+    "河川作用與截彎取直",
+    "氾濫平原農業"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:RedRiverMeandersArkansas1.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/RedRiverMeandersArkansas1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "USDA/FSA",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2011-05-27",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/RedRiverMeandersArkansas1.jpg/1920px-RedRiverMeandersArkansas1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "12e5d2ac189c99faeed51c321f24b86ac4dd0ea30a098e63ee7cffd32bae23ac"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g05",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "元陽梯田（中國雲南）",
+   "file": "g05.jpg",
+   "width": 1400,
+   "height": 906,
+   "sha256": "fd8f07807cccaadfd8390030176ad4da0fec63b078aa20d6d30f2cd0b25fdf25",
+   "observable_features": [
+    "沿等高線層層分布的彎曲田埂",
+    "田面多已蓄水",
+    "坡面陡峭"
+   ],
+   "curriculum_links": [
+    "山坡地農業與水土保持",
+    "人地關係與文化地景"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Terrace_field_yunnan_china_denoised.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Terrace_field_yunnan_china_denoised.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Jialiang Gao, www.peace-on-earth.org",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source_rights": "licensed",
+    "date": "2003-03",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Terrace_field_yunnan_china_denoised.jpg/1920px-Terrace_field_yunnan_china_denoised.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "8e3d4ce91d9a5e4b349b0abc88850f420975cb7aa1bcc0b9fb297728f2b78649"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g06",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "澎湖玄武岩海岸",
+   "file": "g06.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "02d8759c49dca7f41c0fcf9ec8c964c903ac0a69bd7d735f890df8a61cafe8ca",
+   "observable_features": [
+    "頂部平緩、四周陡崖的方山狀岩體",
+    "岩壁上垂直排列的柱狀節理",
+    "海岸邊的岩塊"
+   ],
+   "curriculum_links": [
+    "玄武岩熔岩台地",
+    "柱狀節理",
+    "海蝕作用"
+   ],
+   "caution": "照片未指明澎湖哪一處岩體。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Penghu_Basalt.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Penghu_Basalt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "P1340",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2011-08-20",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Penghu_Basalt.jpg/1920px-Penghu_Basalt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "6c1833bf19232ed4775e6ca769168102fd6cf34ff6a345b10be30fb7a6409e32"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g07",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "桂林陽朔灕江沿岸",
+   "file": "g07.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "54034803af00b194deca75d6c77b48d3af77355b5d54754ecf88e1e1cc398d63",
+   "observable_features": [
+    "平地上拔起的尖錐狀孤峰群（峰林）",
+    "河岸城鎮與多層樓房",
+    "前景橋梁欄杆"
+   ],
+   "curriculum_links": [
+    "石灰岩溶蝕與喀斯特地形",
+    "觀光與聚落"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Li_River_and_mountains_in_Yangshuo_County,_Guilin2.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Li_River_and_mountains_in_Yangshuo_County%2C_Guilin2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Huangdan2060",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source_rights": "public_domain",
+    "date": "2014-08-27 08:48:34",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Li_River_and_mountains_in_Yangshuo_County%2C_Guilin2.jpg/1920px-Li_River_and_mountains_in_Yangshuo_County%2C_Guilin2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e38dd5c56eefbffb74393bcac92abc8bb58586268d4580e9f1a28cc411adab0c"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 51-231 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g08",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "蓋倫格峽灣（挪威）",
+   "file": "g08.jpg",
+   "width": 1400,
+   "height": 786,
+   "sha256": "9fcc10a2a878d8c808759421609c0ff9e3c326e26622b33165742ae364942dff",
+   "observable_features": [
+    "兩側陡峻高聳的谷壁",
+    "深入陸地的狹長水域",
+    "谷壁上的植被"
+   ],
+   "curriculum_links": [
+    "冰河侵蝕與峽灣",
+    "沉降海岸"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Geirangerfjord_from_%C3%98rnesvingen,_2013_June.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Geirangerfjord_from_%C3%98rnesvingen%2C_2013_June.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2013-06-16 11:45:30",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Geirangerfjord_from_%C3%98rnesvingen%2C_2013_June.jpg/1920px-Geirangerfjord_from_%C3%98rnesvingen%2C_2013_June.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "7c6fea6ce512befb4173750a3cf4e046ea586579db285b231cda28ef6091ccd1"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g09",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "格倫科 U 形谷（英國蘇格蘭）",
+   "file": "g09.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "bf0be3f65d34616085dd7f25495fa65515c5ac51f62c4e27998724996d533dec",
+   "observable_features": [
+    "谷底寬平、兩側谷壁陡直的谷地剖面",
+    "谷底草地"
+   ],
+   "curriculum_links": [
+    "冰河地形",
+    "U 形谷與 V 形谷的比較"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:U_shaped_glacial_valley_Glen_Coe_(15250526462).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/U_shaped_glacial_valley_Glen_Coe_%2815250526462%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Brian Gratwicke from DC, USA",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2014-07-25 06:22",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/U_shaped_glacial_valley_Glen_Coe_%2815250526462%29.jpg/1920px-U_shaped_glacial_valley_Glen_Coe_%2815250526462%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "1f402e28c5424eaf4cb0e4dd1cbfa58b99f8fa69b403ec89f3488756da33a505"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 7-188 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g10",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "達赫拉綠洲外圍沙漠（埃及）",
+   "file": "g10.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "bdb0966fdd006ca9697fdeaa319ef27a6441d0ba019ef2636366d4ad358da12c",
+   "observable_features": [
+    "大片平坦的沙地與砂紋",
+    "遠方平頂的斷崖台地",
+    "天空無雲"
+   ],
+   "curriculum_links": [
+    "乾燥氣候與風力作用",
+    "綠洲與水源"
+   ],
+   "caution": "照片本身未見綠洲植被。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Sand_dunes,_Remote_view_of_Dakhla_Oasis,_Egypt.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Sand_dunes%2C_Remote_view_of_Dakhla_Oasis%2C_Egypt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source_rights": "licensed",
+    "date": "2007-05-13 18:45:21",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Sand_dunes%2C_Remote_view_of_Dakhla_Oasis%2C_Egypt.jpg/1920px-Sand_dunes%2C_Remote_view_of_Dakhla_Oasis%2C_Egypt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "7f3faea244029f9842fe13586bca209daf718dbd96958b69e97f672f2c167d20"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g11",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "社子島紅樹林（臺北）",
+   "file": "g11.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "6abfbf7ed449b0376d750f6e7822d0a37a771995e9b4446c51d8c339aa716e04",
+   "observable_features": [
+    "水中叢生的矮灌木林",
+    "潮水淹沒林床",
+    "遠方城市與橋梁"
+   ],
+   "curriculum_links": [
+    "河口潮間帶與紅樹林",
+    "都市邊緣溼地保育"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:2009-04-09_Mangrove_forest_at_Shezidao.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/2009-04-09_Mangrove_forest_at_Shezidao.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "MiNe",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2009-04-09 11:54:51",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/2009-04-09_Mangrove_forest_at_Shezidao.jpg/1920px-2009-04-09_Mangrove_forest_at_Shezidao.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "1d6080e616696547c71a2423e25ec26d74201222b284e492b212862c883415cf"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g12",
+   "domain": "地理",
+   "kind": "satellite_image",
+   "title": "國際太空站夜間拍攝的尼羅河三角洲",
+   "file": "g12.jpg",
+   "width": 1400,
+   "height": 935,
+   "sha256": "52a5cc7280f979180742d8dec0a228bcab851e29f05f1a720b68684d71ccd54b",
+   "observable_features": [
+    "北端呈扇形分布的密集燈光（三角洲）",
+    "南方沿河谷延伸的細長燈光帶",
+    "最亮的光團位於三角洲頂端（開羅一帶）",
+    "兩側大片黑暗區"
+   ],
+   "curriculum_links": [
+    "人口分布與水源",
+    "夜間燈光作為人口與都市化指標",
+    "乾燥區河谷農業"
+   ],
+   "caution": "Claude 116 模擬卷已用過此照片，出題時換用別的判讀方式。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Nile_River_Delta_at_Night_cropped.JPG",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nile_River_Delta_at_Night_cropped.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Nile_River_Delta_at_Night.JPG: ISS Expedition 25 crew\nderivative work: Przykuta → [edit]",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2010-11-08 19:27",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Nile_River_Delta_at_Night_cropped.JPG/1920px-Nile_River_Delta_at_Night_cropped.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b750e50eef4e5196f293ee969bbcad8047ff9353a43208974ef970269cc44404"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g13",
+   "domain": "地理",
+   "kind": "satellite_image",
+   "title": "美國堪薩斯州農田衛星影像（ASTER, 2001）",
+   "file": "g13.jpg",
+   "width": 1400,
+   "height": 1341,
+   "sha256": "243899c826c761961c113f03f4cb9b60219370589dd071a6cf2abd3e54ea7960",
+   "observable_features": [
+    "大量排列整齊的圓形田塊",
+    "圓形之間的方形邊角空地",
+    "棋盤狀的方格道路"
+   ],
+   "curriculum_links": [
+    "中心樞紐灌溉",
+    "地下水抽用與農業",
+    "土地測量與方格系統"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Crops_Kansas_AST_20010624.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Crops_Kansas_AST_20010624.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "NASA",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2001-06-24",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Crops_Kansas_AST_20010624.jpg/1920px-Crops_Kansas_AST_20010624.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b6bf3aeb4b9ce83adffbf78481a06d86dfe4fc0c03a6414560ef3fc88c3d9917"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g14",
+   "domain": "地理",
+   "kind": "satellite_image",
+   "title": "巴西朗多尼亞州熱帶雨林衛星影像（2016）",
+   "file": "g14.jpg",
+   "width": 1357,
+   "height": 1400,
+   "sha256": "7b47b93a89f6fbafd7e619792179ab67650b0963112f4c39a8eb091356d1671a",
+   "observable_features": [
+    "沿道路向兩側延伸的魚骨狀開墾帶",
+    "大片深色未開墾森林",
+    "蜿蜒河流"
+   ],
+   "curriculum_links": [
+    "熱帶雨林開發與砍伐",
+    "道路建設與土地開墾",
+    "全球環境議題"
+   ],
+   "caution": "原影像較暗，已拉高對比。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Rond%C3%B4nia_Deforestation_(25_July_2016),_Brazil_(34296310700).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Rond%C3%B4nia_Deforestation_%2825_July_2016%29%2C_Brazil_%2834296310700%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "O.V.E.R.V.I.E.W.",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2017-05-15 20:26",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Rond%C3%B4nia_Deforestation_%2825_July_2016%29%2C_Brazil_%2834296310700%29.jpg/1920px-Rond%C3%B4nia_Deforestation_%2825_July_2016%29%2C_Brazil_%2834296310700%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "eaff4719ea02465070eb82f00bfbd3d590c392a2860e6f29961c4f45287bdf91"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 27-63 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g15",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "高雄港貨櫃碼頭",
+   "file": "g15.jpg",
+   "width": 933,
+   "height": 1400,
+   "sha256": "3c6aa05d891a29d527e64a332041e928a9b58f0e7ea51887bf08b41abe868352",
+   "observable_features": [
+    "一排高聳的貨櫃起重機",
+    "成排堆疊的貨櫃",
+    "靠泊的貨櫃船"
+   ],
+   "curriculum_links": [
+    "港口與全球貿易",
+    "運輸革新與貨櫃化",
+    "產業區位"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Kaohsiung_international_container_terminal.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Kaohsiung_international_container_terminal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Eric Deng",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2018-02-09 11:03:04",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Kaohsiung_international_container_terminal.jpg/1920px-Kaohsiung_international_container_terminal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "ae1f2fe40c007099c5470f3ce1520537cf7e7d5785933fbaa82a2fc9a11f1958"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 28-217 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g16",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "井仔腳瓦盤鹽田（臺南北門）",
+   "file": "g16.jpg",
+   "width": 1400,
+   "height": 911,
+   "sha256": "1885400979cc29a1fe33f8803384aebfb060830b952e8458305a5f4acbf50b93",
+   "observable_features": [
+    "以碎瓦片鋪成的方格鹽田",
+    "田間一堆堆白色鹽丘",
+    "工作者以長耙收鹽"
+   ],
+   "curriculum_links": [
+    "日照、蒸發與曬鹽條件",
+    "沿海產業變遷與觀光轉型"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Jingzaijiao_Tile-paved_Salt_Fields_(_WEI,_WAN-CHEN_)_1.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/The_Jingzaijiao_Tile-paved_Salt_Fields_%28_WEI%2C_WAN-CHEN_%29_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "WEI, WAN-CHEN（魏琬臻）",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2018-05-10 17:49:48",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/The_Jingzaijiao_Tile-paved_Salt_Fields_%28_WEI%2C_WAN-CHEN_%29_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "14b4ebbd146eb89ce3ccd1fe81be87c8570e119bef2814ee6b24b2956cc30f48"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g17",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "臺灣中部山區河谷的河階（九美一帶）",
+   "file": "g17.jpg",
+   "width": 1400,
+   "height": 787,
+   "sha256": "02ba3470fa00fb5031f42230f01c29830166bd570a0043aac56181b778a9ec49",
+   "observable_features": [
+    "河谷兩側高低不同的平坦台面",
+    "台面上的農地",
+    "遠方高聳山脈"
+   ],
+   "curriculum_links": [
+    "河階的形成（下切與堆積交替）",
+    "山區聚落與農地分布"
+   ],
+   "caution": "拍攝地點依檔名為九美，出題不宜要求辨認確切地名。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:River_terraces_in_Jiumei.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/River_terraces_in_Jiumei.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Joe Lo",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source_rights": "licensed",
+    "date": "2015-02-28 19:44:00",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/River_terraces_in_Jiumei.jpg/1920px-River_terraces_in_Jiumei.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b64a52e79f31dc7d948c802500c0056c114686d10c08ac22589b8a4fd8ab65af"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 25-223 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g18",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "宮古市街道於 2011 年東日本大地震海嘯後",
+   "file": "g18.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "2f25bf4bcdde0d701354ca491be733ebac48d509d5341b2ee315990890ac20b1",
+   "observable_features": [
+    "道路兩側堆積的瓦礫與損壞車輛",
+    "仍在通行的車輛與機車",
+    "沿街受損的商店"
+   ],
+   "curriculum_links": [
+    "海嘯災害與防災",
+    "災後復原與公共安全"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Japan,Iwate,Miyako_city,_2011_T%C5%8Dhoku_earthquake.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Japan%2CIwate%2CMiyako_city%2C_2011_T%C5%8Dhoku_earthquake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Orienoda",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2011-03-13 12:02:41",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Japan%2CIwate%2CMiyako_city%2C_2011_T%C5%8Dhoku_earthquake.jpg/1920px-Japan%2CIwate%2CMiyako_city%2C_2011_T%C5%8Dhoku_earthquake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "f5a43a163119790c54c5bb5c9877438577b0e97842964b50d8e217c9176256e2"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g19",
+   "domain": "地理",
+   "kind": "aerial_photo",
+   "title": "臺南珊瑚潭（烏山頭水庫）空照",
+   "file": "g19.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "d49f6815383b94e82a197f16fdbc065b1c392bfbeb03a9f8abc82b080b13ea9c",
+   "observable_features": [
+    "呈多分枝狀的水庫水面",
+    "四周丘陵與林地",
+    "下方平原上的農田與道路"
+   ],
+   "curriculum_links": [
+    "水庫與灌溉",
+    "嘉南平原農業發展",
+    "日治時期水利建設"
+   ],
+   "caution": "由機窗拍攝，邊緣有雲。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Coral_Lake_Tainan_from_airplane_window.JPG",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Coral_Lake_Tainan_from_airplane_window.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Koika",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source_rights": "licensed",
+    "date": "2014-06-30",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Coral_Lake_Tainan_from_airplane_window.JPG/1920px-Coral_Lake_Tainan_from_airplane_window.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b2ea8c31e01893e8dcad8bd24bfc0104c0ff68c9c50747d01b0f09a189dede5d"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 105-159 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g20",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "河口湖畔遠望富士山（日本）",
+   "file": "g20.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "070eda8b456fc1b63cbf8d820d447b14a743aacf540648436a9d3b7e901b0082",
+   "observable_features": [
+    "左右對稱、山頂積雪的錐狀火山",
+    "山腳的湖泊與聚落"
+   ],
+   "curriculum_links": [
+    "火山地形與板塊",
+    "觀光與地方發展"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Mount_Fuji_from_Lake_Kawaguchi_20170206.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Mount_Fuji_from_Lake_Kawaguchi_20170206.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Suicasmo",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2017-02-06 14:49:09",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Mount_Fuji_from_Lake_Kawaguchi_20170206.jpg/1920px-Mount_Fuji_from_Lake_Kawaguchi_20170206.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "95ba4313430c6b25cc213dfbdcdfec3093116147537e19f644a9d76a30f12929"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g21",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "里約熱內盧 Rocinha 社區",
+   "file": "g21.jpg",
+   "width": 1400,
+   "height": 929,
+   "sha256": "6b5d930a8df6d7aa8028f0beddbf15b5f00ae5b8333020a4fed75a3640d36bbf",
+   "observable_features": [
+    "沿陡坡密集堆疊的自建房屋",
+    "缺少規則街道格局",
+    "後方仍有林地"
+   ],
+   "curriculum_links": [
+    "都市化與非正式聚落",
+    "都市內部的社會空間差異",
+    "坡地災害風險"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:1_rocinha_favela_closeup.JPG",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/1_rocinha_favela_closeup.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/1_rocinha_favela_closeup.JPG/1920px-1_rocinha_favela_closeup.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "f85725b09d6319bca7e4e2cecd017242cd427f7dfd03cf9a008c0f6caf609df3"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g22",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "小孩堤防風車群（荷蘭）",
+   "file": "g22.jpg",
+   "width": 1400,
+   "height": 1048,
+   "sha256": "856e041225bfe05e32f3ac7c6f65d655a360eda51834191d107de574121aa8d2",
+   "observable_features": [
+    "沿運河排列的多座風車",
+    "平坦低窪的地面與水道"
+   ],
+   "curriculum_links": [
+    "填海造陸與圩田排水",
+    "人地關係"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:KinderdijkMolens02.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/KinderdijkMolens02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Lucas Hirschegger",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source_rights": "licensed",
+    "date": "2004-12-26",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/KinderdijkMolens02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "66e4f65c6062fc609f05d8e0c4a31430244eaa93e1d51093b428ee1739e7d1a1"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 10-196 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g23",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "芹苴水上市場（越南湄公河三角洲）",
+   "file": "g23.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "fae588a0c8b1b9d1b239cc2ef74d20ed1e676c01e26503534710dbbaec7a02a4",
+   "observable_features": [
+    "河面上聚集的小船",
+    "船上的交易與搬運",
+    "河岸房屋"
+   ],
+   "curriculum_links": [
+    "三角洲河運與聚落",
+    "傳統市場與觀光"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Can_Tho,_Vietnam,_Floating_Market,_Boats.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Boats.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source_rights": "licensed",
+    "date": "2008-02-15 07:03:55",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Boats.jpg/1920px-Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Boats.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "12cbe92820089e316dea225094623da5ecf7732c45e437d4bee7b0c69fb808c5"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g24",
+   "domain": "地理",
+   "kind": "aerial_photo",
+   "title": "亞馬遜熱帶雨林空照",
+   "file": "g24.jpg",
+   "width": 1400,
+   "height": 859,
+   "sha256": "ca29a27e73deac0432a98e996f11a30e83b7926f0b7d8531a6151cc09ad41a43",
+   "observable_features": [
+    "一望無際的濃密林冠",
+    "蜿蜒曲折的河流"
+   ],
+   "curriculum_links": [
+    "熱帶雨林氣候與生態",
+    "河川與交通"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Amazon_Rainforest.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Aerial_view_of_the_Amazon_Rainforest.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "lubasi",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source_rights": "licensed",
+    "date": "2009-09-09 06:48",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aerial_view_of_the_Amazon_Rainforest.jpg/1920px-Aerial_view_of_the_Amazon_Rainforest.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "9f07126c25a85eaf442eec0921b0229dcb5582e4528c7222eac8c609ef4cf228"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g25",
+   "domain": "地理",
+   "kind": "satellite_image",
+   "title": "泰國大城府 2011 年洪水前後衛星影像（EO-1）",
+   "file": "g25.jpg",
+   "width": 1400,
+   "height": 955,
+   "sha256": "e8d4b59469f3f27a36990b819c4713f48f0983e53b115989fa34031832fb3346",
+   "observable_features": [
+    "左右兩幅同一地區的對照",
+    "右幅大片淹水的平坦區域",
+    "左幅可見河道與農田"
+   ],
+   "curriculum_links": [
+    "洪患與低地",
+    "遙測判讀與前後比較",
+    "全球供應鏈中斷"
+   ],
+   "caution": "左右兩幅的拍攝日期須依來源頁核對後再寫入題目。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:2011_flooding_in_Ayutthaya_Province-EO-1_merged.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/2011_flooding_in_Ayutthaya_Province-EO-1_merged.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "NASA Earth Observatory image created by Jesse Allen and Robert Simmon, using EO-1 ALI data provided courtesy of the NASA EO-1 team and the United States Geologi",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2011-10-23",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/2011_flooding_in_Ayutthaya_Province-EO-1_merged.jpg/1920px-2011_flooding_in_Ayutthaya_Province-EO-1_merged.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "77d21272647faf6fba091381679570f2fabfa13da1091ccb16144062db1c0bb9"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 22-214 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "g26",
+   "domain": "地理",
+   "kind": "photo",
+   "title": "上海浦東陸家嘴天際線",
+   "file": "g26.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "c7518d4133a294742fed5d1fa65d29749ea3a491a7a40e44425c2bcaa8d299e8",
+   "observable_features": [
+    "沿江密集的高樓群",
+    "電視塔與超高層大樓",
+    "前景寬闊的江面"
+   ],
+   "curriculum_links": [
+    "中心商業區",
+    "全球城市",
+    "都市發展"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Shanghai_skyline_Pudong.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Shanghai_skyline_Pudong.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Ernest Jourdier",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source_rights": "licensed",
+    "date": "2025-06-18 12:34:40",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Shanghai_skyline_Pudong.jpg/1920px-Shanghai_skyline_Pudong.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "63612037bd08130ec030d464ec4265db8024f89eccd5f8bf9db5a601805d4376"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 30-175 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h01",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "安平古堡（臺南）",
+   "file": "h01.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "7ab3abff0ee05b6fa59fb794a2dba0057cc43bca4a1c711503c6b978651d0eed",
+   "observable_features": [
+    "紅磚殘牆與高台上的建築",
+    "通往高台的石階",
+    "白色塔樓（後代建築）"
+   ],
+   "curriculum_links": [
+    "荷蘭東印度公司在臺",
+    "熱蘭遮城與鄭氏",
+    "古蹟的層疊與再利用"
+   ],
+   "caution": "白色瞭望台為後代所建，不可當作荷治原貌。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Tainan_Taiwan_Fort-Zeelandia-01.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Tainan_Taiwan_Fort-Zeelandia-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2015-12-29",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Tainan_Taiwan_Fort-Zeelandia-01.jpg/1920px-Tainan_Taiwan_Fort-Zeelandia-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "5991978b8f44368a88da7cd0740538f580073141b50deb446ab9a460349b0707"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h02",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "億載金城城門（臺南）",
+   "file": "h02.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "abe1fb409136c42fd5b90b0a4cc5ca2134764e9d8723a5c768a92b01936d78d5",
+   "observable_features": [
+    "磚砌拱形城門",
+    "跨越護城河的橋",
+    "城牆厚實低矮、覆土植草"
+   ],
+   "curriculum_links": [
+    "牡丹社事件後的海防建設",
+    "西式砲臺",
+    "沈葆楨"
+   ],
+   "caution": "Claude 116 模擬卷已用過同一座砲臺，出題時避免同樣問法。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Tainan_Eternal_Golden_Castle_Gate.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Tainan_Eternal_Golden_Castle_Gate.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "User:Shack",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2008-06-22",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Tainan_Eternal_Golden_Castle_Gate.jpg/1920px-Tainan_Eternal_Golden_Castle_Gate.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "6f04648387808260300449bfc9b001b354701827b621f1b4d47838a367c1026a"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h03",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "紅毛城（新北淡水）",
+   "file": "h03.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "1177b80d009299ceb3905b2a9e99072adf26f4321fbd7e509b50425a13bb7107",
+   "observable_features": [
+    "紅磚建築與拱形迴廊",
+    "建築上方旗桿",
+    "整齊修剪的樹籬"
+   ],
+   "curriculum_links": [
+    "西班牙、荷蘭在臺",
+    "開港通商後的英國領事館",
+    "古蹟的多重用途"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:%E7%B4%85%E6%AF%9B%E5%9F%8E_Fort_San_Domingo_-_panoramio_(2).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/%E7%B4%85%E6%AF%9B%E5%9F%8E_Fort_San_Domingo_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "lienyuan lee",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "source_rights": "licensed",
+    "date": "Taken on 4 March 2015",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/%E7%B4%85%E6%AF%9B%E5%9F%8E_Fort_San_Domingo_-_panoramio_%282%29.jpg/1920px-%E7%B4%85%E6%AF%9B%E5%9F%8E_Fort_San_Domingo_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "02be4e649edeb1dbd550b0bc5ad01949980fabf8460a4dc65aac3f669c469f45"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h04",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "烏山頭水庫工程現場（日治時期）",
+   "file": "h04.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "30ae718afc7595fdf8638357298c3d36ecbd06932e4ff9ffb2c97062cd1e7e9e",
+   "observable_features": [
+    "鋪設的多條軌道與運土車",
+    "大片開挖的土地",
+    "照片下方印有日、英文說明文字"
+   ],
+   "curriculum_links": [
+    "嘉南大圳與日治水利建設",
+    "殖民統治下的農業發展"
+   ],
+   "caution": "照片內含原說明文字，可遮蓋後再用。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Construction_of_Wushantou_Dam.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Construction_of_Wushantou_Dam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Unknown author",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1920sdate QS:P,+1920-00-00T00:00:00Z/8",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Construction_of_Wushantou_Dam.jpg/1920px-Construction_of_Wushantou_Dam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "446aba8f641885d83afde55be95cd3920616d8258d8c811a4ed663ff895391ae"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 34-205 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h05",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "聖索菲亞大教堂夜景（伊斯坦堡）",
+   "file": "h05.jpg",
+   "width": 1400,
+   "height": 929,
+   "sha256": "82b9402be678d585ecc89a4ae01ea61e8df7fe7ffd17a698b57a97cfc8146cc7",
+   "observable_features": [
+    "中央大圓頂",
+    "四周高細的宣禮塔",
+    "周邊現代建築"
+   ],
+   "curriculum_links": [
+    "拜占庭帝國",
+    "鄂圖曼帝國征服君士坦丁堡",
+    "宗教建築的改用"
+   ],
+   "caution": "Claude 116 模擬卷已用過聖索菲亞大教堂，出題時避免同樣問法。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_(8395709547).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Hagia_Sophia_%288395709547%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Jorge Láscar from Australia",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2012-08-28 20:17",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Hagia_Sophia_%288395709547%29.jpg/1920px-Hagia_Sophia_%288395709547%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "6c86e39e4a75160f4bd6f7c22c51aa453770c91f95eb5e880222d25021e9d02a"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h06",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "秦始皇陵兵馬俑一號坑",
+   "file": "h06.jpg",
+   "width": 933,
+   "height": 1400,
+   "sha256": "8d6628f7b5cb3f231029cfedd9c5827be73487c981902af2fc1eae449013da3c",
+   "observable_features": [
+    "陶俑身穿鎧甲、髮髻",
+    "成排站立的陶俑",
+    "陶俑面容各異"
+   ],
+   "curriculum_links": [
+    "秦代軍事與統一",
+    "考古資料作為史料"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Qin_Terracotta_Army,_Pit_1_04.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Qin_Terracotta_Army%2C_Pit_1_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Gary Lee Todd, Ph.D.",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source_rights": "public_domain",
+    "date": "2011-10-03 10:58:09",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Qin_Terracotta_Army%2C_Pit_1_04.jpg/1920px-Qin_Terracotta_Army%2C_Pit_1_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "314e6019cd1c37ca181511a43ee5157dc697afe3d0e3f2d1c19490d66ef15769"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 30-173 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h07",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "1989 年柏林圍牆上的東西德民眾（布蘭登堡門前）",
+   "file": "h07.jpg",
+   "width": 661,
+   "height": 498,
+   "sha256": "440c55f8b6089d1312853b7ff96c6d81b30087b715415f763f136a78d7a3a55b",
+   "observable_features": [
+    "大批民眾站在牆頂與牆前",
+    "牆上的標語與塗鴉",
+    "後方布蘭登堡門"
+   ],
+   "curriculum_links": [
+    "冷戰結束",
+    "德國統一",
+    "東歐變局"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Unknown photographer, Reproduction by Lear 21 at English Wikipedia.",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "1989",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "c0a91835b3ba607e925561b97838a556179e440addda8a26938ecf7c73149102"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h08",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "〈羅德斯巨像〉漫畫（Punch，1892）",
+   "file": "h08.jpg",
+   "width": 1080,
+   "height": 1400,
+   "sha256": "d256b043352737a1187d8f055e5f0f89accbeafcf05e869b81447fac44cb708d",
+   "observable_features": [
+    "一人跨立於非洲大陸南北兩端",
+    "手中拉著一條橫越非洲的線",
+    "身著探險裝束"
+   ],
+   "curriculum_links": [
+    "帝國主義與瓜分非洲",
+    "開普敦到開羅的構想",
+    "漫畫作為史料"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Punch_Rhodes_Colossus.png",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Punch_Rhodes_Colossus.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Edward Linley Sambourne",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1892-12-10",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Punch_Rhodes_Colossus.png/1920px-Punch_Rhodes_Colossus.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "456f3a9b28477203cf52444c05050dbbd7a149368cc51fb32e54147a9e2ae8c8"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h09",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "〈中國：國王與皇帝的蛋糕〉（Le Petit Journal，1898）",
+   "file": "h09.jpg",
+   "width": 970,
+   "height": 1400,
+   "sha256": "c452b129b7302bb4075cb66e9b363cecd90a636c4e4d561cdae58f1f910fc84f",
+   "observable_features": [
+    "數位代表列強的人物圍著寫有「Chine」的餅準備切分",
+    "後方清朝官員舉手驚慌",
+    "法文標題"
+   ],
+   "curriculum_links": [
+    "列強瓜分中國（租借地與勢力範圍）",
+    "漫畫的立場與史料判讀"
+   ],
+   "caution": "畫中人物各代表哪國，須由題文提供，不可要求考生認人。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:China,_the_cake_of_kings_and_emperors,_Le_Petit_Journal_1898.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/China%2C_the_cake_of_kings_and_emperors%2C_Le_Petit_Journal_1898.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Henri Meyer",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1898-01-16",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/China%2C_the_cake_of_kings_and_emperors%2C_Le_Petit_Journal_1898.jpg/1920px-China%2C_the_cake_of_kings_and_emperors%2C_Le_Petit_Journal_1898.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "8febf50aa3e55dcf3859e2e466cf8176a49ee16db1fdcab3aed594878b7824b9"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 54-204 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h10",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "喬治亞州棉紡廠的童工（Lewis Hine，1909）",
+   "file": "h10.jpg",
+   "width": 1400,
+   "height": 988,
+   "sha256": "e7937c5db67d2a2b3be59e58249186b799b5b842e1caec87bfdde972b352a86d",
+   "observable_features": [
+    "站在紡紗機走道中的小女孩",
+    "兩側長排的紡紗機",
+    "地上散落的棉絮"
+   ],
+   "curriculum_links": [
+    "工業革命與工廠制度",
+    "童工與勞動立法",
+    "社會改革與攝影"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hine,_Spinner_in_Globe_Cotton_Mill,_Augusta,_Georgia,_1909.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Lewis_Hine%2C_Spinner_in_Globe_Cotton_Mill%2C_Augusta%2C_Georgia%2C_1909.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Lewis Hine",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1909-01",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Lewis_Hine%2C_Spinner_in_Globe_Cotton_Mill%2C_Augusta%2C_Georgia%2C_1909.jpg/1920px-Lewis_Hine%2C_Spinner_in_Globe_Cotton_Mill%2C_Augusta%2C_Georgia%2C_1909.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "7afc1e1bb47a0b3b0fe118c0bdf8be41ce9ac5ba991aca0fe71cc3b4049fb4f0"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h11",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "〈移民母親〉（Dorothea Lange，1936）",
+   "file": "h11.jpg",
+   "width": 1076,
+   "height": 1400,
+   "sha256": "f0850d66e0572b41458b927a42d4161856bef47d40f1933864941fac98c49be3",
+   "observable_features": [
+    "憂慮神情的母親",
+    "依偎在身邊的孩子",
+    "簡陋的衣著"
+   ],
+   "curriculum_links": [
+    "經濟大恐慌",
+    "新政與社會救助",
+    "攝影作為史料"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Lange-MigrantMother02.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Lange-MigrantMother02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Dorothea Lange",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "6 March 1936",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Lange-MigrantMother02.jpg/1920px-Lange-MigrantMother02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e6657df96f6dadede759d88c6c3ebc14dc956633c246a3a1046a47ebf5c17afd"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h12",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "1869 年蘇伊士運河通航典禮（塞得港）",
+   "file": "h12.jpg",
+   "width": 1260,
+   "height": 1015,
+   "sha256": "bdb478eed15fa81375ef70d7c5f82ca9ab0ac729b2d0a0421ecdaaad8c5d657e",
+   "observable_features": [
+    "港內懸掛旗幟的帆船與蒸汽船",
+    "岸邊碼頭與群眾"
+   ],
+   "curriculum_links": [
+    "蘇伊士運河與全球航運",
+    "帝國主義與交通"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Opening_of_the_Suez_Canal,_Port_Said,_1869.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Opening_of_the_Suez_Canal%2C_Port_Said%2C_1869.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Unknown author",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1869-11-17",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Opening_of_the_Suez_Canal%2C_Port_Said%2C_1869.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "356200cd3cf0021b0cc6c23ffc37b578336bc76e8943c1bcb48590268c06eaff"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h13",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "總統府（原臺灣總督府，1919 年落成）",
+   "file": "h13.jpg",
+   "width": 1400,
+   "height": 1011,
+   "sha256": "7fe84e6c79b14f59eb83fd82c9b86e054717cfa1b581620c2eca98022de72a41",
+   "observable_features": [
+    "紅磚與白色橫帶的西式外觀",
+    "對稱的立面與拱窗",
+    "前方大道"
+   ],
+   "curriculum_links": [
+    "日治時期的統治與建築",
+    "官方建築的象徵"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Presidential_Office_Building.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Presidential_Office_Building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Rutger van der Maar",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2013-07-02 10:53:37",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Presidential_Office_Building.jpg/1920px-Presidential_Office_Building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "67879b339cca24cb6bdceea738c070960cd62dcf670b77b847c4149d53440d17"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h14",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "臺南孔廟大成殿",
+   "file": "h14.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "94b01492d5295166c2601b7f8790d59f476ace73d2d13edc883f7c02c799c923",
+   "observable_features": [
+    "重簷歇山式屋頂",
+    "屋脊裝飾",
+    "殿前石砌平台"
+   ],
+   "curriculum_links": [
+    "清代臺灣的儒學與教化",
+    "科舉與文教"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Exterior_of_Tainan_Confucius_Temple_in_November_2017.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Exterior_of_Tainan_Confucius_Temple_in_November_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Nick-D",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2017-11-29 10:32:02",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Exterior_of_Tainan_Confucius_Temple_in_November_2017.jpg/1920px-Exterior_of_Tainan_Confucius_Temple_in_November_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "ef67e62d04f94901ebe35980b53adb698c6c1d5bad6bf8ce7c68f520fd7a93fd"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h15",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "鹿港龍山寺（彰化）",
+   "file": "h15.jpg",
+   "width": 1400,
+   "height": 1054,
+   "sha256": "60c22c0e701234e2e7fd099d9801d1e90ff214193690bed7d029d647ee872a2e",
+   "observable_features": [
+    "傳統廟宇山門與屋頂",
+    "寬闊前埕",
+    "四周現代樓房與機車"
+   ],
+   "curriculum_links": [
+    "清代移民與宗教信仰",
+    "港市與寺廟",
+    "古蹟保存與都市發展"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Main_Gate_of_the_Lukang_Longshan_Temple.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Main_Gate_of_the_Lukang_Longshan_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Allervous",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2024-04-14 12:16:15",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Main_Gate_of_the_Lukang_Longshan_Temple.jpg/1920px-Main_Gate_of_the_Lukang_Longshan_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "803be331e07660630d8bd2c06ec74949ee1e80fb6fa1794569b6b64622047890"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h16",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "慕田峪長城（北京）",
+   "file": "h16.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "41c104e7bccd0f80970444a2154c1b55c676aff0e0892289479a4c3509211dfe",
+   "observable_features": [
+    "沿山脊蜿蜒的城牆",
+    "城牆上的垛口",
+    "遠處山脊上的敵樓"
+   ],
+   "curriculum_links": [
+    "中國的邊防與游牧民族",
+    "明代長城"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Mutianyu_Great_Wall_(6222519140).jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Mutianyu_Great_Wall_%286222519140%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Arian Zwegers",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "source_rights": "licensed",
+    "date": "2005-07-28 07:28",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Mutianyu_Great_Wall_%286222519140%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "23b087828a019fa4325b2a94e198132dff8b493f27c32525879db0007cf14a91"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h17",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "吳哥窟（柬埔寨）",
+   "file": "h17.jpg",
+   "width": 1400,
+   "height": 927,
+   "sha256": "1c7e28ffb1623f1fbd78cc9b3ec60a985fe11c105aeed6d6b5e054ddb196f133",
+   "observable_features": [
+    "五座塔尖的寺廟建築群",
+    "前方水池的倒影"
+   ],
+   "curriculum_links": [
+    "東南亞的印度文化影響",
+    "宗教與王權"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:20171126_Angkor_Wat_4712_DxO.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/20171126_Angkor_Wat_4712_DxO.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2017-11-26 16:14:10",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/20171126_Angkor_Wat_4712_DxO.jpg/1920px-20171126_Angkor_Wat_4712_DxO.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "5cb6471574f4e968d7462d216c90e99d87f15e7c8b8321469af4837f6c951fa3"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h18",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "羅馬競技場",
+   "file": "h18.jpg",
+   "width": 1400,
+   "height": 881,
+   "sha256": "f75797ca8ca3590d82e77e68d26c5a8aa952144b167b4bdadcf28aea2669adbc",
+   "observable_features": [
+    "多層連續拱門的橢圓形外牆",
+    "部分外牆殘缺"
+   ],
+   "curriculum_links": [
+    "羅馬帝國的公共建築與城市生活",
+    "拱券技術"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Colosseum_of_Rome,_Italy.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Colosseum_of_Rome%2C_Italy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Wilfredor",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source_rights": "public_domain",
+    "date": "2024-02-08 11:53:11",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Colosseum_of_Rome%2C_Italy.jpg/1920px-Colosseum_of_Rome%2C_Italy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "185a36ea1eeebda546be6058b8d40a6b125ca647afb064a3b8369a7e37e3b815"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h19",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "雅典帕德嫩神殿",
+   "file": "h19.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "7320f307522fb86d0495ce91fd421e181fec4a42d93197da5c2abe0f56067552",
+   "observable_features": [
+    "成排多立克式石柱",
+    "三角形山牆殘跡",
+    "建於山丘上"
+   ],
+   "curriculum_links": [
+    "古希臘城邦與宗教",
+    "古典文化的影響"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Parthenon_from_west.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Parthenon_from_west.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "User:Mountain",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2006-11-26",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Parthenon_from_west.jpg/1920px-Parthenon_from_west.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "463d3f15fc97586a872c2f8e97b44bbbd3a50b278e1843e8960ad687a84bab19"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h20",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "〈巴達維亞城堡〉（Andries Beeckman，1661 年前後）",
+   "file": "h20.jpg",
+   "width": 1400,
+   "height": 995,
+   "sha256": "2ba62f444ec3d626414e5ce3949a48cbbee728f451a90f22802d0bc43d5d76de",
+   "observable_features": [
+    "棕櫚樹下聚集的人群",
+    "遠方的城堡與城牆",
+    "熱帶天空"
+   ],
+   "curriculum_links": [
+    "荷蘭東印度公司的亞洲據點",
+    "巴達維亞與臺灣的關係",
+    "畫作作為史料"
+   ],
+   "caution": "畫作非照片，題目稱「畫作」。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Andries_Beeckman_-_The_Castle_of_Batavia.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Andries_Beeckman_-_The_Castle_of_Batavia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Andries Beeckman",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1662",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Andries_Beeckman_-_The_Castle_of_Batavia.jpg/1920px-Andries_Beeckman_-_The_Castle_of_Batavia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "c271396db3ab9c8af27c24d2a365b6251a3bf07d8e515cd055f401f5d43bc4ba"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 38-199 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h21",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "馬關條約簽約場景（浮世繪）",
+   "file": "h21.jpg",
+   "width": 1287,
+   "height": 666,
+   "sha256": "8c126bd47640bb918b29152f76522ae63b411927dfe43717cc69efabeee1d76a",
+   "observable_features": [
+    "長桌兩側分坐日方與清方代表",
+    "雙方服飾明顯不同",
+    "畫上的日文題字"
+   ],
+   "curriculum_links": [
+    "甲午戰爭與馬關條約",
+    "臺灣割讓",
+    "圖像史料的立場"
+   ],
+   "caution": "浮世繪為日方當時的出版品，判讀時可討論其立場。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "as shown on picture",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "circa 1895date QS:P,+1895-00-00T00:00:00",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "17a2ea70c6c28558b66abf90eef681c61d89efcb6a67c118b4159dfcb7970bd6"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h22",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "1935 年臺灣博覽會第一會場空照（臺北）",
+   "file": "h22.jpg",
+   "width": 1213,
+   "height": 892,
+   "sha256": "849f0fa11a4c3b6079ded6f2ac7d4734ed091cc46edd9edccdd435752b8fec5a",
+   "observable_features": [
+    "大型展館建築群",
+    "方格化的街道與密集市街",
+    "鐵道與大道"
+   ],
+   "curriculum_links": [
+    "始政四十周年臺灣博覽會",
+    "日治時期的都市計畫",
+    "殖民統治的宣傳"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Taiwan_Exposition,_area_1,_Taihoku,_1935.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Taiwan_Exposition%2C_area_1%2C_Taihoku%2C_1935.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "社團法人臺灣建築會",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1935",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Taiwan_Exposition%2C_area_1%2C_Taihoku%2C_1935.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "f3a0ccd64bf923b93afd511a06410801ace21deb3237cc8e50fd9d504bf4213e"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h23",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "埔里社製糖所（日治時期）",
+   "file": "h23.jpg",
+   "width": 1400,
+   "height": 961,
+   "sha256": "ad05b733f197965dc23ba9e130564429b0f372a23f8db38de9595409de89d838",
+   "observable_features": [
+    "高聳煙囪與工廠建築",
+    "廠前多條軌道與台車",
+    "前景甘蔗田"
+   ],
+   "curriculum_links": [
+    "日治時期新式製糖業",
+    "糖業鐵道",
+    "殖民地經濟"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:%E5%9F%94%E9%87%8C%E7%A4%BE%E8%A3%BD%E7%B3%96%E6%89%80.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/%E5%9F%94%E9%87%8C%E7%A4%BE%E8%A3%BD%E7%B3%96%E6%89%80.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Unknown author",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1910sdate QS:P,+1910-00-00T00:00:00Z/8-1",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/%E5%9F%94%E9%87%8C%E7%A4%BE%E8%A3%BD%E7%B3%96%E6%89%80.jpg/1920px-%E5%9F%94%E9%87%8C%E7%A4%BE%E8%A3%BD%E7%B3%96%E6%89%80.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b14ab800f8cc573f99eb8bd1ecc66a28afa21e067c782aad8856a31db1debb1b"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 50-222 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h24",
+   "domain": "歷史",
+   "kind": "archival_image",
+   "title": "嘉南大圳平面圖（日治時期）",
+   "file": "h24.jpg",
+   "width": 1400,
+   "height": 1163,
+   "sha256": "3157f52ed669479a055db39824db3c2a7604d0334f2a6d75f0409c9f331a84d8",
+   "observable_features": [
+    "覆蓋嘉南平原的密集圳道網",
+    "圖例、比例尺與方位",
+    "圖下說明文字"
+   ],
+   "curriculum_links": [
+    "嘉南大圳",
+    "三年輪作",
+    "日治時期水利與農業"
+   ],
+   "caution": "圖中文字須放大才能辨讀，建議只用局部。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Map_of_Kanan_Irrigation_System.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Map_of_Kanan_Irrigation_System.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "嘉南大圳組合等",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "1933-10",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Map_of_Kanan_Irrigation_System.jpg/1920px-Map_of_Kanan_Irrigation_System.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "3fe9237da65c67f23c3c4211e71d97e4330989e9f77b175b53b9abbea755de1c"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "tones 55-223 stretched to 0-255",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "h25",
+   "domain": "歷史",
+   "kind": "photo",
+   "title": "馬丘比丘（祕魯）",
+   "file": "h25.jpg",
+   "width": 1400,
+   "height": 930,
+   "sha256": "7f42a3781a51ebce513c1d90d8387f1e1ae149939b244dffd2f9c30751f602ef",
+   "observable_features": [
+    "山脊上的石砌建築群",
+    "層層石砌梯田",
+    "後方陡峭山峰"
+   ],
+   "curriculum_links": [
+    "印加文明",
+    "高山環境的利用"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Per%C3%BA,_2015-07-30,_DD_47.JPG",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2015-07-30 16:01:04",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG/1920px-Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "41c765050ca89aa9adc7cbfccc98f0b7ca3e9e0f0424ab3453d87bbaad8e6833"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c01",
+   "domain": "公民與社會",
+   "kind": "aerial_photo",
+   "title": "立法院院區空照（臺北）",
+   "file": "c01.jpg",
+   "width": 1400,
+   "height": 1249,
+   "sha256": "7f594e314f92f02b9d0b34793d5c3f487211a7f249beb3212bc85169cfdba4db",
+   "observable_features": [
+    "被高樓環繞的院區",
+    "院區內的舊建築與議場",
+    "院區前的廣場"
+   ],
+   "curriculum_links": [
+    "立法院職權與民主政治",
+    "憲政機關"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Legislative_Yuan_Building_20240626.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Legislative_Yuan_Building_20240626.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Yu tptw",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2024-06-26 12:53:29",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Legislative_Yuan_Building_20240626.jpg/1920px-Legislative_Yuan_Building_20240626.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "b8a1c2ba576dc54b989099fd1fa89899a159ac7f777a124a4b4be0cf3dfca08f"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c02",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "司法院大樓（臺北，日治時期建築）",
+   "file": "c02.jpg",
+   "width": 1400,
+   "height": 933,
+   "sha256": "a804f4a700093a546bc5d918b6f61e0d21e9748d35de5f73bf2fe6ba7c00bed2",
+   "observable_features": [
+    "對稱的紅磚立面",
+    "中央高塔與拱門入口"
+   ],
+   "curriculum_links": [
+    "司法權與法院體系",
+    "憲法法庭",
+    "建築的歷史脈絡"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Taipei_Taiwan_Judicial-Yuan-01.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Taipei_Taiwan_Judicial-Yuan-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source_rights": "licensed",
+    "date": "2014-05-18",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Taipei_Taiwan_Judicial-Yuan-01.jpg/1920px-Taipei_Taiwan_Judicial-Yuan-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "37289fb16e70a14413ac359290529ceab4451c4f8ff76df756b6ccadbcbfe081"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c03",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "臺北 YouBike 公共自行車站",
+   "file": "c03.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "083c3cb76a04be1ecc4c21fd11b03771d3f9f6be13e35cd5b4d4204bf840fca9",
+   "observable_features": [
+    "停放在樁柱上的公共自行車",
+    "人行道上的租借樁"
+   ],
+   "curriculum_links": [
+    "公共運輸與共享經濟",
+    "外部效益與公共財",
+    "都市交通政策"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:YouBike_bicycle_parking_in_Taipei_20120916.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/YouBike_bicycle_parking_in_Taipei_20120916.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Muhammad Riza",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source_rights": "licensed",
+    "date": "2012-09-16 13:50:33",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/YouBike_bicycle_parking_in_Taipei_20120916.jpg/1920px-YouBike_bicycle_parking_in_Taipei_20120916.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e0a81f1b6a78b33ade0f27fcd330ab8538915baabc660736c754d68c4d5ce49c"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c04",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "士林市場周邊街道（白天）",
+   "file": "c04.jpg",
+   "width": 1400,
+   "height": 787,
+   "sha256": "75923d9f369499cc131a1b99f424ca079b371f690bcd97677046bff4dad04915",
+   "observable_features": [
+    "狹窄巷道兩側的攤位與店面",
+    "拉下的鐵捲門",
+    "懸掛的招牌"
+   ],
+   "curriculum_links": [
+    "市場與價格機制",
+    "公共空間的使用與管理"
+   ],
+   "caution": "照片為白天，未必是營業中的夜市。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Shilin_Night_Market_02.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Shilin_Night_Market_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "Exec8",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2018-08-13 22:34:29",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Shilin_Night_Market_02.jpg/1920px-Shilin_Night_Market_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "1eb7e3f62307f532725c81fa03fdff501d0de5f7256728c17666a640653ad306"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c05",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "臺中火力發電廠與周邊聚落",
+   "file": "c05.jpg",
+   "width": 1400,
+   "height": 929,
+   "sha256": "c5d6b35e6543c39346ece684e6d0324c983e4529f943b7e54a2ad9244e9147bf",
+   "observable_features": [
+    "多支高聳煙囪",
+    "前景密集的住宅",
+    "平坦的沿海平原"
+   ],
+   "curriculum_links": [
+    "外部成本與環境管制",
+    "能源結構與空氣品質",
+    "鄰避設施"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Taichung_Fire_Power_Plant.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Taichung_Fire_Power_Plant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "阿爾特斯",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "source_rights": "licensed",
+    "date": "2010-04-16",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Taichung_Fire_Power_Plant.jpg/1920px-Taichung_Fire_Power_Plant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "c51a55347d9ac877bc70bdec67f2159788062c5d5346a8a81502e7c2259a458a"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c06",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "臺北傳統市場蔬果攤",
+   "file": "c06.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "a4ca810e87cea1fc31eab0475fdb4e1f2ab17dcb944a6c066cd67358bee6281d",
+   "observable_features": [
+    "攤上的標價牌",
+    "選購蔬果的顧客",
+    "戴口罩的人"
+   ],
+   "curriculum_links": [
+    "市場交易與價格",
+    "消費行為"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:A_greengrocer_in_a_wet_market_in_Taipei.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/A_greengrocer_in_a_wet_market_in_Taipei.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "ThomasYehYeh",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2022-08-13",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/A_greengrocer_in_a_wet_market_in_Taipei.jpg/1920px-A_greengrocer_in_a_wet_market_in_Taipei.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "e21af86b4381a1beeec18ced4aa5f697bd36d3bc0c4b3b77715fc1927080f5a7"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c07",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "臺北垃圾車與資源回收車收運",
+   "file": "c07.jpg",
+   "width": 1400,
+   "height": 1050,
+   "sha256": "b85cb94f7e3201870e6848a73cc89b2a0f2ac845e6352c3f6f0665b0d016bd67",
+   "observable_features": [
+    "民眾提著分類後的垃圾",
+    "回收車上的標示字樣",
+    "裝滿回收物的大袋"
+   ],
+   "curriculum_links": [
+    "資源回收與垃圾分類政策",
+    "公共政策與市民參與",
+    "外部成本"
+   ],
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Disposing_sorted_waste_to_garbage_truck_on_Beining_Road_20220726.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Disposing_sorted_waste_to_garbage_truck_on_Beining_Road_20220726.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "ThomasYehYeh",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_rights": "licensed",
+    "date": "2022-07-26",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Disposing_sorted_waste_to_garbage_truck_on_Beining_Road_20220726.jpg/1920px-Disposing_sorted_waste_to_garbage_truck_on_Beining_Road_20220726.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "downloaded_sha256": "73fef0934147bdcaa16807b6fb017229f9afab17cd29b009e1bc147e1c8dc73c"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  },
+  {
+   "id": "c08",
+   "domain": "公民與社會",
+   "kind": "photo",
+   "title": "2014 年臺灣選民排隊等候投票",
+   "file": "c08.jpg",
+   "width": 1024,
+   "height": 576,
+   "sha256": "cae88bdb99c7728571162c50ae1598d53f0d1363f6728b3a47a0b8b1318273c6",
+   "observable_features": [
+    "投票所外排隊的民眾",
+    "門口的公告與指示"
+   ],
+   "curriculum_links": [
+    "選舉制度與投票",
+    "公民參與"
+   ],
+   "caution": "不得藉此照片暗示任何政黨立場。",
+   "source": {
+    "site": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:2014%E5%B9%B4%E5%8F%B0%E7%81%A3%E9%81%B8%E6%B0%91%E6%8E%92%E9%9A%8A%E7%AD%89%E5%80%99%E6%8A%95%E7%A5%A8.jpg",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/2014%E5%B9%B4%E5%8F%B0%E7%81%A3%E9%81%B8%E6%B0%91%E6%8E%92%E9%9A%8A%E7%AD%89%E5%80%99%E6%8A%95%E7%A5%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "creator": "美國之音 許波",
+    "license": "Public domain",
+    "license_url": "",
+    "source_rights": "public_domain",
+    "date": "2014-11-29 16:10",
+    "retrieved_at": "2026-09-24",
+    "downloaded_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/2014%E5%B9%B4%E5%8F%B0%E7%81%A3%E9%81%B8%E6%B0%91%E6%8E%92%E9%9A%8A%E7%AD%89%E5%80%99%E6%8A%95%E7%A5%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "downloaded_sha256": "3ba4e373b8f31121db7f975d03a0224a89d0f2cfd25f8aa5f74b4fb5037dc6bc"
+   },
+   "processing": [
+    "Commons 1600 px rendition",
+    "converted to grayscale",
+    "longest side at most 1400 px",
+    "JPEG quality 80"
+   ]
+  }
+ ]
+}
+</canonical-source>
+
 <canonical-source path="references/rendering.md">
 # Rendering
 
@@ -62911,15 +65279,15 @@ If the context can be communicated clearly with original vector silhouettes plus
 
 For multi-panel photo options, generate each panel from a separate semantic description, normalize crop and contrast, then assemble and label the grid programmatically. Difficulty comes from the intended semantic contrast among panels, not from poor image quality or ambiguous cropping.
 
-Real photographs and authentic observation images are allowed for Natural Science, English, and Social Studies stimuli when their provenance and rights permit reuse. Record the original URL or archive identifier, creator/agency when known, publication date, license or authorization, preserved original-file path and SHA-256, crop, and every tonal transformation. The placed derivative must be a separately hashed fixed grayscale/bilevel raster; retaining only the transformed copy is insufficient. Do not treat "found on the web" as a rights status. Converting an internet image to black and white does not grant reuse rights, erase attribution requirements, or satisfy originality.
+Real photographs and authentic observation images are allowed for Natural Science, English, and Social Studies stimuli when their source is traceable and the image fits the item. A photograph found by a web search qualifies (`generation_mode: web_source`, `source_rights: web_sourced`); no license verdict is required (maintainer decision 2026-09-24). Record the page URL or archive identifier, the site or creator, the retrieval date, the preserved original-file path and SHA-256, the crop, and every tonal transformation; add a license when the page states one. The placed derivative must be a separately hashed fixed grayscale/bilevel raster; retaining only the transformed copy is insufficient. When the runtime cannot fetch web images, `scripts/photo_library.py` supplies 59 traceable photographs (`generation_mode: photo_library`).
 
 Before converting a photograph, map each answer-bearing feature to one or more channels: shape, position, boundary, count, texture, readable label, relative tone, or measured value. Then render the exact placed crop in grayscale at the intended physical size and run an evidence-survival review. A reviewer must be able to point to every required feature without seeing the color original. If the item asks about hue, color category, color-coded legend, vegetation color, warning-light color, or any other chromatic fact, either add redundant deterministic encoding (labels, patterns, shapes, or values) and rewrite the item around that encoding, or reject the visual. Merely increasing contrast does not make a color-dependent question valid.
 
-For photographs sourced online, prefer a licensed original over a screenshot embedded in a news article. If a news page is the discovery route, trace the image to the photographer, agency, archive, museum, government, or open-license repository before use. A source photo may support factual observation, but cropping or monochrome conversion does not make it original or erase attribution requirements.
+For photographs sourced online, prefer the original file over a screenshot embedded in a news article, and record the page the image actually came from. A source photo may support factual observation, but cropping or monochrome conversion does not make the item original: the question, not the picture, carries the originality.
 
 Attribution requirements are satisfied through the internal source/provenance record unless the controlling official layout profile explicitly prints a photo credit. Do not insert `照片：...`, a URL, license prose, or an image-rights note into the student booklet by default. Keep textual passage/material attributions separate: they follow that subject's official source-line convention and are not suppressed merely because a photograph shares the source.
 
-Use `licensed_source` only when the source is authorized for that use and the record says so. Do not redraw or lightly alter a publisher's historical figure merely to evade similarity. Generate a new semantic construction and a new surface composition.
+Use `licensed_source` when the record carries an explicit license or authorization, `web_source` for any other traceable web image, and `photo_library` for the bundled library. Do not redraw or lightly alter a publisher's historical figure merely to evade similarity. Generate a new semantic construction and a new surface composition.
 
 ## Image-model prompt contract
 
@@ -65063,7 +67431,7 @@ Any later paper request:
     },
     "generation_mode": {
       "type": "string",
-      "enum": ["deterministic_svg", "chart_renderer", "image_model", "licensed_source", "none"]
+      "enum": ["deterministic_svg", "chart_renderer", "image_model", "licensed_source", "web_source", "photo_library", "none"]
     },
     "information_density": {"type": "integer", "minimum": 1, "maximum": 5},
     "visual_reasoning_steps": {"type": "integer", "minimum": 0, "maximum": 5},
@@ -65095,10 +67463,12 @@ Any later paper request:
     "semantic_data": {"type": ["object", "null"]},
     "source_rights": {
       "type": "string",
-      "enum": ["original", "licensed", "public_domain", "user_authorized", "unknown"]
+      "enum": ["original", "licensed", "public_domain", "user_authorized", "web_sourced", "unknown"]
     },
     "source_url": {"type": ["string", "null"], "format": "uri"},
     "source_creator": {"type": ["string", "null"]},
+    "source_site": {"type": ["string", "null"]},
+    "source_retrieved_at": {"type": ["string", "null"], "format": "date"},
     "source_published_at": {"type": ["string", "null"], "format": "date"},
     "license_or_authorization": {"type": ["string", "null"]},
     "source_asset_path": {"type": ["string", "null"], "minLength": 1},
@@ -65149,6 +67519,7 @@ Any later paper request:
           "print_legibility",
           "resolution_sufficient",
           "accessibility_text_safe",
+          "source_traceable",
           "rights_verified"
         ]
       },
@@ -65170,7 +67541,7 @@ Any later paper request:
         ],
         "properties": {
           "source_rights": {
-            "enum": ["original", "licensed", "public_domain", "user_authorized"]
+            "enum": ["original", "licensed", "public_domain", "user_authorized", "web_sourced"]
           }
         }
       }
@@ -65179,23 +67550,19 @@ Any later paper request:
       "if": {
         "properties": {
           "kind": {"const": "photo"},
-          "generation_mode": {"const": "licensed_source"}
+          "generation_mode": {"enum": ["licensed_source", "web_source", "photo_library"]}
         },
         "required": ["kind", "generation_mode"]
       },
       "then": {
         "required": [
           "source_url",
-          "source_creator",
-          "license_or_authorization",
           "source_asset_path",
           "source_asset_sha256",
           "processing_steps"
         ],
         "properties": {
-          "source_url": {"type": "string", "format": "uri"},
-          "source_creator": {"type": "string", "minLength": 1},
-          "license_or_authorization": {"type": "string", "minLength": 1}
+          "source_url": {"type": "string", "format": "uri"}
         }
       }
     },
@@ -65607,6 +67974,42 @@ def _group_key(question):
     return None
 
 
+def sequence_errors(sequence, labels, stage='final'):
+    """Balance, runs and cycles of one label population, in printed order.
+
+    The paper plan (check_paper_plan.py) runs the same test on the planned key: a hosted
+    社會 plan with a four-item cycle over 29-43 passed its plan check, which looked only
+    for periods 2 and 3, and was caught after all 65 items were written.
+    """
+    errors = []
+    if len(sequence) >= MIN_POPULATION_MULTIPLE * len(labels):
+        counts = Counter(sequence)
+        values = [counts[label] for label in labels]
+        if min(values) == 0 or max(values) - min(values) > 1:
+            errors.append(f'{stage} single-choice answer positions are not near-even for {labels}: {dict(counts)}')
+        run = 1
+        for previous, current in zip(sequence, sequence[1:]):
+            run = run + 1 if current == previous else 1
+            if run >= 4:
+                errors.append(f'{stage} single-choice answer key contains four identical positions in succession')
+                break
+        for period in range(2, 5):
+            # Two full repeats plus a partial third already give the pattern
+            # away: the paper's vocabulary key 1-4-3-2-1-4-3-2-1-4 has ten items.
+            needed = 2 * period + 2  # p=2 needs three repeats; p=4 needs two and a half
+            longest, stretch = 0, period
+            for i in range(period, len(sequence)):
+                stretch = stretch + 1 if sequence[i] == sequence[i - period] else period
+                longest = max(longest, stretch)
+            if longest >= needed:
+                errors.append(f'{stage} single-choice answer key contains a mechanical period-{period} cycle over {longest} items')
+                break
+        if len(sequence) >= NO_REPEAT_SUSPECT and all(a != b for a, b in zip(sequence, sequence[1:])):
+            errors.append(f'{len(sequence)} consecutive single-choice answers never repeat a position: a rotated '
+                          'key, not a random one (official keys repeat neighbours regularly)')
+    return errors
+
+
 def answer_pattern_errors(exam, *, require_full=True):
     metadata = exam.get('metadata') or {}
     if require_full and metadata.get('generation_mode') != 'full-paper':
@@ -65614,31 +68017,7 @@ def answer_pattern_errors(exam, *, require_full=True):
     errors = []
     for labels, rows in _single_choice_populations(exam).items():
         sequence = [answer for _, answer, _ in rows]
-        if len(rows) >= MIN_POPULATION_MULTIPLE * len(labels):
-            counts = Counter(sequence)
-            values = [counts[label] for label in labels]
-            if min(values) == 0 or max(values) - min(values) > 1:
-                errors.append(f'final single-choice answer positions are not near-even for {labels}: {dict(counts)}')
-            run = 1
-            for previous, current in zip(sequence, sequence[1:]):
-                run = run + 1 if current == previous else 1
-                if run >= 4:
-                    errors.append('final single-choice answer key contains four identical positions in succession')
-                    break
-            for period in range(2, 5):
-                # Two full repeats plus a partial third already give the pattern
-                # away: the paper's vocabulary key 1-4-3-2-1-4-3-2-1-4 has ten items.
-                needed = 2 * period + 2  # p=2 needs three repeats; p=4 needs two and a half
-                longest, stretch = 0, period
-                for i in range(period, len(sequence)):
-                    stretch = stretch + 1 if sequence[i] == sequence[i - period] else period
-                    longest = max(longest, stretch)
-                if longest >= needed:
-                    errors.append(f'final single-choice answer key contains a mechanical period-{period} cycle over {longest} items')
-                    break
-            if len(sequence) >= NO_REPEAT_SUSPECT and all(a != b for a, b in zip(sequence, sequence[1:])):
-                errors.append(f'{len(sequence)} consecutive single-choice answers never repeat a position: a rotated '
-                              'key, not a random one (official keys repeat neighbours regularly)')
+        errors.extend(sequence_errors(sequence, labels))
         if len(sequence) >= MONOTONE_RUN:
             start = _monotone_run(sequence, labels, MONOTONE_RUN)
             if start is not None:
@@ -66793,7 +69172,7 @@ STRANDS={'number_and_algebra','functions_and_models','geometry_and_space',
 # Planning floors mirror visual-generation.md. These are product minima, not
 # claims about official frequencies or proof that a planned visual is useful.
 VISUAL_FLOORS={'數學A':(4,3,2,0,0),'數學B':(4,3,2,0,0),'自然':(8,2,4,4,2),
-               '社會':(6,2,3,3,2),'英文':(3,2,2,0,1)}
+               '社會':(10,2,4,3,2),'英文':(3,2,2,0,1)}
 
 def number(value, minimum=0):
     return type(value) in (int,float) and math.isfinite(value) and value>minimum
@@ -66916,6 +69295,10 @@ def validate(plan, root=ROOT):
         if any(sequence[i:i+k]==sequence[i+k:i+2*k]==sequence[i+2*k:i+3*k]
                for k in (2,3) for i in range(len(sequence)-3*k+1)):
             errors.append('mechanical single-choice planned cycle')
+        # The final key test, run on the plan (periods 2-4, rotated keys): see answer_key_patterns.
+        from answer_key_patterns import sequence_errors
+        errors.extend(e for e in sequence_errors(sequence,list(labels),stage='planned')
+                      if 'near-even' not in e and 'four identical' not in e)
     visual=[(q,q['visual_plan']) for q in items if isinstance(q.get('visual_plan'),dict)
             and q['visual_plan'].get('role') in {'evidence','required_for_solution'}]
     # Shared material counts once, including when several scored subparts use it.
@@ -67874,6 +70257,9 @@ REVIEW_MODES = ('independent-context', 'single-context')
 # official 115 數學B scores exactly 70 and 30 points, the project's floors. Without them
 # hosted reviewers placed the same item on either side of 0.50 in successive rounds.
 CHINESE_MEAN_P_MAX = 0.62
+# 社會 111-115 objective items average 0.60, 0.51, 0.55, 0.52, 0.57 (official statistics); two
+# hosted 116 papers had keys that were the longest option in 40 and 42 of 54 items.
+SOCIAL_MEAN_P_MAX = 0.65
 MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
 
 
@@ -67983,6 +70369,15 @@ def review_errors(exam, review):
         elif estimates and sum(estimates) / len(estimates) > CHINESE_MEAN_P_MAX:
             errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} is easier than any official '
                           f'國綜 paper (111-115: 0.48-0.58; ceiling {CHINESE_MEAN_P_MAX})')
+    if exam.get('metadata', {}).get('subject') == '社會':
+        chosen = [q for q in exam['questions'] if q.get('options')]
+        estimates = [rows.get(q['id'], {}).get('estimated_p') for q in chosen]
+        if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
+            errors.append('difficulty: record estimated_p (the predicted 答對率, 0-1) for every 社會 choice item')
+        elif estimates and sum(estimates) / len(estimates) > SOCIAL_MEAN_P_MAX:
+            errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} of the choice items is easier '
+                          f'than any official 社會 paper (111-115: 0.51-0.60; ceiling {SOCIAL_MEAN_P_MAX}): make distractors '
+                          'as long and plausible as the key, each failing on one specific concept')
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
                             if type(r.get('expected_minutes')) in (int,float))
@@ -68124,6 +70519,7 @@ sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
 .cn-material {margin-left:18.2pt;font-family:Kai,Body;text-align:justify} .cn-material p {margin:0}
 .cn-material.inline {margin-left:0} .cn-material p.indent {text-indent:24pt} .cn-material p.hang {padding-left:22.8pt;text-indent:-22.8pt}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
+.social-material p {margin:0;text-indent:24pt;text-align:justify} .social-material p.flush {text-indent:0}
 '''
 
 
@@ -68171,6 +70567,8 @@ def option_pitch(columns, subject=None):
     subject = subject if subject is not None else _subject
     if subject == '國綜' and columns == 2:
         return 221.1  # 115 prints the second column at x 303.2 (114: 298)
+    if subject == '社會' and columns in (2, 4):
+        return {2: 225.0, 4: 112.6}[columns]  # 111-115: (B) at 306.8 two abreast, 194.4 four abreast
     pitch = 30 * (8 - columns) if 2 <= columns <= 5 else 0
     return pitch - (2 if subject == '自然' else 0)
 
@@ -68188,6 +70586,21 @@ def material_markup(value, inline=False):
         cls = 'hang' if re.match(r'[甲乙丙丁戊]、', plain) else '' if re.match(r'[（(]', plain) else 'indent'
         rows.append(f'<p class="{cls}">{text(piece)}</p>')
     return f'<div class="cn-material{" inline" if inline else ""}">' + ''.join(rows) + '</div>'
+
+
+def social_material_markup(value):
+    """社會 題組 material as 111-115 print it: at the margin, each paragraph's first line 24 pt
+    in (115 26-27: 「在某大城市」 at x 87.8, the margin 63.8); a 甲、 or （一） line stays flush."""
+    if isinstance(value, dict):
+        pieces = [{'rich': piece} for piece in re.split(r'(?:<br>\s*){2,}', value['rich']) if piece.strip()]
+    else:
+        pieces = [piece for piece in PARAGRAPH_BREAK.split(str(value)) if piece.strip()]
+    rows = []
+    for piece in pieces:
+        plain = html.unescape(re.sub('<[^>]+>', '', piece['rich'] if isinstance(piece, dict) else piece)).strip()
+        flush = re.match(r'[甲乙丙丁戊己]、|[（(][一二三四五1-9]', plain)
+        rows.append(('<p class="flush">' if flush else '<p>') + text(piece) + '</p>')
+    return '<div class="social-material">' + ''.join(rows) + '</div>'
 
 
 def item_gap_pt(subject):
@@ -68670,6 +71083,8 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         stem=_writing_stem(block)
     if block.get('material') is True and kind=='stimulus':
         stem=material_markup(block.get('text',''))
+    elif kind=='stimulus' and _subject=='社會' and re.sub(r'<[^>]+>|\s','',str((block.get('text') or {}).get('rich','') if isinstance(block.get('text'),dict) else block.get('text') or '')):
+        stem=social_material_markup(block['text'])
     elif block.get('material') and head:
         stem+=material_markup(block['material'],inline=True)  # already in the item's text column
     if kind=='solution':
@@ -71116,6 +73531,9 @@ def subject_gate_errors(exam, *, root=None, science_spec=None, authoring=False):
                 errors.append('social: ' + where + str(row.get('code')) + (f' {extra}' if extra else ''))
             else:
                 errors.append('social: ' + str(row))
+        if full:
+            from validate_social_layout_contract import validate_exam as social_layout
+            errors.extend('social-layout: ' + e for e in social_layout(exam))
     elif subject == '國寫' and full:
         from validate_writing_layout_contract import validate_exam as writing_form
         errors.extend('writing-form: ' + e for e in writing_form(exam))
@@ -71820,6 +74238,209 @@ def main(argv=None) -> int:
 
 
 if __name__ == "__main__":
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/photo_library.py">
+#!/usr/bin/env python3
+"""Real photographs for 社會 (and 自然) papers: search the web first, this library second.
+
+A hosted run should look for fitting real images on the web and use them from its own
+environment, recording where each came from (web_source; no license verdict needed). Many
+sandboxes cannot fetch images: Claude's reached only GitHub (Wikimedia, government sites and
+NASA answered 403) and a ChatGPT run found pages but not image files. Both 116 社會 runs then
+stalled or printed placeholder boxes. This library is the fallback that always works where
+GitHub does: 59 grayscale photographs, archival images and satellite scenes from Wikimedia
+Commons (public domain, CC0, CC BY, CC BY-SA), each with its creator, license, source page and
+the features a student can actually see.
+
+  python scripts/photo_library.py probe                 # can this runtime fetch web images?
+  python scripts/photo_library.py list --domain 地理    # browse (works offline)
+  python scripts/photo_library.py fetch --run-dir RUN   # download + verify into RUN/photo-library
+  python scripts/photo_library.py use g04 --run-dir RUN --output figures/q18.jpg --crop 0,0.1,1,0.9
+
+`use` writes the placed crop and prints the visual_asset and visual_spec fields to merge into
+the item; the final check accepts them as a traceable source.
+"""
+from __future__ import annotations
+
+import argparse
+import concurrent.futures
+import hashlib
+import io
+import json
+import os
+from pathlib import Path
+import sys
+import urllib.error
+import urllib.request
+import zipfile
+
+HERE = Path(__file__).resolve().parent
+MANIFEST = HERE.parent / 'references' / 'photo-library-manifest.json'
+ZIP_FILE = 'taiwan-exam-photo-library-v1.zip'
+ZIP_SHA256 = '68acb256e6e263c3cc664ca0d4e0339c0ba111cf219bee27c7f49304dc7a31cc'
+ZIP_BYTES = 15240230
+ZIP_URL = 'https://github.com/niansia/taiwan-exam/releases/download/photos-v1/' + ZIP_FILE
+UPLOAD_DIRS = ('/mnt/user-data/uploads', '/mnt/data', '/home/user', '.')
+# Hosts a web search usually lands on for real images; one small request each.
+PROBES = {
+    'wikimedia_commons': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/40px-PNG_transparency_demonstration_1.png',
+    'nasa_earth_observatory': 'https://eoimages.gsfc.nasa.gov/images/imagerecords/0/885/modis_wonderglobe_lrg.jpg',
+    'taiwan_government_open_data': 'https://data.gov.tw/favicon.ico',
+    'github_release': 'https://github.com/niansia/taiwan-exam/releases/tag/photos-v1',
+}
+
+
+def manifest():
+    return json.loads(MANIFEST.read_text(encoding='utf-8'))
+
+
+def _reachable(url, timeout):
+    request = urllib.request.Request(url, headers={'User-Agent': 'taiwan-exam photo probe', 'Range': 'bytes=0-1023'})
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            response.read(1024)
+            return 'reachable'
+    except urllib.error.HTTPError as error:
+        return f'HTTP {error.code}'
+    except (urllib.error.URLError, OSError, ValueError) as error:
+        return str(getattr(error, 'reason', error))[:80]
+
+
+def probe(timeout=4):
+    """Which image sources this runtime can reach, in about `timeout` seconds."""
+    with concurrent.futures.ThreadPoolExecutor(len(PROBES)) as pool:
+        results = dict(zip(PROBES, pool.map(lambda url: _reachable(url, timeout), PROBES.values())))
+    web = any(state == 'reachable' for name, state in results.items() if name != 'github_release')
+    library = results['github_release'] == 'reachable'
+    advice = ('Search the web for fitting real images first and use them from this environment (record them as '
+              'web_source). ' if web else
+              'Web image hosts are blocked here: do not spend time retrying them. ')
+    advice += ('The photo library is available: `python scripts/photo_library.py fetch --run-dir RUN`.' if library else
+               'GitHub is blocked too: ask the user once to upload images or taiwan-exam-photo-library-v1.zip '
+               f'({ZIP_URL}).')
+    return {'hosts': results, 'web_images': 'reachable' if web else 'blocked',
+            'photo_library_download': 'reachable' if library else 'blocked', 'advice': advice}
+
+
+def _verified(data):
+    return len(data) == ZIP_BYTES and hashlib.sha256(data).hexdigest() == ZIP_SHA256
+
+
+def fetch(run_dir, timeout=60):
+    """Put the verified library under RUN/photo-library; reuse, then uploads, then the Release."""
+    target = Path(run_dir) / 'photo-library'
+    if (target / 'manifest.json').is_file():
+        bad = [i['id'] for i in manifest()['items']
+               if not (target / i['file']).is_file() or hashlib.sha256((target / i['file']).read_bytes()).hexdigest() != i['sha256']]
+        if not bad:
+            return {'status': 'ready', 'path': str(target), 'source': 'existing', 'items': len(manifest()['items'])}
+    data, source = None, None
+    for folder in UPLOAD_DIRS:
+        candidate = Path(folder) / ZIP_FILE
+        if candidate.is_file() and _verified(candidate.read_bytes()):
+            data, source = candidate.read_bytes(), str(candidate)
+            break
+    if data is None:
+        try:
+            request = urllib.request.Request(ZIP_URL, headers={'User-Agent': 'taiwan-exam photo_library'})
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                data = response.read(ZIP_BYTES + 1)
+            source = ZIP_URL
+        except (urllib.error.URLError, OSError, ValueError) as error:
+            return {'status': 'unavailable', 'error': str(getattr(error, 'reason', error))[:200],
+                    'action': f'Ask the user once to download {ZIP_URL} and upload it to the chat, then rerun fetch.'}
+        if not _verified(data):
+            return {'status': 'unavailable', 'error': 'downloaded bytes do not match the pinned library; discarded'}
+    target.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(io.BytesIO(data)) as archive:
+        for name in archive.namelist():
+            if name.startswith('photo-library/') and not name.endswith('/') and '..' not in name:
+                (target / name.split('/', 1)[1]).write_bytes(archive.read(name))
+    return {'status': 'ready', 'path': str(target), 'source': source, 'items': len(manifest()['items'])}
+
+
+def use(photo_id, run_dir, output, crop=None, print_width_cm=12.0):
+    """Crop a library photo into the run and return the fields the item records."""
+    import pymupdf
+    run_dir = Path(run_dir).resolve()
+    item = next((i for i in manifest()['items'] if i['id'] == photo_id), None)
+    if item is None:
+        raise SystemExit(f'unknown photo id {photo_id}')
+    source = run_dir / 'photo-library' / item['file']
+    if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != item['sha256']:
+        raise SystemExit('run `photo_library.py fetch --run-dir RUN` first; the library file is missing or changed')
+    pix = pymupdf.Pixmap(str(source))
+    box = [0.0, 0.0, 1.0, 1.0] if not crop else [float(v) for v in crop.split(',')]
+    if len(box) != 4 or not (0 <= box[0] < box[2] <= 1 and 0 <= box[1] < box[3] <= 1):
+        raise SystemExit('--crop takes x0,y0,x1,y1 as fractions of the width and height')
+    x0, y0, x1, y1 = (round(box[0] * pix.width), round(box[1] * pix.height), round(box[2] * pix.width), round(box[3] * pix.height))
+    if (x0, y0, x1, y1) != (0, 0, pix.width, pix.height):
+        doc = pymupdf.open()
+        page = doc.new_page(width=x1 - x0, height=y1 - y0)
+        page.insert_image(pymupdf.Rect(-x0, -y0, pix.width - x0, pix.height - y0), pixmap=pix)
+        pix = page.get_pixmap(dpi=72, colorspace=pymupdf.csGRAY, clip=page.rect)
+    target = (run_dir / output).resolve()
+    if not target.is_relative_to(run_dir):
+        raise SystemExit('--output must be inside the run directory')
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(pix.tobytes('jpg', jpg_quality=85))
+    source_info = item['source']
+    dpi = int(pix.width / (print_width_cm / 2.54))
+    relative = lambda p: Path(os.path.relpath(p, run_dir)).as_posix()
+    return {
+        'visual_asset': {'path': relative(target), 'sha256': hashlib.sha256(target.read_bytes()).hexdigest(), 'grayscale': True},
+        'visual_spec': {
+            'kind': item['kind'],
+            'generation_mode': 'photo_library', 'source_rights': source_info['source_rights'],
+            'source_url': source_info['page'], 'source_creator': source_info['creator'], 'source_site': source_info['site'],
+            'source_retrieved_at': source_info['retrieved_at'], 'license_or_authorization': source_info['license'],
+            'source_asset_path': relative(source), 'source_asset_sha256': item['sha256'],
+            'crop_description': 'full frame' if not crop else f'crop x {box[0]:g}-{box[2]:g}, y {box[1]:g}-{box[3]:g} of the library file',
+            'processing_steps': [*item['processing'], *(['cropped'] if crop else []), 'JPEG quality 85'],
+            'tonal_transform': 'grayscale', 'min_raster_dpi': dpi,
+            'library_observable_features': item['observable_features'],
+        },
+        'notes': [f'Printed {print_width_cm:g} cm wide the crop gives {dpi} dpi' + ('' if dpi >= 200 else '; print it narrower'),
+                  *([item['caution']] if item.get('caution') else []),
+                  'Do not print the credit in the booklet; the record above is the attribution.'],
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = parser.add_subparsers(dest='action', required=True)
+    sub.add_parser('probe')
+    listing = sub.add_parser('list')
+    listing.add_argument('--domain', choices=['地理', '歷史', '公民與社會'])
+    listing.add_argument('--query')
+    fetcher = sub.add_parser('fetch')
+    fetcher.add_argument('--run-dir', required=True)
+    user = sub.add_parser('use')
+    user.add_argument('photo_id')
+    user.add_argument('--run-dir', required=True)
+    user.add_argument('--output', required=True)
+    user.add_argument('--crop')
+    user.add_argument('--print-width-cm', type=float, default=12.0)
+    args = parser.parse_args()
+    if args.action == 'probe':
+        result = probe()
+    elif args.action == 'list':
+        result = [{k: i[k] for k in ('id', 'domain', 'title', 'observable_features', 'curriculum_links', 'caution') if k in i}
+                  for i in manifest()['items']
+                  if (not args.domain or i['domain'] == args.domain)
+                  and (not args.query or args.query in json.dumps(i, ensure_ascii=False))]
+    elif args.action == 'fetch':
+        result = fetch(args.run_dir)
+    else:
+        result = use(args.photo_id, args.run_dir, args.output, args.crop, args.print_width_cm)
+    sys.stdout.reconfigure(encoding='utf-8')
+    print(json.dumps(result, ensure_ascii=False, indent=1))
+    return 0 if not (isinstance(result, dict) and result.get('status') == 'unavailable') else 1
+
+
+if __name__ == '__main__':
     raise SystemExit(main())
 </canonical-source>
 
@@ -72901,6 +75522,14 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
                     proofs[kind]['rasters'].append({'path': raster.relative_to(run_dir).as_posix(),
                                                    'sha256': digest(raster)})
         report['cache_inputs'] = cache_inputs(font)
+        if subject in {'社會', '自然', '英文'} and not os.environ.get('TAIWAN_EXAM_SKIP_IMAGE_PROBE'):
+            # Both 116 社會 runs learned that web images were unreachable only after writing
+            # 60 items. Four seconds here says whether to search the web or use the library.
+            from photo_library import probe as image_probe
+            try:
+                report['image_sources'] = image_probe()
+            except Exception as error:  # a probe must never block authoring
+                report['image_sources'] = {'error': str(error)[:200]}
         report.update(status='ready-for-authoring', proofs=proofs,
                       next_action='Continue in this same response; do not end it to report the preflight. '
                       'Open the small proof rasters and check field/font fit, then run checkpoint --phase authoring '
@@ -72972,8 +75601,8 @@ SUBJECT_REFERENCES = {
     # pre-writing difficulty and reading-load gate.
     "英文": {"current-gsat-english-form.md", "current-form-literacy-load.md"},
     "社會": {"current-gsat-social-form.md", "social-required-content-codes.json",
-             "current-form-literacy-load.md"},
-    "自然": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md"},
+             "current-form-literacy-load.md", "photo-library-manifest.json"},
+    "自然": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md", "photo-library-manifest.json"},
     "國綜": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md"},
     "國寫": {"current-gsat-writing-form.md", "gsat-writing-111-115-selection-calibration.md",
              "gsat-writing-source-ecology.md", "current-form-literacy-load.md"},
@@ -73687,13 +76316,42 @@ def content_identity(root, state):
     return {'paper_id': state['paper_id'], 'exam_content_sha256': canonical_sha(locked), 'assets': assets}
 
 
+def asset_path_problems(root, exam):
+    """Figure records the final check rejects, reported before the first build.
+
+    A hosted 社會 run recorded 14 figures by absolute path; the final check refused them
+    after the first complete build, and making them relative then invalidated 14 items'
+    content fingerprints, costing two more builds.
+    """
+    problems = []
+    records = [(q.get('id'), 'visual_asset', q.get('visual_asset')) for q in exam.get('questions') or [] if isinstance(q, dict)]
+    records += [(a.get('question_id'), 'solution visual', a.get('visual_asset')) for a in exam.get('answers') or [] if isinstance(a, dict)]
+    for qid, label, asset in records:
+        if not isinstance(asset, dict):
+            continue
+        spec = asset.get('visual_spec') if isinstance(asset.get('visual_spec'), dict) else {}
+        for field, value in (('path', asset.get('path')), ('visual_spec.source_asset_path', spec.get('source_asset_path'))):
+            if not value:
+                continue
+            path = Path(str(value))
+            resolved = (root / path).resolve()
+            if path.is_absolute() or not resolved.is_relative_to(root):
+                problems.append(f'{qid}: {label} {field} {value!r} must be a path relative to the run directory')
+            elif not resolved.is_file():
+                problems.append(f'{qid}: {label} {field} {value!r} does not exist')
+            elif field == 'path' and asset.get('sha256') != hashlib.sha256(resolved.read_bytes()).hexdigest():
+                problems.append(f'{qid}: {label} sha256 is stale; record the hash of the file as saved')
+    return problems
+
+
 def content_lock(state_path, *, reason=None):
     state_path = Path(state_path).resolve()
     root, state = state_path.parent, read(state_path)
     identity = content_identity(root, state)
     # The subject contract the final check applies, before the first booklet exists: a
     # hosted 國綜 run learned from its whole-paper source check only after two builds.
-    problems = subject_gate_errors(read(inside(root, root / state['exam']['path'])), root=root)
+    exam = read(inside(root, root / state['exam']['path']))
+    problems = asset_path_problems(root, exam) + subject_gate_errors(exam, root=root)
     path = root / 'content-lock.json'
     previous = read(path) if path.exists() else None
     if previous and previous['identity'] != identity and not (reason or '').strip():
@@ -74306,6 +76964,13 @@ def option_label(label):
 
 def option_columns(question, subject):
     """Explicit option_layout first; otherwise the maintained renderer heuristic."""
+    options = question.get('options') or []
+    if subject == '社會' and len(options) == 4:
+        # 111-115 measured: options of up to 7 characters print four abreast (tab 112.6 pt),
+        # up to 16 two abreast (225 pt), longer ones one per line. The earlier rule forced
+        # every 社會 option onto its own line and hosted papers ran 3-4 pages over.
+        longest = max(len(re.sub(r'\s|<[^>]+>', '', str(o.get('text', '')))) for o in options)
+        return 4 if longest <= 7 else 2 if longest <= 16 else 1
     if question.get('option_layout') in OPTION_LAYOUT_COLUMNS:
         return OPTION_LAYOUT_COLUMNS[question['option_layout']]
     options = question.get('options') or []
@@ -74622,6 +77287,8 @@ def project_specs(exam, hints, body_width):
                 label = (f'{first}-{last} 題為題組' if subject in HYPHEN_GROUP_SUBJECTS
                          # 國綜 111-115: 「6-8為題組。閱讀下文，回答6-8題。」 on one plain line.
                          else f'{first}-{last}為題組。閱讀下文，回答{first}-{last}題。' if subject == '國綜'
+                         # 社會 111-115: 「26-27 為題組」 underlined at the margin.
+                         else f'{first}-{last} 為題組' if subject == '社會'
                          else f'第 {first} 至 {last} 題為題組')
             splits = q.get('group_stimulus_page_splits') or {}
             segments = ([(int(page), text_) for page, text_ in sorted(splits.items(), key=lambda item: int(item[0]))]
@@ -74657,7 +77324,7 @@ def project_specs(exam, hints, body_width):
                                 block['split'] = 'paragraphs'
                     if position == 0 and label and segment_blocks:
                         segment_blocks[0]['group_label'] = printed(label, where + ' label')
-                        if english or subject in HYPHEN_GROUP_SUBJECTS:
+                        if english or subject in HYPHEN_GROUP_SUBJECTS or subject == '社會':
                             segment_blocks[0]['group_label_style'] = 'underline'
                         elif subject == '國綜':
                             segment_blocks[0]['group_label_style'] = 'plain'
@@ -80378,6 +83045,14 @@ SOCIAL_BREADTH = {
     "公民與社會": {"社會生活的組織及制度": ("B", 4)},
 }
 SOCIAL_CIVICS_DISTINCT_THEMES = 3
+# Recency floors (maintainer decision 2026-09-24): ten items on events or substantive updates
+# within a year of the lock, four of them within 180 days, drawn from five different materials
+# and at least four in each part, so the 第壹部分 single items carry dated current material too.
+WITHIN_YEAR_MIN, FRESH_MIN, CURRENT_MATERIALS_MIN, WITHIN_YEAR_PER_PART_MIN = 10, 4, 5, 4
+# 題組 whose items put 歷史, 地理 and 公民與社會 each in the lead at least once. The 115 feature
+# report lists 30-33 and 36-38 as 史地公 groups in 第壹部分; the maintainer asks for the same
+# three-subject integration in 第貳部分.
+THREE_SUBJECT_GROUPS_MIN = {"first": 1, "second": 2}
 
 
 def canonical_content_code(value: Any) -> str:
@@ -80554,6 +83229,29 @@ def curriculum_breadth_errors(questions: list[dict[str, Any]]) -> list[dict[str,
     return errors
 
 
+def three_subject_group_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
+    """題組 whose items lead with 歷史, 地理 and 公民與社會 at least once each, per part."""
+    sections = [s.get("id") for s in exam.get("sections") or [] if isinstance(s, dict)]
+    if len(sections) < 2:
+        return []
+    groups: dict[str, dict[str, Any]] = {}
+    for q in exam.get("questions") or []:
+        if not isinstance(q, dict) or not str(q.get("group_stimulus") or "").strip():
+            continue
+        spec = q.get("item_spec") if isinstance(q.get("item_spec"), dict) else {}
+        row = groups.setdefault(str(q["group_stimulus"]).strip(), {"section": q.get("section_id"), "domains": set()})
+        row["domains"].add(str(spec.get("domain") or q.get("domain") or ""))
+    errors = []
+    for part, section_id in (("first", sections[0]), ("second", sections[1])):
+        found = sum(1 for g in groups.values() if g["section"] == section_id and VALID_DOMAINS <= g["domains"])
+        if found < THREE_SUBJECT_GROUPS_MIN[part]:
+            errors.append({"code": "three_subject_groups_too_few", "part": "第壹部分" if part == "first" else "第貳部分",
+                           "found": found, "minimum": THREE_SUBJECT_GROUPS_MIN[part],
+                           "detail": "同一題組的各題分別以歷史、地理、公民為主科（115 年 30-33、36-38 題）；"
+                                     "三題共用一段真實材料，刪去任一科的證據就答不出該題。"})
+    return errors
+
+
 def objective_order_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
     """Check standalone blocks only; a mixed-section choice is not a standalone.
 
@@ -80619,6 +83317,8 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
     editorial_lock_dates: set[date] = set()
     current_score = 0.0
     current_clusters: set[tuple[str, ...]] = set()
+    within_year_materials: set[str] = set()
+    within_year_by_section: Counter[str] = Counter()
     objective_current_clusters: set[tuple[str, ...]] = set()
     competence_items = 0
     basic_items = 0
@@ -80683,8 +83383,6 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(question, dict):
             continue
         qid = str(question.get("id") or question.get("number") or "unknown")
-        if question.get("options") and question.get("option_layout") != "stack":
-            errors.append({"code": "social_options_not_stacked", "question_id": qid})
         spec = question.get("item_spec") if isinstance(question.get("item_spec"), dict) else {}
         if question.get("visual_asset"):
             visible_text = f'{question.get("group_stimulus") or ""}\n{question.get("prompt") or ""}'
@@ -80840,6 +83538,9 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
                         errors.append({"code": "current_event_after_lock", "question_id": qid})
                     elif published <= lock and year_start <= happened and spec.get("fact_check_status") == "verified":
                         within_year_items += 1
+                        within_year_materials.add(str(question.get("group_stimulus") or "").strip()
+                                                  or "|".join(sorted(map(str, spec.get("source_ids") or []))) or qid)
+                        within_year_by_section[str(question.get("section_id"))] += 1
                         if (lock - happened).days <= 180:
                             fresh_items += 1
                 else:
@@ -80901,12 +83602,25 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
                 "maximum_allowed_gap": 0.08,
             })
         # Official 111-115 papers carry 6-10 strictly datable within-two-year items; the
-        # maintainer wants recency above the weakest year, so six within one year and two
-        # within 180 days of the lock are the floors (see current-form-topicality.md).
-        if within_year_items < 6:
-            errors.append({"code": "within_year_current_context_items_too_few", "found": within_year_items, "minimum": 6})
-        if fresh_items < 2:
-            errors.append({"code": "fresh_current_context_items_too_few", "found": fresh_items, "minimum": 2, "window_days": 180})
+        # maintainer asked for clearly more (see current-form-topicality.md).
+        if within_year_items < WITHIN_YEAR_MIN:
+            errors.append({"code": "within_year_current_context_items_too_few", "found": within_year_items,
+                           "minimum": WITHIN_YEAR_MIN})
+        if fresh_items < FRESH_MIN:
+            errors.append({"code": "fresh_current_context_items_too_few", "found": fresh_items, "minimum": FRESH_MIN,
+                           "window_days": 180})
+        if within_year_items and len(within_year_materials) < CURRENT_MATERIALS_MIN:
+            errors.append({"code": "within_year_items_share_too_few_materials", "found": len(within_year_materials),
+                           "minimum": CURRENT_MATERIALS_MIN,
+                           "detail": "一年內時事題須分散在至少 5 份不同材料，不能由一兩則新聞撐起。"})
+        section_ids = [s.get("id") for s in exam.get("sections") or [] if isinstance(s, dict)]
+        if len(section_ids) >= 2:
+            for part, section_id in zip(("第壹部分", "第貳部分"), section_ids[:2]):
+                if within_year_by_section[str(section_id)] < WITHIN_YEAR_PER_PART_MIN:
+                    errors.append({"code": "within_year_items_missing_from_part", "part": part,
+                                   "found": within_year_by_section[str(section_id)], "minimum": WITHIN_YEAR_PER_PART_MIN,
+                                   "detail": "兩部分都要有標明年月的近一年時事題，第壹部分單題與題組也要有。"})
+        errors.extend(three_subject_group_errors(exam))
         if len(editorial_lock_dates) > 1:
             errors.append({"code": "inconsistent_editorial_lock_dates"})
 
@@ -80943,7 +83657,8 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
             "完整卷每題另須通過社會科創新命題稽核；新地名、年份、政策名稱、圖片或來源不能替代新的證據與推理結構。",
             "社會完整卷另以內部反短材料門檻檢查可見證據量與獨立材料中位長度；這些值是退件下限，不是要求逐題灌字或冒充大考中心統計。",
             "時事只提供證據情境；題目不得要求考生事先知道新聞。",
-            "完整卷預設至少 6 題依賴截稿日前一年內的事件或實質更新，其中至少 2 題在 180 天內；其餘選材不設新鮮度、時事配分或分區配額。日期計數仍須來源及內容複核。",
+            "完整卷至少 10 題依賴截稿日前一年內的事件或實質更新，其中至少 4 題在 180 天內，分散在至少 5 份材料、兩部分各至少 4 題；日期計數仍須來源及內容複核。",
+            "第壹部分至少 1 個、第貳部分至少 2 個題組的各題分別以歷史、地理、公民為主科。",
         ],
     }
 
@@ -80964,6 +83679,233 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    raise SystemExit(main())
+</canonical-source>
+
+<canonical-source path="scripts/validate_social_layout_contract.py">
+#!/usr/bin/env python3
+"""Printed-form checks for a 社會 paper, measured on the official ROC 111-115 booklets.
+
+Two hosted 116 papers (2026-09-24 audit, made with 2026.09.22.16) were compared with the five
+official booklets on disk. Official options of one item are the same length in 80% of items
+(spread of at most two characters in 89-96%) and the key is the single longest option in 0-3
+items a year; the hosted papers had 1 and 0 equal-length items and keys that were the longest
+option in 42 and 40 of 54 items, so choosing the longest option scored about 75%. One paper
+also printed 「教學虛構情境」 notes, blank 「作答區／答＿＿」 boxes, 「（本題3分）」 scores,
+the same household figures in two groups, and 17 keys of the form 「再蒐集／核對資料」 (none
+in any official year). Every rule below cites what the official booklets print.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+from collections import defaultdict
+from pathlib import Path
+
+SPREAD_TOLERANCE = 2            # characters between the longest and shortest option of one item
+EQUAL_LENGTH_SHARE_MIN = 0.80   # official 111-115: 0.96, 0.91, 0.93, 1.00, 0.93 of items
+LONGEST_KEY_MAX = 4             # official keys that are the strictly longest option: 3, 1, 3, 0, 1
+METHOD_KEY_MAX = 3              # official keys telling the student to go and collect more data: 0 a year
+FIRST_TITLE = re.compile(r'^第壹部分、選擇題（占\s*(\d+)\s*分）$')
+SECOND_TITLE = re.compile(r'^第貳部分、混合題或非選擇題（占\s*(\d+)\s*分）$')
+SCORE_MARK = re.compile(r'（\s*(\d+)\s*分(?:[，,][^（）]*)?）')
+BAD_SCORE = re.compile(r'本(?:小)?題\s*\d+\s*分|（\s*\d+\s*字以?內\s*）|（\s*限?\s*\d+\s*字\s*）')
+# Official booklets never tell the student that a scenario is invented or adapted for teaching.
+AUTHORING_NOTE = re.compile(r'虛構(?!文學|小說)|教學(?:情境|改寫|模擬|假設|用途|示例)|未抄錄|原創的|'
+                            r'(?:與|和)(?:實際|真實)[^。；，]{0,12}無關|不代表[^。；]{0,12}實際|僅供教學')
+PLACEHOLDER_ROW = re.compile(r'^\s*(?:請依題意書寫|答\s*[＿_ˍ—－\-]*|[＿_ˍ\s]+)\s*$')
+# 「再蒐集／核對／追蹤資料」 keys: calibrated on the official 111-115 keys (0 hits) and two hosted
+# 116 papers (0 and 17 hits).
+METHOD_KEY = re.compile(r'蒐集|查證|核對|追蹤|補充|實測|量測|比對|再調查|補證|另找|須查|應查|先查|分別查|'
+                        r'逐.{0,3}(?:記錄|核對|確認)|仍須.{0,8}資料|需.{0,6}資料|資料.{0,4}(?:才能|再)')
+SUBPART = re.compile(r'^\s*[（(]\s*[1-9一二三]\s*[）)]|[（(]\s*2\s*[）)]\s*承')
+NUMBER_TOKEN = re.compile(r'\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+\.\d{2,}%?|\d{5,}')
+
+
+def _text(value):
+    if isinstance(value, dict):
+        value = value.get('rich') or value.get('text') or ''
+    return re.sub(r'<[^>]+>', '', str(value or ''))
+
+
+def _length(value):
+    return len(re.sub(r'\s', '', _text(value)))
+
+
+def _questions(exam):
+    return [q for q in exam.get('questions') or [] if isinstance(q, dict)]
+
+
+def _number(q):
+    return q.get('number') if q.get('number') is not None else q.get('id')
+
+
+def _keys(exam):
+    keys = {}
+    for answer in exam.get('answers') or []:
+        if isinstance(answer, dict):
+            keys[answer.get('question_id')] = str(answer.get('final_answer') or '').strip('()（） ')
+    return keys
+
+
+def option_form_errors(exam):
+    errors, spreads, longest = [], [], []
+    keys = _keys(exam)
+    for q in _questions(exam):
+        options = [o for o in q.get('options') or [] if isinstance(o, dict)]
+        if len(options) != 4:
+            continue
+        lengths = {str(o.get('label') or '').strip('()（） '): _length(o.get('text')) for o in options}
+        spread = max(lengths.values()) - min(lengths.values())
+        spreads.append((_number(q), spread))
+        key = keys.get(q.get('id'))
+        if key in lengths and lengths[key] == max(lengths.values()) and list(lengths.values()).count(lengths[key]) == 1:
+            longest.append(_number(q))
+        for o in options:
+            if re.search(r'[。；;]\s*$', _text(o.get('text'))):
+                errors.append(f'Q{_number(q)}: option ({o.get("label")}) ends with 「。」 or 「；」; official 社會 options end without punctuation')
+    if spreads:
+        uneven = [n for n, s in spreads if s > SPREAD_TOLERANCE]
+        share = 1 - len(uneven) / len(spreads)
+        if share < EQUAL_LENGTH_SHARE_MIN:
+            errors.append(f'{len(uneven)} of {len(spreads)} items have options differing by more than {SPREAD_TOLERANCE} characters '
+                          f'(Q{", Q".join(map(str, uneven[:20]))}); official 社會 111-115 write the four options of an item to one '
+                          f'length in 80% of items and within two characters in 89-96%, at least {EQUAL_LENGTH_SHARE_MIN:.0%} here')
+    if len(longest) > LONGEST_KEY_MAX:
+        errors.append(f'the key is the single longest option in {len(longest)} items (Q{", Q".join(map(str, longest[:20]))}); '
+                      f'official 社會 111-115: 3, 1, 3, 0, 1 a year, at most {LONGEST_KEY_MAX} here: '
+                      'write distractors as long and as specific as the key')
+    return errors
+
+
+def method_key_errors(exam):
+    keys = _keys(exam)
+    hits = []
+    for q in _questions(exam):
+        chosen = next((o for o in q.get('options') or [] if isinstance(o, dict)
+                       and str(o.get('label') or '').strip('()（） ') == keys.get(q.get('id'))), None)
+        if chosen and METHOD_KEY.search(_text(chosen.get('text'))):
+            hits.append(_number(q))
+    if len(hits) > METHOD_KEY_MAX:
+        return [f'{len(hits)} keys tell the student to collect, check or track more data (Q{", Q".join(map(str, hits))}); '
+                f'no official 社會 key in 111-115 does, at most {METHOD_KEY_MAX} here: test a curriculum concept '
+                'applied to the printed evidence instead']
+    return []
+
+
+def printed_note_errors(exam):
+    errors = []
+    seen = set()
+    for q in _questions(exam):
+        texts = [q.get('group_stimulus'), q.get('prompt'), *[o.get('text') for o in q.get('options') or [] if isinstance(o, dict)]]
+        table = q.get('response_format_table') if isinstance(q.get('response_format_table'), dict) else {}
+        texts += [table.get('caption')]
+        for value in texts:
+            plain = _text(value)
+            match = AUTHORING_NOTE.search(plain)
+            if match and (plain, match.group(0)) not in seen:
+                seen.add((plain, match.group(0)))
+                errors.append(f'Q{_number(q)}: prints the authoring note 「{match.group(0)}」; official 社會 booklets never say a '
+                              'scenario is invented or adapted for teaching: state the situation (「某市」「某生」) or cite the real source')
+    return errors
+
+
+def score_errors(exam):
+    errors = []
+    totals = defaultdict(float)
+    for q in _questions(exam):
+        totals[_number(q)] += float(q.get('score') or 0)  # 115 Q46: a checkbox and a reason share 「（4 分）」
+    for q in _questions(exam):
+        prompt = _text(q.get('prompt'))
+        if q.get('type') != 'constructed_response' or not prompt.strip() or q.get('suppress_question_display'):
+            continue
+        number = _number(q)
+        bad = BAD_SCORE.findall(prompt)
+        if bad:
+            errors.append(f'Q{number}: 「{"」「".join(bad)}」 is not the official form; write the score and word limit in one '
+                          'parenthesis at the end, 「（3 分）」 or 「（3 分，35 字內）」 (115 Q49)')
+        marks = [int(m.group(1)) for m in SCORE_MARK.finditer(prompt)]
+        if not marks:
+            errors.append(f'Q{number}: a constructed response ends with its score, 「（3 分）」 or 「（3 分，35 字內）」')
+        elif marks[-1] not in {q.get('score'), totals.get(number)}:
+            errors.append(f'Q{number}: prints （{marks[-1]} 分） but scores {q.get("score")}')
+        if SUBPART.search(prompt):
+            errors.append(f'Q{number}: official 社會 111-115 print no （1）（2） subparts; ask both tasks in one stem and put '
+                          'the two answers in a response_format_table (115 Q44, Q46, Q52: a checkbox cell and a reason cell)')
+    return errors
+
+
+def section_errors(exam):
+    sections = [s for s in exam.get('sections') or [] if isinstance(s, dict)]
+    if len(sections) < 2:
+        return []
+    errors = []
+    by_section = defaultdict(float)
+    for q in _questions(exam):
+        by_section[q.get('section_id')] += float(q.get('score') or 0)
+    for section, pattern, example in ((sections[0], FIRST_TITLE, '第壹部分、選擇題（占76分）'),
+                                      (sections[1], SECOND_TITLE, '第貳部分、混合題或非選擇題（占68分）')):
+        title = _text(section.get('title')).strip()
+        match = pattern.match(title)
+        if not match:
+            errors.append(f'section {section.get("id")}: title 「{title}」 must read as 111-115 print it, 「{example}」')
+        elif by_section.get(section.get('id')) and int(match.group(1)) != round(by_section[section.get('id')]):
+            errors.append(f'section {section.get("id")}: title says 占{match.group(1)}分 but its items score '
+                          f'{by_section[section.get("id")]:g}')
+    return errors
+
+
+def answer_area_errors(exam):
+    errors = []
+    for q in _questions(exam):
+        table = q.get('response_format_table')
+        if not isinstance(table, dict):
+            continue
+        rows = [r for r in table.get('rows') or [] if isinstance(r, dict)]
+        heading = _text(table.get('heading'))
+        blank = [r for r in rows if PLACEHOLDER_ROW.match(_text(r.get('label')) + _text(r.get('instruction')))]
+        if heading.strip() in {'作答區', '作答欄'} or (rows and len(blank) == len(rows)):
+            errors.append(f'Q{_number(q)}: a blank 「作答區／答＿＿」 box is not an official device; answers go on the answer '
+                          'sheet, and a response table prints only labelled cells (勾選項目、判斷理由（2 分，30 字內）)')
+    return errors
+
+
+def repeated_data_errors(exam):
+    """The same figures printed in two different materials (a hosted paper used one
+    household count in Q3 and Q39 and one employment count in Q4 and Q55)."""
+    places = defaultdict(set)
+    for q in _questions(exam):
+        material = _text(q.get('group_stimulus')) or _text(q.get('prompt'))
+        for token in set(NUMBER_TOKEN.findall(material)):
+            places[token].add(material)
+    owners = {}
+    for q in _questions(exam):
+        material = _text(q.get('group_stimulus')) or _text(q.get('prompt'))
+        owners.setdefault(material, _number(q))
+    repeated = sorted({token for token, where in places.items() if len(where) > 1})
+    if len(repeated) >= 2:
+        pairs = sorted({tuple(sorted(owners[m] for m in places[t])) for t in repeated}, key=str)
+        return [f'the figures {", ".join(repeated[:6])} are printed in more than one material '
+                f'({"; ".join("Q" + " and Q".join(map(str, p)) for p in pairs[:4])}); each group needs its own evidence']
+    return []
+
+
+def validate_exam(exam):
+    return [*section_errors(exam), *option_form_errors(exam), *method_key_errors(exam), *printed_note_errors(exam),
+            *score_errors(exam), *answer_area_errors(exam), *repeated_data_errors(exam)]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('exam_json', type=Path)
+    args = parser.parse_args()
+    errors = validate_exam(json.loads(args.exam_json.read_text(encoding='utf-8-sig')))
+    print(json.dumps({'status': 'fail' if errors else 'pass', 'errors': errors}, ensure_ascii=False, indent=2))
+    return 1 if errors else 0
+
+
+if __name__ == '__main__':
     raise SystemExit(main())
 </canonical-source>
 
@@ -81153,6 +84095,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
@@ -81166,7 +84109,12 @@ PROVISIONAL_FLOORS = {
     # and mention photographs 3-7 times a year (社會); a paper at the old floor of 6-8
     # visuals looked like a text worksheet. Floors sit below the weakest official year.
     "自然": {"count": 16, "sections": 2, "kinds": 4, "domains": 4, "sourced_photos": 3},
-    "社會": {"count": 10, "sections": 2, "kinds": 4, "domains": 3, "sourced_photos": 4},
+    # 社會 111-115 measured (2026-09-24): 2-4 photographs or archival images a year (112 poster,
+    # land deed, aerial photo; 113 temple photos, statuette; 114 cave photo, two cartoons; 115
+    # murals, satellite image, aerial panel, Bamiyan) beside 7-13 charts, maps and tables, and
+    # 18-45 items that cite a 圖/表/照片. A four-photo floor sat above two official years and
+    # made hosted runs stall on downloads while text-only items multiplied.
+    "社會": {"count": 10, "sections": 2, "kinds": 4, "domains": 3, "sourced_photos": 2, "visual_items": 18},
     "英文": {"count": 3, "sections": 2, "kinds": 2, "sourced_photos": 1},
 }
 
@@ -81179,10 +84127,17 @@ REQUIRED_CHECKS = {
     "color_independence",
     "print_legibility",
     "accessibility_text_safe",
-    "rights_verified",
+    "source_traceable",
 }
+# `rights_verified` is the earlier name of `source_traceable`; either records the check.
+CHECK_ALIASES = {"rights_verified": "source_traceable"}
 REQUIRED_ROLES = {"evidence", "required_for_solution"}
-ALLOWED_RIGHTS = {"original", "licensed", "public_domain", "user_authorized"}
+# A source found on the web is usable when it is traceable (maintainer decision 2026-09-24):
+# the record keeps where it came from, not a license verdict. `web_sourced` says exactly that.
+ALLOWED_RIGHTS = {"original", "licensed", "public_domain", "user_authorized", "web_sourced"}
+EXTERNAL_MODES = {"licensed_source", "web_source", "photo_library"}
+PHOTOGRAPHIC_KINDS = {"photo", "archival_image", "satellite_image", "aerial_photo", "artifact_photo"}
+FIGURE_REFERENCE = re.compile(r"(?:圖|表|照片)\s*\d+")
 REQUIRED_SPEC_FIELDS = {
     "kind", "role", "generation_mode", "information_density",
     "visual_reasoning_steps", "precision", "alt_text", "difficulty_basis",
@@ -81258,19 +84213,23 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         review = spec.get("grayscale_review") or {}
         if review.get("status") != "pass" or not review.get("evidence_notes"):
             errors.append(f"Q{number}: final-size grayscale review has not passed")
-        checks = set(spec.get("validation_checks") or [])
+        checks = {CHECK_ALIASES.get(c, c) for c in spec.get("validation_checks") or []}
         missing_checks = sorted(REQUIRED_CHECKS - checks)
         if missing_checks:
             errors.append(f"Q{number}: visual checks missing: {', '.join(missing_checks)}")
         if spec.get("source_rights") not in ALLOWED_RIGHTS:
-            errors.append(f"Q{number}: source rights are absent or unverified")
-        if spec.get("generation_mode") == "licensed_source":
-            for field in (
-                "source_url", "source_creator", "license_or_authorization", "crop_description",
-                "source_asset_path", "source_asset_sha256", "processing_steps",
-            ):
+            errors.append(f"Q{number}: source_rights must be one of {', '.join(sorted(ALLOWED_RIGHTS))} "
+                          "(web_sourced: found online, traceable, no license claim needed)")
+        if spec.get("generation_mode") in EXTERNAL_MODES:
+            # Traceability, not a license: where it came from, who made or hosts it, when it
+            # was fetched, the preserved original and what was done to it.
+            for field in ("source_url", "crop_description", "source_asset_path", "source_asset_sha256", "processing_steps"):
                 if not spec.get(field):
-                    errors.append(f"Q{number}: licensed visual lacks {field}")
+                    errors.append(f"Q{number}: sourced visual lacks {field}")
+            if not (spec.get("source_creator") or spec.get("source_site")):
+                errors.append(f"Q{number}: sourced visual lacks source_creator or source_site")
+            if not (spec.get("source_retrieved_at") or spec.get("source_published_at")):
+                errors.append(f"Q{number}: sourced visual lacks source_retrieved_at")
         path = asset_root / str(asset.get("path") or "")
         if not path.is_file():
             errors.append(f"Q{number}: visual asset is missing")
@@ -81303,9 +84262,10 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
                     errors.append(f"Q{number}: {kind} SVG has no plotted axis/line/path topology")
                 if kind in RELATIONAL_TOPOLOGY_KINDS and len(nontext & {"line", "polyline", "path", "circle", "ellipse", "polygon"}) < 1:
                     errors.append(f"Q{number}: {kind} SVG is only a bordered label panel")
-        if kind == "photo":
-            if spec.get("generation_mode") != "licensed_source":
-                errors.append(f"Q{number}: counted real photograph must use a traceable licensed_source record")
+        if kind in PHOTOGRAPHIC_KINDS:
+            if spec.get("generation_mode") not in EXTERNAL_MODES:
+                errors.append(f"Q{number}: a real photograph or archival image needs a traceable source record "
+                              "(generation_mode web_source, photo_library or licensed_source)")
             elif path.suffix.lower() not in PHOTO_EXTENSIONS:
                 errors.append(f"Q{number}: sourced photograph is not a raster image")
             else:
@@ -81327,10 +84287,20 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
             domains.add(domain)
         rows.append({"number": number, "section": section, "kind": kind, "domain": domain, "role": role})
 
+    visual_items = sum(
+        1 for q in exam.get("questions") or [] if isinstance(q, dict) and FIGURE_REFERENCE.search(" ".join(
+            [str(q.get("group_stimulus") or ""), str(q.get("prompt") or "")]
+            + [str(o.get("text") or "") for o in q.get("options") or [] if isinstance(o, dict)])))
+
+    def minimum(key, fallback):
+        # A paper may ask for more than the floor, never less: a hosted paper once lowered
+        # its own photo floor in metadata.visual_contract.
+        return max(_as_positive_int(configured.get(key), fallback), fallback)
+
     if full_paper and floor:
-        minimum_count = _as_positive_int(configured.get("minimum_required_visuals"), floor["count"])
-        minimum_sections = _as_positive_int(configured.get("minimum_sections"), floor["sections"])
-        minimum_kinds = _as_positive_int(configured.get("minimum_kinds"), floor["kinds"])
+        minimum_count = minimum("minimum_required_visuals", floor["count"])
+        minimum_sections = minimum("minimum_sections", floor["sections"])
+        minimum_kinds = minimum("minimum_kinds", floor["kinds"])
         if len(rows) < minimum_count:
             errors.append(f"paper: {len(rows)} required visuals, minimum is {minimum_count}")
         if len(sections) < minimum_sections:
@@ -81338,17 +84308,18 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         if len(kinds) < minimum_kinds:
             errors.append(f"paper: {len(kinds)} visual kinds, minimum is {minimum_kinds}")
         if floor.get("domains"):
-            minimum_domains = _as_positive_int(configured.get("minimum_domains"), floor["domains"])
+            minimum_domains = minimum("minimum_domains", floor["domains"])
             if len(domains) < minimum_domains:
                 errors.append(f"paper: visuals cover {len(domains)} subject domains, minimum is {minimum_domains}")
         if floor.get("sourced_photos"):
-            minimum_photos = _as_positive_int(
-                configured.get("minimum_sourced_photos"), floor["sourced_photos"]
-            )
+            minimum_photos = minimum("minimum_sourced_photos", floor["sourced_photos"])
             if sourced_photos < minimum_photos:
                 errors.append(
-                    f"paper: {sourced_photos} traceable real-photo items, minimum is {minimum_photos}"
+                    f"paper: {sourced_photos} traceable real photographs or archival images, minimum is {minimum_photos}"
                 )
+        if floor.get("visual_items") and visual_items < floor["visual_items"]:
+            errors.append(f"paper: {visual_items} items cite a 圖/表/照片 in their material, stem or options; "
+                          f"official 社會 111-115 have 18-45, minimum is {floor['visual_items']}")
 
     return {
         "schema_version": 1,
@@ -81359,10 +84330,11 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         "kind_counts": dict(kinds),
         "sourced_photo_count": sourced_photos,
         "sourced_photo_minimum": (
-            _as_positive_int(configured.get("minimum_sourced_photos"), floor["sourced_photos"])
+            max(_as_positive_int(configured.get("minimum_sourced_photos"), floor["sourced_photos"]), floor["sourced_photos"])
             if full_paper and floor.get("sourced_photos")
             else None
         ),
+        "figure_citing_item_count": visual_items,
         "sourced_photo_upper_bound": None,
         "domains": sorted(domains),
         "items": rows,
@@ -81370,7 +84342,7 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
         "notes": [
             "Counts include only evidence/required-for-solution visuals with a completed visual-removal test.",
             "Default floors are conservative internal release floors, not claimed official item-count statistics.",
-            "Photo floors count only traceable raster photographs/observation images, not generated photorealism or decorative pictures.",
+            "Photo floors count traceable raster photographs, observation and archival images (web_source, photo_library or licensed_source), not generated photorealism or decorative pictures. A traceable web source needs no license claim.",
             "The photo threshold is a minimum only. Natural Science and Social Studies have no photo-count upper bound; every additional photo must still be answer-bearing and pass all provenance, rights, grayscale, density, and timing checks.",
         ],
     }
@@ -83319,51 +86291,77 @@ if __name__ == '__main__':
     },
     {
       "kind": "section",
-      "title": "一、選擇題",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
-    },
-    {
-      "kind": "passage",
-      "id": "layout-social-sources",
-      "heading": "〔歷史史料／地理材料／公民資料的題組位置〕",
-      "paragraphs": [
-        "甲：〔本次新來源材料與必要出處〕",
-        "乙：〔與甲構成實際推論關係的新材料〕"
-      ]
+      "title": "第壹部分、選擇題（占76分）",
+      "directions": "說明：第1題至第38題為單選題，每題2分。"
     },
     {
       "kind": "choice",
       "id": "layout-social-choice",
       "number": 1,
-      "text": "〔新題幹與四個選項；不是固定考查某一歷史或政策主題〕",
+      "text": "〔本次新題幹：材料寫出事件的年、月與必要證據，考一個必修概念〕",
       "options": [
         {
           "label": "(A)",
-          "text": "〔本次新選項內容〕"
+          "text": "〔四個選項寫成同樣長度，正解不是最長的〕"
         },
         {
           "label": "(B)",
-          "text": "〔本次新選項內容〕"
+          "text": "〔每個錯誤選項都錯在一個具體概念上〕"
         },
         {
           "label": "(C)",
-          "text": "〔本次新選項內容〕"
+          "text": "〔選項句末不加句號，字數與其他相同〕"
         },
         {
           "label": "(D)",
-          "text": "〔本次新選項內容〕"
+          "text": "〔不以「再蒐集資料」一類說法當作正解〕"
         }
-      ]
+      ],
+      "columns": 1
+    },
+    {
+      "kind": "stimulus",
+      "id": "layout-social-group",
+      "group_label": "26-27 為題組",
+      "group_label_style": "underline",
+      "text": "〔本次新材料：真實來源，每段首行縮排；公民、歷史、地理的證據寫在同一段材料裡，段末可接「請問：」〕"
+    },
+    {
+      "kind": "choice",
+      "id": "layout-social-short",
+      "number": 26,
+      "text": "〔依材料命製的題幹；選項七字以內時四個一列〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔原料〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔市場〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔動力〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔資金〕"
+        }
+      ],
+      "columns": 4
     },
     {
       "kind": "section",
-      "title": "二、圖表與跨領域混合題",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+      "title": "第貳部分、混合題或非選擇題（占68分）",
+      "directions": "說明：本部分共有11題組，單選題每題2分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。選擇題與「非選擇題作圖部分」使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，並依題目指示作答。"
     },
     {
       "kind": "stimulus",
       "id": "layout-social-figure",
-      "text": "〔本次新地圖、史料圖像或統計圖；須獨立查證，不沿用灰色框〕",
+      "group_label": "47-49 為題組",
+      "group_label_style": "underline",
+      "text": "〔本次新材料；照片先上網搜尋、網路不通時用 photo_library.py，地圖與統計圖依查證資料自繪〕",
       "assets": {
         "figure": {
           "path": "hosted-body-figure-placeholder.svg",
@@ -83375,34 +86373,39 @@ if __name__ == '__main__':
       "figure_position": "right"
     },
     {
-      "kind": "table",
-      "id": "layout-social-data",
-      "text": "〔跨材料比較表／填答欄〕",
-      "headers": [
-        "材料或條件",
-        "可觀察證據",
-        "待填內容"
-      ],
-      "rows": [
-        [
-          "〔新材料〕",
-          "〔必要資料〕",
-          "〔作答欄〕"
-        ],
-        [
-          "〔新材料〕",
-          "〔必要資料〕",
-          "〔作答欄〕"
-        ]
-      ],
-      "keep_with_next": true
+      "kind": "constructed",
+      "id": "layout-social-short-answer",
+      "number": 49,
+      "text": "〔本次資料判讀要求〕請在答題卷作答區作答。（3 分，35 字內）",
+      "score": 3,
+      "score_in_text": true
     },
     {
       "kind": "constructed",
-      "id": "layout-social-short",
-      "number": 2,
-      "text": "〔本次資料判讀、比較或論證要求；正式字數與配分依題型〕",
-      "score": 3
+      "id": "layout-social-table-item",
+      "number": 50,
+      "text": "〔同一題的勾選與說明：請在答題卷勾選一個正確選項，並說明判斷理由。〕（4 分）",
+      "score": 4,
+      "keep_with_next": true,
+      "score_in_text": true
+    },
+    {
+      "kind": "table",
+      "id": "layout-social-response",
+      "headers": [
+        "〔勾選項目〕（2 分）",
+        "〔判斷理由〕（2 分，30 字內）"
+      ],
+      "rows": [
+        [
+          "□〔選項一〕",
+          ""
+        ],
+        [
+          "□〔選項二〕",
+          ""
+        ]
+      ]
     }
   ]
 }
@@ -83866,7 +86869,7 @@ exam,year,subject,curriculum,regime,question_id,question_number,section,domain,g
     "grayscale_legibility",
     "print_legibility",
     "accessibility_text_safe",
-    "rights_verified"
+    "source_traceable"
   ]
 }
 </canonical-source>

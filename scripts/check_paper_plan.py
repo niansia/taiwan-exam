@@ -16,7 +16,7 @@ STRANDS={'number_and_algebra','functions_and_models','geometry_and_space',
 # Planning floors mirror visual-generation.md. These are product minima, not
 # claims about official frequencies or proof that a planned visual is useful.
 VISUAL_FLOORS={'數學A':(4,3,2,0,0),'數學B':(4,3,2,0,0),'自然':(8,2,4,4,2),
-               '社會':(6,2,3,3,2),'英文':(3,2,2,0,1)}
+               '社會':(10,2,4,3,2),'英文':(3,2,2,0,1)}
 
 def number(value, minimum=0):
     return type(value) in (int,float) and math.isfinite(value) and value>minimum
@@ -139,6 +139,10 @@ def validate(plan, root=ROOT):
         if any(sequence[i:i+k]==sequence[i+k:i+2*k]==sequence[i+2*k:i+3*k]
                for k in (2,3) for i in range(len(sequence)-3*k+1)):
             errors.append('mechanical single-choice planned cycle')
+        # The final key test, run on the plan (periods 2-4, rotated keys): see answer_key_patterns.
+        from answer_key_patterns import sequence_errors
+        errors.extend(e for e in sequence_errors(sequence,list(labels),stage='planned')
+                      if 'near-even' not in e and 'four identical' not in e)
     visual=[(q,q['visual_plan']) for q in items if isinstance(q.get('visual_plan'),dict)
             and q['visual_plan'].get('role') in {'evidence','required_for_solution'}]
     # Shared material counts once, including when several scored subparts use it.
