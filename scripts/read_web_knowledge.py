@@ -31,7 +31,7 @@ SUBJECT_REFERENCES = {
 SUBJECT_ONLY = set().union(*SUBJECT_REFERENCES.values())
 LAYOUT_SLUGS = {'國綜':'chinese','英文':'english','數學A':'math-a','數學B':'math-b',
                 '自然':'science','社會':'social','國寫':'writing'}
-# Fixed template PDFs bundled with the native Skill; copy only the chosen subject's.
+# Fixed template PDFs bundled with the native Skill; every subject's is copied.
 TEMPLATE_ASSETS = 'exam_packs/學測/templates/115/assets/'
 TEMPLATE_SLUGS = {'國綜':'chinese-comprehensive','國寫':'chinese-writing','英文':'english',
                   '數學A':'math-a','數學B':'math-b','社會':'social','自然':'science'}
@@ -144,7 +144,10 @@ def relevant(path: str, subject: str) -> bool:
     if path.startswith("references/"):
         return Path(path).name not in SUBJECT_ONLY or Path(path).name in SUBJECT_REFERENCES[subject]
     if path.startswith(TEMPLATE_ASSETS):
-        return path.startswith(TEMPLATE_ASSETS + TEMPLATE_SLUGS[subject] + '/')
+        # Every subject's fixed components (2.5 MB in all): a hosted model that reused one
+        # subject's reference directory for another subject found no templates there and
+        # fell back to a GitHub download the runtime blocked.
+        return True
     if path.startswith(LAYOUT_PREVIEWS):
         return path in {f'{LAYOUT_PREVIEWS}{LAYOUT_SLUGS[subject]}-{role}.pdf' for role in ('questions', 'solutions')}
     if path.startswith("exam_packs/"):

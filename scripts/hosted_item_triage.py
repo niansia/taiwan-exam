@@ -52,23 +52,34 @@ def printed_values(question, answer):
             yield 'explanation', block.get('content')
 
 
-def crop_reasons(question, answer):
-    """Why this item needs its own crop; an empty list means text-only."""
+ANSWER_FIELDS = {'final_answer', 'reasoning', 'explanation'}
+
+
+def crop_reasons(question, answer, role=None):
+    """Why this item needs its own crop; an empty list means text-only.
+
+    role 'question' or 'solution' keeps only what that booklet prints: a question figure
+    does not make a text-only solution need a crop. A long text-only shared material is
+    no reason by itself: every page it spans is reviewed as a page (a hosted 國綜 run
+    proofed some 58 text-only 題組 crops that its page reviews already covered).
+    """
     answer = answer or {}
     reasons = []
     for owner, record in (('question', question), ('answer', answer)):
+        if role and (owner == 'answer') != (role == 'solution'):
+            continue
         if isinstance(record.get('visual_asset'), dict):
             reasons.append(owner + ' figure')
         if record.get('inline_assets'):
             reasons.append(owner + ' inline formula image')
-    if question.get('response_format_table'):
-        reasons.append('response table')
-    if question.get('answer_format') or question.get('continuation_pages') or question.get('group_stimulus_page_splits'):
-        reasons.append('fill rail or explicit page continuation')
-    stimulus = _text(question.get('group_stimulus'))
-    if stimulus and len(stimulus) >= LONG_STIMULUS_CHARACTERS:
-        reasons.append('long shared stimulus that may split across pages')
+    if role != 'solution':
+        if question.get('response_format_table'):
+            reasons.append('response table')
+        if question.get('answer_format') or question.get('continuation_pages') or question.get('group_stimulus_page_splits'):
+            reasons.append('fill rail or explicit page continuation')
     for where, value in printed_values(question, answer):
+        if role and (where in ANSWER_FIELDS) != (role == 'solution'):
+            continue
         rich = isinstance(value, dict) and set(value) == {'rich'}
         raw = _text(value)
         if raw is None:
@@ -84,13 +95,13 @@ def needs_crop(question, answer):
     return bool(crop_reasons(question, answer))
 
 
-def crop_required_ids(exam):
-    """{question id: reasons} for every item whose crops must be opened."""
+def crop_required_ids(exam, role=None):
+    """{question id: reasons} for every item whose crops must be opened in this booklet."""
     answers = {a.get('question_id'): a for a in exam.get('answers') or [] if isinstance(a, dict)}
     found = {}
     for question in exam.get('questions') or []:
         if isinstance(question, dict):
-            reasons = crop_reasons(question, answers.get(question.get('id')))
+            reasons = crop_reasons(question, answers.get(question.get('id')), role)
             if reasons:
                 found[question.get('id')] = reasons
     return found

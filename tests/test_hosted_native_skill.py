@@ -69,12 +69,14 @@ def test_native_helpers_execute_without_aggregate_bootstrap(tmp_path, subject):
     reading_plan_from_directory(skill, subject, runtime)
     font = tmp_path / 'body.ttf'
     font.write_bytes(pymupdf.Font('cjk').buffer)
-    # Only the chosen subject's templates and previews are copied; templates need no network.
+    # Only the chosen subject's previews are copied, but every subject's templates: one
+    # reference directory reused for another subject must still find them without network.
     slug = TEMPLATE_SLUGS[subject]
     previews = {f'layout-previews/{LAYOUT_SLUGS[subject]}-{role}.pdf' for role in ('questions', 'solutions')}
     copied = {p.relative_to(runtime).as_posix() for p in runtime.rglob('*.pdf')}
-    assert previews < copied and all(p in previews or p.startswith(f'exam_packs/學測/templates/115/assets/{slug}/')
+    assert previews < copied and all(p in previews or p.startswith('exam_packs/學測/templates/115/assets/')
                                      for p in copied)
+    assert {p.split('/')[5] for p in copied if p.startswith('exam_packs/')} == set(TEMPLATE_SLUGS.values())
     command = [sys.executable, str(runtime / 'scripts/prepare_hosted_run.py'),
                '--subject', subject, '--run-dir', str(tmp_path / 'run'), '--paper-id', 'native',
                '--font', str(font)]

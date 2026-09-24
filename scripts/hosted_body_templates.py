@@ -72,11 +72,15 @@ p.part {font-size:13pt;margin-bottom:2pt}
 u {text-decoration:underline} .kai {font-family:Kai,Body}
 p.task {text-align:justify} p.hint {padding-left:28.6pt;text-indent:-28.6pt;text-align:justify}
 p.hang {padding-left:18pt;text-indent:-18pt}
+p.subpart {padding-left:30pt;text-indent:-30pt;margin:0}
 sup,sub {font-size:70%} .options {margin-top:OPTIONS_TOPpt}
 .optionlist {margin-left:NUMBER_PITCHpt;margin-top:OPTIONS_TOPpt} .optionlist p {margin:0;padding-left:18pt;text-indent:-18pt} .optionlist td {padding-bottom:0}
 .passage {font-family:Reading,Body} .english {font-family:Latin,Body} .latin {font-family:Latin,Body} .var {font-family:LatinItalic,Body}
 .data td,.data th {border:0.6pt solid black;padding:5pt;text-align:left;font-weight:normal}
 .group-label {font-weight:bold;margin-bottom:3pt} .group-label.underline {font-weight:normal;text-decoration:underline}
+.group-label.plain {font-weight:normal}
+.cn-material {margin-left:18.2pt;font-family:Kai,Body;text-align:justify} .cn-material p {margin:0}
+.cn-material.inline {margin-left:0} .cn-material p.indent {text-indent:24pt} .cn-material p.hang {padding-left:22.8pt;text-indent:-22.8pt}
 p.indent {text-indent:2em;text-align:justify} .english .score {font-family:Body}
 '''
 
@@ -122,8 +126,26 @@ def number_pitch(subject=None):
 
 
 def option_pitch(columns, subject=None):
+    subject = subject if subject is not None else _subject
+    if subject == '國綜' and columns == 2:
+        return 221.1  # 115 prints the second column at x 303.2 (114: 298)
     pitch = 30 * (8 - columns) if 2 <= columns <= 5 else 0
-    return pitch - (2 if (subject if subject is not None else _subject) == '自然' else 0)
+    return pitch - (2 if subject == '自然' else 0)
+
+
+def material_markup(value, inline=False):
+    """國綜 reading material as 111-115 print it: 標楷體 indented 18 pt, each paragraph's first
+    line 24 pt further, 「甲、」 paragraphs hanging, a lone source line at the margin."""
+    if isinstance(value, dict):
+        pieces = [{'rich': piece} for piece in re.split(r'(?:<br>\s*){2,}', value['rich']) if piece.strip()]
+    else:
+        pieces = [piece for piece in PARAGRAPH_BREAK.split(str(value)) if piece.strip()]
+    rows = []
+    for piece in pieces:
+        plain = html.unescape(re.sub('<[^>]+>', '', piece['rich'] if isinstance(piece, dict) else piece)).strip()
+        cls = 'hang' if re.match(r'[甲乙丙丁戊]、', plain) else '' if re.match(r'[（(]', plain) else 'indent'
+        rows.append(f'<p class="{cls}">{text(piece)}</p>')
+    return f'<div class="cn-material{" inline" if inline else ""}">' + ''.join(rows) + '</div>'
 
 
 def item_gap_pt(subject):
@@ -527,14 +549,14 @@ def _group_label(block):
     if not block.get('group_label') or not block.get('_head', True):
         return ''
     style = block.get('group_label_style', 'bold')
-    if style not in {'bold', 'underline'}: raise ValueError('group_label_style must be bold or underline')
+    if style not in {'bold', 'underline', 'plain'}: raise ValueError('group_label_style must be bold, underline or plain')
     global _item_kai
     kai, _item_kai = _item_kai, False  # 「第 47 至 50 題為題組」 is 明體 (115 measured)
     try:
         label = text(block["group_label"])
     finally:
         _item_kai = kai
-    return f'<div class="group-label{" underline" if style=="underline" else ""}">{label}</div>'
+    return f'<div class="group-label{" underline" if style=="underline" else " plain" if style=="plain" else ""}">{label}</div>'
 
 
 def _fragment_html(block, archive, index, width, font_metric, images, image_heights):
@@ -604,6 +626,10 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         stem=no_short_last_line(stem)
     if kind=='constructed' and _writing_mode:
         stem=_writing_stem(block)
+    if block.get('material') is True and kind=='stimulus':
+        stem=material_markup(block.get('text',''))
+    elif block.get('material') and head:
+        stem+=material_markup(block['material'],inline=True)  # already in the item's text column
     if kind=='solution':
         steps=block.get('steps')
         if not steps:raise ValueError('Supply actual authored solution steps')
@@ -643,6 +669,10 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             stem+=f'<span class="score">（{score:g}分）</span>'
         if block.get('english_task'):
             stem=english_task_markup(block,label if head else '',stem)
+    if block.get('subpart'):
+        # （1）（2） hang their continuation lines under their text (115: label x 82.1, text 112.1).
+        lead=f'<p style="margin:0">{keep_scores_whole(text(block["lead"]))}</p>' if block.get('lead') and head else ''
+        stem=lead+f'<p class="subpart">{text(block["subpart"]) if head else ""}{stem}</p>'
     if block.get('answer_line') and tail:
         # 簡答 50 (113-115): one ruled line of Times underscores across the item column.
         count=int((width-number_pitch()-8)/5.52)

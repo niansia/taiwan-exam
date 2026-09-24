@@ -35,8 +35,10 @@ def request_bytes(url: str, *, timeout: int, attempts: int) -> bytes:
                 return response.read()
         except (HTTPError, URLError, TimeoutError) as exc:
             last_error = exc
+            if isinstance(exc, HTTPError) and exc.code in (403, 404):
+                break  # a blocked or missing path does not recover by retrying
             if attempt + 1 < attempts:
-                time.sleep(0.4 * (attempt + 1))
+                time.sleep(0.8 * (attempt + 1))
     raise RuntimeError(f"Unable to retrieve {url}: {last_error}")
 
 

@@ -159,3 +159,14 @@ def test_entry_and_route_keep_working_until_delivery():
     assert 'make up an example prompt' in entry
     for stale in ('name what remains', 'turn limit', 'short progress update', 'tell the user the body'):
         assert stale not in entry and stale not in route
+
+
+def test_one_subjects_reference_directory_carries_every_subjects_templates(tmp_path):
+    """A hosted model materialized 數B, reused that directory for other subjects, found
+    no templates for them and fell back to a GitHub download the runtime blocked."""
+    archive = builder.build('templates-test', tmp_path / 'skill.zip')['archive']
+    inspect_archive(Path(archive), tmp_path / 'skill')
+    reading_plan_from_directory(tmp_path / 'skill', '數學B', tmp_path / 'refs')
+    for row in MAPPING['subjects']:
+        for record in production_records(row):
+            assert (tmp_path / 'refs' / record['repository_path']).is_file(), record['repository_path']

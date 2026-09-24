@@ -65,7 +65,7 @@ def test_chinese_options_fill_the_body_width_and_keep_official_pitch(tmp_path):
     assert 17 <= number_two[0] - last_option_before[0] <= 22  # official item gap 19-20 pt
     two_abreast = [r for r in rows if r[0] > number_two[0] and r[3].startswith('(')]
     assert {r[0] for r in two_abreast} and len({r[0] for r in two_abreast}) == 2  # two rows of two options
-    assert sorted({r[1] for r in two_abreast}) == [82, 262]  # the official 180 pt tab (261.8)
+    assert sorted({r[1] for r in two_abreast}) == [82, 303]  # 國綜 115's second column at x 303.2 (114: 298)
     assert inspector.narrow_wrap_samples(page, pymupdf.Rect(64, 87, 531, 775)) == []
 
 

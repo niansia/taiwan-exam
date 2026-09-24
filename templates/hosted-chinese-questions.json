@@ -11,14 +11,18 @@
     },
     {
       "kind": "section",
-      "title": "一、語文知識與閱讀單選",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
+      "title": "第壹部分、選擇題（占76分）"
+    },
+    {
+      "kind": "section",
+      "title": "一、單選題（占48分）",
+      "directions": "說明：第1題至第24題，每題2分。"
     },
     {
       "kind": "choice",
       "id": "layout-chinese-single",
       "number": 1,
-      "text": "〔本次語文情境與題幹位置〕",
+      "text": "〔本次字音題幹：下列「」內的字，讀音前後相同的是：〕",
       "options": [
         {
           "label": "(A)",
@@ -36,28 +40,22 @@
           "label": "(D)",
           "text": "〔本次新選項內容〕"
         }
-      ]
+      ],
+      "columns": 2
     },
     {
-      "kind": "section",
-      "title": "二、閱讀題組與跨文本",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
-    },
-    {
-      "kind": "passage",
+      "kind": "stimulus",
       "id": "layout-chinese-text",
-      "heading": "〔題組範圍與材料標記〕",
-      "paragraphs": [
-        "甲：〔另行選取、查證來源並依規則處理的白話選文〕",
-        "乙：〔另行選取的文言或另一篇對照文本〕",
-        "〔必要的作者、篇名與短註釋位置；不是可直接使用的選文〕"
-      ]
+      "material": true,
+      "group_label": "6-8為題組。閱讀下文，回答6-8題。",
+      "group_label_style": "plain",
+      "text": "〔本次新閱讀材料：以楷體印出，首行縮排，段末附出處〕\n\n〔第二段材料……（改寫自 作者〈篇名〉）〕"
     },
     {
       "kind": "choice",
       "id": "layout-chinese-reading",
-      "number": 2,
-      "text": "〔跨文本題幹：填入本次實際閱讀任務〕",
+      "number": 6,
+      "text": "〔依本次材料命製的題幹，以「：」作結〕",
       "options": [
         {
           "label": "(A)",
@@ -75,39 +73,85 @@
           "label": "(D)",
           "text": "〔本次新選項內容〕"
         }
-      ]
+      ],
+      "columns": 1
+    },
+    {
+      "kind": "choice",
+      "id": "layout-chinese-inline",
+      "number": 27,
+      "text": "〔單題附材料：題幹在前，材料接在題幹之後〕",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ],
+      "columns": 1,
+      "material": "甲、〔第一段材料，換行時與「甲、」後文字對齊〕\n\n乙、〔第二段材料〕（〔出處〕）"
     },
     {
       "kind": "section",
-      "title": "三、混合題與短答",
-      "directions": "〔依當科正式規格填寫本次題號、配分與作答說明〕"
-    },
-    {
-      "kind": "table",
-      "id": "layout-chinese-response",
-      "text": "〔資訊整理／短答表格位置〕",
-      "headers": [
-        "材料",
-        "本次待填內容"
-      ],
-      "rows": [
-        [
-          "甲",
-          "〔短答欄位〕"
-        ],
-        [
-          "乙",
-          "〔短答欄位〕"
-        ]
-      ],
-      "keep_with_next": true
+      "title": "第貳部分、混合題或非選擇題（占24分）",
+      "directions": "說明：本部分共有1題組，選擇題每題2分，非選擇題配分標於題末。限在答題卷標示題號的作答區內作答。選擇題使用2B鉛筆作答，更正時以橡皮擦擦拭，切勿使用修正帶（液）。非選擇題請由左而右橫式書寫，並依題目指示作答。"
     },
     {
       "kind": "constructed",
       "id": "layout-chinese-short",
-      "number": 3,
-      "text": "〔獨立短答要求；40字以內，不得把此提示當作題幹〕",
-      "score": 4
+      "number": 32,
+      "label": "32.",
+      "lead": "〔引導句：說明本題依據哪些材料，…請回答下列問題：〕",
+      "subpart": "（1）",
+      "text": "〔第一小題要求〕（占2分，作答字數：15字以內。）",
+      "score": 2,
+      "score_in_text": true
+    },
+    {
+      "kind": "constructed",
+      "id": "layout-chinese-short2",
+      "number": 32,
+      "label": "",
+      "subpart": "（2）",
+      "text": "〔第二小題要求，①…？②…？①②寫在同一小題內〕（占4分，作答字數：①、②各15字以內。）",
+      "score": 4,
+      "score_in_text": true
+    },
+    {
+      "kind": "choice",
+      "id": "layout-chinese-mixed-single",
+      "number": 35,
+      "text": "〔混合題中的單選題幹〕：（占2分，單選題）",
+      "options": [
+        {
+          "label": "(A)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(B)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(C)",
+          "text": "〔本次新選項內容〕"
+        },
+        {
+          "label": "(D)",
+          "text": "〔本次新選項內容〕"
+        }
+      ],
+      "columns": 1
     }
   ]
 }

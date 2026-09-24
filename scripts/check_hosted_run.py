@@ -261,7 +261,7 @@ def check(state_path: Path) -> dict:
                 if not layout_errors:
                     # Text-only crops may be reviewed on their page; the checker
                     # recomputes that from the exam so a report cannot relabel an item.
-                    crop_required = crop_required_ids(exam)
+                    crop_required = crop_required_ids(exam, role)
                     page_rows = {r.get('page'): r for r in
                                  json.loads(review_path.read_text(encoding='utf-8-sig')).get('pages', [])}
                     for part in parts:

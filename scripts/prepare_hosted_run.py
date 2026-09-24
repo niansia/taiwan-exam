@@ -449,7 +449,7 @@ def bundled_root(subject):
     return root
 
 
-def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
+def acquire(subject, output, resource_pdf=None, local_root=None, deadline=60):
     if not 0 < deadline <= 60:
         raise ValueError('Resource deadline must be positive and at most 60 seconds')
     if resource_pdf:
@@ -465,7 +465,7 @@ def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
     # parallel fetcher in a killable child so slow streams cannot consume a turn.
     command = [sys.executable, str(Path(__file__).with_name('fetch_hosted_template_assets.py')),
                '--subject', subject, '--output-dir', str(output), '--map', str(DEFAULT_MAP),
-               '--timeout', '10', '--attempts', '1']
+               '--timeout', '15', '--attempts', '2']
     if local_root:
         command += ['--local-root', str(local_root)]
     try:
@@ -476,10 +476,17 @@ def acquire(subject, output, resource_pdf=None, local_root=None, deadline=45):
                 'retain verified cached components and use the offline resource PDF.'}]}
     if result.returncode and not result.stdout.strip():
         raise ValueError('Template helper failed: ' + result.stderr[-500:])
-    return dict(json.loads(result.stdout), source='local-root' if local_root else 'download')
+    fetched = dict(json.loads(result.stdout), source='local-root' if local_root else 'download')
+    reasons = ' '.join(str(e.get('message', e)) for e in fetched.get('errors') or [])
+    if re.search(r'\b403\b|Forbidden|proxy|Tunnel|Name or service|getaddrinfo|resolve', reasons, re.I):
+        fetched['network_blocked'] = ('This runtime blocks GitHub downloads (403 or no DNS/proxy route). The '
+                                      'Skill ZIP bundles every subject\'s templates: run the preflight from the '
+                                      'reader\'s reference directory or the installed Skill folder, or attach '
+                                      'taiwan-exam-template-resources.pdf.')
+    return fetched
 
 
-def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=45,
+def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=None, deadline=60,
             review_mode='single-context', require_independent_review=False):
     started = time.monotonic()
     run_dir = run_dir.resolve()
@@ -530,7 +537,8 @@ def prepare(subject, run_dir, paper_id, font, *, resource_pdf=None, local_root=N
         except (OSError, ValueError, RuntimeError) as exc:
             raise TemplateUnavailable(str(exc)) from exc
         if assets['status'] != 'verified':
-            raise TemplateUnavailable('Required template components unavailable: '
+            raise TemplateUnavailable(('Required template components unavailable. ' + assets['network_blocked'] + ' '
+                                       if assets.get('network_blocked') else 'Required template components unavailable: ')
                                       + json.dumps(assets['errors'], ensure_ascii=False))
         report['template_source'] = assets.get('source', 'unspecified')
         asset_dir = Path(assets['assets'][0]['path']).parent
@@ -589,7 +597,7 @@ if __name__ == '__main__':
                              "PyMuPDF's built-in CJK font is used")
     parser.add_argument('--resource-pdf', type=Path)
     parser.add_argument('--local-root', type=Path)
-    parser.add_argument('--deadline', type=float, default=45)
+    parser.add_argument('--deadline', type=float, default=60)
     parser.add_argument('--review-mode', choices=REVIEW_MODES, default='single-context',
                         help='Select independent-context only when a real separate reviewer is available')
     parser.add_argument('--require-independent-review', action='store_true',
