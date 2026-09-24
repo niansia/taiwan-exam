@@ -34,6 +34,10 @@ CJK_IDEOGRAPH = re.compile(r"[㐀-鿿]")
 WRITING_PART = re.compile(r"^\s*[一二]、\s*$")
 WRITING_LABEL = re.compile(r"^\s*[甲乙丙丁戊]\s*$")
 WRITING_ASK = re.compile(r"^\s*請.{0,14}問題[：:]")
+WRITING_QUESTION = re.compile(r"^\s*(?:問題)?[（(][一二三四][）)]")  # 問題（一） and its label print in 明體
+# The 第二大題 task paragraph (「請以『…』為題，…（占25分）」) is 明體 too; without this every
+# correctly set task line after 「二、」 read as a 標楷體 line in the wrong face.
+WRITING_TASK = re.compile(r"^\s*請(?:以|就|依|根據|結合|參考|從|寫|閱讀)|為題|[（(]占\s*\d|文長")
 
 
 def writing_font_role_samples(doc, body_box=None) -> list[dict]:
@@ -50,19 +54,41 @@ def writing_font_role_samples(doc, body_box=None) -> list[dict]:
         if number == 1:
             continue  # the fixed cover
         body = pymupdf.Rect(body_box or [64, 87, page.rect.width - 64, 775])
+        # Only the running header and footer are excluded, by height. Requiring each line to
+        # sit wholly inside a fixed 64 pt box dropped the 說明 line (its box runs to 536.8 pt)
+        # and 「一、」 (63.9 pt): the role they set was never read, so every correct 標楷體
+        # line under them was reported as wrong in every hosted 國寫 paper.
         lines = [line for block in page.get_text("dict")["blocks"] for line in block.get("lines", [])
-                 if body.contains(pymupdf.Rect(line["bbox"]))]
+                 if line["bbox"][1] >= body.y0 - 8 and line["bbox"][3] <= body.y1 + 8]
+        # The bordered 說明 box, found by its drawn frame rather than by its first words, so a
+        # box whose text does not open with 「說明：」 is still read as 標楷體.
+        frames = []
+        drawings = page.get_drawings() if hasattr(page, "get_drawings") else []
+        for d in drawings:
+            rect = pymupdf.Rect(d["rect"])
+            if rect.width > 0.6 * body.width and 12 < rect.height < 220 and d.get("color") is not None:
+                frames.append(rect)  # a stroked rectangle
+        # The renderer draws the box as separate thin filled rules: pair the full-width ones.
+        rules = sorted({round(pymupdf.Rect(d["rect"]).y0, 1): pymupdf.Rect(d["rect"]) for d in drawings
+                        if pymupdf.Rect(d["rect"]).width > 0.6 * body.width and pymupdf.Rect(d["rect"]).height < 1.6
+                        and d.get("fill") not in (None, (1, 1, 1), (1.0, 1.0, 1.0))}.values(), key=lambda r: r.y0)
+        frames += [pymupdf.Rect(top.x0, top.y0, bottom.x1, bottom.y1)
+                   for top, bottom in zip(rules[0::2], rules[1::2]) if 12 < bottom.y0 - top.y0 < 220]
         for line in sorted(lines, key=lambda l: (round(l["bbox"][1]), l["bbox"][0])):
             # Letter-spaced headings extract with spaces (「一 、」); compare compacted text.
             text = "".join("".join(s["text"] for s in line["spans"]).split())
             if not text or WRITING_LABEL.match(text):
                 continue
-            if text.startswith(("說明", "説明")):  # a kai subset may map 說 to its 説 variant
+            centre = pymupdf.Rect(line["bbox"])
+            in_frame = any(frame.contains(pymupdf.Point((centre.x0 + centre.x1) / 2, (centre.y0 + centre.y1) / 2))
+                           for frame in frames)
+            if text.startswith(("說明", "説明")) or in_frame:  # a kai subset may map 說 to its 説 variant
                 role = "kai"
             elif WRITING_PART.match(text):
                 role = "kai"
                 continue
-            elif text.startswith("非選擇題") or WRITING_ASK.match(text):
+            elif (text.startswith("非選擇題") or WRITING_ASK.match(text) or WRITING_QUESTION.match(text)
+                  or WRITING_TASK.search(text)):
                 role = "ming"
             if role is None:
                 continue

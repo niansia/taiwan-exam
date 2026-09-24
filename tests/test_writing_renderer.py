@@ -122,8 +122,8 @@ class _Page:
         self.rows = rows
 
     def get_text(self, kind):
-        return {'blocks': [{'lines': [{'bbox': (68, y, 520, y + 14), 'spans': [
-            {'text': text, 'font': font, 'size': size} for text, font, size in spans]} for y, spans in self.rows]}]}
+        return {'blocks': [{'lines': [{'bbox': (row[2] if len(row) > 2 else (68, row[0], 520, row[0] + 14)), 'spans': [
+            {'text': text, 'font': font, 'size': size} for text, font, size in row[1]]} for row in self.rows]}]}
 
 
 def _booklet(material_font, task_font='NotoSerifTC-Regular'):
@@ -147,6 +147,26 @@ def test_the_final_pdf_font_roles_are_read_from_embedded_fonts():
     assert [(s['page'], s['expected']) for s in ming] == [(2, '標楷體')]
     kai_task = writing_font_role_samples(_booklet('DFKaiShu-SB-Estd-BF', task_font='LXGWWenKaiTC-Regular'))
     assert [s['expected'] for s in kai_task] == ['明體']
+
+
+def test_lines_reaching_past_the_nominal_body_box_still_set_the_role():
+    """A hosted 國寫 run: the 說明 line ran to x 536.8 and 「一、」 began at 63.9, outside the
+    fixed 64-531 pt box; skipping them reported every correct 標楷體 line under them."""
+    from inspect_hosted_pdf import writing_font_role_samples
+    booklet = [_Page([]), _Page([
+        (165, [('非選擇題（共二大題，占50分）', 'TW-Sung-98_1', 13)], (64.2, 165, 309.4, 183)),
+        (193, [('說明：第一大題於答題卷正面作答；第二大題於背面', 'TW-Kai-98_1', 12)], (69.1, 193, 536.8, 205)),
+        (209, [('作答。', 'TW-Kai-98_1', 12)], (103.9, 209, 151.8, 221)),
+        (241, [('一、', 'TW-Sung-98_1', 13)], (63.9, 241, 89.8, 254)),
+        (262, [('荷蘭學校禁用手機後，各校回報注意力提升。', 'TW-Kai-98_1', 12)], (87.9, 262, 495.6, 274)),
+        (315, [('（一）', 'TW-Sung-98_1', 13)], (63.9, 315, 102.8, 328)),
+        (333, [('比較兩項研究觀察的面向。', 'TW-Sung-98_1', 12)], (87.9, 333, 339.7, 349)),
+        (393, [('二、', 'TW-Sung-98_1', 13)], (63.9, 393, 89.8, 406)),
+        (414, [('那年夏天，外婆把舊信封收進鐵盒。', 'TW-Kai-98_1', 12)], (87.9, 414, 496, 426)),
+        (438, [('請以「陌生人留下的痕跡」為題，寫一篇完整的文章。', 'TW-Sung-98_1', 12)], (87.9, 438, 496, 454)),
+        (456, [('（占25分）', 'TW-Sung-98_1', 12)], (63.9, 456, 110, 468)),
+    ])]
+    assert writing_font_role_samples(booklet) == []
 
 
 def test_score_and_line_limit_groups_never_break_inside():
