@@ -1,0 +1,17 @@
+name: 功能建議
+description: 想要新的科目、考試、功能，或改進使用說明
+title: "[建議] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你的建議
+      description: 想要什麼？在什麼情況下會用到？
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 為什麼需要
+      description: 現在的做法哪裡不方便？有參考的例子也可以附上。

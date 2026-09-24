@@ -1,8 +1,9 @@
 <div align="center">
 
-<img src="docs/assets/readme/logo.svg" width="120" alt="Taiwan Exam">
-
-# Taiwan Exam
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/readme/wordmark-dark.svg">
+  <img src="docs/assets/readme/wordmark-light.svg" width="520" alt="Taiwan Exam">
+</picture>
 
 **讓 AI 幫你出一份原創的學測模擬考**<br>
 命題、解題驗算、套用大考正式版面，最後交給你「題目 PDF」和「答案詳解 PDF」。
@@ -33,7 +34,7 @@
 
 ```mermaid
 flowchart LR
-  A["① 下載 Skill ZIP<br>（只做一次）"] --> B["② 上傳到 Claude 或 ChatGPT<br>（只做一次）"] --> C["③ 貼上一段出卷文字"] --> D["📄 題目 PDF<br>📄 答案詳解 PDF"]
+  A["① 下載 Skill ZIP 或知識檔<br>（只做一次）"] --> B["② 上傳到你用的 AI<br>（只做一次）"] --> C["③ 貼上一段出卷文字"] --> D["📄 題目 PDF<br>📄 答案詳解 PDF"]
 ```
 
 ## 支援的考試與科目
@@ -69,7 +70,7 @@ flowchart LR
 4. 確認技能清單出現 `taiwan-exam-generator`，而且已開啟。
 5. 到 **Settings → Capabilities**，確認 **Code execution and file creation** 已開啟（學校或公司帳號可能由管理員控制）。
 
-完成後直接看[第 3 步](#第-3-步出卷)，出卷時不必附任何檔案。一般對話（Chat）和 **Cowork** 都能使用；Claude for Word 外掛尚未驗證，請先不要用。
+完成後**跳過第 2 步，直接看[第 3 步](#第-3-步出卷)**，出卷時不必附任何檔案。出卷時可在輸入框打 `/` 選 `taiwan-exam-generator`，也可以直接貼上出卷文字，Claude 會自動套用。一般對話（Chat）和 **Cowork** 都能使用；Claude for Word 外掛尚未驗證，請先不要用。
 
 <details>
 <summary>找不到 Skills？改用 Claude 專案</summary>
@@ -99,6 +100,8 @@ flowchart LR
 2. 開啟 [ChatGPT](https://chatgpt.com/)，在左側欄點 **Plugins**，再點上方的 **Skills** 分頁。
 3. 點 **Create → Upload from your computer**，選剛下載的 ZIP。
 4. 等 ChatGPT 掃描完成，技能清單出現 `taiwan-exam-generator` 就完成了。
+
+完成後**跳過第 2 步，直接看[第 3 步](#第-3-步出卷)**，出卷時不必附任何檔案。出卷時在輸入框打 `@` 選 `taiwan-exam-generator`，再貼上出卷文字。
 
 掃描結果若是 **Needs Review**，請看完畫面說明再決定是否使用；若是 **Blocked** 就無法使用，請改用下面的專案方式。
 
@@ -151,7 +154,7 @@ flowchart LR
 ## 第 3 步：出卷
 
 1. **開一個新對話。**
-   - 已上傳 Skill：直接開新對話，不用附檔案。ChatGPT 可在輸入框打 `@`，選 `taiwan-exam-generator`。
+   - 已上傳 Skill：直接開新對話，不用附檔案。**Claude** 在輸入框打 `/`、**ChatGPT** 打 `@`，選 `taiwan-exam-generator`。
    - 用專案或 Gem：先進入 `Taiwan Exam` 專案或 Gem，再開新對話，按「**＋**」或迴紋針附上[第 2 步](#第-2-步準備檔案只有專案或-gem-需要)的 3 份檔案。
 2. **複製下面這段，貼上並送出。** 把「數 A」換成你要的科目：
 
@@ -340,6 +343,8 @@ GitHub 有新版時，你帳號裡的檔案**不會自動更新**：
 | 專案或 Gem | 刪掉舊的 `taiwan-exam-web-knowledge.md`，上傳重新下載的知識檔 |
 | 版型 PDF | 版本沒變就不用重新下載 |
 
+換好之後請**開一個新對話**再出卷，舊對話仍會沿用舊版。
+
 ## 進階：本機版
 
 <details>
@@ -381,6 +386,20 @@ gemini skills install https://github.com/niansia/taiwan-exam
 | [各平台使用指引](docs/usage-guide.md) | 網頁、CLI、桌面版的操作範例 |
 | [更新紀錄](docs/web-updates.md) | 每一版比對官方考卷後的修正 |
 | [來源資料與維護](docs/sources-and-maintenance.md) | 歷屆資料取得、執行環境、測試與發布 |
+| [參與指南](CONTRIBUTING.md) | 回報問題、提出建議與提交 PR 的方式 |
+
+## 一起參與
+
+這個專案是公開的，歡迎一起讓它更好，不會寫程式也能參與（回報與建議需要免費的 GitHub 帳號）：
+
+| 想做的事 | 怎麼做 |
+| --- | --- |
+| 🐞 回報問題 | 出卷失敗、排版錯、答案有誤，到 [Issues](https://github.com/niansia/taiwan-exam/issues/new/choose) 選「出卷問題」，附上平台、版本、科目和截圖 |
+| 💡 提出建議 | 想要新科目、新考試或更好的說明，選「功能建議」 |
+| 🛠️ 修改程式或文件 | Fork 後發 Pull Request，**所有 PR 都由維護者審核後才會合併**；流程見 [CONTRIBUTING.md](CONTRIBUTING.md) |
+| ⭐ 支持專案 | 登入 GitHub 後按右上角 **☆ Star**，讓更多老師和同學找到它 |
+
+回報或貢獻時，請不要上傳大考中心或出版社的完整試卷、個人資料或帳號資訊。
 
 ## 授權
 
