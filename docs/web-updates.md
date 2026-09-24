@@ -18,7 +18,7 @@
 - **流程**（依兩份計時回報）：重建後畫面與題目都沒變的頁面，本來就會沿用審核，但說明文件那句「內容一改，所有頁面審核作廢」讓模型以為要全部重看（ChatGPT 卷重排 130 個相同頁面）；已改寫清楚，並提醒重建前先登錄審核結果（Claude 卷因此白看一輪）。`lock-content` 也會先跑時事來源檢查，來源日期這類錯誤在建置前就擋下。
 - 七科版型範例以本版重出（2026.09.22.24），自然範例示範「圖 1」圖說與 (a)(b) 小題。
 
-新 ZIP（SHA-256 `89b9452379354d71de1674596fe5d0b985a9f021ec6894885b3777695f5b7e37`，8,653,679 位元組，101 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；等待維護者在 Chrome 下載並於 Claude 與 ChatGPT 上傳確認。[下載 2026.09.22.24 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.24) 頁面。
+新 ZIP（SHA-256 `89b9452379354d71de1674596fe5d0b985a9f021ec6894885b3777695f5b7e37`，8,653,679 位元組，101 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.24 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.24/taiwan-exam-hosted-2026.09.22.24.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.24) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.23：社會科選項、版面、時事、三科題組與照片依官方 111～115
 
