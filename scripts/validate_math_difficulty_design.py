@@ -256,8 +256,9 @@ def validate(exam: dict, profile: Path | None = None) -> dict:
             errors.append(f"paper: medium/high discrimination covers only {medium_high_score:g} points; require 75")
         if three_decision_score < 50:
             errors.append(f"paper: three-decision demand covers only {three_decision_score:g} points; require 50")
-        if not 80 <= expected_minutes <= 92:
-            errors.append(f"paper: expected hand-solving time is {expected_minutes:g} minutes; require 80-92")
+        from hosted_blind_review import math_minutes_error
+        if math_minutes_error(expected_minutes):
+            errors.append(math_minutes_error(expected_minutes, "paper: expected hand-solving time"))
         for start in range(len(summaries) - 2):
             if all(row["level"] == "low" for row in summaries[start : start + 3]):
                 numbers = [row["number"] for row in summaries[start : start + 3]]

@@ -167,8 +167,9 @@ two-band overestimation in BOTH modes. It checks evidence, not whether a model
 actually performed the claimed reasoning.
 Revise items or adopt the defensible estimate, then rerun the existing whole-paper
 balance audit using it; never inflate estimates to reach 80–92 minutes. These
-twenty-item papers also need the reviewed estimates to meet the existing
-80–92 minute target and three-decision coverage of at least 50 points. These
+twenty-item papers also need the reviewed estimates to fall in the 75–97 minute
+range around the 80–92 minute target (±5) and three-decision coverage of at least
+50 points; 中偏難＋難 and 難 pass at 67 and 27 points (targets 70/30, ±3). These
 thresholds are review policy, not student psychometrics.
 
 Math item reviews also contain `routine_only` (boolean), `uses_prior_results`

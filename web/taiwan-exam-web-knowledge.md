@@ -673,10 +673,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-execution.md",
-    "bytes": 49021,
-    "sha256": "ff8f69612aa0a243e052186022e83d7b96d2ddbbda16a8e9dbde92876116988b",
-    "embedded_bytes": 49021,
-    "embedded_sha256": "ff8f69612aa0a243e052186022e83d7b96d2ddbbda16a8e9dbde92876116988b"
+    "bytes": 49405,
+    "sha256": "97f4573885a6e910e6b76ee75160587c9df093594048b2f655f638ae2fc1f9ee",
+    "embedded_bytes": 49405,
+    "embedded_sha256": "97f4573885a6e910e6b76ee75160587c9df093594048b2f655f638ae2fc1f9ee"
   },
   {
     "path": "references/hosted-pdf-production.md",
@@ -687,10 +687,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/hosted-quality-gates.md",
-    "bytes": 17384,
-    "sha256": "dfdf314709753a98eded798bb6f03c2cbba52cbf248c2e38927a901b2ae872fd",
-    "embedded_bytes": 17384,
-    "embedded_sha256": "dfdf314709753a98eded798bb6f03c2cbba52cbf248c2e38927a901b2ae872fd"
+    "bytes": 17487,
+    "sha256": "8c315347adb4e288e40a39d1230549b489534e76c49ef6eab26962be9b7b6c3b",
+    "embedded_bytes": 17487,
+    "embedded_sha256": "8c315347adb4e288e40a39d1230549b489534e76c49ef6eab26962be9b7b6c3b"
   },
   {
     "path": "references/hosted-run-evidence.md",
@@ -722,10 +722,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/math-difficulty-design.md",
-    "bytes": 17545,
-    "sha256": "1cf149f7fbb046fa9b71b698ab83b72109be026285128ea4fca444ca2ff477f5",
-    "embedded_bytes": 17545,
-    "embedded_sha256": "1cf149f7fbb046fa9b71b698ab83b72109be026285128ea4fca444ca2ff477f5"
+    "bytes": 17929,
+    "sha256": "1821d08af1fb73ae39fff41cc028f3b0848a7e32168de28c425ff6a1d8b93d33",
+    "embedded_bytes": 17929,
+    "embedded_sha256": "1821d08af1fb73ae39fff41cc028f3b0848a7e32168de28c425ff6a1d8b93d33"
   },
   {
     "path": "references/official-gsat-specifications.md",
@@ -911,10 +911,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_paper_plan.py",
-    "bytes": 13309,
-    "sha256": "dbfe434deb3052f00ea24ad9398b923a723ba70d6b681a9d8ce7ac5b7c428ce5",
-    "embedded_bytes": 13309,
-    "embedded_sha256": "dbfe434deb3052f00ea24ad9398b923a723ba70d6b681a9d8ce7ac5b7c428ce5"
+    "bytes": 13420,
+    "sha256": "2691f639ad17097547ac2801bd43984b3def60f2a0e51a00f494237189beb9b5",
+    "embedded_bytes": 13420,
+    "embedded_sha256": "2691f639ad17097547ac2801bd43984b3def60f2a0e51a00f494237189beb9b5"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -946,10 +946,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 13676,
-    "sha256": "7b901a0acd29de5fbac607ac539f0449c2fdbcd190813d59976d802778ee4cf5",
-    "embedded_bytes": 13676,
-    "embedded_sha256": "7b901a0acd29de5fbac607ac539f0449c2fdbcd190813d59976d802778ee4cf5"
+    "bytes": 15131,
+    "sha256": "66f02ac379b455da3afeb9148e41de8909a02ba1ce050af632a4111ec4fc404a",
+    "embedded_bytes": 15131,
+    "embedded_sha256": "66f02ac379b455da3afeb9148e41de8909a02ba1ce050af632a4111ec4fc404a"
   },
   {
     "path": "scripts/hosted_body_templates.py",
@@ -1170,10 +1170,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_difficulty_design.py",
-    "bytes": 19291,
-    "sha256": "1cd847da255affe6854e19674807b773eb1db4bb309bdb616fe703c26a6d2440",
-    "embedded_bytes": 19291,
-    "embedded_sha256": "1cd847da255affe6854e19674807b773eb1db4bb309bdb616fe703c26a6d2440"
+    "bytes": 19344,
+    "sha256": "c14a4f56767594ca626d3d6bce4d329286f332f177839874fdc3694fdd9fcf3a",
+    "embedded_bytes": 19344,
+    "embedded_sha256": "c14a4f56767594ca626d3d6bce4d329286f332f177839874fdc3694fdd9fcf3a"
   },
   {
     "path": "scripts/validate_math_layout_contract.py",
@@ -1191,10 +1191,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
-    "bytes": 6372,
-    "sha256": "8ecc1157a212298174bc73a140a62005541970cf0dd35c2f05bf11128b4c8296",
-    "embedded_bytes": 6372,
-    "embedded_sha256": "8ecc1157a212298174bc73a140a62005541970cf0dd35c2f05bf11128b4c8296"
+    "bytes": 6310,
+    "sha256": "cd561ecd9c255825d2d23f3b3862541205021ddf8187fb1b10e1e80570c81d05",
+    "embedded_bytes": 6310,
+    "embedded_sha256": "cd561ecd9c255825d2d23f3b3862541205021ddf8187fb1b10e1e80570c81d05"
   },
   {
     "path": "scripts/validate_reference_page_density.py",
@@ -60645,6 +60645,7 @@ profile asks for the hardest recent year, not beyond it. The gate derives the ba
 `estimated_p`; a row whose band disagrees is rejected at the checkpoint, not at finalize.
 Retain the reviewed 80–92 minute hand-solving target, at least 50 points with
 three necessary decisions, and the subject-specific stricter Math B rules.
+The gates accept a range around these targets (maintainer decision, 2026-09-24): medium-hard plus hard at least 67 and hard at least 27 points (±3), and a reviewed hand-solving total of 75–97 minutes (80–92 ±5). Aim at the targets; a paper inside the range is finished. Do not run further review rounds to move a passing paper from 28 hard points or 93 minutes onto the target.
 Routine-only work cannot be labelled hard and remains capped at 25 points.
 Use at least four distinct answer-bearing visuals across at least three sections
 and more than one role; these are not four fixed diagram recipes. Source credits
@@ -61437,8 +61438,9 @@ two-band overestimation in BOTH modes. It checks evidence, not whether a model
 actually performed the claimed reasoning.
 Revise items or adopt the defensible estimate, then rerun the existing whole-paper
 balance audit using it; never inflate estimates to reach 80–92 minutes. These
-twenty-item papers also need the reviewed estimates to meet the existing
-80–92 minute target and three-decision coverage of at least 50 points. These
+twenty-item papers also need the reviewed estimates to fall in the 75–97 minute
+range around the 80–92 minute target (±5) and three-decision coverage of at least
+50 points; 中偏難＋難 and 難 pass at 67 and 27 points (targets 70/30, ±3). These
 thresholds are review policy, not student psychometrics.
 
 Math item reviews also contain `routine_only` (boolean), `uses_prior_results`
@@ -61987,7 +61989,7 @@ actual review's remapped bands enforce the floor. The reviewer records a predict
 official 數學B items 1–17: 111 10/45, 112 20/50, 113 35/65, 114 25/60 and 115 30/70
 points below 0.30 / 0.50, so the 70/30 floor equals the hardest recent year. The
 repository's descriptive P bands (難 < 0.20, 中偏難 < 0.40) are for historical
-statistics only; under them no official paper reaches 70/30. Retain the 80–92 minute
+statistics only; under them no official paper reaches 70/30. The gates accept a range around these targets (maintainer decision, 2026-09-24): medium-hard plus hard at least 67 and hard at least 27 points (±3), and a reviewed hand-solving total of 75–97 minutes (80–92 ±5). Aim at the targets; a paper inside the range is finished. Do not run further review rounds to move a passing paper from 28 hard points or 93 minutes onto the target. Retain the 80–92 minute
 hand-solving target and curriculum boundary; increase reasoning demand, not
 arithmetic burden. An easy distance/volume substitution remains easy even in
 a late slot, and a method already supplied by an earlier item reduces demand.
@@ -69324,9 +69326,11 @@ def validate(plan, root=ROOT):
     minutes=sum(q['expected_minutes'] for q in items if number(q.get('expected_minutes')))+shared
     if number(duration) and minutes>duration:errors.append('planned solving time exceeds duration')
     if subject in {'數學A','數學B'}:
-        if points['簡單']>=10 or points['中偏難']+points['難']<70 or points['難']<30:
-            errors.append('math challenge floor: easy <10, medium-hard + hard >=70, hard >=30 points')
-        if not 80<=minutes<=92:errors.append('math hand-solving plan must total 80–92 minutes')
+        from hosted_blind_review import math_floor_errors, math_minutes_error
+        if points['簡單']>=10:
+            errors.append('math challenge floor: easy <10 points')
+        errors.extend(math_floor_errors(points['中偏難']+points['難'],points['難'],'math challenge plan:'))
+        if math_minutes_error(minutes):errors.append(math_minutes_error(minutes,'math hand-solving plan totals'))
         if any(number(q.get('expected_minutes')) and q['expected_minutes']>10 for q in items):
             errors.append('math item expected_minutes may not exceed 10')
     distribution=meta.get('content_distribution_plan') or {}
@@ -70346,6 +70350,34 @@ SOCIAL_MEAN_P_MAX = 0.65
 # longest option in 22% and 52% of single-choice items (official 7-14%).
 CHOICE_MEAN_P_MAX = {'社會': (SOCIAL_MEAN_P_MAX, '0.51-0.60'), '自然': (0.65, '0.53-0.57')}
 MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
+# 數A/數B targets and the range a paper may pass in (maintainer decision 2026-09-24). A hosted
+# 數B run went seven review rounds at 難 28 points and 93 minutes: every redesign that made one
+# item harder lengthened another. Aim at the targets; the gates accept the ranges.
+MATH_CHALLENGE_TARGET, MATH_HARD_TARGET, MATH_POINT_TOLERANCE = 70, 30, 3
+MATH_MINUTES_TARGET, MATH_MINUTE_TOLERANCE = (80, 92), 5
+MATH_CHALLENGE_MIN = MATH_CHALLENGE_TARGET - MATH_POINT_TOLERANCE   # 67
+MATH_HARD_MIN = MATH_HARD_TARGET - MATH_POINT_TOLERANCE             # 27
+MATH_MINUTES_RANGE = (MATH_MINUTES_TARGET[0] - MATH_MINUTE_TOLERANCE, MATH_MINUTES_TARGET[1] + MATH_MINUTE_TOLERANCE)  # 75-97
+
+
+def math_floor_errors(challenge, hard, prefix='difficulty: reviewed'):
+    """中偏難＋難 and 難 points against the 70/30 targets, passing within MATH_POINT_TOLERANCE."""
+    errors = []
+    if challenge < MATH_CHALLENGE_MIN:
+        errors.append(f'{prefix} medium-hard/hard score {challenge:g} is below {MATH_CHALLENGE_MIN} points '
+                      f'(target {MATH_CHALLENGE_TARGET}, ±{MATH_POINT_TOLERANCE} accepted)')
+    if hard < MATH_HARD_MIN:
+        errors.append(f'{prefix} hard score {hard:g} is below {MATH_HARD_MIN} points '
+                      f'(target {MATH_HARD_TARGET}, ±{MATH_POINT_TOLERANCE} accepted)')
+    return errors
+
+
+def math_minutes_error(total, prefix='difficulty: reviewed hand-solving total'):
+    low, high = MATH_MINUTES_RANGE
+    if low <= total <= high:
+        return None
+    return (f'{prefix} {total:g} minutes is outside {low}-{high} (target {MATH_MINUTES_TARGET[0]}-'
+            f'{MATH_MINUTES_TARGET[1]}, ±{MATH_MINUTE_TOLERANCE} accepted)')
 
 
 def band_for_p(p):
@@ -70476,10 +70508,7 @@ def review_errors(exam, review):
                                   if rows.get(q['id'], {}).get('difficulty_band') == b) for b in bands}
         if reviewed_points['easy'] + reviewed_points['very_easy'] >= 10:
             errors.append('difficulty: reviewed easy score must be below 10 points')
-        if reviewed_points['hard'] + reviewed_points['very_hard'] < 70:
-            errors.append('difficulty: reviewed medium-hard/hard score must reach 70 points')
-        if reviewed_points['very_hard'] < 30:
-            errors.append('difficulty: reviewed hard score must reach 30 points')
+        errors.extend(math_floor_errors(reviewed_points['hard'] + reviewed_points['very_hard'], reviewed_points['very_hard']))
         # Official 111-115 close 選填 and the 題組 with their hardest items (115 16-17 and
         # 20, 114 16-17 and 20, 113 17 and 20); two hosted 116 數A papers ended 選填 on a
         # textbook maximum and the 題組 on completing a square.
@@ -70490,8 +70519,8 @@ def review_errors(exam, review):
                               'as every official 111-115 paper does; redesign it before rendering')
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
-        if not 80 <= total <= 92:
-            errors.append(f'difficulty: reviewed hand-solving total {total:g} minutes is outside existing 80-92 target')
+        if math_minutes_error(total):
+            errors.append(math_minutes_error(total))
         decision_score = sum(q.get('score', 0) or 0 for q in exam['questions']
                              if isinstance(rows.get(q['id'], {}).get('decisive_steps'), list)
                              and len(rows[q['id']]['decisive_steps']) >= 3
@@ -82529,8 +82558,9 @@ def validate(exam: dict, profile: Path | None = None) -> dict:
             errors.append(f"paper: medium/high discrimination covers only {medium_high_score:g} points; require 75")
         if three_decision_score < 50:
             errors.append(f"paper: three-decision demand covers only {three_decision_score:g} points; require 50")
-        if not 80 <= expected_minutes <= 92:
-            errors.append(f"paper: expected hand-solving time is {expected_minutes:g} minutes; require 80-92")
+        from hosted_blind_review import math_minutes_error
+        if math_minutes_error(expected_minutes):
+            errors.append(math_minutes_error(expected_minutes, "paper: expected hand-solving time"))
         for start in range(len(summaries) - 2):
             if all(row["level"] == "low" for row in summaries[start : start + 3]):
                 numbers = [row["number"] for row in summaries[start : start + 3]]
@@ -83223,8 +83253,8 @@ def validate(d,asset_root=None):
     total=sum(points.values())
     if d.get('metadata',{}).get('subject') in {'數學A','數學B'} and len(d.get('questions',[])) == 20 and total == 100:
         if points['簡單'] >= 10:errors.append('math challenge profile: easy score must be below 10 points')
-        if points['中偏難'] + points['難'] < 70:errors.append('math challenge profile: medium-hard/hard score must reach 70 points')
-        if points['難'] < 30:errors.append('math challenge profile: hard score must reach 30 points')
+        from hosted_blind_review import math_floor_errors
+        errors.extend(math_floor_errors(points['中偏難'] + points['難'], points['難'], 'math challenge profile:'))
     return dict(status='pass-structural-only' if not errors else 'fail',errors=errors,count=dict(counts),points=dict(points),
         count_percent={b:round(100*counts[b]/count,1)for b in BANDS} if count else {},
         score_percent={b:round(100*points[b]/total,1)for b in BANDS} if total else {},items=rows,

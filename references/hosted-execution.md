@@ -309,6 +309,7 @@ profile asks for the hardest recent year, not beyond it. The gate derives the ba
 `estimated_p`; a row whose band disagrees is rejected at the checkpoint, not at finalize.
 Retain the reviewed 80–92 minute hand-solving target, at least 50 points with
 three necessary decisions, and the subject-specific stricter Math B rules.
+The gates accept a range around these targets (maintainer decision, 2026-09-24): medium-hard plus hard at least 67 and hard at least 27 points (±3), and a reviewed hand-solving total of 75–97 minutes (80–92 ±5). Aim at the targets; a paper inside the range is finished. Do not run further review rounds to move a passing paper from 28 hard points or 93 minutes onto the target.
 Routine-only work cannot be labelled hard and remains capped at 25 points.
 Use at least four distinct answer-bearing visuals across at least three sections
 and more than one role; these are not four fixed diagram recipes. Source credits

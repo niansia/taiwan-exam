@@ -18,7 +18,7 @@ actual review's remapped bands enforce the floor. The reviewer records a predict
 official 數學B items 1–17: 111 10/45, 112 20/50, 113 35/65, 114 25/60 and 115 30/70
 points below 0.30 / 0.50, so the 70/30 floor equals the hardest recent year. The
 repository's descriptive P bands (難 < 0.20, 中偏難 < 0.40) are for historical
-statistics only; under them no official paper reaches 70/30. Retain the 80–92 minute
+statistics only; under them no official paper reaches 70/30. The gates accept a range around these targets (maintainer decision, 2026-09-24): medium-hard plus hard at least 67 and hard at least 27 points (±3), and a reviewed hand-solving total of 75–97 minutes (80–92 ±5). Aim at the targets; a paper inside the range is finished. Do not run further review rounds to move a passing paper from 28 hard points or 93 minutes onto the target. Retain the 80–92 minute
 hand-solving target and curriculum boundary; increase reasoning demand, not
 arithmetic burden. An easy distance/volume substitution remains easy even in
 a late slot, and a method already supplied by an earlier item reduces demand.
