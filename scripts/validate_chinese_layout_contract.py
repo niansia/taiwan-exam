@@ -15,6 +15,7 @@ on 2026-09-22 broke each of these; this module names them.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -96,6 +97,7 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
     for question in questions:
         if isinstance(question.get("number"), int):
             by_number.setdefault(question["number"], []).append(question)
+    errors.extend(printed_style_errors(exam, questions))
 
     printed_titles = "".join(str(section.get("title") or "") for section in exam.get("sections") or [])
     printed_titles = re.sub(r"\s+", "", printed_titles).replace("(", "（").replace(")", "）")
@@ -245,6 +247,18 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
                 errors.append(f"國綜第貳部分第{q.get('number')}題單選子題配分須為2分")
         if len({q.get("number") for q in constructed}) < 3:
             errors.append(f"國綜第貳部分須有3題非選（每題含(1)(2)兩小題）；現有{len({q.get('number') for q in constructed})}題")
+        # 111–115 print each written item once (「32. …請回答下列問題：」) with （1）（2） beneath;
+        # ①② sit inside a subpart's text. Save one record per （1）/（2） with subpart_label, the
+        # lead-in as number_stem on （1）. Hosted papers printed 「（2）①」「（2）②」 as items.
+        for number in sorted({q.get("number") for q in constructed}):
+            parts = [q for q in constructed if q.get("number") == number]
+            labels = [str(q.get("subpart_label") or "") or
+                      "".join(re.findall(r"^\s*([（(][1-9][)）])", str(q.get("prompt") or ""))[:1]).replace("(", "（").replace(")", "）")
+                      for q in parts]
+            if labels != ["（1）", "（2）"][:len(parts)] or len(parts) != 2:
+                errors.append(f"國綜第{number}題須存成（1）（2）兩筆 subpart_label（①②寫在小題文字內，不另存成小題）；現有 {labels or len(parts)}")
+            elif not str(parts[0].get("number_stem") or "").rstrip().endswith("回答下列問題："):
+                errors.append(f"國綜第{number}題（1）須以 number_stem 印出題號後的引導句，官方以「…請回答下列問題：」作結")
         for q in constructed:
             score = q.get("score")
             limits = [int(v) for v in CHAR_LIMIT.findall(str(q.get("prompt") or ""))]
@@ -254,10 +268,100 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
                 errors.append(f"國綜第{q.get('number')}題4分小題字數上限須為30至40字；印出{max(limits)}字以內")
             if score not in (None, 2, 4) and score is not None and score > 4:
                 errors.append(f"國綜第{q.get('number')}題非選小題配分須為2分或4分；現有{score}分")
+        for q in constructed:
+            prompt = str(q.get("prompt") or "").rstrip()
+            if not re.search(r"（占[24]分，作答字數：[^（）]*。）$", prompt):
+                errors.append(f"國綜第{q.get('number')}題小題須以「（占N分，作答字數：…以內。）」作結（官方 111–115 格式），"
+                              f"不是只寫「（2分）」或把字數寫進題目")
+        for q in singles:
+            if not str(q.get("prompt") or "").rstrip().endswith("（占2分，單選題）"):
+                errors.append(f"國綜第{q.get('number')}題（第貳部分單選）須以「（占2分，單選題）」作結")
         stimuli = {stimulus(n) for n in part_two}
         if len(stimuli) != 1 or "" in stimuli:
             errors.append("國綜第貳部分五題須共用同一組多文本材料（甲乙丙，含文言或韻文）")
     return errors
+
+
+# Measured on ROC 111–115 (2026-09-24 audit of two hosted 116 papers).
+LONGEST_KEY_MAX = 8                    # 1–24 keys that are the strictly longest option: 111 2/25, 115 5/24
+DINGBAT_CIRCLES = re.compile("[\u2776-\u2793]")   # ➀➁ / ❶: official ①② are U+2460…
+SOURCE_NOTE = re.compile(r"命題者|命題設計|假設情境|節寫|為命題|自擬|改寫說明")
+
+
+FINGERPRINTS = Path(__file__).resolve().parents[1] / "exam_packs" / "學測" / "shared-data" / "official-passage-fingerprints.json"
+_fingerprints: dict = {}
+
+
+def official_overlap(text: str) -> list[str]:
+    """Official 111–115 國綜 years whose printed text shares 39+ consecutive ideographs with text."""
+    if not _fingerprints:
+        if not FINGERPRINTS.is_file():
+            return []
+        data = json.loads(FINGERPRINTS.read_text(encoding="utf-8"))
+        _fingerprints.update(window=data["window"], years={y: set(v) for y, v in data["years"].items()})
+    stream = "".join(re.findall("[㐀-鿿]", text))
+    size = _fingerprints["window"]
+    hashes = {hashlib.sha1(stream[i:i + size].encode("utf-8")).hexdigest()[:10] for i in range(len(stream) - size + 1)}
+    return sorted(year for year, known in _fingerprints["years"].items() if hashes & known)
+
+
+def printed_style_errors(exam: dict, questions: list[dict]) -> list[str]:
+    """Stem endings, circled numbers, quotation marks, source lines and option-length cues."""
+    errors = []
+    answers = {str(a.get("question_id")): a for a in exam.get("answers") or [] if isinstance(a, dict)}
+    longest = []
+    for q in questions:
+        number = q.get("number")
+        prompt = str(q.get("prompt") or "")
+        texts = [prompt, str(q.get("group_stimulus") or "")] + [str(o.get("text") or "") for o in q.get("options") or []
+                                                               if isinstance(o, dict)]
+        if isinstance(number, int) and number <= 31 and q.get("type") in {"single_choice", "multiple_choice"} \
+                and prompt.rstrip().endswith("？"):
+            errors.append(f"國綜第{number}題題幹以「？」作結；官方 111–115 選擇題一律以「：」作結（如「敘述最適當的是：」）")
+        if any(DINGBAT_CIRCLES.search(t) for t in texts):
+            errors.append(f"國綜第{number}題用了 ➀➁ 類裝飾符號；官方用 ①②（U+2460 起）")
+        for t in texts:
+            depth, bad = 0, False
+            for ch in t:
+                if ch == "「":
+                    depth += 1
+                elif ch == "」":
+                    depth = max(0, depth - 1)
+                elif ch == "『" and depth == 0:
+                    bad = True
+            if bad:
+                errors.append(f"國綜第{number}題以『』作為第一層引號；官方用「」，『』只用於引號內的引號")
+                break
+        note = SOURCE_NOTE.search(str(q.get("group_stimulus") or "") + prompt)
+        if note:
+            errors.append(f"國綜第{number}題印出命題說明「{note.group(0)}」；出處只寫「改寫自 作者〈篇名〉」或原典名")
+        options = [o for o in q.get("options") or [] if isinstance(o, dict)]
+        key = str((answers.get(str(q.get("id"))) or {}).get("final_answer") or "").strip("()（） ")
+        if isinstance(number, int) and number <= 24 and len(options) >= 4 and len(key) == 1:
+            lengths = {str(o.get("label") or "").strip("()（）"): len(str(o.get("text") or "")) for o in options}
+            top = max(lengths.values())
+            if lengths.get(key) == top and list(lengths.values()).count(top) == 1:
+                longest.append(number)
+    seen_groups = set()
+    for q in questions:
+        material = str(q.get("group_stimulus") or "")
+        key = material or str(q.get("id"))
+        if key in seen_groups:
+            continue
+        seen_groups.add(key)
+        years = official_overlap(material + str(q.get("prompt") or ""))
+        if years:
+            errors.append(f"國綜第{q.get('number')}題的材料或題幹與官方 {'、'.join(years)} 年國綜印出的文字連續 39 字以上相同；"
+                          "不得沿用官方 111–115 已考過的段落（換篇或換段）")
+    if len(longest) > LONGEST_KEY_MAX:
+        errors.append(f"國綜單選題有 {len(longest)} 題正解是唯一最長選項（{longest}）；官方 111–115 最多約 5 題，"
+                      "考生可憑長度猜題，錯誤選項也須寫得一樣完整")
+    for q in questions:
+        if q.get("type") == "constructed_response":
+            record = answers.get(str(q.get("id")))
+            if record and re.search(r"(?<![0-9.])1\s*分", json.dumps(record, ensure_ascii=False)):
+                errors.append(f"國綜第{q.get('number')}題評分原則出現 1 分級距；官方 2 分題只給 2／0，4 分題給 4／2／0")
+    return list(dict.fromkeys(errors))
 
 
 def difficulty_signal_errors(questions: list[dict]) -> list[str]:

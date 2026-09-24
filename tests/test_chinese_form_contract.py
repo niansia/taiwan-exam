@@ -9,6 +9,24 @@ import run_hosted_workflow as workflow
 from answer_key_patterns import answer_pattern_errors
 from validate_chinese_layout_contract import OFFICIAL_HEADINGS, validate_exam as chinese_layout
 from test_hosted_subject_gates import keyed
+import pytest
+import validate_chinese_layout_contract as contract
+
+
+@pytest.fixture(autouse=True)
+def no_official_fingerprints(monkeypatch, request):
+    """The shape fixtures quote official 111–115 passages on purpose; only the overlap test checks them."""
+    if 'official_passage' not in request.node.name:
+        monkeypatch.setattr(contract, 'FINGERPRINTS', Path('missing-fingerprints.json'))
+        monkeypatch.setattr(contract, '_fingerprints', {})
+
+
+def test_reused_official_passage_is_rejected():
+    # 114's 30–31 passage (〈晚遊六橋待月記〉), reprinted by a hosted 116 paper at the same position.
+    text = ('然杭人遊湖，止午、未、申三時；其實湖光染翠之工，山嵐設色之妙，皆在朝日始出，夕舂未下，始極其濃媚。'
+            '月景尤不可言，花態柳情，山容水意，別是一種趣味。此樂留與山僧、遊客受用，安可為俗士道哉！')
+    assert contract.official_overlap(text) == ['114']
+    assert contract.official_overlap('完全新寫的一段材料，' * 8) == []
 
 
 def chinese_paper():
@@ -53,9 +71,9 @@ def chinese_paper():
     for n, kind, score, text in ((32, 'constructed_response', 2, '（1）依甲文，乙文屬於哪一種回憶方式？（占2分，作答字數：10字以內。）'),
                                  (32, 'constructed_response', 4, '（2）回憶時會意識到哪些情況？（占4分，作答字數：30字以內。）'),
                                  (33, 'constructed_response', 4, '（1）（占4分，作答字數：40字以內。）'),
-                                 (33, 'constructed_response', 4, '（2）（占4分，各10字以內。）'),
-                                 (34, 'single_choice', 2, '關於丙詞的夢與現實，敘述最適當的是：'),
-                                 (35, 'single_choice', 2, '關於①、②是否適當，最適當的研判是：'),
+                                 (33, 'constructed_response', 4, '（2）（占4分，作答字數：①、②各10字以內。）'),
+                                 (34, 'single_choice', 2, '關於丙詞的夢與現實，敘述最適當的是：（占2分，單選題）'),
+                                 (35, 'single_choice', 2, '關於①、②是否適當，最適當的研判是：（占2分，單選題）'),
                                  (36, 'constructed_response', 2, '（1）（占2分，作答字數：20字以內。）'),
                                  (36, 'constructed_response', 4, '（2）（占4分，作答字數：30字以內。）')):
         sub = text[1] if text.startswith('（') else None
@@ -63,6 +81,8 @@ def chinese_paper():
              'prompt': text, 'group_stimulus': mixed}
         if sub:
             q['subpart_id'] = '1' if sub == '1' else '2'
+            if sub == '1':
+                q['number_stem'] = '依據甲、乙文，請回答下列問題：'
         if kind == 'single_choice':
             q['options'] = [{'label': l, 'text': f'選項{n}{l}'} for l in 'ABCD']
         questions.append(q)
@@ -241,3 +261,18 @@ def test_rotated_keys_that_never_repeat_a_neighbour_are_suspect():
     q, a = keyed(list('BBDACCABDDBADCAABCDDBCAB'))
     natural = {'metadata': {'subject': '國綜', 'generation_mode': 'full-paper'}, 'questions': q, 'answers': a}
     assert not any('never repeat' in e for e in answer_pattern_errors(natural))
+
+
+def test_style_floors_measured_on_111_115():
+    options = lambda n: [{'label': l, 'text': '短' if l != 'A' else '這是最長而且最周全的正確選項敘述'} for l in 'ABCD']
+    questions = [{'id': f'q{n}', 'number': n, 'type': 'single_choice', 'prompt': '下列敘述最適當的是：', 'options': options(n)}
+                 for n in range(1, 11)]
+    questions[0]['prompt'] = '下列敘述何者最適當？'
+    questions[1]['prompt'] = '依『導讀』所述，➀與➁皆正確的是：'
+    questions[2]['group_stimulus'] = '甲、一段文字。（本段為命題者設計的假設情境）'
+    questions.append({'id': 'w', 'number': 32, 'type': 'constructed_response', 'prompt': '（1）說明。（占2分，作答字數：15字以內。）'})
+    answers = [{'question_id': f'q{n}', 'final_answer': 'A'} for n in range(1, 11)]
+    answers.append({'question_id': 'w', 'final_answer': '略', 'explanation': '答出一點得1分'})
+    errors = contract.printed_style_errors({'answers': answers}, questions)
+    for expected in ('以「？」作結', '➀➁', '『』作為第一層引號', '命題說明', '唯一最長選項', '1 分級距'):
+        assert any(expected in e for e in errors), expected

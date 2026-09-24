@@ -148,6 +148,29 @@ year (111–115), and is therefore enforced:
   (1)(2); 2-point subparts allow 10–20 characters, 4-point subparts 30–40 (or two
   parts of 10–15); constructed points per item are 6, 6 and 8 (or 6, 8, 6).
 
+- How to save 第貳部分 (2026-09-24): one record per （1） and （2） of a written item, both with
+  the item's `number`; the （1） record carries `number_stem`, the lead-in the booklet prints
+  after 「32.」 and which ends 「…請回答下列問題：」. Put ①② inside a subpart's own text
+  (「…①有何反應？②此反應背後的特定標準是什麼？」), never as extra records. Each subpart ends
+  「（占N分，作答字數：…以內。）」 and each 2-point single choice 「（占2分，單選題）」. The
+  builder prints 「32.」 once with its lead-in and hangs （1）（2） under it (label x 82.1,
+  continuation 112.1, as 115); the solutions print 「第32題（1）」. A 「（1）」 at the start of a
+  prompt is read as the subpart label too.
+- Printed form (115 measured): 題組 label 「6-8為題組。閱讀下文，回答6-8題。」 on one plain
+  line; reading material in 標楷體 indented 18 pt with each paragraph's first line 24 pt further
+  and 「甲、」 paragraphs hanging; a single item's material prints after its stem, then the
+  options (Q27); two-column options tab at x 303 (221 pt). The renderer does all of this.
+- Measured item-writing floors: stems end with 「：」, never 「？」; ①② are U+2460…, never ➀➁;
+  「」 is the first quotation level and 『』 only inside it; a source line is 「改寫自 作者
+  〈篇名〉」 or the classical source, never a note about the setter (命題者、假設情境、節寫);
+  the key of at most eight single-choice items is the strictly longest option (111: 2 of 25,
+  115: 5 of 24; a hosted paper had 19 of 23); written items are marked 2/0 or 4/2/0, never
+  in 1-point steps; no 39-ideograph stretch may repeat an official 111–115 國綜 booklet
+  (`shared-data/official-passage-fingerprints.json`, hashes only; a hosted paper reprinted
+  114's 〈晚遊六橋待月記〉 passage at 30–31). The reviewed mean 答對率 (`estimated_p` on every
+  difficulty row) must not exceed 0.62: official papers average 0.48–0.58 and the two hosted
+  116 papers were estimated at 0.70 and 0.80.
+
 Measured 113–115 distribution of the 24 single-choice items: 白話說明文閱讀 9–15,
 文言閱讀 0–5, 白話文學閱讀 0–3, 跨文本比較 1–2, 圖表或非連續文本 0–3, 古典韻文 0–2,
 plus the fixed 字音, 字形 and one or two language-knowledge items. Of the seven

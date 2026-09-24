@@ -30,7 +30,9 @@ VERSIONED_REFS with unchanged file bytes. The references, schemas, layout
 templates and exam-pack data travel inside two `resources/bundles/*.json`
 members (the uploader allows at most 200 files); the reader expands them and
 verifies every restored file against its own manifest digest, so VERSIONED_REFS
-holds ordinary files and no helper or reading step ever opens a bundle. Run subsequent helpers from
+holds ordinary files and no helper or reading step ever opens a bundle. The directory carries every
+subject's fixed template components, so a preflight for any subject finds them offline; a
+download is only the fallback of the knowledge-file route. Run subsequent helpers from
 VERSIONED_REFS, not the installed ZIP directory. This one local copy is scoped to
 the selected subject; it requires no aggregate Markdown, reinstallation or
 repository download. Reuse that reference directory on continuation. Its result
@@ -321,6 +323,16 @@ answers reviewer re-derives each key from the proof crop alone. A condition the 
 needs (AC = CV, 「B 高於 A」, a scale) must be printed in the text; the cover says every
 figure is a 示意圖, so a key that depends on reading a drawn length or position fails
 (two hosted 數B papers carried such items through two builds).
+
+Never record a pass for an image you did not see. When the platform stops displaying images
+(a per-turn or per-conversation limit), record those crops `pending` and open them in a later
+batch; a hosted 國綜 run wrote passes for early proof crops that had not loaded. Text-only
+items, including 題組 items whose only print is long material, need no crop proof: their
+pages are reviewed as pages. Settle pagination with `plan` before proofing a 題組 whose
+material may split, because a new split changes every crop of the group.
+
+`lock-content` runs the same subject contract as the final check and returns
+`contract_problems`: fix every one before the first build.
 
 Register the gate reports as soon as the first complete draft is reviewed, not at the
 end: only a registered review keeps its rows when a later correction runs

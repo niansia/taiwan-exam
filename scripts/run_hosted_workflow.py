@@ -24,6 +24,7 @@ from hosted_run_timing import PHASES, transition
 from hosted_body_templates import guarded_render as render
 from hosted_item_layout import crop_bytes, geometry_errors
 from compose_hosted_pdf import compact_fonts, compose
+from hosted_subject_gates import subject_gate_errors
 from hosted_evidence_refresh import AUTHOR_ONLY_QUESTION_FIELDS, AUTHOR_ONLY_ANSWER_FIELDS
 from prepare_hosted_review import (prepare, item_hashes, annotate_parts, projected, REVIEW_BATCH_IMAGES,
                                    refresh_review_hashes, canonical_sha, crop_keys, pending_note,
@@ -265,6 +266,9 @@ def content_lock(state_path, *, reason=None):
     state_path = Path(state_path).resolve()
     root, state = state_path.parent, read(state_path)
     identity = content_identity(root, state)
+    # The subject contract the final check applies, before the first booklet exists: a
+    # hosted 國綜 run learned from its whole-paper source check only after two builds.
+    problems = subject_gate_errors(read(inside(root, root / state['exam']['path'])), root=root)
     path = root / 'content-lock.json'
     previous = read(path) if path.exists() else None
     if previous and previous['identity'] != identity and not (reason or '').strip():
@@ -272,7 +276,12 @@ def content_lock(state_path, *, reason=None):
     if not previous or previous['identity'] != identity:
         save(path, {'identity': identity, 'reason': reason or 'Content frozen before complete booklet layout',
                     'previous': previous, 'scope': 'Change control only; never editorial approval'})
-    return {'status': 'content-locked', 'path': str(path), 'identity': identity}
+    result = {'status': 'content-locked', 'path': str(path), 'identity': identity}
+    if problems:
+        result.update(contract_problems=problems,
+                      contract_note=('The final check rejects every one of these. Fix them now, re-solve what changed '
+                                     'and lock again, before building: a booklet built on them is discarded.'))
+    return result
 
 
 def check_content_lock(root, state):
@@ -735,6 +744,8 @@ def text_issues(value):
     if invisible:
         issues.append('contains ' + ', '.join(sorted({f'U+{ord(c):04X}' for c in invisible})) +
                       ': MuPDF prints word joiners, BOMs and zero-width spaces as visible gaps; delete them')
+    if re.search('[❶-➓]', raw):
+        issues.append('➀➁-style dingbat circles print in a fallback face; write ①② (U+2460…) as the booklets do')
     if FULL_WIDTH_SPACE_INSIDE.search(raw):
         issues.append('a full-width space (U+3000) inside prose is stretched by justification into a wide gap '
                       'and breaks lines inside the number column; use punctuation or a plain space')
@@ -968,6 +979,18 @@ def english_segment(owner, segment, members, where, layout):
 
 
 HYPHEN_GROUP_SUBJECTS = {'數學A', '數學B', '自然'}
+SUBPART_PREFIX = re.compile(r'\s*([（(][1-9][)）])\s*')
+
+
+def subpart_of(q):
+    """(label, prompt) of a written subpart: subpart_label, or a leading （1） in its prompt."""
+    prompt = str(q.get('prompt') or '')
+    if q.get('subpart_label'):
+        return str(q['subpart_label']), prompt
+    match = SUBPART_PREFIX.match(prompt)
+    if match and q.get('type') not in {'single_choice', 'multiple_choice'}:
+        return '（' + match.group(1)[1:-1] + '）', prompt[match.end():]
+    return None
 # Shared material that points at its own table or figure (「下表為…」); the figure then
 # belongs to the material, not to the group's first question.
 MATERIAL_VISUAL = re.compile(r'下表|下圖|附表|附圖|如表|如圖|右表|右圖|左表|左圖')
@@ -1007,6 +1030,7 @@ def project_specs(exam, hints, body_width):
     suppressed = []
     shown = set()
     current_section = None
+    item_material = {}
 
     def add(block):
         blocks.append(block)
@@ -1050,6 +1074,8 @@ def project_specs(exam, hints, body_width):
         if kind == 'fill' and '{{answer}}' not in prompt:
             prompt = prompt.replace('______', '{{answer}}', 1) if '______' in prompt else prompt + '{{answer}}'
         block = {'kind': kind, 'id': q['id'], 'text': printed(prompt, where + ' prompt', english=english, gaps=english)}
+        if q['id'] in item_material:
+            block['material'] = item_material[q['id']]
         if type(number) is int:
             block['number'] = number
         title = str((sections.get(q.get('section_id')) or {}).get('title') or '')
@@ -1063,6 +1089,17 @@ def project_specs(exam, hints, body_width):
             elif q.get('type') == 'short_answer' and '混合' in title:
                 block['answer_line'] = True  # 簡答 50 (113-115) prints one ruled answer line
         label = hint.get('label', q.get('number_display', None if type(number) is int else q.get('answer_label')))
+        subpart = subpart_of(q)
+        if subpart:
+            # 111-115 print a written item once: 「32. …請回答下列問題：」 and its （1）（2）
+            # beneath, each ending with its own （占N分，作答字數：…）; ①② stay inline in a
+            # subpart's text. Hosted papers printed 「32.（1）」「（2）①」「（2）②」 as separate items.
+            block['subpart'] = printed(subpart[0], where + ' subpart label')
+            block['text'] = printed(subpart[1], where + ' prompt', english=english)
+            if type(number) is int and number in number_owner:
+                label = ''
+            elif q.get('number_stem'):
+                block['lead'] = printed(q['number_stem'], where + ' number stem')
         if label is not None:
             block['label'] = printed(label, where + ' label') if str(label).strip() else ''
         if kind in {'choice', 'multiple'}:
@@ -1156,11 +1193,19 @@ def project_specs(exam, hints, body_width):
                     everyone[-1].get('number') is not None and everyone[0]['number'] != everyone[-1]['number']):
                 # 數學 and 自然 print the underlined 「18-20 題為題組」 (111-115 measured);
                 # 英文 prints 「第 11 至 15 題為題組」.
-                label = (f'{everyone[0]["number"]}-{everyone[-1]["number"]} 題為題組' if subject in HYPHEN_GROUP_SUBJECTS
-                         else f'第 {everyone[0]["number"]} 至 {everyone[-1]["number"]} 題為題組')
+                first, last = everyone[0]["number"], everyone[-1]["number"]
+                label = (f'{first}-{last} 題為題組' if subject in HYPHEN_GROUP_SUBJECTS
+                         # 國綜 111-115: 「6-8為題組。閱讀下文，回答6-8題。」 on one plain line.
+                         else f'{first}-{last}為題組。閱讀下文，回答{first}-{last}題。' if subject == '國綜'
+                         else f'第 {first} 至 {last} 題為題組')
             splits = q.get('group_stimulus_page_splits') or {}
             segments = ([(int(page), text_) for page, text_ in sorted(splits.items(), key=lambda item: int(item[0]))]
                         if splits else [(None, group)])
+            # A single 國綜 item's material prints after its stem, indented in 楷體, then the
+            # options (115 Q27); hosted papers printed it above the item number at the margin.
+            single_material = (subject == '國綜' and len(everyone) == 1 and not splits and 'group_blocks' not in hint)
+            if single_material:
+                item_material[q['id']] = printed(group, f'group of {q["id"]} stimulus')
             placed = set()
             if 'group_blocks' in hint:
                 for block in hint['group_blocks']:
@@ -1173,9 +1218,12 @@ def project_specs(exam, hints, body_width):
                         segment_blocks, rows = english_segment(q['id'], segment, members, where,
                                                                q.get('stimulus_layout') or 'prose')
                         emitted |= rows
+                    elif single_material:
+                        segment_blocks = []  # printed inside its item, after the stem (國綜 3, 27)
                     else:
                         text_ = printed(segment, where + ' stimulus')
-                        segment_blocks = [{'kind': 'stimulus', 'id': q['id'], 'text': text_}]
+                        segment_blocks = [{'kind': 'stimulus', 'id': q['id'], 'text': text_,
+                                           **({'material': True} if subject == '國綜' else {})}]
                     for block in segment_blocks:
                         if block['kind'] in {'passage', 'stimulus'}:
                             carriers.append(block)
@@ -1186,6 +1234,8 @@ def project_specs(exam, hints, body_width):
                         segment_blocks[0]['group_label'] = printed(label, where + ' label')
                         if english or subject in HYPHEN_GROUP_SUBJECTS:
                             segment_blocks[0]['group_label_style'] = 'underline'
+                        elif subject == '國綜':
+                            segment_blocks[0]['group_label_style'] = 'plain'
                     last_text = next((b for b in reversed(segment_blocks) if b['kind'] in {'passage', 'stimulus'}), None)
                     if last_text is not None and hint.get('group_keep_with_next', True) and last_text is segment_blocks[-1]:
                         last_text['keep_with_next'] = True
@@ -1261,6 +1311,8 @@ def project_specs(exam, hints, body_width):
         if type(number) is int:
             solution['number'] = number
         label = hint.get('solution_label') or q.get('answer_label') or (None if type(number) is int else q.get('number_display'))
+        if not label and subpart_of(q) and type(number) is int:
+            label = f'第{number}題{subpart_of(q)[0]}'
         if label:
             solution['label'] = printed(label, where + ' label')
         if len(steps) >= 4 or sum(plain_length(step) for step in steps) >= 2 * SPLIT_MIN_CHARACTERS:

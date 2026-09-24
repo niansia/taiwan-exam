@@ -33,7 +33,11 @@ def test_single_context_supported_for_all_subjects_with_honest_packet(subject):
     exam = {'metadata': {'subject': subject}, 'questions': [{'id': '1', 'prompt': 'Synthetic task',
             'item_spec': {'difficulty': 'author label'}}],
             'answers': [{'question_id': '1', 'final_answer': 8, 'reasoning': ['Saved route']}]}
-    assert review_errors(exam, review([row()])) == []
+    r = review([row()])
+    if subject == '國綜':
+        assert any('easier than any official' in e for e in review_errors(exam, r))
+        r['items'][0]['estimated_p'] = 0.55  # inside the official 0.48-0.58 range
+    assert review_errors(exam, r) == []
     stripped = packet(exam, 'single-context')
     assert 'answers' not in stripped and 'item_spec' not in stripped['questions'][0]
     assert packet(exam)['answers'][0]['final_answer'] == 8  # Legacy packet unchanged.

@@ -93,9 +93,9 @@ def pending_note():
     return {'status': 'pending', 'observations': ''}
 
 
-def mark_page_reviewed_parts(parts, exam):
+def mark_page_reviewed_parts(parts, exam, role=None):
     """Text-only crops are read on their page; the decision comes from the exam."""
-    required = crop_required_ids(exam)
+    required = crop_required_ids(exam, role)
     count = 0
     for part in parts:
         if part.get('item_sha256') and part_reviewed_on_page(part, required):
@@ -364,7 +364,7 @@ def prepare(state_path, pairs, output, *, render_identity=None):
             scan=audit(pdf,output/role/'pages',math=subject in {'數學A','數學B'},subject=subject,solutions=role=='solution')
             relative_rasters(items['parts']);relative_rasters(scan['pages'])
             annotate_parts(items['parts'],hashes[role])
-            page_read[role]=mark_page_reviewed_parts(items['parts'],exam)
+            page_read[role]=mark_page_reviewed_parts(items['parts'],exam,role)
             items.update(role=role,render_identity=render_identity,source=record(pdf),paper_print_sha256=paper_hash)
             by_page={}
             for part in items['parts']:by_page.setdefault(part['page'],[]).append(part)

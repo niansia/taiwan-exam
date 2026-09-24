@@ -10,6 +10,7 @@ REVIEW_MODES = ('independent-context', 'single-context')
 # decision 2026-09-24): 難 below 0.30 and 中偏難 below 0.50, the cutoffs at which the
 # official 115 數學B scores exactly 70 and 30 points, the project's floors. Without them
 # hosted reviewers placed the same item on either side of 0.50 in successive rounds.
+CHINESE_MEAN_P_MAX = 0.62
 MATH_P_BANDS = ((0.30, 'very_hard'), (0.50, 'hard'), (0.70, 'medium'), (0.85, 'easy'), (1.01, 'very_easy'))
 
 
@@ -110,6 +111,15 @@ def review_errors(exam, review):
         if estimated in bands and row.get('difficulty_band') in bands:
             if bands.index(estimated) - bands.index(row['difficulty_band']) >= 2:
                 errors.append(f'{prefix}: author difficulty exceeds reviewed estimate by two bands')
+    if exam.get('metadata', {}).get('subject') == '國綜':
+        # Official 國綜 papers average 0.48-0.58 (111-115); two hosted 116 papers were
+        # estimated at 0.70 and 0.80, with keys that were usually the longest option.
+        estimates = [rows.get(q['id'], {}).get('estimated_p') for q in exam['questions']]
+        if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
+            errors.append('difficulty: record estimated_p (the predicted 答對率, 0-1) for every 國綜 item')
+        elif estimates and sum(estimates) / len(estimates) > CHINESE_MEAN_P_MAX:
+            errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} is easier than any official '
+                          f'國綜 paper (111-115: 0.48-0.58; ceiling {CHINESE_MEAN_P_MAX})')
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
                             if type(r.get('expected_minutes')) in (int,float))

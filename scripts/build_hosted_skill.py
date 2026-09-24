@@ -22,7 +22,7 @@ from read_web_knowledge import LAYOUT_PREVIEWS, LAYOUT_SLUGS
 from validate_attribution import validate as validate_attribution
 
 # Published placeholder previews of each subject's question and solution layout.
-PREVIEW_VERSION = '2026.09.22.21'
+PREVIEW_VERSION = '2026.09.22.22'
 # Fetched (never versioned) PyMuPDF wheels; see vendor/wheels/README.md. The
 # release ships the wheel as a separate GitHub asset so the ZIP stays small;
 # bundling into the ZIP is opt-in (--bundle-wheels).
