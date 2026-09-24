@@ -982,7 +982,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         # A short remainder is left blank rather than stranding one line.
         if available<body.height*.12:
             return None
-        for count in range(len(units)-1,0,-1):
+        # `split_keep_tail`: the last n units never part (國寫 問題（一） stays with 問題（二）).
+        last=len(units)-max(1,int(block.get('split_keep_tail') or 1))
+        for count in range(last,0,-1):
             first=_chunk(block,key,units[:count],True,False)
             if prepare(first)[2]<=available:
                 return [first,_chunk(block,key,units[count:],False,True)]
