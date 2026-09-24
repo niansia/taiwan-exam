@@ -17,7 +17,7 @@
 - **七科模板取得**（維護者轉來的分析）：實測 2026.09.22.21 ZIP，七科的固定模板（封面、奇偶頁、數學公式頁共 23 份）都已內建，在斷網環境下七科預檢都顯示「bundled-with-skill」。「只有數B內建」的判斷來自工作目錄：讀取器原本只把當次科目的模板複製到參考目錄，模型若沿用數B的目錄去跑其他科，就找不到模板而改從 GitHub 下載，網路被擋（403）時就失敗。現在參考目錄一律帶齊七科模板（約 2.5 MB）；真的走到下載時，重試改為兩次、逾時放寬到 15 秒、整體 60 秒，遇到 403 不再白等，失敗訊息直接說明「網路擋下載、ZIP 已內建模板、或附上模板資源 PDF」。
 - 七科版型範例以本版重出（2026.09.22.22），ZIP 內建版型同步更新。
 
-新 ZIP（SHA-256 `a6ea446623469942915f150aa9977f333ef20f0468b5132851bc249a181ecb23`，8,564,105 位元組，98 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；Chrome 下載與 Claude、ChatGPT 上傳待維護者確認。[下載 2026.09.22.22 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.22/taiwan-exam-hosted-2026.09.22.22.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.22) 頁面。已安裝的舊 Skill 請重新下載替換。
+新 ZIP（SHA-256 `a6ea446623469942915f150aa9977f333ef20f0468b5132851bc249a181ecb23`，8,564,105 位元組，98 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.22 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.22/taiwan-exam-hosted-2026.09.22.22.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.22) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.21：數學題本、參考公式頁、封面與難度切點依官方 111～115
 
