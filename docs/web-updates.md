@@ -16,7 +16,7 @@
 - 新增兩個測試重現這份卷的實際版面（舊程式失敗、新程式通過）。README 第 3 步加上「指定題材入題」的寫法（例如中秋節、最近的颱風、某則新聞）。
 - 七科版型範例以本版重出（2026.09.22.25）。
 
-新 ZIP（SHA-256 `cac5344f4f57c3efe279891b0cee6731b4ac7f6958db819b308b2c091df74e3a`，8,660,975 位元組，101 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；等待維護者在 Chrome 下載並於 Claude 與 ChatGPT 上傳確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。
+新 ZIP（SHA-256 `cac5344f4f57c3efe279891b0cee6731b4ac7f6958db819b308b2c091df74e3a`，8,660,975 位元組，101 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 
