@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 88296,
-    "sha256": "29118787466f5ad10752034030539a08c8998e540e50260364e6be4646ba3871",
-    "embedded_bytes": 88296,
-    "embedded_sha256": "29118787466f5ad10752034030539a08c8998e540e50260364e6be4646ba3871"
+    "bytes": 88527,
+    "sha256": "f6a7d83cb444306f47313ab83859f984bf4a1fa2028618feb825a127ed6d8158",
+    "embedded_bytes": 88527,
+    "embedded_sha256": "f6a7d83cb444306f47313ab83859f984bf4a1fa2028618feb825a127ed6d8158"
   },
   {
     "path": "core/taxonomy.json",
@@ -953,10 +953,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 71608,
-    "sha256": "0bcc8e58a64a05fc7672bf147324d74208b5f167c45e61d336f90f6060ca0599",
-    "embedded_bytes": 71608,
-    "embedded_sha256": "0bcc8e58a64a05fc7672bf147324d74208b5f167c45e61d336f90f6060ca0599"
+    "bytes": 72106,
+    "sha256": "25b2292bad6a2ce21b3fb53d9d3d576e151b11fce98c96a023e3301308b2d79a",
+    "embedded_bytes": 72106,
+    "embedded_sha256": "25b2292bad6a2ce21b3fb53d9d3d576e151b11fce98c96a023e3301308b2d79a"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -1740,7 +1740,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
    For 國綜 and 自然, validate every item against the controlling CEEC examination specification at the learning-performance/content-code level. The natural-science paper must visibly balance physics, chemistry, biology, earth science, and inquiry/practice across both major parts; naming a discipline in metadata is not a scope audit. Run `scripts/validate_chinese_natural_scope.py generated-exam.json --report output/scope-report.json`, then run `scripts/validate_source_grounding.py` with the frozen source registry and passing novelty report before rendering. A made-up, misspelled, or wrong-subject curriculum code is release-blocking even when the prose seems on topic.
    For source-bearing items, verify that printed facts agree with the frozen source snapshot, invented values are explicitly labelled as simplified or simulated, URLs and dates remain in the audit registry rather than cluttering the formal paper, and removing the source-derived relation changes the solution. For 國寫, verify that each supplied passage has a distinct rhetorical job, every material paragraph has a `material_source_map`, every printed case comes from an identified source, and no source record has invented modelling values. The second task must include an authored Chinese literary source, or a traceable published Chinese translation, suitable for affective expression rather than defaulting to institutional explainers or newly found English-language web essays. On the student page, source attribution stays in full-width parentheses at the end of the material paragraph; it is not a separate source block. Do not title the supplied passages `材料一：` or `材料二：`; use the official-style `甲`/`乙` markers only when multiple texts need labels. Run `scripts/validate_writing_source_grounding.py` and treat any failure as release-blocking.
    For 國綜、國寫、英文、社會 and 自然, run `scripts/validate_literacy_load.py generated-exam.json --subject <科目> --report output/literacy-load.json` on the authored exam **before** layout. It rejects a paper that prints materially less than an official booklet, that carries too few shared-stimulus 題組, whose group stimuli are too short, or whose 自然 mixed groups never leave one discipline. Repair a failure by restoring genuine source material and complete item blocks; never by enlarging type, inflating figures, widening answer space or appending filler. A structural pass is not an editorial pass.
-   For mathematics, run `scripts/validate_math_difficulty_design.py` and reject any item whose planned difficulty collapses to direct substitution, one familiar formula, one routine linear-system solve, or repeated execution of the same operation. Treat model-estimated discrimination only as a design label until representative pilot data exist. Then validate explicit `option_layout` per item (`row-5`, `row-4`, `grid-3-2`, `grid-2`, or `stack`). Never infer the printed arrangement only from character count. Validate the rendered option baselines and inter-option whitespace against recent reference pages.
+   For mathematics, run `scripts/validate_math_difficulty_design.py` and reject any item whose planned difficulty collapses to direct substitution, one familiar formula, one routine linear-system solve, or repeated execution of the same operation. Treat model-estimated discrimination only as a design label until representative pilot data exist. Then validate explicit `option_layout` per item (`row-5`, `row-4`, `grid-3-2`, `grid-2`, or `stack`). Mathematics 111-115 print options five abreast or one per line; the renderer prints 數學A/B options that overrun the chosen tab one per line rather than wrapping them inside a cell, so choose `stack` for sentence-length options. Never infer the printed arrangement only from character count. Validate the rendered option baselines and inter-option whitespace against recent reference pages.
    Every mathematics fill-in item must declare a machine-marking `answer_format`: integer/decimal/fraction/sign form, exact numerator and denominator slot counts, and the sequential answer-row ids printed in the booklet. The renderer must show the same circle/rail/fraction geometry that the student will mark; a generic blank line is a hard failure.
    A current mathematics paper must also meet its learned answer-bearing visual quota across more than one section. Until item-level 111–115 visual annotation is complete, the internal review floor is four required visuals or structured graphical representations across at least three sections, including at least one item before the mixed-response section. Decorative pictures do not count.
    The same stability requirement applies to full current Mathematics B, Natural Science, Social Studies, and English papers; it is not a Mathematics A-only feature. Until each subject/year has complete item-level annotation, use these conservative internal release floors: Mathematics A/B `4 visuals / 3 sections / 2 kinds`; Natural Science `16 / 2 / 4`, spanning physics, chemistry, biology, and earth science, including at least **1 traceable real photograph or observation image** (official 111–115 print 16–28 labelled figures a year, almost all drawn graphs, apparatus and tables, and 0–2 photographs), every figure and table captioned 「圖N／表N」 and cited in its stem; Social Studies `10 / 2 / 4`, spanning history, geography, and civics, including at least **2 traceable real photographs or archival images** and **18 items that cite a 圖／表／照片** (official 111–115: 2–4 photographs or archival images and 7–13 charts, maps and tables a year, 18–45 figure-citing items); English `3 / 2 / 2`, including at least **1 traceable real photograph** and the noncontinuous mixed material or selected composition form. The photo numbers are lower bounds only: Natural Science and Social Studies have **no photo-count upper bound**. Do not stop at two merely because the validator floor has passed; retain every additional sourced photo that introduces a distinct, answer-bearing observation and improves section, source-family, or discipline spread without harming rights safety, grayscale survival, page density, or solving time. Equally, never add a decorative image merely to increase the count. Generated photorealism, screenshots, decorative pictures, and photographs whose decisive evidence disappears in grayscale do not satisfy these real-image floors. These are product floors, not claimed CEEC frequencies. A selected annotated profile may raise the minimum, never silently lower it or impose an arbitrary maximum.
@@ -71292,11 +71292,12 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
         # 國綜 booklet wrapped every option at 40% of the page. Options print as a
         # sibling block: paragraphs for one column, a top-level table otherwise.
         rows=[f'<span class="latin">{html.escape(str(o["label"]))}\u00a0</span>{text(o["text"])}' for o in options]
+        wrap='english' if block.get('language')=='en' else ''
+        if columns>1:
+            columns=english_columns(rows,columns,archive,wrap,width)
         if columns==1:
             option_block='<div class="optionlist">'+''.join(f'<p>{row}</p>' for row in rows)+'</div>'
         else:
-            wrap='english' if block.get('language')=='en' else ''
-            columns=english_columns(rows,columns,archive,wrap,width)
             alt=(width-number_pitch())/columns
             cells=[padded_cell(row,option_pitch(columns) if columns>2 or _subject!='英文' else alt,alt=alt,wrap=wrap,
                                mode='last' if (j+1)%columns==0 or j==len(rows)-1 else '') for j,row in enumerate(rows)]
@@ -71358,10 +71359,16 @@ HINT_LABEL = re.compile(r'^((?:<span class="kai">)?)提示[：︰]')
 
 
 def english_columns(inners, columns, archive, wrap, width):
-    """An English row of four whose longest choice overruns its 120 pt tab breaks into two
-    columns of two, as 115 prints 17 (had yet to develop) and 20 (an intimate romantic
-    dinner) with (B) and (D) at the half-width tab."""
-    if _subject != '英文' or columns < 3 or _measure_css is None:
+    """Columns that hold every option on one line at the official tab.
+
+    英文: a row of four whose longest choice overruns its 120 pt tab breaks into two columns
+    of two, as 115 prints 17 (had yet to develop) and 20 (an intimate romantic dinner) with
+    (B) and (D) at the half-width tab. 數學A/B 111-115 print options five abreast or one per
+    line (once three and two, all short); a hosted 數A paper set 13-15-character options
+    three abreast and wrapped 「相／等」 and a fraction inside their cells, so options that
+    overrun their tab print one per line."""
+    minimum = 3 if _subject == '英文' else 2 if _subject in {'數學A', '數學B'} else None
+    if minimum is None or columns < minimum or _measure_css is None:
         return columns
     widths = [_cell_advance(inner, archive, wrap) for inner in inners]
     if any(w is None for w in widths):
@@ -71370,7 +71377,7 @@ def english_columns(inners, columns, archive, wrap, width):
     last = width - number_pitch() - (columns - 1) * pitch  # the right column ends at the margin
     if all(w <= (last if (j + 1) % columns == 0 else pitch) for j, w in enumerate(widths)):
         return columns
-    return 2
+    return 2 if _subject == '英文' else 1
 
 
 def bank_entry(option):
