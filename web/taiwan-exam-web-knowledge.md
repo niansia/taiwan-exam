@@ -953,10 +953,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 71067,
-    "sha256": "44c1068eafbe88257cd859cb926d29befe2595b9a10a936cf2be8e9a95238e72",
-    "embedded_bytes": 71067,
-    "embedded_sha256": "44c1068eafbe88257cd859cb926d29befe2595b9a10a936cf2be8e9a95238e72"
+    "bytes": 71239,
+    "sha256": "655a08bdc69555bb3049b62b2567f0b1bef5a894cce01e7b185f586efe8c593f",
+    "embedded_bytes": 71239,
+    "embedded_sha256": "655a08bdc69555bb3049b62b2567f0b1bef5a894cce01e7b185f586efe8c593f"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -1072,10 +1072,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 106688,
-    "sha256": "a854cea691aa3edeb7ab31df42f14940e78a9c230e95ea102bc10c4f17f4ec9c",
-    "embedded_bytes": 106688,
-    "embedded_sha256": "a854cea691aa3edeb7ab31df42f14940e78a9c230e95ea102bc10c4f17f4ec9c"
+    "bytes": 108300,
+    "sha256": "0ebb24f1867fe5a04e23d03f0e617b47374366ea7e95f7a8e87d9a578a1102f0",
+    "embedded_bytes": 108300,
+    "embedded_sha256": "0ebb24f1867fe5a04e23d03f0e617b47374366ea7e95f7a8e87d9a578a1102f0"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -71496,7 +71496,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         # A short remainder is left blank rather than stranding one line.
         if available<body.height*.12:
             return None
-        for count in range(len(units)-1,0,-1):
+        # `split_keep_tail`: the last n units never part (國寫 問題（一） stays with 問題（二）).
+        last=len(units)-max(1,int(block.get('split_keep_tail') or 1))
+        for count in range(last,0,-1):
             first=_chunk(block,key,units[:count],True,False)
             if prepare(first)[2]<=available:
                 return [first,_chunk(block,key,units[count:],False,True)]
@@ -77060,6 +77062,10 @@ def plain_length(value):
     return len(re.sub(r'<[^>]+>', '', raw))
 
 
+# The renderer's paragraph units (hosted_body_templates.PARAGRAPH_BREAK).
+PARAGRAPH_BREAK = re.compile(r'\n\s*\n|(?:<br>\s*){2,}')
+
+
 def paragraphs_of(value):
     return [part for part in re.split(r'\n\s*\n', value) if part.strip()]
 
@@ -77247,6 +77253,14 @@ def project_specs(exam, hints, body_width):
     shown = set()
     current_section = None
     item_material = {}
+    # 國寫: the questions of one 大題 (問題（一）、問題（二）) print on one page, as 111-115 do; a
+    # hosted W116A booklet left 問題（一） at the foot of page 2 and 問題（二） on page 3. Only a
+    # 大題 with a single task (the 第二大題 essay) may run on to the next page.
+    writing_siblings = {}
+    if subject == '國寫':
+        for question in questions:
+            if question.get('type') in {'constructed_response', 'guided_writing'} and question.get('number') is not None:
+                writing_siblings.setdefault(str(question['number']), []).append(question['id'])
 
     def add(block):
         blocks.append(block)
@@ -77347,12 +77361,25 @@ def project_specs(exam, hints, body_width):
         if split is None:
             split = (q.get('allow_page_split') or (kind == 'constructed' and len(paragraphs_of(prompt)) > 1 and
                                                    plain_length(block['text']) >= SPLIT_MIN_CHARACTERS))
+        siblings = writing_siblings.get(str(q.get('number')), [])
+        keep_tail = 0
+        if len(siblings) > 1:
+            # The reading material before 「請分項回答下列問題：」 may continue on the next page;
+            # from that line on, the questions stay together with the next 問題.
+            raw = block['text']['rich'] if isinstance(block['text'], dict) else str(block['text'])
+            pieces = [p for p in PARAGRAPH_BREAK.split(raw) if p.strip()]
+            start = next((n for n, p in enumerate(pieces)
+                          if re.match(r'\s*(?:<[^>]+>\s*)*(?:請.{0,14}問題[：:]|問題[（(])', p)), 0)
+            keep_tail = len(pieces) - start
+            split = split and start > 0
         if split and kind in {'choice', 'multiple', 'constructed'}:
             block['split'] = 'paragraphs'
+            if keep_tail:
+                block['split_keep_tail'] = keep_tail
         table = q.get('response_format_table')
         if isinstance(table, dict) and table.get('rows'):
             block['keep_with_next'] = True
-        elif hint.get('keep_with_next'):
+        elif hint.get('keep_with_next') or (len(siblings) > 1 and q['id'] != siblings[-1]):
             block['keep_with_next'] = True
         add(block)
         if isinstance(table, dict) and table.get('rows'):

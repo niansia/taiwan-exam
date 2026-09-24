@@ -15,8 +15,9 @@
 - 國寫版型範例改成官方寫法（說明框以「說明：」開頭、題目以「問題（一）：」開頭、配分寫在句末），原本的占位寫法會讓題目印成楷體、分數印兩次。
 - 新增兩個測試重現這份卷的實際版面（舊程式失敗、新程式通過）。README 第 3 步加上「指定題材入題」的寫法（例如中秋節、最近的颱風、某則新聞）。
 - 七科版型範例以本版重出（2026.09.22.25）。
+- **9 月 24 日替換 ZIP（版本號不變）**：維護者回報一份 W116A 國寫卷，第一大題的「問題（一）」印在第 2 頁頁底，「問題（二）」被推到第 3 頁。官方 111～115 第一大題的兩個問題都在同一頁。現在第一大題從「請分項回答下列問題：」（或第一個「問題（…）」）起，到最後一個問題都不會分頁；前面的閱讀材料太長時仍可接到下一頁，只有第二大題（單一寫作任務）可以跨頁。新增測試用會觸發舊錯誤的材料長度重現（舊程式失敗、新程式通過，PyMuPDF 1.26 亦同）。版型範例的第一大題本來就在同一頁，不受影響。
 
-新 ZIP（SHA-256 `cac5344f4f57c3efe279891b0cee6731b4ac7f6958db819b308b2c091df74e3a`，8,660,975 位元組，101 個檔案）與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
+目前的 ZIP 是 9 月 24 日替換後的版本（SHA-256 `abd409e726c9b3d1a2a48786b41eac3236f842437801920a892efa3a8f017b30`，8,661,574 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查。替換前的 ZIP（`cac5344f…df74e3a`，8,660,975 位元組）已由維護者確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功；替換後的 ZIP 待維護者重新確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 
