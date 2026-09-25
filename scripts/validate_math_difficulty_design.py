@@ -252,13 +252,16 @@ def validate(exam: dict, profile: Path | None = None) -> dict:
     if len(questions) == 20:
         if total_score != 100:
             errors.append(f"paper: expected 100 points, found {total_score:g}")
-        if medium_high_score < 75:
+        from hosted_blind_review import difficulty_request
+        request, _ = difficulty_request(exam.get("metadata", {}))
+        requested = request and any(type(request.get(k)) in (int, float) for k in ("hard_percent", "challenge_percent", "easy_percent"))
+        if medium_high_score < 75 and not requested:
             errors.append(f"paper: medium/high discrimination covers only {medium_high_score:g} points; require 75")
         if three_decision_score < 50:
             errors.append(f"paper: three-decision demand covers only {three_decision_score:g} points; require 50")
         from hosted_blind_review import math_minutes_error
-        if math_minutes_error(expected_minutes):
-            errors.append(math_minutes_error(expected_minutes, "paper: expected hand-solving time"))
+        if math_minutes_error(expected_minutes, request=request):
+            errors.append(math_minutes_error(expected_minutes, "paper: expected hand-solving time", request))
         for start in range(len(summaries) - 2):
             if all(row["level"] == "low" for row in summaries[start : start + 3]):
                 numbers = [row["number"] for row in summaries[start : start + 3]]

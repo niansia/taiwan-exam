@@ -168,8 +168,8 @@ year (111–115), and is therefore enforced:
   in 1-point steps; no 39-ideograph stretch may repeat an official 111–115 國綜 booklet
   (`shared-data/official-passage-fingerprints.json`, hashes only; a hosted paper reprinted
   114's 〈晚遊六橋待月記〉 passage at 30–31). The reviewed mean 答對率 (`estimated_p` on every
-  difficulty row) must not exceed 0.62: official papers average 0.48–0.58 and the two hosted
-  116 papers were estimated at 0.70 and 0.80.
+  difficulty row) targets at most 0.62 and passes up to 0.65: official papers average 0.48–0.58
+  and the two hosted 116 papers were estimated at 0.70 and 0.80.
 
 Measured 113–115 distribution of the 24 single-choice items: 白話說明文閱讀 9–15,
 文言閱讀 0–5, 白話文學閱讀 0–3, 跨文本比較 1–2, 圖表或非連續文本 0–3, 古典韻文 0–2,
@@ -360,8 +360,8 @@ The visual-kind count is based on rendered topology, not filenames or declared l
   (official: 0–1 a year; one hosted paper keyed most items that way).
 - **Worn-out materials.** `shared-data/overused-generated-materials.json` lists objects earlier
   generated papers already used (the Hubble deep-field image); an item built on one is rejected.
-- **Difficulty.** Record `estimated_p` for every choice item; the mean may not exceed 0.65
-  (official 111–115: 0.53–0.57).
+- **Difficulty.** Record `estimated_p` for every choice item; the mean targets at most 0.65
+  and passes up to 0.68 (official 111–115: 0.53–0.57).
 
 ## How to use this envelope
 

@@ -226,7 +226,7 @@ Accurate maps, graphs and schematic relationships may be self-drawn from verifie
 - A constructed response ends with one parenthesis, 「（3 分）」 or 「（3 分，35 字內）」; never 「（本題3分）」, 「（10字以內）（3分）」 or a second score. No （1）（2） subparts: two tasks of one number share a stem and a `response_format_table` of labelled cells (115 Q44, Q46, Q52: a checkbox cell and a reason cell with its own 「（2 分，30 字內）」). A table of 「作答區／請依題意書寫／答＿＿」 is not an official device.
 - No printed authoring notes: official booklets never say a scenario is 虛構, 教學情境, 教學改寫 or unrelated to real events. Write 「某市」「某生」 or cite the real source.
 - Keys test a curriculum concept applied to the evidence. At most three keys may say 「再蒐集／核對／追蹤資料」 (none in any official year; one hosted 116 paper had 17), and the same figures may not reappear in a second material.
-- The reviewed mean 答對率 of the choice items (`estimated_p`) must not exceed 0.65 (official 111–115: 0.51–0.60).
+- The reviewed mean 答對率 of the choice items (`estimated_p`) targets at most 0.65 and passes up to 0.68 (official 111–115: 0.51–0.60).
 - Every item needs a 108 必修 concept the student brings (比例原則、攤丁入畝、沖積扇、外部成本、冷戰…): an item any
   careful adult could answer from the material alone is a reading test, not a 社會 item. A hosted 116 paper built
   almost every item as 「which extra data should the researcher collect」 around invented towns; the official

@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 88955,
-    "sha256": "afabbda1ad3f3b77639a11127d2ac97f5e822729d25e7c9abd76ba25b687deae",
-    "embedded_bytes": 88955,
-    "embedded_sha256": "afabbda1ad3f3b77639a11127d2ac97f5e822729d25e7c9abd76ba25b687deae"
+    "bytes": 90096,
+    "sha256": "63dde1c996f7bf71980c232aa673cbe14f642400bafb0b6dce7548cd78497223",
+    "embedded_bytes": 90096,
+    "embedded_sha256": "63dde1c996f7bf71980c232aa673cbe14f642400bafb0b6dce7548cd78497223"
   },
   {
     "path": "core/taxonomy.json",
@@ -533,10 +533,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-chinese-natural-form.md",
-    "bytes": 46847,
-    "sha256": "7d1d929e06727f119a2325afcc46ae6cc7b53c587b6f4df417eb582fb97ef94d",
-    "embedded_bytes": 46462,
-    "embedded_sha256": "774e939d5718154219cc864d5f66aa9bbafc97367722a467f6f5b12799992b4d"
+    "bytes": 46892,
+    "sha256": "92ae3ccfba43453acf689cbe6a3652828cab9365ce342353b9c83d2cb162cc71",
+    "embedded_bytes": 46507,
+    "embedded_sha256": "4510973f5855c168036d601f0dd070ae9d20a5d93ec96d2efb0e3e4600770fd5"
   },
   {
     "path": "references/current-gsat-english-form.md",
@@ -561,10 +561,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-social-form.md",
-    "bytes": 38939,
-    "sha256": "08876168cc749ef92bb7b480ad9268e8626a1442a50acd039c8bdd7a778c91a5",
-    "embedded_bytes": 38939,
-    "embedded_sha256": "08876168cc749ef92bb7b480ad9268e8626a1442a50acd039c8bdd7a778c91a5"
+    "bytes": 38961,
+    "sha256": "11e0195e199a14a1081bd8825dd27cd01b860fb6bc8120ee7d3f6e96fa2752a2",
+    "embedded_bytes": 38961,
+    "embedded_sha256": "11e0195e199a14a1081bd8825dd27cd01b860fb6bc8120ee7d3f6e96fa2752a2"
   },
   {
     "path": "references/current-gsat-writing-form.md",
@@ -834,10 +834,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "schemas/exam.schema.json",
-    "bytes": 6607,
-    "sha256": "bd7607976b6b590d6629c74735341901932d0646943882acbeca7582e5cef66c",
-    "embedded_bytes": 6607,
-    "embedded_sha256": "bd7607976b6b590d6629c74735341901932d0646943882acbeca7582e5cef66c"
+    "bytes": 7042,
+    "sha256": "e92c63a45ec269c27e3016efda839ac961e5acfd491adebb6acc80e889daa3a6",
+    "embedded_bytes": 7042,
+    "embedded_sha256": "e92c63a45ec269c27e3016efda839ac961e5acfd491adebb6acc80e889daa3a6"
   },
   {
     "path": "schemas/layout-profile.schema.json",
@@ -911,10 +911,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_paper_plan.py",
-    "bytes": 13420,
-    "sha256": "2691f639ad17097547ac2801bd43984b3def60f2a0e51a00f494237189beb9b5",
-    "embedded_bytes": 13420,
-    "embedded_sha256": "2691f639ad17097547ac2801bd43984b3def60f2a0e51a00f494237189beb9b5"
+    "bytes": 13697,
+    "sha256": "9d7a2d736ccad061cabcc7f7bbb8b4790af5c04e69998d654694e59f9df1f500",
+    "embedded_bytes": 13697,
+    "embedded_sha256": "9d7a2d736ccad061cabcc7f7bbb8b4790af5c04e69998d654694e59f9df1f500"
   },
   {
     "path": "scripts/compose_hosted_pdf.py",
@@ -946,10 +946,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_blind_review.py",
-    "bytes": 15131,
-    "sha256": "66f02ac379b455da3afeb9148e41de8909a02ba1ce050af632a4111ec4fc404a",
-    "embedded_bytes": 15131,
-    "embedded_sha256": "66f02ac379b455da3afeb9148e41de8909a02ba1ce050af632a4111ec4fc404a"
+    "bytes": 19005,
+    "sha256": "9ce86a680987a666fdd40c8e6181788e0ae62549afdae143bed64e2bb4f0277d",
+    "embedded_bytes": 19005,
+    "embedded_sha256": "9ce86a680987a666fdd40c8e6181788e0ae62549afdae143bed64e2bb4f0277d"
   },
   {
     "path": "scripts/hosted_body_templates.py",
@@ -1114,10 +1114,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_english_difficulty_design.py",
-    "bytes": 12812,
-    "sha256": "6d4da0096f8c77a59527b667a5f327d696449f3dad8155ffc51fca68b85d6ec0",
-    "embedded_bytes": 12812,
-    "embedded_sha256": "6d4da0096f8c77a59527b667a5f327d696449f3dad8155ffc51fca68b85d6ec0"
+    "bytes": 13296,
+    "sha256": "cc8618b0de383cdab72301e4ca0fe364a1519577c88961a12d75d0202ad6b1ce",
+    "embedded_bytes": 13296,
+    "embedded_sha256": "cc8618b0de383cdab72301e4ca0fe364a1519577c88961a12d75d0202ad6b1ce"
   },
   {
     "path": "scripts/validate_english_layout_contract.py",
@@ -1170,10 +1170,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_math_difficulty_design.py",
-    "bytes": 19344,
-    "sha256": "c14a4f56767594ca626d3d6bce4d329286f332f177839874fdc3694fdd9fcf3a",
-    "embedded_bytes": 19344,
-    "embedded_sha256": "c14a4f56767594ca626d3d6bce4d329286f332f177839874fdc3694fdd9fcf3a"
+    "bytes": 19650,
+    "sha256": "08fa934275522bcd555c4c33abc79ca44b62698840ef5a83f0b5d1dc0eaf8908",
+    "embedded_bytes": 19650,
+    "embedded_sha256": "08fa934275522bcd555c4c33abc79ca44b62698840ef5a83f0b5d1dc0eaf8908"
   },
   {
     "path": "scripts/validate_math_layout_contract.py",
@@ -1191,10 +1191,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_paper_difficulty_balance.py",
-    "bytes": 6310,
-    "sha256": "cd561ecd9c255825d2d23f3b3862541205021ddf8187fb1b10e1e80570c81d05",
-    "embedded_bytes": 6310,
-    "embedded_sha256": "cd561ecd9c255825d2d23f3b3862541205021ddf8187fb1b10e1e80570c81d05"
+    "bytes": 6459,
+    "sha256": "d022a4b531e1116e8677adb07945a1649022084dabb7f2683b4c1dcb1db6d83c",
+    "embedded_bytes": 6459,
+    "embedded_sha256": "d022a4b531e1116e8677adb07945a1649022084dabb7f2683b4c1dcb1db6d83c"
   },
   {
     "path": "scripts/validate_reference_page_density.py",
@@ -1632,7 +1632,7 @@ ask users to disable protection, restore quarantined scripts, or add exclusions.
 3. If the user is adding or analyzing source material, read [references/data-ingestion.md](references/data-ingestion.md).
 4. For GSAT analysis or generation, read [references/gsat-subject-patterns.md](references/gsat-subject-patterns.md).
    Resolve the subject's controlling CEEC examination specification through [references/official-gsat-specifications.md](references/official-gsat-specifications.md). A third-party summary or overview image is never sufficient for detailed scope.
-5. If the user asks about difficulty, questions, or a full mock exam, read [references/difficulty-calibration.md](references/difficulty-calibration.md) and [references/generation-protocol.md](references/generation-protocol.md). For current GSAT Math A/B generation, also read [references/math-difficulty-design.md](references/math-difficulty-design.md); its anti-collapse and discrimination-design gates are release-blocking.
+5. If the user asks about difficulty, questions, or a full mock exam, read [references/difficulty-calibration.md](references/difficulty-calibration.md) and [references/generation-protocol.md](references/generation-protocol.md). For current GSAT Math A/B generation, also read [references/math-difficulty-design.md](references/math-difficulty-design.md); its anti-collapse and discrimination-design gates are release-blocking. The difficulty settings are the GSAT defaults and each gate accepts a range (數學A/B 中偏難＋難 70 and 難 30 points ±3, 80–92 minutes ±5; 國綜 mean 答對率 at most 0.62, 社會/自然 choice items at most 0.65, each +0.03; 英文 cross-sentence, reading and higher-vocabulary counts one item below 12/8/5). A paper inside the range is finished; do not run further review rounds to reach the target. **Only when the user asks for a different difficulty** (「數A 難題 40%」「自然平均答對率 0.5」), record `metadata.user_difficulty_request` = {`request`: the user's own words, and the numbers they gave: `hard_percent` (數學: 難 points of 100; 國綜/社會/自然: share of reviewed items with 答對率 < 0.30), `challenge_percent` and `easy_percent` (數學), `mean_p` (國綜/社會/自然)}. The review and plan gates then check those numbers (±3 points for 數學, ±0.03 答對率 and ±5 percentage points of 難 items otherwise) in place of the defaults. Never add the record, or lower difficulty, on your own initiative; for 英文 and 國寫 a request guides the design but no numeric gate changes.
    Every subject's full paper also needs a declared 簡單／中／中偏難／難 count-and-score distribution and `scripts/validate_paper_difficulty_balance.py` review. The levels must describe actual item demands, never an all-中 default, hidden column, or quota-only relabelling. Use each subject's own 111–115 evidence; transfer Math A's design-and-shortcut-review method, not its percentage mix.
 6. Before generating from any official, mock, screenshot, or publisher corpus, read [references/originality-firewall.md](references/originality-firewall.md) and [references/llm-original-item-generation.md](references/llm-original-item-generation.md). Blind source separation, LLM candidate competition, and the structural skin-swap audit are release-blocking requirements.
 7. For current-form GSAT mathematics, also read [references/current-gsat-math-form.md](references/current-gsat-math-form.md) and [references/current-gsat-math-scope.md](references/current-gsat-math-scope.md); their typography, formula, stem-rhetoric, visual-placement, option-geometry, machine-marking, curriculum-code, and boundary rules are hard constraints.
@@ -57594,8 +57594,8 @@ year (111–115), and is therefore enforced:
   in 1-point steps; no 39-ideograph stretch may repeat an official 111–115 國綜 booklet
   (`shared-data/official-passage-fingerprints.json`, hashes only; a hosted paper reprinted
   114's 〈晚遊六橋待月記〉 passage at 30–31). The reviewed mean 答對率 (`estimated_p` on every
-  difficulty row) must not exceed 0.62: official papers average 0.48–0.58 and the two hosted
-  116 papers were estimated at 0.70 and 0.80.
+  difficulty row) targets at most 0.62 and passes up to 0.65: official papers average 0.48–0.58
+  and the two hosted 116 papers were estimated at 0.70 and 0.80.
 
 Measured 113–115 distribution of the 24 single-choice items: 白話說明文閱讀 9–15,
 文言閱讀 0–5, 白話文學閱讀 0–3, 跨文本比較 1–2, 圖表或非連續文本 0–3, 古典韻文 0–2,
@@ -57786,8 +57786,8 @@ The visual-kind count is based on rendered topology, not filenames or declared l
   (official: 0–1 a year; one hosted paper keyed most items that way).
 - **Worn-out materials.** `shared-data/overused-generated-materials.json` lists objects earlier
   generated papers already used (the Hubble deep-field image); an item built on one is rejected.
-- **Difficulty.** Record `estimated_p` for every choice item; the mean may not exceed 0.65
-  (official 111–115: 0.53–0.57).
+- **Difficulty.** Record `estimated_p` for every choice item; the mean targets at most 0.65
+  and passes up to 0.68 (official 111–115: 0.53–0.57).
 
 ## How to use this envelope
 
@@ -58808,7 +58808,7 @@ Accurate maps, graphs and schematic relationships may be self-drawn from verifie
 - A constructed response ends with one parenthesis, 「（3 分）」 or 「（3 分，35 字內）」; never 「（本題3分）」, 「（10字以內）（3分）」 or a second score. No （1）（2） subparts: two tasks of one number share a stem and a `response_format_table` of labelled cells (115 Q44, Q46, Q52: a checkbox cell and a reason cell with its own 「（2 分，30 字內）」). A table of 「作答區／請依題意書寫／答＿＿」 is not an official device.
 - No printed authoring notes: official booklets never say a scenario is 虛構, 教學情境, 教學改寫 or unrelated to real events. Write 「某市」「某生」 or cite the real source.
 - Keys test a curriculum concept applied to the evidence. At most three keys may say 「再蒐集／核對／追蹤資料」 (none in any official year; one hosted 116 paper had 17), and the same figures may not reappear in a second material.
-- The reviewed mean 答對率 of the choice items (`estimated_p`) must not exceed 0.65 (official 111–115: 0.51–0.60).
+- The reviewed mean 答對率 of the choice items (`estimated_p`) targets at most 0.65 and passes up to 0.68 (official 111–115: 0.51–0.60).
 - Every item needs a 108 必修 concept the student brings (比例原則、攤丁入畝、沖積扇、外部成本、冷戰…): an item any
   careful adult could answer from the material alone is a reading test, not a 社會 item. A hosted 116 paper built
   almost every item as 「which extra data should the researcher collect」 around invented towns; the official
@@ -67044,6 +67044,7 @@ Any later paper request:
         ,"paper_difficulty_plan": {"type": "object"}
         ,"content_distribution_plan": {"type": "object"}
         ,"math_b_difficulty_floor": {"type": "object"}
+        ,"user_difficulty_request": {"type": "object", "required": ["request"], "additionalProperties": false, "properties": {"request": {"type": "string", "minLength": 2}, "hard_percent": {"type": "number", "minimum": 0, "maximum": 100}, "challenge_percent": {"type": "number", "minimum": 0, "maximum": 100}, "easy_percent": {"type": "number", "minimum": 0, "maximum": 100}, "mean_p": {"type": "number", "minimum": 0, "maximum": 1}}}
         ,"llm_original_generation_contract": {"type": "object"}
         ,"paper_originality_matrix": {"type": "object"}
         ,"group_originality_records": {"type": "array"}
@@ -69329,11 +69330,13 @@ def validate(plan, root=ROOT):
     minutes=sum(q['expected_minutes'] for q in items if number(q.get('expected_minutes')))+shared
     if number(duration) and minutes>duration:errors.append('planned solving time exceeds duration')
     if subject in {'數學A','數學B'}:
-        from hosted_blind_review import math_floor_errors, math_minutes_error
-        if points['簡單']>=10:
-            errors.append('math challenge floor: easy <10 points')
-        errors.extend(math_floor_errors(points['中偏難']+points['難'],points['難'],'math challenge plan:'))
-        if math_minutes_error(minutes):errors.append(math_minutes_error(minutes,'math hand-solving plan totals'))
+        from hosted_blind_review import difficulty_request, math_easy_error, math_floor_errors, math_minutes_error
+        request,request_errors=difficulty_request(meta)
+        errors.extend(request_errors)
+        if math_easy_error(points['簡單'],request=request):
+            errors.append('math challenge floor: easy <10 points' if not request else math_easy_error(points['簡單'],'math plan easy score',request))
+        errors.extend(math_floor_errors(points['中偏難']+points['難'],points['難'],'math challenge plan:',request))
+        if math_minutes_error(minutes,request=request):errors.append(math_minutes_error(minutes,'math hand-solving plan totals',request))
         if any(number(q.get('expected_minutes')) and q['expected_minutes']>10 for q in items):
             errors.append('math item expected_minutes may not exceed 10')
     distribution=meta.get('content_distribution_plan') or {}
@@ -70363,24 +70366,96 @@ MATH_HARD_MIN = MATH_HARD_TARGET - MATH_POINT_TOLERANCE             # 27
 MATH_MINUTES_RANGE = (MATH_MINUTES_TARGET[0] - MATH_MINUTE_TOLERANCE, MATH_MINUTES_TARGET[1] + MATH_MINUTE_TOLERANCE)  # 75-97
 
 
-def math_floor_errors(challenge, hard, prefix='difficulty: reviewed'):
-    """中偏難＋難 and 難 points against the 70/30 targets, passing within MATH_POINT_TOLERANCE."""
+# 國綜/社會/自然 choice items: the mean predicted 答對率 may exceed its ceiling by this much, as the
+# math gates accept a range (maintainer decision 2026-09-25).
+MEAN_P_TOLERANCE = 0.03
+# A user may ask for a different difficulty in the request (「數A 難題 40%」「自然平均答對率 0.5」);
+# the run records it in metadata.user_difficulty_request with the user's words and the gates
+# use it in place of the 學測 defaults. Without one the defaults apply unchanged.
+USER_HARD_SHARE_TOLERANCE = 5   # percentage points of the choice items, 國綜/社會/自然
+
+
+def difficulty_request(metadata):
+    """(request dict or None, errors) from metadata.user_difficulty_request."""
+    request = (metadata or {}).get('user_difficulty_request')
+    if request is None:
+        return None, []
     errors = []
-    if challenge < MATH_CHALLENGE_MIN:
-        errors.append(f'{prefix} medium-hard/hard score {challenge:g} is below {MATH_CHALLENGE_MIN} points '
-                      f'(target {MATH_CHALLENGE_TARGET}, ±{MATH_POINT_TOLERANCE} accepted)')
-    if hard < MATH_HARD_MIN:
-        errors.append(f'{prefix} hard score {hard:g} is below {MATH_HARD_MIN} points '
-                      f'(target {MATH_HARD_TARGET}, ±{MATH_POINT_TOLERANCE} accepted)')
+    if not isinstance(request, dict) or not str(request.get('request') or '').strip():
+        return None, ['difficulty: user_difficulty_request must quote the user\'s own words in "request"']
+    for key, high in (('hard_percent', 100), ('challenge_percent', 100), ('easy_percent', 100), ('mean_p', 1)):
+        value = request.get(key)
+        if value is not None and (type(value) not in (int, float) or not 0 <= value <= high):
+            errors.append(f'difficulty: user_difficulty_request.{key} must be a number from 0 to {high}')
+    return request, errors
+
+
+def math_floor_errors(challenge, hard, prefix='difficulty: reviewed', request=None):
+    """中偏難＋難 and 難 points against the 70/30 targets, passing within MATH_POINT_TOLERANCE;
+    a user's requested percentage replaces a target and is met within the same tolerance."""
+    errors = []
+    request = request or {}
+    for name, value, key, target, minimum in (
+            ('medium-hard/hard', challenge, 'challenge_percent', MATH_CHALLENGE_TARGET, MATH_CHALLENGE_MIN),
+            ('hard', hard, 'hard_percent', MATH_HARD_TARGET, MATH_HARD_MIN)):
+        wanted = request.get(key)
+        if type(wanted) in (int, float):
+            if abs(value - wanted) > MATH_POINT_TOLERANCE:
+                errors.append(f'{prefix} {name} score {value:g} is not within ±{MATH_POINT_TOLERANCE} of the '
+                              f'{wanted:g} points the user asked for')
+        elif value < minimum:
+            errors.append(f'{prefix} {name} score {value:g} is below {minimum} points '
+                          f'(target {target}, ±{MATH_POINT_TOLERANCE} accepted)')
     return errors
 
 
-def math_minutes_error(total, prefix='difficulty: reviewed hand-solving total'):
+def math_easy_error(easy, prefix='difficulty: reviewed easy score', request=None):
+    request = request or {}
+    wanted = request.get('easy_percent')
+    if type(wanted) in (int, float):
+        if abs(easy - wanted) > MATH_POINT_TOLERANCE:
+            return f'{prefix} {easy:g} is not within ±{MATH_POINT_TOLERANCE} of the {wanted:g} points the user asked for'
+        return None
+    if type(request.get('challenge_percent')) in (int, float):
+        return None  # the requested 中偏難＋難 share already fixes how much is easy
+    if easy >= 10:
+        return f'{prefix} must be below 10 points (found {easy:g})'
+    return None
+
+
+def math_minutes_error(total, prefix='difficulty: reviewed hand-solving total', request=None):
     low, high = MATH_MINUTES_RANGE
+    if request and any(type(request.get(k)) in (int, float) for k in ('hard_percent', 'challenge_percent', 'easy_percent')):
+        low = 0  # a paper the user asked to change may take less time; the ceiling still holds
     if low <= total <= high:
         return None
     return (f'{prefix} {total:g} minutes is outside {low}-{high} (target {MATH_MINUTES_TARGET[0]}-'
             f'{MATH_MINUTES_TARGET[1]}, ±{MATH_MINUTE_TOLERANCE} accepted)')
+
+
+def choice_difficulty_errors(subject, estimates, ceiling, official, request=None):
+    """Mean predicted 答對率 and, when asked for, the share of 難 items of a 國綜/社會/自然 paper."""
+    if not estimates:
+        return []
+    mean = sum(estimates) / len(estimates)
+    request = request or {}
+    errors = []
+    wanted = request.get('mean_p')
+    if type(wanted) in (int, float):
+        if abs(mean - wanted) > MEAN_P_TOLERANCE:
+            errors.append(f'difficulty: reviewed mean 答對率 {mean:.2f} is not within ±{MEAN_P_TOLERANCE} of the {wanted:g} '
+                          'the user asked for')
+    elif mean > ceiling + MEAN_P_TOLERANCE:
+        errors.append(f'difficulty: reviewed mean 答對率 {mean:.2f} is easier than any official {subject} paper '
+                      f'(111-115: {official}; target at most {ceiling}, {ceiling + MEAN_P_TOLERANCE:.2f} accepted): make '
+                      'distractors as long and plausible as the key, each failing on one specific concept')
+    hard = request.get('hard_percent')
+    if type(hard) in (int, float):
+        share = 100 * sum(1 for p in estimates if p < 0.30) / len(estimates)
+        if abs(share - hard) > USER_HARD_SHARE_TOLERANCE:
+            errors.append(f'difficulty: {share:.0f}% of the reviewed items are 難 (答對率 < 0.30); the user asked for '
+                          f'{hard:g}% (±{USER_HARD_SHARE_TOLERANCE} accepted)')
+    return errors
 
 
 def band_for_p(p):
@@ -70480,15 +70555,16 @@ def review_errors(exam, review):
         if estimated in bands and row.get('difficulty_band') in bands:
             if bands.index(estimated) - bands.index(row['difficulty_band']) >= 2:
                 errors.append(f'{prefix}: author difficulty exceeds reviewed estimate by two bands')
+    request, request_errors = difficulty_request(exam.get('metadata'))
+    errors.extend(request_errors)
     if exam.get('metadata', {}).get('subject') == '國綜':
         # Official 國綜 papers average 0.48-0.58 (111-115); two hosted 116 papers were
         # estimated at 0.70 and 0.80, with keys that were usually the longest option.
         estimates = [rows.get(q['id'], {}).get('estimated_p') for q in exam['questions']]
         if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
             errors.append('difficulty: record estimated_p (the predicted 答對率, 0-1) for every 國綜 item')
-        elif estimates and sum(estimates) / len(estimates) > CHINESE_MEAN_P_MAX:
-            errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} is easier than any official '
-                          f'國綜 paper (111-115: 0.48-0.58; ceiling {CHINESE_MEAN_P_MAX})')
+        else:
+            errors.extend(choice_difficulty_errors('國綜', estimates, CHINESE_MEAN_P_MAX, '0.48-0.58', request))
     subject_name = exam.get('metadata', {}).get('subject')
     if subject_name in CHOICE_MEAN_P_MAX:
         ceiling, official = CHOICE_MEAN_P_MAX[subject_name]
@@ -70496,10 +70572,8 @@ def review_errors(exam, review):
         estimates = [rows.get(q['id'], {}).get('estimated_p') for q in chosen]
         if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
             errors.append(f'difficulty: record estimated_p (the predicted 答對率, 0-1) for every {subject_name} choice item')
-        elif estimates and sum(estimates) / len(estimates) > ceiling:
-            errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} of the choice items is easier '
-                          f'than any official {subject_name} paper (111-115: {official}; ceiling {ceiling}): make distractors '
-                          'as long and plausible as the key, each failing on one specific concept')
+        else:
+            errors.extend(choice_difficulty_errors(subject_name, estimates, ceiling, official, request))
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
                             if type(r.get('expected_minutes')) in (int,float))
@@ -70509,9 +70583,11 @@ def review_errors(exam, review):
     if is_math and len(exam['questions']) == 20:
         reviewed_points = {b: sum(q.get('score', 0) or 0 for q in exam['questions']
                                   if rows.get(q['id'], {}).get('difficulty_band') == b) for b in bands}
-        if reviewed_points['easy'] + reviewed_points['very_easy'] >= 10:
-            errors.append('difficulty: reviewed easy score must be below 10 points')
-        errors.extend(math_floor_errors(reviewed_points['hard'] + reviewed_points['very_hard'], reviewed_points['very_hard']))
+        easy_error = math_easy_error(reviewed_points['easy'] + reviewed_points['very_easy'], request=request)
+        if easy_error:
+            errors.append(easy_error)
+        errors.extend(math_floor_errors(reviewed_points['hard'] + reviewed_points['very_hard'], reviewed_points['very_hard'],
+                                        request=request))
         # Official 111-115 close 選填 and the 題組 with their hardest items (115 16-17 and
         # 20, 114 16-17 and 20, 113 17 and 20); two hosted 116 數A papers ended 選填 on a
         # textbook maximum and the 題組 on completing a square.
@@ -70522,8 +70598,8 @@ def review_errors(exam, review):
                               'as every official 111-115 paper does; redesign it before rendering')
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
-        if math_minutes_error(total):
-            errors.append(math_minutes_error(total))
+        if math_minutes_error(total, request=request):
+            errors.append(math_minutes_error(total, request=request))
         decision_score = sum(q.get('score', 0) or 0 for q in exam['questions']
                              if isinstance(rows.get(q['id'], {}).get('decisive_steps'), list)
                              and len(rows[q['id']]['decisive_steps']) >= 3
@@ -79732,6 +79808,7 @@ from typing import Any
 GLOBAL_SPANS = {"cross_sentence", "cross_paragraph", "text_visual"}
 VALID_SPANS = {"local_sentence", "cross_clause", *GLOBAL_SPANS}
 HIGHER_VOCABULARY_BANDS = {"中偏難", "難", "medium_hard", "hard"}
+ENGLISH_COUNT_TOLERANCE = 1
 SIMPLE_VOCABULARY_BANDS = {"簡單", "easy"}
 INNOVATION_TEXT_FIELDS = (
     "mechanism_family",
@@ -79912,10 +79989,14 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
             if label:
                 vocabulary_answer_labels.append(label)
 
-    if nonlocal_cloze < 12:
-        errors.append(f"cloze/completion/structure has only {nonlocal_cloze} cross-sentence-or-wider items; require 12")
-    if reading_global < 8:
-        errors.append(f"reading has only {reading_global} cross-sentence-or-wider items; require 8")
+    # Targets 12 / 8 / 5 accept one item less (maintainer decision 2026-09-25: every subject's
+    # difficulty gate passes within a range, so a run does not loop to move one item).
+    if nonlocal_cloze < 12 - ENGLISH_COUNT_TOLERANCE:
+        errors.append(f"cloze/completion/structure has only {nonlocal_cloze} cross-sentence-or-wider items; target 12, "
+                      f"{12 - ENGLISH_COUNT_TOLERANCE} accepted")
+    if reading_global < 8 - ENGLISH_COUNT_TOLERANCE:
+        errors.append(f"reading has only {reading_global} cross-sentence-or-wider items; target 8, "
+                      f"{8 - ENGLISH_COUNT_TOLERANCE} accepted")
     for start, end in reading_groups:
         if not any(
             ((by_number.get(number) or {}).get("item_spec") or {})
@@ -79932,8 +80013,9 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
         errors.append(f"vocabulary section has only {vocabulary_competitive} fully competitive items; require 8")
     if vocabulary_simple > 1:
         errors.append(f"vocabulary section has {vocabulary_simple} simple anchors; allow at most 1")
-    if vocabulary_higher < 5:
-        errors.append(f"vocabulary section has only {vocabulary_higher} medium-hard/hard items; require 5")
+    if vocabulary_higher < 5 - ENGLISH_COUNT_TOLERANCE:
+        errors.append(f"vocabulary section has only {vocabulary_higher} medium-hard/hard items; target 5, "
+                      f"{5 - ENGLISH_COUNT_TOLERANCE} accepted")
     answer_counts = Counter(vocabulary_answer_labels)
     if len(vocabulary_answer_labels) != 10:
         errors.append("vocabulary answer labels could not be resolved for all ten items")
@@ -82568,13 +82650,16 @@ def validate(exam: dict, profile: Path | None = None) -> dict:
     if len(questions) == 20:
         if total_score != 100:
             errors.append(f"paper: expected 100 points, found {total_score:g}")
-        if medium_high_score < 75:
+        from hosted_blind_review import difficulty_request
+        request, _ = difficulty_request(exam.get("metadata", {}))
+        requested = request and any(type(request.get(k)) in (int, float) for k in ("hard_percent", "challenge_percent", "easy_percent"))
+        if medium_high_score < 75 and not requested:
             errors.append(f"paper: medium/high discrimination covers only {medium_high_score:g} points; require 75")
         if three_decision_score < 50:
             errors.append(f"paper: three-decision demand covers only {three_decision_score:g} points; require 50")
         from hosted_blind_review import math_minutes_error
-        if math_minutes_error(expected_minutes):
-            errors.append(math_minutes_error(expected_minutes, "paper: expected hand-solving time"))
+        if math_minutes_error(expected_minutes, request=request):
+            errors.append(math_minutes_error(expected_minutes, "paper: expected hand-solving time", request))
         for start in range(len(summaries) - 2):
             if all(row["level"] == "low" for row in summaries[start : start + 3]):
                 numbers = [row["number"] for row in summaries[start : start + 3]]
@@ -83266,9 +83351,11 @@ def validate(d,asset_root=None):
     if isinstance(duration,(int,float)) and minutes>duration:errors.append('estimated solving time exceeds paper duration')
     total=sum(points.values())
     if d.get('metadata',{}).get('subject') in {'數學A','數學B'} and len(d.get('questions',[])) == 20 and total == 100:
-        if points['簡單'] >= 10:errors.append('math challenge profile: easy score must be below 10 points')
-        from hosted_blind_review import math_floor_errors
-        errors.extend(math_floor_errors(points['中偏難'] + points['難'], points['難'], 'math challenge profile:'))
+        from hosted_blind_review import difficulty_request, math_easy_error, math_floor_errors
+        request, _ = difficulty_request(d.get('metadata', {}))
+        easy_error = math_easy_error(points['簡單'], 'math challenge profile: easy score', request)
+        if easy_error:errors.append(easy_error)
+        errors.extend(math_floor_errors(points['中偏難'] + points['難'], points['難'], 'math challenge profile:', request))
     return dict(status='pass-structural-only' if not errors else 'fail',errors=errors,count=dict(counts),points=dict(points),
         count_percent={b:round(100*counts[b]/count,1)for b in BANDS} if count else {},
         score_percent={b:round(100*points[b]/total,1)for b in BANDS} if total else {},items=rows,
