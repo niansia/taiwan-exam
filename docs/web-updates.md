@@ -27,8 +27,9 @@
   - **範圍**：國綜平均答對率目標不高於 0.62、接受到 0.65；社會、自然選擇題目標不高於 0.65、接受到 0.68；英文跨句判斷 12 題、跨段閱讀 8 題、中偏難以上詞彙 5 題，各接受少 1 題。數學維持 ±3 分與 ±5 分鐘。落在範圍內就算完成，不必為了貼近目標再多跑審題。
   - **自訂難度**：使用者在出卷文字最後寫「數 A 難題占 40%」「自然平均答對率 0.5」這類要求時，Skill 會把原話與數字記在 `metadata.user_difficulty_request`，審題與規劃檢查就改用這些數字（數學 ±3 分；國綜、社會、自然答對率 ±0.03、難題比例 ±5 個百分點）。沒寫就照學測原始設定；AI 不得自行加上或調低難度。英文、國寫的要求只影響出題方向。
   - README 第 3 步列出各科目前設定、自訂寫法，並提醒目前是學測原始設定、不建議因為難就調簡單。新增測試。
+- **9 月 25 日第七次替換 ZIP（版本號不變）**：英文文意選填 21～30 題。一次英文執行停在最終檢查：版型檢查只允許第 21～30 題的選項標為 (A)～(D)，答案檢查又要求正解（例如 H）必須是該題印出的選項，十空共用的 (A)～(J) 選項庫兩邊都過不了。現在第 21～30 題可以帶共用的 (A)～(J) 選項（和篇章結構 31～34 題共用 A～E 一樣），十題必須完全相同；選項庫在題本只印一次。其他題仍只能用 (A)～(D)。新增測試（舊程式失敗、新程式通過）。
 
-目前的 ZIP 是 9 月 25 日第六次替換後的版本（SHA-256 `f65b85fb598ec7f4b09bac425519e9f163aa97aafa81981ed5155fd17c78632b`，8,666,881 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。前六份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`）也曾分別確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
+目前的 ZIP 是 9 月 25 日第七次替換後的版本（SHA-256 `1a4e0ff87169042826e40a385205cd771349675d4bda801ec504117a78fa9b1c`，8,667,386 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查，待維護者重新確認 Chrome 下載與 Claude／ChatGPT 上傳。前七份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`）都曾由維護者確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 

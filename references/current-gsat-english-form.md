@@ -76,6 +76,9 @@ The broad 180–400-word specification is not a license to put every passage nea
   declare `item_spec.target_part_of_speech` on 1–10 (at least three classes, none above five);
   every word class in the 文意選填 bank has at least two members, so declare
   `item_spec.bank_parts_of_speech` on item 21 (A–J → adjective, noun, verb-base, verb-past…);
+  save the bank (A)–(J) once in the passage (`group_stimulus`) and give each of 21–30 the same
+  ten options A–J so its key is one of its labels (篇章結構 31–34 likewise share A–E); the bank
+  prints once, never per item;
   the key of at most four reading items is the strictly longest option. Printed passages never
   say "invented data" or point at "Question 39".
 
