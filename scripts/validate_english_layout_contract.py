@@ -61,11 +61,24 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
 
     by_number = {int(q.get("number")): q for q in exam.get("questions") or [] if isinstance(q.get("number"), int)}
     word_re = WORD
+    # 文意選填 21-30 share one (A)-(J) bank and 篇章結構 31-34 one (A)-(E) bank, printed once
+    # after the passage; an item may carry that shared bank as its options so its key is one
+    # of its labels. A hosted run could not finish: this check allowed only A-D for 21-30
+    # while the answer check required the key (say H) among the item's own labels.
+    shared_banks = {}
     for number in range(1, 47):
         question = by_number.get(number) or {}
         labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
-        if labels and labels != list("ABCD")[: len(labels)] and not (number in range(31, 35) and labels == list("ABCDE")):
-            errors.append(f"英文第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}")
+        shared = (number in range(21, 31) and labels == list("ABCDEFGHIJ")) or (number in range(31, 35) and labels == list("ABCDE"))
+        if shared:
+            texts = tuple(" ".join(str(o.get("text") or "").split()) for o in question["options"])
+            shared_banks.setdefault("文意選填" if number < 31 else "篇章結構", set()).add(texts)
+        elif labels and labels != list("ABCD")[: len(labels)]:
+            errors.append(f"英文第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}"
+                          + ("；文意選填第21–30題可帶共用的(A)–(J)選項庫" if number in range(21, 31) else ""))
+    for name, banks in shared_banks.items():
+        if len(banks) > 1:
+            errors.append(f"英文{name}各題帶的選項庫不一致；共用選項庫每題須完全相同，且與題本印出的選項庫一致")
     for number in range(1, 21):
         if (by_number.get(number) or {}).get("option_layout") != "row-4":
             errors.append(f"英文第{number}題四個短選項須使用同列row-4版型")

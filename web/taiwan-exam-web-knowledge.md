@@ -540,10 +540,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 36141,
-    "sha256": "8ff6a127b1f7df276fa4ac6e0e02f7ed0ecdb4ec07efb5f4b46924bf720ee70d",
-    "embedded_bytes": 36141,
-    "embedded_sha256": "8ff6a127b1f7df276fa4ac6e0e02f7ed0ecdb4ec07efb5f4b46924bf720ee70d"
+    "bytes": 36377,
+    "sha256": "f0b64c0c66c5ae7a0f76137fc443052fba0664c02e068bd5774072546eb79921",
+    "embedded_bytes": 36377,
+    "embedded_sha256": "f0b64c0c66c5ae7a0f76137fc443052fba0664c02e068bd5774072546eb79921"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -1121,10 +1121,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_english_layout_contract.py",
-    "bytes": 24790,
-    "sha256": "80343c5588af112317bc5d7c6d93de4fbcfe614e73a291b94753d1a7f2e04eac",
-    "embedded_bytes": 24426,
-    "embedded_sha256": "388eb76ec32ed7b63ec77ef2eddfc05a3528821fdb51ac0e9d6083def8f10c9c"
+    "bytes": 25841,
+    "sha256": "68c02d561d0002bbbbddbc3280f853f42ae6c56c56a93e332276a0f473fbecbf",
+    "embedded_bytes": 25464,
+    "embedded_sha256": "81f50e2b44ccd9a2c5945aba85657039a4375257dd6b16010c1713919013b2e7"
   },
   {
     "path": "scripts/validate_english_vocabulary_scope.py",
@@ -57890,6 +57890,9 @@ The broad 180–400-word specification is not a license to put every passage nea
   declare `item_spec.target_part_of_speech` on 1–10 (at least three classes, none above five);
   every word class in the 文意選填 bank has at least two members, so declare
   `item_spec.bank_parts_of_speech` on item 21 (A–J → adjective, noun, verb-base, verb-past…);
+  save the bank (A)–(J) once in the passage (`group_stimulus`) and give each of 21–30 the same
+  ten options A–J so its key is one of its labels (篇章結構 31–34 likewise share A–E); the bank
+  prints once, never per item;
   the key of at most four reading items is the strictly longest option. Printed passages never
   say "invented data" or point at "Question 39".
 
@@ -80125,11 +80128,24 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
 
     by_number = {int(q.get("number")): q for q in exam.get("questions") or [] if isinstance(q.get("number"), int)}
     word_re = WORD
+    # 文意選填 21-30 share one (A)-(J) bank and 篇章結構 31-34 one (A)-(E) bank, printed once
+    # after the passage; an item may carry that shared bank as its options so its key is one
+    # of its labels. A hosted run could not finish: this check allowed only A-D for 21-30
+    # while the answer check required the key (say H) among the item's own labels.
+    shared_banks = {}
     for number in range(1, 47):
         question = by_number.get(number) or {}
         labels = [str(o.get("label") or "").strip("()（）") for o in question.get("options") or [] if isinstance(o, dict)]
-        if labels and labels != list("ABCD")[: len(labels)] and not (number in range(31, 35) and labels == list("ABCDE")):
-            errors.append(f"英文第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}")
+        shared = (number in range(21, 31) and labels == list("ABCDEFGHIJ")) or (number in range(31, 35) and labels == list("ABCDE"))
+        if shared:
+            texts = tuple(" ".join(str(o.get("text") or "").split()) for o in question["options"])
+            shared_banks.setdefault("文意選填" if number < 31 else "篇章結構", set()).add(texts)
+        elif labels and labels != list("ABCD")[: len(labels)]:
+            errors.append(f"英文第{number}題選項標記須為(A)(B)(C)(D)，不是{labels}"
+                          + ("；文意選填第21–30題可帶共用的(A)–(J)選項庫" if number in range(21, 31) else ""))
+    for name, banks in shared_banks.items():
+        if len(banks) > 1:
+            errors.append(f"英文{name}各題帶的選項庫不一致；共用選項庫每題須完全相同，且與題本印出的選項庫一致")
     for number in range(1, 21):
         if (by_number.get(number) or {}).get("option_layout") != "row-4":
             errors.append(f"英文第{number}題四個短選項須使用同列row-4版型")
