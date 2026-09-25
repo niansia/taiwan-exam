@@ -34,7 +34,7 @@
   - 兩項都新增測試（舊程式失敗、新程式通過；英文排版在 PyMuPDF 1.26 亦驗證）。
 - **9 月 26 日第九次替換 ZIP（版本號不變）**：段落標題分行時的樣式。一份英文卷第 1 頁把「第壹部分、選擇題（占62分）」和「一、詞彙題（占10分）」存成同一個標題、中間換行，排版程式遇到多行標題就退回一般字體，兩行都印成細明體、沒有加粗和字距（其他頁的標題都正確）。現在標題不論用換行或 `<br>` 分行，每一行都各自印成官方標題樣式。所有科目共用這段排版，一併生效。新增測試（舊程式失敗、新程式通過，PyMuPDF 1.26 亦同）。
 
-目前的 ZIP 是 9 月 26 日第九次替換後的版本（SHA-256 `fd44241b8c07aa507923ee6f141d758f53fb927987a641a5e92f7c9e70286284`，8,669,817 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查，待維護者重新確認 Chrome 下載與 Claude／ChatGPT 上傳。前九份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`、`1a4e0ff8…78fa9b1c`、`911d8f26…92781ad4c`）都曾由維護者確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
+目前的 ZIP 是 9 月 26 日第九次替換後的版本（SHA-256 `fd44241b8c07aa507923ee6f141d758f53fb927987a641a5e92f7c9e70286284`，8,669,817 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。前九份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`、`1a4e0ff8…78fa9b1c`、`911d8f26…92781ad4c`）也曾分別確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 
