@@ -13,6 +13,7 @@ from typing import Any
 GLOBAL_SPANS = {"cross_sentence", "cross_paragraph", "text_visual"}
 VALID_SPANS = {"local_sentence", "cross_clause", *GLOBAL_SPANS}
 HIGHER_VOCABULARY_BANDS = {"中偏難", "難", "medium_hard", "hard"}
+ENGLISH_COUNT_TOLERANCE = 1
 SIMPLE_VOCABULARY_BANDS = {"簡單", "easy"}
 INNOVATION_TEXT_FIELDS = (
     "mechanism_family",
@@ -193,10 +194,14 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
             if label:
                 vocabulary_answer_labels.append(label)
 
-    if nonlocal_cloze < 12:
-        errors.append(f"cloze/completion/structure has only {nonlocal_cloze} cross-sentence-or-wider items; require 12")
-    if reading_global < 8:
-        errors.append(f"reading has only {reading_global} cross-sentence-or-wider items; require 8")
+    # Targets 12 / 8 / 5 accept one item less (maintainer decision 2026-09-25: every subject's
+    # difficulty gate passes within a range, so a run does not loop to move one item).
+    if nonlocal_cloze < 12 - ENGLISH_COUNT_TOLERANCE:
+        errors.append(f"cloze/completion/structure has only {nonlocal_cloze} cross-sentence-or-wider items; target 12, "
+                      f"{12 - ENGLISH_COUNT_TOLERANCE} accepted")
+    if reading_global < 8 - ENGLISH_COUNT_TOLERANCE:
+        errors.append(f"reading has only {reading_global} cross-sentence-or-wider items; target 8, "
+                      f"{8 - ENGLISH_COUNT_TOLERANCE} accepted")
     for start, end in reading_groups:
         if not any(
             ((by_number.get(number) or {}).get("item_spec") or {})
@@ -213,8 +218,9 @@ def validate_exam(exam: dict[str, Any]) -> dict[str, Any]:
         errors.append(f"vocabulary section has only {vocabulary_competitive} fully competitive items; require 8")
     if vocabulary_simple > 1:
         errors.append(f"vocabulary section has {vocabulary_simple} simple anchors; allow at most 1")
-    if vocabulary_higher < 5:
-        errors.append(f"vocabulary section has only {vocabulary_higher} medium-hard/hard items; require 5")
+    if vocabulary_higher < 5 - ENGLISH_COUNT_TOLERANCE:
+        errors.append(f"vocabulary section has only {vocabulary_higher} medium-hard/hard items; target 5, "
+                      f"{5 - ENGLISH_COUNT_TOLERANCE} accepted")
     answer_counts = Counter(vocabulary_answer_labels)
     if len(vocabulary_answer_labels) != 10:
         errors.append("vocabulary answer labels could not be resolved for all ten items")

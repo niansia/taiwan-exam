@@ -28,24 +28,96 @@ MATH_HARD_MIN = MATH_HARD_TARGET - MATH_POINT_TOLERANCE             # 27
 MATH_MINUTES_RANGE = (MATH_MINUTES_TARGET[0] - MATH_MINUTE_TOLERANCE, MATH_MINUTES_TARGET[1] + MATH_MINUTE_TOLERANCE)  # 75-97
 
 
-def math_floor_errors(challenge, hard, prefix='difficulty: reviewed'):
-    """中偏難＋難 and 難 points against the 70/30 targets, passing within MATH_POINT_TOLERANCE."""
+# 國綜/社會/自然 choice items: the mean predicted 答對率 may exceed its ceiling by this much, as the
+# math gates accept a range (maintainer decision 2026-09-25).
+MEAN_P_TOLERANCE = 0.03
+# A user may ask for a different difficulty in the request (「數A 難題 40%」「自然平均答對率 0.5」);
+# the run records it in metadata.user_difficulty_request with the user's words and the gates
+# use it in place of the 學測 defaults. Without one the defaults apply unchanged.
+USER_HARD_SHARE_TOLERANCE = 5   # percentage points of the choice items, 國綜/社會/自然
+
+
+def difficulty_request(metadata):
+    """(request dict or None, errors) from metadata.user_difficulty_request."""
+    request = (metadata or {}).get('user_difficulty_request')
+    if request is None:
+        return None, []
     errors = []
-    if challenge < MATH_CHALLENGE_MIN:
-        errors.append(f'{prefix} medium-hard/hard score {challenge:g} is below {MATH_CHALLENGE_MIN} points '
-                      f'(target {MATH_CHALLENGE_TARGET}, ±{MATH_POINT_TOLERANCE} accepted)')
-    if hard < MATH_HARD_MIN:
-        errors.append(f'{prefix} hard score {hard:g} is below {MATH_HARD_MIN} points '
-                      f'(target {MATH_HARD_TARGET}, ±{MATH_POINT_TOLERANCE} accepted)')
+    if not isinstance(request, dict) or not str(request.get('request') or '').strip():
+        return None, ['difficulty: user_difficulty_request must quote the user\'s own words in "request"']
+    for key, high in (('hard_percent', 100), ('challenge_percent', 100), ('easy_percent', 100), ('mean_p', 1)):
+        value = request.get(key)
+        if value is not None and (type(value) not in (int, float) or not 0 <= value <= high):
+            errors.append(f'difficulty: user_difficulty_request.{key} must be a number from 0 to {high}')
+    return request, errors
+
+
+def math_floor_errors(challenge, hard, prefix='difficulty: reviewed', request=None):
+    """中偏難＋難 and 難 points against the 70/30 targets, passing within MATH_POINT_TOLERANCE;
+    a user's requested percentage replaces a target and is met within the same tolerance."""
+    errors = []
+    request = request or {}
+    for name, value, key, target, minimum in (
+            ('medium-hard/hard', challenge, 'challenge_percent', MATH_CHALLENGE_TARGET, MATH_CHALLENGE_MIN),
+            ('hard', hard, 'hard_percent', MATH_HARD_TARGET, MATH_HARD_MIN)):
+        wanted = request.get(key)
+        if type(wanted) in (int, float):
+            if abs(value - wanted) > MATH_POINT_TOLERANCE:
+                errors.append(f'{prefix} {name} score {value:g} is not within ±{MATH_POINT_TOLERANCE} of the '
+                              f'{wanted:g} points the user asked for')
+        elif value < minimum:
+            errors.append(f'{prefix} {name} score {value:g} is below {minimum} points '
+                          f'(target {target}, ±{MATH_POINT_TOLERANCE} accepted)')
     return errors
 
 
-def math_minutes_error(total, prefix='difficulty: reviewed hand-solving total'):
+def math_easy_error(easy, prefix='difficulty: reviewed easy score', request=None):
+    request = request or {}
+    wanted = request.get('easy_percent')
+    if type(wanted) in (int, float):
+        if abs(easy - wanted) > MATH_POINT_TOLERANCE:
+            return f'{prefix} {easy:g} is not within ±{MATH_POINT_TOLERANCE} of the {wanted:g} points the user asked for'
+        return None
+    if type(request.get('challenge_percent')) in (int, float):
+        return None  # the requested 中偏難＋難 share already fixes how much is easy
+    if easy >= 10:
+        return f'{prefix} must be below 10 points (found {easy:g})'
+    return None
+
+
+def math_minutes_error(total, prefix='difficulty: reviewed hand-solving total', request=None):
     low, high = MATH_MINUTES_RANGE
+    if request and any(type(request.get(k)) in (int, float) for k in ('hard_percent', 'challenge_percent', 'easy_percent')):
+        low = 0  # a paper the user asked to change may take less time; the ceiling still holds
     if low <= total <= high:
         return None
     return (f'{prefix} {total:g} minutes is outside {low}-{high} (target {MATH_MINUTES_TARGET[0]}-'
             f'{MATH_MINUTES_TARGET[1]}, ±{MATH_MINUTE_TOLERANCE} accepted)')
+
+
+def choice_difficulty_errors(subject, estimates, ceiling, official, request=None):
+    """Mean predicted 答對率 and, when asked for, the share of 難 items of a 國綜/社會/自然 paper."""
+    if not estimates:
+        return []
+    mean = sum(estimates) / len(estimates)
+    request = request or {}
+    errors = []
+    wanted = request.get('mean_p')
+    if type(wanted) in (int, float):
+        if abs(mean - wanted) > MEAN_P_TOLERANCE:
+            errors.append(f'difficulty: reviewed mean 答對率 {mean:.2f} is not within ±{MEAN_P_TOLERANCE} of the {wanted:g} '
+                          'the user asked for')
+    elif mean > ceiling + MEAN_P_TOLERANCE:
+        errors.append(f'difficulty: reviewed mean 答對率 {mean:.2f} is easier than any official {subject} paper '
+                      f'(111-115: {official}; target at most {ceiling}, {ceiling + MEAN_P_TOLERANCE:.2f} accepted): make '
+                      'distractors as long and plausible as the key, each failing on one specific concept')
+    hard = request.get('hard_percent')
+    if type(hard) in (int, float):
+        share = 100 * sum(1 for p in estimates if p < 0.30) / len(estimates)
+        if abs(share - hard) > USER_HARD_SHARE_TOLERANCE:
+            errors.append(f'difficulty: {share:.0f}% of the reviewed items are 難 (答對率 < 0.30); the user asked for '
+                          f'{hard:g}% (±{USER_HARD_SHARE_TOLERANCE} accepted)')
+    return errors
 
 
 def band_for_p(p):
@@ -145,15 +217,16 @@ def review_errors(exam, review):
         if estimated in bands and row.get('difficulty_band') in bands:
             if bands.index(estimated) - bands.index(row['difficulty_band']) >= 2:
                 errors.append(f'{prefix}: author difficulty exceeds reviewed estimate by two bands')
+    request, request_errors = difficulty_request(exam.get('metadata'))
+    errors.extend(request_errors)
     if exam.get('metadata', {}).get('subject') == '國綜':
         # Official 國綜 papers average 0.48-0.58 (111-115); two hosted 116 papers were
         # estimated at 0.70 and 0.80, with keys that were usually the longest option.
         estimates = [rows.get(q['id'], {}).get('estimated_p') for q in exam['questions']]
         if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
             errors.append('difficulty: record estimated_p (the predicted 答對率, 0-1) for every 國綜 item')
-        elif estimates and sum(estimates) / len(estimates) > CHINESE_MEAN_P_MAX:
-            errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} is easier than any official '
-                          f'國綜 paper (111-115: 0.48-0.58; ceiling {CHINESE_MEAN_P_MAX})')
+        else:
+            errors.extend(choice_difficulty_errors('國綜', estimates, CHINESE_MEAN_P_MAX, '0.48-0.58', request))
     subject_name = exam.get('metadata', {}).get('subject')
     if subject_name in CHOICE_MEAN_P_MAX:
         ceiling, official = CHOICE_MEAN_P_MAX[subject_name]
@@ -161,10 +234,8 @@ def review_errors(exam, review):
         estimates = [rows.get(q['id'], {}).get('estimated_p') for q in chosen]
         if not all(type(p) in (int, float) and 0 <= p <= 1 for p in estimates):
             errors.append(f'difficulty: record estimated_p (the predicted 答對率, 0-1) for every {subject_name} choice item')
-        elif estimates and sum(estimates) / len(estimates) > ceiling:
-            errors.append(f'difficulty: reviewed mean 答對率 {sum(estimates) / len(estimates):.2f} of the choice items is easier '
-                          f'than any official {subject_name} paper (111-115: {official}; ceiling {ceiling}): make distractors '
-                          'as long and plausible as the key, each failing on one specific concept')
+        else:
+            errors.extend(choice_difficulty_errors(subject_name, estimates, ceiling, official, request))
     duration = exam.get('metadata', {}).get('duration_minutes')
     independent_total = sum(r.get('expected_minutes', 0) for r in rows.values()
                             if type(r.get('expected_minutes')) in (int,float))
@@ -174,9 +245,11 @@ def review_errors(exam, review):
     if is_math and len(exam['questions']) == 20:
         reviewed_points = {b: sum(q.get('score', 0) or 0 for q in exam['questions']
                                   if rows.get(q['id'], {}).get('difficulty_band') == b) for b in bands}
-        if reviewed_points['easy'] + reviewed_points['very_easy'] >= 10:
-            errors.append('difficulty: reviewed easy score must be below 10 points')
-        errors.extend(math_floor_errors(reviewed_points['hard'] + reviewed_points['very_hard'], reviewed_points['very_hard']))
+        easy_error = math_easy_error(reviewed_points['easy'] + reviewed_points['very_easy'], request=request)
+        if easy_error:
+            errors.append(easy_error)
+        errors.extend(math_floor_errors(reviewed_points['hard'] + reviewed_points['very_hard'], reviewed_points['very_hard'],
+                                        request=request))
         # Official 111-115 close 選填 and the 題組 with their hardest items (115 16-17 and
         # 20, 114 16-17 and 20, 113 17 and 20); two hosted 116 數A papers ended 選填 on a
         # textbook maximum and the 題組 on completing a square.
@@ -187,8 +260,8 @@ def review_errors(exam, review):
                               'as every official 111-115 paper does; redesign it before rendering')
         total = sum(r.get('expected_minutes', 0) for r in rows.values()
                     if type(r.get('expected_minutes')) in (int,float))
-        if math_minutes_error(total):
-            errors.append(math_minutes_error(total))
+        if math_minutes_error(total, request=request):
+            errors.append(math_minutes_error(total, request=request))
         decision_score = sum(q.get('score', 0) or 0 for q in exam['questions']
                              if isinstance(rows.get(q['id'], {}).get('decisive_steps'), list)
                              and len(rows[q['id']]['decisive_steps']) >= 3
