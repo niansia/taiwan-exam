@@ -33,7 +33,7 @@
   - **英文第 1～20 題的選項排法**：一份英文卷的綜合測驗第 14 題（On the contrary／In this way／By accident／At the same time）被印成一行一個，因為模型把該題指定為直排。官方 111～115 的詞彙與綜合測驗，四個選項放得下就一列四個，放不下就兩欄兩列（115 第 17、20 題）。現在第 1～20 題一律由排版程式依實際寬度決定：一列四個 → 兩欄兩列 → 兩欄也放不下才一行一個，不再照模型指定的直排。閱讀與混合題（35 題以後）照舊直排。
   - 兩項都新增測試（舊程式失敗、新程式通過；英文排版在 PyMuPDF 1.26 亦驗證）。
 
-目前的 ZIP 是 9 月 26 日第八次替換後的版本（SHA-256 `911d8f26d75e0772459710fda52787fb8de076d0908f972291c0e5b92781ad4c`，8,669,594 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查，待維護者重新確認 Chrome 下載與 Claude／ChatGPT 上傳。前八份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`、`1a4e0ff8…78fa9b1c`）都曾由維護者確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
+目前的 ZIP 是 9 月 26 日第八次替換後的版本（SHA-256 `911d8f26d75e0772459710fda52787fb8de076d0908f972291c0e5b92781ad4c`，8,669,594 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。前八份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`、`1a4e0ff8…78fa9b1c`）也曾分別確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 
