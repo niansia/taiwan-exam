@@ -585,7 +585,13 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     global _item_kai
     _item_kai=_subject=='英文' and kind not in {'section','solution'}
     if kind=='section':
-        heading=f'<div class="heading">{heading_markup(block["title"],archive)}</div>'
+        # A title saved as two lines (「第壹部分、選擇題（占62分）」 and 「一、詞彙題（占10分）」)
+        # sets each line as its own letter-spaced heading; heading_markup falls back to body
+        # text for a multi-line value, and a hosted 英文 booklet printed both lines plain.
+        raw_title=block['title']['rich'] if isinstance(block['title'],dict) else str(block['title'])
+        lines=[_plain(line) for line in re.split(r'\s*(?:\n|<br\s*/?>)\s*',raw_title) if _plain(line).strip()]
+        heading=''.join(f'<div class="heading">{heading_markup(line,archive)}</div>' for line in lines) if len(lines)>1 \
+            else f'<div class="heading">{heading_markup(block["title"],archive)}</div>'
         # Answer booklets may print a plain part heading; question-booklet
         # directions stay explicit and are never invented here.
         if 'directions' not in block:return heading
