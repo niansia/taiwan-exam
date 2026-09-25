@@ -51,6 +51,7 @@ AUTHORING_REFERENCES = {
     "photo-library-manifest.json",
     "rendering.md",
     "social-required-content-codes.json",
+    "social-scope-sources.json",
     "stimulus-generation.md",
     "visual-generation.md",
     "web-platform-use.md",

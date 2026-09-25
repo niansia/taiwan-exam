@@ -540,10 +540,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 36377,
-    "sha256": "f0b64c0c66c5ae7a0f76137fc443052fba0664c02e068bd5774072546eb79921",
-    "embedded_bytes": 36377,
-    "embedded_sha256": "f0b64c0c66c5ae7a0f76137fc443052fba0664c02e068bd5774072546eb79921"
+    "bytes": 36676,
+    "sha256": "434af7c5a67221ebab50a494735118a85c35041712a364fe9ee3728de19c5a84",
+    "embedded_bytes": 36676,
+    "embedded_sha256": "434af7c5a67221ebab50a494735118a85c35041712a364fe9ee3728de19c5a84"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -561,10 +561,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-social-form.md",
-    "bytes": 38961,
-    "sha256": "11e0195e199a14a1081bd8825dd27cd01b860fb6bc8120ee7d3f6e96fa2752a2",
-    "embedded_bytes": 38961,
-    "embedded_sha256": "11e0195e199a14a1081bd8825dd27cd01b860fb6bc8120ee7d3f6e96fa2752a2"
+    "bytes": 39449,
+    "sha256": "c9fe024e6539686cfa9dde3d0b060308e493df23dbe1c6774e45e373171f4736",
+    "embedded_bytes": 39449,
+    "embedded_sha256": "c9fe024e6539686cfa9dde3d0b060308e493df23dbe1c6774e45e373171f4736"
   },
   {
     "path": "references/current-gsat-writing-form.md",
@@ -777,6 +777,13 @@ attachments; extract only the selected subject's components.
     "embedded_sha256": "8a64de172b4d36834416e2e46f93b47f1079168cf876ff711b83f68627b90f35"
   },
   {
+    "path": "references/social-scope-sources.json",
+    "bytes": 2359,
+    "sha256": "ed1c53bbda568d80f9fe9f39db2910ed47123318ee87bd85b347116efda912b5",
+    "embedded_bytes": 2359,
+    "embedded_sha256": "ed1c53bbda568d80f9fe9f39db2910ed47123318ee87bd85b347116efda912b5"
+  },
+  {
     "path": "references/stimulus-generation.md",
     "bytes": 7516,
     "sha256": "252b09fdd28cfa89c58bc4d311253a6775d9b24da92b2f6c86d94bbf8d8ece48",
@@ -953,10 +960,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 72106,
-    "sha256": "25b2292bad6a2ce21b3fb53d9d3d576e151b11fce98c96a023e3301308b2d79a",
-    "embedded_bytes": 72106,
-    "embedded_sha256": "25b2292bad6a2ce21b3fb53d9d3d576e151b11fce98c96a023e3301308b2d79a"
+    "bytes": 72939,
+    "sha256": "68c3dcf5979df5ac28d3b08e54fca974bd577847037dfa9363c6effceb3420f9",
+    "embedded_bytes": 72939,
+    "embedded_sha256": "68c3dcf5979df5ac28d3b08e54fca974bd577847037dfa9363c6effceb3420f9"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -1065,10 +1072,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/read_web_knowledge.py",
-    "bytes": 27709,
-    "sha256": "07a4a3e95f7e5d0a9efac04b4122a5c18479eb6691ac908820c49a026be4e5d5",
-    "embedded_bytes": 27709,
-    "embedded_sha256": "07a4a3e95f7e5d0a9efac04b4122a5c18479eb6691ac908820c49a026be4e5d5"
+    "bytes": 27738,
+    "sha256": "e289db45af62acbc9c361c45a56ed79563d49767f01cd10a4530da7f4ba4bf7c",
+    "embedded_bytes": 27738,
+    "embedded_sha256": "e289db45af62acbc9c361c45a56ed79563d49767f01cd10a4530da7f4ba4bf7c"
   },
   {
     "path": "scripts/run_hosted_workflow.py",
@@ -1205,10 +1212,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_social_item_design.py",
-    "bytes": 40161,
-    "sha256": "406ec09a05a3d6a5909839f22d3f226cb461aab958e80fc2de24cbff05b38126",
-    "embedded_bytes": 40161,
-    "embedded_sha256": "406ec09a05a3d6a5909839f22d3f226cb461aab958e80fc2de24cbff05b38126"
+    "bytes": 41455,
+    "sha256": "bfdafc19c18ab5474a4db6f75523a7f0af9a33310ea75aa54a2fa5e80d330f76",
+    "embedded_bytes": 41455,
+    "embedded_sha256": "bfdafc19c18ab5474a4db6f75523a7f0af9a33310ea75aa54a2fa5e80d330f76"
   },
   {
     "path": "scripts/validate_social_layout_contract.py",
@@ -57831,7 +57838,7 @@ Select an exact verified Paper Profile. The verified 115 profile has 100 minutes
 | non-selected | Chinese-to-English translation | two separately scored sentences (4 points each) | 8 |
 | non-selected | English composition | one scored unit | 20 |
 
-This yields 50 Arabic-numbered items and 53 scored units. Text completion is selected response with a shared ten-option bank; mixed items 47–48 are free-response word blanks. The 115 discourse-structure section is one passage with four gaps and five options. Do not reuse the older two-passage arrangement when the simulated paper claims the 115-onward form.
+This yields 50 Arabic-numbered items and 53 scored units. Items 1–20 print their four options four abreast, or two by two at the half-width tab when one overruns its 120 pt tab (115: 17, 20); the renderer decides this from the measured widths and never stacks them one per line unless even two abreast overflow. Reading and mixed items (35 onward) stack. Text completion is selected response with a shared ten-option bank; mixed items 47–48 are free-response word blanks. The 115 discourse-structure section is one passage with four gaps and five options. Do not reuse the older two-passage arrangement when the simulated paper claims the 115-onward form.
 
 The official 115-onward specification describes group passages of roughly 180–400 words, primarily continuous text, with diverse genres and topics and occasional images or tables. It also states that the same booklet must contain selected response, mixed response, Chinese-to-English translation, and English composition. Never split translation/composition into a separate paper or omit them from a “complete English paper.” Preserve the selected profile's grouping and task operations; do not turn every section into unrelated one-sentence blanks.
 
@@ -58682,7 +58689,7 @@ Keep three layers separate in every item:
 
 For each learning-content code, add one `curriculum_alignment` record with `content_code`, `assessed_relation`, `stimulus_evidence`, and `centrality_reason`. The record must explain what the student actually does with the required-course content, where the necessary evidence appears, and why this is a core or high-frequency target rather than a technically related footnote. A broad label such as “法律”, “人口”, or “現代化” is not an alignment argument.
 
-A complete paper also stores `metadata.social_scope_contract` with the CEEC specification and NAER curriculum URLs, retrieval dates, hashes, and the four reviewed CEEC sections. The validator confirms exact code membership, domain fit, target-code validity, and alignment-record completeness; a human reviewer must still compare the prompt and solution with the official content statement. Any paper that uses only performance codes, an elective code, an invented code, or a content code from the wrong primary discipline is release-blocking.
+A complete paper also stores `metadata.social_scope_contract` with the four reviewed CEEC sections (`examined_spec_sections`: 測驗目標、測驗內容、題型配分、試題舉例). The two documents' URLs, hashes and retrieval date are pinned in [social-scope-sources.json](social-scope-sources.json) with the page and a summary of each section, so a run need not fetch them: leave those contract fields empty and the validator uses the pinned record. Only when a run actually fetches a document does it record its own URL, date and hash; a hash that differs from the pinned one means CEEC or NAER revised the document, so note it in the run and tell the user. The validator confirms exact code membership, domain fit, target-code validity, and alignment-record completeness; a human reviewer must still compare the prompt and solution with the official content statement. Any paper that uses only performance codes, an elective code, an invented code, or a content code from the wrong primary discipline is release-blocking.
 
 ## Current issues without current-affairs trivia
 
@@ -65215,6 +65222,34 @@ When rendering is unavailable, use stable Markdown headings and numbered options
 }
 </canonical-source>
 
+<canonical-source path="references/social-scope-sources.json">
+{
+  "schema_version": 1,
+  "purpose": "The two official documents that bound a 社會 paper's scope, fetched and hashed by the maintainer so a hosted run does not have to reach the CEEC or NAER site. A run that can fetch a document and finds a different hash records it as a possible official revision; it is not blocked.",
+  "retrieved_at": "2026-09-26",
+  "ceec_specification": {
+    "title": "學科能力測驗社會考科考試說明（111學年度起適用，定稿）",
+    "url": "https://www.ceec.edu.tw/files/file_pool/1/0J305554304528923536/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E7%A4%BE%E6%9C%83%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29-1101.pdf",
+    "bytes": 1738168,
+    "sha256": "521c04293b3822f7931eafe824730d984eb210bb35a6edb00e8197247d2766e3",
+    "pages": 39,
+    "sections": {
+      "測驗目標": {"pdf_pages": "5-6", "summary": "四個層次：基礎知識與技能、分析與詮釋、判斷與反思、整合與探究；各科目標 H1-H9、G1-G9、C1-C7，跨科整合 S1-S5（對照見 current-gsat-social-form.md）。"},
+      "測驗內容": {"pdf_pages": "7", "summary": "依《社會領綱》高一、高二部定必修學習內容命題；延伸探究的說明可作情境素材，但測驗的知識與概念以學習內容條目為限；表1 列出歷史、地理、公民與社會各科主題。"},
+      "題型配分": {"pdf_pages": "7", "summary": "歷史、地理、公民與社會三科占分均衡；題型含選擇、非選擇或混合題；非選擇題型可為填充、問答、繪圖、製表等，全卷非選擇題型占分以 20-30% 為原則。"},
+      "試題舉例": {"pdf_pages": "8-37", "summary": "整合題與歷史、地理、公民與社會各科例題，每題標出測驗目標與學習內容代碼並附說明；附錄（p.38）對應測驗目標與學習表現。"}
+    }
+  },
+  "naer_curriculum": {
+    "title": "十二年國民基本教育課程綱要 國民中小學暨普通型高級中等學校 社會領域",
+    "url": "https://stv.naer.edu.tw/data/course_outline/pta_18535_6408773_60398.pdf",
+    "bytes": 3697226,
+    "sha256": "5ad53d3db32505c11213c05fefca761c727753dbfc7b76aef91260cf8c0568f5",
+    "used_as": "required learning-content code authority, distilled into social-required-content-codes.json"
+  }
+}
+</canonical-source>
+
 <canonical-source path="references/stimulus-generation.md">
 # Competence-oriented stimulus generation
 
@@ -71353,7 +71388,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if kind in {'choice','multiple'} and tail:
         options=block.get('options',[])
         if len(options)<2:raise ValueError('Choice block needs authored options')
-        columns=block.get('columns',1)
+        columns=english_row_columns(block,block.get('columns',1))
         if columns not in OPTION_COLUMNS:raise ValueError('Use 1-5 option columns; never shrink font to fit')
         if not stem.strip() and not figure and head:
             # Option-only rows (English cloze): the number shares the first
@@ -71455,11 +71490,28 @@ def english_columns(inners, columns, archive, wrap, width):
     widths = [_cell_advance(inner, archive, wrap) for inner in inners]
     if any(w is None for w in widths):
         return columns
-    pitch = option_pitch(columns)
-    last = width - number_pitch() - (columns - 1) * pitch  # the right column ends at the margin
-    if all(w <= (last if (j + 1) % columns == 0 else pitch) for j, w in enumerate(widths)):
+
+    def fits(count):
+        # 英文 two abreast sits at the half-width tab (alt pitch), as 115 prints 17 and 20.
+        pitch = option_pitch(count) if count > 2 or _subject != '英文' else (width - number_pitch()) / 2
+        last = width - number_pitch() - (count - 1) * pitch  # the right column ends at the margin
+        return all(w <= (last if (j + 1) % count == 0 else pitch) for j, w in enumerate(widths))
+
+    if fits(columns):
         return columns
-    return 2 if _subject == '英文' else 1
+    if _subject == '英文':
+        return 2 if len(inners) == 4 and fits(2) else 1
+    return 1
+
+
+def english_row_columns(block, columns):
+    """英文 1-20 (詞彙、綜合測驗) print four options four abreast, or two by two when one overruns
+    its 120 pt tab; 111-115 never stack them. A hosted paper printed 14 「On the contrary / In this
+    way / By accident / At the same time」 one per line because the item asked for a stack."""
+    number = block.get('number')
+    if _subject == '英文' and len(block.get('options') or []) == 4 and type(number) is int and 1 <= number <= 20:
+        return 4
+    return columns
 
 
 def bank_entry(option):
@@ -75848,7 +75900,7 @@ SUBJECT_REFERENCES = {
     # reason 數學A／數學B read math-difficulty-design.md: it is the subject's
     # pre-writing difficulty and reading-load gate.
     "英文": {"current-gsat-english-form.md", "current-form-literacy-load.md"},
-    "社會": {"current-gsat-social-form.md", "social-required-content-codes.json",
+    "社會": {"current-gsat-social-form.md", "social-required-content-codes.json", "social-scope-sources.json",
              "current-form-literacy-load.md", "photo-library-manifest.json"},
     "自然": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md", "photo-library-manifest.json"},
     "國綜": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md"},
@@ -83671,17 +83723,40 @@ def _paper_innovation_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
     return errors
 
 
+# The CEEC 社會 specification and the NAER curriculum, fetched and hashed by the maintainer
+# (2026-09-26). A hosted run stopped because the CEEC site refused its connection and the
+# contract demanded a hash of a PDF the Skill had already distilled into its references.
+SCOPE_SOURCES_PATH = Path(__file__).resolve().parents[1] / "references" / "social-scope-sources.json"
+
+
+def pinned_scope_sources() -> dict[str, str]:
+    """Contract fields filled from the maintainer's record, used when a run cannot fetch the PDFs."""
+    try:
+        record = json.loads(SCOPE_SOURCES_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    fields = {}
+    for key, prefix in (("ceec_specification", "ceec_specification"), ("naer_curriculum", "naer_curriculum")):
+        source = record.get(key) or {}
+        fields.update({f"{prefix}_url": source.get("url"), f"{prefix}_sha256": source.get("sha256"),
+                       f"{prefix}_retrieved_at": record.get("retrieved_at")})
+    return {k: str(v) for k, v in fields.items() if v}
+
+
 def _scope_contract_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
     contract = (exam.get("metadata") or {}).get("social_scope_contract")
     if not isinstance(contract, dict):
         return [{"code": "social_scope_contract_missing"}]
     errors: list[dict[str, Any]] = []
+    pinned = pinned_scope_sources()
     for field in (
         "ceec_specification_url", "ceec_specification_retrieved_at",
         "ceec_specification_sha256", "naer_curriculum_url",
         "naer_curriculum_retrieved_at", "naer_curriculum_sha256",
     ):
-        if not str(contract.get(field) or "").strip():
+        # A field the run leaves empty takes the maintainer's pinned value (references/
+        # social-scope-sources.json); a run that fetched a document records its own.
+        if not str(contract.get(field) or pinned.get(field) or "").strip():
             errors.append({"code": "social_scope_source_evidence_missing", "field": field})
     sections = {str(value) for value in (contract.get("examined_spec_sections") or [])}
     required_sections = {"測驗目標", "測驗內容", "題型配分", "試題舉例"}

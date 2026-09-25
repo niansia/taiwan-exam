@@ -139,17 +139,40 @@ def _paper_innovation_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
     return errors
 
 
+# The CEEC 社會 specification and the NAER curriculum, fetched and hashed by the maintainer
+# (2026-09-26). A hosted run stopped because the CEEC site refused its connection and the
+# contract demanded a hash of a PDF the Skill had already distilled into its references.
+SCOPE_SOURCES_PATH = Path(__file__).resolve().parents[1] / "references" / "social-scope-sources.json"
+
+
+def pinned_scope_sources() -> dict[str, str]:
+    """Contract fields filled from the maintainer's record, used when a run cannot fetch the PDFs."""
+    try:
+        record = json.loads(SCOPE_SOURCES_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    fields = {}
+    for key, prefix in (("ceec_specification", "ceec_specification"), ("naer_curriculum", "naer_curriculum")):
+        source = record.get(key) or {}
+        fields.update({f"{prefix}_url": source.get("url"), f"{prefix}_sha256": source.get("sha256"),
+                       f"{prefix}_retrieved_at": record.get("retrieved_at")})
+    return {k: str(v) for k, v in fields.items() if v}
+
+
 def _scope_contract_errors(exam: dict[str, Any]) -> list[dict[str, Any]]:
     contract = (exam.get("metadata") or {}).get("social_scope_contract")
     if not isinstance(contract, dict):
         return [{"code": "social_scope_contract_missing"}]
     errors: list[dict[str, Any]] = []
+    pinned = pinned_scope_sources()
     for field in (
         "ceec_specification_url", "ceec_specification_retrieved_at",
         "ceec_specification_sha256", "naer_curriculum_url",
         "naer_curriculum_retrieved_at", "naer_curriculum_sha256",
     ):
-        if not str(contract.get(field) or "").strip():
+        # A field the run leaves empty takes the maintainer's pinned value (references/
+        # social-scope-sources.json); a run that fetched a document records its own.
+        if not str(contract.get(field) or pinned.get(field) or "").strip():
             errors.append({"code": "social_scope_source_evidence_missing", "field": field})
     sections = {str(value) for value in (contract.get("examined_spec_sections") or [])}
     required_sections = {"測驗目標", "測驗內容", "題型配分", "試題舉例"}
