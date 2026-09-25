@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "purpose": "The two official documents that bound a 社會 paper's scope, fetched and hashed by the maintainer so a hosted run does not have to reach the CEEC or NAER site. A run that can fetch a document and finds a different hash records it as a possible official revision; it is not blocked.",
+  "retrieved_at": "2026-09-26",
+  "ceec_specification": {
+    "title": "學科能力測驗社會考科考試說明（111學年度起適用，定稿）",
+    "url": "https://www.ceec.edu.tw/files/file_pool/1/0J305554304528923536/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E7%A4%BE%E6%9C%83%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29-1101.pdf",
+    "bytes": 1738168,
+    "sha256": "521c04293b3822f7931eafe824730d984eb210bb35a6edb00e8197247d2766e3",
+    "pages": 39,
+    "sections": {
+      "測驗目標": {"pdf_pages": "5-6", "summary": "四個層次：基礎知識與技能、分析與詮釋、判斷與反思、整合與探究；各科目標 H1-H9、G1-G9、C1-C7，跨科整合 S1-S5（對照見 current-gsat-social-form.md）。"},
+      "測驗內容": {"pdf_pages": "7", "summary": "依《社會領綱》高一、高二部定必修學習內容命題；延伸探究的說明可作情境素材，但測驗的知識與概念以學習內容條目為限；表1 列出歷史、地理、公民與社會各科主題。"},
+      "題型配分": {"pdf_pages": "7", "summary": "歷史、地理、公民與社會三科占分均衡；題型含選擇、非選擇或混合題；非選擇題型可為填充、問答、繪圖、製表等，全卷非選擇題型占分以 20-30% 為原則。"},
+      "試題舉例": {"pdf_pages": "8-37", "summary": "整合題與歷史、地理、公民與社會各科例題，每題標出測驗目標與學習內容代碼並附說明；附錄（p.38）對應測驗目標與學習表現。"}
+    }
+  },
+  "naer_curriculum": {
+    "title": "十二年國民基本教育課程綱要 國民中小學暨普通型高級中等學校 社會領域",
+    "url": "https://stv.naer.edu.tw/data/course_outline/pta_18535_6408773_60398.pdf",
+    "bytes": 3697226,
+    "sha256": "5ad53d3db32505c11213c05fefca761c727753dbfc7b76aef91260cf8c0568f5",
+    "used_as": "required learning-content code authority, distilled into social-required-content-codes.json"
+  }
+}

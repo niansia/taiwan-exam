@@ -718,7 +718,7 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
     if kind in {'choice','multiple'} and tail:
         options=block.get('options',[])
         if len(options)<2:raise ValueError('Choice block needs authored options')
-        columns=block.get('columns',1)
+        columns=english_row_columns(block,block.get('columns',1))
         if columns not in OPTION_COLUMNS:raise ValueError('Use 1-5 option columns; never shrink font to fit')
         if not stem.strip() and not figure and head:
             # Option-only rows (English cloze): the number shares the first
@@ -820,11 +820,28 @@ def english_columns(inners, columns, archive, wrap, width):
     widths = [_cell_advance(inner, archive, wrap) for inner in inners]
     if any(w is None for w in widths):
         return columns
-    pitch = option_pitch(columns)
-    last = width - number_pitch() - (columns - 1) * pitch  # the right column ends at the margin
-    if all(w <= (last if (j + 1) % columns == 0 else pitch) for j, w in enumerate(widths)):
+
+    def fits(count):
+        # 英文 two abreast sits at the half-width tab (alt pitch), as 115 prints 17 and 20.
+        pitch = option_pitch(count) if count > 2 or _subject != '英文' else (width - number_pitch()) / 2
+        last = width - number_pitch() - (count - 1) * pitch  # the right column ends at the margin
+        return all(w <= (last if (j + 1) % count == 0 else pitch) for j, w in enumerate(widths))
+
+    if fits(columns):
         return columns
-    return 2 if _subject == '英文' else 1
+    if _subject == '英文':
+        return 2 if len(inners) == 4 and fits(2) else 1
+    return 1
+
+
+def english_row_columns(block, columns):
+    """英文 1-20 (詞彙、綜合測驗) print four options four abreast, or two by two when one overruns
+    its 120 pt tab; 111-115 never stack them. A hosted paper printed 14 「On the contrary / In this
+    way / By accident / At the same time」 one per line because the item asked for a stack."""
+    number = block.get('number')
+    if _subject == '英文' and len(block.get('options') or []) == 4 and type(number) is int and 1 <= number <= 20:
+        return 4
+    return columns
 
 
 def bank_entry(option):

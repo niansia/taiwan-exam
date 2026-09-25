@@ -21,7 +21,7 @@ SUBJECT_REFERENCES = {
     # reason 數學A／數學B read math-difficulty-design.md: it is the subject's
     # pre-writing difficulty and reading-load gate.
     "英文": {"current-gsat-english-form.md", "current-form-literacy-load.md"},
-    "社會": {"current-gsat-social-form.md", "social-required-content-codes.json",
+    "社會": {"current-gsat-social-form.md", "social-required-content-codes.json", "social-scope-sources.json",
              "current-form-literacy-load.md", "photo-library-manifest.json"},
     "自然": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md", "photo-library-manifest.json"},
     "國綜": {"current-gsat-chinese-natural-form.md", "current-form-literacy-load.md"},
