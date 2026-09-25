@@ -29,7 +29,7 @@
   - README 第 3 步列出各科目前設定、自訂寫法，並提醒目前是學測原始設定、不建議因為難就調簡單。新增測試。
 - **9 月 25 日第七次替換 ZIP（版本號不變）**：英文文意選填 21～30 題。一次英文執行停在最終檢查：版型檢查只允許第 21～30 題的選項標為 (A)～(D)，答案檢查又要求正解（例如 H）必須是該題印出的選項，十空共用的 (A)～(J) 選項庫兩邊都過不了。現在第 21～30 題可以帶共用的 (A)～(J) 選項（和篇章結構 31～34 題共用 A～E 一樣），十題必須完全相同；選項庫在題本只印一次。其他題仍只能用 (A)～(D)。新增測試（舊程式失敗、新程式通過）。
 
-目前的 ZIP 是 9 月 25 日第七次替換後的版本（SHA-256 `1a4e0ff87169042826e40a385205cd771349675d4bda801ec504117a78fa9b1c`，8,667,386 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查，待維護者重新確認 Chrome 下載與 Claude／ChatGPT 上傳。前七份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`）都曾由維護者確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
+目前的 ZIP 是 9 月 25 日第七次替換後的版本（SHA-256 `1a4e0ff87169042826e40a385205cd771349675d4bda801ec504117a78fa9b1c`，8,667,386 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。前七份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`）也曾分別確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 
