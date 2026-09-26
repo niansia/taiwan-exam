@@ -25,8 +25,8 @@ body:
     id: version
     attributes:
       label: Skill 版本
-      description: 看你下載的 ZIP 檔名，例如 2026.09.22.23
-      placeholder: "2026.09.22.23"
+      description: 看你下載的 ZIP 檔名，例如 2026.09.22.25
+      placeholder: "2026.09.22.25"
   - type: dropdown
     id: subject
     attributes:
