@@ -288,6 +288,95 @@ def _colour_share(page):
     return coloured / total
 
 
+TABLE_KINDS = {'data_table', 'table', 'evidence_matrix'}
+TABLE_OVERFLOW_ADVICE = ('table text runs past its cell borders ({where}): widen that column or the table, or break the '
+                         'header onto two lines (「生態最低量」 over 「（萬噸）」); never shrink the text below the body size')
+
+
+def is_table_figure(asset):
+    """A figure the paper prints as a table: its kind, or a 「表N」 caption."""
+    spec = asset.get('visual_spec') if isinstance(asset.get('visual_spec'), dict) else {}
+    caption = str(asset.get('caption') or spec.get('caption') or '').strip()
+    return str(spec.get('kind') or '') in TABLE_KINDS or caption.startswith('表')
+
+
+def table_text_overflow(page, *, rule=160, ink=150):
+    """Rows of a drawn table where text crosses a cell border, read from pixels.
+
+    A hosted 社會 table printed its header 「生態最低量（萬噸）」 past the table's right edge.
+    Most generated figures are PNG, so the check reads ink, not text objects: it finds the
+    table's rules (long dark rows and full-height dark columns) and reports a border that
+    has ink pressed against both of its sides inside one row, as text running across it does.
+    Rules are found at gray < `rule` (a header's border under a light fill measured 147, the
+    fill 215); text ink at gray < `ink`.
+    """
+    zoom = min(4.0, max(1.0, 1400 / max(page.rect.width, 1)))
+    pix = page.get_pixmap(matrix=pymupdf.Matrix(zoom, zoom), colorspace=pymupdf.csGRAY, alpha=False)
+    width, height, samples = pix.width, pix.height, pix.samples
+    rows = [samples[y * pix.stride:y * pix.stride + width] for y in range(height)]
+
+    def longest_run(row):
+        best = run = start = best_start = 0
+        for x, value in enumerate(row):
+            if value < rule:
+                if not run:
+                    start = x
+                run += 1
+                if run > best:
+                    best, best_start = run, start
+            else:
+                run = 0
+        return best, best_start
+
+    horizontal = []
+    for y, row in enumerate(rows):
+        length, start = longest_run(row)
+        if length >= 0.35 * width:
+            if horizontal and y - horizontal[-1][1] <= 1:
+                horizontal[-1][1] = y
+            else:
+                horizontal.append([y, y, start, start + length])
+    if len(horizontal) < 2:
+        return []
+    top, bottom = horizontal[0][0], horizontal[-1][1]
+    left = min(h[2] for h in horizontal)
+    right = max(h[3] for h in horizontal)
+    span = bottom - top + 1
+    vertical = []
+    for x in range(max(0, left - 3), min(width, right + 4)):
+        drawn = sum(1 for y in range(top, bottom + 1) if rows[y][x] < rule)
+        if drawn >= 0.9 * span:
+            if vertical and x - vertical[-1][1] <= 1:
+                vertical[-1][1] = x
+            else:
+                vertical.append([x, x])
+    if len(vertical) < 2:
+        return []
+    found = []
+    reach = max(2, round(0.9 * zoom))  # about 1 pt beside the rule; tidy cells pad their text by more
+    for upper, lower in zip(horizontal, horizontal[1:]):
+        y0, y1 = upper[1] + 3, lower[0] - 3
+        if y1 - y0 < 4:
+            continue
+        band = range(y0, y1 + 1)
+        for column, (x0, x1) in enumerate(vertical):
+            if x0 - reach - 1 < 0 or x1 + reach + 1 >= width:
+                continue
+
+            def side(xs):
+                return {y for y in band if any(rows[y][x] < ink for x in xs)}
+            left_ink = side(range(x0 - reach, x0))
+            right_ink = side(range(x1 + 1, x1 + reach + 1))
+            if max(len(left_ink), len(right_ink)) >= 0.8 * len(band):
+                continue  # the rule itself is thicker here, not text beside it
+            # Strokes that cross a rule touch both of its sides in a few pixel rows; three is
+            # enough, since a tidy cell never inks the pixel beside its own border.
+            if len(left_ink & right_ink) >= 3:
+                edge = 'right edge' if column == len(vertical) - 1 else 'left edge' if column == 0 else 'a cell border'
+                found.append(f'row {horizontal.index(upper) + 1}: text runs across {edge}')
+    return found
+
+
 def _label_collisions(page):
     """Text spans whose box a drawn stroke crosses (frames that contain the label do not count)."""
     spans = []
@@ -373,6 +462,10 @@ def figure_selfcheck(root, exam, *, asset_issues=None):
                 continue
             if asset_issues is not None:
                 entry['errors'].extend(asset_issues(path, asset, inline=inline))
+            if is_table_figure(asset):
+                overflow = table_text_overflow(page)
+                if overflow:
+                    entry['errors'].append(TABLE_OVERFLOW_ADVICE.format(where='; '.join(overflow[:4])))
             if isinstance(asset.get('visual_spec'), dict):
                 from validate_visual_item_contract import english_label_errors
                 subject = (exam.get('metadata') or {}).get('subject')

@@ -140,6 +140,23 @@ def english_label_errors(number: Any, spec: dict[str, Any], path: Path, subject:
             "acronyms such as x, t (s), mol, NaCl, DNA in Latin letters"]
 
 
+def table_overflow_errors(number: Any, asset: dict[str, Any], path: Path) -> list[str]:
+    """A table figure whose text crosses its own cell borders (read from pixels, so PNG counts too)."""
+    try:
+        import pymupdf
+        from hosted_evidence_refresh import TABLE_OVERFLOW_ADVICE, is_table_figure, table_text_overflow
+    except ImportError:
+        return []
+    if not is_table_figure(asset) or not path.is_file():
+        return []
+    try:
+        with pymupdf.open(path) as doc:
+            overflow = table_text_overflow(doc[0]) if len(doc) else []
+    except Exception:
+        return []
+    return [f"Q{number}: " + TABLE_OVERFLOW_ADVICE.format(where='; '.join(overflow[:4]))] if overflow else []
+
+
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -171,6 +188,7 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
             errors.append(f"Q{number}: visual_asset lacks visual_spec")
             continue
         errors.extend(english_label_errors(number, spec, asset_root / str(asset.get("path") or ""), subject))
+        errors.extend(table_overflow_errors(number, asset, asset_root / str(asset.get("path") or "")))
         missing_fields = sorted(field for field in REQUIRED_SPEC_FIELDS if spec.get(field) in (None, ""))
         if missing_fields:
             errors.append(f"Q{number}: visual_spec fields missing: {', '.join(missing_fields)}")

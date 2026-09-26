@@ -792,10 +792,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/visual-generation.md",
-    "bytes": 16567,
-    "sha256": "57a0ef6900b0f7c3ffd791495865f339ecfcc049b6f5fad5d08e8ebb35eccfd1",
-    "embedded_bytes": 16567,
-    "embedded_sha256": "57a0ef6900b0f7c3ffd791495865f339ecfcc049b6f5fad5d08e8ebb35eccfd1"
+    "bytes": 16933,
+    "sha256": "1e97100a7b1d0edeef148b38cb848dc25ed5cf8775b90943fd69008ff64f291c",
+    "embedded_bytes": 16933,
+    "embedded_sha256": "1e97100a7b1d0edeef148b38cb848dc25ed5cf8775b90943fd69008ff64f291c"
   },
   {
     "path": "references/web-platform-use.md",
@@ -988,10 +988,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_evidence_refresh.py",
-    "bytes": 21027,
-    "sha256": "54d40beb07777957167a608517a5f58ca5439329fac529d3e5b1866182b9d9ce",
-    "embedded_bytes": 21027,
-    "embedded_sha256": "54d40beb07777957167a608517a5f58ca5439329fac529d3e5b1866182b9d9ce"
+    "bytes": 25445,
+    "sha256": "dac37f1023f576a649d90dba2992eb2c56c245c64d4e3c7d3dea72ae98b54f57",
+    "embedded_bytes": 25445,
+    "embedded_sha256": "dac37f1023f576a649d90dba2992eb2c56c245c64d4e3c7d3dea72ae98b54f57"
   },
   {
     "path": "scripts/hosted_item_layout.py",
@@ -1233,10 +1233,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_visual_item_contract.py",
-    "bytes": 19158,
-    "sha256": "69543a756e4d0044b3d4dd8c00415290dfa345f464aee5887fd3b0f2284edb09",
-    "embedded_bytes": 19158,
-    "embedded_sha256": "69543a756e4d0044b3d4dd8c00415290dfa345f464aee5887fd3b0f2284edb09"
+    "bytes": 19978,
+    "sha256": "361671bcdada03400bfa4e8a47c0a0612cb9cde91158cb7b976cc113c8829afe",
+    "embedded_bytes": 19978,
+    "embedded_sha256": "361671bcdada03400bfa4e8a47c0a0612cb9cde91158cb7b976cc113c8829afe"
   },
   {
     "path": "scripts/validate_writing_layout_contract.py",
@@ -65382,6 +65382,8 @@ For maps, record the subtype: reference, projection, choropleth, cartogram, them
 
 Label every figure and table in Chinese outside 英文 (樣品、硫酸根、電解液、反應進程、時間), as the official booklets do; keep only symbols, units, formulas and acronyms (x, t (s), mol, NaCl, DNA, NOAA) in Latin letters. `validate_visual_item_contract.py` rejects English words in `semantic_data` labels, SVG text and PDF figures; it cannot read a raster, so check a PNG's labels when reviewing the page.
 
+Every table figure keeps each cell's text inside its borders: size the columns to the longest entry, or break a long header onto two lines (「生態最低量」 over 「（萬噸）」); never shrink text below the body size. `check-figures` and the final gate read the table's pixels (PNG included) and reject text that crosses a cell border or the table's edge.
+
 Create semantic data first, solve from that data, then render it. `scripts/render_visual.py` provides grayscale-safe SVG for coordinate graphs, bar/line charts, and point/segment geometry. Extend the renderer rather than asking an image model to guess exact values.
 
 For a hybrid scene diagram, separate a non-answer-bearing illustration layer from an exact overlay layer. The background may establish the telescope, launch tower, building, transit station, camera, laboratory, or daily-life setting; the deterministic overlay must carry every ray, path, boundary, tick, angle, scale, state, or label used in the solution. Record both layers in the Visual Spec and verify the composite in grayscale. A recognizable silhouette is allowed, but copying a source photograph's composition or a historical question's topology is not.
@@ -72529,6 +72531,95 @@ def _colour_share(page):
     return coloured / total
 
 
+TABLE_KINDS = {'data_table', 'table', 'evidence_matrix'}
+TABLE_OVERFLOW_ADVICE = ('table text runs past its cell borders ({where}): widen that column or the table, or break the '
+                         'header onto two lines (「生態最低量」 over 「（萬噸）」); never shrink the text below the body size')
+
+
+def is_table_figure(asset):
+    """A figure the paper prints as a table: its kind, or a 「表N」 caption."""
+    spec = asset.get('visual_spec') if isinstance(asset.get('visual_spec'), dict) else {}
+    caption = str(asset.get('caption') or spec.get('caption') or '').strip()
+    return str(spec.get('kind') or '') in TABLE_KINDS or caption.startswith('表')
+
+
+def table_text_overflow(page, *, rule=160, ink=150):
+    """Rows of a drawn table where text crosses a cell border, read from pixels.
+
+    A hosted 社會 table printed its header 「生態最低量（萬噸）」 past the table's right edge.
+    Most generated figures are PNG, so the check reads ink, not text objects: it finds the
+    table's rules (long dark rows and full-height dark columns) and reports a border that
+    has ink pressed against both of its sides inside one row, as text running across it does.
+    Rules are found at gray < `rule` (a header's border under a light fill measured 147, the
+    fill 215); text ink at gray < `ink`.
+    """
+    zoom = min(4.0, max(1.0, 1400 / max(page.rect.width, 1)))
+    pix = page.get_pixmap(matrix=pymupdf.Matrix(zoom, zoom), colorspace=pymupdf.csGRAY, alpha=False)
+    width, height, samples = pix.width, pix.height, pix.samples
+    rows = [samples[y * pix.stride:y * pix.stride + width] for y in range(height)]
+
+    def longest_run(row):
+        best = run = start = best_start = 0
+        for x, value in enumerate(row):
+            if value < rule:
+                if not run:
+                    start = x
+                run += 1
+                if run > best:
+                    best, best_start = run, start
+            else:
+                run = 0
+        return best, best_start
+
+    horizontal = []
+    for y, row in enumerate(rows):
+        length, start = longest_run(row)
+        if length >= 0.35 * width:
+            if horizontal and y - horizontal[-1][1] <= 1:
+                horizontal[-1][1] = y
+            else:
+                horizontal.append([y, y, start, start + length])
+    if len(horizontal) < 2:
+        return []
+    top, bottom = horizontal[0][0], horizontal[-1][1]
+    left = min(h[2] for h in horizontal)
+    right = max(h[3] for h in horizontal)
+    span = bottom - top + 1
+    vertical = []
+    for x in range(max(0, left - 3), min(width, right + 4)):
+        drawn = sum(1 for y in range(top, bottom + 1) if rows[y][x] < rule)
+        if drawn >= 0.9 * span:
+            if vertical and x - vertical[-1][1] <= 1:
+                vertical[-1][1] = x
+            else:
+                vertical.append([x, x])
+    if len(vertical) < 2:
+        return []
+    found = []
+    reach = max(2, round(0.9 * zoom))  # about 1 pt beside the rule; tidy cells pad their text by more
+    for upper, lower in zip(horizontal, horizontal[1:]):
+        y0, y1 = upper[1] + 3, lower[0] - 3
+        if y1 - y0 < 4:
+            continue
+        band = range(y0, y1 + 1)
+        for column, (x0, x1) in enumerate(vertical):
+            if x0 - reach - 1 < 0 or x1 + reach + 1 >= width:
+                continue
+
+            def side(xs):
+                return {y for y in band if any(rows[y][x] < ink for x in xs)}
+            left_ink = side(range(x0 - reach, x0))
+            right_ink = side(range(x1 + 1, x1 + reach + 1))
+            if max(len(left_ink), len(right_ink)) >= 0.8 * len(band):
+                continue  # the rule itself is thicker here, not text beside it
+            # Strokes that cross a rule touch both of its sides in a few pixel rows; three is
+            # enough, since a tidy cell never inks the pixel beside its own border.
+            if len(left_ink & right_ink) >= 3:
+                edge = 'right edge' if column == len(vertical) - 1 else 'left edge' if column == 0 else 'a cell border'
+                found.append(f'row {horizontal.index(upper) + 1}: text runs across {edge}')
+    return found
+
+
 def _label_collisions(page):
     """Text spans whose box a drawn stroke crosses (frames that contain the label do not count)."""
     spans = []
@@ -72614,6 +72705,10 @@ def figure_selfcheck(root, exam, *, asset_issues=None):
                 continue
             if asset_issues is not None:
                 entry['errors'].extend(asset_issues(path, asset, inline=inline))
+            if is_table_figure(asset):
+                overflow = table_text_overflow(page)
+                if overflow:
+                    entry['errors'].append(TABLE_OVERFLOW_ADVICE.format(where='; '.join(overflow[:4])))
             if isinstance(asset.get('visual_spec'), dict):
                 from validate_visual_item_contract import english_label_errors
                 subject = (exam.get('metadata') or {}).get('subject')
@@ -84867,6 +84962,23 @@ def english_label_errors(number: Any, spec: dict[str, Any], path: Path, subject:
             "acronyms such as x, t (s), mol, NaCl, DNA in Latin letters"]
 
 
+def table_overflow_errors(number: Any, asset: dict[str, Any], path: Path) -> list[str]:
+    """A table figure whose text crosses its own cell borders (read from pixels, so PNG counts too)."""
+    try:
+        import pymupdf
+        from hosted_evidence_refresh import TABLE_OVERFLOW_ADVICE, is_table_figure, table_text_overflow
+    except ImportError:
+        return []
+    if not is_table_figure(asset) or not path.is_file():
+        return []
+    try:
+        with pymupdf.open(path) as doc:
+            overflow = table_text_overflow(doc[0]) if len(doc) else []
+    except Exception:
+        return []
+    return [f"Q{number}: " + TABLE_OVERFLOW_ADVICE.format(where='; '.join(overflow[:4]))] if overflow else []
+
+
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -84898,6 +85010,7 @@ def validate_exam(exam: dict[str, Any], asset_root: Path) -> dict[str, Any]:
             errors.append(f"Q{number}: visual_asset lacks visual_spec")
             continue
         errors.extend(english_label_errors(number, spec, asset_root / str(asset.get("path") or ""), subject))
+        errors.extend(table_overflow_errors(number, asset, asset_root / str(asset.get("path") or "")))
         missing_fields = sorted(field for field in REQUIRED_SPEC_FIELDS if spec.get(field) in (None, ""))
         if missing_fields:
             errors.append(f"Q{number}: visual_spec fields missing: {', '.join(missing_fields)}")

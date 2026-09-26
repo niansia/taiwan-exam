@@ -52,6 +52,8 @@ For maps, record the subtype: reference, projection, choropleth, cartogram, them
 
 Label every figure and table in Chinese outside 英文 (樣品、硫酸根、電解液、反應進程、時間), as the official booklets do; keep only symbols, units, formulas and acronyms (x, t (s), mol, NaCl, DNA, NOAA) in Latin letters. `validate_visual_item_contract.py` rejects English words in `semantic_data` labels, SVG text and PDF figures; it cannot read a raster, so check a PNG's labels when reviewing the page.
 
+Every table figure keeps each cell's text inside its borders: size the columns to the longest entry, or break a long header onto two lines (「生態最低量」 over 「（萬噸）」); never shrink text below the body size. `check-figures` and the final gate read the table's pixels (PNG included) and reject text that crosses a cell border or the table's edge.
+
 Create semantic data first, solve from that data, then render it. `scripts/render_visual.py` provides grayscale-safe SVG for coordinate graphs, bar/line charts, and point/segment geometry. Extend the renderer rather than asking an image model to guess exact values.
 
 For a hybrid scene diagram, separate a non-answer-bearing illustration layer from an exact overlay layer. The background may establish the telescope, launch tower, building, transit station, camera, laboratory, or daily-life setting; the deterministic overlay must carry every ray, path, boundary, tick, angle, scale, state, or label used in the solution. Record both layers in the Visual Spec and verify the composite in grayscale. A recognizable silhouette is allowed, but copying a source photograph's composition or a historical question's topology is not.
