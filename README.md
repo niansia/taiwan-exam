@@ -352,7 +352,7 @@
 <details>
 <summary><b>AI 說無法下載或套用模板</b></summary>
 
-2026.09.18.1 以後的 Skill ZIP 已內建模板；若仍出現這個訊息，先確認技能已換成新版。用專案或 Gem 的人請照下面做：
+目前的 Skill ZIP 已內建模板；若仍出現這個訊息，先確認技能已換成新版。用專案或 Gem 的人請照下面做：
 
 1. 點[下載離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)。
 2. 回到**原本出卷的對話**，上傳 `taiwan-exam-template-resources.pdf`。
@@ -373,7 +373,7 @@
 <details>
 <summary><b>AI 說缺少繁體中文字型</b></summary>
 
-2026.09.19.3 以後的 Skill 會自動改用內建字型繼續，不會停下來。如果 AI 還是停下來要字型，在同一個對話貼上：
+目前的 Skill 會自動改用內建字型繼續，不會停下來。如果 AI 還是停下來要字型，在同一個對話貼上：
 
 ```text
 不用等我提供字型：請改用 PyMuPDF 內建的中文字型繼續。
@@ -424,7 +424,7 @@ Skill 會自己從本專案的 GitHub Release 下載並驗證 PyMuPDF，通常�
 <details>
 <summary><b>上傳 ZIP 出現「too many files」或「path with invalid characters」</b></summary>
 
-這是舊版 ZIP 的問題（2026.09.22.1～.3 超過 Claude 的 200 個檔案上限；2026.09.14.1 有路徑字元問題）。請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip) 再上傳，不需要自己解壓或修改。若新版仍被拒收，請保留錯誤文字並[回報問題](https://github.com/niansia/taiwan-exam/issues)。
+這是早期舊版 ZIP 的問題（檔案數超過 Claude 的 200 個上限，或路徑含不支援的字元）。請重新下載[新版 Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip) 再上傳，不需要自己解壓或修改。若新版仍被拒收，請保留錯誤文字並[回報問題](https://github.com/niansia/taiwan-exam/issues)。
 
 </details>
 
@@ -537,14 +537,16 @@ gemini skills install https://github.com/niansia/taiwan-exam
 
 感謝以下學校的朋友協助閱覽試卷、審閱版面並參與製作：
 
-| | | | |
-| :-: | :-: | :-: | :-: |
-| 國立臺灣大學 | 國立陽明交通大學 | 國立成功大學 | 國立政治大學 |
-| 國立臺灣師範大學 | 國立中央大學 | 國立中山大學 | 國立臺灣海洋大學 |
-| 輔仁大學 | 元智大學 | 高雄醫學大學 | 中山醫學大學 |
-| 中國醫藥大學 | 義守大學 | 淡江大學 | 東海大學 |
+<div align="center">
 
-<sub>依協助名單順序列出；如有遺漏或想更正校名，歡迎到 [Issues](https://github.com/niansia/taiwan-exam/issues/new/choose) 告訴我們。</sub>
+國立臺灣大學 ・ 國立陽明交通大學 ・ 國立成功大學 ・ 國立政治大學<br>
+國立臺灣師範大學 ・ 國立中央大學 ・ 國立中山大學 ・ 國立臺灣海洋大學<br>
+輔仁大學 ・ 元智大學 ・ 高雄醫學大學 ・ 中山醫學大學<br>
+中國醫藥大學 ・ 義守大學 ・ 淡江大學 ・ 東海大學
+
+</div>
+
+<div align="center"><sub>依協助名單順序列出；如有遺漏或想更正校名，歡迎到 <a href="https://github.com/niansia/taiwan-exam/issues/new/choose">Issues</a> 告訴我們。</sub></div>
 
 ## 授權
 
