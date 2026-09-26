@@ -190,7 +190,9 @@ def authoring_requirements(subject):
                'the 文言 title; >= 30 attribution tokens; absolute-word options <= 12%; one ①②研判 single-choice item; '
                'stems quote 「…」 exactly as the material prints it; options one per line unless four options <= 16 chars'],
         '自然': ['five verified recent sources carrying eight items in both parts, two within 180 days, a Taiwan hazard, '
-               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item',
+               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with at least one real photograph (web search first, '
+               'scripts/photo_library.py when images cannot be fetched; a traceable source is enough, no license needed); '
+               'curriculum codes per item',
                'each discipline spreads over at least three 108 主題 letters (official 4-7 chapters a year) and no chapter '
                'above six items; Q1-36: 12-19 多選 (應選2項 or 應選3項 only) in four nine-item discipline blocks; Q37-56..60: six 題組 of 3-6 '
                'items, each with a 非選, 3-9 單選, 5-10 多選, 8-9 非選; metadata.natural_choice_form_contract records the '
@@ -206,8 +208,12 @@ def authoring_requirements(subject):
                'full official 115 wording (answer sheet front/back, black ink, no pencil, illegible handwriting); 一、 prints '
                '「請分項回答下列問題：」 before 問題（一） and 二、 prints 「請回答下列問題：」; the renderer sets materials in 楷體 '
                'with a two-character indent and 問題（一）／（二） with a six-character hanging indent'],
-        '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
-               'subject_innovation_audit per item; content codes only in curriculum_codes',
+        # A hosted 社會 run still read 「four real photos」 here after the floor fell to two, and
+        # asked the user for four licensed photographs when the runtime could not fetch images.
+        '社會': ['ten within-year items across five materials, four within 180 days, at least four in each part; ten '
+               'answer-bearing visuals of four kinds with at least two real photographs or archival images (web search first, '
+               'scripts/photo_library.py when images cannot be fetched; a traceable source is enough, no license needed) and '
+               '18 items that cite a 圖／表／照片; subject_innovation_audit per item; content codes only in curriculum_codes',
                'printed form (official 111-115 bands): 第壹部分 35-46 單選 of 2 points with (A)-(D), 第貳部分 21-29 numbered items '
                'in 8-11 題組 with 11-19 單選 and 9-11 非選, 64-67 items, no 多選; curriculum codes spread over 臺灣史／中國與東亞／'
                '世界史 (歷A-F／G-J／K-O), 地理技能／系統／視野 (地A／B／C) and at least three 公民 主題 with four 公B items'],

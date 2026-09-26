@@ -85,10 +85,10 @@ attachments; extract only the selected subject's components.
 [
   {
     "path": "SKILL.md",
-    "bytes": 90096,
-    "sha256": "63dde1c996f7bf71980c232aa673cbe14f642400bafb0b6dce7548cd78497223",
-    "embedded_bytes": 90096,
-    "embedded_sha256": "63dde1c996f7bf71980c232aa673cbe14f642400bafb0b6dce7548cd78497223"
+    "bytes": 90210,
+    "sha256": "6e613be15c13a78b21f466f4f9ba733b03bfff76668b4edc1fec5b85b93e9f91",
+    "embedded_bytes": 90210,
+    "embedded_sha256": "6e613be15c13a78b21f466f4f9ba733b03bfff76668b4edc1fec5b85b93e9f91"
   },
   {
     "path": "core/taxonomy.json",
@@ -561,10 +561,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-social-form.md",
-    "bytes": 39449,
-    "sha256": "c9fe024e6539686cfa9dde3d0b060308e493df23dbe1c6774e45e373171f4736",
-    "embedded_bytes": 39449,
-    "embedded_sha256": "c9fe024e6539686cfa9dde3d0b060308e493df23dbe1c6774e45e373171f4736"
+    "bytes": 39734,
+    "sha256": "67a613b6bec9242b79b04bfa79448d8a207fc113df69f9a1ddf4cbf99b2f5375",
+    "embedded_bytes": 39734,
+    "embedded_sha256": "67a613b6bec9242b79b04bfa79448d8a207fc113df69f9a1ddf4cbf99b2f5375"
   },
   {
     "path": "references/current-gsat-writing-form.md",
@@ -1065,10 +1065,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/prepare_hosted_run.py",
-    "bytes": 38773,
-    "sha256": "89349ed0c6d2e5947b09df0e876dd5adc958ddc83b8932a87fd29bdc3fc06934",
-    "embedded_bytes": 38773,
-    "embedded_sha256": "89349ed0c6d2e5947b09df0e876dd5adc958ddc83b8932a87fd29bdc3fc06934"
+    "bytes": 39433,
+    "sha256": "c0df4928cda5bebb078c18c0040834d98f5afbe583a868510eb34229e7089488",
+    "embedded_bytes": 39433,
+    "embedded_sha256": "c0df4928cda5bebb078c18c0040834d98f5afbe583a868510eb34229e7089488"
   },
   {
     "path": "scripts/read_web_knowledge.py",
@@ -1740,7 +1740,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
    Apply bounded novelty: unfamiliar professional, technological, daily-life, or university-adjacent mechanisms are allowed only when every external rule is defined in the item, no outside domain knowledge is required, and the complete solution reduces to named concepts in the selected curriculum. Novel context must not inflate difficulty beyond the slot target.
    Do not hard-code a topic-to-unit association. Spaceflight, language models, telescopes, public bicycles, energy systems, or any user example are candidates only. For each slot, compare at least three mutually dissimilar information mechanisms, including a non-topical alternative, and select by evidence necessity, curriculum fit, solution quality, and target difficulty.
    Apply the originality firewall to every scored item without exception: text-only, single-choice, multiple-selection, fill-in, constructed response, and every mixed-group subpart. For fill-ins, only the official marking rail may be reused. For mixed groups, the shared object and the dependency among subparts must also be newly invented.
-   A photograph must be original, public-domain, licensed, or explicitly user-authorized and must carry an auditable provenance record. When it will print in grayscale, freeze the exact crop and tonal conversion before item review. Every answer-bearing feature must remain distinguishable at final print size without hue. A color-dependent prompt is rejected unless the same distinction is redundantly encoded by labels, patterns, shapes, positions, or printed values. Never ask students to identify a color from a grayscale reproduction.
+   A photograph must carry an auditable provenance record: original, public-domain, licensed, user-supplied, or found on the web with a traceable source (`web_sourced`; no license verdict is required, maintainer decision 2026-09-24). When it will print in grayscale, freeze the exact crop and tonal conversion before item review. Every answer-bearing feature must remain distinguishable at final print size without hue. A color-dependent prompt is rejected unless the same distinction is redundantly encoded by labels, patterns, shapes, positions, or printed values. Never ask students to identify a color from a grayscale reproduction.
    Before solving, perform a substantive-surface audit against the selected current official booklet. Compare unique stimulus volume, complete item-block volume, source/representation mix, and the amount of genuinely occupied page area. Short standalone scenarios are allowed only where the matching current-form role is also short; a full paper may not be assembled from one- or two-sentence mini-scenarios plus generic options. A curriculum code, a declared two-step operation, or a filled metadata field does not compensate for missing evidence in the printed material.
 6. Solve every question in a separate reasoning pass. For high-risk mathematics, science, ambiguous reading, or constructed response, use an independent second route or deterministic calculation where practical. The printable answer material must preserve each item's actual calculation, evidence comparison, model boundary, or scoring points. Boilerplate such as “符合題示資料與模型”, “排除超出資料支持範圍的敘述”, or the same generic two-line rationale repeated across items is not a solution and blocks release. For selected response, state the decisive evidence and at least the main distractor distinction; for constructed response, show the computation or auditable rubric elements actually used to award points.
 7. Validate scope twice: first map every mathematical operation to one or more official learning-content codes, then audit the actual wording and solution path for hidden out-of-scope terminology, theorems, or procedures. Run `scripts/validate_math_curriculum.py` for Math A/B and require human review of every `defined-bridge` item. Then validate answerability, unique answer where applicable, distractors, units, diagrams, answer distribution, duplicated concepts, total score, difficulty-vector match, stimulus necessity, and blueprint fit. The answer-distribution audit runs on the **final printed option order**: reject a conspicuous omitted label, two-label concentration, mechanical pattern, or unexplained long run. Reordering options requires remapping the key, independent solve, every option verdict and explanation label, followed by fresh content/answer hashes and a complete rerender. A near-even count is an editorial default, never permission to alter which statement is true. Run lexical triage plus the mandatory structural skin-swap audit from `references/originality-firewall.md` against official, mock, and already-generated items. Also validate the paper-level diversity matrix from `references/llm-original-item-generation.md`. Replace only failed items and recheck the whole paper. Any build that inherits legacy generated question content is rejected in full.
@@ -1754,7 +1754,7 @@ These checks apply to ordinary generation, previews, smoke tests, timed tests, a
    Label every figure and table in Chinese outside 英文 (樣品、硫酸根、電解液、反應進程、時間), as the official booklets do; keep only symbols, units, formulas and acronyms (x, t (s), mol, NaCl, DNA, NOAA) in Latin letters. `validate_visual_item_contract.py` rejects English words in `semantic_data` labels, SVG text and PDF figures; it cannot read a raster, so check a PNG's labels when reviewing the page.
    Every counted visual must be evidence or required for solution, set `item_spec.requires_diagram: true`, include a schema-complete `visual_asset.visual_spec`, enumerate answer-bearing features, and fail the visual-removal test. Run `scripts/validate_visual_item_contract.py generated-exam.json`. If a full paper misses its subject envelope, replace the failed or text-only item with a newly designed visual item and re-solve it; never attach a decorative image to preserve an old stem or enlarge a figure to fill the page.
    The declared visual kind must match the **rendered scientific topology**, not merely its metadata label. A coordinate graph needs axes, scales and plotted marks; a profile or cross-section needs spatial layers/paths; a spectrum needs a wavelength axis and spectral lines; an apparatus or circuit needs connected components; a flowchart needs meaningful nodes and directed links. A one-column box that restates prompt values is not a graph, map, profile, spectrum, apparatus, process diagram, or evidence matrix. Do not route heterogeneous visual kinds through one generic label-and-row panel. A genuine data table must have an explicit row/column comparison structure used by the solution; a vertical list of already printed facts is not a data table. If removing the figure leaves every number and relation needed for the answer in the prose, remove the redundant figure or rewrite the item so the figure actually carries evidence. Before release, record `representation_audit` with the topology family, rendered primitive types, semantic channels, prompt-redundancy result, and visual-removal result; reject repeated near-identical panel topology masquerading as representation diversity.
-   A sourced photograph must preserve the downloaded original beside the placed derivative and hash-bind both files. Record the stable source page, creator or agency, rights/license, original-file path and hash, fixed crop, processing steps, target print width, and effective raster resolution. Convert the placed asset to a fixed grayscale or bilevel file before pagination; do not rely on printer conversion. The final-size review must locate every answer-bearing boundary, object, count, texture, label, or relative tone in the monochrome page without consulting the color original.
+   A sourced photograph must preserve the downloaded original beside the placed derivative and hash-bind both files. Record the stable source page, creator or agency, the license when one is stated, original-file path and hash, fixed crop, processing steps, target print width, and effective raster resolution. Convert the placed asset to a fixed grayscale or bilevel file before pagination; do not rely on printer conversion. The final-size review must locate every answer-bearing boundary, object, count, texture, label, or relative tone in the monochrome page without consulting the color original.
    Full Social Studies papers must keep history, geography, and civics genuinely balanced in both item count and score, and full Natural Science papers must do the same for physics, chemistry, biology, and earth science. Until an annotated selected-year profile supplies tighter values, the internal fail-closed limits are a largest-to-smallest item-count gap of at most `3` and a score-share gap of at most `8` percentage points. `validate_social_item_design.py` and `validate_chinese_natural_scope.py` enforce these limits; merely naming every discipline once is not balance.
    For English, run `scripts/validate_english_vocabulary_scope.py generated-exam.json <CEEC-reference-vocabulary.pdf> --report output/english-vocabulary-scope.json`, `scripts/validate_english_difficulty_design.py generated-exam.json`, and `scripts/validate_english_layout_contract.py generated-exam.json`. Treat an out-of-envelope non-reading word, a vocabulary target above level 5, a missing exact surface-form binding between option/answer/explanation, fewer than two plausible distractors for most vocabulary items, a narrow distractor-family mix, more than one simple vocabulary anchor, fewer than five medium-hard/hard vocabulary items, a one-cue or suffix-only shortcut disguised by a hard label, a non-Chinese composition direction, an incoherent forced writing prompt, or a failed section-display contract as release-blocking. Use near-synonym, collocation, polysemy, argument-structure, register, semantic-prosody, discourse-relation, and controlled word-form/word-family competition across the section; a form-based distractor counts only when it remains syntactically plausible and is defeated by full-sentence evidence. Level 6 or off-list words in authentic reading material require local support or a documented reading-only exception; rarity may not be the intended source of difficulty.
    For Social Studies, run `scripts/validate_social_item_design.py generated-exam.json --report output/social-item-design.json`. `curriculum_codes` must contain exact Grade 10–11 required **learning-content** codes from `references/social-required-content-codes.json`; keep learning-performance codes in a separate field and CEEC `H/G/C/S` assessment targets in `ceec_assessment_targets`. Treat a performance code masquerading as content, an elective/invented/wrong-domain code, a missing curriculum-alignment record, unsupported current-event claim, ornamental proper noun, non-self-contained domain rule, evidence-free competence label, bare definition recall, or peripheral low-priority curriculum target as release-blocking. Every scored item—including basic anchors—must record a core or high-frequency curriculum anchor, forbid recall-only solution paths, and require at least two linked operations grounded in evidence, relations, causes, constraints, scale, or procedure. Preserve identifiable history, geography, and civics coverage alongside cross-disciplinary groups instead of making the whole paper a collection of topical news passages.
@@ -58797,7 +58797,7 @@ Where to get photographs, in order:
 
 1. The preflight reports `image_sources` (`python scripts/photo_library.py probe`). When web image hosts are reachable, search the web first for a photograph that fits the item and use it from your own environment.
 2. When they are blocked (a hosted Claude sandbox reached only GitHub; Wikimedia, government sites and NASA answered 403), do not retry: run `python scripts/photo_library.py fetch --run-dir RUN`, browse `list --domain 地理` (or `--query`), and place one with `use ID --run-dir RUN --output figures/qN.jpg --crop x0,y0,x1,y1`. It prints the `visual_asset` and `visual_spec` fields to merge. The library holds 59 grayscale photographs, archival images and satellite scenes from Wikimedia Commons, each with its observable features; `references/photo-library-manifest.json` lists them offline.
-3. Only when GitHub is blocked too, ask the user once to upload images or the library ZIP. Never print a placeholder box in place of a photograph.
+3. Only when GitHub is blocked too, ask the user once to upload the library ZIP or as many photographs as the floor still needs (two for the whole paper), each with where it came from; no license information is required. Never print a placeholder box in place of a photograph.
 
 Keep photograph credit, license, crop, and transformation records in the internal provenance ledger. Do not print a photo-source credit in the student question booklet unless the selected official profile explicitly places one there. This does not remove the obligation to print a textual material/source attribution when that attribution is part of the selected profile.
 
@@ -58805,7 +58805,7 @@ Every visual item must pass the color-independence and evidence-survival tests i
 
 Measured on the official 111–115 booklets (2026-09-24): 2–4 photographs or archival images a year (112: a poster, a land deed, an aerial photo; 113: temple photos and a statuette; 114: a cave photo and two cartoons; 115: murals, a satellite image, an aerial panel and the Bamiyan niche) beside 7–13 charts, maps and tables, and 18–45 items that cite a 圖／表／照片. A full paper must contain at least **ten** answer-bearing visuals across both parts, at least **four** visual kinds, at least **two** traceable real photographs or archival images, visual evidence serving history, geography and civics, and at least **18** items citing a figure (`validate_visual_item_contract.py`). The earlier four-photograph floor sat above two official years and made hosted runs stall on downloads; a paper's own `visual_contract` may raise these floors, never lower them. A map, chart, timeline, document fragment, photograph, or artifact counts only when removing it changes the evidence search or reasoning. If the floor is missed, replace the text-only item with a newly designed visual mechanism and re-solve it; an ornamental skyline, portrait, flag, or map silhouette does not count.
 
-Plan **12–15 independent answer-bearing visual materials, at least four kinds and three or four photographs or archival images**, as the official papers do, not a rigid maximum. The ten-visual / four-kind / four-photo release floor is a minimum, not the drafting target: a paper that stops exactly at a floor is treating a minimum as a quota, which is the defect this floor was raised to catch. If source quality, the controlling layout or realistic solving time prevents the higher target, explain the trade-off in the existing editorial review rather than silently stopping at the floor. Do not grow the official item count or squeeze type to fit more images.
+Plan **12–15 independent answer-bearing visual materials, at least four kinds and two to four photographs or archival images**, as the official papers do, not a rigid maximum. When the runtime cannot fetch images, two photographs from the photo library meet the floor; never stall or ask the user for more than the floor still needs. The ten-visual / four-kind / two-photo release floor is a minimum, not the drafting target: a paper that stops exactly at a floor is treating a minimum as a quota, which is the defect this floor was raised to catch. If source quality, the controlling layout or realistic solving time prevents the higher target, explain the trade-off in the existing editorial review rather than silently stopping at the floor. Do not grow the official item count or squeeze type to fit more images.
 
 Prefer a purposeful mix of photographs/artifacts, maps or remote images, charts, timelines and source-document images across the three disciplines and both parts. Do not fill the increase solely with text tables or screenshots of paragraphs. Count one shared image once in the material inventory, separately from the number of questions using it; duplicated crops and recolored copies are not new evidence. Require students to observe, compare or integrate something actually visible with a curriculum concept, rather than identify a place/person by memory. Preserve a sensible mix of text-only and visual items.
 
@@ -75454,7 +75454,9 @@ def authoring_requirements(subject):
                'the 文言 title; >= 30 attribution tokens; absolute-word options <= 12%; one ①②研判 single-choice item; '
                'stems quote 「…」 exactly as the material prints it; options one per line unless four options <= 16 chars'],
         '自然': ['five verified recent sources carrying eight items in both parts, two within 180 days, a Taiwan hazard, '
-               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with 3 real photos; curriculum codes per item',
+               'climate/energy and Taiwan contexts; 16 answer-bearing visuals with at least one real photograph (web search first, '
+               'scripts/photo_library.py when images cannot be fetched; a traceable source is enough, no license needed); '
+               'curriculum codes per item',
                'each discipline spreads over at least three 108 主題 letters (official 4-7 chapters a year) and no chapter '
                'above six items; Q1-36: 12-19 多選 (應選2項 or 應選3項 only) in four nine-item discipline blocks; Q37-56..60: six 題組 of 3-6 '
                'items, each with a 非選, 3-9 單選, 5-10 多選, 8-9 非選; metadata.natural_choice_form_contract records the '
@@ -75470,8 +75472,12 @@ def authoring_requirements(subject):
                'full official 115 wording (answer sheet front/back, black ink, no pencil, illegible handwriting); 一、 prints '
                '「請分項回答下列問題：」 before 問題（一） and 二、 prints 「請回答下列問題：」; the renderer sets materials in 楷體 '
                'with a two-character indent and 問題（一）／（二） with a six-character hanging indent'],
-        '社會': ['six within-year items, two within 180 days; ten answer-bearing visuals of four kinds with four real photos; '
-               'subject_innovation_audit per item; content codes only in curriculum_codes',
+        # A hosted 社會 run still read 「four real photos」 here after the floor fell to two, and
+        # asked the user for four licensed photographs when the runtime could not fetch images.
+        '社會': ['ten within-year items across five materials, four within 180 days, at least four in each part; ten '
+               'answer-bearing visuals of four kinds with at least two real photographs or archival images (web search first, '
+               'scripts/photo_library.py when images cannot be fetched; a traceable source is enough, no license needed) and '
+               '18 items that cite a 圖／表／照片; subject_innovation_audit per item; content codes only in curriculum_codes',
                'printed form (official 111-115 bands): 第壹部分 35-46 單選 of 2 points with (A)-(D), 第貳部分 21-29 numbered items '
                'in 8-11 題組 with 11-19 單選 and 9-11 非選, 64-67 items, no 多選; curriculum codes spread over 臺灣史／中國與東亞／'
                '世界史 (歷A-F／G-J／K-O), 地理技能／系統／視野 (地A／B／C) and at least three 公民 主題 with four 公B items'],
