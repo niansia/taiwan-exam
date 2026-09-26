@@ -17,7 +17,7 @@
 
 [**學測（目前可用）**](#支援的考試與科目) · [**會考（待製作）**](docs/exams/cap.md) · [**分科測驗（待製作）**](docs/exams/subject-test.md)
 
-[**測試紀錄**](#模型實測紀錄) · [**下載安裝**](#第-1-步安裝) · [**開始出卷**](#第-3-步出卷) · [**版型預覽**](#七科版型預覽) · [**常見問題**](#卡住了怎麼辦) · [**更新紀錄**](docs/web-updates.md)
+[**測試紀錄**](#模型實測紀錄) · [**下載安裝**](#第-1-步安裝) · [**開始出卷**](#第-3-步出卷) · [**版型預覽**](#七科版型預覽) · [**常見問題**](#卡住了怎麼辦) · [**更新紀錄**](docs/web-updates.md) · [**致謝**](#致謝)
 
 ⭐ 覺得有幫助？登入 GitHub 後按頁面右上角的 <b>☆ Star</b>，讓更多老師和同學找到它
 <a href="https://github.com/niansia/taiwan-exam/stargazers"><img src="https://img.shields.io/github/stars/niansia/taiwan-exam?style=social" alt="GitHub stars" align="absmiddle"></a>
@@ -532,6 +532,19 @@ gemini skills install https://github.com/niansia/taiwan-exam
 | ⭐ 支持專案 | 登入 GitHub 後按右上角 **☆ Star**，讓更多老師和同學找到它 |
 
 回報或貢獻時，請不要上傳大考中心或出版社的完整試卷、個人資料或帳號資訊。
+
+## 致謝
+
+感謝以下學校的朋友協助閱覽試卷、審閱版面並參與製作：
+
+| | | | |
+| :-: | :-: | :-: | :-: |
+| 國立臺灣大學 | 國立陽明交通大學 | 國立成功大學 | 國立政治大學 |
+| 國立臺灣師範大學 | 國立中央大學 | 國立中山大學 | 國立臺灣海洋大學 |
+| 輔仁大學 | 元智大學 | 高雄醫學大學 | 中山醫學大學 |
+| 中國醫藥大學 | 義守大學 | 淡江大學 | 東海大學 |
+
+<sub>依協助名單順序列出；如有遺漏或想更正校名，歡迎到 [Issues](https://github.com/niansia/taiwan-exam/issues/new/choose) 告訴我們。</sub>
 
 ## 授權
 
