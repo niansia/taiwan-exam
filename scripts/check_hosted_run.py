@@ -27,6 +27,7 @@ from hosted_subject_gates import subject_gate_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
 from hosted_density import booklet_limits
 from validate_math_layout_contract import HEADINGS as MATH_HEADINGS
+from validate_english_layout_contract import placement_errors as english_placement
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -258,6 +259,10 @@ def check(state_path: Path) -> dict:
                      f'{role}: item crop coverage incomplete')
                 layout_errors = geometry_errors(actual, parts)
                 errors.extend(f'{role}: {error}' for error in layout_errors)
+                if role == 'question':
+                    # The printed placement, not the declared `page` fields.
+                    errors.extend(f'{role}/english-placement: {error}' for error in
+                                  english_placement(exam, parts, {n: p.get_text() for n, p in enumerate(actual, 1)}))
                 if not layout_errors:
                     # Text-only crops may be reviewed on their page; the checker
                     # recomputes that from the exam so a report cannot relabel an item.

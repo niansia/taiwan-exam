@@ -23,6 +23,10 @@ CLOZE_PHRASE_ITEMS_MIN = 4        # 11-20 items whose options are phrases or str
 READING_LONGEST_KEY_MAX = 4       # 35-46 keys that are the strictly longest option: 0, 2, 0, 0, 4
 VOCABULARY_POS_CLASSES_MIN = 3    # every year keys nouns, verbs, adjectives and one adverb
 VOCABULARY_POS_SHARE_MAX = 5      # no word class keys more than about four of ten
+# 112 and 115 print both cloze groups whole on page 3 (419 and 406 words); the hosted
+# renderer fits the 115 pair with 2.5 pt to spare and never splits a group, so a longer
+# pair cannot be printed in the 115 form.
+CLOZE_PAIR_WORDS_MAX = 410
 MIXED_SCORE_LABELS = {47: r"（填充題?，\s*4\s*分）", 49: r"（多選題，\s*4\s*分）", 50: r"（簡答題?，\s*2\s*分）"}
 COUNT_LEAK = re.compile(r"(?i)\b(?:choose|select|pick|which)\s+(?:the\s+)?(?:two|three|four|2|3|4)\b|選出[兩二三四2-4]")
 AUTHORING_LEAK = re.compile(r"(?i)\b(?:invented|fictional|made-up|hypothetical|imaginary)\s+(?:data|figures?|numbers?|trial|survey|study|results?)\b"
@@ -144,6 +148,10 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         count = prose_word_count(number)
         if count < minimum or count > maximum:
             errors.append(f"{label}正文{count}字，不在111–115實卷基準{minimum}–{maximum}字內")
+    pair = prose_word_count(11) + prose_word_count(16)
+    if pair > CLOZE_PAIR_WORDS_MAX:
+        errors.append(f"兩篇綜合測驗正文合計{pair}字：115版型兩組題組與選項同印第3頁，合計須不超過{CLOZE_PAIR_WORDS_MAX}字"
+                      "（112、115 同頁的兩篇為 419、406 字）；排版器不會把題組拆頁")
 
     mixed = by_number.get(47) or {}
     if not mixed.get("visual_asset"):
@@ -356,6 +364,37 @@ def selection_design_errors(by_number: dict[int, dict], answers: dict[str, dict]
             single = sorted({c for c in classes if classes.count(c) == 1})
             if single:
                 errors.append(f"英文文意選填選項庫中 {single} 只有一個選項，考生只看詞性就能作答；官方 111–115 每種詞形至少兩個（115：動詞原形、名詞、形容詞各三至四個）")
+    return errors
+
+
+def placement_errors(exam: dict[str, Any], parts: list[dict], page_texts: dict[int, str]) -> list[str]:
+    """Where the booklet actually printed 綜合測驗, on physical pages (cover = page 1).
+
+    `validate_exam` reads the declared `page` and `section_header_previews`; a hosted run
+    declared both and still printed the heading on the cloze page and ran the 16-20 passage
+    over a page break. `parts` are the item crops ({id, covers, page}); `page_texts` maps
+    each page to its text layer.
+    """
+    meta = exam.get("metadata") or {}
+    if (meta.get("paper_subject") or meta.get("subject")) != "英文":
+        return []
+    if (meta.get("section_header_previews") or {}).get("2") != "cloze":
+        return []
+    numbers = {q.get("id"): q.get("number") for q in exam.get("questions") or []}
+    pages: dict[int, set] = {}
+    for part in parts:
+        for item in [part.get("id"), *(part.get("covers") or [])]:
+            number = numbers.get(item)
+            if type(number) is int and 11 <= number <= 20:
+                pages.setdefault(number, set()).add(part.get("page"))
+    errors = []
+    misplaced = [n for n in range(11, 21) if pages.get(n) != {3}]
+    if misplaced:
+        where = "、".join(f"{n}（第{'、'.join(map(str, sorted(pages.get(n, set()))) or '?')}頁）" for n in misplaced)
+        errors.append(f"英文綜合測驗須兩組整組同印第3頁（112、115）：實際 {where}")
+    heading = sorted(n for n, text in page_texts.items() if "二、綜合測驗" in re.sub(r"\s+", "", text or ""))
+    if heading != [2]:
+        errors.append(f"「二、綜合測驗」標題與說明須印在第2頁頁末、詞彙題之後（111–115 每年皆同）：實際在第{heading or '?'}頁")
     return errors
 
 

@@ -33,6 +33,7 @@ from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from hosted_evidence_refresh import record_history, evidence_gaps, refresh as refresh_drafts, figure_selfcheck
 from fetch_hosted_template_assets import DEFAULT_MAP
 from hosted_density import page_void_limit
+from validate_english_layout_contract import placement_errors as english_placement
 
 SPEC_GENERATOR = 'run_hosted_workflow.py specs'
 
@@ -584,7 +585,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
         except ValueError:
             lock_status = 'changed'
     output.mkdir()
-    booklets, attention = {}, []
+    booklets, attention, form_attention = {}, [], []
     for role, spec_path in specs.items():
         layout = render(read(spec_path), output / (role + '-body.pdf'), output / (role + '-layout.json'),
                         Path(font), asset_root=spec_path.parent,
@@ -603,6 +604,12 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
             if void_limit is not None and void > void_limit:
                 attention.append({'role': role, 'page': row['page'], 'bottom_void_ratio': void, 'limit': void_limit,
                                   'question_ids': row['question_ids']})
+        if role == 'question':
+            # Body page n prints as booklet page n + 1, after the cover.
+            with pymupdf.open(output / (role + '-body.pdf')) as body_pdf:
+                texts = {n + 1: page.get_text() for n, page in enumerate(body_pdf, 1)}
+            parts = [{**part, 'page': part['page'] + 1} for part in layout['parts']]
+            form_attention.extend({'role': role, 'error': error} for error in english_placement(exam, parts, texts))
         booklets[role] = {'page_count': page_plan['page_count'], 'gap_scale': layout.get('gap_scale'),
                           'scaled_assets': layout.get('scaled_assets', []), 'pages': pages,
                           'blocks': layout['blocks'], 'render_seconds': layout.get('elapsed_seconds')}
@@ -626,7 +633,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
     event(root, 'plan', started, pages={role: b['page_count'] for role, b in booklets.items()})
     return {'status': 'page-plan-only', 'plan': output.name, 'page_plan': str(plan_path),
             'page_counts': {role: b['page_count'] for role, b in booklets.items()},
-            'bottom_void_attention': attention, 'content_lock': lock_status,
+            'bottom_void_attention': attention, 'form_attention': form_attention, 'content_lock': lock_status,
             'page_budget': page_budget(read(specs['question']).get('subject'), booklets),
             'compared_with_previous': comparison, 'iteration_budget': iteration_budget(root, 'plan', output),
             'reviews_approved_by_tool': False, 'deliverable': False,
@@ -1011,12 +1018,19 @@ def english_segment(owner, segment, members, where, layout):
         expected = ' '.join(f'{option_label(o["label"])} {o["text"]}' for o in options)
         if row and options and re.sub(r'\s+', ' ', row.group(2)).strip() == re.sub(r'\s+', ' ', expected).strip():
             flush()
-            if blocks and blocks[-1]['kind'] == 'choice':
-                blocks[-1]['keep_with_next'] = True  # 16's options never part from 17-20's
-            blocks.append({'kind': 'choice', 'id': member['id'], 'number': member['number'], 'text': '', 'language': 'en',
+            if blocks and blocks[-1]['kind'] in {'choice', 'passage'}:
+                # A cloze group prints whole: its passage never parts from its rows, nor 16's
+                # options from 17-20's (115 prints 11-15 and 16-20 each on one page). A hosted
+                # paper ran the 16-20 passage over the page foot, away from its options.
+                blocks[-1]['keep_with_next'] = True
+                blocks[-1]['row_follows'] = True
+            # The rows belong to the passage's crop, so they can sit at the official 17 pt
+            # row pitch (115 measured) instead of each being a separate 20 pt crop; at
+            # 24 pt a row the two 115-length cloze groups no longer fitted one page.
+            blocks.append({'kind': 'choice', 'id': owner, 'number': member['number'], 'text': '', 'language': 'en',
                            'options': [{'label': option_label(o['label']),
                                         'text': printed(o['text'], where + ' option', english=True)} for o in options],
-                           'columns': option_columns(member, '英文')})
+                           'columns': option_columns(member, '英文'), 'option_row': True})
             emitted.add(member['id'])
             continue
         entries = re.findall(r'\(([A-Z])\)\s*(.*?)(?=\s*\([A-Z]\)|\s*$)', text_, re.S)
@@ -1085,6 +1099,9 @@ def project_specs(exam, hints, body_width):
         if type(question.get('number')) is int and type(question.get('score')) in (int, float):
             totals[question['number']] = totals.get(question['number'], 0) + question['score']
     suppressed = []
+    row_owners, cloze_tail = [], {}
+    previews = exam['metadata'].get('section_header_previews')
+    header_previews = set(map(str, previews.values())) if isinstance(previews, dict) else set()
     shown = set()
     current_section = None
     item_material = {}
@@ -1253,7 +1270,11 @@ def project_specs(exam, hints, body_width):
             printed_headings.add(section['id'])
             notes = ' '.join(section.get('instructions') or [])
             add({'kind': 'section', 'title': printed(section['title'], 'section ' + section['id']),
-                 **({'directions': printed(notes, 'section ' + section['id'] + ' instructions')} if notes.strip() else {})})
+                 **({'directions': printed(notes, 'section ' + section['id'] + ' instructions')} if notes.strip() else {}),
+                 # 「二、綜合測驗」 and its 說明 close the 詞彙題 page and the passages start the
+                 # next page (112 and 115 measured); a hosted paper moved the heading onto
+                 # the cloze page because a heading always travelled with its first item.
+                 **({'break_after': True} if section['id'] in header_previews else {})})
             current_section = q.get('section_id')
         group = q.get('group_stimulus')
         j = i + 1
@@ -1298,16 +1319,26 @@ def project_specs(exam, hints, body_width):
                         segment_blocks, rows = english_segment(q['id'], segment, members, where,
                                                                q.get('stimulus_layout') or 'prose')
                         emitted |= rows
+                        row_owners.append((q['id'], rows))
+                        if any(b.get('option_row') for b in segment_blocks):
+                            previous = cloze_tail.get(q.get('section_id'))
+                            if previous is not None and blocks and blocks[-1] is previous:
+                                # Both cloze groups share one page, as 112 and 115 print them.
+                                previous['keep_with_next'] = True
+                                previous['keep_note'] = ('英文綜合測驗兩組題組依 115 版型同頁；請縮短兩篇文章，'
+                                                         '使兩組文章與選項同印一頁')
+                            cloze_tail[q.get('section_id')] = segment_blocks[-1]
                     elif single_material:
                         segment_blocks = []  # printed inside its item, after the stem (國綜 3, 27)
                     else:
                         text_ = printed(segment, where + ' stimulus')
                         segment_blocks = [{'kind': 'stimulus', 'id': q['id'], 'text': text_,
                                            **({'material': True} if subject == '國綜' else {})}]
+                    whole_group = any(b.get('option_row') for b in segment_blocks)
                     for block in segment_blocks:
                         if block['kind'] in {'passage', 'stimulus'}:
                             carriers.append(block)
-                            if plain_length(block.get('text') or ' '.join(
+                            if not whole_group and plain_length(block.get('text') or ' '.join(
                                     p['rich'] if isinstance(p, dict) else p for p in block.get('paragraphs', []))) >= SPLIT_MIN_CHARACTERS:
                                 block['split'] = 'paragraphs'
                     if position == 0 and label and segment_blocks:
@@ -1362,6 +1393,9 @@ def project_specs(exam, hints, body_width):
             raise ValueError(f'item {member["id"]}: suppressed display needs printed shared material or a same-number item')
         if owner != member['id']:
             cover(owner, [member['id']])
+    for owner, rows in row_owners:
+        # English cloze rows print in their passage's crop.
+        cover(owner, [row for row in rows if row != owner])
 
     solution_section = None
     for q in questions:

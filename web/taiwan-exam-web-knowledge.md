@@ -540,10 +540,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "references/current-gsat-english-form.md",
-    "bytes": 36676,
-    "sha256": "434af7c5a67221ebab50a494735118a85c35041712a364fe9ee3728de19c5a84",
-    "embedded_bytes": 36676,
-    "embedded_sha256": "434af7c5a67221ebab50a494735118a85c35041712a364fe9ee3728de19c5a84"
+    "bytes": 37324,
+    "sha256": "df84990c0f13f2eb7d693ac000cc222f0cb9698d0109a4b7f57fd154db247a93",
+    "embedded_bytes": 37324,
+    "embedded_sha256": "df84990c0f13f2eb7d693ac000cc222f0cb9698d0109a4b7f57fd154db247a93"
   },
   {
     "path": "references/current-gsat-math-form.md",
@@ -911,10 +911,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/check_hosted_run.py",
-    "bytes": 25082,
-    "sha256": "c9b96bd1c35767812fdae3294777da0628096167fcccf28167aa528f39a2ad13",
-    "embedded_bytes": 25082,
-    "embedded_sha256": "c9b96bd1c35767812fdae3294777da0628096167fcccf28167aa528f39a2ad13"
+    "bytes": 25483,
+    "sha256": "2736d30fb5eea82bc08af6755bea1718130fb544d7fcc143953412d163467499",
+    "embedded_bytes": 25483,
+    "embedded_sha256": "2736d30fb5eea82bc08af6755bea1718130fb544d7fcc143953412d163467499"
   },
   {
     "path": "scripts/check_paper_plan.py",
@@ -960,10 +960,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/hosted_body_templates.py",
-    "bytes": 73584,
-    "sha256": "cf5a751d1f94b43253993df5162ad7c7ac1f811199e440ff527145d2a5c4982f",
-    "embedded_bytes": 73584,
-    "embedded_sha256": "cf5a751d1f94b43253993df5162ad7c7ac1f811199e440ff527145d2a5c4982f"
+    "bytes": 75497,
+    "sha256": "f0250905edad26f1e3528869efa729213c4b1bd7bdceac945bff4e50d36bbe51",
+    "embedded_bytes": 75497,
+    "embedded_sha256": "f0250905edad26f1e3528869efa729213c4b1bd7bdceac945bff4e50d36bbe51"
   },
   {
     "path": "scripts/hosted_bundles.py",
@@ -1079,10 +1079,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/run_hosted_workflow.py",
-    "bytes": 108300,
-    "sha256": "0ebb24f1867fe5a04e23d03f0e617b47374366ea7e95f7a8e87d9a578a1102f0",
-    "embedded_bytes": 108300,
-    "embedded_sha256": "0ebb24f1867fe5a04e23d03f0e617b47374366ea7e95f7a8e87d9a578a1102f0"
+    "bytes": 111091,
+    "sha256": "dea25c39a6eb827f401341c48026f67ac93c13e02fcf12686c8fd694c3066317",
+    "embedded_bytes": 111091,
+    "embedded_sha256": "dea25c39a6eb827f401341c48026f67ac93c13e02fcf12686c8fd694c3066317"
   },
   {
     "path": "scripts/safe_rendering.py",
@@ -1128,10 +1128,10 @@ attachments; extract only the selected subject's components.
   },
   {
     "path": "scripts/validate_english_layout_contract.py",
-    "bytes": 25841,
-    "sha256": "68c02d561d0002bbbbddbc3280f853f42ae6c56c56a93e332276a0f473fbecbf",
-    "embedded_bytes": 25464,
-    "embedded_sha256": "81f50e2b44ccd9a2c5945aba85657039a4375257dd6b16010c1713919013b2e7"
+    "bytes": 28232,
+    "sha256": "df0b537a3663459848f581ea25cb79b729bace3d3042a8731efdcd577bea84f6",
+    "embedded_bytes": 27816,
+    "embedded_sha256": "26dd0a66277aa9deb5d09e5208c614dfb29a4ef37b0ee53abd453057f874e785"
   },
   {
     "path": "scripts/validate_english_vocabulary_scope.py",
@@ -58135,7 +58135,7 @@ Pending complete item-level annotation, a full internal English paper must conta
 For the verified 115 profile, the following section-level display rules are release-blocking:
 
 - `第壹部分、選擇題` is 62 points, followed by the 10-point mixed part and 28-point non-selected part; never print 72 points for Part I.
-- Cloze gaps 11–20 are numbered underlined slots inside two passages. Print each passage's four-choice rows together after that passage; do not repeat ten standalone prompts such as “Choose the best answer for blank.” Both cloze groups occupy the same official-style body page when the measured profile does.
+- Cloze gaps 11–20 are numbered underlined slots inside two passages. Print each passage's four-choice rows together after that passage; do not repeat ten standalone prompts such as “Choose the best answer for blank.” Both cloze groups occupy the same official-style body page when the measured profile does. With `section_header_previews: {"2": "cloze"}` the hosted renderer prints 「二、綜合測驗」 and its 說明 at the foot of the 詞彙題 page (111–115 every year) and starts the passages on a new page; each group (passage and its five rows) prints whole, and 11–15 and 16–20 share page 3 as in 112 and 115 (419 and 406 words). The rows sit at the official 17 pt pitch inside the passage's crop. The pair may total at most 410 words; a longer pair stops the render with the overflow in points, so shorten the passages instead of splitting a group. `check_hosted_run.py` and `plan` read the printed pages, not the declared `page` fields.
 - Text completion prints the passage first with ten numbered underlined slots, then exactly ten lettered options for ten gaps. Each option is used once. Do not prepend a worksheet word bank, invent two unused options, or repeat ten `Blank (...)` rows.
 - Discourse structure prints one passage with four numbered underlined slots, followed by five candidate sentences. Do not print the options before the passage or repeat the gaps as standalone questions.
 - An underlined group label such as `第 11 至 15 題為題組` is printed once when the passage begins. Do not add an invented `（續）` label after a page break.
@@ -68923,6 +68923,7 @@ from hosted_subject_gates import subject_gate_errors
 from hosted_calibration import snapshot, anchor_errors, density_limit
 from hosted_density import booklet_limits
 from validate_math_layout_contract import HEADINGS as MATH_HEADINGS
+from validate_english_layout_contract import placement_errors as english_placement
 
 
 ITEM_GATES = ('answers', 'difficulty', 'originality', 'visuals')
@@ -69154,6 +69155,10 @@ def check(state_path: Path) -> dict:
                      f'{role}: item crop coverage incomplete')
                 layout_errors = geometry_errors(actual, parts)
                 errors.extend(f'{role}: {error}' for error in layout_errors)
+                if role == 'question':
+                    # The printed placement, not the declared `page` fields.
+                    errors.extend(f'{role}/english-placement: {error}' for error in
+                                  english_placement(exam, parts, {n: p.get_text() for n, p in enumerate(actual, 1)}))
                 if not layout_errors:
                     # Text-only crops may be reviewed on their page; the checker
                     # recomputes that from the exam so a report cannot relabel an item.
@@ -71408,7 +71413,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             cells=[padded_cell(inner,option_pitch(columns) if columns>2 else alt,alt=alt,wrap=wrap,
                                mode='last' if (j+1)%columns==0 or j==len(options)-1 else '') for j,inner in enumerate(inners)]
             rows=[''.join(cells[j:j+columns]) for j in range(0,len(cells),columns)]
-            result=('<table class="options" style="width:auto">'+''.join(
+            # 115 sets the cloze rows at a 17 pt pitch, the passage's own line.
+            flush=';margin-top:0' if block.get('option_row') else ''
+            result=(f'<table class="options" style="width:auto{flush}">'+''.join(
                 f'<tr>{padded_cell(label if n==0 else "",number_pitch(),wrap=wrap,mode="number")}{row}</tr>'
                 for n,row in enumerate(rows))+'</table>')
             return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
@@ -71680,7 +71687,10 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         top=min(0,min((r.y0-body.y0 for r in ink),default=0))-1
         # Retain the actual measured page. Painting reuses these glyphs and images
         # at 1:1 scale instead of asking HTML exact-fit to lay them out again.
-        prepared[key]=(measured,top,max(20,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
+        # An English cloze row shares its passage's crop, so it takes its measured height
+        # instead of the 20 pt floor of a separately reviewed crop.
+        floor=0 if block.get('option_row') else 20
+        prepared[key]=(measured,top,max(floor,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
         return prepared[key]
 
     def split_to_fit(block,available):
@@ -71704,6 +71714,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     def paginate(tightness,capacity=None):
         """One pagination pass. Gaps scale with tightness; `capacity` breaks pages early to spread content evenly."""
         def gap_after(block):
+            if block.get('row_follows'):
+                return 0  # cloze rows 11-15 follow each other at the 115 row pitch
             return (8 if block['kind']=='section' else item_gap_pt(spec['subject']))*tightness
 
         work=list(blocks)
@@ -71739,6 +71751,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                  math.floor((y+block_top)/BLOCK_GRID_PT+1e-9)*BLOCK_GRID_PT,
                  math.ceil(allowed.x1/BLOCK_GRID_PT)*BLOCK_GRID_PT,
                  snap_block_top(y+used)]
+            if pages and pages[-1]['page']==number and pages[-1].get('row_follows'):
+                # Cloze rows sit with no gap; their boxes abut instead of overlapping.
+                box[1]=max(box[1],pages[-1]['bbox'][3])
             piece='whole' if block.get('_head',True) and block.get('_tail',True) else (
                 'first' if block.get('_head',True) else 'last' if block.get('_tail',True) else 'middle')
             if block['kind']!='section':
@@ -71759,6 +71774,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
             pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':number,'bbox':box,
                           'id':block.get('id'), 'measured_height_pt':used,
                           'keep_with_next':bool(block.get('keep_with_next') or block['kind']=='section'),
+                          **({'row_follows':True} if block.get('row_follows') else {}),
                           'remaining_height_pt':body.y1-(y+used)})
 
         with pymupdf.open() as doc:
@@ -71768,8 +71784,13 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
             i=0
             while i<len(work):
                 y=snap_block_top(y)
+                # `break_after`: a section heading that fits closes the current page and
+                # its material starts the next one (英文 「二、綜合測驗」 under 詞彙題 10,
+                # 112 and 115). At the top of a page it simply leads its material.
+                detach=bool(work[i].get('break_after') and not fresh_page and
+                            y+prepare(work[i])[2]<=body.y1)
                 chain=[work[i]]
-                while chain[-1]['kind']=='section' or chain[-1].get('keep_with_next'):
+                while not detach and (chain[-1]['kind']=='section' or chain[-1].get('keep_with_next')):
                     if i+len(chain)==len(work):raise ValueError('A kept heading or block must precede content')
                     chain.append(work[i+len(chain)])
                 heights=[prepare(block)[2] for block in chain]
@@ -71777,7 +71798,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 required=sum(heights)+sum(gap_after(block)+BLOCK_GRID_PT for block in chain[:-1])
                 # Even-fill passes stop at the capacity line unless the page is still
                 # empty; a block that fits the real page is never pushed off it.
-                bound=body.y1 if capacity is None or fresh_page else min(body.y1,top+capacity)
+                bound=body.y1 if capacity is None or fresh_page or detach else min(body.y1,top+capacity)
                 if y+required>bound:
                     # Fill this page with leading paragraphs of the first block in
                     # the kept chain that allows continuation, instead of leaving
@@ -71796,6 +71817,10 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                         close_page()
                         page=doc.new_page(width=595.28,height=841.89);y=top;fresh_page=True
                         continue
+                    notes=list(dict.fromkeys(b['keep_note'] for b in chain if b.get('keep_note')))
+                    if notes:
+                        raise ValueError(f'{"；".join(notes)}（需 {required:.0f} pt，一頁可排 {bound-top:.0f} pt，'
+                                         f'超出 {required-(bound-top):.0f} pt）')
                     if math.inf in heights:
                         raise ValueError(f'Block {chain[heights.index(math.inf)]["_source"]} exceeds a page; explicitly split its continuation')
                     raise ValueError('Section and following item exceed page; split the item explicitly')
@@ -71810,6 +71835,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 y+=used+gap_after(block)
                 fresh_page=False
                 i+=1
+                if detach and i<len(work):
+                    close_page()
+                    page=doc.new_page(width=595.28,height=841.89);y=top;fresh_page=True
             close_page()
             last=max(row['bbox'][3] for row in pages if row['page']==len(doc))
             return doc.tobytes(garbage=4,deflate=True),parts,pages,len(doc),(last-top)/body.height
@@ -71843,7 +71871,10 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 (8 if row['kind']=='section' else item_gap_pt(spec['subject']))*tightness for row in pages)
             best=(over_limit(best_voids),count)
             for slack in (1.02,1.05,1.08,1.12):
-                attempt=paginate(tightness,capacity=used/count*slack)
+                try:
+                    attempt=paginate(tightness,capacity=used/count*slack)
+                except ValueError:
+                    continue  # e.g. a detached heading lost its page foot; the greedy pass stands
                 if attempt[3]>count:continue
                 candidate=(over_limit(voids(attempt[2],attempt[3])),attempt[3])
                 if candidate<best:
@@ -76494,6 +76525,7 @@ from check_hosted_run import check, ITEM_GATES, PAPER_GATES
 from hosted_evidence_refresh import record_history, evidence_gaps, refresh as refresh_drafts, figure_selfcheck
 from fetch_hosted_template_assets import DEFAULT_MAP
 from hosted_density import page_void_limit
+from validate_english_layout_contract import placement_errors as english_placement
 
 SPEC_GENERATOR = 'run_hosted_workflow.py specs'
 
@@ -77045,7 +77077,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
         except ValueError:
             lock_status = 'changed'
     output.mkdir()
-    booklets, attention = {}, []
+    booklets, attention, form_attention = {}, [], []
     for role, spec_path in specs.items():
         layout = render(read(spec_path), output / (role + '-body.pdf'), output / (role + '-layout.json'),
                         Path(font), asset_root=spec_path.parent,
@@ -77064,6 +77096,12 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
             if void_limit is not None and void > void_limit:
                 attention.append({'role': role, 'page': row['page'], 'bottom_void_ratio': void, 'limit': void_limit,
                                   'question_ids': row['question_ids']})
+        if role == 'question':
+            # Body page n prints as booklet page n + 1, after the cover.
+            with pymupdf.open(output / (role + '-body.pdf')) as body_pdf:
+                texts = {n + 1: page.get_text() for n, page in enumerate(body_pdf, 1)}
+            parts = [{**part, 'page': part['page'] + 1} for part in layout['parts']]
+            form_attention.extend({'role': role, 'error': error} for error in english_placement(exam, parts, texts))
         booklets[role] = {'page_count': page_plan['page_count'], 'gap_scale': layout.get('gap_scale'),
                           'scaled_assets': layout.get('scaled_assets', []), 'pages': pages,
                           'blocks': layout['blocks'], 'render_seconds': layout.get('elapsed_seconds')}
@@ -77087,7 +77125,7 @@ def plan(state_path, question_spec, solution_spec, font, output, *, reading_font
     event(root, 'plan', started, pages={role: b['page_count'] for role, b in booklets.items()})
     return {'status': 'page-plan-only', 'plan': output.name, 'page_plan': str(plan_path),
             'page_counts': {role: b['page_count'] for role, b in booklets.items()},
-            'bottom_void_attention': attention, 'content_lock': lock_status,
+            'bottom_void_attention': attention, 'form_attention': form_attention, 'content_lock': lock_status,
             'page_budget': page_budget(read(specs['question']).get('subject'), booklets),
             'compared_with_previous': comparison, 'iteration_budget': iteration_budget(root, 'plan', output),
             'reviews_approved_by_tool': False, 'deliverable': False,
@@ -77472,12 +77510,19 @@ def english_segment(owner, segment, members, where, layout):
         expected = ' '.join(f'{option_label(o["label"])} {o["text"]}' for o in options)
         if row and options and re.sub(r'\s+', ' ', row.group(2)).strip() == re.sub(r'\s+', ' ', expected).strip():
             flush()
-            if blocks and blocks[-1]['kind'] == 'choice':
-                blocks[-1]['keep_with_next'] = True  # 16's options never part from 17-20's
-            blocks.append({'kind': 'choice', 'id': member['id'], 'number': member['number'], 'text': '', 'language': 'en',
+            if blocks and blocks[-1]['kind'] in {'choice', 'passage'}:
+                # A cloze group prints whole: its passage never parts from its rows, nor 16's
+                # options from 17-20's (115 prints 11-15 and 16-20 each on one page). A hosted
+                # paper ran the 16-20 passage over the page foot, away from its options.
+                blocks[-1]['keep_with_next'] = True
+                blocks[-1]['row_follows'] = True
+            # The rows belong to the passage's crop, so they can sit at the official 17 pt
+            # row pitch (115 measured) instead of each being a separate 20 pt crop; at
+            # 24 pt a row the two 115-length cloze groups no longer fitted one page.
+            blocks.append({'kind': 'choice', 'id': owner, 'number': member['number'], 'text': '', 'language': 'en',
                            'options': [{'label': option_label(o['label']),
                                         'text': printed(o['text'], where + ' option', english=True)} for o in options],
-                           'columns': option_columns(member, '英文')})
+                           'columns': option_columns(member, '英文'), 'option_row': True})
             emitted.add(member['id'])
             continue
         entries = re.findall(r'\(([A-Z])\)\s*(.*?)(?=\s*\([A-Z]\)|\s*$)', text_, re.S)
@@ -77546,6 +77591,9 @@ def project_specs(exam, hints, body_width):
         if type(question.get('number')) is int and type(question.get('score')) in (int, float):
             totals[question['number']] = totals.get(question['number'], 0) + question['score']
     suppressed = []
+    row_owners, cloze_tail = [], {}
+    previews = exam['metadata'].get('section_header_previews')
+    header_previews = set(map(str, previews.values())) if isinstance(previews, dict) else set()
     shown = set()
     current_section = None
     item_material = {}
@@ -77714,7 +77762,11 @@ def project_specs(exam, hints, body_width):
             printed_headings.add(section['id'])
             notes = ' '.join(section.get('instructions') or [])
             add({'kind': 'section', 'title': printed(section['title'], 'section ' + section['id']),
-                 **({'directions': printed(notes, 'section ' + section['id'] + ' instructions')} if notes.strip() else {})})
+                 **({'directions': printed(notes, 'section ' + section['id'] + ' instructions')} if notes.strip() else {}),
+                 # 「二、綜合測驗」 and its 說明 close the 詞彙題 page and the passages start the
+                 # next page (112 and 115 measured); a hosted paper moved the heading onto
+                 # the cloze page because a heading always travelled with its first item.
+                 **({'break_after': True} if section['id'] in header_previews else {})})
             current_section = q.get('section_id')
         group = q.get('group_stimulus')
         j = i + 1
@@ -77759,16 +77811,26 @@ def project_specs(exam, hints, body_width):
                         segment_blocks, rows = english_segment(q['id'], segment, members, where,
                                                                q.get('stimulus_layout') or 'prose')
                         emitted |= rows
+                        row_owners.append((q['id'], rows))
+                        if any(b.get('option_row') for b in segment_blocks):
+                            previous = cloze_tail.get(q.get('section_id'))
+                            if previous is not None and blocks and blocks[-1] is previous:
+                                # Both cloze groups share one page, as 112 and 115 print them.
+                                previous['keep_with_next'] = True
+                                previous['keep_note'] = ('英文綜合測驗兩組題組依 115 版型同頁；請縮短兩篇文章，'
+                                                         '使兩組文章與選項同印一頁')
+                            cloze_tail[q.get('section_id')] = segment_blocks[-1]
                     elif single_material:
                         segment_blocks = []  # printed inside its item, after the stem (國綜 3, 27)
                     else:
                         text_ = printed(segment, where + ' stimulus')
                         segment_blocks = [{'kind': 'stimulus', 'id': q['id'], 'text': text_,
                                            **({'material': True} if subject == '國綜' else {})}]
+                    whole_group = any(b.get('option_row') for b in segment_blocks)
                     for block in segment_blocks:
                         if block['kind'] in {'passage', 'stimulus'}:
                             carriers.append(block)
-                            if plain_length(block.get('text') or ' '.join(
+                            if not whole_group and plain_length(block.get('text') or ' '.join(
                                     p['rich'] if isinstance(p, dict) else p for p in block.get('paragraphs', []))) >= SPLIT_MIN_CHARACTERS:
                                 block['split'] = 'paragraphs'
                     if position == 0 and label and segment_blocks:
@@ -77823,6 +77885,9 @@ def project_specs(exam, hints, body_width):
             raise ValueError(f'item {member["id"]}: suppressed display needs printed shared material or a same-number item')
         if owner != member['id']:
             cover(owner, [member['id']])
+    for owner, rows in row_owners:
+        # English cloze rows print in their passage's crop.
+        cover(owner, [row for row in rows if row != owner])
 
     solution_section = None
     for q in questions:
@@ -80249,6 +80314,10 @@ CLOZE_PHRASE_ITEMS_MIN = 4        # 11-20 items whose options are phrases or str
 READING_LONGEST_KEY_MAX = 4       # 35-46 keys that are the strictly longest option: 0, 2, 0, 0, 4
 VOCABULARY_POS_CLASSES_MIN = 3    # every year keys nouns, verbs, adjectives and one adverb
 VOCABULARY_POS_SHARE_MAX = 5      # no word class keys more than about four of ten
+# 112 and 115 print both cloze groups whole on page 3 (419 and 406 words); the hosted
+# renderer fits the 115 pair with 2.5 pt to spare and never splits a group, so a longer
+# pair cannot be printed in the 115 form.
+CLOZE_PAIR_WORDS_MAX = 410
 MIXED_SCORE_LABELS = {47: r"（填充題?，\s*4\s*分）", 49: r"（多選題，\s*4\s*分）", 50: r"（簡答題?，\s*2\s*分）"}
 COUNT_LEAK = re.compile(r"(?i)\b(?:choose|select|pick|which)\s+(?:the\s+)?(?:two|three|four|2|3|4)\b|選出[兩二三四2-4]")
 AUTHORING_LEAK = re.compile(r"(?i)\b(?:invented|fictional|made-up|hypothetical|imaginary)\s+(?:data|figures?|numbers?|trial|survey|study|results?)\b"
@@ -80370,6 +80439,10 @@ def validate_exam(exam: dict[str, Any]) -> list[str]:
         count = prose_word_count(number)
         if count < minimum or count > maximum:
             errors.append(f"{label}正文{count}字，不在111–115實卷基準{minimum}–{maximum}字內")
+    pair = prose_word_count(11) + prose_word_count(16)
+    if pair > CLOZE_PAIR_WORDS_MAX:
+        errors.append(f"兩篇綜合測驗正文合計{pair}字：115版型兩組題組與選項同印第3頁，合計須不超過{CLOZE_PAIR_WORDS_MAX}字"
+                      "（112、115 同頁的兩篇為 419、406 字）；排版器不會把題組拆頁")
 
     mixed = by_number.get(47) or {}
     if not mixed.get("visual_asset"):
@@ -80582,6 +80655,37 @@ def selection_design_errors(by_number: dict[int, dict], answers: dict[str, dict]
             single = sorted({c for c in classes if classes.count(c) == 1})
             if single:
                 errors.append(f"英文文意選填選項庫中 {single} 只有一個選項，考生只看詞性就能作答；官方 111–115 每種詞形至少兩個（115：動詞原形、名詞、形容詞各三至四個）")
+    return errors
+
+
+def placement_errors(exam: dict[str, Any], parts: list[dict], page_texts: dict[int, str]) -> list[str]:
+    """Where the booklet actually printed 綜合測驗, on physical pages (cover = page 1).
+
+    `validate_exam` reads the declared `page` and `section_header_previews`; a hosted run
+    declared both and still printed the heading on the cloze page and ran the 16-20 passage
+    over a page break. `parts` are the item crops ({id, covers, page}); `page_texts` maps
+    each page to its text layer.
+    """
+    meta = exam.get("metadata") or {}
+    if (meta.get("paper_subject") or meta.get("subject")) != "英文":
+        return []
+    if (meta.get("section_header_previews") or {}).get("2") != "cloze":
+        return []
+    numbers = {q.get("id"): q.get("number") for q in exam.get("questions") or []}
+    pages: dict[int, set] = {}
+    for part in parts:
+        for item in [part.get("id"), *(part.get("covers") or [])]:
+            number = numbers.get(item)
+            if type(number) is int and 11 <= number <= 20:
+                pages.setdefault(number, set()).add(part.get("page"))
+    errors = []
+    misplaced = [n for n in range(11, 21) if pages.get(n) != {3}]
+    if misplaced:
+        where = "、".join(f"{n}（第{'、'.join(map(str, sorted(pages.get(n, set()))) or '?')}頁）" for n in misplaced)
+        errors.append(f"英文綜合測驗須兩組整組同印第3頁（112、115）：實際 {where}")
+    heading = sorted(n for n, text in page_texts.items() if "二、綜合測驗" in re.sub(r"\s+", "", text or ""))
+    if heading != [2]:
+        errors.append(f"「二、綜合測驗」標題與說明須印在第2頁頁末、詞彙題之後（111–115 每年皆同）：實際在第{heading or '?'}頁")
     return errors
 
 

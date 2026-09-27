@@ -736,7 +736,9 @@ def _fragment_html(block, archive, index, width, font_metric, images, image_heig
             cells=[padded_cell(inner,option_pitch(columns) if columns>2 else alt,alt=alt,wrap=wrap,
                                mode='last' if (j+1)%columns==0 or j==len(options)-1 else '') for j,inner in enumerate(inners)]
             rows=[''.join(cells[j:j+columns]) for j in range(0,len(cells),columns)]
-            result=('<table class="options" style="width:auto">'+''.join(
+            # 115 sets the cloze rows at a 17 pt pitch, the passage's own line.
+            flush=';margin-top:0' if block.get('option_row') else ''
+            result=(f'<table class="options" style="width:auto{flush}">'+''.join(
                 f'<tr>{padded_cell(label if n==0 else "",number_pitch(),wrap=wrap,mode="number")}{row}</tr>'
                 for n,row in enumerate(rows))+'</table>')
             return f'<div class="english">{result}</div>' if block.get('language')=='en' else result
@@ -1008,7 +1010,10 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
         top=min(0,min((r.y0-body.y0 for r in ink),default=0))-1
         # Retain the actual measured page. Painting reuses these glyphs and images
         # at 1:1 scale instead of asking HTML exact-fit to lay them out again.
-        prepared[key]=(measured,top,max(20,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
+        # An English cloze row shares its passage's crop, so it takes its measured height
+        # instead of the 20 pt floor of a separately reviewed crop.
+        floor=0 if block.get('option_row') else 20
+        prepared[key]=(measured,top,max(floor,body.height-spare,max((r.y1-body.y0+2 for r in ink),default=0)))
         return prepared[key]
 
     def split_to_fit(block,available):
@@ -1032,6 +1037,8 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
     def paginate(tightness,capacity=None):
         """One pagination pass. Gaps scale with tightness; `capacity` breaks pages early to spread content evenly."""
         def gap_after(block):
+            if block.get('row_follows'):
+                return 0  # cloze rows 11-15 follow each other at the 115 row pitch
             return (8 if block['kind']=='section' else item_gap_pt(spec['subject']))*tightness
 
         work=list(blocks)
@@ -1067,6 +1074,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                  math.floor((y+block_top)/BLOCK_GRID_PT+1e-9)*BLOCK_GRID_PT,
                  math.ceil(allowed.x1/BLOCK_GRID_PT)*BLOCK_GRID_PT,
                  snap_block_top(y+used)]
+            if pages and pages[-1]['page']==number and pages[-1].get('row_follows'):
+                # Cloze rows sit with no gap; their boxes abut instead of overlapping.
+                box[1]=max(box[1],pages[-1]['bbox'][3])
             piece='whole' if block.get('_head',True) and block.get('_tail',True) else (
                 'first' if block.get('_head',True) else 'last' if block.get('_tail',True) else 'middle')
             if block['kind']!='section':
@@ -1087,6 +1097,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
             pages.append({'block':block['_source'],'kind':block['kind'],'piece':piece,'page':number,'bbox':box,
                           'id':block.get('id'), 'measured_height_pt':used,
                           'keep_with_next':bool(block.get('keep_with_next') or block['kind']=='section'),
+                          **({'row_follows':True} if block.get('row_follows') else {}),
                           'remaining_height_pt':body.y1-(y+used)})
 
         with pymupdf.open() as doc:
@@ -1096,8 +1107,13 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
             i=0
             while i<len(work):
                 y=snap_block_top(y)
+                # `break_after`: a section heading that fits closes the current page and
+                # its material starts the next one (英文 「二、綜合測驗」 under 詞彙題 10,
+                # 112 and 115). At the top of a page it simply leads its material.
+                detach=bool(work[i].get('break_after') and not fresh_page and
+                            y+prepare(work[i])[2]<=body.y1)
                 chain=[work[i]]
-                while chain[-1]['kind']=='section' or chain[-1].get('keep_with_next'):
+                while not detach and (chain[-1]['kind']=='section' or chain[-1].get('keep_with_next')):
                     if i+len(chain)==len(work):raise ValueError('A kept heading or block must precede content')
                     chain.append(work[i+len(chain)])
                 heights=[prepare(block)[2] for block in chain]
@@ -1105,7 +1121,7 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 required=sum(heights)+sum(gap_after(block)+BLOCK_GRID_PT for block in chain[:-1])
                 # Even-fill passes stop at the capacity line unless the page is still
                 # empty; a block that fits the real page is never pushed off it.
-                bound=body.y1 if capacity is None or fresh_page else min(body.y1,top+capacity)
+                bound=body.y1 if capacity is None or fresh_page or detach else min(body.y1,top+capacity)
                 if y+required>bound:
                     # Fill this page with leading paragraphs of the first block in
                     # the kept chain that allows continuation, instead of leaving
@@ -1124,6 +1140,10 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                         close_page()
                         page=doc.new_page(width=595.28,height=841.89);y=top;fresh_page=True
                         continue
+                    notes=list(dict.fromkeys(b['keep_note'] for b in chain if b.get('keep_note')))
+                    if notes:
+                        raise ValueError(f'{"；".join(notes)}（需 {required:.0f} pt，一頁可排 {bound-top:.0f} pt，'
+                                         f'超出 {required-(bound-top):.0f} pt）')
                     if math.inf in heights:
                         raise ValueError(f'Block {chain[heights.index(math.inf)]["_source"]} exceeds a page; explicitly split its continuation')
                     raise ValueError('Section and following item exceed page; split the item explicitly')
@@ -1138,6 +1158,9 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 y+=used+gap_after(block)
                 fresh_page=False
                 i+=1
+                if detach and i<len(work):
+                    close_page()
+                    page=doc.new_page(width=595.28,height=841.89);y=top;fresh_page=True
             close_page()
             last=max(row['bbox'][3] for row in pages if row['page']==len(doc))
             return doc.tobytes(garbage=4,deflate=True),parts,pages,len(doc),(last-top)/body.height
@@ -1171,7 +1194,10 @@ def render(spec, output, layout_path, font, *, asset_root, proof=False, reading_
                 (8 if row['kind']=='section' else item_gap_pt(spec['subject']))*tightness for row in pages)
             best=(over_limit(best_voids),count)
             for slack in (1.02,1.05,1.08,1.12):
-                attempt=paginate(tightness,capacity=used/count*slack)
+                try:
+                    attempt=paginate(tightness,capacity=used/count*slack)
+                except ValueError:
+                    continue  # e.g. a detached heading lost its page foot; the greedy pass stands
                 if attempt[3]>count:continue
                 candidate=(over_limit(voids(attempt[2],attempt[3])),attempt[3])
                 if candidate<best:
