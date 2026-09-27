@@ -51,7 +51,7 @@
 
 ## 模型實測紀錄
 
-預計用 **4 種模型各出一次學測七科，共 28 份完整模擬考**。目前已完成 Claude Opus 5.5 與 GPT 6 sol 的 14 份，其餘仍待測。模型名稱依本輪測試規劃列出，實測時請填平台顯示的完整名稱。
+預計用 **4 種模型各出一次學測七科，共 28 份完整模擬考**。目前已完成 20 份：Claude Opus 5.5 與 GPT 6 sol 各七科、GPT 6 astra 五科（國綜、國寫、英文、數 A、數 B）、Claude Fable 5.1 國寫，其餘仍待測。模型名稱依本輪測試規劃列出，實測時請填平台顯示的完整名稱。
 
 **本輪預定版本：2026.09.22.25。** 每完成一科就更新一列，結果連結可指向該次的題目 PDF、答案詳解與檢查紀錄所在資料夾。
 
@@ -61,7 +61,7 @@
 | 使用的 LLM 模型 | 科目 | 訂閱方案 | Token／額度消耗 % | 生成時間 | 命題結果連結 |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | Claude Fable 5.1 | 國綜 | 待填 | 待填 | 待填 | 待測 |
-| Claude Fable 5.1 | 國寫 | 待填 | 待填 | 待填 | 待測 |
+| Claude Fable 5.1 | 國寫 | Max 5x | 5 小時額度 30% | 36 分 | [查看結果](https://drive.google.com/drive/folders/1LDUzshvqvpU7WZAXDM5VSadcoEcQcMeC?usp=drive_link) |
 | Claude Fable 5.1 | 英文 | 待填 | 待填 | 待填 | 待測 |
 | Claude Fable 5.1 | 數 A | 待填 | 待填 | 待填 | 待測 |
 | Claude Fable 5.1 | 數 B | 待填 | 待填 | 待填 | 待測 |
@@ -74,11 +74,11 @@
 | Claude Opus 5.5 | 數 B | Max 5x | 5 小時額度 14% | 57 分 | [查看結果](https://drive.google.com/drive/folders/1msH5lG9XyOS_kntg-DCk5RGdTOTd8tNk?usp=drive_link) |
 | Claude Opus 5.5 | 自然 | Max 5x | 5 小時額度 25% | 120 分 | [查看結果](https://drive.google.com/drive/folders/1pG3WjkuNVYzQ4vn2FWJFJUVLGbn2jkAy?usp=drive_link) |
 | Claude Opus 5.5 | 社會 | Max 5x | 5 小時額度 28% | 120 分 | [查看結果](https://drive.google.com/drive/folders/1MT5Ag_vqVUbcE1jN8_Ksxxkltc0lBLUN?usp=drive_link) |
-| GPT 6 astra | 國綜 | 待填 | 待填 | 待填 | 待測 |
-| GPT 6 astra | 國寫 | 待填 | 待填 | 待填 | 待測 |
-| GPT 6 astra | 英文 | 待填 | 待填 | 待填 | 待測 |
-| GPT 6 astra | 數 A | 待填 | 待填 | 待填 | 待測 |
-| GPT 6 astra | 數 B | 待填 | 待填 | 待填 | 待測 |
+| GPT 6 astra | 國綜 | Pro 5x | 5 小時額度 7% | 50 分 40 秒 | [查看結果](https://drive.google.com/drive/folders/1PkDh2OIMaI7zS9-0e_Xh3ssfjX3RqgGK?usp=drive_link) |
+| GPT 6 astra | 國寫 | Pro 5x | 5 小時額度 3% | 30 分 28 秒 | [查看結果](https://drive.google.com/drive/folders/1CI6LuBV4iKjOgpYemkLi-qqSxM3F9PvD?usp=drive_link) |
+| GPT 6 astra | 英文 | Pro 5x | 5 小時額度 23% | 109 分 43 秒 | [查看結果](https://drive.google.com/drive/folders/1A0H1QFP_EvFVMuk-Ja9G7dMqJklf-CaH?usp=drive_link) |
+| GPT 6 astra | 數 A | Pro 5x | 5 小時額度 7% | 54 分 2 秒 | [查看結果](https://drive.google.com/drive/folders/1AV-pSeLxQH18cP3wMWwP0EtPrlUMUsNN?usp=drive_link) |
+| GPT 6 astra | 數 B | Pro 5x | 5 小時額度 7% | 58 分 4 秒 | [查看結果](https://drive.google.com/drive/folders/1fGMuPJvxbNh-owpXVoyrGADtTo9Z5acp?usp=drive_link) |
 | GPT 6 astra | 自然 | 待填 | 待填 | 待填 | 待測 |
 | GPT 6 astra | 社會 | 待填 | 待填 | 待填 | 待測 |
 | GPT 6 sol | 國綜 | Pro 5x | 每週額度 4% | 89 分 28 秒 | [查看結果](https://drive.google.com/drive/folders/1M-12X0oNTsgR4AI7rW5qGxnQJSeO5eSe?usp=sharing) |
