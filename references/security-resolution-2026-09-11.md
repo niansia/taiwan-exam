@@ -9,7 +9,7 @@ future security engine decisions.
 ## Reviewed fix basis
 
 The public release is based on the rendering hardening introduced in `c466b33`
-and the public distribution cleanup through `ed29653`. The review established
+and the public distribution cleanup through `8fc1c7e`. The review established
 the following material changes rather than a filename-only repackage:
 
 - arbitrary image paths, external resources and active HTML/SVG content are
