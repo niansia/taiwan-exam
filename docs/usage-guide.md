@@ -9,7 +9,7 @@
 
 ### ChatGPT 網頁版
 
-**有 Skills 的帳號，建議直接上傳 ZIP：** 依 [OpenAI 官方說明](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)，Skills 目前開放給 Business、Enterprise、Healthcare、Edu 帳號，並受工作區設定限制。在左側欄點 `Plugins`，選 `Skills` 分頁，再點 `Create → Upload from your computer`，選取未解壓的[網頁工具 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)。ChatGPT 會先掃描：通過後即可使用；顯示 `Needs Review` 時請自行檢視後再決定；顯示 `Blocked` 則無法使用。直接上傳保留原始 SKILL.md、scripts 與 references，不經模型改寫，因此不必再用 `@skill-creator` 建立。
+**有 Skills 的帳號，建議直接上傳 ZIP：** 左側欄有 `Plugins → Skills` 就能直接上傳（詳見 [OpenAI 官方說明](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)），工作區設定也可能限制上傳。在左側欄點 `Plugins`，選 `Skills` 分頁，再點 `Create → Upload from your computer`，選取未解壓的[網頁工具 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)。ChatGPT 會先掃描：通過後即可使用；顯示 `Needs Review` 時請自行檢視後再決定；顯示 `Blocked` 則無法使用。直接上傳保留原始 SKILL.md、scripts 與 references，不經模型改寫，因此不必再用 `@skill-creator` 建立。
 
 安裝後開新對話即可提出需求，也可以在輸入框鍵入 `@` 選取 `taiwan-exam-generator`：
 

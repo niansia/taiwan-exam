@@ -148,7 +148,7 @@
 
 **有 Skills 的帳號：直接上傳 ZIP（建議）**
 
-依 [OpenAI 官方說明](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)，Skills 目前開放給 Business、Enterprise、Healthcare、Edu 帳號，工作區管理員也可能關閉上傳。一般 Free、Plus、Pro 帳號請看下面的「沒有 Skills」。
+左側欄有 **Plugins → Skills** 就能直接上傳（詳見 [OpenAI 官方說明](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)）；工作區管理員也可能關閉上傳。找不到 Skills 的帳號請看下面的「沒有 Skills」。
 
 1. 下載 [Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)，不要解壓縮。
 2. 開啟 [ChatGPT](https://chatgpt.com/)，在左側欄點 **Plugins**，再點上方的 **Skills** 分頁。
@@ -529,7 +529,6 @@ gemini skills install https://github.com/niansia/taiwan-exam
 | 🐞 回報問題 | 出卷失敗、排版錯、答案有誤，到 [Issues](https://github.com/niansia/taiwan-exam/issues/new/choose) 選「出卷問題」，附上平台、版本、科目和截圖 |
 | 💡 提出建議 | 想要新科目、新考試或更好的說明，選「功能建議」 |
 | 🛠️ 修改程式或文件 | Fork 後發 Pull Request，**所有 PR 都由維護者審核後才會合併**；流程見 [CONTRIBUTING.md](CONTRIBUTING.md) |
-| ⭐ 支持專案 | 登入 GitHub 後按右上角 **☆ Star**，讓更多老師和同學找到它 |
 
 回報或貢獻時，請不要上傳大考中心或出版社的完整試卷、個人資料或帳號資訊。
 
@@ -553,5 +552,3 @@ gemini skills install https://github.com/niansia/taiwan-exam
 本專案不是大考中心、心測中心、OpenAI、Anthropic 或 Google 的官方產品。
 
 自有程式與文件採 [MIT License](LICENSE)；著作權、來源與改作要求見 [NOTICE](NOTICE)、[ORIGIN.json](ORIGIN.json) 及[改作說明](references/attribution-and-forks.md)。MIT 不替第三方試卷、文章、圖片、資料或字型授權。
-
-<div align="center"><sub>覺得 Taiwan Exam 有幫助？按右上角 ☆ <b>Star</b> 支持一下 ⭐</sub></div>

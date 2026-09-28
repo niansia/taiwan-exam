@@ -159,7 +159,7 @@ python scripts/bootstrap_exam_sources.py --subject 社會
 
 ### ChatGPT 網頁版
 
-有 Skills 的帳號（OpenAI 官方目前列出 Business、Enterprise、Healthcare、Edu，並受工作區設定限制）優先直接上傳原生 Skill ZIP：側邊欄 `Plugins → Skills → Create → Upload from your computer`，選取未解壓的 [2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)。ChatGPT 會先掃描；`Needs Review` 須由使用者自行檢視，`Blocked` 不可使用，不得指導使用者繞過。直接上傳保留原始 SKILL.md、scripts 與 references，不經模型改寫。只有上傳被管理員關閉、但原生選單仍能選到 `@skill-creator` 時，才附上同一個未解壓的 Skill ZIP 建立 `taiwan-exam-generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。平台若顯示「安裝」或「儲存」按鈕，使用者仍須完成一次原生確認；Markdown 不能略過平台的永久保存確認。確認後，Skill 應在建立它的同一對話立即套用，不得要求先開新對話；之後的新對話可輸入 `@` 選取同一 Skill，無須重新上傳。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
+有 Skills 的帳號（左側欄有 Plugins → Skills；工作區可能限制上傳）優先直接上傳原生 Skill ZIP：側邊欄 `Plugins → Skills → Create → Upload from your computer`，選取未解壓的 [2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)。ChatGPT 會先掃描；`Needs Review` 須由使用者自行檢視，`Blocked` 不可使用，不得指導使用者繞過。直接上傳保留原始 SKILL.md、scripts 與 references，不經模型改寫。只有上傳被管理員關閉、但原生選單仍能選到 `@skill-creator` 時，才附上同一個未解壓的 Skill ZIP 建立 `taiwan-exam-generator`，不必強制切到工作模式。若對話模式找不到 `@skill-creator`，才切換工作模式重試。平台若顯示「安裝」或「儲存」按鈕，使用者仍須完成一次原生確認；Markdown 不能略過平台的永久保存確認。確認後，Skill 應在建立它的同一對話立即套用，不得要求先開新對話；之後的新對話可輸入 `@` 選取同一 Skill，無須重新上傳。完整考卷與兩份 PDF 建議在工作模式執行，但最終以該帳號是否提供檔案建立、程式執行與逐頁檢查能力為準。若工作區沒有 Skills，可把同一檔案加入固定 Project 指示；不得把普通聊天附件聲稱為永久安裝。
 
 知識檔內含 111～115 各科正式試題、答案與評分原則的已驗證大考中心
 直連。完整卷命題前，網頁代理應自行開啟當科五年份試題，不要要求

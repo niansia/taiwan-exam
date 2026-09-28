@@ -43,7 +43,7 @@
   - 新增測試（舊程式失敗、新程式通過）。
   - 這一版是正式公開版：ZIP 內 `PACKAGE_MANIFEST.json` 的 `distribution_status` 由 `internal-review-not-published` 改為 `public-release`，其餘內容與建置方式不變。
 
-目前的 ZIP 是 9 月 28 日第十二次替換後的正式版（SHA-256 `176ddd05941913cc9ef30c958dc90e7e584cd56a5a265f7f48ddbbecbe3f5f84`，8,674,665 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查；Chrome 下載與 Claude／ChatGPT 上傳待維護者確認。前十二份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`、`1a4e0ff8…78fa9b1c`、`911d8f26…92781ad4c`、`fd44241b…e70286284`、`be0eded1…52dc005f`、`06b415f8…abb62`）也曾分別確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
+目前的 ZIP 是 9 月 28 日第十二次替換後的正式版（SHA-256 `176ddd05941913cc9ef30c958dc90e7e584cd56a5a265f7f48ddbbecbe3f5f84`，8,674,665 位元組，101 個檔案），與解壓內容通過 Windows Defender 與 Windows 附件檢查；維護者已確認 Chrome 下載正常，並在 Claude 與 ChatGPT 上傳成功。前十二份 ZIP（`cac5344f…df74e3a`、`abd409e7…8f017b30`、`140b293d…c36a5c3c`、`c71da2aa…4a5909d2`、`e808397c…1455ad2`、`764c0db8…10b2c74`、`f65b85fb…c78632b`、`1a4e0ff8…78fa9b1c`、`911d8f26…92781ad4c`、`fd44241b…e70286284`、`be0eded1…52dc005f`、`06b415f8…abb62`）也曾分別確認。[下載 2026.09.22.25 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)；security.json 與 browser.json 在 [Release](https://github.com/niansia/taiwan-exam/releases/tag/hosted-2026.09.22.25) 頁面。已安裝的舊 Skill 請重新下載替換。
 
 ## 2026.09.22.24：自然科圖表編號、選項、小題、時事來源與照片依官方 111～115
 

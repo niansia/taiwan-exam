@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "scope": "Legacy local install package (v0.7.1) only. The current web Skill ZIP is taiwan-exam-hosted-2026.09.22.25.zip; its scans and upload acceptance are the security.json and browser.json assets on the hosted-2026.09.22.25 GitHub Release, and its changes are in docs/web-updates.md.",
   "status": "ready",
   "reason": "Reviewed v0.7.1 fixes, exact-archive Defender and attachment scans, post-publication hash verification, and maintainer confirmation of normal browser downloads from both draft and stable URLs are complete. The verified ZIP is unchanged.",
   "version": "0.7.1",
