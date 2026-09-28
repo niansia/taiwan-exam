@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>Taiwan Exam · 三步驟使用教學（Claude + Skill ZIP）</title>
+<!-- Source of how-to-claude.gif. Every label, file name and click path matches README.md (第 1 步 Claude ／ 第 3 步).
+     Open it in a browser to watch; render_how_to.py seeks the timeline frame by frame and encodes the GIF.
+     The chat window is a simplified illustration, not a copy of any product's interface. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{--paper:#FFFCF8;--plum:#392F46;--mauve:#706278;--wine:#97566D;--rose:#CC7893;--blush:#E6D5DF;--seal:#C2415F;--ok:#4E8F74;--blue:#2563EB;--line:#392F4622;
+  --sans:'Noto Sans TC',system-ui,sans-serif;--mono:'JetBrains Mono','Noto Sans TC',monospace;}
+*{box-sizing:border-box;margin:0;}
+html,body{background:#EFE7EE;}
+body{display:grid;place-items:center;min-height:100vh;font-family:var(--sans);color:var(--plum);}
+#stage{position:relative;width:960px;height:540px;overflow:hidden;background:radial-gradient(520px 320px at 88% 0%,#F4DCE6,transparent 70%),radial-gradient(520px 360px at 0% 100%,#EDE3F6,transparent 70%),var(--paper);}
+.abs{position:absolute;}
+
+/* header: brand + four steps + caption */
+.brand{left:28px;top:18px;font:900 17px var(--sans);letter-spacing:.02em;}
+.brand small{font:500 11px var(--mono);color:var(--mauve);margin-left:8px;letter-spacing:.04em;}
+.steps{left:28px;right:28px;top:52px;display:flex;gap:10px;}
+.step{flex:1;display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:12px;background:#fff;border:1.5px solid var(--line);font:700 14px var(--sans);color:#392F4680;transition:none;}
+.step i{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--blush);color:var(--plum);font:900 13px var(--mono);font-style:normal;flex:none;}
+.step small{margin-left:auto;font:500 10.5px var(--sans);color:var(--mauve);}
+.step.on{color:var(--plum);border-color:var(--rose);box-shadow:0 6px 16px -10px var(--seal);}
+.step.on i{background:var(--seal);color:#fff;}
+.step.done i{background:var(--ok);color:#fff;}
+.caption{left:28px;right:28px;top:104px;height:34px;display:flex;align-items:center;gap:10px;font:700 19px var(--sans);}
+.caption b{display:inline-block;padding:2px 10px;border-radius:8px;background:var(--plum);color:#fff;font:700 13px var(--mono);}
+.caption span{white-space:nowrap;}
+.cap{opacity:0;}
+
+/* windows */
+.win{left:28px;right:28px;top:150px;bottom:22px;border-radius:16px;background:#fff;border:1.5px solid var(--line);box-shadow:0 22px 50px -26px #392F4666;overflow:hidden;opacity:0;}
+.bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#F7F1F5;border-bottom:1px solid var(--line);font:500 12px var(--mono);color:var(--mauve);}
+.bar i{width:10px;height:10px;border-radius:50%;background:#E4D7E0;}
+.bar .url{margin-left:12px;padding:3px 12px;border-radius:8px;background:#fff;border:1px solid var(--line);}
+
+/* scene 1: README */
+.readme{position:absolute;left:0;right:0;top:34px;bottom:0;display:flex;flex-direction:column;align-items:center;padding-top:18px;}
+.readme img{width:250px;}
+.readme p{font:700 15px var(--sans);margin-top:-2px;}
+.badges{display:flex;gap:6px;margin-top:12px;}
+.badge{display:flex;font:700 12px var(--sans);border-radius:4px;overflow:hidden;}
+.badge span{padding:4px 7px;background:#555;color:#fff;}.badge span+span{background:var(--blue);}
+.badge.gray span+span{background:#0ea5e9;}.badge.c span+span{background:#d97757;}
+.badge.zip{outline:3px solid transparent;border-radius:5px;}
+.dl{position:absolute;right:18px;bottom:16px;width:400px;padding:12px 14px;border-radius:12px;background:#fff;border:1.5px solid var(--line);box-shadow:0 18px 30px -18px #392F4677;display:flex;gap:12px;align-items:center;opacity:0;}
+.zipicon{flex:none;width:40px;height:48px;border-radius:6px;background:linear-gradient(135deg,#FCE7B2,#F5C567);position:relative;box-shadow:inset 0 0 0 1.5px #C9973A;}
+.zipicon:after{content:'ZIP';position:absolute;left:0;right:0;bottom:6px;text-align:center;font:700 10px var(--mono);color:#7A5510;}
+.zipicon:before{content:'';position:absolute;left:17px;top:4px;width:6px;height:20px;background:repeating-linear-gradient(#7A5510 0 3px,transparent 3px 6px);}
+.dl b{display:block;font:700 12px var(--mono);white-space:nowrap;}
+.dl small{font:500 11.5px var(--sans);color:var(--ok);}
+.nounzip{position:absolute;right:30px;bottom:92px;padding:5px 12px;border-radius:99px;background:var(--seal);color:#fff;font:900 14px var(--sans);transform:rotate(-4deg);opacity:0;box-shadow:0 8px 18px -8px var(--seal);}
+
+/* scene 2: AI app */
+.app{position:absolute;left:0;right:0;top:34px;bottom:0;display:flex;}
+.side{width:170px;padding:14px 10px;background:#FAF6F9;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:4px;font:500 13px var(--sans);}
+.side div{padding:7px 10px;border-radius:8px;color:var(--mauve);}
+.side div.hot{background:#fff;color:var(--plum);font-weight:700;box-shadow:0 0 0 1.5px var(--rose);}
+.side .logo{font:900 15px var(--sans);color:var(--plum);padding:4px 10px 12px;}
+.main{position:relative;flex:1;}
+.panel{position:absolute;inset:14px 18px;opacity:0;}
+.tabs{display:flex;gap:18px;border-bottom:1px solid var(--line);font:700 13px var(--sans);color:var(--mauve);}
+.tabs div{padding:6px 2px;}
+.tabs .on{color:var(--plum);box-shadow:inset 0 -2.5px 0 var(--seal);}
+.plus{position:absolute;right:0;top:0;width:30px;height:30px;border-radius:9px;border:1.5px solid var(--line);display:grid;place-items:center;font:700 18px var(--sans);}
+.menu{position:absolute;z-index:5;right:0;top:36px;width:200px;padding:6px;border-radius:12px;background:#fff;border:1.5px solid var(--line);box-shadow:0 18px 30px -16px #392F4666;font:500 13px var(--sans);opacity:0;}
+.menu div{padding:7px 10px;border-radius:8px;}
+.menu .hot{background:#F7EAF0;font-weight:700;}
+.sub{right:206px;top:74px;width:190px;}
+.picker{position:absolute;z-index:6;left:60px;right:60px;top:40px;padding:14px;border-radius:14px;background:#fff;border:1.5px solid var(--line);box-shadow:0 26px 50px -20px #392F4688;opacity:0;}
+.picker h4{font:700 13px var(--sans);margin-bottom:10px;color:var(--mauve);}
+.file{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;font:700 12.5px var(--mono);}
+.file.sel{background:#E9F0FF;box-shadow:inset 0 0 0 1.5px var(--blue);}
+.file .zipicon{width:24px;height:30px;}.file .zipicon:after,.file .zipicon:before{display:none;}
+.picker .save{position:absolute;right:14px;bottom:12px;padding:6px 16px;border-radius:9px;background:var(--plum);color:#fff;font:700 13px var(--sans);}
+.skills{position:absolute;left:0;right:0;top:48px;display:flex;flex-direction:column;gap:8px;}
+.skill{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);font:500 12.5px var(--sans);color:var(--mauve);}
+.skill b{font:700 14px var(--mono);color:var(--plum);}
+.skill.new{opacity:0;border-color:var(--rose);background:#FFF7FA;}
+.toggle{margin-left:auto;width:40px;height:22px;border-radius:99px;background:#D9CFD8;position:relative;flex:none;}
+.toggle:after{content:'';position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transform:translateX(var(--k,0px));}
+.toggle.on{background:var(--ok);}
+.cap-row{position:absolute;left:0;right:0;top:48px;display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;border:1.5px solid var(--rose);background:#FFF7FA;font:700 14px var(--sans);}
+.cap-row small{display:block;font:500 11.5px var(--sans);color:var(--mauve);}
+
+/* scene 3/4: chat */
+.chat{position:absolute;inset:14px 18px;opacity:0;}
+.hello{position:absolute;left:0;right:0;top:34px;text-align:center;font:700 22px var(--sans);color:var(--plum);}
+.hello small{display:block;margin-top:6px;font:500 12.5px var(--sans);color:var(--mauve);}
+.box{position:absolute;left:30px;right:30px;bottom:6px;min-height:92px;padding:12px 14px 44px;border-radius:16px;border:1.5px solid #392F4633;background:#fff;box-shadow:0 14px 30px -20px #392F4666;font:500 13px/1.65 var(--sans);}
+.chip{display:inline-flex;align-items:center;gap:6px;margin:0 6px 6px 0;padding:2px 10px;border-radius:99px;background:#F7EAF0;color:var(--wine);font:700 12px var(--mono);opacity:0;}
+.slash{font:700 13px var(--mono);color:var(--wine);}
+.typed{white-space:pre-wrap;}
+.caret{display:inline-block;width:2px;height:15px;background:var(--plum);vertical-align:-2px;margin-left:1px;}
+.send{position:absolute;right:10px;bottom:10px;width:30px;height:30px;border-radius:50%;background:var(--plum);color:#fff;display:grid;place-items:center;font:900 15px var(--sans);}
+.pop{position:absolute;left:44px;bottom:112px;width:280px;padding:6px;border-radius:12px;background:#fff;border:1.5px solid var(--line);box-shadow:0 18px 30px -16px #392F4666;opacity:0;}
+.pop div{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font:700 12.5px var(--mono);}
+.pop div.hot{background:#F7EAF0;}
+.pop small{margin-left:auto;font:500 10.5px var(--sans);color:var(--mauve);}
+.me{position:absolute;right:10px;top:0;max-width:480px;padding:10px 14px;border-radius:14px 14px 4px 14px;background:#F3ECF4;font:500 12.5px/1.6 var(--sans);opacity:0;}
+.work{position:absolute;left:10px;top:78px;width:330px;display:flex;flex-direction:column;gap:7px;opacity:0;}
+.work div{display:flex;align-items:center;gap:10px;font:700 13.5px var(--sans);color:#392F4655;}
+.work div i{width:20px;height:20px;border-radius:50%;border:2px solid #392F4633;display:grid;place-items:center;font:900 11px var(--sans);font-style:normal;color:transparent;flex:none;}
+.work div.ok{color:var(--plum);}.work div.ok i{background:var(--ok);border-color:var(--ok);color:#fff;}
+.pdfs{position:absolute;left:372px;top:66px;display:flex;gap:18px;}
+.pdf{width:150px;opacity:0;}
+.page{height:196px;border-radius:6px;background:#fff center/cover no-repeat;box-shadow:0 0 0 1px var(--line),0 16px 26px -16px #392F4699;position:relative;overflow:hidden;}
+.page.sol{padding:16px 14px;background:#fff;}
+.page.sol b{display:block;font:900 12px var(--sans);margin-bottom:10px;}
+.page.sol i{display:block;height:5px;border-radius:3px;background:#392F461f;margin:7px 0;}
+.page.sol i.s{width:62%;}.page.sol i.t{width:38%;background:var(--rose);opacity:.6;}
+.page:after{content:'PDF';position:absolute;right:6px;bottom:6px;padding:1px 6px;border-radius:4px;background:var(--seal);color:#fff;font:700 10px var(--mono);}
+.pdf span{display:block;margin-top:8px;text-align:center;font:700 13px var(--sans);}
+.tail{position:absolute;left:372px;top:300px;font:500 12px var(--sans);color:var(--mauve);opacity:0;}
+.hint{position:absolute;left:10px;bottom:6px;padding:6px 12px;border-radius:10px;background:#F4F7F1;border:1px solid #4E8F7444;font:500 12px var(--sans);color:#335E4C;opacity:0;}
+
+/* cursor + click ring */
+.cursor{position:absolute;left:0;top:0;width:22px;height:22px;z-index:20;pointer-events:none;filter:drop-shadow(0 2px 3px #0005);}
+.ring{position:absolute;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:2.5px solid var(--seal);z-index:19;opacity:0;}
+.end{position:absolute;inset:0;display:grid;place-items:center;background:#FFFCF8ee;opacity:0;z-index:30;text-align:center;}
+.end b{display:block;font:900 34px var(--sans);letter-spacing:.04em;}
+.end span{display:block;margin-top:8px;font:500 15px var(--sans);color:var(--mauve);}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="abs brand">Taiwan Exam<small>3 步驟 · 以 Claude + Skill ZIP 為例</small></div>
+  <div class="abs steps">
+    <div class="step" id="st1"><i>1</i>下載 ZIP<small>只做一次</small></div>
+    <div class="step" id="st2"><i>2</i>上傳到 Claude<small>只做一次</small></div>
+    <div class="step" id="st3"><i>3</i>貼上出卷文字</div>
+    <div class="step" id="st4"><i>4</i>拿到兩份 PDF</div>
+  </div>
+  <div class="abs caption"><span class="cap" id="c1"><b>1</b> 在 README 點藍色的「Skill ZIP」，<u>不要解壓縮</u></span></div>
+  <div class="abs caption"><span class="cap" id="c2a"><b>2</b> Customize → Skills → ＋ → Create skill → Upload a skill</span></div>
+  <div class="abs caption"><span class="cap" id="c2b"><b>2</b> 選剛下載的 ZIP，按 Save，確認技能已開啟</span></div>
+  <div class="abs caption"><span class="cap" id="c2c"><b>2</b> Settings → Capabilities：打開 Code execution</span></div>
+  <div class="abs caption"><span class="cap" id="c3"><b>3</b> 開新對話，打 <span style="font-family:var(--mono);color:var(--seal)">/</span> 選 taiwan-exam-generator，貼上出卷文字</span></div>
+  <div class="abs caption"><span class="cap" id="c4"><b>4</b> AI 命題、驗算、套用大考模板，交給你兩份 PDF</span></div>
+
+  <!-- scene 1: the README -->
+  <div class="abs win" id="w1"><div class="bar"><i></i><i></i><i></i><span class="url">github.com/niansia/taiwan-exam</span></div>
+    <div class="readme"><img src="../wordmark-light.svg" alt=""><p>讓 AI 幫你出一份原創的學測模擬考</p>
+      <div class="badges"><div class="badge zip" id="zip"><span>Skill ZIP</span><span>2026.09.22.25</span></div><div class="badge gray"><span>學測</span><span>七科</span></div><div class="badge c"><span>Claude</span><span>Skill</span></div></div></div>
+    <div class="dl" id="dl"><div class="zipicon"></div><div><b>taiwan-exam-hosted-2026.09.22.25.zip</b><small>✓ 已下載到「下載」資料夾</small></div></div>
+    <div class="nounzip" id="nounzip">ZIP 不要解壓縮！</div>
+  </div>
+
+  <!-- scene 2 and 3: the AI app -->
+  <div class="abs win" id="w2"><div class="bar"><i></i><i></i><i></i><span class="url">claude.ai</span></div>
+    <div class="app">
+      <div class="side"><div class="logo">Claude</div><div>New chat</div><div id="s-custom">Customize</div><div>Projects</div><div id="s-settings">Settings</div></div>
+      <div class="main">
+        <div class="panel" id="p-skills">
+          <div class="tabs"><div>Profile</div><div id="t-skills">Skills</div><div>Connectors</div></div>
+          <div class="plus" id="plus">＋</div>
+          <div class="menu" id="m1"><div id="m-create">Create skill</div><div>Browse skills</div></div>
+          <div class="menu sub" id="m2"><div>Write with Claude</div><div id="m-upload">Upload a skill</div></div>
+          <div class="skills"><div class="skill"><b>my-notes</b>你原本的技能<span class="toggle on" style="--k:18px"></span></div>
+            <div class="skill new" id="newskill"><b>taiwan-exam-generator</b>原創學測模擬考<span class="toggle" id="tg1"></span></div></div>
+          <div class="picker" id="picker"><h4>選擇檔案 · 下載</h4>
+            <div class="file"><div class="zipicon"></div>notes-2026.pdf</div>
+            <div class="file" id="f-zip"><div class="zipicon"></div>taiwan-exam-hosted-2026.09.22.25.zip</div>
+            <div class="file"><div class="zipicon"></div>photo.jpg</div>
+            <div style="height:34px"></div><div class="save" id="save">Save</div></div>
+        </div>
+        <div class="panel" id="p-cap">
+          <div class="tabs"><div>General</div><div class="on">Capabilities</div><div>Privacy</div></div>
+          <div class="cap-row"><div>Code execution and file creation<small>讓 Claude 在對話中執行程式、產生 PDF</small></div><span class="toggle" id="tg2"></span></div>
+        </div>
+        <div class="chat" id="chat">
+          <div class="hello" id="hello">今天想出哪一科？<small>已安裝 taiwan-exam-generator，出卷時不用附任何檔案</small></div>
+          <div class="me" id="me">請依 Taiwan Exam Skill 出一份 116 學測數 A 完整模擬考。封面、頁首頁尾與公式頁必須直接套用原始模板… 分開交付題目 PDF 與答案詳解 PDF。</div>
+          <div class="work" id="work"><div id="k1"><i>✓</i>讀取 Taiwan Exam Skill</div><div id="k2"><i>✓</i>依課綱與官方答對率命題</div><div id="k3"><i>✓</i>不看答案重新解題驗算</div><div id="k4"><i>✓</i>套用大考中心原始模板</div><div id="k5"><i>✓</i>逐頁檢查版面</div></div>
+          <div class="pdfs"><div class="pdf" id="pdf1"><div class="page" style="background-image:url(cover-math-a.jpg)"></div><span>題目 PDF</span></div>
+            <div class="pdf" id="pdf2"><div class="page sol"><b>數學A 答案詳解</b><i></i><i class="s"></i><i class="t"></i><i></i><i class="s"></i><i></i><i class="t"></i><i class="s"></i><i></i><i class="s"></i><i class="t"></i><i></i></div><span>答案詳解 PDF</span></div></div>
+          <div class="tail" id="tail">完整考卷通常要 2～3 輪；停在存檔點時回「繼續」即可</div>
+          <div class="box" id="box"><span class="chip" id="chip">⚡ taiwan-exam-generator</span><span class="slash" id="slash">/</span><span class="typed" id="typed"></span><i class="caret" id="caret"></i><div class="send" id="send">↑</div></div>
+          <div class="pop" id="pop"><div class="hot" id="pop-te">⚡ taiwan-exam-generator<small>Skill</small></div><div>⚡ my-notes<small>Skill</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="cursor" id="cursor" viewBox="0 0 24 24"><path d="M3 2l7.5 19 2.6-7.4L21 11z" fill="#fff" stroke="#392F46" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  <div class="ring" id="ring"></div>
+  <div class="end" id="end"><div><b>一段話，一份考卷。</b><span>Taiwan Exam · github.com/niansia/taiwan-exam</span></div></div>
+</div>
+
+<script>
+/* A seekable timeline: every visual is a pure function of t (seconds), so the recorder can render any frame. */
+const DURATION = 26;
+const PROMPT = '請依 Taiwan Exam Skill 出一份 116 學測數 A 完整模擬考。\n封面、頁首頁尾與公式頁必須直接套用原始模板…';
+const $ = id => document.getElementById(id);
+const ease = k => (k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2);
+const clamp = v => Math.max(0, Math.min(1, v));
+// value of a ramp between times a and b (0 before, 1 after)
+const R = (t, a, b) => ease(clamp((t - a) / (b - a)));
+const win = (t, a, b, f = .35) => Math.min(R(t, a, a + f), 1 - R(t, b - f, b)); // fade in at a, out at b
+
+let P = {};
+function pos(id) { const s = $('stage').getBoundingClientRect(), r = $(id).getBoundingClientRect(); return [r.left - s.left + r.width / 2, r.top - s.top + r.height / 2]; }
+function measure() {
+  // cursor targets, measured once from the static layout
+  for (const id of ['zip', 's-custom', 't-skills', 'plus', 'm-create', 'm-upload', 'f-zip', 'save', 'tg1', 's-settings', 'tg2', 'box', 'pop-te', 'send']) P[id] = pos(id);
+  P.rest = [840, 470]; P.mid = [520, 330];
+}
+// cursor path: [time, target] pairs; the cursor glides between them
+const PATH = [[0, 'mid'], [1.0, 'zip'], [2.8, 'zip'], [3.6, 'mid'], [4.4, 's-custom'], [5.4, 't-skills'], [6.4, 'plus'], [7.3, 'm-create'], [8.1, 'm-upload'], [9.2, 'f-zip'], [10.1, 'save'], [11.2, 'tg1'],
+  [12.4, 's-settings'], [13.4, 'tg2'], [14.4, 'box'], [15.4, 'pop-te'], [18.3, 'send'], [19.2, 'rest']];
+const CLICKS = [1.2, 4.5, 5.5, 6.5, 7.4, 8.2, 9.3, 10.2, 11.3, 12.5, 13.5, 15.5, 18.4];
+function cursorAt(t) {
+  let i = 0; while (i < PATH.length - 1 && t > PATH[i + 1][0]) i++;
+  const [ta, a] = PATH[i], [tb, b] = PATH[Math.min(i + 1, PATH.length - 1)];
+  const k = tb > ta ? ease(clamp((t - ta) / Math.min(.8, tb - ta))) : 1;
+  return [P[a][0] + (P[b][0] - P[a][0]) * k, P[a][1] + (P[b][1] - P[a][1]) * k];
+}
+const set = (id, o, tf) => { const el = $(id); el.style.opacity = o; if (tf !== undefined) el.style.transform = tf; };
+const cls = (id, c, on) => $(id).classList.toggle(c, !!on);
+
+function render(t) {
+  // header steps
+  const phase = t < 4 ? 1 : t < 14 ? 2 : t < 18.8 ? 3 : 4;
+  for (let i = 1; i <= 4; i++) { cls('st' + i, 'on', i === phase && t < 25); cls('st' + i, 'done', i < phase || t >= 25); }
+  set('c1', win(t, .2, 4)); set('c2a', win(t, 4, 9)); set('c2b', win(t, 9, 12.2)); set('c2c', win(t, 12.2, 14.2)); set('c3', win(t, 14.2, 18.9)); set('c4', win(t, 18.9, 25.2));
+  // scene 1
+  set('w1', win(t, 0, 4.2, .45));
+  cls('zip', 'hot', t > 1.2 && t < 3.8); $('zip').style.outlineColor = t > 1.2 && t < 3.8 ? '#C2415F' : 'transparent';
+  set('dl', R(t, 1.5, 2), `translateY(${(1 - R(t, 1.5, 2)) * 20}px)`);
+  set('nounzip', R(t, 2.2, 2.5), `rotate(-4deg) scale(${.7 + .3 * R(t, 2.2, 2.5)})`);
+  // scene 2/3/4 window
+  set('w2', R(t, 3.9, 4.4));
+  cls('s-custom', 'hot', t > 4.5 && t < 12.5); cls('s-settings', 'hot', t > 12.5 && t < 14.2);
+  set('p-skills', win(t, 4.5, 12.6, .3));
+  cls('t-skills', 'on', t > 5.5);
+  set('m1', win(t, 6.5, 8.5, .2)); cls('m-create', 'hot', t > 7.3);
+  set('m2', win(t, 7.4, 8.5, .2)); cls('m-upload', 'hot', t > 8.1);
+  set('picker', win(t, 8.4, 10.5, .25), `translateY(${(1 - R(t, 8.4, 8.7)) * 12}px)`); cls('f-zip', 'sel', t > 9.3);
+  set('newskill', R(t, 10.4, 10.8), `translateY(${(1 - R(t, 10.4, 10.8)) * -8}px)`);
+  const k1 = R(t, 11.3, 11.6); cls('tg1', 'on', k1 > .5); $('tg1').style.setProperty('--k', `${18 * k1}px`);
+  set('p-cap', win(t, 12.6, 14.3, .3));
+  const k2 = R(t, 13.5, 13.8); cls('tg2', 'on', k2 > .5); $('tg2').style.setProperty('--k', `${18 * k2}px`);
+  // chat
+  set('chat', R(t, 14.2, 14.5));
+  set('hello', 1 - R(t, 18.6, 19));
+  set('box', 1 - R(t, 18.6, 19));
+  set('slash', t > 14.9 && t < 15.6 ? 1 : 0); set('pop', win(t, 15, 15.7, .15));
+  set('chip', R(t, 15.6, 15.8));
+  const n = Math.round(PROMPT.length * R(t, 15.9, 17.9));
+  $('typed').textContent = PROMPT.slice(0, n);
+  set('caret', t > 14.5 && t < 18.6 && Math.floor(t * 2.5) % 2 === 0 ? 1 : 0);
+  cls('send', 'hot', t > 18.4);
+  set('me', R(t, 18.8, 19.2), `translateY(${(1 - R(t, 18.8, 19.2)) * 10}px)`);
+  set('work', R(t, 19.2, 19.4));
+  [19.6, 20.2, 20.8, 21.4, 22].forEach((a, i) => cls('k' + (i + 1), 'ok', t > a));
+  set('pdf1', R(t, 22.4, 22.9), `translateY(${(1 - R(t, 22.4, 22.9)) * 24}px) rotate(${-3 * (1 - R(t, 22.4, 22.9))}deg)`);
+  set('pdf2', R(t, 22.7, 23.2), `translateY(${(1 - R(t, 22.7, 23.2)) * 24}px) rotate(${3 * (1 - R(t, 22.7, 23.2))}deg)`);
+  set('tail', R(t, 23.3, 23.7));
+  // cursor and click ring
+  const [cx, cy] = cursorAt(t); const vis = t < 19.4 ? 1 : 0;
+  set('cursor', vis, `translate(${cx - 3}px, ${cy - 2}px)`);
+  const last = CLICKS.filter(c => c <= t).pop(); const kk = last === undefined ? 1 : clamp((t - last) / .45);
+  set('ring', vis && kk < 1 ? 1 - kk : 0, `translate(${cx}px, ${cy}px) scale(${.4 + kk})`);
+  // ending card, then loop
+  set('end', win(t, 24.6, DURATION + .5, .5));
+}
+window.seek = t => render(t);
+window.DURATION = DURATION;
+document.fonts.ready.then(() => {
+  measure();
+  if (new URLSearchParams(location.search).has('still')) return; // the recorder drives the timeline
+  const t0 = performance.now();
+  (function loop(now) { render(((now - t0) / 1000) % DURATION); requestAnimationFrame(loop); })(t0);
+});
+</script>
+</body>
+</html>

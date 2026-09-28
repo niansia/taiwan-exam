@@ -39,6 +39,9 @@
 | 選擇 Skill ZIP 或知識檔 | 上傳到你使用的 AI | 貼上科目與出卷需求 | 題目 PDF ＋ 答案詳解 PDF |
 | [下載安裝](#第-1-步安裝) · 只做一次 | [選擇平台](#第-1-步安裝) · 只做一次 | [複製出卷文字](#第-3-步出卷) | [對照七科版型](#七科版型預覽) |
 
+<p align="center"><img src="docs/assets/readme/how-to/how-to-claude.gif" width="100%" alt="使用教學動畫（以 Claude 為例）：1. 在 README 點藍色的 Skill ZIP 下載，不要解壓縮；2. 在 Claude 依序點 Customize、Skills、＋、Create skill、Upload a skill，選剛下載的 ZIP 按 Save，確認 taiwan-exam-generator 已開啟，並在 Settings → Capabilities 打開 Code execution and file creation；3. 開新對話，在輸入框打 / 選 taiwan-exam-generator，貼上出卷文字送出；4. AI 命題、驗算、套用大考模板並逐頁檢查，交付題目 PDF 與答案詳解 PDF。"></p>
+<p align="center"><sub>以 Claude 為例，介面為示意。有 Skills 的 ChatGPT 步驟相同：<b>Plugins → Skills → Create → Upload from your computer</b>，出卷時打 <code>@</code>。詳細步驟見<a href="#第-1-步安裝">第 1 步</a>。</sub></p>
+
 ## 支援的考試與科目
 
 | 考試 | 狀態 | 科目 |
