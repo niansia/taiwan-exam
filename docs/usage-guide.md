@@ -18,19 +18,15 @@
 請分開交付題目 PDF 與答案詳解 PDF，依 Skill 完成命題、解題驗證與逐頁版面檢查。
 ```
 
-**上傳被管理員關閉，但仍有 `@skill-creator`：** 在「對話」模式輸入 `@skill-creator`。只要選單能選到它（如使用者畫面已出現藍色 `@skill-creator` 標籤），對話模式就可以建立 Skill，不必強制切換「工作」；找不到時再切到「工作」模式重試。附上知識檔後貼上：
+**上傳被管理員關閉，但仍有 `@skill-creator`：** 在對話輸入框打 `@skill-creator` 並選取它（找不到時再切到「工作」模式重試），附上同一個未解壓的 Skill ZIP，再貼上：
 
 ```text
-請使用我附上的 taiwan-exam-web-knowledge.md 建立「Taiwan Exam Generator」Skill。
-請永久儲存，使本對話立即可用，之後的新對話也能選取。
-完整保留其中規則與資源索引，不要另寫一套通用出題器；安裝時須保存
-七科共 30 個逐檔 PDF 直連與驗證資料，但不要下載 PDF 本體。
-實際開始出某科時，才取得該科 3 份固定 PDF（數學為 4 份），
-逐份驗證後以原 PDF 當底層，不得 OCR、重打、重排或另做相似版面。
-完成後不要要求我另開新對話，直接在本對話接受出卷需求。
+請使用我附上的 Taiwan Exam Skill ZIP 建立 taiwan-exam-generator Skill。
+請完整保留 SKILL.md、scripts、references、schemas，不要合併、改寫或另寫一套出題器。
+完成後直接在本對話接受出卷需求。
 ```
 
-若介面顯示「安裝」或「儲存」按鈕，按一次是 ChatGPT 的原生永久保存確認，檔案內容無法替使用者略過這個安全步驟。確認後可在**同一個對話立刻**出卷；之後開新對話時，鍵入 `@` 並選取 `Taiwan Exam Generator` 即可，不必重新上傳知識檔。
+若介面顯示「安裝」或「儲存」按鈕，按一次是 ChatGPT 的原生永久保存確認，檔案內容無法替使用者略過這個安全步驟。確認後可在**同一個對話立刻**出卷；之後開新對話時，鍵入 `@` 並選取 `taiwan-exam-generator` 即可，不必重新上傳 ZIP。
 
 完整考卷、兩份 PDF 與逐頁檢查屬於成品工作，建議在「工作」模式執行；但這是能力與穩定性建議，不是建立或叫用 Skill 的硬性條件。若對話模式本身已有檔案建立與檢查能力，也可以直接使用。若帳號沒有 Skills，可建立一個固定 Project，把知識檔與第一次設定文字放入 Project；不要把普通聊天的一次附件上傳稱為永久安裝。
 
@@ -51,7 +47,7 @@
 請依 Taiwan Exam Skill 出一份 116 學測英文完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
 ```
 
-**原生 Skill 方式（建議）：** 到 `Customize → Skills → ＋ → Create skill → Upload a skill`，直接上傳[新版 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)，**不要解壓**，儲存並啟用。此套件的短版入口會按需使用分開的規則與工具，不再把約 2.5 MB 的聚合 MD 當作原生 Skill 正文。曾安裝舊 MD 的使用者請停用舊版並改用 ZIP。之後開 Chat 或選取輸入框的 **Cowork**，直接貼上出卷需求；版型與模板已內建，不必附檔。不必另建聊天專案，也不必每次再附 ZIP。不能把 Markdown 改名成 ZIP。
+**原生 Skill 方式（建議）：** 到 `Customize → Skills → ＋ → Create skill → Upload a skill`，直接上傳[新版 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)，**不要解壓**，儲存並啟用。此套件的短版入口會按需使用分開的規則與工具，不再把約 3.9 MB 的聚合 MD 當作原生 Skill 正文。曾安裝舊 MD 的使用者請停用舊版並改用 ZIP。之後開 Chat 或選取輸入框的 **Cowork**，直接貼上出卷需求；版型與模板已內建，不必附檔。不必另建聊天專案，也不必每次再附 ZIP。不能把 Markdown 改名成 ZIP。
 
 `Settings → Capabilities` 需開啟 `Code execution and file creation`；組織帳號可能由管理員控制。**Cowork 是任務模式、Claude for Word 是 Word 外掛、Claude Code 是另一種開發工具**。本專案尚未驗證 Word 外掛的固定模板 PDF 流程。Cowork 的本機檔案存取需 Claude Desktop 開啟並連線。詳見 [README 的 Claude 安裝](../README.md#claude)、[出卷步驟](../README.md#第-3-步出卷)與 [Claude 官方 Cowork 說明](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)。
 
@@ -61,7 +57,7 @@ v0.7.1 是較舊的本機安裝包，不含後續網頁修正。網頁原生 Ski
 
 ```text
 請解壓我附上的 Taiwan Exam 網頁工具 ZIP，依 hosted-execution 流程使用內附工具。
-只讀本次科目所需資料，不要重新建立排版與檢查工具；題目、圖表與解答仍须原創。
+只讀本次科目所需資料，不要重新建立排版與檢查工具；題目、圖表與解答仍須原創。
 若接續先前考卷，請沿用已保存進度，完成剩餘檢查後再交付兩份 PDF。
 ```
 

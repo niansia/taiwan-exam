@@ -206,7 +206,7 @@ def bundled_wheels(root, *, required=False):
     return wheels
 
 
-def build(version, output, *, root=ROOT, bundle_wheels=False):
+def build(version, output, *, root=ROOT, bundle_wheels=False, release=False):
     if not isinstance(version, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,79}', version):
         raise ValueError('Use a short version identifier without whitespace or path separators')
     root = root.resolve()
@@ -271,7 +271,9 @@ def build(version, output, *, root=ROOT, bundle_wheels=False):
     if member_count > MAX_MEMBERS:
         raise ValueError(f'{member_count} archive members exceed the uploader limit of {MAX_MEMBERS}')
     manifest = {'schema_version': 2, 'name': 'taiwan-exam-generator', 'version': version,
-                'distribution_status': 'internal-review-not-published',
+                # `--release` marks the ZIP the maintainer publishes as the official download;
+                # scans and upload acceptance stay separate records, never builder claims.
+                'distribution_status': 'public-release' if release else 'internal-review-not-published',
                 'format': 'native-multi-file-hosted-skill', 'origin': attribution['origin'],
                 'archive_path_policy': 'ascii-letters-digits-dot-underscore-hyphen-slash',
                 'claude_upload_acceptance': 'not-performed-by-builder',
@@ -315,8 +317,10 @@ def main():
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--bundle-wheels', action='store_true',
                         help='Also pack the vendor/wheels PyMuPDF wheel into the ZIP (adds ~24 MB); off by default')
+    parser.add_argument('--release', action='store_true',
+                        help='Mark the manifest as the official public release instead of an internal-review candidate')
     args = parser.parse_args()
-    print(json.dumps(build(args.version, args.output, bundle_wheels=args.bundle_wheels), ensure_ascii=False, indent=2))
+    print(json.dumps(build(args.version, args.output, bundle_wheels=args.bundle_wheels, release=args.release), ensure_ascii=False, indent=2))
     return 0
 
 

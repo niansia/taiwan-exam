@@ -45,6 +45,16 @@ def test_native_candidate_is_small_entry_with_real_separate_dependencies(tmp_pat
         assert (extracted / name).read_bytes() == (builder.ROOT / name).read_bytes()
 
 
+def test_release_build_marks_only_the_distribution_status(tmp_path):
+    candidate = builder.build('test-release', tmp_path / 'candidate.zip')
+    release = builder.build('test-release', tmp_path / 'release.zip', release=True)
+    assert release['distribution_status'] == 'public-release'
+    assert release['security_acceptance'] == candidate['security_acceptance'] == 'not-performed-by-builder'
+    with ZipFile(candidate['archive']) as a, ZipFile(release['archive']) as b:
+        assert a.namelist() == b.namelist()
+        assert all(a.read(name) == b.read(name) for name in a.namelist() if not name.endswith('PACKAGE_MANIFEST.json'))
+
+
 def test_native_candidate_build_is_deterministic_and_cannot_overwrite(tmp_path):
     one = builder.build('test-stable', tmp_path / 'one.zip')
     two = builder.build('test-stable', tmp_path / 'two.zip')
