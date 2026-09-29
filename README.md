@@ -14,10 +14,11 @@
 [![ChatGPT](https://img.shields.io/badge/ChatGPT-Skills-10a37f?style=flat-square)](#chatgpt)
 [![Gemini](https://img.shields.io/badge/Gemini-Gem-4285f4?style=flat-square&logo=googlegemini&logoColor=white)](#gemini)
 [![License](https://img.shields.io/badge/License-MIT-64748b?style=flat-square)](LICENSE)
+[![考卷分享區](https://img.shields.io/badge/%E8%80%83%E5%8D%B7%E5%88%86%E4%BA%AB%E5%8D%80-%E5%85%8D%E8%B2%BB%E4%B8%8B%E8%BC%89-c0673a?style=flat-square)](https://niansia.com/exams/)
 
 [**學測（目前可用）**](#支援的考試與科目) · [**會考（待製作）**](docs/exams/cap.md) · [**分科測驗（待製作）**](docs/exams/subject-test.md)
 
-[**測試紀錄**](#模型實測紀錄) · [**下載安裝**](#第-1-步安裝) · [**開始出卷**](#第-3-步出卷) · [**版型預覽**](#七科版型預覽) · [**常見問題**](#卡住了怎麼辦) · [**更新紀錄**](docs/web-updates.md) · [**致謝**](#致謝)
+[**考卷分享區**](https://niansia.com/exams/) · [**測試紀錄**](#模型實測紀錄) · [**下載安裝**](#第-1-步安裝) · [**開始出卷**](#第-3-步出卷) · [**版型預覽**](#七科版型預覽) · [**常見問題**](#卡住了怎麼辦) · [**更新紀錄**](docs/web-updates.md) · [**致謝**](#致謝)
 
 ⭐ 覺得有幫助？登入 GitHub 後按頁面右上角的 <b>☆ Star</b>，讓更多老師和同學找到它
 <a href="https://github.com/niansia/taiwan-exam/stargazers"><img src="https://img.shields.io/github/stars/niansia/taiwan-exam?style=social" alt="GitHub stars" align="absmiddle"></a>
@@ -25,6 +26,11 @@
 </div>
 
 ---
+
+> [!TIP]
+> **沒有付費 AI 帳號？直接下載大家生成好的考卷。**<br>
+> 出一份完整模擬考很吃 AI 額度：[實測](#模型實測紀錄)用付費方案（Claude Max 5x、ChatGPT Pro 5x）出一科要 20 分鐘到 2 小時，並用掉 5 小時額度的 3%～30%，免費帳號的額度通常撐不完一份。<br>
+> 👉 **[Taiwan Exam 考卷分享區](https://niansia.com/exams/)**：學測七科題本與詳解，線上預覽或直接下載，不用登入。也歡迎把你生成的考卷分享上去，幫到沒有付費方案的同學。
 
 ## 這是什麼？
 
@@ -54,7 +60,7 @@
 
 ## 模型實測紀錄
 
-預計用 **4 種模型各出一次學測七科，共 28 份完整模擬考**。目前已完成 20 份：Claude Opus 5.5 與 GPT 6 sol 各七科、GPT 6 astra 五科（國綜、國寫、英文、數 A、數 B）、Claude Fable 5.1 國寫，其餘仍待測。
+預計用 **4 種模型各出一次學測七科，共 28 份完整模擬考**。目前已完成 20 份：Claude Opus 5.5 與 GPT 6 sol 各七科、GPT 6 astra 五科（國綜、國寫、英文、數 A、數 B）、Claude Fable 5.1 國寫，其餘仍待測。這些實測生成的考卷也都放在[考卷分享區](https://niansia.com/exams/)，可以線上預覽或直接下載。
 
 **測試版本：2026.09.22.25。** 「查看結果」連到該次的題目 PDF、答案詳解與檢查紀錄。
 

@@ -32,10 +32,16 @@
     button:hover, a.button:hover { background: #0550ae; }
     small { display: block; margin-top: 1.25rem; line-height: 1.55; color: #57606a; }
     #status { min-height: 1.7em; font-weight: 600; }
+    .gallery { display: block; margin: 1.25rem 0; padding: 1rem 1.1rem; border-radius: .8rem; border: 1px solid #f0c9b3; background: #fff6f0; color: inherit; text-decoration: none; }
+    .gallery:hover { border-color: #c0673a; }
+    .gallery b { display: block; font-size: 1.05rem; color: #b85c33; }
+    .gallery span { display: block; margin-top: .3rem; line-height: 1.6; color: #57606a; }
+    .gallery em { display: inline-block; margin-top: .55rem; font-style: normal; font-weight: 700; color: #b85c33; }
     @media (prefers-color-scheme: dark) {
       body { background: #0d1117; color: #e6edf3; }
       main { background: #161b22; border-color: #30363d; box-shadow: none; }
       small { color: #9da7b3; }
+      .gallery { background: #2a1d17; border-color: #5c3a2a; } .gallery b, .gallery em { color: #f0a878; } .gallery span { color: #9da7b3; }
     }
   </style>
 </head>
@@ -44,6 +50,7 @@
     <h1>Taiwan Exam 網頁工具與知識檔</h1>
     <p id="status" role="status" aria-live="polite">正在準備下載……</p>
     <p><button id="download" type="button">再次下載知識檔</button></p>
+    <a class="gallery" href="https://niansia.com/exams/"><b>沒有付費 AI？直接下載大家生成好的考卷</b><span>出一份完整模擬考需要大量 AI 額度，免費帳號通常不夠。考卷分享區有學測七科的題本與詳解，線上預覽或直接下載，不用登入。</span><em>前往 Taiwan Exam 考卷分享區 →</em></a>
     <p>知識檔 MD 適合 ChatGPT Project、Gemini Gem 或 Claude 聊天專案。已儲存的舊附件不會自動更新，請替換成新版。</p>
     <p><a class="button" href="https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip">下載網頁工具／Claude Skill ZIP</a></p>
     <p><strong>Claude 與 ChatGPT 的 Skills 建議使用 ZIP：</strong>Claude 到 Customize → Skills → ＋ → Create skill → Upload a skill；有 Skills 的 ChatGPT 帳號到 Plugins → Skills → Create → Upload from your computer。直接上傳，<strong>不要解壓</strong>，儲存並啟用。這份套件使用短版技能入口與分開的工具／規則檔；不要再把大型聚合 MD 當作原生 Skill 正文。曾安裝舊 MD 的使用者，請停用舊版本後改用 ZIP。</p>
