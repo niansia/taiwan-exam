@@ -30,7 +30,7 @@ README 使用 `<picture>` 隨明暗模式切換字標。所有正式 SVG 均由�
 ## 分享連結的設定
 
 網站首頁與下載頁已加入 Open Graph 和 Twitter 大圖標記，圖片網址為：
-`https://niansia.github.io/taiwan-exam/assets/readme/social-preview.png`。
+`https://niansia.com/taiwan-exam/assets/readme/social-preview.png`。
 網站發佈後才會有對外效果；各平台可能保留舊的分享快取。
 
 **GitHub 儲存庫連結的 Social preview 有獨立設定，不會自動讀取 README。**

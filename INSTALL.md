@@ -14,7 +14,7 @@ Claude Customize → Skills 原生套件／有執行能力的網頁對話工具�
 https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip
 
 ChatGPT Project／Claude Project／Gemini Gem 知識檔（一鍵下載頁）：
-https://niansia.github.io/taiwan-exam/download-web-knowledge.html
+https://niansia.com/taiwan-exam/download-web-knowledge.html
 
 知識檔原始文字（檢視／代理取得）：
 https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md

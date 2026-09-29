@@ -112,8 +112,8 @@
 | --- | --- | --- |
 | **Claude**（claude.ai） | [⬇ Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip) | [看 Claude](#claude) |
 | **ChatGPT**（左側欄有 Plugins → Skills） | [⬇ Skill ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip) | [看 ChatGPT](#chatgpt) |
-| **ChatGPT**（找不到 Skills） | [⬇ 直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html) | [看 ChatGPT 專案](#chatgpt) |
-| **Gemini** | [⬇ 直接下載網頁版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html) | [看 Gemini](#gemini) |
+| **ChatGPT**（找不到 Skills） | [⬇ 直接下載網頁版知識檔](https://niansia.com/taiwan-exam/download-web-knowledge.html) | [看 ChatGPT 專案](#chatgpt) |
+| **Gemini** | [⬇ 直接下載網頁版知識檔](https://niansia.com/taiwan-exam/download-web-knowledge.html) | [看 Gemini](#gemini) |
 | Codex、Claude Code、Gemini CLI | 不用下載 | [看本機版](#進階本機版) |
 
 > [!TIP]
@@ -132,7 +132,7 @@
 <details>
 <summary>找不到 Skills？改用 Claude 專案</summary>
 
-1. 下載[知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)。
+1. 下載[知識檔](https://niansia.com/taiwan-exam/download-web-knowledge.html)。
 2. 在 Claude 左側點 **Projects**，建立專案，名稱填 `Taiwan Exam`。
 3. 在專案的 **Project knowledge** 上傳 `taiwan-exam-web-knowledge.md`。
 4. 在 **Project instructions** 貼上下面這段並儲存：
@@ -165,7 +165,7 @@
 <details>
 <summary>沒有 Skills 的帳號：建立專案</summary>
 
-1. 下載[知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)。
+1. 下載[知識檔](https://niansia.com/taiwan-exam/download-web-knowledge.html)。
 2. 在 ChatGPT 左側欄點 **Projects**，新增專案，名稱填 `Taiwan Exam`。
 3. 在專案裡上傳 `taiwan-exam-web-knowledge.md`。
 4. 打開專案的 **Instructions**，貼上下面這段並儲存：
@@ -182,7 +182,7 @@
 
 ### Gemini
 
-1. 下載[知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)。
+1. 下載[知識檔](https://niansia.com/taiwan-exam/download-web-knowledge.html)。
 2. 開啟 [Gemini](https://gemini.google.com/)，在左側找到 **Gems**，建立新的 Gem，名稱填 `Taiwan Exam`。
 3. 在 **Knowledge（知識）** 上傳 `taiwan-exam-web-knowledge.md`。
 4. 在 **Instructions（指示）** 貼上下面這段，按 **Save（儲存）**：
@@ -202,8 +202,8 @@
 
 用專案或 Gem（知識檔）的人，每個科目準備一次：
 
-1. 開啟[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/index.html)，找到要出的科目，分別按「**下載題本版型**」和「**下載詳解版型**」。
-2. 下載[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)（七科共用一份）。
+1. 開啟[七科版型下載頁](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/index.html)，找到要出的科目，分別按「**下載題本版型**」和「**下載詳解版型**」。
+2. 下載[離線模板資源 PDF](https://niansia.com/taiwan-exam/download-web-knowledge.html#templates)（七科共用一份）。
 3. 出卷時把這 3 份檔案一起附上。
 
 版型 PDF 讓 AI 知道這一科正式考卷長什麼樣子，裡面都是占位文字，AI 只參考排版、不會照抄；離線模板資源 PDF 讓 AI 不必連網就能套用原始模板。
@@ -306,12 +306,12 @@
 
 | 科目 | 題本 | 詳解 | 科目 | 題本 | 詳解 |
 | --- | :-: | :-: | --- | :-: | :-: |
-| 國綜 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/chinese-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/chinese-solutions.pdf) | 自然 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/science-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/science-solutions.pdf) |
-| 英文 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/english-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/english-solutions.pdf) | 社會 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/social-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/social-solutions.pdf) |
-| 數 A | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/math-a-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/math-a-solutions.pdf) | 國寫 | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/writing-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/writing-solutions.pdf) |
-| 數 B | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/math-b-questions.pdf) | [開啟](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/math-b-solutions.pdf) | | | |
+| 國綜 | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/chinese-questions.pdf) | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/chinese-solutions.pdf) | 自然 | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/science-questions.pdf) | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/science-solutions.pdf) |
+| 英文 | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/english-questions.pdf) | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/english-solutions.pdf) | 社會 | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/social-questions.pdf) | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/social-solutions.pdf) |
+| 數 A | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/math-a-questions.pdf) | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/math-a-solutions.pdf) | 國寫 | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/writing-questions.pdf) | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/writing-solutions.pdf) |
+| 數 B | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/math-b-questions.pdf) | [開啟](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/math-b-solutions.pdf) | | | |
 
-版型只含占位內容，供排版參考，不能照抄題目、題號、配分或留白。也可以到[七科版型下載頁](https://niansia.github.io/taiwan-exam/layout-examples/2026.09.22.25/index.html)一次看完。
+版型只含占位內容，供排版參考，不能照抄題目、題號、配分或留白。也可以到[七科版型下載頁](https://niansia.com/taiwan-exam/layout-examples/2026.09.22.25/index.html)一次看完。
 
 ## 卡住了怎麼辦？
 
@@ -348,7 +348,7 @@
 如果還是無法套用，請說明缺少什麼。
 ```
 
-用專案或 Gem 的人，再附上[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates) 一起送出。
+用專案或 Gem 的人，再附上[離線模板資源 PDF](https://niansia.com/taiwan-exam/download-web-knowledge.html#templates) 一起送出。
 
 </details>
 
@@ -357,7 +357,7 @@
 
 目前的 Skill ZIP 已內建模板；若仍出現這個訊息，先確認技能已換成新版。用專案或 Gem 的人請照下面做：
 
-1. 點[下載離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)。
+1. 點[下載離線模板資源 PDF](https://niansia.com/taiwan-exam/download-web-knowledge.html#templates)。
 2. 回到**原本出卷的對話**，上傳 `taiwan-exam-template-resources.pdf`。
 3. 貼上下面這段（科目自行替換）：
 
@@ -449,7 +449,7 @@ Skill 會自己從本專案的 GitHub Release 下載並驗證 PyMuPDF，通常�
 <details>
 <summary><b>找不到 Skills、Projects 或 Gems</b></summary>
 
-各平台依帳號方案開放的功能不同，以你的畫面為準。都找不到時，可以在一般對話附上知識檔、2 份版型 PDF 和[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)，再貼上出卷文字；換新對話時要重新上傳。AI 的環境也需要能建立與檢查 PDF。
+各平台依帳號方案開放的功能不同，以你的畫面為準。都找不到時，可以在一般對話附上知識檔、2 份版型 PDF 和[離線模板資源 PDF](https://niansia.com/taiwan-exam/download-web-knowledge.html#templates)，再貼上出卷文字；換新對話時要重新上傳。AI 的環境也需要能建立與檢查 PDF。
 
 </details>
 

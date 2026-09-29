@@ -1,6 +1,6 @@
 # 各平台使用指引
 
-[返回首頁](../README.md) · [下載最新知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)
+[返回首頁](../README.md) · [下載最新知識檔](https://niansia.com/taiwan-exam/download-web-knowledge.html)
 
 **2026.09.22.25：** Claude Skills 與有 Skills 的 ChatGPT 帳號，建議下載內建七科模板與版型的[網頁工具 ZIP](https://github.com/niansia/taiwan-exam/releases/download/hosted-2026.09.22.25/taiwan-exam-hosted-2026.09.22.25.zip)，不解壓直接上傳。ChatGPT Project、Claude Project、Gemini Gem 的知識區仍可使用 MD。可執行 Python／讀寫檔案的網頁對話，也能附上同一 ZIP，請模型解壓後使用既有工具。
 
@@ -32,7 +32,7 @@
 
 ### Claude：聊天專案／Skills／Cowork
 
-**聊天專案方式：** 在 Claude 的 Chat 介面進入 `Projects`，建立 `Taiwan Exam`，把[新版知識檔](https://niansia.github.io/taiwan-exam/download-web-knowledge.html)加入 `Project Knowledge`，並把這段存入 `Project Instructions`：
+**聊天專案方式：** 在 Claude 的 Chat 介面進入 `Projects`，建立 `Taiwan Exam`，把[新版知識檔](https://niansia.com/taiwan-exam/download-web-knowledge.html)加入 `Project Knowledge`，並把這段存入 `Project Instructions`：
 
 ```text
 本 Project 一律採用 Knowledge 中的 Taiwan Exam Skill 規則出題。
@@ -41,7 +41,7 @@
 封面、頁首頁尾與公式頁一律套用原始模板，不可自行重畫；無法套用時先停下來告訴我，其他情況不要中途停下來回報進度。
 ```
 
-以後進入同一個 Project，附上當科兩份版型與[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)（知識檔不含模板），只要說：
+以後進入同一個 Project，附上當科兩份版型與[離線模板資源 PDF](https://niansia.com/taiwan-exam/download-web-knowledge.html#templates)（知識檔不含模板），只要說：
 
 ```text
 請依 Taiwan Exam Skill 出一份 116 學測英文完整模擬考，分開交付題目 PDF 與答案詳解 PDF。
@@ -73,7 +73,7 @@ v0.7.1 是較舊的本機安裝包，不含後續網頁修正。網頁原生 Ski
 封面、頁首頁尾與公式頁一律套用原始模板，不可自行重畫；無法套用時先停下來告訴我，其他情況不要中途停下來回報進度。
 ```
 
-以後從 `My Gems` 選取 `Taiwan Exam`，附上當科兩份版型與[離線模板資源 PDF](https://niansia.github.io/taiwan-exam/download-web-knowledge.html#templates)，再說：
+以後從 `My Gems` 選取 `Taiwan Exam`，附上當科兩份版型與[離線模板資源 PDF](https://niansia.com/taiwan-exam/download-web-knowledge.html#templates)，再說：
 
 ```text
 請出一份 116 學測自然完整模擬考，依 Skill 交付題目 PDF 與答案詳解 PDF。

@@ -8,7 +8,7 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DOWNLOAD_URL = "https://niansia.github.io/taiwan-exam/download-web-knowledge.html"
+DOWNLOAD_URL = "https://niansia.com/taiwan-exam/download-web-knowledge.html"
 VERSION = re.search(r'^# Taiwan Exam Web Knowledge v(.+)$', (ROOT / 'web/taiwan-exam-web-knowledge.md').read_text(encoding='utf-8'), re.MULTILINE).group(1)
 RAW_URL = "https://raw.githubusercontent.com/niansia/taiwan-exam/main/web/taiwan-exam-web-knowledge.md?v=" + VERSION
 
